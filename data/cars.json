@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "brand": "BMW",
+    "model": "X5 xDrive45e",
+    "year": 2025,
+    "ev_range_km": 87,
+    "fuel_consumption": 2.1,
+    "battery_kwh": 24,
+    "price_eur": 78900,
+    "image_url": "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"
+  },
+  {
+    "id": "2",
+    "brand": "Mercedes-Benz",
+    "model": "GLE 350e",
+    "year": 2025,
+    "ev_range_km": 103,
+    "fuel_consumption": 1.8,
+    "battery_kwh": 31.2,
+    "price_eur": 72900,
+    "image_url": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400"
+  },
+  {
+    "id": "3",
+    "brand": "Audi",
+    "model": "Q7 55 TFSI e",
+    "year": 2025,
+    "ev_range_km": 56,
+    "fuel_consumption": 2.4,
+    "battery_kwh": 17.9,
+    "price_eur": 68900,
+    "image_url": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400"
+  },
+  {
+    "id": "4",
+    "brand": "Volvo",
+    "model": "XC60 Recharge",
+    "year": 2025,
+    "ev_range_km": 64,
+    "fuel_consumption": 1.9,
+    "battery_kwh": 18.8,
+    "price_eur": 62900,
+    "image_url": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400"
+  },
+  {
+    "id": "5",
+    "brand": "Kia",
+    "model": "Niro PHEV",
+    "year": 2025,
+    "ev_range_km": 65,
+    "fuel_consumption": 1.5,
+    "battery_kwh": 13.8,
+    "price_eur": 42000,
+    "image_url": "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"
+  },
+  {
+    "id": "6",
+    "brand": "Hyundai",
+    "model": "Tucson PHEV",
+    "year": 2025,
+    "ev_range_km": 58,
+    "fuel_consumption": 1.7,
+    "battery_kwh": 13.8,
+    "price_eur": 38900,
+    "image_url": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400"
+  },
+  {
+    "id": "7",
+    "brand": "Toyota",
+    "model": "RAV4 Prime",
+    "year": 2025,
+    "ev_range_km": 75,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 18.1,
+    "price_eur": 45900,
+    "image_url": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400"
+  },
+  {
+    "id": "8",
+    "brand": "Mitsubishi",
+    "model": "Outlander PHEV",
+    "year": 2025,
+    "ev_range_km": 54,
+    "fuel_consumption": 1.8,
+    "battery_kwh": 20,
+    "price_eur": 39900,
+    "image_url": "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"
+  },
+  {
+    "id": "9",
+    "brand": "Peugeot",
+    "model": "3008 Hybrid4",
+    "year": 2025,
+    "ev_range_km": 59,
+    "fuel_consumption": 1.6,
+    "battery_kwh": 13.2,
+    "price_eur": 42900,
+    "image_url": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400"
+  },
+  {
+    "id": "10",
+    "brand": "Volkswagen",
+    "model": "Tiguan eHybrid",
+    "year": 2025,
+    "ev_range_km": 55,
+    "fuel_consumption": 1.9,
+    "battery_kwh": 13,
+    "price_eur": 44900,
+    "image_url": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400"
+  }
+]
