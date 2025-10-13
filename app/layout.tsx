@@ -5,9 +5,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'PHEVs.eu - PHEV Karşılaştırma Sitesi',
-  description: 'Avrupa\'nın en kapsamlı PHEV karşılaştırma platformu. Gerçek dünya test sonuçları, fiyat karşılaştırması ve ülke bazlı teşvik bilgileri.',
-  keywords: 'PHEV, plug-in hybrid, elektrikli araç, hibrit araç, karşılaştırma',
+  title: 'PHEVs.eu - PHEV Comparison Site',
+  description: 'Europe\'s most comprehensive PHEV comparison platform. Real-world test results, price comparison and country-specific incentive information.',
+  keywords: 'PHEV, plug-in hybrid, electric vehicle, hybrid car, comparison, Europe',
 }
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="tr">
+    <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen bg-gray-50">
           {children}

@@ -1,7 +1,7 @@
-# App klasörü dosyalarını oluşturan script
-Write-Host "App klasörü dosyaları oluşturuluyor..." -ForegroundColor Green
+# English version app files
+Write-Host "Creating English version app files..." -ForegroundColor Green
 
-# app/layout.tsx
+# app/layout.tsx (English)
 $layoutTsx = @'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -10,9 +10,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'PHEVs.eu - PHEV Karşılaştırma Sitesi',
-  description: 'Avrupa\'nın en kapsamlı PHEV karşılaştırma platformu. Gerçek dünya test sonuçları, fiyat karşılaştırması ve ülke bazlı teşvik bilgileri.',
-  keywords: 'PHEV, plug-in hybrid, elektrikli araç, hibrit araç, karşılaştırma',
+  title: 'PHEVs.eu - PHEV Comparison Site',
+  description: 'Europe\'s most comprehensive PHEV comparison platform. Real-world test results, price comparison and country-specific incentive information.',
+  keywords: 'PHEV, plug-in hybrid, electric vehicle, hybrid car, comparison, Europe',
 }
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="tr">
+    <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen bg-gray-50">
           {children}
@@ -33,9 +33,9 @@ export default function RootLayout({
 '@
 
 $layoutTsx | Out-File -FilePath "app\layout.tsx" -Encoding UTF8
-Write-Host "app/layout.tsx oluşturuldu" -ForegroundColor Green
+Write-Host "app/layout.tsx (English) created" -ForegroundColor Green
 
-# app/page.tsx
+# app/page.tsx (English)
 $pageTsx = @'
 export default function Home() {
   return (
@@ -45,7 +45,7 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <h1 className="text-2xl font-bold text-blue-600">PHEVs.eu</h1>
-              <span className="ml-2 text-sm text-gray-500">PHEV Karşılaştırma</span>
+              <span className="ml-2 text-sm text-gray-500">PHEV Comparison</span>
             </div>
           </div>
         </div>
@@ -54,15 +54,15 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            PHEV Karşılaştırma Sitesi
+            PHEV Comparison Site
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Avrupa'nın en kapsamlı PHEV karşılaştırma platformu
+            Europe's most comprehensive PHEV comparison platform
           </p>
           <div className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-semibold mb-4">Yakında!</h2>
+            <h2 className="text-2xl font-semibold mb-4">Coming Soon!</h2>
             <p className="text-gray-600">
-              Site geliştirme aşamasında. Çok yakında yayında!
+              Site is under development. Coming very soon!
             </p>
           </div>
         </div>
@@ -73,37 +73,7 @@ export default function Home() {
 '@
 
 $pageTsx | Out-File -FilePath "app\page.tsx" -Encoding UTF8
-Write-Host "app/page.tsx oluşturuldu" -ForegroundColor Green
+Write-Host "app/page.tsx (English) created" -ForegroundColor Green
 
-# app/globals.css
-$globalsCss = @'
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html {
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-}
-
-@layer components {
-  .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
-  }
-  
-  .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors;
-  }
-  
-  .card {
-    @apply bg-white rounded-lg shadow-md border border-gray-200 p-6;
-  }
-}
-'@
-
-$globalsCss | Out-File -FilePath "app\globals.css" -Encoding UTF8
-Write-Host "app/globals.css oluşturuldu" -ForegroundColor Green
-
-Write-Host "Tüm app dosyaları oluşturuldu!" -ForegroundColor Green
-Write-Host "Şimdi GitHub Desktop'da commit yapın." -ForegroundColor Cyan
+Write-Host "English version app files created!" -ForegroundColor Green
+Write-Host "Now commit to GitHub Desktop." -ForegroundColor Cyan
