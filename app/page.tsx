@@ -304,8 +304,8 @@ export default function Home() {
     setSelectedCars(selectedCars.filter(c => c.id !== carId))
   }
 
-  const brands = [...new Set(cars.map(car => car.brand))].sort()
-  const segments = [...new Set(cars.map(car => car.segment.split(' - ')[0]))].sort()
+  const brands = Array.from(new Set(cars.map(car => car.brand))).sort()
+  const segments = Array.from(new Set(cars.map(car => car.segment.split(' - ')[0]))).sort()
 
   return (
     <div className="min-h-screen bg-gray-50">
