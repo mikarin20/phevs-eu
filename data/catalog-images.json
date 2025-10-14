@@ -433,5 +433,43 @@
     "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
     "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
   ],
-  "1": []
+  "1": [],
+  "peugeot-3008-hybrid4": [
+    "/images/cars/real/peugeot/3008-hybrid4/main.jpg",
+    "/images/cars/real/peugeot/3008-hybrid4/front.jpg"
+  ],
+  "peugeot-308": [
+    "/images/cars/real/peugeot/308/main.jpg",
+    "/images/cars/real/peugeot/308/1_308_PHEV_MAIN_PAGE_COMFORT_D_1920x1080%E2%80%8B.jpg.jpeg",
+    "/images/cars/real/peugeot/308/3_308_PHEV_MAIN_PAGE_MASTHEAD_D_1920x1080%E2%80%8B.jpg.jpeg",
+    "/images/cars/real/peugeot/308/4_308_PHEV_MAIN_PAGE_MOTORIZATION_D_1920x1080%E2%80%8B.jpg.jpeg",
+    "/images/cars/real/peugeot/308/6_308_PHEV_MAIN_PAGE_EXTERIOR_D_1920x1080%E2%80%8B.jpg.jpeg",
+    "/images/cars/real/peugeot/308/7_308_PHEV_MAIN_PAGE_INTERIOR_D_1920x1080.jpg.jpeg",
+    "/images/cars/real/peugeot/308/front.jpg",
+    "/images/cars/real/peugeot/308/interior-1.jpg",
+    "/images/cars/real/peugeot/308/rear.jpg",
+    "/images/cars/real/peugeot/308/side.jpg"
+  ],
+  "peugeot-peugeot 3008": [
+    "/images/cars/brands/peugeot/peugeot 3008/main.jpg"
+  ],
+  "peugeot-peugeot 308": [
+    "/images/cars/brands/peugeot/peugeot 308/main.jpeg",
+    "/images/cars/brands/peugeot/peugeot 308/1_308_PHEV_MAIN_PAGE_COMFORT_D_1920x1080%E2%80%8B.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 308/4_308_PHEV_MAIN_PAGE_MOTORIZATION_D_1920x1080%E2%80%8B.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 308/6_308_PHEV_MAIN_PAGE_EXTERIOR_D_1920x1080%E2%80%8B.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 308/7_308_PHEV_MAIN_PAGE_INTERIOR_D_1920x1080.jpg.jpeg"
+  ],
+  "peugeot-peugeot 5008": [
+    "/images/cars/brands/peugeot/peugeot 5008/main.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/02_PEUGEOT_E_5008_SHOWROOM_EXCELLENCE3_D_2030x1146.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/03_E_5008_GT_BLEU_OBSESSION.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/04_PEUGEOT_E_5008_SHOWROOM_EXCELLENCE1_D_2030x1146.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/05_PEUGEOT_E_5008_SHOWROOM_EXCELLENCE2_D_2030x1146.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/06_PEUGEOT_E_5008_SHOWROOM_PLUGIN_HYBRID_D_2030x1146.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/07_PEUGEOT_E_5008_SHOWROOM_EMOTION1_D_2030x1146.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/08_PEUGEOT_E_5008_SHOWROOM_EMOTION2_D_2030x1146.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/09_PEUGEOT_E_5008_SHOWROOM_EMOTION4_D_2030x1146.jpg.jpeg",
+    "/images/cars/brands/peugeot/peugeot 5008/10_PEUGEOT_E_5008_SHOWROOM_EXCELLENCE4_D_2030x1146.jpg.jpeg"
+  ]
 }
