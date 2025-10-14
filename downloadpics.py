@@ -12,8 +12,8 @@ import requests
 
 # 1️⃣ Link listesi
 urls = [
-    "https://www.audi.pl/pl/modele/q8/q8-tfsi-e/",
-    "https://www.audi.pl/pl/modele/q7/q7-tfsi-e/",
+   # "https://www.audi.pl/pl/modele/q8/q8-tfsi-e/",
+  #  "https://www.audi.pl/pl/modele/q7/q7-tfsi-e/",
     "https://www.audi.pl/pl/modele/q5/q5-e-hybrid/",
     "https://www.audi.pl/pl/modele/a8/a8-tfsi-e/",
     "https://www.audi.pl/pl/modele/a6/a6-limousine-e-hybrid/",
