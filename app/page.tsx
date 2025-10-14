@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { MagnifyingGlassIcon, ArrowsUpDownIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import Image from 'next/image'
 import carsData from '@/data/cars.json'
 
 interface Car {
@@ -240,12 +239,11 @@ export default function Home() {
                   <div className="flex items-start space-x-4">
                     {/* Vehicle Image */}
                     <div className="flex-shrink-0">
-                      <div className="w-24 h-16 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden relative">
-                        <Image
+                      <div className="w-24 h-16 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img
                           src={car.image_url}
                           alt={`${car.brand} ${car.model}`}
-                          fill
-                          className="object-cover"
+                          className="w-full h-full object-cover"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none'
                             const nextElement = e.currentTarget.nextElementSibling as HTMLElement
