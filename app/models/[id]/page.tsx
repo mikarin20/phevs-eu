@@ -1,11 +1,15 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import { ArrowLeftIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import catalogImagesData from '@/data/catalog-images.json'
+import ImageGallery from '@/components/ImageGallery'
+
+// Static generation için gerekli
+export async function generateStaticParams() {
+  return carsData.map((car) => ({
+    id: car.id,
+  }))
+}
 
 interface Car {
   id: string
@@ -28,29 +32,14 @@ interface Car {
   country_availability: string
 }
 
-export default function ModelDetail() {
-  const params = useParams()
-  const [car, setCar] = useState<Car | null>(null)
-  const [selectedImage, setSelectedImage] = useState(0)
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const carId = params.id as string
-    const foundCar = carsData.find(c => c.id === carId)
-    setCar(foundCar || null)
-    setIsLoading(false)
-  }, [params.id])
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
-    )
+interface ModelDetailProps {
+  params: {
+    id: string
   }
+}
+
+export default function ModelDetail({ params }: ModelDetailProps) {
+  const car = carsData.find(c => c.id === params.id) as Car
 
   if (!car) {
     return (
@@ -109,41 +98,10 @@ export default function ModelDetail() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Panel - Images */}
-          <div className="space-y-4">
-            {/* Main Image */}
-            <div className="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
-              <img
-                src={catalogImages[selectedImage]}
-                alt={`${car.brand} ${car.model}`}
-                className="w-full h-96 object-cover"
-                onError={(e) => {
-                  e.currentTarget.src = '/images/placeholder-car.jpg'
-                }}
-              />
-            </div>
-
-            {/* Thumbnail Images */}
-            <div className="grid grid-cols-5 gap-2">
-              {catalogImages.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImage(index)}
-                  className={`aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden ${
-                    selectedImage === index ? 'ring-2 ring-blue-500' : ''
-                  }`}
-                >
-                  <img
-                    src={image}
-                    alt={`${car.brand} ${car.model} ${index + 1}`}
-                    className="w-full h-20 object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = '/images/placeholder-car.jpg'
-                    }}
-                  />
-                </button>
-              ))}
-            </div>
-          </div>
+          <ImageGallery 
+            images={catalogImages} 
+            alt={`${car.brand} ${car.model}`} 
+          />
 
           {/* Right Panel - Details */}
           <div className="space-y-6">
@@ -182,9 +140,12 @@ export default function ModelDetail() {
 
             {/* Action Buttons */}
             <div className="flex space-x-4">
-              <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+              <Link 
+                href="/"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors text-center"
+              >
                 Compare with Others
-              </button>
+              </Link>
               <button className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition-colors">
                 Find Dealers
               </button>
