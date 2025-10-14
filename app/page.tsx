@@ -3,12 +3,28 @@
 import { useState } from 'react'
 import { MagnifyingGlassIcon, ArrowsUpDownIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
+interface Car {
+  id: number
+  brand: string
+  model: string
+  year: number
+  ev_range_km: number
+  fuel_consumption: number
+  battery_kwh: number
+  price_eur: number
+  image_url: string
+  power_hp: number
+  co2_emission: number
+  charge_time_ac: number
+  charge_time_dc: number
+}
+
 export default function Home() {
-  const [selectedCars, setSelectedCars] = useState([])
+  const [selectedCars, setSelectedCars] = useState<Car[]>([])
   const [showComparison, setShowComparison] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
 
-  const cars = [
+  const cars: Car[] = [
     {
       id: 1,
       brand: "Peugeot",
@@ -41,12 +57,12 @@ export default function Home() {
     }
   ]
 
-  const filteredCars = cars.filter(car => 
+  const filteredCars = cars.filter((car: Car) => 
     car.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
     car.model.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const handleCarSelect = (car) => {
+  const handleCarSelect = (car: Car) => {
     if (selectedCars.find(c => c.id === car.id)) {
       setSelectedCars(selectedCars.filter(c => c.id !== car.id))
     } else if (selectedCars.length < 3) {
@@ -54,7 +70,7 @@ export default function Home() {
     }
   }
 
-  const removeCar = (carId) => {
+  const removeCar = (carId: number) => {
     setSelectedCars(selectedCars.filter(c => c.id !== carId))
   }
 
@@ -148,7 +164,7 @@ export default function Home() {
 
             {/* Araç Kartları */}
             <div className="space-y-4">
-              {filteredCars.map((car) => (
+              {filteredCars.map((car: Car) => (
                 <div key={car.id} className={`bg-white rounded-lg shadow-md border border-gray-200 p-6 cursor-pointer transition-all duration-200 hover:shadow-lg ${selectedCars.find(c => c.id === car.id) ? 'ring-2 ring-blue-500 bg-blue-50' : ''}`}>
                   <div className="flex items-start space-x-4">
                     {/* Araç Resmi */}
@@ -225,7 +241,7 @@ export default function Home() {
                     <thead>
                       <tr className="border-b">
                         <th className="text-left py-2">Feature</th>
-                        {selectedCars.map((car) => (
+                        {selectedCars.map((car: Car) => (
                           <th key={car.id} className="text-center py-2 relative">
                             <div className="flex flex-col items-center">
                               <img
@@ -253,7 +269,7 @@ export default function Home() {
                     <tbody>
                       <tr className="border-b">
                         <td className="py-2 font-medium text-gray-700">Electric Range (km)</td>
-                        {selectedCars.map((car) => (
+                        {selectedCars.map((car: Car) => (
                           <td key={car.id} className="py-2 text-center text-green-600 font-medium">
                             {car.ev_range_km}
                           </td>
@@ -261,7 +277,7 @@ export default function Home() {
                       </tr>
                       <tr className="border-b">
                         <td className="py-2 font-medium text-gray-700">Fuel Consumption (L/100km)</td>
-                        {selectedCars.map((car) => (
+                        {selectedCars.map((car: Car) => (
                           <td key={car.id} className="py-2 text-center">
                             {car.fuel_consumption}
                           </td>
@@ -269,7 +285,7 @@ export default function Home() {
                       </tr>
                       <tr className="border-b">
                         <td className="py-2 font-medium text-gray-700">Battery (kWh)</td>
-                        {selectedCars.map((car) => (
+                        {selectedCars.map((car: Car) => (
                           <td key={car.id} className="py-2 text-center">
                             {car.battery_kwh}
                           </td>
@@ -277,7 +293,7 @@ export default function Home() {
                       </tr>
                       <tr className="border-b">
                         <td className="py-2 font-medium text-gray-700">Power (HP)</td>
-                        {selectedCars.map((car) => (
+                        {selectedCars.map((car: Car) => (
                           <td key={car.id} className="py-2 text-center">
                             {car.power_hp}
                           </td>
@@ -285,7 +301,7 @@ export default function Home() {
                       </tr>
                       <tr className="border-b">
                         <td className="py-2 font-medium text-gray-700">CO₂ Emission (g/km)</td>
-                        {selectedCars.map((car) => (
+                        {selectedCars.map((car: Car) => (
                           <td key={car.id} className="py-2 text-center">
                             {car.co2_emission}
                           </td>
@@ -293,7 +309,7 @@ export default function Home() {
                       </tr>
                       <tr className="border-b">
                         <td className="py-2 font-medium text-gray-700">Price (€)</td>
-                        {selectedCars.map((car) => (
+                        {selectedCars.map((car: Car) => (
                           <td key={car.id} className="py-2 text-center text-blue-600 font-medium">
                             €{car.price_eur.toLocaleString()}
                           </td>
