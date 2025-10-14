@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { MagnifyingGlassIcon, ArrowsUpDownIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import carsData from '@/data/cars.json'
 
 interface Car {
@@ -234,10 +235,9 @@ export default function Home() {
               {filteredCars.map((car) => (
                 <div
                   key={car.id}
-                  className={`bg-white rounded-lg shadow-md border border-gray-200 p-6 cursor-pointer transition-all duration-200 hover:shadow-lg ${
+                  className={`bg-white rounded-lg shadow-md border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg ${
                     selectedCars.find(c => c.id === car.id) ? 'ring-2 ring-blue-500 bg-blue-50' : ''
                   }`}
-                  onClick={() => handleCarSelect(car)}
                 >
                   <div className="flex items-start space-x-4">
                     {/* Vehicle Image */}
@@ -255,9 +255,12 @@ export default function Home() {
                     {/* Vehicle Info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <Link 
+                          href={`/models/${car.id}`}
+                          className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+                        >
                           {car.brand} {car.model}
-                        </h3>
+                        </Link>
                         <span className="text-sm text-gray-500">{car.year}</span>
                       </div>
 
@@ -284,6 +287,7 @@ export default function Home() {
                     {/* Selection Button */}
                     <div className="flex-shrink-0">
                       <button
+                        onClick={() => handleCarSelect(car)}
                         className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                             ? 'bg-blue-600 border-blue-600 text-white'
