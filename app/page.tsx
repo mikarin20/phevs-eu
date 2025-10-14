@@ -4,10 +4,11 @@ import { useState } from 'react'
 import { MagnifyingGlassIcon, ArrowsUpDownIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 interface Car {
-  id: number
+  id: string
   brand: string
   model: string
   year: number
+  segment: string
   ev_range_km: number
   fuel_consumption: number
   battery_kwh: number
@@ -17,19 +18,31 @@ interface Car {
   co2_emission: number
   charge_time_ac: number
   charge_time_dc: number
+  trunk_volume: number
+  seats: number
+  warranty_years: number
+  country_availability: string
 }
 
 export default function Home() {
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
   const [showComparison, setShowComparison] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
+  const [filters, setFilters] = useState({
+    brand: '',
+    segment: '',
+    priceRange: [0, 150000],
+    rangeRange: [0, 100],
+    fuelConsumption: [0, 10]
+  })
 
   const cars: Car[] = [
     {
-      id: 1,
+      id: "1",
       brand: "Peugeot",
       model: "3008 Hybrid4",
       year: 2025,
+      segment: "C - Kompakt SUV",
       ev_range_km: 59,
       fuel_consumption: 1.6,
       battery_kwh: 13.2,
@@ -38,13 +51,18 @@ export default function Home() {
       power_hp: 180,
       co2_emission: 29,
       charge_time_ac: 3.5,
-      charge_time_dc: 45
+      charge_time_dc: 45,
+      trunk_volume: 520,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL"
     },
     {
-      id: 2,
+      id: "2",
       brand: "Kia",
       model: "Sportage PHEV",
       year: 2025,
+      segment: "C - Kompakt SUV",
       ev_range_km: 70,
       fuel_consumption: 1.4,
       battery_kwh: 13.8,
@@ -53,14 +71,226 @@ export default function Home() {
       power_hp: 195,
       co2_emission: 26,
       charge_time_ac: 3.2,
-      charge_time_dc: 40
+      charge_time_dc: 40,
+      trunk_volume: 540,
+      seats: 5,
+      warranty_years: 7,
+      country_availability: "DE,FR,UK,PL"
+    },
+    {
+      id: "bmw-1",
+      brand: "BMW",
+      model: "2 Series Active Tourer 225xe",
+      year: 2025,
+      segment: "A - Kompakt MPV",
+      ev_range_km: 61,
+      fuel_consumption: 1.8,
+      battery_kwh: 10.7,
+      price_eur: 44900,
+      image_url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop",
+      power_hp: 220,
+      co2_emission: 41,
+      charge_time_ac: 3.2,
+      charge_time_dc: 35,
+      trunk_volume: 460,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-2",
+      brand: "BMW",
+      model: "1 Series 118e",
+      year: 2025,
+      segment: "A - Kompakt Hatchback",
+      ev_range_km: 55,
+      fuel_consumption: 1.6,
+      battery_kwh: 10.7,
+      price_eur: 39900,
+      image_url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop",
+      power_hp: 220,
+      co2_emission: 36,
+      charge_time_ac: 3.2,
+      charge_time_dc: 35,
+      trunk_volume: 380,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-3",
+      brand: "BMW",
+      model: "X1 xDrive25e",
+      year: 2025,
+      segment: "A - Kompakt SUV",
+      ev_range_km: 57,
+      fuel_consumption: 1.9,
+      battery_kwh: 10.7,
+      price_eur: 49900,
+      image_url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop",
+      power_hp: 220,
+      co2_emission: 43,
+      charge_time_ac: 3.2,
+      charge_time_dc: 35,
+      trunk_volume: 450,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-4",
+      brand: "BMW",
+      model: "3 Series 330e",
+      year: 2025,
+      segment: "D - Premium Sedan",
+      ev_range_km: 60,
+      fuel_consumption: 1.8,
+      battery_kwh: 12,
+      price_eur: 54900,
+      image_url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop",
+      power_hp: 292,
+      co2_emission: 41,
+      charge_time_ac: 3.5,
+      charge_time_dc: 40,
+      trunk_volume: 480,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-5",
+      brand: "BMW",
+      model: "5 Series 530e",
+      year: 2025,
+      segment: "E - Executive Sedan",
+      ev_range_km: 61,
+      fuel_consumption: 1.9,
+      battery_kwh: 12,
+      price_eur: 64900,
+      image_url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop",
+      power_hp: 292,
+      co2_emission: 43,
+      charge_time_ac: 3.5,
+      charge_time_dc: 40,
+      trunk_volume: 520,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-6",
+      brand: "BMW",
+      model: "X3 xDrive30e",
+      year: 2025,
+      segment: "D - Premium SUV",
+      ev_range_km: 55,
+      fuel_consumption: 2.4,
+      battery_kwh: 12,
+      price_eur: 59900,
+      image_url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop",
+      power_hp: 292,
+      co2_emission: 54,
+      charge_time_ac: 3.5,
+      charge_time_dc: 40,
+      trunk_volume: 550,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-7",
+      brand: "BMW",
+      model: "X5 xDrive45e",
+      year: 2025,
+      segment: "E - Premium SUV",
+      ev_range_km: 87,
+      fuel_consumption: 2.1,
+      battery_kwh: 24,
+      price_eur: 89900,
+      image_url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop",
+      power_hp: 394,
+      co2_emission: 47,
+      charge_time_ac: 4.5,
+      charge_time_dc: 50,
+      trunk_volume: 650,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-8",
+      brand: "BMW",
+      model: "7 Series 745e",
+      year: 2025,
+      segment: "F - Luxury Sedan",
+      ev_range_km: 58,
+      fuel_consumption: 2.1,
+      battery_kwh: 12,
+      price_eur: 109900,
+      image_url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop",
+      power_hp: 394,
+      co2_emission: 47,
+      charge_time_ac: 3.5,
+      charge_time_dc: 40,
+      trunk_volume: 515,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-9",
+      brand: "BMW",
+      model: "X7 xDrive45e",
+      year: 2025,
+      segment: "F - Luxury SUV",
+      ev_range_km: 87,
+      fuel_consumption: 2.1,
+      battery_kwh: 24,
+      price_eur: 99900,
+      image_url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop",
+      power_hp: 394,
+      co2_emission: 47,
+      charge_time_ac: 4.5,
+      charge_time_dc: 50,
+      trunk_volume: 750,
+      seats: 7,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
+    },
+    {
+      id: "bmw-10",
+      brand: "BMW",
+      model: "iX3",
+      year: 2025,
+      segment: "D - Premium SUV (Elektrikli)",
+      ev_range_km: 460,
+      fuel_consumption: 0,
+      battery_kwh: 80,
+      price_eur: 69900,
+      image_url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop",
+      power_hp: 286,
+      co2_emission: 0,
+      charge_time_ac: 7.5,
+      charge_time_dc: 45,
+      trunk_volume: 510,
+      seats: 5,
+      warranty_years: 3,
+      country_availability: "DE,FR,UK,PL,IT,ES"
     }
   ]
 
-  const filteredCars = cars.filter((car: Car) => 
-    car.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    car.model.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const filteredCars = cars.filter((car: Car) => {
+    const matchesSearch = car.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    
+    const matchesBrand = !filters.brand || car.brand === filters.brand
+    const matchesSegment = !filters.segment || car.segment.includes(filters.segment)
+    const matchesPrice = car.price_eur >= filters.priceRange[0] && car.price_eur <= filters.priceRange[1]
+    const matchesRange = car.ev_range_km >= filters.rangeRange[0] && car.ev_range_km <= filters.rangeRange[1]
+    const matchesFuel = car.fuel_consumption >= filters.fuelConsumption[0] && car.fuel_consumption <= filters.fuelConsumption[1]
+    
+    return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && matchesFuel
+  })
 
   const handleCarSelect = (car: Car) => {
     if (selectedCars.find(c => c.id === car.id)) {
@@ -70,9 +300,12 @@ export default function Home() {
     }
   }
 
-  const removeCar = (carId: number) => {
+  const removeCar = (carId: string) => {
     setSelectedCars(selectedCars.filter(c => c.id !== carId))
   }
+
+  const brands = [...new Set(cars.map(car => car.brand))].sort()
+  const segments = [...new Set(cars.map(car => car.segment.split(' - ')[0]))].sort()
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -107,34 +340,99 @@ export default function Home() {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Brand</label>
-                  <select className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                  <select 
+                    value={filters.brand}
+                    onChange={(e) => setFilters({...filters, brand: e.target.value})}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
                     <option value="">All Brands</option>
-                    <option value="peugeot">Peugeot</option>
-                    <option value="kia">Kia</option>
+                    {brands.map((brand) => (
+                      <option key={brand} value={brand}>{brand}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Segment</label>
+                  <select 
+                    value={filters.segment}
+                    onChange={(e) => setFilters({...filters, segment: e.target.value})}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option value="">All Segments</option>
+                    {segments.map((segment) => (
+                      <option key={segment} value={segment}>{segment}</option>
+                    ))}
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Price Range (€)</label>
                   <div className="space-y-2">
-                    <input type="number" placeholder="Min" className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-                    <input type="number" placeholder="Max" className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    <input 
+                      type="number" 
+                      placeholder="Min" 
+                      value={filters.priceRange[0]}
+                      onChange={(e) => setFilters({...filters, priceRange: [parseInt(e.target.value) || 0, filters.priceRange[1]]})}
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    />
+                    <input 
+                      type="number" 
+                      placeholder="Max" 
+                      value={filters.priceRange[1]}
+                      onChange={(e) => setFilters({...filters, priceRange: [filters.priceRange[0], parseInt(e.target.value) || 150000]})}
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Electric Range (km)</label>
                   <div className="space-y-2">
-                    <input type="number" placeholder="Min" className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-                    <input type="number" placeholder="Max" className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    <input 
+                      type="number" 
+                      placeholder="Min" 
+                      value={filters.rangeRange[0]}
+                      onChange={(e) => setFilters({...filters, rangeRange: [parseInt(e.target.value) || 0, filters.rangeRange[1]]})}
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    />
+                    <input 
+                      type="number" 
+                      placeholder="Max" 
+                      value={filters.rangeRange[1]}
+                      onChange={(e) => setFilters({...filters, rangeRange: [filters.rangeRange[0], parseInt(e.target.value) || 100]})}
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Fuel Consumption (L/100km)</label>
                   <div className="space-y-2">
-                    <input type="number" placeholder="Min" step="0.1" className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-                    <input type="number" placeholder="Max" step="0.1" className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    <input 
+                      type="number" 
+                      placeholder="Min" 
+                      step="0.1" 
+                      value={filters.fuelConsumption[0]}
+                      onChange={(e) => setFilters({...filters, fuelConsumption: [parseFloat(e.target.value) || 0, filters.fuelConsumption[1]]})}
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    />
+                    <input 
+                      type="number" 
+                      placeholder="Max" 
+                      step="0.1" 
+                      value={filters.fuelConsumption[1]}
+                      onChange={(e) => setFilters({...filters, fuelConsumption: [filters.fuelConsumption[0], parseFloat(e.target.value) || 10]})}
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    />
                   </div>
                 </div>
-                <button className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors">
+                <button 
+                  onClick={() => setFilters({
+                    brand: '',
+                    segment: '',
+                    priceRange: [0, 150000],
+                    rangeRange: [0, 100],
+                    fuelConsumption: [0, 10]
+                  })}
+                  className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors"
+                >
                   Clear Filters
                 </button>
               </div>
@@ -187,6 +485,7 @@ export default function Home() {
                         </h3>
                         <span className="text-sm text-gray-500">{car.year}</span>
                       </div>
+                      <div className="text-sm text-gray-600 mb-2">{car.segment}</div>
                       
                       <div className="mt-2 grid grid-cols-2 gap-4 text-sm">
                         <div>
