@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { MagnifyingGlassIcon, ArrowsUpDownIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import Image from 'next/image'
 import carsData from '@/data/cars.json'
 
 interface Car {
@@ -28,7 +29,6 @@ interface Car {
 
 export default function Home() {
   const [cars, setCars] = useState<Car[]>(carsData)
-  const [filteredCars, setFilteredCars] = useState<Car[]>(carsData)
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
   const [searchTerm, setSearchTerm] = useState('')
   const [filters, setFilters] = useState({
@@ -39,22 +39,20 @@ export default function Home() {
     fuelConsumption: [0, 10]
   })
 
-  // Filtreleme ve arama
-  useEffect(() => {
-    let filtered = cars.filter(car => {
+  // Filtreleme ve arama - useMemo ile optimize edildi
+  const filteredCars = useMemo(() => {
+    return cars.filter(car => {
       const matchesSearch = car.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            car.model.toLowerCase().includes(searchTerm.toLowerCase())
       
       const matchesBrand = !filters.brand || car.brand === filters.brand
-      const matchesSegment = !filters.segment || car.segment.split(' - ')[0] === filters.segment
+      const matchesSegment = !filters.segment || car.segment === filters.segment
       const matchesPrice = car.price_eur >= filters.priceRange[0] && car.price_eur <= filters.priceRange[1]
       const matchesRange = car.ev_range_km >= filters.rangeRange[0] && car.ev_range_km <= filters.rangeRange[1]
       const matchesFuel = car.fuel_consumption >= filters.fuelConsumption[0] && car.fuel_consumption <= filters.fuelConsumption[1]
       
       return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && matchesFuel
     })
-    
-    setFilteredCars(filtered)
   }, [searchTerm, filters, cars])
 
   const handleCarSelect = (car: Car) => {
@@ -70,7 +68,7 @@ export default function Home() {
   }
 
   const brands = Array.from(new Set(cars.map(car => car.brand))).sort()
-  const segments = Array.from(new Set(cars.map(car => car.segment.split(' - ')[0]))).sort()
+  const segments = Array.from(new Set(cars.map(car => car.segment))).sort()
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -242,14 +240,24 @@ export default function Home() {
                   <div className="flex items-start space-x-4">
                     {/* Vehicle Image */}
                     <div className="flex-shrink-0">
-                      <img
-                        src={car.image_url}
-                        alt={`${car.brand} ${car.model}`}
-                        className="w-24 h-16 object-cover rounded-lg"
-                        onError={(e) => {
-                          e.currentTarget.src = '/images/placeholder-car.jpg'
-                        }}
-                      />
+                      <div className="w-24 h-16 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden relative">
+                        <Image
+                          src={car.image_url}
+                          alt={`${car.brand} ${car.model}`}
+                          fill
+                          className="object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none'
+                            const nextElement = e.currentTarget.nextElementSibling as HTMLElement
+                            if (nextElement) {
+                              nextElement.style.display = 'flex'
+                            }
+                          }}
+                        />
+                        <div className="hidden w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-600 text-xs font-medium">
+                          {car.brand.charAt(0)}
+                        </div>
+                      </div>
                     </div>
 
                     {/* Vehicle Info */}
