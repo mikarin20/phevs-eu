@@ -31,3 +31,12 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+dist/
+build/
+*.log
+.env.local
+coverage/
+.turbo/
+.env.*
+Thumbs.db
+pnpm-debug.log*

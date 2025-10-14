@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "@heroicons/react": "^2.0.0",
-    "lucide-react": "^0.292.0"
+    "axios": "^1.12.2",
+    "cheerio": "^1.1.2",
+    "image-size": "^2.0.2",
+    "lucide-react": "^0.292.0",
+    "next": "14.0.0",
+    "puppeteer": "^24.24.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
