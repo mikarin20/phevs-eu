@@ -30,13 +30,46 @@ export default function Home() {
   const [cars, setCars] = useState<Car[]>(carsData)
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([])
+  const [brandSearchTerm, setBrandSearchTerm] = useState('')
+  const [isBrandDropdownOpen, setIsBrandDropdownOpen] = useState(false)
   const [filters, setFilters] = useState({
-    brand: '',
     segment: '',
     priceRange: [0, 150000],
     rangeRange: [0, 100],
     fuelConsumption: [0, 10]
   })
+
+  // LocalStorage'dan filtreleri yükle
+  useEffect(() => {
+    const savedFilters = localStorage.getItem('phevs-filters')
+    const savedBrands = localStorage.getItem('phevs-selected-brands')
+    
+    if (savedFilters) {
+      try {
+        setFilters(JSON.parse(savedFilters))
+      } catch (e) {
+        console.error('Error loading filters:', e)
+      }
+    }
+    
+    if (savedBrands) {
+      try {
+        setSelectedBrands(JSON.parse(savedBrands))
+      } catch (e) {
+        console.error('Error loading brands:', e)
+      }
+    }
+  }, [])
+
+  // Filtreleri localStorage'a kaydet
+  useEffect(() => {
+    localStorage.setItem('phevs-filters', JSON.stringify(filters))
+  }, [filters])
+
+  useEffect(() => {
+    localStorage.setItem('phevs-selected-brands', JSON.stringify(selectedBrands))
+  }, [selectedBrands])
 
   // Filtreleme ve arama - useMemo ile optimize edildi
   const filteredCars = useMemo(() => {
@@ -44,7 +77,7 @@ export default function Home() {
       const matchesSearch = car.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            car.model.toLowerCase().includes(searchTerm.toLowerCase())
       
-      const matchesBrand = !filters.brand || car.brand === filters.brand
+      const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(car.brand)
       const matchesSegment = !filters.segment || car.segment === filters.segment
       const matchesPrice = car.price_eur >= filters.priceRange[0] && car.price_eur <= filters.priceRange[1]
       const matchesRange = car.ev_range_km >= filters.rangeRange[0] && car.ev_range_km <= filters.rangeRange[1]
@@ -52,7 +85,7 @@ export default function Home() {
       
       return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && matchesFuel
     })
-  }, [searchTerm, filters, cars])
+  }, [searchTerm, filters, cars, selectedBrands])
 
   const handleCarSelect = (car: Car) => {
     if (selectedCars.find(c => c.id === car.id)) {
@@ -68,6 +101,25 @@ export default function Home() {
 
   const brands = Array.from(new Set(cars.map(car => car.brand))).sort()
   const segments = Array.from(new Set(cars.map(car => car.segment))).sort()
+
+  // Marka seçimi toggle
+  const toggleBrand = (brand: string) => {
+    if (selectedBrands.includes(brand)) {
+      setSelectedBrands(selectedBrands.filter(b => b !== brand))
+    } else {
+      setSelectedBrands([...selectedBrands, brand])
+    }
+  }
+
+  // Tüm markaları temizle
+  const clearAllBrands = () => {
+    setSelectedBrands([])
+  }
+
+  // Marka arama filtresi
+  const filteredBrands = brands.filter(brand => 
+    brand.toLowerCase().includes(brandSearchTerm.toLowerCase())
+  )
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -103,23 +155,88 @@ export default function Home() {
               </div>
 
               <div className="space-y-6">
-                {/* Brand Filter */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Brand
-                  </label>
-                  <select
-                    value={filters.brand}
-                    onChange={(e) => setFilters({ ...filters, brand: e.target.value })}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">All Brands</option>
-                    {brands.map((brand) => (
-                      <option key={brand} value={brand}>
-                        {brand}
-                      </option>
-                    ))}
-                  </select>
+                {/* Brand Filter - Multi Select with Search */}
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Brands {selectedBrands.length > 0 && `(${selectedBrands.length})`}
+                    </label>
+                    {selectedBrands.length > 0 && (
+                      <button
+                        onClick={clearAllBrands}
+                        className="text-xs text-red-600 hover:text-red-700"
+                      >
+                        Clear All
+                      </button>
+                    )}
+                  </div>
+                  
+                  {/* Selected Brands Pills */}
+                  {selectedBrands.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {selectedBrands.map((brand) => (
+                        <span
+                          key={brand}
+                          className="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full"
+                        >
+                          {brand}
+                          <button
+                            onClick={() => toggleBrand(brand)}
+                            className="ml-1 hover:text-blue-900"
+                          >
+                            <XMarkIcon className="h-3 w-3" />
+                          </button>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Brand Search Input */}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="Search brands..."
+                      value={brandSearchTerm}
+                      onChange={(e) => setBrandSearchTerm(e.target.value)}
+                      onFocus={() => setIsBrandDropdownOpen(true)}
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 pr-8 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <MagnifyingGlassIcon className="h-4 w-4 text-gray-400 absolute right-3 top-3" />
+                  </div>
+
+                  {/* Brand Dropdown */}
+                  {isBrandDropdownOpen && (
+                    <>
+                      {/* Overlay to close dropdown */}
+                      <div 
+                        className="fixed inset-0 z-10"
+                        onClick={() => setIsBrandDropdownOpen(false)}
+                      />
+                      
+                      <div className="absolute z-20 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                        {filteredBrands.length > 0 ? (
+                          filteredBrands.map((brand) => (
+                            <label
+                              key={brand}
+                              className="flex items-center px-3 py-2 hover:bg-gray-50 cursor-pointer"
+                            >
+                              <input
+                                type="checkbox"
+                                checked={selectedBrands.includes(brand)}
+                                onChange={() => toggleBrand(brand)}
+                                className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                              />
+                              <span className="ml-2 text-sm text-gray-700">{brand}</span>
+                            </label>
+                          ))
+                        ) : (
+                          <div className="px-3 py-2 text-sm text-gray-500">
+                            No brands found
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 {/* Segment Filter */}
