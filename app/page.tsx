@@ -306,16 +306,19 @@ export default function Home() {
 
                 {/* Clear Filters */}
                 <button
-                  onClick={() => setFilters({
-                    brand: '',
-                    segment: '',
-                    priceRange: [0, 150000],
-                    rangeRange: [0, 100],
-                    fuelConsumption: [0, 10]
-                  })}
+                  onClick={() => {
+                    setFilters({
+                      segment: '',
+                      priceRange: [0, 150000],
+                      rangeRange: [0, 100],
+                      fuelConsumption: [0, 10]
+                    })
+                    setSelectedBrands([])
+                    setBrandSearchTerm('')
+                  }}
                   className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors"
                 >
-                  Clear Filters
+                  Clear All Filters
                 </button>
               </div>
             </div>
