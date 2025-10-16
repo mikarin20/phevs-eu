@@ -54,102 +54,44 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     )
   }
 
-  // Model için katalog fotoğrafları - Fallback sistemi
+  // Model için lokal fotoğrafları al
   const getCatalogImages = (carId: string, brand: string) => {
-    // Önce özel katalog fotoğraflarını kontrol et
-    if (catalogImagesData[carId as keyof typeof catalogImagesData]) {
-      return catalogImagesData[carId as keyof typeof catalogImagesData]
+    // URL path'i oluştur - marka ve model adı image_url'den alınacak
+    // Örnek: car.image_url = "/images/cars/brands/bmw/x5-phev/main.jpg"
+    const urlParts = car.image_url.split('/')
+    const brandFromUrl = urlParts[4] // brands/[brand]/model
+    const modelFromUrl = urlParts[5] // brands/brand/[model]
+    
+    if (!brandFromUrl || !modelFromUrl) {
+      // Fallback: image_url doğru formatta değilse
+      return ['/images/placeholder-car.jpg']
     }
     
-    // Marka bazında varsayılan fotoğraf setleri
-    const brandImageSets = {
-      'BMW': [
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'Mercedes-Benz': [
-        "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'Audi': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'Volkswagen': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'Skoda': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'Peugeot': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'Kia': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'Toyota': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'BYD': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'MG': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ],
-      'Nissan': [
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80"
-      ]
+    // Lokal görsellerin base path'i
+    const basePath = `/images/cars/brands/${brandFromUrl}/${modelFromUrl}`
+    
+    // Görsel listesi oluştur
+    const images: string[] = []
+    
+    // İlk olarak main.jpg veya main.png'yi ekle
+    // Not: Build time'da fs kullanamayız, bu yüzden sabit bir liste kullanmalıyız
+    // Gerçek implementasyonda public klasöründen dinamik okuma yapılabilir
+    
+    // Main görsel
+    const mainExtensions = ['jpg', 'png', 'jpeg']
+    for (const ext of mainExtensions) {
+      images.push(`${basePath}/main.${ext}`)
     }
     
-    // Marka bazında fotoğraf seti varsa kullan, yoksa varsayılan
-    return brandImageSets[brand as keyof typeof brandImageSets] || [
-      car.image_url,
-      "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1549317336-206569e8475c?w=800&h=600&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop&q=80"
-    ]
+    // Numaralı görseller (001-020)
+    const imageExtensions = ['jpg', 'png', 'jpeg']
+    for (let i = 1; i <= 20; i++) {
+      for (const ext of imageExtensions) {
+        images.push(`${basePath}/${i.toString().padStart(3, '0')}.${ext}`)
+      }
+    }
+    
+    return images
   }
 
   const catalogImages = getCatalogImages(car.id, car.brand)

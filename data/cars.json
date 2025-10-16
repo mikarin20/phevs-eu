@@ -2,7 +2,7 @@
   {
     "id": "1",
     "brand": "Peugeot",
-    "model": "3008 Hybrid4",
+    "model": "3008",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 59,
@@ -22,7 +22,7 @@
   {
     "id": "2",
     "brand": "Kia",
-    "model": "Sportage PHEV",
+    "model": "Sportage",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 70,
@@ -42,7 +42,7 @@
   {
     "id": "bmw-1",
     "brand": "BMW",
-    "model": "2 Series Active Tourer 225xe",
+    "model": "2 Series Active Tourer",
     "year": 2025,
     "segment": "Station/Estate",
     "ev_range_km": 61,
@@ -62,7 +62,7 @@
   {
     "id": "bmw-2",
     "brand": "BMW",
-    "model": "1 Series 118e",
+    "model": "1 Series",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 55,
@@ -82,7 +82,7 @@
   {
     "id": "bmw-3",
     "brand": "BMW",
-    "model": "X1 xDrive25e",
+    "model": "X1",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 57,
@@ -102,7 +102,7 @@
   {
     "id": "bmw-4",
     "brand": "BMW",
-    "model": "3 Series 330e",
+    "model": "3 Series",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 60,
@@ -122,7 +122,7 @@
   {
     "id": "bmw-5",
     "brand": "BMW",
-    "model": "5 Series 530e",
+    "model": "5 Series",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 61,
@@ -142,7 +142,7 @@
   {
     "id": "bmw-6",
     "brand": "BMW",
-    "model": "X3 xDrive30e",
+    "model": "X3",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 55,
@@ -162,7 +162,7 @@
   {
     "id": "bmw-7",
     "brand": "BMW",
-    "model": "X5 xDrive45e",
+    "model": "X5",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 87,
@@ -182,7 +182,7 @@
   {
     "id": "bmw-8",
     "brand": "BMW",
-    "model": "7 Series 745e",
+    "model": "7 Series",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 58,
@@ -202,7 +202,7 @@
   {
     "id": "bmw-9",
     "brand": "BMW",
-    "model": "X7 xDrive45e",
+    "model": "X7",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 87,
@@ -242,7 +242,7 @@
   {
     "id": "mercedes-1",
     "brand": "Mercedes-Benz",
-    "model": "A-Class A 250e",
+    "model": "A-Class",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 75,
@@ -262,7 +262,7 @@
   {
     "id": "mercedes-2",
     "brand": "Mercedes-Benz",
-    "model": "CLA 250e",
+    "model": "CLA",
     "year": 2025,
     "segment": "Coupe",
     "ev_range_km": 75,
@@ -282,7 +282,7 @@
   {
     "id": "mercedes-3",
     "brand": "Mercedes-Benz",
-    "model": "GLA 250e",
+    "model": "GLA",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 70,
@@ -302,7 +302,7 @@
   {
     "id": "mercedes-4",
     "brand": "Mercedes-Benz",
-    "model": "C-Class C 300e",
+    "model": "C-Class",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 103,
@@ -322,7 +322,7 @@
   {
     "id": "mercedes-5",
     "brand": "Mercedes-Benz",
-    "model": "GLC 300e",
+    "model": "GLC",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 103,
@@ -342,7 +342,7 @@
   {
     "id": "mercedes-6",
     "brand": "Mercedes-Benz",
-    "model": "E-Class E 300e",
+    "model": "E-Class",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 103,
@@ -362,7 +362,7 @@
   {
     "id": "mercedes-7",
     "brand": "Mercedes-Benz",
-    "model": "GLE 350e",
+    "model": "GLE",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 103,
@@ -382,7 +382,7 @@
   {
     "id": "mercedes-8",
     "brand": "Mercedes-Benz",
-    "model": "S-Class S 580e",
+    "model": "S-Class",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 100,
@@ -402,7 +402,7 @@
   {
     "id": "mercedes-9",
     "brand": "Mercedes-Benz",
-    "model": "GLS 450e",
+    "model": "GLS",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 100,
@@ -422,7 +422,7 @@
   {
     "id": "mercedes-10",
     "brand": "Mercedes-Benz",
-    "model": "AMG GT 63 S E Performance",
+    "model": "AMG GT 63 S",
     "year": 2025,
     "segment": "Coupe",
     "ev_range_km": 12,
@@ -442,7 +442,7 @@
   {
     "id": "audi-1",
     "brand": "Audi",
-    "model": "A3 Sportback 45 TFSI e",
+    "model": "A3 Sportback",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 78,
@@ -462,7 +462,7 @@
   {
     "id": "audi-2",
     "brand": "Audi",
-    "model": "Q3 45 TFSI e",
+    "model": "Q3",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 61,
@@ -482,7 +482,7 @@
   {
     "id": "audi-3",
     "brand": "Audi",
-    "model": "A4 Avant 55 TFSI e",
+    "model": "A4 Avant",
     "year": 2025,
     "segment": "Station/Estate",
     "ev_range_km": 59,
@@ -502,7 +502,7 @@
   {
     "id": "audi-4",
     "brand": "Audi",
-    "model": "Q5 55 TFSI e",
+    "model": "Q5",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 59,
@@ -522,7 +522,7 @@
   {
     "id": "audi-5",
     "brand": "Audi",
-    "model": "A6 Avant 55 TFSI e",
+    "model": "A6 Avant",
     "year": 2025,
     "segment": "Station/Estate",
     "ev_range_km": 53,
@@ -542,7 +542,7 @@
   {
     "id": "audi-6",
     "brand": "Audi",
-    "model": "Q7 55 TFSI e",
+    "model": "Q7",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 56,
@@ -562,7 +562,7 @@
   {
     "id": "audi-7",
     "brand": "Audi",
-    "model": "A8 L 60 TFSI e",
+    "model": "A8",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 46,
@@ -582,7 +582,7 @@
   {
     "id": "audi-8",
     "brand": "Audi",
-    "model": "Q8 55 TFSI e",
+    "model": "Q8",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 59,
@@ -602,7 +602,7 @@
   {
     "id": "vw-1",
     "brand": "Volkswagen",
-    "model": "Golf eHybrid",
+    "model": "Golf",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 80,
@@ -622,7 +622,7 @@
   {
     "id": "vw-2",
     "brand": "Volkswagen",
-    "model": "Passat Variant eHybrid",
+    "model": "Passat Variant",
     "year": 2025,
     "segment": "Station/Estate",
     "ev_range_km": 80,
@@ -642,7 +642,7 @@
   {
     "id": "vw-3",
     "brand": "Volkswagen",
-    "model": "Tiguan eHybrid",
+    "model": "Tiguan",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 55,
@@ -662,7 +662,7 @@
   {
     "id": "vw-4",
     "brand": "Volkswagen",
-    "model": "Touareg eHybrid",
+    "model": "Touareg",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 47,
@@ -682,7 +682,7 @@
   {
     "id": "vw-5",
     "brand": "Volkswagen",
-    "model": "Arteon eHybrid",
+    "model": "Arteon",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 80,
@@ -702,7 +702,7 @@
   {
     "id": "skoda-1",
     "brand": "Skoda",
-    "model": "Octavia iV",
+    "model": "Octavia",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 60,
@@ -722,7 +722,7 @@
   {
     "id": "skoda-2",
     "brand": "Skoda",
-    "model": "Superb iV",
+    "model": "Superb",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 60,
@@ -742,7 +742,7 @@
   {
     "id": "skoda-3",
     "brand": "Skoda",
-    "model": "Kodiaq iV",
+    "model": "Kodiaq",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 60,
@@ -762,7 +762,7 @@
   {
     "id": "skoda-4",
     "brand": "Skoda",
-    "model": "Karoq iV",
+    "model": "Karoq",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 60,
@@ -782,7 +782,7 @@
   {
     "id": "renault-1",
     "brand": "Renault",
-    "model": "Captur E-Tech Plug-in",
+    "model": "Captur E-Tech",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 65,
@@ -802,7 +802,7 @@
   {
     "id": "renault-2",
     "brand": "Renault",
-    "model": "Megane E-Tech Plug-in",
+    "model": "Megane E-Tech",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 65,
@@ -822,7 +822,7 @@
   {
     "id": "renault-3",
     "brand": "Renault",
-    "model": "Kadjar E-Tech Plug-in",
+    "model": "Kadjar E-Tech",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 65,
@@ -842,7 +842,7 @@
   {
     "id": "renault-4",
     "brand": "Renault",
-    "model": "Koleos E-Tech Plug-in",
+    "model": "Koleos E-Tech",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 65,
@@ -862,7 +862,7 @@
   {
     "id": "peugeot-1",
     "brand": "Peugeot",
-    "model": "208 Hybrid",
+    "model": "208",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 59,
@@ -882,7 +882,7 @@
   {
     "id": "peugeot-2",
     "brand": "Peugeot",
-    "model": "308 Hybrid",
+    "model": "308",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 59,
@@ -902,7 +902,7 @@
   {
     "id": "peugeot-3",
     "brand": "Peugeot",
-    "model": "508 Hybrid",
+    "model": "508",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 59,
@@ -922,7 +922,7 @@
   {
     "id": "peugeot-4",
     "brand": "Peugeot",
-    "model": "5008 Hybrid",
+    "model": "5008",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 59,
@@ -942,7 +942,7 @@
   {
     "id": "citroen-1",
     "brand": "Citroën",
-    "model": "C5 Aircross Hybrid",
+    "model": "C5 Aircross",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 59,
@@ -962,7 +962,7 @@
   {
     "id": "citroen-2",
     "brand": "Citroën",
-    "model": "C5 X Hybrid",
+    "model": "C5 X",
     "year": 2025,
     "segment": "Station/Estate",
     "ev_range_km": 59,
@@ -982,7 +982,7 @@
   {
     "id": "opel-1",
     "brand": "Opel",
-    "model": "Corsa-e Hybrid",
+    "model": "Corsa-e",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 59,
@@ -1002,7 +1002,7 @@
   {
     "id": "opel-2",
     "brand": "Opel",
-    "model": "Astra Hybrid",
+    "model": "Astra",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 59,
@@ -1022,7 +1022,7 @@
   {
     "id": "opel-3",
     "brand": "Opel",
-    "model": "Grandland Hybrid",
+    "model": "Grandland",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 59,
@@ -1042,7 +1042,7 @@
   {
     "id": "ds-1",
     "brand": "DS",
-    "model": "DS 7 Crossback E-Tense",
+    "model": "DS 7 Crossback",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 59,
@@ -1062,7 +1062,7 @@
   {
     "id": "ds-2",
     "brand": "DS",
-    "model": "DS 9 E-Tense",
+    "model": "DS 9",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 59,
@@ -1082,7 +1082,7 @@
   {
     "id": "seat-1",
     "brand": "SEAT",
-    "model": "Leon e-Hybrid",
+    "model": "Leon",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 60,
@@ -1102,7 +1102,7 @@
   {
     "id": "seat-2",
     "brand": "SEAT",
-    "model": "Ateca e-Hybrid",
+    "model": "Ateca",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 60,
@@ -1122,7 +1122,7 @@
   {
     "id": "seat-3",
     "brand": "SEAT",
-    "model": "Tarraco e-Hybrid",
+    "model": "Tarraco",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 60,
@@ -1142,7 +1142,7 @@
   {
     "id": "cupra-1",
     "brand": "Cupra",
-    "model": "Leon e-Hybrid",
+    "model": "Leon",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 60,
@@ -1162,7 +1162,7 @@
   {
     "id": "cupra-2",
     "brand": "Cupra",
-    "model": "Formentor e-Hybrid",
+    "model": "Formentor",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 60,
@@ -1182,7 +1182,7 @@
   {
     "id": "cupra-3",
     "brand": "Cupra",
-    "model": "Ateca e-Hybrid",
+    "model": "Ateca",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 60,
@@ -1202,7 +1202,7 @@
   {
     "id": "ford-1",
     "brand": "Ford",
-    "model": "Kuga PHEV",
+    "model": "Kuga",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 69,
@@ -1222,7 +1222,7 @@
   {
     "id": "ford-2",
     "brand": "Ford",
-    "model": "Explorer PHEV",
+    "model": "Explorer",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 48,
@@ -1262,7 +1262,7 @@
   {
     "id": "ford-4",
     "brand": "Ford",
-    "model": "Transit Custom PHEV",
+    "model": "Transit Custom",
     "year": 2025,
     "segment": "Station/Estate",
     "ev_range_km": 56,
@@ -1282,7 +1282,7 @@
   {
     "id": "volvo-1",
     "brand": "Volvo",
-    "model": "XC40 Recharge T5",
+    "model": "XC40",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 46,
@@ -1302,7 +1302,7 @@
   {
     "id": "volvo-2",
     "brand": "Volvo",
-    "model": "XC60 Recharge T8",
+    "model": "XC60",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 64,
@@ -1322,7 +1322,7 @@
   {
     "id": "volvo-3",
     "brand": "Volvo",
-    "model": "XC90 Recharge T8",
+    "model": "XC90",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 64,
@@ -1342,7 +1342,7 @@
   {
     "id": "volvo-4",
     "brand": "Volvo",
-    "model": "S60 Recharge T8",
+    "model": "S60",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 64,
@@ -1362,7 +1362,7 @@
   {
     "id": "volvo-5",
     "brand": "Volvo",
-    "model": "V60 Recharge T8",
+    "model": "V60",
     "year": 2025,
     "segment": "Station/Estate",
     "ev_range_km": 64,
@@ -1382,7 +1382,7 @@
   {
     "id": "volvo-6",
     "brand": "Volvo",
-    "model": "S90 Recharge T8",
+    "model": "S90",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 64,
@@ -1402,7 +1402,7 @@
   {
     "id": "volvo-7",
     "brand": "Volvo",
-    "model": "V90 Recharge T8",
+    "model": "V90",
     "year": 2025,
     "segment": "Station/Estate",
     "ev_range_km": 64,
@@ -1422,7 +1422,7 @@
   {
     "id": "fiat-1",
     "brand": "Fiat",
-    "model": "500 Hybrid",
+    "model": "500",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 59,
@@ -1442,7 +1442,7 @@
   {
     "id": "fiat-2",
     "brand": "Fiat",
-    "model": "Tipo Hybrid",
+    "model": "Tipo",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 59,
@@ -1462,7 +1462,7 @@
   {
     "id": "fiat-3",
     "brand": "Fiat",
-    "model": "500X Hybrid",
+    "model": "500X",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 59,
@@ -1482,7 +1482,7 @@
   {
     "id": "jeep-1",
     "brand": "Jeep",
-    "model": "Renegade 4xe",
+    "model": "Renegade",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 50,
@@ -1502,7 +1502,7 @@
   {
     "id": "jeep-2",
     "brand": "Jeep",
-    "model": "Compass 4xe",
+    "model": "Compass",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 50,
@@ -1522,7 +1522,7 @@
   {
     "id": "jeep-3",
     "brand": "Jeep",
-    "model": "Grand Cherokee 4xe",
+    "model": "Grand Cherokee",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 50,
@@ -1582,7 +1582,7 @@
   {
     "id": "kia-1",
     "brand": "Kia",
-    "model": "Niro PHEV",
+    "model": "Niro",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 65,
@@ -1602,7 +1602,7 @@
   {
     "id": "kia-2",
     "brand": "Kia",
-    "model": "Sorento PHEV",
+    "model": "Sorento",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 58,
@@ -1622,7 +1622,7 @@
   {
     "id": "kia-3",
     "brand": "Kia",
-    "model": "Optima PHEV",
+    "model": "Optima",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 54,
@@ -1642,7 +1642,7 @@
   {
     "id": "hyundai-1",
     "brand": "Hyundai",
-    "model": "Ioniq Plug-in",
+    "model": "Ioniq",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 63,
@@ -1662,7 +1662,7 @@
   {
     "id": "hyundai-2",
     "brand": "Hyundai",
-    "model": "Tucson Plug-in",
+    "model": "Tucson",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 65,
@@ -1682,7 +1682,7 @@
   {
     "id": "hyundai-3",
     "brand": "Hyundai",
-    "model": "Santa Fe Plug-in",
+    "model": "Santa Fe",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 65,
@@ -1702,7 +1702,7 @@
   {
     "id": "hyundai-4",
     "brand": "Hyundai",
-    "model": "Sonata Plug-in",
+    "model": "Sonata",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 54,
@@ -1722,7 +1722,7 @@
   {
     "id": "honda-1",
     "brand": "Honda",
-    "model": "CR-V Hybrid",
+    "model": "CR-V",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 55,
@@ -1742,7 +1742,7 @@
   {
     "id": "honda-2",
     "brand": "Honda",
-    "model": "Accord Hybrid",
+    "model": "Accord",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 55,
@@ -1762,7 +1762,7 @@
   {
     "id": "honda-3",
     "brand": "Honda",
-    "model": "Civic Hybrid",
+    "model": "Civic",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 55,
@@ -1822,7 +1822,7 @@
   {
     "id": "toyota-3",
     "brand": "Toyota",
-    "model": "Highlander Hybrid",
+    "model": "Highlander",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 55,
@@ -1842,7 +1842,7 @@
   {
     "id": "toyota-4",
     "brand": "Toyota",
-    "model": "Camry Hybrid",
+    "model": "Camry",
     "year": 2025,
     "segment": "Sedan",
     "ev_range_km": 55,
@@ -1862,7 +1862,7 @@
   {
     "id": "toyota-5",
     "brand": "Toyota",
-    "model": "Corolla Cross Hybrid",
+    "model": "Corolla Cross",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 55,
@@ -1882,7 +1882,7 @@
   {
     "id": "suzuki-1",
     "brand": "Suzuki",
-    "model": "Swift Hybrid",
+    "model": "Swift",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 45,
@@ -1902,7 +1902,7 @@
   {
     "id": "suzuki-2",
     "brand": "Suzuki",
-    "model": "Vitara Hybrid",
+    "model": "Vitara",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 45,
@@ -1922,7 +1922,7 @@
   {
     "id": "suzuki-3",
     "brand": "Suzuki",
-    "model": "S-Cross Hybrid",
+    "model": "S-Cross",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 45,
@@ -1942,7 +1942,7 @@
   {
     "id": "mazda-1",
     "brand": "Mazda",
-    "model": "CX-60 PHEV",
+    "model": "CX-60",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 63,
@@ -1962,7 +1962,7 @@
   {
     "id": "mazda-2",
     "brand": "Mazda",
-    "model": "CX-90 PHEV",
+    "model": "CX-90",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 63,
@@ -1982,7 +1982,7 @@
   {
     "id": "mitsubishi-1",
     "brand": "Mitsubishi",
-    "model": "Outlander PHEV",
+    "model": "Outlander",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 54,
@@ -2002,7 +2002,7 @@
   {
     "id": "mitsubishi-2",
     "brand": "Mitsubishi",
-    "model": "Eclipse Cross PHEV",
+    "model": "Eclipse Cross",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 54,
@@ -2022,7 +2022,7 @@
   {
     "id": "subaru-1",
     "brand": "Subaru",
-    "model": "Crosstrek Hybrid",
+    "model": "Crosstrek",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 27,
@@ -2042,7 +2042,7 @@
   {
     "id": "subaru-2",
     "brand": "Subaru",
-    "model": "Forester Hybrid",
+    "model": "Forester",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 27,
@@ -2102,7 +2102,7 @@
   {
     "id": "mg-1",
     "brand": "MG",
-    "model": "EHS PHEV",
+    "model": "EHS",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 52,
@@ -2142,7 +2142,7 @@
   {
     "id": "byd-1",
     "brand": "BYD",
-    "model": "Tang PHEV",
+    "model": "Tang",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 100,
@@ -2162,7 +2162,7 @@
   {
     "id": "byd-2",
     "brand": "BYD",
-    "model": "Song Plus PHEV",
+    "model": "Song Plus",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 85,
@@ -2182,7 +2182,7 @@
   {
     "id": "lynkco-1",
     "brand": "Lynk & Co",
-    "model": "01 PHEV",
+    "model": "01",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 70,
@@ -2202,7 +2202,7 @@
   {
     "id": "lynkco-2",
     "brand": "Lynk & Co",
-    "model": "05 PHEV",
+    "model": "05",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 80,
@@ -2222,7 +2222,7 @@
   {
     "id": "haval-1",
     "brand": "Haval",
-    "model": "H6 PHEV",
+    "model": "H6",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 55,
@@ -2242,7 +2242,7 @@
   {
     "id": "haval-2",
     "brand": "Haval",
-    "model": "Jolion PHEV",
+    "model": "Jolion",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 50,
