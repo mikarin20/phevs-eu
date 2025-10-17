@@ -5,9 +5,69 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'PHEVs.eu - PHEV Comparison Site',
-  description: 'Europe\'s most comprehensive PHEV comparison platform. Real-world test results, price comparison and country-specific incentive information.',
-  keywords: 'PHEV, plug-in hybrid, electric vehicle, hybrid car, comparison, Europe',
+  metadataBase: new URL('https://phevs.eu'),
+  title: {
+    default: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles from 28 Brands',
+    template: '%s | PHEVs.eu'
+  },
+  description: 'Compare 87 plug-in hybrid electric vehicles (PHEVs) from 28 premium brands. Find the best PHEV for your needs with detailed specifications, pricing, electric range, and real-world performance data across Europe.',
+  keywords: [
+    'PHEV comparison',
+    'plug-in hybrid',
+    'electric vehicle',
+    'hybrid car comparison',
+    'EV range',
+    'Europe PHEV',
+    'best PHEV 2025',
+    'PHEV price comparison',
+    'plug-in hybrid cars',
+    'hybrid vehicle specs'
+  ],
+  authors: [{ name: 'PHEVs.eu Team' }],
+  creator: 'PHEVs.eu',
+  publisher: 'PHEVs.eu',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_EU',
+    url: 'https://phevs.eu',
+    title: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles',
+    description: 'Europe\'s most comprehensive PHEV comparison platform. Compare 87 plug-in hybrid vehicles from 28 brands with detailed specs, pricing, and performance data.',
+    siteName: 'PHEVs.eu',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'PHEVs.eu - PHEV Comparison Platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles',
+    description: 'Compare 87 plug-in hybrid vehicles from 28 brands. Find the best PHEV for your needs.',
+    images: ['/images/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Google Search Console verification code eklenecek
+    google: 'your-google-verification-code',
+  },
 }
 
 export default function RootLayout({
@@ -16,11 +76,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1e40af" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+      </head>
       <body className={inter.className}>
-        <div className="min-h-screen bg-gray-50">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   )

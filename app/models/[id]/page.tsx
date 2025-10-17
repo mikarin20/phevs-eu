@@ -1,7 +1,6 @@
-import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
-import catalogImagesData from '@/data/catalog-images.json'
 import ImageGallery from '@/components/ImageGallery'
 
 // Static generation için gerekli
@@ -43,11 +42,14 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
   if (!car) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Model Not Found</h1>
-          <Link href="/" className="text-blue-600 hover:text-blue-700">
-            ← Back to Home
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 flex items-center justify-center">
+        <div className="card text-center max-w-lg">
+          <div className="text-8xl mb-4">🚗</div>
+          <h1 className="text-3xl font-bold text-slate-800 mb-4">Model Not Found</h1>
+          <p className="text-slate-600 mb-6">The vehicle you're looking for doesn't exist or has been removed.</p>
+          <Link href="/" className="btn-primary inline-flex items-center space-x-2">
+            <ArrowLeftIcon className="h-5 w-5" />
+            <span>Back to Home</span>
           </Link>
         </div>
       </div>
@@ -56,39 +58,25 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
   // Model için lokal fotoğrafları al
   const getCatalogImages = (carId: string, brand: string) => {
-    // URL path'i oluştur - marka ve model adı image_url'den alınacak
-    // Örnek: car.image_url = "/images/cars/brands/bmw/x5-phev/main.jpg"
     const urlParts = car.image_url.split('/')
-    const brandFromUrl = urlParts[4] // brands/[brand]/model
-    const modelFromUrl = urlParts[5] // brands/brand/[model]
+    const brandFromUrl = urlParts[4]
+    const modelFromUrl = urlParts[5]
     
     if (!brandFromUrl || !modelFromUrl) {
-      // Fallback: image_url doğru formatta değilse
       return ['/images/placeholder-car.jpg']
     }
     
-    // Lokal görsellerin base path'i
     const basePath = `/images/cars/brands/${brandFromUrl}/${modelFromUrl}`
-    
-    // Görsel listesi oluştur
     const images: string[] = []
     
-    // İlk olarak main.jpg veya main.png'yi ekle
-    // Not: Build time'da fs kullanamayız, bu yüzden sabit bir liste kullanmalıyız
-    // Gerçek implementasyonda public klasöründen dinamik okuma yapılabilir
+    // Main görsel (doğru uzantıyla)
+    images.push(car.image_url)
     
-    // Main görsel
-    const mainExtensions = ['jpg', 'png', 'jpeg']
-    for (const ext of mainExtensions) {
-      images.push(`${basePath}/main.${ext}`)
-    }
-    
-    // Numaralı görseller (001-020)
-    const imageExtensions = ['jpg', 'png', 'jpeg']
+    // Numaralı görseller
     for (let i = 1; i <= 20; i++) {
-      for (const ext of imageExtensions) {
-        images.push(`${basePath}/${i.toString().padStart(3, '0')}.${ext}`)
-      }
+      const num = i.toString().padStart(3, '0')
+      images.push(`${basePath}/${num}.jpg`)
+      images.push(`${basePath}/${num}.png`)
     }
     
     return images
@@ -97,33 +85,59 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   const catalogImages = getCatalogImages(car.id, car.brand)
 
   const specifications = [
-    { label: 'Brand', value: car.brand },
-    { label: 'Model', value: car.model },
-    { label: 'Year', value: car.year },
-    { label: 'Segment', value: car.segment },
-    { label: 'Electric Range', value: `${car.ev_range_km} km` },
-    { label: 'Fuel Consumption', value: `${car.fuel_consumption} L/100km` },
-    { label: 'Battery Capacity', value: `${car.battery_kwh} kWh` },
-    { label: 'Power', value: `${car.power_hp} HP` },
-    { label: 'CO₂ Emission', value: `${car.co2_emission} g/km` },
-    { label: 'AC Charge Time', value: `${car.charge_time_ac} hours` },
-    { label: 'DC Charge Time', value: `${car.charge_time_dc} minutes` },
-    { label: 'Trunk Volume', value: `${car.trunk_volume} L` },
-    { label: 'Seats', value: car.seats },
-    { label: 'Warranty', value: `${car.warranty_years} years` },
-    { label: 'Availability', value: car.country_availability }
+    { 
+      category: 'Electric Performance',
+      items: [
+        { label: 'Electric Range', value: `${car.ev_range_km} km`, icon: BoltIcon, highlight: true },
+        { label: 'Battery Capacity', value: `${car.battery_kwh} kWh`, icon: SparklesIcon, highlight: true },
+        { label: 'AC Charge Time', value: `${car.charge_time_ac} hours` },
+        { label: 'DC Charge Time', value: `${car.charge_time_dc} minutes` },
+      ]
+    },
+    {
+      category: 'Engine & Performance',
+      items: [
+        { label: 'Power', value: `${car.power_hp} HP`, highlight: true },
+        { label: 'Fuel Consumption', value: `${car.fuel_consumption} L/100km` },
+        { label: 'CO₂ Emission', value: `${car.co2_emission} g/km` },
+      ]
+    },
+    {
+      category: 'Comfort & Space',
+      items: [
+        { label: 'Trunk Volume', value: `${car.trunk_volume} L` },
+        { label: 'Seats', value: car.seats },
+        { label: 'Segment', value: car.segment },
+      ]
+    },
+    {
+      category: 'General',
+      items: [
+        { label: 'Brand', value: car.brand },
+        { label: 'Model', value: car.model },
+        { label: 'Year', value: car.year },
+        { label: 'Warranty', value: `${car.warranty_years} years` },
+      ]
+    }
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="header-metallic sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16">
-            <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900">
-              <ArrowLeftIcon className="h-5 w-5 mr-2" />
-              Back to Comparison
+          <div className="flex items-center justify-between h-20">
+            <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors group">
+              <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+              <span className="font-semibold">Back to Comparison</span>
             </Link>
+            
+            <div className="text-right">
+              <div className="text-sm text-slate-400">{car.brand}</div>
+              <div className="text-lg font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
+                {car.model}
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -131,80 +145,114 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Panel - Images */}
-          <ImageGallery 
-            images={catalogImages} 
-            alt={`${car.brand} ${car.model}`} 
-          />
+          <div>
+            <ImageGallery 
+              images={catalogImages} 
+              alt={`${car.brand} ${car.model}`} 
+            />
+          </div>
 
           {/* Right Panel - Details */}
           <div className="space-y-6">
-            {/* Title and Price */}
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                {car.brand} {car.model}
-              </h1>
-              <p className="text-lg text-gray-600 mt-2">{car.year} • {car.segment}</p>
-              <div className="mt-4">
-                <span className="text-4xl font-bold text-blue-600">
+            {/* Title and Price Card */}
+            <div className="card">
+              <div className="mb-6">
+                <div className="flex items-center space-x-2 mb-2">
+                  <span className="badge-steel">{car.year}</span>
+                  <span className="badge-steel">{car.segment}</span>
+                </div>
+                <h1 className="text-4xl font-bold text-slate-800 mb-2">
+                  {car.brand} {car.model}
+                </h1>
+              </div>
+
+              <div className="flex items-baseline space-x-3 mb-6">
+                <span className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   €{car.price_eur.toLocaleString()}
                 </span>
+                <span className="text-slate-500">Starting Price</span>
               </div>
-            </div>
 
-            {/* Key Features */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
-                <div className="text-sm text-gray-600">Electric Range</div>
-                <div className="text-2xl font-bold text-green-600">{car.ev_range_km} km</div>
-              </div>
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
-                <div className="text-sm text-gray-600">Fuel Consumption</div>
-                <div className="text-2xl font-bold text-blue-600">{car.fuel_consumption} L/100km</div>
-              </div>
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
-                <div className="text-sm text-gray-600">Battery</div>
-                <div className="text-2xl font-bold text-purple-600">{car.battery_kwh} kWh</div>
-              </div>
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
-                <div className="text-sm text-gray-600">Power</div>
-                <div className="text-2xl font-bold text-red-600">{car.power_hp} HP</div>
+              {/* Quick Stats */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border-2 border-green-200">
+                  <div className="flex items-center space-x-2 mb-1">
+                    <BoltIcon className="h-5 w-5 text-green-600" />
+                    <div className="text-xs text-green-700 font-semibold">Range</div>
+                  </div>
+                  <div className="text-2xl font-bold text-green-800">{car.ev_range_km} km</div>
+                </div>
+
+                <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-4 rounded-xl border-2 border-purple-200">
+                  <div className="flex items-center space-x-2 mb-1">
+                    <SparklesIcon className="h-5 w-5 text-purple-600" />
+                    <div className="text-xs text-purple-700 font-semibold">Battery</div>
+                  </div>
+                  <div className="text-2xl font-bold text-purple-800">{car.battery_kwh} kWh</div>
+                </div>
+
+                <div className="bg-gradient-to-br from-red-50 to-orange-50 p-4 rounded-xl border-2 border-red-200">
+                  <div className="flex items-center space-x-2 mb-1">
+                    <BoltIcon className="h-5 w-5 text-red-600" />
+                    <div className="text-xs text-red-700 font-semibold">Power</div>
+                  </div>
+                  <div className="text-2xl font-bold text-red-800">{car.power_hp} HP</div>
+                </div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex space-x-4">
+            <div className="grid grid-cols-2 gap-4">
               <Link 
                 href="/"
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors text-center"
+                className="btn-primary text-center"
               >
                 Compare with Others
               </Link>
-              <button className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition-colors">
+              <button className="btn-secondary">
                 Find Dealers
               </button>
             </div>
 
             {/* Specifications */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold mb-4">Technical Specifications</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {specifications.map((spec, index) => (
-                  <div key={index} className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">{spec.label}</span>
-                    <span className="font-medium">{spec.value}</span>
-                  </div>
-                ))}
+            {specifications.map((spec) => (
+              <div key={spec.category} className="card">
+                <h3 className="text-xl font-bold text-slate-800 mb-4 pb-3 border-b-2 border-slate-200">
+                  {spec.category}
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {spec.items.map((item, index) => (
+                    <div 
+                      key={index} 
+                      className={`flex justify-between items-center py-3 px-4 rounded-xl transition-all ${
+                        item.highlight 
+                          ? 'bg-gradient-to-r from-blue-50 to-slate-50 border-2 border-blue-200' 
+                          : 'bg-slate-50/50'
+                      }`}
+                    >
+                      <div className="flex items-center space-x-2">
+                        {item.icon && <item.icon className="h-5 w-5 text-blue-600" />}
+                        <span className="text-slate-600 font-medium">{item.label}</span>
+                      </div>
+                      <span className={`font-bold ${item.highlight ? 'text-blue-700 text-lg' : 'text-slate-800'}`}>
+                        {item.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            ))}
 
             {/* Availability */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold mb-4">Availability</h3>
+            <div className="card">
+              <h3 className="text-xl font-bold text-slate-800 mb-4 pb-3 border-b-2 border-slate-200">
+                Availability
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {car.country_availability.split(',').map((country, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
+                    className="badge-primary text-base px-4 py-2"
                   >
                     {country.trim()}
                   </span>
