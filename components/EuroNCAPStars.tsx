@@ -64,7 +64,7 @@ export default function EuroNCAPStars({ rating, size = 'md', showDetails = false
   }
 
   return (
-    <div className="flex flex-col space-y-2">
+    <div className="flex flex-col items-center space-y-1">
       {/* Stars Display */}
       <div className={`flex items-center ${containerClasses[size]}`}>
         {[1, 2, 3, 4, 5].map((star) => {
@@ -98,9 +98,11 @@ export default function EuroNCAPStars({ rating, size = 'md', showDetails = false
             </div>
           )
         })}
-        <span className={`ml-2 font-semibold ${getRatingColor(rating.stars)}`}>
-          {rating.stars}/5
-        </span>
+      </div>
+
+      {/* Rating Number */}
+      <div className={`text-sm font-semibold ${getRatingColor(rating.stars)}`}>
+        {rating.stars}/5
       </div>
 
       {/* Euro NCAP Label and Test Year */}
