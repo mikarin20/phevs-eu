@@ -32,6 +32,7 @@ interface Car {
     pedestrian_protection: number
     safety_assist: number
     overall_rating: number
+    test_year?: number
   }
 }
 

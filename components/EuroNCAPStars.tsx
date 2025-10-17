@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { StarIcon as StarOutlineIcon } from '@heroicons/react/24/outline'
 
@@ -10,6 +11,7 @@ interface EuroNCAPRating {
   pedestrian_protection: number
   safety_assist: number
   overall_rating: number
+  test_year?: number
 }
 
 interface EuroNCAPStarsProps {
@@ -19,6 +21,8 @@ interface EuroNCAPStarsProps {
 }
 
 export default function EuroNCAPStars({ rating, size = 'md', showDetails = false }: EuroNCAPStarsProps) {
+  const [hoveredStar, setHoveredStar] = useState<number | null>(null)
+  
   const sizeClasses = {
     sm: 'h-4 w-4',
     md: 'h-5 w-5',
@@ -45,22 +49,70 @@ export default function EuroNCAPStars({ rating, size = 'md', showDetails = false
     return 'text-red-600'
   }
 
+  const getTooltipContent = (starIndex: number) => {
+    const categories = [
+      { name: 'Adult Occupant', value: rating.adult_occupant },
+      { name: 'Child Occupant', value: rating.child_occupant },
+      { name: 'Pedestrian', value: rating.pedestrian_protection },
+      { name: 'Safety Assist', value: rating.safety_assist }
+    ]
+    
+    if (starIndex < categories.length) {
+      return categories[starIndex]
+    }
+    return null
+  }
+
   return (
     <div className="flex flex-col space-y-2">
       {/* Stars Display */}
       <div className={`flex items-center ${containerClasses[size]}`}>
-        {[1, 2, 3, 4, 5].map((star) => (
-          <div key={star} className="relative">
-            {star <= rating.stars ? (
-              <StarIcon className={`${sizeClasses[size]} ${getStarColor(star - 1)}`} />
-            ) : (
-              <StarOutlineIcon className={`${sizeClasses[size]} ${getStarColor(star - 1)}`} />
-            )}
-          </div>
-        ))}
+        {[1, 2, 3, 4, 5].map((star) => {
+          const tooltipContent = getTooltipContent(star - 1)
+          const isHovered = hoveredStar === star - 1
+          
+          return (
+            <div 
+              key={star} 
+              className="relative group"
+              onMouseEnter={() => setHoveredStar(star - 1)}
+              onMouseLeave={() => setHoveredStar(null)}
+            >
+              {star <= rating.stars ? (
+                <StarIcon className={`${sizeClasses[size]} ${getStarColor(star - 1)} transition-all duration-200 group-hover:scale-110 cursor-pointer`} />
+              ) : (
+                <StarOutlineIcon className={`${sizeClasses[size]} ${getStarColor(star - 1)} transition-all duration-200 group-hover:scale-110 cursor-pointer`} />
+              )}
+              
+              {/* Tooltip */}
+              {tooltipContent && (
+                <div className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-[#0B2E33] text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-50 transition-opacity duration-200 ${
+                  isHovered ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}>
+                  <div className="font-semibold">{tooltipContent.name}</div>
+                  <div className="text-[#B8E3E9]">{tooltipContent.value}%</div>
+                  {/* Arrow */}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-[#0B2E33]"></div>
+                </div>
+              )}
+            </div>
+          )
+        })}
         <span className={`ml-2 font-semibold ${getRatingColor(rating.stars)}`}>
           {rating.stars}/5
         </span>
+      </div>
+
+      {/* Euro NCAP Label and Test Year */}
+      <div className="text-center">
+        <div className="text-xs font-medium text-[#4F7C82]">
+          Euro NCAP
+        </div>
+        {rating.test_year && (
+          <div className="text-xs text-[#93B1B5]">
+            {rating.test_year}
+          </div>
+        )}
       </div>
 
       {/* Detailed Ratings */}
