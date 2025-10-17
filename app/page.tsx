@@ -219,7 +219,7 @@ export default function Home() {
       const newSelected = selectedCars.filter(c => c.id !== car.id)
       setSelectedCars(newSelected)
       localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected))
-    } else if (selectedCars.length < 3) {
+    } else if (selectedCars.length < 2) {
       const newSelected = [...selectedCars, car]
       setSelectedCars(newSelected)
       localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected))
@@ -249,10 +249,9 @@ export default function Home() {
   }
 
   // View mode değiştir
-  const toggleViewMode = () => {
-    const newMode = viewMode === 'grid' ? 'list' : 'grid'
-    setViewMode(newMode)
-    localStorage.setItem('phevs-view-mode', newMode)
+  const toggleViewMode = (mode: ViewMode) => {
+    setViewMode(mode)
+    localStorage.setItem('phevs-view-mode', mode)
   }
 
   // Sort değiştir
@@ -433,13 +432,13 @@ export default function Home() {
             {/* View Toggle */}
             <div className="flex border border-[#E2E8F0] rounded-lg overflow-hidden">
               <button
-                onClick={() => setViewMode('list')}
+                onClick={() => toggleViewMode('list')}
                 className={`p-2 ${viewMode === 'list' ? 'bg-[#4F7C82] text-white' : 'bg-white text-[#4F7C82] hover:bg-[#F1F5F9]'}`}
               >
                 <ListBulletIcon className="h-5 w-5" />
               </button>
               <button
-                onClick={() => setViewMode('grid')}
+                onClick={() => toggleViewMode('grid')}
                 className={`p-2 ${viewMode === 'grid' ? 'bg-[#4F7C82] text-white' : 'bg-white text-[#4F7C82] hover:bg-[#F1F5F9]'}`}
               >
                 <Squares2X2Icon className="h-5 w-5" />
@@ -480,42 +479,39 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Cars List */}
-        <div className="space-y-4">
-          {filteredAndSortedCars.map((car) => (
-            <div key={car.id} className="card hover:shadow-md transition-all duration-200">
-              <div className="flex items-start space-x-4">
+        {/* Cars List/Grid */}
+        {viewMode === 'grid' ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredAndSortedCars.map((car) => (
+              <div key={car.id} className="card hover:shadow-md transition-all duration-200">
                 {/* Car Image */}
-                <div className="flex-shrink-0">
+                <div className="aspect-w-16 aspect-h-9 mb-4">
                   <img
                     src={car.image_url}
                     alt={`${car.brand} ${car.model}`}
-                    className="w-24 h-16 object-cover rounded-lg"
+                    className="w-full h-48 object-cover rounded-lg"
                     loading="lazy"
                   />
                 </div>
 
                 {/* Car Info */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-lg font-semibold text-[#0B2E33]">
-                        {car.brand} {car.model}
-                      </h3>
-                      <div className="flex items-center space-x-2 mt-1">
-                        <span className="badge-secondary">{car.year}</span>
-                        <span className="badge-accent">{car.segment}</span>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-xl font-bold text-[#4F7C82]">
-                        €{car.price_eur.toLocaleString()}
-                      </div>
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-semibold text-[#0B2E33]">
+                      {car.brand} {car.model}
+                    </h3>
+                    <div className="text-xl font-bold text-[#4F7C82]">
+                      €{car.price_eur.toLocaleString()}
                     </div>
                   </div>
 
+                  <div className="flex items-center space-x-2 mb-4">
+                    <span className="badge-secondary">{car.year}</span>
+                    <span className="badge-accent">{car.segment}</span>
+                  </div>
+
                   {/* Specifications */}
-                  <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                  <div className="grid grid-cols-2 gap-3 text-sm mb-4">
                     <div className="flex items-center space-x-2">
                       <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
                       <span className="text-[#0B2E33]">Range:</span>
@@ -537,37 +533,125 @@ export default function Home() {
                       <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
                     </div>
                   </div>
-                </div>
 
-                {/* Actions */}
-                <div className="flex-shrink-0 flex items-center space-x-2">
-                  <button
-                    onClick={() => toggleFavorite(car.id)}
-                    className="p-2 hover:bg-[#F1F5F9] rounded-lg transition-colors"
-                  >
-                    {favorites.includes(car.id) ? (
-                      <HeartSolidIcon className="h-5 w-5 text-red-500" />
-                    ) : (
-                      <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
-                    )}
-                  </button>
-                  <button
-                    onClick={() => toggleCarSelection(car)}
-                    className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
-                      selectedCars.find(c => c.id === car.id)
-                        ? 'border-[#4F7C82] bg-[#4F7C82] text-white'
-                        : 'border-[#E2E8F0] hover:border-[#4F7C82]'
-                    }`}
-                  >
-                    {selectedCars.find(c => c.id === car.id) && (
-                      <CheckIcon className="h-4 w-4" />
-                    )}
-                  </button>
+                  {/* Actions */}
+                  <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0]">
+                    <button
+                      onClick={() => toggleFavorite(car.id)}
+                      className="p-2 hover:bg-[#F1F5F9] rounded-lg transition-colors"
+                    >
+                      {favorites.includes(car.id) ? (
+                        <HeartSolidIcon className="h-5 w-5 text-red-500" />
+                      ) : (
+                        <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
+                      )}
+                    </button>
+                    <button
+                      onClick={() => toggleCarSelection(car)}
+                      className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
+                        selectedCars.find(c => c.id === car.id)
+                          ? 'border-[#4F7C82] bg-[#4F7C82] text-white'
+                          : 'border-[#E2E8F0] hover:border-[#4F7C82]'
+                      }`}
+                    >
+                      {selectedCars.find(c => c.id === car.id) && (
+                        <CheckIcon className="h-4 w-4" />
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {filteredAndSortedCars.map((car) => (
+              <div key={car.id} className="card hover:shadow-md transition-all duration-200">
+                <div className="flex items-start space-x-4">
+                  {/* Car Image */}
+                  <div className="flex-shrink-0">
+                    <img
+                      src={car.image_url}
+                      alt={`${car.brand} ${car.model}`}
+                      className="w-24 h-16 object-cover rounded-lg"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Car Info */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#0B2E33]">
+                          {car.brand} {car.model}
+                        </h3>
+                        <div className="flex items-center space-x-2 mt-1">
+                          <span className="badge-secondary">{car.year}</span>
+                          <span className="badge-accent">{car.segment}</span>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xl font-bold text-[#4F7C82]">
+                          €{car.price_eur.toLocaleString()}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Specifications */}
+                    <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Range:</span>
+                        <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Battery:</span>
+                        <span className="font-semibold text-[#4F7C82]">{car.battery_kwh} kWh</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Consumption:</span>
+                        <span className="font-semibold text-[#4F7C82]">{car.fuel_consumption} L/100km</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Power:</span>
+                        <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex-shrink-0 flex items-center space-x-2">
+                    <button
+                      onClick={() => toggleFavorite(car.id)}
+                      className="p-2 hover:bg-[#F1F5F9] rounded-lg transition-colors"
+                    >
+                      {favorites.includes(car.id) ? (
+                        <HeartSolidIcon className="h-5 w-5 text-red-500" />
+                      ) : (
+                        <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
+                      )}
+                    </button>
+                    <button
+                      onClick={() => toggleCarSelection(car)}
+                      className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
+                        selectedCars.find(c => c.id === car.id)
+                          ? 'border-[#4F7C82] bg-[#4F7C82] text-white'
+                          : 'border-[#E2E8F0] hover:border-[#4F7C82]'
+                      }`}
+                    >
+                      {selectedCars.find(c => c.id === car.id) && (
+                        <CheckIcon className="h-4 w-4" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {filteredAndSortedCars.length === 0 && (
           <div className="text-center py-12">
