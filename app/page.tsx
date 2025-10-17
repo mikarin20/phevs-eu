@@ -606,14 +606,15 @@ export default function Home() {
               <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-xl hover:scale-102 transition-all duration-300 block group">
                 {/* Car Image */}
                 <div className="mb-4">
-                  <div className="aspect-[4/3] w-full rounded-lg overflow-hidden">
-                        <img
-                          src={car.image_url}
-                          alt={`${car.brand} ${car.model}`}
-                          className="w-full h-full object-cover"
+                  <div className="aspect-[16/9] w-full max-h-48 rounded-lg overflow-hidden">
+                    <img
+                      src={car.image_url}
+                      srcSet={`${car.image_url} 1x, ${car.image_url.replace('.jpg', '@2x.jpg')} 2x`}
+                      alt={`${car.brand} ${car.model}`}
+                      className="w-full h-full object-cover"
                       loading="lazy"
                       fetchPriority="low"
-                          onError={(e) => {
+                      onError={(e) => {
                         e.currentTarget.src = '/images/placeholder-car.jpg'
                       }}
                     />
@@ -756,9 +757,10 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
-                    <div className="aspect-[4/3] w-24 rounded-lg overflow-hidden">
+                    <div className="aspect-[16/9] w-24 h-16 rounded-lg overflow-hidden">
                       <img
                         src={car.image_url}
+                        srcSet={`${car.image_url} 1x, ${car.image_url.replace('.jpg', '@2x.jpg')} 2x`}
                         alt={`${car.brand} ${car.model}`}
                         className="w-full h-full object-cover"
                         loading="lazy"
