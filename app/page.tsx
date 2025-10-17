@@ -421,20 +421,21 @@ export default function Home() {
       <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <h1 className={`text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
-              <span className={`text-sm ${currentTheme.textSecondary}`}>Plug-in Hybrid Comparison</span>
+            {/* Logo ve Başlık - Mobilde kompakt */}
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              <h1 className={`text-lg sm:text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
+              <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Plug-in Hybrid Comparison</span>
             </div>
             
-            {/* Dil ve Tema Seçicileri */}
-            <div className="flex items-center space-x-4">
-              {/* Tema Seçici - Sola kaydırıldı */}
+            {/* Dil ve Tema Seçicileri - Mobilde daha küçük */}
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Tema Seçici */}
               <div className="flex space-x-1">
                 {Object.entries(themes).map(([key, theme]) => (
                   <button
                     key={key}
                     onClick={() => setSelectedTheme(key)}
-                    className={`p-2 rounded-lg transition-all duration-300 ${
+                    className={`p-1.5 sm:p-2 rounded-lg transition-all duration-300 ${
                       selectedTheme === key
                         ? selectedTheme === 'dark' 
                           ? 'bg-slate-600 text-white shadow-lg'
@@ -445,12 +446,12 @@ export default function Home() {
                     }`}
                     title={theme.name}
                   >
-                    {key === 'light' ? '☀️' : '🌙'}
+                    <span className="text-sm sm:text-base">{key === 'light' ? '☀️' : '🌙'}</span>
                   </button>
                 ))}
               </div>
 
-              {/* Dil Seçici - Compare'e yaklaştırıldı */}
+              {/* Dil Seçici - Mobilde daha küçük */}
               <div className="flex space-x-1">
                 {[
                   { 
@@ -477,7 +478,7 @@ export default function Home() {
                   <button
                     key={lang.code}
                     onClick={() => setSelectedLanguage(lang.code)}
-                    className={`p-2 rounded-lg transition-all duration-300 text-lg ${
+                    className={`p-1.5 sm:p-2 rounded-lg transition-all duration-300 ${
                       selectedLanguage === lang.code
                         ? selectedTheme === 'dark' 
                           ? 'bg-slate-600 shadow-lg'
@@ -488,7 +489,7 @@ export default function Home() {
                     }`}
                     title={lang.code.toUpperCase()}
                   >
-                    {lang.flag}
+                    <span className="text-sm sm:text-lg">{lang.flag}</span>
                   </button>
                 ))}
               </div>
@@ -696,9 +697,9 @@ export default function Home() {
 
         {/* Cars List/Grid */}
         {viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {filteredAndSortedCars.map((car) => (
-              <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
+              <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
                 {/* Car Image */}
                 <div className="mb-4">
                   <div className="aspect-[16/9] w-full max-h-40 rounded-lg overflow-hidden">
@@ -813,28 +814,28 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex justify-center space-x-2">
+                    <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
                           e.stopPropagation()
                           toggleCarSelection(car)
                         }}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-[#4F7C82] text-white'
                           : 'bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white'
                         }`}
                       >
-                        <PlusIcon className="h-4 w-4 inline mr-1" />
+                        <PlusIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="px-4 py-2 rounded-full text-sm font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
+                        className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
                       >
-                        <EyeIcon className="h-4 w-4 inline mr-1" />
+                        <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {t.view}
                       </Link>
                     </div>
@@ -846,7 +847,7 @@ export default function Home() {
         ) : (
                 <div className="space-y-4">
             {filteredAndSortedCars.map((car) => (
-              <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
+              <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
@@ -960,28 +961,28 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex justify-center space-x-2">
+                    <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
                           e.stopPropagation()
                           toggleCarSelection(car)
                         }}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-[#4F7C82] text-white'
                           : 'bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white'
                         }`}
                       >
-                        <PlusIcon className="h-4 w-4 inline mr-1" />
+                        <PlusIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="px-4 py-2 rounded-full text-sm font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
+                        className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
                       >
-                        <EyeIcon className="h-4 w-4 inline mr-1" />
+                        <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {t.view}
                       </Link>
                     </div>

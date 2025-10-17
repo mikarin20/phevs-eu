@@ -343,15 +343,15 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className={`inline-flex items-center space-x-2 ${currentTheme.linkText} ${currentTheme.linkHover} transition-colors`}>
-              <ArrowLeftIcon className="h-5 w-5" />
-              <span className="font-medium">{t.backToModels}</span>
+            <Link href="/" className={`inline-flex items-center space-x-1 sm:space-x-2 ${currentTheme.linkText} ${currentTheme.linkHover} transition-colors`}>
+              <ArrowLeftIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="font-medium text-sm sm:text-base">{t.backToModels}</span>
             </Link>
-            <div className="text-center">
-              <h1 className={`text-xl font-bold ${currentTheme.headerText}`}>{car.brand} {car.model}</h1>
-              <p className={currentTheme.headerSubtext}>{car.year} • {car.segment}</p>
+            <div className="text-center flex-1 px-2">
+              <h1 className={`text-lg sm:text-xl font-bold ${currentTheme.headerText} truncate`}>{car.brand} {car.model}</h1>
+              <p className={`text-xs sm:text-sm ${currentTheme.headerSubtext}`}>{car.year} • {car.segment}</p>
             </div>
-            <div className="w-24"></div>
+            <div className="w-16 sm:w-24"></div>
           </div>
         </div>
       </header>
@@ -383,7 +383,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
             </div>
             
             {/* Key Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto">
               <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
                 <div className="flex items-center justify-center space-x-2 mb-2">
                   <BoltIcon className={`h-6 w-6 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-green-600'}`} />
