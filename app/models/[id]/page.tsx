@@ -348,7 +348,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
               <span className="font-medium">{t.backToModels}</span>
             </Link>
             <div className="text-center">
-              <h1 className={`text-2xl font-bold ${currentTheme.headerText}`}>{car.brand} {car.model}</h1>
+              <h1 className={`text-xl font-bold ${currentTheme.headerText}`}>{car.brand} {car.model}</h1>
               <p className={currentTheme.headerSubtext}>{car.year} • {car.segment}</p>
             </div>
             <div className="w-24"></div>
@@ -387,14 +387,14 @@ export default function ModelDetail({ params }: ModelDetailProps) {
               <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
                 <div className="flex items-center justify-center space-x-2 mb-2">
                   <BoltIcon className={`h-6 w-6 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-green-600'}`} />
-                  <span className={`text-2xl font-bold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
+                  <span className={`text-xl font-bold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
                 </div>
                 <p className={`text-sm ${currentTheme.textSecondary}`}>{t.electricRange}</p>
               </div>
               <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
                 <div className="flex items-center justify-center space-x-2 mb-2">
                   <SparklesIcon className={`h-6 w-6 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-blue-600'}`} />
-                  <span className={`text-2xl font-bold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
+                  <span className={`text-xl font-bold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                 </div>
                 <p className={`text-sm ${currentTheme.textSecondary}`}>{t.batteryCapacity}</p>
               </div>
@@ -403,7 +403,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                   <div className={`w-6 h-6 ${selectedTheme === 'dark' ? 'bg-[#DED3C4]' : 'bg-orange-500'} rounded-full flex items-center justify-center`}>
                     <span className={`text-xs font-bold ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-white'}`}>HP</span>
                   </div>
-                  <span className={`text-2xl font-bold ${currentTheme.textPrimary}`}>{car.power_hp}</span>
+                  <span className={`text-xl font-bold ${currentTheme.textPrimary}`}>{car.power_hp}</span>
                 </div>
                 <p className={`text-sm ${currentTheme.textSecondary}`}>{t.powerOutput}</p>
               </div>

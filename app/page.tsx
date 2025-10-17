@@ -427,8 +427,8 @@ export default function Home() {
             </div>
             
             {/* Dil ve Tema Seçicileri */}
-            <div className="flex items-center space-x-3">
-              {/* Tema Seçici */}
+            <div className="flex items-center space-x-4">
+              {/* Tema Seçici - Sola kaydırıldı */}
               <div className="flex space-x-1">
                 {Object.entries(themes).map(([key, theme]) => (
                   <button
@@ -450,51 +450,34 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Dil Seçici */}
+              {/* Dil Seçici - Compare'e yaklaştırıldı */}
               <div className="flex space-x-1">
                 {[
                   { 
                     code: 'en', 
                     name: 'EN', 
-                    flag: (
-                      <div className="w-6 h-4 bg-gradient-to-r from-blue-600 via-white to-red-600 rounded-sm flex items-center justify-center text-xs font-bold text-blue-800">
-                        GB
-                      </div>
-                    )
+                    flag: '🇬🇧'
                   },
                   { 
                     code: 'de', 
                     name: 'DE', 
-                    flag: (
-                      <div className="w-6 h-4 bg-gradient-to-b from-black via-red-600 to-yellow-400 rounded-sm flex items-center justify-center text-xs font-bold text-white">
-                        DE
-                      </div>
-                    )
+                    flag: '🇩🇪'
                   },
                   { 
                     code: 'tr', 
                     name: 'TR', 
-                    flag: (
-                      <div className="w-6 h-4 bg-gradient-to-r from-red-600 to-red-500 rounded-sm flex items-center justify-center text-xs font-bold text-white relative">
-                        <div className="absolute left-1 top-1 w-2 h-2 bg-white rounded-full"></div>
-                        <span className="ml-1">TR</span>
-                      </div>
-                    )
+                    flag: '🇹🇷'
                   },
                   { 
                     code: 'pl', 
                     name: 'PL', 
-                    flag: (
-                      <div className="w-6 h-4 bg-gradient-to-b from-white to-red-600 rounded-sm flex items-center justify-center text-xs font-bold text-red-600">
-                        PL
-                      </div>
-                    )
+                    flag: '🇵🇱'
                   }
                 ].map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => setSelectedLanguage(lang.code)}
-                    className={`p-2 rounded-lg transition-all duration-300 ${
+                    className={`p-2 rounded-lg transition-all duration-300 text-lg ${
                       selectedLanguage === lang.code
                         ? selectedTheme === 'dark' 
                           ? 'bg-slate-600 shadow-lg'
@@ -830,28 +813,28 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex space-x-2">
+                    <div className="flex justify-center space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
                           e.stopPropagation()
                           toggleCarSelection(car)
                         }}
-                        className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-[#4F7C82] text-white'
                           : 'bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white'
                         }`}
                       >
-                        <PlusIcon className="h-3 w-3 inline mr-1" />
+                        <PlusIcon className="h-4 w-4 inline mr-1" />
                         {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
+                        className="px-4 py-2 rounded-full text-sm font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
                       >
-                        <EyeIcon className="h-3 w-3 inline mr-1" />
+                        <EyeIcon className="h-4 w-4 inline mr-1" />
                         {t.view}
                       </Link>
                     </div>
@@ -977,28 +960,28 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex space-x-2">
+                    <div className="flex justify-center space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
                           e.stopPropagation()
                           toggleCarSelection(car)
                         }}
-                        className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-[#4F7C82] text-white'
                           : 'bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white'
                         }`}
                       >
-                        <PlusIcon className="h-3 w-3 inline mr-1" />
+                        <PlusIcon className="h-4 w-4 inline mr-1" />
                         {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
+                        className="px-4 py-2 rounded-full text-sm font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
                       >
-                        <EyeIcon className="h-3 w-3 inline mr-1" />
+                        <EyeIcon className="h-4 w-4 inline mr-1" />
                         {t.view}
                       </Link>
                     </div>
