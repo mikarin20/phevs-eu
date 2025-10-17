@@ -3,6 +3,7 @@ import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon } from '@heroic
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import ImageGallery from '@/components/ImageGallery'
+import EuroNCAPStars from '@/components/EuroNCAPStars'
 
 // Static generation için gerekli
 export async function generateStaticParams() {
@@ -30,6 +31,14 @@ interface Car {
   seats: number
   warranty_years: number
   country_availability: string
+  euroncap_rating?: {
+    stars: number
+    adult_occupant: number
+    child_occupant: number
+    pedestrian_protection: number
+    safety_assist: number
+    overall_rating: number
+  }
 }
 
 interface ModelDetailProps {
@@ -132,10 +141,15 @@ export default function ModelDetail({ params }: ModelDetailProps) {
               <ArrowLeftIcon className="h-5 w-5" />
               <span>Back to Models</span>
             </Link>
-            <div className="text-center">
-              <h1 className="text-2xl font-bold text-[#0B2E33]">{car.brand} {car.model}</h1>
-              <p className="text-[#4F7C82]">{car.year} • {car.segment}</p>
-            </div>
+                    <div className="text-center">
+                      <h1 className="text-2xl font-bold text-[#0B2E33]">{car.brand} {car.model}</h1>
+                      <p className="text-[#4F7C82]">{car.year} • {car.segment}</p>
+                      {car.euroncap_rating && (
+                        <div className="mt-2 flex justify-center">
+                          <EuroNCAPStars rating={car.euroncap_rating} size="md" showDetails={true} />
+                        </div>
+                      )}
+                    </div>
             <div className="w-24"></div>
           </div>
         </div>

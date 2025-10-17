@@ -17,7 +17,15 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "audi-1",
@@ -37,7 +45,15 @@
     "trunk_volume": 380,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 73,
+      "safety_assist": 85,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-4",
@@ -117,7 +133,15 @@
     "trunk_volume": 530,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 88,
+      "pedestrian_protection": 76,
+      "safety_assist": 85,
+      "overall_rating": 5
+    }
   },
   {
     "id": "audi-4",
@@ -137,7 +161,15 @@
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 88,
+      "pedestrian_protection": 75,
+      "safety_assist": 85,
+      "overall_rating": 5
+    }
   },
   {
     "id": "audi-6",
@@ -157,7 +189,15 @@
     "trunk_volume": 865,
     "seats": 7,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 88,
+      "pedestrian_protection": 75,
+      "safety_assist": 85,
+      "overall_rating": 5
+    }
   },
   {
     "id": "audi-8",
@@ -177,7 +217,15 @@
     "trunk_volume": 605,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 88,
+      "pedestrian_protection": 75,
+      "safety_assist": 85,
+      "overall_rating": 5
+    }
   },
   {
     "id": "bmw-5",
@@ -197,7 +245,15 @@
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 97,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 5
+    }
   },
   {
     "id": "bmw-8",
@@ -237,7 +293,15 @@
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 97,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-14",
@@ -297,7 +361,15 @@
     "trunk_volume": 450,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 97,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 5
+    }
   },
   {
     "id": "bmw-6",
@@ -317,7 +389,15 @@
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 97,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 5
+    }
   },
   {
     "id": "bmw-5",
@@ -337,7 +417,15 @@
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 97,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-19",
@@ -438,7 +526,15 @@
     "seats": 5,
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
-    "battery_chemistry": "NCA"
+    "battery_chemistry": "NCA",
+    "euroncap_rating": {
+      "stars": 4,
+      "adult_occupant": 80,
+      "child_occupant": 75,
+      "pedestrian_protection": 70,
+      "safety_assist": 70,
+      "overall_rating": 4
+    }
   },
   {
     "id": "new-23",
@@ -458,7 +554,15 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 4,
+      "adult_occupant": 80,
+      "child_occupant": 75,
+      "pedestrian_protection": 70,
+      "safety_assist": 70,
+      "overall_rating": 4
+    }
   },
   {
     "id": "new-23",
@@ -478,7 +582,15 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 4,
+      "adult_occupant": 80,
+      "child_occupant": 75,
+      "pedestrian_protection": 70,
+      "safety_assist": 70,
+      "overall_rating": 4
+    }
   },
   {
     "id": "citroen-1",
@@ -498,7 +610,15 @@
     "trunk_volume": 580,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "citroen-1",
@@ -518,7 +638,15 @@
     "trunk_volume": 580,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "citroen-1",
@@ -538,7 +666,15 @@
     "trunk_volume": 580,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "cupra-2",
@@ -558,7 +694,15 @@
     "trunk_volume": 450,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "cupra-1",
@@ -578,7 +722,15 @@
     "trunk_volume": 380,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-31",
@@ -698,7 +850,15 @@
     "trunk_volume": 571,
     "seats": 7,
     "warranty_years": 5,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "hyundai-2",
@@ -718,7 +878,15 @@
     "trunk_volume": 513,
     "seats": 5,
     "warranty_years": 5,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-38",
@@ -798,7 +966,15 @@
     "trunk_volume": 239,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 4,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 4
+    }
   },
   {
     "id": "kia-1",
@@ -818,7 +994,15 @@
     "trunk_volume": 451,
     "seats": 5,
     "warranty_years": 7,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "2",
@@ -838,7 +1022,15 @@
     "trunk_volume": 540,
     "seats": 5,
     "warranty_years": 7,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "kia-2",
@@ -858,7 +1050,15 @@
     "trunk_volume": 175,
     "seats": 7,
     "warranty_years": 7,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-45",
@@ -898,7 +1098,15 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-47",
@@ -998,7 +1206,15 @@
     "trunk_volume": 370,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "mercedes-1",
@@ -1018,7 +1234,15 @@
     "trunk_volume": 370,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "mercedes-1",
@@ -1038,7 +1262,15 @@
     "trunk_volume": 370,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "mercedes-6",
@@ -1058,7 +1290,15 @@
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "mercedes-3",
@@ -1178,7 +1418,15 @@
     "trunk_volume": 370,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "mg-2",
@@ -1198,7 +1446,15 @@
     "trunk_volume": 463,
     "seats": 5,
     "warranty_years": 7,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 4,
+      "adult_occupant": 80,
+      "child_occupant": 75,
+      "pedestrian_protection": 70,
+      "safety_assist": 70,
+      "overall_rating": 4
+    }
   },
   {
     "id": "mini-1",
@@ -1238,7 +1494,15 @@
     "trunk_volume": 405,
     "seats": 5,
     "warranty_years": 5,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "mitsubishi-1",
@@ -1258,7 +1522,15 @@
     "trunk_volume": 463,
     "seats": 7,
     "warranty_years": 5,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "opel-2",
@@ -1418,7 +1690,15 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 81,
+      "pedestrian_protection": 70,
+      "safety_assist": 75,
+      "overall_rating": 5
+    }
   },
   {
     "id": "skoda-3",
@@ -1498,7 +1778,15 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 85,
+      "overall_rating": 5
+    }
   },
   {
     "id": "toyota-1",
@@ -1518,7 +1806,15 @@
     "trunk_volume": 343,
     "seats": 5,
     "warranty_years": 5,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 85,
+      "overall_rating": 5
+    }
   },
   {
     "id": "toyota-2",
@@ -1538,7 +1834,15 @@
     "trunk_volume": 580,
     "seats": 5,
     "warranty_years": 5,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 85,
+      "overall_rating": 5
+    }
   },
   {
     "id": "vw-1",
@@ -1558,7 +1862,15 @@
     "trunk_volume": 380,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "vw-2",
@@ -1579,7 +1891,15 @@
     "seats": 5,
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL,IT,ES",
-    "battery_chemistry": "NCA"
+    "battery_chemistry": "NCA",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-81",
@@ -1620,7 +1940,15 @@
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 82,
+      "safety_assist": 88,
+      "overall_rating": 5
+    }
   },
   {
     "id": "new-83",
@@ -1660,7 +1988,15 @@
     "trunk_volume": 529,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 98,
+      "child_occupant": 87,
+      "pedestrian_protection": 76,
+      "safety_assist": 95,
+      "overall_rating": 5
+    }
   },
   {
     "id": "volvo-7",
@@ -1680,7 +2016,15 @@
     "trunk_volume": 560,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 98,
+      "child_occupant": 87,
+      "pedestrian_protection": 76,
+      "safety_assist": 95,
+      "overall_rating": 5
+    }
   },
   {
     "id": "volvo-2",

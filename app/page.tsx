@@ -21,6 +21,7 @@ import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import { CarCardSkeleton } from '@/components/LoadingSkeleton'
+import EuroNCAPStars from '@/components/EuroNCAPStars'
 
 interface Car {
   id: string
@@ -41,6 +42,14 @@ interface Car {
   seats: number
   warranty_years: number
   country_availability: string
+  euroncap_rating?: {
+    stars: number
+    adult_occupant: number
+    child_occupant: number
+    pedestrian_protection: number
+    safety_assist: number
+    overall_rating: number
+  }
 }
 
 type ViewMode = 'grid' | 'list'
@@ -507,9 +516,14 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-2 mb-4">
-                    <span className="badge-secondary">{car.year}</span>
-                    <span className="badge-accent">{car.segment}</span>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <span className="badge-secondary">{car.year}</span>
+                      <span className="badge-accent">{car.segment}</span>
+                    </div>
+                    {car.euroncap_rating && (
+                      <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
+                    )}
                   </div>
 
                   {/* Specifications */}
@@ -595,9 +609,14 @@ export default function Home() {
                         <h3 className="text-lg font-semibold text-[#0B2E33]">
                           {car.brand} {car.model}
                         </h3>
-                        <div className="flex items-center space-x-2 mt-1">
-                          <span className="badge-secondary">{car.year}</span>
-                          <span className="badge-accent">{car.segment}</span>
+                        <div className="flex items-center justify-between mt-1">
+                          <div className="flex items-center space-x-2">
+                            <span className="badge-secondary">{car.year}</span>
+                            <span className="badge-accent">{car.segment}</span>
+                          </div>
+                          {car.euroncap_rating && (
+                            <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
+                          )}
                         </div>
                       </div>
                       <div className="text-right">

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { ArrowLeftIcon, XMarkIcon, CheckIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
+import EuroNCAPStars from '@/components/EuroNCAPStars'
 
 interface Car {
   id: string
@@ -24,6 +25,14 @@ interface Car {
   seats: number
   warranty_years: number
   country_availability: string
+  euroncap_rating?: {
+    stars: number
+    adult_occupant: number
+    child_occupant: number
+    pedestrian_protection: number
+    safety_assist: number
+    overall_rating: number
+  }
 }
 
 export default function ComparePage() {
@@ -131,6 +140,37 @@ export default function ComparePage() {
           label: 'Seats', 
           getValue: (car: Car) => car.seats.toString(),
           getBest: (cars: Car[]) => Math.max(...cars.map(c => c.seats))
+        },
+      ]
+    },
+    {
+      title: 'Safety (Euro NCAP)',
+      rows: [
+        { 
+          label: 'Overall Rating', 
+          getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.stars}/5 stars` : 'N/A',
+          highlight: true,
+          getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.stars))
+        },
+        { 
+          label: 'Adult Occupant Protection', 
+          getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.adult_occupant}%` : 'N/A',
+          getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.adult_occupant))
+        },
+        { 
+          label: 'Child Occupant Protection', 
+          getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.child_occupant}%` : 'N/A',
+          getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.child_occupant))
+        },
+        { 
+          label: 'Pedestrian Protection', 
+          getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.pedestrian_protection}%` : 'N/A',
+          getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.pedestrian_protection))
+        },
+        { 
+          label: 'Safety Assist', 
+          getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.safety_assist}%` : 'N/A',
+          getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.safety_assist))
         },
       ]
     },
@@ -264,7 +304,12 @@ export default function ComparePage() {
                 <h2 className="text-2xl font-bold text-slate-800 mb-2">
                   {car.brand}
                 </h2>
-                <p className="text-lg text-slate-600 mb-4">{car.model}</p>
+                <p className="text-lg text-slate-600 mb-2">{car.model}</p>
+                {car.euroncap_rating && (
+                  <div className="mb-3 flex justify-center">
+                    <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
+                  </div>
+                )}
                 <div className="text-3xl font-bold text-blue-600">
                   €{car.price_eur.toLocaleString()}
                 </div>
