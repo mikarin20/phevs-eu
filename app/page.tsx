@@ -26,6 +26,7 @@ import carsData from '@/data/cars.json'
 import { CarCardSkeleton } from '@/components/LoadingSkeleton'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
 import RangeSimulator from '@/components/RangeSimulator'
+import Tooltip from '@/components/Tooltip'
 
 interface Car {
   id: string
@@ -97,6 +98,21 @@ export default function Home() {
   const [selectedCarForSimulator, setSelectedCarForSimulator] = useState<Car | null>(null)
   const [selectedTheme, setSelectedTheme] = useState('light')
   const [selectedLanguage, setSelectedLanguage] = useState('en')
+
+  // Otomatik dil algılama
+  useEffect(() => {
+    const detectLanguage = () => {
+      const browserLang = navigator.language || navigator.languages?.[0] || 'en'
+      const langCode = browserLang.split('-')[0].toLowerCase()
+      
+      const supportedLangs = ['en', 'de', 'tr', 'pl']
+      if (supportedLangs.includes(langCode)) {
+        setSelectedLanguage(langCode)
+      }
+    }
+    
+    detectLanguage()
+  }, [])
   
   const [filters, setFilters] = useState({
     segment: '',
@@ -537,8 +553,15 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             {/* Logo, Başlık ve Tema Seçici - Mobilde kompakt */}
             <div className="flex items-center space-x-2 sm:space-x-4">
-              <h1 className={`text-lg sm:text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
-              <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Plug-in Hybrid Comparison</span>
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm sm:text-lg">P</span>
+                </div>
+                <div>
+                  <h1 className={`text-lg sm:text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
+                  <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Compare the best PHEVs in Europe</span>
+                </div>
+              </div>
               
               {/* Tema Seçici - Mobilde gizli, tablet+ görünür */}
               <div className="hidden sm:flex items-center space-x-2 ml-4">
@@ -613,7 +636,7 @@ export default function Home() {
                 className={`inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 ${
                   selectedCars.length < 2 
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                    : 'bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
+                    : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
                 }`}
                 onClick={(e) => selectedCars.length < 2 && e.preventDefault()}
               >
@@ -898,7 +921,9 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
+                        <Tooltip content="WLTP (Worldwide Harmonized Light Vehicles Test Procedure) - Official EU test standard for electric range">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.evRange}:</span>
+                        </Tooltip>
                       </div>
                       <div className="flex items-center space-x-2">
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
@@ -971,8 +996,8 @@ export default function Home() {
                         }}
                         className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
-                          ? 'bg-[#4F7C82] text-white'
-                          : `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-[#4F7C82] hover:text-white`
+                          ? 'bg-blue-600 text-white'
+                          : `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`
                         }`}
                       >
                         <PlusIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
@@ -981,7 +1006,7 @@ export default function Home() {
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-[#4F7C82] hover:text-white transition-colors`}
+                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white transition-colors`}
                       >
                         <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {t.view}
@@ -1118,8 +1143,8 @@ export default function Home() {
                         }}
                         className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
-                          ? 'bg-[#4F7C82] text-white'
-                          : `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-[#4F7C82] hover:text-white`
+                          ? 'bg-blue-600 text-white'
+                          : `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`
                         }`}
                       >
                         <PlusIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
@@ -1128,7 +1153,7 @@ export default function Home() {
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-[#4F7C82] hover:text-white transition-colors`}
+                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white transition-colors`}
                       >
                         <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {t.view}

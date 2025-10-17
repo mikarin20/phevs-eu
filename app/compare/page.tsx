@@ -409,7 +409,8 @@ export default function ComparePage() {
                 {category.title}
               </h3>
               
-              <div className="space-y-1">
+              <div className="overflow-x-auto">
+                <div className="space-y-1 min-w-[600px]">
                 {category.rows.map((row, rowIndex) => (
                   <div
                     key={rowIndex}
@@ -455,6 +456,7 @@ export default function ComparePage() {
                     })}
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           ))}
