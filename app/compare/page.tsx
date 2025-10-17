@@ -80,17 +80,7 @@ export default function ComparePage() {
       title: 'Pricing',
       rows: [
         { 
-          label: (
-            <div className="flex items-center space-x-1">
-              <span>Price (EUR)</span>
-              <div className="relative group">
-                <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                  Estimated EU price
-                </div>
-              </div>
-            </div>
-          ), 
+          label: 'Price (EUR)', 
           getValue: (car: Car) => `€${car.price_eur.toLocaleString()}`,
           highlight: true,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.price_eur))
@@ -235,11 +225,44 @@ export default function ComparePage() {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
         <header className="header-metallic">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center h-20">
+            <div className="flex items-center justify-between h-20">
               <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors">
                 <ArrowLeftIcon className="h-5 w-5 mr-2" />
                 Back to Home
               </Link>
+              
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={() => {
+                    const comparisonData = {
+                      cars: selectedCars.map(car => ({
+                        id: car.id,
+                        brand: car.brand,
+                        model: car.model,
+                        year: car.year
+                      })),
+                      timestamp: new Date().toISOString()
+                    }
+                    localStorage.setItem('phevs-saved-comparison', JSON.stringify(comparisonData))
+                    alert('Comparison saved successfully!')
+                  }}
+                  className="btn-secondary"
+                >
+                  Save Comparison
+                </button>
+                
+                <button
+                  onClick={() => {
+                    const comparisonUrl = `${window.location.origin}/compare?cars=${selectedCars.map(c => c.id).join(',')}`
+                    navigator.clipboard.writeText(comparisonUrl).then(() => {
+                      alert('Comparison link copied to clipboard!')
+                    })
+                  }}
+                  className="btn-primary"
+                >
+                  Share Comparison
+                </button>
+              </div>
             </div>
           </div>
         </header>
@@ -274,11 +297,46 @@ export default function ComparePage() {
               <span className="font-semibold">Back to Home</span>
             </Link>
             
-            <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
-                Vehicle Comparison
-              </h1>
-              <p className="text-sm text-slate-400 text-right">Comparing {selectedCars.length} vehicles</p>
+            <div className="flex items-center space-x-6">
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
+                  Vehicle Comparison
+                </h1>
+                <p className="text-sm text-slate-400 text-right">Comparing {selectedCars.length} vehicles</p>
+              </div>
+              
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={() => {
+                    const comparisonData = {
+                      cars: selectedCars.map(car => ({
+                        id: car.id,
+                        brand: car.brand,
+                        model: car.model,
+                        year: car.year
+                      })),
+                      timestamp: new Date().toISOString()
+                    }
+                    localStorage.setItem('phevs-saved-comparison', JSON.stringify(comparisonData))
+                    alert('Comparison saved successfully!')
+                  }}
+                  className="btn-secondary text-sm"
+                >
+                  Save
+                </button>
+                
+                <button
+                  onClick={() => {
+                    const comparisonUrl = `${window.location.origin}/compare?cars=${selectedCars.map(c => c.id).join(',')}`
+                    navigator.clipboard.writeText(comparisonUrl).then(() => {
+                      alert('Comparison link copied to clipboard!')
+                    })
+                  }}
+                  className="btn-primary text-sm"
+                >
+                  Share
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -540,6 +540,42 @@ export default function Home() {
             </div>
           </div>
 
+      {/* Range Simulator Banner */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-blue-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <SparklesIcon className="h-6 w-6 text-blue-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-slate-800">Range Simulator</h3>
+                <p className="text-sm text-slate-600">Discover your real-world electric range based on temperature, climate control, and driving conditions</p>
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                if (selectedCars.length === 0) {
+                  alert('Please select a vehicle first to use Range Simulator')
+                  return
+                }
+                setSelectedCarForSimulator(selectedCars[0])
+                setIsRangeSimulatorOpen(true)
+              }}
+              className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                selectedCars.length === 0 
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                  : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
+              }`}
+              disabled={selectedCars.length === 0}
+            >
+              <SparklesIcon className="h-5 w-5" />
+              <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Results Header */}
@@ -649,9 +685,28 @@ export default function Home() {
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">Total Power:</span>
-                        </div>
-                      <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
                       </div>
+                      <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Charge Time:</span>
+                      </div>
+                      <span className="font-semibold text-[#4F7C82]">{car.charge_time_ac}h AC</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[#0B2E33]">CO₂:</span>
+                      </div>
+                      <span className="font-semibold text-[#4F7C82]">{car.co2_emission} g/km</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[#0B2E33]">Trunk:</span>
+                      </div>
+                      <span className="font-semibold text-[#4F7C82]">{car.trunk_volume}L</span>
+                    </div>
                     </div>
 
                   {/* Actions */}
@@ -742,7 +797,7 @@ export default function Home() {
                     </div>
 
                     {/* Specifications */}
-                    <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                    <div className="mt-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">EV Range:</span>
@@ -772,6 +827,19 @@ export default function Home() {
                         <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">Total Power:</span>
                         <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Charge Time:</span>
+                        <span className="font-semibold text-[#4F7C82]">{car.charge_time_ac}h AC</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[#0B2E33]">CO₂:</span>
+                        <span className="font-semibold text-[#4F7C82]">{car.co2_emission} g/km</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[#0B2E33]">Trunk:</span>
+                        <span className="font-semibold text-[#4F7C82]">{car.trunk_volume}L</span>
                       </div>
                     </div>
                 </div>

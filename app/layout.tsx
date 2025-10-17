@@ -100,7 +100,7 @@ export default function RootLayout({
               
               <div className="border-t border-slate-700 pt-4">
                 <p className="text-slate-400 text-xs">
-                  Data sources: Euro NCAP, manufacturer specifications, WLTP testing
+                  Data sources: EV-Database, Euro NCAP, manufacturer specifications, WLTP testing
                 </p>
                 <p className="text-slate-500 text-xs mt-1">
                   Prices are estimated EU market values. Actual prices may vary by country and configuration.
