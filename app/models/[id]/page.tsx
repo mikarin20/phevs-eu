@@ -157,18 +157,18 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-[#F8FAFB]">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="header-solid sticky top-0 z-50">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="btn-secondary inline-flex items-center space-x-2">
+            <Link href="/" className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors">
               <ArrowLeftIcon className="h-5 w-5" />
-              <span>Back to Models</span>
+              <span className="font-medium">Back to Models</span>
             </Link>
             <div className="text-center">
-              <h1 className="text-2xl font-bold text-[#0B2E33]">{car.brand} {car.model}</h1>
-              <p className="text-[#4F7C82]">{car.year} • {car.segment}</p>
+              <h1 className="text-2xl font-bold text-gray-900">{car.brand} {car.model}</h1>
+              <p className="text-gray-600">{car.year} • {car.segment}</p>
             </div>
             <div className="w-24"></div>
           </div>
@@ -177,24 +177,51 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Images Section */}
-        <div className="mb-8">
+        <div className="mb-12">
           <ImageGallery images={catalogImages} alt={`${car.brand} ${car.model} gallery`} />
         </div>
 
-        {/* Price Card */}
-        <div className="mb-8">
-          <div className="card-elevated p-6 text-center max-w-md mx-auto">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <CurrencyEuroIcon className="h-8 w-8 text-[#4F7C82]" />
-              <span className="text-3xl font-bold text-[#0B2E33]">€{car.price_eur.toLocaleString()}</span>
+        {/* Price and Key Stats */}
+        <div className="mb-12">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 text-center">
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <CurrencyEuroIcon className="h-10 w-10 text-blue-600" />
+              <span className="text-4xl font-bold text-gray-900">€{car.price_eur.toLocaleString()}</span>
             </div>
-            <div className="flex items-center justify-center space-x-2">
-              <p className="text-[#4F7C82]">Starting Price</p>
+            <div className="flex items-center justify-center space-x-2 mb-6">
+              <p className="text-gray-600 font-medium">Starting Price</p>
               <div className="relative group">
-                <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+                <InformationCircleIcon className="h-4 w-4 text-gray-400 cursor-help" />
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                   Estimated EU market value
                 </div>
+              </div>
+            </div>
+            
+            {/* Key Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+              <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <BoltIcon className="h-6 w-6 text-green-600" />
+                  <span className="text-2xl font-bold text-gray-900">{car.ev_range_km} km</span>
+                </div>
+                <p className="text-sm text-gray-600">Electric Range</p>
+              </div>
+              <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <SparklesIcon className="h-6 w-6 text-blue-600" />
+                  <span className="text-2xl font-bold text-gray-900">{car.battery_kwh} kWh</span>
+                </div>
+                <p className="text-sm text-gray-600">Battery Capacity</p>
+              </div>
+              <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">HP</span>
+                  </div>
+                  <span className="text-2xl font-bold text-gray-900">{car.power_hp}</span>
+                </div>
+                <p className="text-sm text-gray-600">Power Output</p>
               </div>
             </div>
           </div>
@@ -202,17 +229,17 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
         {/* Euro NCAP Section */}
         {car.euroncap_rating && (
-          <div className="mb-8">
-            <div className="card p-6 text-center max-w-md mx-auto">
-              <h3 className="text-lg font-semibold text-[#0B2E33] mb-4">Safety Rating</h3>
-              <div className="flex justify-center mb-2">
+          <div className="mb-12">
+            <div className="bg-white rounded-2xl p-8 text-center max-w-lg mx-auto shadow-sm border border-gray-200">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Safety Rating</h3>
+              <div className="flex justify-center mb-4">
                 <EuroNCAPStars rating={car.euroncap_rating} size="lg" showDetails={true} />
               </div>
               <a 
                 href={`https://www.euroncap.com/en/results/${car.brand.toLowerCase().replace(/\s+/g, '-')}/${car.model.toLowerCase().replace(/\s+/g, '-')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-[#4F7C82] hover:text-[#0B2E33] transition-colors underline"
+                className="text-sm text-blue-600 hover:text-blue-800 transition-colors underline"
               >
                 Source: Euro NCAP
               </a>
@@ -221,37 +248,37 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         )}
 
         {/* Specifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {specifications.map((spec, index) => (
-            <div key={index} className="card p-6">
-              <h3 className="text-xl font-bold text-[#0B2E33] mb-4 pb-3 border-b-2 border-[#E2E8F0]">
+            <div key={index} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-200">
                 {spec.category}
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {spec.items.map((item, itemIndex) => (
                   <div 
                     key={itemIndex} 
-                    className={`flex justify-between items-center py-3 px-4 rounded-lg transition-all ${
+                    className={`flex justify-between items-center py-4 px-5 rounded-xl transition-all ${
                       (item as any).highlight 
-                        ? 'bg-gradient-to-r from-[#B8E3E9] to-[#F1F5F9] border border-[#4F7C82]' 
-                        : 'bg-[#F8FAFB]'
+                        ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200' 
+                        : 'bg-gray-50 hover:bg-gray-100'
                     }`}
                   >
-                    <div className="flex items-center space-x-2">
-                      {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-[#4F7C82]" })}
-                      <span className="text-[#0B2E33] font-medium">{item.label}</span>
+                    <div className="flex items-center space-x-3">
+                      {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-gray-600" })}
+                      <span className="text-gray-900 font-medium">{item.label}</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <span className={`font-bold ${(item as any).highlight ? 'text-[#0B2E33] text-lg' : 'text-[#4F7C82]'}`}>
+                    <div className="flex items-center space-x-3">
+                      <span className={`font-bold ${(item as any).highlight ? 'text-gray-900 text-lg' : 'text-gray-700'}`}>
                         {item.value}
                       </span>
                       {(item as any).hasSimulator && (
                         <button
                           onClick={() => setIsRangeSimulatorOpen(true)}
-                          className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
+                          className="p-2 hover:bg-blue-100 rounded-lg transition-colors"
                           title="Range Simulator"
                         >
-                          <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
+                          <SparklesIcon className="h-4 w-4 text-blue-600" />
                         </button>
                       )}
                     </div>
@@ -263,15 +290,15 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         </div>
 
         {/* Battery Simulator Section - Always Visible */}
-        <div className="mb-8">
-          <div className="card p-8 text-center">
-            <h3 className="text-2xl font-bold text-[#0B2E33] mb-6">Battery Range Simulator</h3>
-            <p className="text-[#4F7C82] mb-6">
-              Simulate your electric range based on real-world conditions
+        <div className="mb-12">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 text-center border border-green-200">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Battery Range Simulator</h3>
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+              Simulate your electric range based on real-world conditions like temperature, driving style, and road conditions
             </p>
             <button
               onClick={() => setIsRangeSimulatorOpen(true)}
-              className="btn-primary inline-flex items-center space-x-2 px-8 py-4 text-lg"
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl inline-flex items-center space-x-3 text-lg transition-colors shadow-lg hover:shadow-xl"
             >
               <SparklesIcon className="h-6 w-6" />
               <span>Open Range Simulator</span>

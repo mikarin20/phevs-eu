@@ -67,7 +67,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
     <div className="space-y-4">
       {/* Main Image */}
       <div className="relative bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden shadow-md">
-        <div className="aspect-[16/9] w-full max-h-20">
+        <div className="aspect-[16/9] w-full h-96">
           <img
             src={mainImageSrc}
             alt={alt}
