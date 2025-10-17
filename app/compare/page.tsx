@@ -306,16 +306,16 @@ export default function ComparePage() {
                         <div 
                           key={car.id} 
                           className={`flex items-center justify-center text-center py-3 px-4 rounded-lg transition-all ${
-                            isBest && row.highlight
+                            isBest && (row as any).highlight
                               ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 shadow-md'
                               : ''
                           }`}
                         >
                           <div>
-                            <div className={`font-bold ${isBest && row.highlight ? 'text-green-700' : 'text-slate-800'}`}>
+                            <div className={`font-bold ${isBest && (row as any).highlight ? 'text-green-700' : 'text-slate-800'}`}>
                               {value}
                             </div>
-                            {isBest && row.highlight && (
+                            {isBest && (row as any).highlight && (
                               <div className="flex items-center justify-center mt-1 text-green-600 text-xs font-semibold">
                                 <CheckIcon className="h-4 w-4 mr-1" />
                                 Best Value
