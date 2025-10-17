@@ -333,23 +333,23 @@ export default function Home() {
   const themes = {
     light: {
       name: 'Light',
-      background: 'bg-[#F8FAFB]',
-      headerBg: 'bg-white',
-      headerText: 'text-gray-900',
-      cardBg: 'bg-white',
-      cardBorder: 'border-gray-200',
-      textPrimary: 'text-gray-900',
-      textSecondary: 'text-gray-600'
+      background: 'bg-gray-50',
+      headerBg: 'bg-gray-100',
+      headerText: 'text-gray-800',
+      cardBg: 'bg-gray-50',
+      cardBorder: 'border-gray-300',
+      textPrimary: 'text-gray-800',
+      textSecondary: 'text-gray-500'
     },
     dark: {
       name: 'Dark',
-      background: 'bg-slate-900',
-      headerBg: 'bg-slate-800',
-      headerText: 'text-slate-100',
-      cardBg: 'bg-slate-800',
-      cardBorder: 'border-slate-700',
-      textPrimary: 'text-slate-100',
-      textSecondary: 'text-slate-300'
+      background: 'bg-slate-700',
+      headerBg: 'bg-slate-600',
+      headerText: 'text-slate-200',
+      cardBg: 'bg-slate-600',
+      cardBorder: 'border-slate-500',
+      textPrimary: 'text-slate-200',
+      textSecondary: 'text-slate-400'
     }
   }
 
