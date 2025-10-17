@@ -469,23 +469,6 @@ export default function Home() {
             </div>
 
             <div className="flex items-center space-x-4">
-              <button
-                onClick={() => {
-                  if (selectedCars.length === 0) {
-                    alert('Please select a vehicle first to use Range Simulator')
-                    return
-                  }
-                  setSelectedCarForSimulator(selectedCars[0])
-                  setIsRangeSimulatorOpen(true)
-                }}
-                className={`btn-secondary inline-flex items-center space-x-2 ${
-                  selectedCars.length === 0 ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={selectedCars.length === 0}
-              >
-                <SparklesIcon className="h-5 w-5" />
-                <span>Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
-              </button>
               <Link 
                 href="/compare" 
                 className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
@@ -661,41 +644,6 @@ export default function Home() {
             </div>
           </div>
 
-      {/* Range Simulator Banner */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-blue-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <SparklesIcon className="h-6 w-6 text-blue-600" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-slate-800">Range Simulator</h3>
-                <p className="text-sm text-slate-600">Discover your real-world electric range based on temperature, climate control, and driving conditions</p>
-              </div>
-            </div>
-            <button
-              onClick={() => {
-                if (selectedCars.length === 0) {
-                  alert('Please select a vehicle first to use Range Simulator')
-                  return
-                }
-                setSelectedCarForSimulator(selectedCars[0])
-                setIsRangeSimulatorOpen(true)
-              }}
-              className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
-                selectedCars.length === 0 
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                  : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
-              }`}
-              disabled={selectedCars.length === 0}
-            >
-              <SparklesIcon className="h-5 w-5" />
-              <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
-            </button>
-          </div>
-              </div>
-            </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -724,7 +672,7 @@ export default function Home() {
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredAndSortedCars.map((car) => (
-              <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-xl hover:scale-102 transition-all duration-300 block group">
+              <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
                 {/* Car Image */}
                 <div className="mb-4">
                   <div className="aspect-[16/9] w-full max-h-40 rounded-lg overflow-hidden">
@@ -744,11 +692,11 @@ export default function Home() {
                 {/* Car Info */}
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-[#0B2E33]">
+                    <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>
                       {car.brand} {car.model}
                     </h3>
                     <div className="flex items-center space-x-2">
-                      <div className="text-xl font-bold text-[#4F7C82]">
+                      <div className={`text-xl font-bold ${currentTheme.textSecondary}`}>
                         €{car.price_eur.toLocaleString()}
                       </div>
                       <div className="relative group">
@@ -779,16 +727,6 @@ export default function Home() {
                       </div>
                       <div className="flex items-center space-x-2">
                         <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
-                        <button
-                          onClick={() => {
-                            setSelectedCarForSimulator(car)
-                            setIsRangeSimulatorOpen(true)
-                          }}
-                          className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
-                          title="Range Simulator"
-                        >
-                          <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
-                        </button>
                       </div>
                     </div>
                       <div className="flex items-center justify-between">
@@ -873,7 +811,7 @@ export default function Home() {
         ) : (
                 <div className="space-y-4">
             {filteredAndSortedCars.map((car) => (
-              <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-xl hover:scale-102 transition-all duration-300 block group">
+              <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
@@ -1025,14 +963,6 @@ export default function Home() {
         )}
       </div>
 
-      {/* Range Simulator */}
-      <RangeSimulator
-        baseRange={selectedCarForSimulator?.ev_range_km || 100}
-        batteryCapacity={selectedCarForSimulator?.battery_kwh || 15}
-        isOpen={isRangeSimulatorOpen}
-        onClose={() => setIsRangeSimulatorOpen(false)}
-        simulatorData={selectedCarForSimulator?.simulator_data}
-      />
     </div>
   )
 }
