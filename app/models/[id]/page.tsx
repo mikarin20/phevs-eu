@@ -129,6 +129,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: 'Power', value: `${car.power_hp} HP`, highlight: true },
         { label: 'Fuel Consumption', value: `${car.fuel_consumption} L/100km` },
         { label: 'CO₂ Emission', value: `${car.co2_emission} g/km` },
+        { label: 'Segment', value: car.segment },
       ]
     },
     {
@@ -136,7 +137,8 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       items: [
         { label: 'Trunk Volume', value: `${car.trunk_volume} L` },
         { label: 'Seats', value: car.seats },
-        { label: 'Segment', value: car.segment },
+        { label: 'Warranty', value: `${car.warranty_years} years` },
+        { label: 'Country Availability', value: car.country_availability },
       ]
     },
     {
@@ -145,7 +147,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: 'Brand', value: car.brand },
         { label: 'Model', value: car.model },
         { label: 'Year', value: car.year },
-        { label: 'Warranty', value: `${car.warranty_years} years` },
+        { label: 'Price', value: `€${car.price_eur.toLocaleString()}` },
       ]
     }
   ]
@@ -207,7 +209,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         )}
 
         {/* Specifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {specifications.map((spec, index) => (
             <div key={index} className="card p-6">
               <h3 className="text-xl font-bold text-[#0B2E33] mb-4 pb-3 border-b-2 border-[#E2E8F0]">
@@ -247,9 +249,26 @@ export default function ModelDetail({ params }: ModelDetailProps) {
             </div>
           ))}
         </div>
+
+        {/* Battery Simulator Section - Always Visible */}
+        <div className="mb-8">
+          <div className="card p-8 text-center">
+            <h3 className="text-2xl font-bold text-[#0B2E33] mb-6">Battery Range Simulator</h3>
+            <p className="text-[#4F7C82] mb-6">
+              Simulate your electric range based on real-world conditions
+            </p>
+            <button
+              onClick={() => setIsRangeSimulatorOpen(true)}
+              className="btn-primary inline-flex items-center space-x-2 px-8 py-4 text-lg"
+            >
+              <SparklesIcon className="h-6 w-6" />
+              <span>Open Range Simulator</span>
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Range Simulator */}
+      {/* Range Simulator Modal */}
       <RangeSimulator
         baseRange={car.ev_range_km}
         batteryCapacity={car.battery_kwh}
