@@ -27,6 +27,7 @@ import { CarCardSkeleton } from '@/components/LoadingSkeleton'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
 import RangeSimulator from '@/components/RangeSimulator'
 import Tooltip from '@/components/Tooltip'
+import SuggestModelForm from '@/components/SuggestModelForm'
 
 interface Car {
   id: string
@@ -98,6 +99,7 @@ export default function Home() {
   const [selectedCarForSimulator, setSelectedCarForSimulator] = useState<Car | null>(null)
   const [selectedTheme, setSelectedTheme] = useState('light')
   const [selectedLanguage, setSelectedLanguage] = useState('en')
+  const [isSuggestFormOpen, setIsSuggestFormOpen] = useState(false)
 
   // Otomatik dil algılama
   useEffect(() => {
@@ -631,6 +633,12 @@ export default function Home() {
                   </button>
                 ))}
               </div>
+              <button
+                onClick={() => setIsSuggestFormOpen(true)}
+                className="hidden sm:inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
+              >
+                <span className="text-sm sm:text-base">Suggest Model</span>
+              </button>
               <Link 
                 href="/compare" 
                 className={`inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 ${
@@ -932,43 +940,55 @@ export default function Home() {
                       <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
+                        <Tooltip content="Battery capacity in kilowatt-hours (kWh) - Higher capacity means longer electric range">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.battery}:</span>
+                        </Tooltip>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
+                        <Tooltip content="Fuel consumption in liters per 100km - Lower values mean better fuel efficiency">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.fuelConsumption}:</span>
+                        </Tooltip>
                         </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
+                        <Tooltip content="Total power output in horsepower (HP) - Combined electric and combustion engine power">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.totalPower}:</span>
+                        </Tooltip>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
-                    </div>
+                        </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
+                        <Tooltip content="AC charging time in hours - Time to fully charge the battery using home/office charger">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.chargeTime}:</span>
+                        </Tooltip>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
-                    </div>
+                        </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <span className={`${currentTheme.textPrimary}`}>{t.co2}:</span>
+                        <Tooltip content="CO₂ emissions in grams per kilometer - Lower values mean better environmental performance">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.co2}:</span>
+                        </Tooltip>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
+                        <Tooltip content="Trunk volume in liters - Cargo space capacity with all seats in normal position">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>Trunk:</span>
+                        </Tooltip>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
-                      </div>
+                        </div>
                     </div>
 
                   {/* Actions */}
@@ -1188,6 +1208,12 @@ export default function Home() {
         isOpen={isRangeSimulatorOpen}
         onClose={() => setIsRangeSimulatorOpen(false)}
         simulatorData={selectedCarForSimulator?.simulator_data}
+      />
+
+      {/* Suggest Model Form */}
+      <SuggestModelForm
+        isOpen={isSuggestFormOpen}
+        onClose={() => setIsSuggestFormOpen(false)}
       />
 
     </div>

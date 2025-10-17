@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Head from 'next/head'
 import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
@@ -339,7 +340,69 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   ]
 
   return (
-    <div className={`min-h-screen ${currentTheme.background}`}>
+    <>
+      <Head>
+        <title>{`${car.year} ${car.brand} ${car.model} Specs, Range & Charging | PHEVs.eu`}</title>
+        <meta name="description" content={`Compare ${car.year} ${car.brand} ${car.model} plug-in hybrid specifications, electric range (${car.ev_range_km}km), battery capacity (${car.battery_kwh}kWh), charging times, and pricing (€${car.price_eur.toLocaleString()}).`} />
+        <meta name="keywords" content={`${car.brand} ${car.model}, plug-in hybrid, PHEV, electric range, battery, charging, ${car.year}`} />
+        <meta property="og:title" content={`${car.year} ${car.brand} ${car.model} - PHEVs.eu`} />
+        <meta property="og:description" content={`Compare ${car.year} ${car.brand} ${car.model} plug-in hybrid specifications and pricing.`} />
+        <meta property="og:image" content={car.image_url} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${car.year} ${car.brand} ${car.model} - PHEVs.eu`} />
+        <meta name="twitter:description" content={`Compare ${car.year} ${car.brand} ${car.model} plug-in hybrid specifications and pricing.`} />
+        <meta name="twitter:image" content={car.image_url} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Vehicle",
+              "name": `${car.year} ${car.brand} ${car.model}`,
+              "brand": {
+                "@type": "Brand",
+                "name": car.brand
+              },
+              "model": car.model,
+              "vehicleModelDate": car.year,
+              "bodyType": car.segment,
+              "fuelType": "Hybrid",
+              "fuelEfficiency": {
+                "@type": "QuantitativeValue",
+                "value": car.fuel_consumption,
+                "unitCode": "L/100KM"
+              },
+              "emissionsCO2": {
+                "@type": "QuantitativeValue",
+                "value": car.co2_emission,
+                "unitCode": "G/KM"
+              },
+              "vehicleEngine": {
+                "@type": "EngineSpecification",
+                "enginePower": {
+                  "@type": "QuantitativeValue",
+                  "value": car.power_hp,
+                  "unitCode": "HP"
+                }
+              },
+              "cargoVolume": {
+                "@type": "QuantitativeValue",
+                "value": car.trunk_volume,
+                "unitCode": "LTR"
+              },
+              "seatingCapacity": car.seats,
+              "image": car.image_url,
+              "offers": {
+                "@type": "Offer",
+                "price": car.price_eur,
+                "priceCurrency": "EUR"
+              }
+            })
+          }}
+        />
+      </Head>
+      <div className={`min-h-screen ${currentTheme.background}`}>
 
       {/* Header */}
       <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
@@ -509,6 +572,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         onClose={() => setIsRangeSimulatorOpen(false)}
         simulatorData={car.simulator_data}
       />
-    </div>
+      </div>
+    </>
   )
 }
