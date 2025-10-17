@@ -93,6 +93,8 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
   const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
   const [selectedCarForSimulator, setSelectedCarForSimulator] = useState<Car | null>(null)
+  const [selectedTheme, setSelectedTheme] = useState('light')
+  const [selectedLanguage, setSelectedLanguage] = useState('en')
   
   const [filters, setFilters] = useState({
     segment: '',
@@ -325,9 +327,75 @@ export default function Home() {
     localStorage.setItem('phevs-sort', newSort)
   }
 
+  // Tema ve çeviri objeleri
+  const themes = {
+    light: {
+      name: 'Light',
+      background: 'bg-[#F8FAFB]',
+      headerBg: 'bg-white',
+      headerText: 'text-gray-900',
+      cardBg: 'bg-white',
+      cardBorder: 'border-gray-200',
+      textPrimary: 'text-gray-900',
+      textSecondary: 'text-gray-600'
+    },
+    dark: {
+      name: 'Dark',
+      background: 'bg-slate-900',
+      headerBg: 'bg-slate-800',
+      headerText: 'text-slate-100',
+      cardBg: 'bg-slate-800',
+      cardBorder: 'border-slate-700',
+      textPrimary: 'text-slate-100',
+      textSecondary: 'text-slate-300'
+    }
+  }
+
+  const translations = {
+    en: {
+      searchPlaceholder: 'Search by brand or model...',
+      allBrands: 'All Brands',
+      allSegments: 'All Segments',
+      clearFilters: 'Clear all filters',
+      rangeSimulator: 'Range Simulator',
+      compare: 'Compare',
+      favorites: 'Favorites'
+    },
+    de: {
+      searchPlaceholder: 'Nach Marke oder Modell suchen...',
+      allBrands: 'Alle Marken',
+      allSegments: 'Alle Segmente',
+      clearFilters: 'Alle Filter löschen',
+      rangeSimulator: 'Reichweiten-Simulator',
+      compare: 'Vergleichen',
+      favorites: 'Favoriten'
+    },
+    tr: {
+      searchPlaceholder: 'Marka veya model ara...',
+      allBrands: 'Tüm Markalar',
+      allSegments: 'Tüm Segmentler',
+      clearFilters: 'Tüm filtreleri temizle',
+      rangeSimulator: 'Menzil Simülatörü',
+      compare: 'Karşılaştır',
+      favorites: 'Favoriler'
+    },
+    pl: {
+      searchPlaceholder: 'Szukaj według marki lub modelu...',
+      allBrands: 'Wszystkie Marki',
+      allSegments: 'Wszystkie Segmenty',
+      clearFilters: 'Wyczyść wszystkie filtry',
+      rangeSimulator: 'Symulator Zasięgu',
+      compare: 'Porównaj',
+      favorites: 'Ulubione'
+    }
+  }
+
+  const currentTheme = themes[selectedTheme as keyof typeof themes]
+  const t = translations[selectedLanguage as keyof typeof translations]
+
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#F8FAFB]">
+      <div className={`min-h-screen ${currentTheme.background}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="space-y-6">
             <CarCardSkeleton count={6} viewMode="list" />
@@ -338,15 +406,68 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFB]">
+    <div className={`min-h-screen ${currentTheme.background}`}>
       {/* Header */}
-      <header className="header-solid sticky top-0 z-50">
+      <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <h1 className="text-2xl font-bold text-[#0B2E33]">PHEVs.eu</h1>
-              <span className="text-sm text-[#4F7C82]">Plug-in Hybrid Comparison</span>
+              <h1 className={`text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
+              <span className={`text-sm ${currentTheme.textSecondary}`}>Plug-in Hybrid Comparison</span>
             </div>
+            
+            {/* Dil ve Tema Seçicileri */}
+            <div className="flex items-center space-x-3">
+              {/* Tema Seçici */}
+              <div className="flex space-x-1">
+                {Object.entries(themes).map(([key, theme]) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedTheme(key)}
+                    className={`p-2 rounded-lg transition-all duration-300 ${
+                      selectedTheme === key
+                        ? selectedTheme === 'dark' 
+                          ? 'bg-slate-600 text-white shadow-lg'
+                          : 'bg-gray-800 text-white shadow-lg'
+                        : selectedTheme === 'dark'
+                          ? 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    }`}
+                    title={theme.name}
+                  >
+                    {key === 'light' ? '☀️' : '🌙'}
+                  </button>
+                ))}
+              </div>
+
+              {/* Dil Seçici */}
+              <div className="flex space-x-1">
+                {[
+                  { code: 'en', flag: '🇬🇧' },
+                  { code: 'de', flag: '🇩🇪' },
+                  { code: 'tr', flag: '🇹🇷' },
+                  { code: 'pl', flag: '🇵🇱' }
+                ].map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => setSelectedLanguage(lang.code)}
+                    className={`p-2 rounded-lg transition-all duration-300 text-lg ${
+                      selectedLanguage === lang.code
+                        ? selectedTheme === 'dark' 
+                          ? 'bg-slate-600 text-white shadow-lg'
+                          : 'bg-gray-800 text-white shadow-lg'
+                        : selectedTheme === 'dark'
+                          ? 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    }`}
+                    title={lang.code.toUpperCase()}
+                  >
+                    {lang.flag}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => {
@@ -392,7 +513,7 @@ export default function Home() {
                 <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#93B1B5]" />
                 <input
                   type="text"
-                  placeholder="Search by brand or model..."
+                  placeholder={t.searchPlaceholder}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="input-clean w-full pl-10"

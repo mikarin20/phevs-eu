@@ -338,60 +338,6 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
   return (
     <div className={`min-h-screen ${currentTheme.background}`}>
-      {/* Theme and Language Selector */}
-      <div className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} p-4`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center">
-            {/* Theme Selector */}
-            <div className="flex space-x-2">
-              {Object.entries(themes).map(([key, theme]) => (
-                <button
-                  key={key}
-                  onClick={() => setSelectedTheme(key)}
-                  className={`px-3 py-2 rounded-lg font-medium transition-all duration-300 text-sm ${
-                    selectedTheme === key
-                      ? selectedTheme === 'dark' 
-                        ? 'bg-[#DED3C4] text-[#555879] shadow-lg'
-                        : 'bg-gray-800 text-white shadow-lg'
-                      : selectedTheme === 'dark'
-                        ? 'bg-[#98A1BC] text-[#F4EBD3] hover:bg-[#DED3C4] hover:text-[#555879]'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                  }`}
-                >
-                  {theme.name}
-                </button>
-              ))}
-            </div>
-
-            {/* Language Selector */}
-            <div className="flex space-x-2">
-              {[
-                { code: 'en', name: 'EN', flag: '🇬🇧' },
-                { code: 'de', name: 'DE', flag: '🇩🇪' },
-                { code: 'tr', name: 'TR', flag: '🇹🇷' },
-                { code: 'pl', name: 'PL', flag: '🇵🇱' }
-              ].map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => setSelectedLanguage(lang.code)}
-                  className={`px-3 py-2 rounded-lg font-medium transition-all duration-300 text-sm flex items-center space-x-1 ${
-                    selectedLanguage === lang.code
-                      ? selectedTheme === 'dark' 
-                        ? 'bg-[#DED3C4] text-[#555879] shadow-lg'
-                        : 'bg-gray-800 text-white shadow-lg'
-                      : selectedTheme === 'dark'
-                        ? 'bg-[#98A1BC] text-[#F4EBD3] hover:bg-[#DED3C4] hover:text-[#555879]'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                  }`}
-                >
-                  <span>{lang.flag}</span>
-                  <span>{lang.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Header */}
       <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
