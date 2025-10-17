@@ -179,27 +179,4 @@
            focus:border-[#4F7C82] focus:ring-1 focus:ring-[#4F7C82] outline-none;
   }
 
-  /* Flag Icons */
-  .flag-icon {
-    @apply inline-block w-6 h-4 rounded-sm;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .flag-en {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='30' fill='%23C8102E'/%3E%3Cpath d='M0 0h60v30H0z' fill='%23C8102E'/%3E%3Cpath d='M0 0h60v30H0z' fill='%23C8102E'/%3E%3C/svg%3E");
-  }
-
-  .flag-de {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='10' fill='%23000000'/%3E%3Crect y='10' width='60' height='10' fill='%23DD0000'/%3E%3Crect y='20' width='60' height='10' fill='%23FFCE00'/%3E%3C/svg%3E");
-  }
-
-  .flag-tr {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='30' fill='%23E30A17'/%3E%3C/svg%3E");
-  }
-
-  .flag-pl {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='15' fill='%23FFFFFF'/%3E%3Crect y='15' width='60' height='15' fill='%23DC143C'/%3E%3C/svg%3E");
-  }
 }

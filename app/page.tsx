@@ -469,26 +469,22 @@ export default function Home() {
                   { 
                     code: 'en', 
                     name: 'EN', 
-                    flag: '🇬🇧',
-                    cssFlag: '🇬🇧'
+                    flag: 'gb'
                   },
                   { 
                     code: 'de', 
                     name: 'DE', 
-                    flag: '🇩🇪',
-                    cssFlag: '🇩🇪'
+                    flag: 'de'
                   },
                   { 
                     code: 'tr', 
                     name: 'TR', 
-                    flag: '🇹🇷',
-                    cssFlag: '🇹🇷'
+                    flag: 'tr'
                   },
                   { 
                     code: 'pl', 
                     name: 'PL', 
-                    flag: '🇵🇱',
-                    cssFlag: '🇵🇱'
+                    flag: 'pl'
                   }
                 ].map((lang) => (
                   <button
@@ -505,9 +501,7 @@ export default function Home() {
                     }`}
                     title={lang.code.toUpperCase()}
                   >
-                    <span className="text-lg" title={lang.name}>
-                      {lang.flag}
-                    </span>
+                    <span className={`fi fi-${lang.flag} text-lg`} title={lang.name}></span>
                   </button>
                 ))}
               </div>
