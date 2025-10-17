@@ -530,7 +530,7 @@ export default function Home() {
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredAndSortedCars.map((car) => (
-              <div key={car.id} className="card hover:shadow-md transition-all duration-200">
+              <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-md transition-all duration-200 block">
                 {/* Car Image */}
                 <div className="aspect-w-16 aspect-h-9 mb-4">
                   <img
@@ -609,7 +609,11 @@ export default function Home() {
                   {/* Actions */}
                   <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0]">
                     <button
-                      onClick={() => toggleFavorite(car.id)}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        toggleFavorite(car.id)
+                      }}
                       className="p-2 hover:bg-[#F1F5F9] rounded-lg transition-colors"
                     >
                       {favorites.includes(car.id) ? (
@@ -619,7 +623,11 @@ export default function Home() {
                       )}
                     </button>
                     <button
-                      onClick={() => toggleCarSelection(car)}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        toggleCarSelection(car)
+                      }}
                       className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
                         selectedCars.find(c => c.id === car.id)
                           ? 'border-[#4F7C82] bg-[#4F7C82] text-white'
@@ -632,13 +640,13 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (
           <div className="space-y-4">
             {filteredAndSortedCars.map((car) => (
-              <div key={car.id} className="card hover:shadow-md transition-all duration-200">
+              <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-md transition-all duration-200 block">
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
@@ -712,7 +720,11 @@ export default function Home() {
                   {/* Actions */}
                   <div className="flex-shrink-0 flex items-center space-x-2">
                     <button
-                      onClick={() => toggleFavorite(car.id)}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        toggleFavorite(car.id)
+                      }}
                       className="p-2 hover:bg-[#F1F5F9] rounded-lg transition-colors"
                     >
                       {favorites.includes(car.id) ? (
@@ -722,7 +734,11 @@ export default function Home() {
                       )}
                     </button>
                     <button
-                      onClick={() => toggleCarSelection(car)}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        toggleCarSelection(car)
+                      }}
                       className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
                         selectedCars.find(c => c.id === car.id)
                           ? 'border-[#4F7C82] bg-[#4F7C82] text-white'
@@ -735,7 +751,7 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
