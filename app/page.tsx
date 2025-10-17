@@ -13,7 +13,9 @@ import {
   ChevronDownIcon,
   SparklesIcon,
   BoltIcon,
-  CurrencyEuroIcon
+  CurrencyEuroIcon,
+  CpuChipIcon,
+  WrenchScrewdriverIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -286,12 +288,12 @@ export default function Home() {
               <Link 
                 href="/compare" 
                 className={`btn-primary inline-flex items-center space-x-2 ${
-                  selectedCars.length === 0 ? 'opacity-50 cursor-not-allowed' : ''
+                  selectedCars.length < 2 ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
-                onClick={(e) => selectedCars.length === 0 && e.preventDefault()}
+                onClick={(e) => selectedCars.length < 2 && e.preventDefault()}
               >
                 <ArrowsUpDownIcon className="h-5 w-5" />
-                <span>Compare ({selectedCars.length})</span>
+                <span>Compare ({selectedCars.length}/2)</span>
               </Link>
             </div>
           </div>
@@ -511,25 +513,33 @@ export default function Home() {
                   </div>
 
                   {/* Specifications */}
-                  <div className="grid grid-cols-2 gap-3 text-sm mb-4">
-                    <div className="flex items-center space-x-2">
-                      <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                      <span className="text-[#0B2E33]">Range:</span>
+                  <div className="space-y-2 text-sm mb-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">EV Range:</span>
+                      </div>
                       <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
-                      <span className="text-[#0B2E33]">Battery:</span>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Battery:</span>
+                      </div>
                       <span className="font-semibold text-[#4F7C82]">{car.battery_kwh} kWh</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
-                      <span className="text-[#0B2E33]">Consumption:</span>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Fuel Consumption:</span>
+                      </div>
                       <span className="font-semibold text-[#4F7C82]">{car.fuel_consumption} L/100km</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                      <span className="text-[#0B2E33]">Power:</span>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Total Power:</span>
+                      </div>
                       <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
                     </div>
                   </div>
@@ -601,22 +611,22 @@ export default function Home() {
                     <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Range:</span>
+                        <span className="text-[#0B2E33]">EV Range:</span>
                         <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">Battery:</span>
                         <span className="font-semibold text-[#4F7C82]">{car.battery_kwh} kWh</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Consumption:</span>
+                        <span className="text-[#0B2E33]">Fuel Consumption:</span>
                         <span className="font-semibold text-[#4F7C82]">{car.fuel_consumption} L/100km</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Power:</span>
+                        <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <span className="text-[#0B2E33]">Total Power:</span>
                         <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
                       </div>
                     </div>

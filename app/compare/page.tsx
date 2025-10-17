@@ -192,7 +192,7 @@ export default function ComparePage() {
             <div className="text-8xl mb-6">⚔️</div>
             <h1 className="text-4xl font-bold text-slate-800 mb-4">No Vehicles Selected</h1>
             <p className="text-lg text-slate-600 mb-8">
-              Please select 2-3 vehicles from the home page to compare them
+              Please select 2 vehicles from the home page to compare them
             </p>
             <Link href="/" className="btn-primary inline-flex items-center space-x-2">
               <ArrowLeftIcon className="h-5 w-5" />
