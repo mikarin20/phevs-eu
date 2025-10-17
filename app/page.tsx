@@ -535,37 +535,37 @@ export default function Home() {
       <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo ve Başlık - Mobilde kompakt */}
+            {/* Logo, Başlık ve Tema Seçici - Mobilde kompakt */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               <h1 className={`text-lg sm:text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
               <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Plug-in Hybrid Comparison</span>
-            </div>
-            
-            {/* Tema Seçici - Mobilde gizli, tablet+ görünür */}
-            <div className="hidden sm:flex items-center space-x-2">
-              <div className="flex space-x-1">
-                {Object.entries(themes).map(([key, theme]) => (
-                  <button
-                    key={key}
-                    onClick={() => setSelectedTheme(key)}
-                    className={`p-2 rounded-lg transition-all duration-300 ${
-                      selectedTheme === key
-                        ? selectedTheme === 'dark' 
-                          ? 'bg-slate-600 text-white shadow-lg'
-                          : 'bg-gray-800 text-white shadow-lg'
-                        : selectedTheme === 'dark'
-                          ? 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    }`}
-                    title={theme.name}
-                  >
-                    <span className="text-base">{key === 'light' ? '☀️' : '🌙'}</span>
-                  </button>
-                ))}
+              
+              {/* Tema Seçici - Mobilde gizli, tablet+ görünür */}
+              <div className="hidden sm:flex items-center space-x-2 ml-4">
+                <div className="flex space-x-1">
+                  {Object.entries(themes).map(([key, theme]) => (
+                    <button
+                      key={key}
+                      onClick={() => setSelectedTheme(key)}
+                      className={`p-2 rounded-lg transition-all duration-300 ${
+                        selectedTheme === key
+                          ? selectedTheme === 'dark' 
+                            ? 'bg-slate-600 text-white shadow-lg'
+                            : 'bg-gray-800 text-white shadow-lg'
+                          : selectedTheme === 'dark'
+                            ? 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      }`}
+                      title={theme.name}
+                    >
+                      <span className="text-base">{key === 'light' ? '☀️' : '🌙'}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Dil Seçici - Compare'in solunda */}
               <div className="flex space-x-1">
                 {[
@@ -593,7 +593,7 @@ export default function Home() {
                   <button
                     key={lang.code}
                     onClick={() => setSelectedLanguage(lang.code)}
-                    className={`p-2 rounded-lg transition-all duration-300 ${
+                    className={`p-1.5 sm:p-2 rounded-lg transition-all duration-300 ${
                       selectedLanguage === lang.code
                         ? selectedTheme === 'dark' 
                           ? 'bg-slate-600 shadow-lg'
@@ -604,21 +604,21 @@ export default function Home() {
                     }`}
                     title={lang.code.toUpperCase()}
                   >
-                    <span className={`fi fi-${lang.flag} text-lg`} title={lang.name}></span>
+                    <span className={`fi fi-${lang.flag} text-sm sm:text-lg`} title={lang.name}></span>
                   </button>
                 ))}
               </div>
               <Link 
                 href="/compare" 
-                className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                className={`inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 ${
                   selectedCars.length < 2 
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
                     : 'bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
                 }`}
                 onClick={(e) => selectedCars.length < 2 && e.preventDefault()}
               >
-                <ArrowsUpDownIcon className="h-5 w-5" />
-                <span>Compare ({selectedCars.length}/3)</span>
+                <ArrowsUpDownIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="text-sm sm:text-base">Compare ({selectedCars.length}/3)</span>
               </Link>
             </div>
           </div>
@@ -947,14 +947,14 @@ export default function Home() {
                     </div>
 
                   {/* Actions */}
-                  <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0]">
+                  <div className={`flex items-center justify-center pt-4 border-t ${currentTheme.cardBorder}`}>
                     <button
                       onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
                         toggleFavorite(car.id)
                       }}
-                      className="p-2 hover:bg-[#F1F5F9] rounded-lg transition-colors"
+                      className={`p-2 hover:bg-opacity-20 rounded-lg transition-colors ${currentTheme.cardBg}`}
                     >
                       {favorites.includes(car.id) ? (
                         <HeartSolidIcon className="h-5 w-5 text-red-500" />
@@ -962,7 +962,7 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-start space-x-2">
+                    <div className="flex flex-row justify-center space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -972,7 +972,7 @@ export default function Home() {
                         className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-[#4F7C82] text-white'
-                          : 'bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white'
+                          : `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-[#4F7C82] hover:text-white`
                         }`}
                       >
                         <PlusIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
@@ -981,7 +981,7 @@ export default function Home() {
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
+                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-[#4F7C82] hover:text-white transition-colors`}
                       >
                         <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {t.view}
@@ -1094,14 +1094,14 @@ export default function Home() {
                 </div>
 
                   {/* Actions */}
-                  <div className="flex-shrink-0 flex items-center space-x-2">
+                  <div className="flex-shrink-0 flex items-center justify-center space-x-2">
                     <button
                       onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
                         toggleFavorite(car.id)
                       }}
-                      className="p-2 hover:bg-[#F1F5F9] rounded-lg transition-colors"
+                      className={`p-2 hover:bg-opacity-20 rounded-lg transition-colors ${currentTheme.cardBg}`}
                     >
                       {favorites.includes(car.id) ? (
                         <HeartSolidIcon className="h-5 w-5 text-red-500" />
@@ -1109,7 +1109,7 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-start space-x-2">
+                    <div className="flex flex-row justify-center space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -1119,7 +1119,7 @@ export default function Home() {
                         className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-[#4F7C82] text-white'
-                          : 'bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white'
+                          : `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-[#4F7C82] hover:text-white`
                         }`}
                       >
                         <PlusIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
@@ -1128,7 +1128,7 @@ export default function Home() {
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
+                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-[#4F7C82] hover:text-white transition-colors`}
                       >
                         <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {t.view}
