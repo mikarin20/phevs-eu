@@ -66,18 +66,21 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   return (
     <div className="space-y-4">
       {/* Main Image */}
-      <div className="relative aspect-w-16 aspect-h-9 bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden shadow-md">
-        <img
-          src={mainImageSrc}
-          alt={alt}
-          className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-          loading="eager"
-          onLoad={() => handleImageLoad(mainImageSrc)}
-          onError={(e) => {
-            handleImageError(mainImageSrc)
-            e.currentTarget.src = '/images/placeholder-car.jpg'
-          }}
-        />
+      <div className="relative bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden shadow-md">
+        <div className="aspect-[4/3] w-full">
+          <img
+            src={mainImageSrc}
+            alt={alt}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            loading="eager"
+            fetchPriority="high"
+            onLoad={() => handleImageLoad(mainImageSrc)}
+            onError={(e) => {
+              handleImageError(mainImageSrc)
+              e.currentTarget.src = '/images/placeholder-car.jpg'
+            }}
+          />
+        </div>
       </div>
 
       {/* Thumbnail Images */}
@@ -87,23 +90,25 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
             <button
               key={index}
               onClick={() => setSelectedImage(index + 1)} // +1 çünkü ilk görsel ana görsel
-              className={`aspect-w-16 aspect-h-9 bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden transition-all duration-300 ${
+              className={`bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden transition-all duration-300 ${
                 selectedImage === index + 1 
                   ? 'ring-2 ring-[#4F7C82] shadow-lg scale-105' 
                   : 'hover:ring-1 hover:ring-[#93B1B5] hover:scale-105'
               }`}
             >
-              <img
-                src={image}
-                alt={`${alt} ${index + 2}`}
-                className="w-full h-20 object-cover"
-                loading="lazy"
-                onLoad={() => handleImageLoad(image)}
-                onError={(e) => {
-                  handleImageError(image)
-                  e.currentTarget.style.display = 'none'
-                }}
-              />
+              <div className="aspect-[4/3] w-full">
+                <img
+                  src={image}
+                  alt={`${alt} ${index + 2}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  onLoad={() => handleImageLoad(image)}
+                  onError={(e) => {
+                    handleImageError(image)
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
+              </div>
             </button>
           ))}
         </div>

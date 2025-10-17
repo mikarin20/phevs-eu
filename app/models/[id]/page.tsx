@@ -85,7 +85,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     )
   }
 
-  // Model için lokal fotoğrafları al
+  // Model için lokal fotoğrafları al - sadece mevcut dosyaları
   const getCatalogImages = (carId: string, brand: string) => {
     const urlParts = car.image_url.split('/')
     const brandFromUrl = urlParts[4]
@@ -101,12 +101,16 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     // Main görsel (doğru uzantıyla)
     images.push(car.image_url)
     
-    // Numaralı görseller
-    for (let i = 1; i <= 20; i++) {
-      const num = i.toString().padStart(3, '0')
-      images.push(`${basePath}/${num}.jpg`)
-      images.push(`${basePath}/${num}.png`)
-    }
+    // Sadece mevcut numaralı görselleri ekle
+    const existingImages = [
+      '002.jpg', '004.jpg', '006.jpg', '009.jpg', '010.jpg', 
+      '011.jpg', '012.jpg', '013.jpg', '016.jpg', '017.jpg', 
+      '018.jpg', '019.jpg', '021.jpg'
+    ]
+    
+    existingImages.forEach(img => {
+      images.push(`${basePath}/${img}`)
+    })
     
     return images
   }

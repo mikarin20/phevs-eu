@@ -573,8 +573,8 @@ export default function Home() {
               <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
             </button>
           </div>
-        </div>
-      </div>
+              </div>
+            </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -605,16 +605,19 @@ export default function Home() {
             {filteredAndSortedCars.map((car) => (
               <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-xl hover:scale-102 transition-all duration-300 block group">
                 {/* Car Image */}
-                <div className="aspect-w-16 aspect-h-9 mb-4">
+                <div className="mb-4">
+                  <div className="aspect-[4/3] w-full rounded-lg overflow-hidden">
                         <img
                           src={car.image_url}
                           alt={`${car.brand} ${car.model}`}
-                    className="w-full h-48 object-cover rounded-lg"
-                    loading="lazy"
+                          className="w-full h-full object-cover"
+                      loading="lazy"
+                      fetchPriority="low"
                           onError={(e) => {
-                      e.currentTarget.src = '/images/placeholder-car.jpg'
-                    }}
-                  />
+                        e.currentTarget.src = '/images/placeholder-car.jpg'
+                      }}
+                    />
+                  </div>
                 </div>
 
                 {/* Car Info */}
@@ -700,13 +703,13 @@ export default function Home() {
                         <span className="text-[#0B2E33]">CO₂:</span>
                       </div>
                       <span className="font-semibold text-[#4F7C82]">{car.co2_emission} g/km</span>
-                    </div>
+                        </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <span className="text-[#0B2E33]">Trunk:</span>
                       </div>
                       <span className="font-semibold text-[#4F7C82]">{car.trunk_volume}L</span>
-                    </div>
+                      </div>
                     </div>
 
                   {/* Actions */}
@@ -753,15 +756,18 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
+                    <div className="aspect-[4/3] w-24 rounded-lg overflow-hidden">
                       <img
                         src={car.image_url}
                         alt={`${car.brand} ${car.model}`}
-                      className="w-24 h-16 object-cover rounded-lg"
-                      loading="lazy"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        fetchPriority="low"
                         onError={(e) => {
                           e.currentTarget.src = '/images/placeholder-car.jpg'
                         }}
                       />
+                    </div>
                   </div>
 
                   {/* Car Info */}

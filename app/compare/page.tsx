@@ -358,15 +358,17 @@ export default function ComparePage() {
               </button>
 
               {/* Car Image */}
-              <div className="w-full h-40 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden mb-4 shadow-lg">
-                <img
-                  src={car.image_url}
-                  alt={`${car.brand} ${car.model}`}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                  onError={(e) => {
-                    e.currentTarget.src = '/images/placeholder-car.jpg'
-                  }}
-                />
+              <div className="w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden mb-4 shadow-lg">
+                <div className="aspect-[4/3] w-full">
+                  <img
+                    src={car.image_url}
+                    alt={`${car.brand} ${car.model}`}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    onError={(e) => {
+                      e.currentTarget.src = '/images/placeholder-car.jpg'
+                    }}
+                  />
+                </div>
                 <div className="hidden w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-600 text-6xl font-bold">
                   {car.brand.charAt(0)}
                 </div>
