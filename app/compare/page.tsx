@@ -214,7 +214,7 @@ export default function ComparePage() {
     }
   }
 
-  if (selectedCars.length === 0) {
+  if (selectedCars.length < 2) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
         <header className="header-metallic">
@@ -231,9 +231,11 @@ export default function ComparePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="card text-center py-20">
             <div className="text-8xl mb-6">⚔️</div>
-            <h1 className="text-4xl font-bold text-slate-800 mb-4">No Vehicles Selected</h1>
+            <h1 className="text-4xl font-bold text-slate-800 mb-4">
+              {selectedCars.length === 0 ? 'No Vehicles Selected' : 'Not Enough Vehicles Selected'}
+            </h1>
             <p className="text-lg text-slate-600 mb-8">
-              Please select 2 vehicles from the home page to compare them
+              Please select at least 2 vehicles (up to 3) from the home page to compare them
             </p>
             <Link href="/" className="btn-primary inline-flex items-center space-x-2">
               <ArrowLeftIcon className="h-5 w-5" />

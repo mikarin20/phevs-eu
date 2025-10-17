@@ -283,7 +283,7 @@ export default function Home() {
       const newSelected = selectedCars.filter(c => c.id !== car.id)
       setSelectedCars(newSelected)
       localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected))
-    } else if (selectedCars.length < 2) {
+    } else if (selectedCars.length < 3) {
       const newSelected = [...selectedCars, car]
       setSelectedCars(newSelected)
       localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected))
@@ -372,7 +372,7 @@ export default function Home() {
                 onClick={(e) => selectedCars.length < 2 && e.preventDefault()}
               >
                 <ArrowsUpDownIcon className="h-5 w-5" />
-                <span>Compare ({selectedCars.length}/2)</span>
+                <span>Compare ({selectedCars.length}/3)</span>
               </Link>
             </div>
           </div>

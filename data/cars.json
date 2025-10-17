@@ -21,11 +21,11 @@
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
-      "child_occupant": 81,
-      "pedestrian_protection": 70,
-      "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
     }
   },
   {
@@ -49,12 +49,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 95,
-      "child_occupant": 89,
-      "pedestrian_protection": 73,
-      "safety_assist": 85,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 89,
+      "child_occupant": 86,
+      "pedestrian_protection": 68,
+      "safety_assist": 73,
+      "overall_rating": 79,
+      "test_year": 2020
     }
   },
   {
@@ -75,7 +75,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 86,
+      "pedestrian_protection": 68,
+      "safety_assist": 73,
+      "overall_rating": 79,
+      "test_year": 2020
+    }
   },
   {
     "id": "audi-5",
@@ -95,7 +104,16 @@
     "trunk_volume": 565,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 93,
+      "child_occupant": 87,
+      "pedestrian_protection": 71,
+      "safety_assist": 80,
+      "overall_rating": 83,
+      "test_year": 2018
+    }
   },
   {
     "id": "new-6",
@@ -115,7 +133,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 93,
+      "child_occupant": 87,
+      "pedestrian_protection": 71,
+      "safety_assist": 80,
+      "overall_rating": 83,
+      "test_year": 2018
+    }
   },
   {
     "id": "audi-2",
@@ -139,11 +166,11 @@
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
-      "child_occupant": 88,
+      "child_occupant": 85,
       "pedestrian_protection": 76,
       "safety_assist": 85,
-      "overall_rating": 5,
-      "test_year": 2024
+      "overall_rating": 85,
+      "test_year": 2018
     }
   },
   {
@@ -167,12 +194,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 95,
-      "child_occupant": 88,
-      "pedestrian_protection": 75,
-      "safety_assist": 85,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 93,
+      "child_occupant": 86,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 77,
+      "test_year": 2017
     }
   },
   {
@@ -196,12 +223,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 95,
-      "child_occupant": 88,
-      "pedestrian_protection": 75,
-      "safety_assist": 85,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 93,
+      "child_occupant": 86,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 77,
+      "test_year": 2017
     }
   },
   {
@@ -225,12 +252,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 95,
-      "child_occupant": 88,
-      "pedestrian_protection": 75,
-      "safety_assist": 85,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 93,
+      "child_occupant": 86,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 77,
+      "test_year": 2017
     }
   },
   {
@@ -254,12 +281,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 97,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 85,
+      "pedestrian_protection": 81,
+      "safety_assist": 59,
+      "overall_rating": 79,
+      "test_year": 2017
     }
   },
   {
@@ -280,7 +307,16 @@
     "trunk_volume": 515,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 85,
+      "pedestrian_protection": 81,
+      "safety_assist": 59,
+      "overall_rating": 79,
+      "test_year": 2017
+    }
   },
   {
     "id": "bmw-m5touring",
@@ -303,12 +339,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 97,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 85,
+      "pedestrian_protection": 81,
+      "safety_assist": 59,
+      "overall_rating": 79,
+      "test_year": 2017
     }
   },
   {
@@ -329,7 +365,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 87,
+      "pedestrian_protection": 75,
+      "safety_assist": 70,
+      "overall_rating": 80,
+      "test_year": 2022
+    }
   },
   {
     "id": "bmw-serii3limuzyna",
@@ -349,7 +394,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 97,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 87,
+      "test_year": 2019
+    }
   },
   {
     "id": "bmw-3",
@@ -372,12 +426,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 97,
+      "adult_occupant": 88,
       "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 5,
-      "test_year": 2024
+      "pedestrian_protection": 75,
+      "safety_assist": 70,
+      "overall_rating": 80,
+      "test_year": 2022
     }
   },
   {
@@ -401,12 +455,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 97,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 93,
+      "child_occupant": 84,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 76,
+      "test_year": 2017
     }
   },
   {
@@ -430,12 +484,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 97,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 93,
+      "child_occupant": 84,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 76,
+      "test_year": 2017
     }
   },
   {
@@ -456,7 +510,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 93,
+      "child_occupant": 84,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 76,
+      "test_year": 2017
+    }
   },
   {
     "id": "new-20",
@@ -476,7 +539,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "byd-seal6dmi",
@@ -496,7 +568,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "byd-sealudmi",
@@ -516,7 +597,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "new-23",
@@ -539,13 +629,13 @@
     "country_availability": "DE,FR,UK,PL",
     "battery_chemistry": "NCA",
     "euroncap_rating": {
-      "stars": 4,
-      "adult_occupant": 80,
-      "child_occupant": 75,
-      "pedestrian_protection": 70,
-      "safety_assist": 70,
-      "overall_rating": 4,
-      "test_year": 2023
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -568,13 +658,13 @@
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
-      "stars": 4,
-      "adult_occupant": 80,
-      "child_occupant": 75,
-      "pedestrian_protection": 70,
-      "safety_assist": 70,
-      "overall_rating": 4,
-      "test_year": 2023
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -597,13 +687,13 @@
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
-      "stars": 4,
-      "adult_occupant": 80,
-      "child_occupant": 75,
-      "pedestrian_protection": 70,
-      "safety_assist": 70,
-      "overall_rating": 4,
-      "test_year": 2023
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -628,11 +718,11 @@
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
-      "child_occupant": 81,
-      "pedestrian_protection": 70,
-      "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
     }
   },
   {
@@ -657,11 +747,11 @@
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
-      "child_occupant": 81,
-      "pedestrian_protection": 70,
-      "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
     }
   },
   {
@@ -685,12 +775,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 71,
+      "safety_assist": 78,
+      "overall_rating": 83,
+      "test_year": 2019
     }
   },
   {
@@ -714,12 +804,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 71,
+      "safety_assist": 78,
+      "overall_rating": 83,
+      "test_year": 2019
     }
   },
   {
@@ -740,7 +830,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "new-32",
@@ -760,7 +859,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "ford-1",
@@ -780,7 +888,16 @@
     "trunk_volume": 456,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "new-34",
@@ -800,7 +917,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "new-35",
@@ -820,7 +946,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "hyundai-3",
@@ -843,12 +978,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -872,12 +1007,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -898,7 +1033,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "new-39",
@@ -918,7 +1062,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "jeep-2",
@@ -938,7 +1091,16 @@
     "trunk_volume": 438,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "jeep-3",
@@ -960,13 +1122,13 @@
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
-      "stars": 4,
+      "stars": 5,
       "adult_occupant": 85,
-      "child_occupant": 81,
-      "pedestrian_protection": 70,
-      "safety_assist": 75,
-      "overall_rating": 4,
-      "test_year": 2024
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
     }
   },
   {
@@ -990,12 +1152,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -1019,12 +1181,12 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -1048,12 +1210,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -1074,7 +1236,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 79,
+      "pedestrian_protection": 71,
+      "safety_assist": 69,
+      "overall_rating": 76,
+      "test_year": 2019
+    }
   },
   {
     "id": "new-46",
@@ -1098,11 +1269,11 @@
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
-      "child_occupant": 81,
-      "pedestrian_protection": 70,
-      "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "child_occupant": 79,
+      "pedestrian_protection": 71,
+      "safety_assist": 69,
+      "overall_rating": 76,
+      "test_year": 2019
     }
   },
   {
@@ -1123,7 +1294,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "new-48",
@@ -1143,7 +1323,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "mazda-1",
@@ -1163,7 +1352,16 @@
     "trunk_volume": 570,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "mazda-cx80",
@@ -1183,7 +1381,16 @@
     "trunk_volume": 570,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "mercedes-1",
@@ -1210,8 +1417,8 @@
       "child_occupant": 91,
       "pedestrian_protection": 92,
       "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "overall_rating": 89,
+      "test_year": 2018
     },
     "simulator_data": {
       "base_range_km": 75,
@@ -1260,8 +1467,8 @@
       "child_occupant": 91,
       "pedestrian_protection": 92,
       "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "overall_rating": 89,
+      "test_year": 2018
     },
     "simulator_data": {
       "base_range_km": 100,
@@ -1310,8 +1517,8 @@
       "child_occupant": 91,
       "pedestrian_protection": 92,
       "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "overall_rating": 89,
+      "test_year": 2018
     },
     "simulator_data": {
       "base_range_km": 75,
@@ -1360,8 +1567,8 @@
       "child_occupant": 91,
       "pedestrian_protection": 92,
       "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "overall_rating": 89,
+      "test_year": 2018
     },
     "simulator_data": {
       "base_range_km": 103,
@@ -1424,6 +1631,15 @@
         "normal_factor": 1.0,
         "sport_factor": 0.83
       }
+    },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 89,
+      "test_year": 2018
     }
   },
   {
@@ -1465,6 +1681,15 @@
         "normal_factor": 1.0,
         "sport_factor": 0.9
       }
+    },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 89,
+      "test_year": 2018
     }
   },
   {
@@ -1506,6 +1731,15 @@
         "normal_factor": 1.0,
         "sport_factor": 0.9
       }
+    },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 89,
+      "test_year": 2018
     }
   },
   {
@@ -1547,6 +1781,15 @@
         "normal_factor": 1.0,
         "sport_factor": 0.92
       }
+    },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 89,
+      "test_year": 2018
     }
   },
   {
@@ -1588,6 +1831,15 @@
         "normal_factor": 1.0,
         "sport_factor": 0.92
       }
+    },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 91,
+      "pedestrian_protection": 92,
+      "safety_assist": 75,
+      "overall_rating": 89,
+      "test_year": 2018
     }
   },
   {
@@ -1615,8 +1867,8 @@
       "child_occupant": 91,
       "pedestrian_protection": 92,
       "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "overall_rating": 89,
+      "test_year": 2018
     },
     "simulator_data": {
       "base_range_km": 100,
@@ -1660,13 +1912,13 @@
     "warranty_years": 7,
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
-      "stars": 4,
-      "adult_occupant": 80,
-      "child_occupant": 75,
-      "pedestrian_protection": 70,
-      "safety_assist": 70,
-      "overall_rating": 4,
-      "test_year": 2023
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -1687,7 +1939,16 @@
     "trunk_volume": 450,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 87,
+      "pedestrian_protection": 75,
+      "safety_assist": 70,
+      "overall_rating": 80,
+      "test_year": 2022
+    }
   },
   {
     "id": "mitsubishi-2",
@@ -1710,12 +1971,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 81,
-      "pedestrian_protection": 70,
-      "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -1739,12 +2000,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 81,
-      "pedestrian_protection": 70,
-      "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
     }
   },
   {
@@ -1765,7 +2026,16 @@
     "trunk_volume": 422,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "opel-3",
@@ -1785,7 +2055,16 @@
     "trunk_volume": 514,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "new-67",
@@ -1805,7 +2084,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "peugeot-2",
@@ -1825,7 +2113,16 @@
     "trunk_volume": 470,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "new-69",
@@ -1845,7 +2142,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
+    }
   },
   {
     "id": "new-70",
@@ -1865,7 +2171,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "new-71",
@@ -1885,7 +2200,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2021
+    }
   },
   {
     "id": "new-72",
@@ -1909,11 +2233,11 @@
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
-      "child_occupant": 81,
-      "pedestrian_protection": 70,
-      "safety_assist": 75,
-      "overall_rating": 5,
-      "test_year": 2024
+      "child_occupant": 86,
+      "pedestrian_protection": 67,
+      "safety_assist": 65,
+      "overall_rating": 76,
+      "test_year": 2022
     }
   },
   {
@@ -1934,7 +2258,16 @@
     "trunk_volume": 630,
     "seats": 7,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 93,
+      "child_occupant": 84,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 76,
+      "test_year": 2017
+    }
   },
   {
     "id": "skoda-2",
@@ -1954,7 +2287,16 @@
     "trunk_volume": 625,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 93,
+      "child_occupant": 84,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 76,
+      "test_year": 2017
+    }
   },
   {
     "id": "skoda-superbiv",
@@ -1974,7 +2316,16 @@
     "trunk_volume": 625,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 93,
+      "child_occupant": 84,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 76,
+      "test_year": 2017
+    }
   },
   {
     "id": "new-76",
@@ -1997,12 +2348,12 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 85,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 95,
+      "child_occupant": 78,
+      "pedestrian_protection": 76,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2016
     }
   },
   {
@@ -2026,12 +2377,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 77,
       "safety_assist": 85,
-      "overall_rating": 5,
-      "test_year": 2024
+      "overall_rating": 84,
+      "test_year": 2016
     }
   },
   {
@@ -2055,12 +2406,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
+      "adult_occupant": 97,
       "child_occupant": 87,
       "pedestrian_protection": 87,
-      "safety_assist": 85,
-      "overall_rating": 5,
-      "test_year": 2024
+      "safety_assist": 76,
+      "overall_rating": 87,
+      "test_year": 2019
     }
   },
   {
@@ -2084,12 +2435,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 71,
+      "safety_assist": 78,
+      "overall_rating": 83,
+      "test_year": 2019
     }
   },
   {
@@ -2114,12 +2465,12 @@
     "battery_chemistry": "NCA",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 71,
+      "safety_assist": 78,
+      "overall_rating": 83,
+      "test_year": 2019
     }
   },
   {
@@ -2141,7 +2492,16 @@
     "seats": 5,
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
-    "battery_chemistry": "NCA"
+    "battery_chemistry": "NCA",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 71,
+      "safety_assist": 78,
+      "overall_rating": 83,
+      "test_year": 2019
+    }
   },
   {
     "id": "vw-3",
@@ -2164,12 +2524,12 @@
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 88,
-      "child_occupant": 85,
-      "pedestrian_protection": 82,
-      "safety_assist": 88,
-      "overall_rating": 5,
-      "test_year": 2024
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 71,
+      "safety_assist": 78,
+      "overall_rating": 83,
+      "test_year": 2019
     }
   },
   {
@@ -2190,7 +2550,16 @@
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL"
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 71,
+      "safety_assist": 78,
+      "overall_rating": 83,
+      "test_year": 2019
+    }
   },
   {
     "id": "volvo-5",
@@ -2215,10 +2584,10 @@
       "stars": 5,
       "adult_occupant": 98,
       "child_occupant": 87,
-      "pedestrian_protection": 76,
-      "safety_assist": 95,
-      "overall_rating": 5,
-      "test_year": 2024
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 87,
+      "test_year": 2019
     }
   },
   {
@@ -2244,10 +2613,10 @@
       "stars": 5,
       "adult_occupant": 98,
       "child_occupant": 87,
-      "pedestrian_protection": 76,
-      "safety_assist": 95,
-      "overall_rating": 5,
-      "test_year": 2024
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 87,
+      "test_year": 2019
     }
   },
   {
@@ -2268,7 +2637,16 @@
     "trunk_volume": 505,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 98,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 87,
+      "test_year": 2019
+    }
   },
   {
     "id": "volvo-3",
@@ -2288,6 +2666,15 @@
     "trunk_volume": 314,
     "seats": 7,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 98,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 87,
+      "test_year": 2019
+    }
   }
 ]
