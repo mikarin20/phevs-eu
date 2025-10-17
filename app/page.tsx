@@ -61,7 +61,9 @@ export default function Home() {
     segment: '',
     priceRange: [0, 150000],
     rangeRange: [0, 100],
-    fuelConsumption: [0, 10]
+    fuelConsumption: [0, 10],
+    batteryArchitecture: '',
+    batteryChemistry: ''
   })
 
   // LocalStorage'dan verileri yükle
@@ -119,6 +121,21 @@ export default function Home() {
     }
   }, [filters, selectedBrands, isLoading])
 
+  // Dropdown'ı dışına tıklandığında kapat
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isBrandDropdownOpen) {
+        const target = event.target as HTMLElement
+        if (!target.closest('.brand-dropdown')) {
+          setIsBrandDropdownOpen(false)
+        }
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isBrandDropdownOpen])
+
   // Filtreleme ve sıralama
   const filteredAndSortedCars = useMemo(() => {
     let filtered = cars.filter(car => {
@@ -134,8 +151,12 @@ export default function Home() {
       const matchesRange = car.ev_range_km >= filters.rangeRange[0] && car.ev_range_km <= filters.rangeRange[1]
       
       const matchesFuel = car.fuel_consumption >= filters.fuelConsumption[0] && car.fuel_consumption <= filters.fuelConsumption[1]
+      
+      // Placeholder değerler - gerçek veri yapısına göre güncellenecek
+      const matchesBatteryArchitecture = !filters.batteryArchitecture || true // Şimdilik her zaman true
+      const matchesBatteryChemistry = !filters.batteryChemistry || true // Şimdilik her zaman true
 
-      return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && matchesFuel
+      return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && matchesFuel && matchesBatteryArchitecture && matchesBatteryChemistry
     })
 
     // Sıralama
@@ -213,7 +234,9 @@ export default function Home() {
       segment: '',
       priceRange: [0, 150000],
       rangeRange: [0, 100],
-      fuelConsumption: [0, 10]
+      fuelConsumption: [0, 10],
+      batteryArchitecture: '',
+      batteryChemistry: ''
     })
     localStorage.removeItem('phevs-filters')
     localStorage.removeItem('phevs-selected-brands')
@@ -295,7 +318,7 @@ export default function Home() {
             </div>
 
             {/* Brand Filter */}
-            <div className="relative">
+            <div className="relative brand-dropdown">
               <button
                 onClick={() => setIsBrandDropdownOpen(!isBrandDropdownOpen)}
                 className="filter-select min-w-32 text-left flex items-center justify-between"
@@ -313,14 +336,20 @@ export default function Home() {
                       value={brandSearchTerm}
                       onChange={(e) => setBrandSearchTerm(e.target.value)}
                       className="input-clean w-full mb-2"
+                      onClick={(e) => e.stopPropagation()}
                     />
                     <div className="space-y-1">
                       {filteredBrands.map(brand => (
-                        <label key={brand} className="flex items-center space-x-2 p-2 hover:bg-[#F1F5F9] rounded cursor-pointer">
+                        <label 
+                          key={brand} 
+                          className="flex items-center space-x-2 p-2 hover:bg-[#F1F5F9] rounded cursor-pointer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
                           <input
                             type="checkbox"
                             checked={selectedBrands.includes(brand)}
                             onChange={(e) => {
+                              e.stopPropagation()
                               if (e.target.checked) {
                                 setSelectedBrands([...selectedBrands, brand])
                               } else {
@@ -332,6 +361,17 @@ export default function Home() {
                           <span className="text-sm text-[#0B2E33]">{brand}</span>
                         </label>
                       ))}
+                    </div>
+                    <div className="mt-2 pt-2 border-t border-[#E2E8F0]">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setSelectedBrands([])
+                        }}
+                        className="text-xs text-[#4F7C82] hover:text-[#3A5D63]"
+                      >
+                        Clear all brands
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -348,6 +388,31 @@ export default function Home() {
               {segments.map(segment => (
                 <option key={segment} value={segment}>{segment}</option>
               ))}
+            </select>
+
+            {/* Battery Architecture Filter */}
+            <select
+              value={filters.batteryArchitecture}
+              onChange={(e) => setFilters({...filters, batteryArchitecture: e.target.value})}
+              className="filter-select min-w-32"
+            >
+              <option value="">All Architectures</option>
+              <option value="modular">Modular</option>
+              <option value="integrated">Integrated</option>
+              <option value="skateboard">Skateboard</option>
+            </select>
+
+            {/* Battery Chemistry Filter */}
+            <select
+              value={filters.batteryChemistry}
+              onChange={(e) => setFilters({...filters, batteryChemistry: e.target.value})}
+              className="filter-select min-w-32"
+            >
+              <option value="">All Chemistries</option>
+              <option value="lithium-ion">Lithium-Ion</option>
+              <option value="lithium-iron-phosphate">LFP</option>
+              <option value="nickel-cobalt-manganese">NCM</option>
+              <option value="nickel-cobalt-aluminum">NCA</option>
             </select>
 
             {/* Sort */}
@@ -410,11 +475,9 @@ export default function Home() {
             )}
           </div>
           {/* Debug Info */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="text-xs text-[#93B1B5]">
-              Brands: {selectedBrands.length}, Segment: {filters.segment || 'All'}, Search: "{searchTerm}"
-            </div>
-          )}
+          <div className="text-xs text-[#93B1B5]">
+            Brands: [{selectedBrands.join(', ')}], Segment: {filters.segment || 'All'}, Search: "{searchTerm}", Battery: {filters.batteryArchitecture || 'All'}/{filters.batteryChemistry || 'All'}
+          </div>
         </div>
 
         {/* Cars List */}
