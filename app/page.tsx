@@ -16,7 +16,9 @@ import {
   CurrencyEuroIcon,
   CpuChipIcon,
   WrenchScrewdriverIcon,
-  InformationCircleIcon
+  InformationCircleIcon,
+  EyeIcon,
+  PlusIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -359,7 +361,9 @@ export default function Home() {
       clearFilters: 'Clear all filters',
       rangeSimulator: 'Range Simulator',
       compare: 'Compare',
-      favorites: 'Favorites'
+      favorites: 'Favorites',
+      added: 'Added',
+      view: 'View'
     },
     de: {
       searchPlaceholder: 'Nach Marke oder Modell suchen...',
@@ -368,7 +372,9 @@ export default function Home() {
       clearFilters: 'Alle Filter löschen',
       rangeSimulator: 'Reichweiten-Simulator',
       compare: 'Vergleichen',
-      favorites: 'Favoriten'
+      favorites: 'Favoriten',
+      added: 'Hinzugefügt',
+      view: 'Ansehen'
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -377,7 +383,9 @@ export default function Home() {
       clearFilters: 'Tüm filtreleri temizle',
       rangeSimulator: 'Menzil Simülatörü',
       compare: 'Karşılaştır',
-      favorites: 'Favoriler'
+      favorites: 'Favoriler',
+      added: 'Eklendi',
+      view: 'Görüntüle'
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -386,7 +394,9 @@ export default function Home() {
       clearFilters: 'Wyczyść wszystkie filtry',
       rangeSimulator: 'Symulator Zasięgu',
       compare: 'Porównaj',
-      favorites: 'Ulubione'
+      favorites: 'Ulubione',
+      added: 'Dodano',
+      view: 'Zobacz'
     }
   }
 
@@ -443,22 +453,55 @@ export default function Home() {
               {/* Dil Seçici */}
               <div className="flex space-x-1">
                 {[
-                  { code: 'en', flag: '🇬🇧' },
-                  { code: 'de', flag: '🇩🇪' },
-                  { code: 'tr', flag: '🇹🇷' },
-                  { code: 'pl', flag: '🇵🇱' }
+                  { 
+                    code: 'en', 
+                    name: 'EN', 
+                    flag: (
+                      <div className="w-6 h-4 bg-gradient-to-r from-blue-600 via-white to-red-600 rounded-sm flex items-center justify-center text-xs font-bold text-blue-800">
+                        GB
+                      </div>
+                    )
+                  },
+                  { 
+                    code: 'de', 
+                    name: 'DE', 
+                    flag: (
+                      <div className="w-6 h-4 bg-gradient-to-b from-black via-red-600 to-yellow-400 rounded-sm flex items-center justify-center text-xs font-bold text-white">
+                        DE
+                      </div>
+                    )
+                  },
+                  { 
+                    code: 'tr', 
+                    name: 'TR', 
+                    flag: (
+                      <div className="w-6 h-4 bg-gradient-to-r from-red-600 to-red-500 rounded-sm flex items-center justify-center text-xs font-bold text-white relative">
+                        <div className="absolute left-1 top-1 w-2 h-2 bg-white rounded-full"></div>
+                        <span className="ml-1">TR</span>
+                      </div>
+                    )
+                  },
+                  { 
+                    code: 'pl', 
+                    name: 'PL', 
+                    flag: (
+                      <div className="w-6 h-4 bg-gradient-to-b from-white to-red-600 rounded-sm flex items-center justify-center text-xs font-bold text-red-600">
+                        PL
+                      </div>
+                    )
+                  }
                 ].map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => setSelectedLanguage(lang.code)}
-                    className={`p-2 rounded-lg transition-all duration-300 text-lg ${
+                    className={`p-2 rounded-lg transition-all duration-300 ${
                       selectedLanguage === lang.code
                         ? selectedTheme === 'dark' 
-                          ? 'bg-slate-600 text-white shadow-lg'
-                          : 'bg-gray-800 text-white shadow-lg'
+                          ? 'bg-slate-600 shadow-lg'
+                          : 'bg-gray-800 shadow-lg'
                         : selectedTheme === 'dark'
-                          ? 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                          ? 'bg-slate-700 hover:bg-slate-600'
+                          : 'bg-gray-200 hover:bg-gray-300'
                     }`}
                     title={lang.code.toUpperCase()}
                   >
@@ -787,22 +830,31 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
+                    <div className="flex space-x-2">
                       <button
-                      onClick={(e) => {
-                        e.preventDefault()
-                        e.stopPropagation()
-                        toggleCarSelection(car)
-                      }}
-                        className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          toggleCarSelection(car)
+                        }}
+                        className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
-                          ? 'border-[#4F7C82] bg-[#4F7C82] text-white'
-                          : 'border-[#E2E8F0] hover:border-[#4F7C82]'
+                          ? 'bg-[#4F7C82] text-white'
+                          : 'bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white'
                         }`}
                       >
-                      {selectedCars.find(c => c.id === car.id) && (
-                        <CheckIcon className="h-4 w-4" />
-                      )}
+                        <PlusIcon className="h-3 w-3 inline mr-1" />
+                        {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
+                      <Link
+                        href={`/models/${car.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
+                      >
+                        <EyeIcon className="h-3 w-3 inline mr-1" />
+                        {t.view}
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -925,22 +977,31 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault()
-                        e.stopPropagation()
-                        toggleCarSelection(car)
-                      }}
-                      className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
-                        selectedCars.find(c => c.id === car.id)
-                          ? 'border-[#4F7C82] bg-[#4F7C82] text-white'
-                          : 'border-[#E2E8F0] hover:border-[#4F7C82]'
-                      }`}
-                    >
-                      {selectedCars.find(c => c.id === car.id) && (
-                        <CheckIcon className="h-4 w-4" />
-                      )}
-                    </button>
+                    <div className="flex space-x-2">
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          toggleCarSelection(car)
+                        }}
+                        className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                          selectedCars.find(c => c.id === car.id)
+                          ? 'bg-[#4F7C82] text-white'
+                          : 'bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white'
+                        }`}
+                      >
+                        <PlusIcon className="h-3 w-3 inline mr-1" />
+                        {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
+                      </button>
+                      <Link
+                        href={`/models/${car.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-[#E2E8F0] text-[#4F7C82] hover:bg-[#4F7C82] hover:text-white transition-colors"
+                      >
+                        <EyeIcon className="h-3 w-3 inline mr-1" />
+                        {t.view}
+                      </Link>
+                    </div>
               </div>
                 </div>
               </Link>
