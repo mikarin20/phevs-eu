@@ -68,6 +68,186 @@ interface ModelDetailProps {
 export default function ModelDetail({ params }: ModelDetailProps) {
   const car = carsData.find(c => c.id === params.id) as Car
   const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
+  const [selectedTheme, setSelectedTheme] = useState('light')
+  const [selectedLanguage, setSelectedLanguage] = useState('en')
+
+  const translations = {
+    en: {
+      backToModels: 'Back to Models',
+      lightTheme: 'Light Theme',
+      darkTheme: 'Dark Theme',
+      startingPrice: 'Starting Price',
+      electricRange: 'Electric Range',
+      batteryCapacity: 'Battery Capacity',
+      powerOutput: 'Power Output',
+      safetyRating: 'Safety Rating',
+      sourceEuroNCAP: 'Source: Euro NCAP',
+      electricPerformance: 'Electric Performance',
+      enginePerformance: 'Engine & Performance',
+      comfortSpace: 'Comfort & Space',
+      general: 'General',
+      electricRangeLabel: 'Electric Range',
+      batteryCapacityLabel: 'Battery Capacity',
+      acChargeTime: 'AC Charge Time',
+      dcChargeTime: 'DC Charge Time',
+      power: 'Power',
+      fuelConsumption: 'Fuel Consumption',
+      co2Emission: 'CO₂ Emission',
+      segment: 'Segment',
+      trunkVolume: 'Trunk Volume',
+      seats: 'Seats',
+      warranty: 'Warranty',
+      countryAvailability: 'Country Availability',
+      brand: 'Brand',
+      model: 'Model',
+      year: 'Year',
+      price: 'Price',
+      estimatedEU: 'Est. EU'
+    },
+    de: {
+      backToModels: 'Zurück zu Modellen',
+      lightTheme: 'Helles Design',
+      darkTheme: 'Dunkles Design',
+      startingPrice: 'Grundpreis',
+      electricRange: 'Elektrische Reichweite',
+      batteryCapacity: 'Batteriekapazität',
+      powerOutput: 'Leistung',
+      safetyRating: 'Sicherheitsbewertung',
+      sourceEuroNCAP: 'Quelle: Euro NCAP',
+      electricPerformance: 'Elektrische Leistung',
+      enginePerformance: 'Motor & Leistung',
+      comfortSpace: 'Komfort & Platz',
+      general: 'Allgemein',
+      electricRangeLabel: 'Elektrische Reichweite',
+      batteryCapacityLabel: 'Batteriekapazität',
+      acChargeTime: 'AC-Ladezeit',
+      dcChargeTime: 'DC-Ladezeit',
+      power: 'Leistung',
+      fuelConsumption: 'Kraftstoffverbrauch',
+      co2Emission: 'CO₂-Emission',
+      segment: 'Segment',
+      trunkVolume: 'Kofferraumvolumen',
+      seats: 'Sitze',
+      warranty: 'Garantie',
+      countryAvailability: 'Länderverfügbarkeit',
+      brand: 'Marke',
+      model: 'Modell',
+      year: 'Jahr',
+      price: 'Preis',
+      estimatedEU: 'Geschätzt EU'
+    },
+    tr: {
+      backToModels: 'Modellere Geri Dön',
+      lightTheme: 'Açık Tema',
+      darkTheme: 'Koyu Tema',
+      startingPrice: 'Başlangıç Fiyatı',
+      electricRange: 'Elektrik Menzili',
+      batteryCapacity: 'Batarya Kapasitesi',
+      powerOutput: 'Güç Çıkışı',
+      safetyRating: 'Güvenlik Değerlendirmesi',
+      sourceEuroNCAP: 'Kaynak: Euro NCAP',
+      electricPerformance: 'Elektrik Performansı',
+      enginePerformance: 'Motor & Performans',
+      comfortSpace: 'Konfor & Alan',
+      general: 'Genel',
+      electricRangeLabel: 'Elektrik Menzili',
+      batteryCapacityLabel: 'Batarya Kapasitesi',
+      acChargeTime: 'AC Şarj Süresi',
+      dcChargeTime: 'DC Şarj Süresi',
+      power: 'Güç',
+      fuelConsumption: 'Yakıt Tüketimi',
+      co2Emission: 'CO₂ Emisyonu',
+      segment: 'Segment',
+      trunkVolume: 'Bagaj Hacmi',
+      seats: 'Koltuk',
+      warranty: 'Garanti',
+      countryAvailability: 'Ülke Mevcudiyeti',
+      brand: 'Marka',
+      model: 'Model',
+      year: 'Yıl',
+      price: 'Fiyat',
+      estimatedEU: 'Tahmini AB'
+    },
+    pl: {
+      backToModels: 'Powrót do Modeli',
+      lightTheme: 'Jasny Motyw',
+      darkTheme: 'Ciemny Motyw',
+      startingPrice: 'Cena Początkowa',
+      electricRange: 'Zasięg Elektryczny',
+      batteryCapacity: 'Pojemność Baterii',
+      powerOutput: 'Moc',
+      safetyRating: 'Ocena Bezpieczeństwa',
+      sourceEuroNCAP: 'Źródło: Euro NCAP',
+      electricPerformance: 'Wydajność Elektryczna',
+      enginePerformance: 'Silnik & Wydajność',
+      comfortSpace: 'Komfort & Przestrzeń',
+      general: 'Ogólne',
+      electricRangeLabel: 'Zasięg Elektryczny',
+      batteryCapacityLabel: 'Pojemność Baterii',
+      acChargeTime: 'Czas Ładowania AC',
+      dcChargeTime: 'Czas Ładowania DC',
+      power: 'Moc',
+      fuelConsumption: 'Zużycie Paliwa',
+      co2Emission: 'Emisja CO₂',
+      segment: 'Segment',
+      trunkVolume: 'Pojemność Bagażnika',
+      seats: 'Miejsca',
+      warranty: 'Gwarancja',
+      countryAvailability: 'Dostępność Krajowa',
+      brand: 'Marka',
+      model: 'Model',
+      year: 'Rok',
+      price: 'Cena',
+      estimatedEU: 'Szac. UE'
+    }
+  }
+
+  const t = translations[selectedLanguage as keyof typeof translations]
+
+  const themes = {
+    light: {
+      name: 'Light Theme',
+      background: 'bg-white',
+      headerBg: 'bg-white',
+      headerText: 'text-gray-900',
+      headerSubtext: 'text-gray-600',
+      linkText: 'text-gray-600',
+      linkHover: 'hover:text-gray-900',
+      cardBg: 'bg-white',
+      cardBorder: 'border-gray-200',
+      textPrimary: 'text-gray-900',
+      textSecondary: 'text-gray-600',
+      priceBg: 'bg-gradient-to-r from-blue-50 to-indigo-50',
+      priceBorder: 'border-blue-200',
+      statBg: 'bg-white',
+      specBg: 'bg-gray-50',
+      specHover: 'hover:bg-gray-100',
+      highlightBg: 'bg-gradient-to-r from-blue-50 to-indigo-50',
+      highlightBorder: 'border-blue-200'
+    },
+    dark: {
+      name: 'Dark Theme',
+      background: 'bg-[#555879]',
+      headerBg: 'bg-[#555879]',
+      headerText: 'text-[#F4EBD3]',
+      headerSubtext: 'text-[#DED3C4]',
+      linkText: 'text-[#DED3C4]',
+      linkHover: 'hover:text-[#F4EBD3]',
+      cardBg: 'bg-[#98A1BC]',
+      cardBorder: 'border-[#DED3C4]',
+      textPrimary: 'text-[#F4EBD3]',
+      textSecondary: 'text-[#DED3C4]',
+      priceBg: 'bg-gradient-to-r from-[#98A1BC] to-[#DED3C4]',
+      priceBorder: 'border-[#DED3C4]',
+      statBg: 'bg-[#555879]',
+      specBg: 'bg-[#98A1BC]',
+      specHover: 'hover:bg-[#DED3C4]',
+      highlightBg: 'bg-gradient-to-r from-[#DED3C4] to-[#F4EBD3]',
+      highlightBorder: 'border-[#F4EBD3]'
+    }
+  }
+
+  const currentTheme = themes[selectedTheme as keyof typeof themes]
 
   if (!car) {
     return (
@@ -119,56 +299,111 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
   const specifications = [
     { 
-      category: 'Electric Performance',
+      category: t.electricPerformance,
       items: [
-        { label: 'Electric Range', value: `${car.ev_range_km} km`, icon: BoltIcon, highlight: true, hasSimulator: true },
-        { label: 'Battery Capacity', value: `${car.battery_kwh} kWh`, icon: SparklesIcon, highlight: true },
-        { label: 'AC Charge Time', value: `${car.charge_time_ac} hours` },
-        { label: 'DC Charge Time', value: `${car.charge_time_dc} minutes` },
+        { label: t.electricRangeLabel, value: `${car.ev_range_km} km`, icon: BoltIcon, highlight: true, hasSimulator: true },
+        { label: t.batteryCapacityLabel, value: `${car.battery_kwh} kWh`, icon: SparklesIcon, highlight: true },
+        { label: t.acChargeTime, value: `${car.charge_time_ac} ${selectedLanguage === 'tr' ? 'saat' : selectedLanguage === 'de' ? 'Stunden' : selectedLanguage === 'pl' ? 'godziny' : 'hours'}` },
+        { label: t.dcChargeTime, value: `${car.charge_time_dc} ${selectedLanguage === 'tr' ? 'dakika' : selectedLanguage === 'de' ? 'Minuten' : selectedLanguage === 'pl' ? 'minuty' : 'minutes'}` },
       ]
     },
     {
-      category: 'Engine & Performance',
+      category: t.enginePerformance,
       items: [
-        { label: 'Power', value: `${car.power_hp} HP`, highlight: true },
-        { label: 'Fuel Consumption', value: `${car.fuel_consumption} L/100km` },
-        { label: 'CO₂ Emission', value: `${car.co2_emission} g/km` },
-        { label: 'Segment', value: car.segment },
+        { label: t.power, value: `${car.power_hp} HP`, highlight: true },
+        { label: t.fuelConsumption, value: `${car.fuel_consumption} L/100km` },
+        { label: t.co2Emission, value: `${car.co2_emission} g/km` },
+        { label: t.segment, value: car.segment },
       ]
     },
     {
-      category: 'Comfort & Space',
+      category: t.comfortSpace,
       items: [
-        { label: 'Trunk Volume', value: `${car.trunk_volume} L` },
-        { label: 'Seats', value: car.seats },
-        { label: 'Warranty', value: `${car.warranty_years} years` },
-        { label: 'Country Availability', value: car.country_availability },
+        { label: t.trunkVolume, value: `${car.trunk_volume} L` },
+        { label: t.seats, value: car.seats },
+        { label: t.warranty, value: `${car.warranty_years} ${selectedLanguage === 'tr' ? 'yıl' : selectedLanguage === 'de' ? 'Jahre' : selectedLanguage === 'pl' ? 'lata' : 'years'}` },
+        { label: t.countryAvailability, value: car.country_availability },
       ]
     },
     {
-      category: 'General',
+      category: t.general,
       items: [
-        { label: 'Brand', value: car.brand },
-        { label: 'Model', value: car.model },
-        { label: 'Year', value: car.year },
-        { label: 'Price', value: `€${car.price_eur.toLocaleString()} (Est. EU)` },
+        { label: t.brand, value: car.brand },
+        { label: t.model, value: car.model },
+        { label: t.year, value: car.year },
+        { label: t.price, value: `€${car.price_eur.toLocaleString()} (${t.estimatedEU})` },
       ]
     }
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen ${currentTheme.background}`}>
+      {/* Theme and Language Selector */}
+      <div className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} p-4`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-center">
+            {/* Theme Selector */}
+            <div className="flex space-x-2">
+              {Object.entries(themes).map(([key, theme]) => (
+                <button
+                  key={key}
+                  onClick={() => setSelectedTheme(key)}
+                  className={`px-3 py-2 rounded-lg font-medium transition-all duration-300 text-sm ${
+                    selectedTheme === key
+                      ? selectedTheme === 'dark' 
+                        ? 'bg-[#DED3C4] text-[#555879] shadow-lg'
+                        : 'bg-gray-800 text-white shadow-lg'
+                      : selectedTheme === 'dark'
+                        ? 'bg-[#98A1BC] text-[#F4EBD3] hover:bg-[#DED3C4] hover:text-[#555879]'
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  {theme.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Language Selector */}
+            <div className="flex space-x-2">
+              {[
+                { code: 'en', name: 'EN', flag: '🇬🇧' },
+                { code: 'de', name: 'DE', flag: '🇩🇪' },
+                { code: 'tr', name: 'TR', flag: '🇹🇷' },
+                { code: 'pl', name: 'PL', flag: '🇵🇱' }
+              ].map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => setSelectedLanguage(lang.code)}
+                  className={`px-3 py-2 rounded-lg font-medium transition-all duration-300 text-sm flex items-center space-x-1 ${
+                    selectedLanguage === lang.code
+                      ? selectedTheme === 'dark' 
+                        ? 'bg-[#DED3C4] text-[#555879] shadow-lg'
+                        : 'bg-gray-800 text-white shadow-lg'
+                      : selectedTheme === 'dark'
+                        ? 'bg-[#98A1BC] text-[#F4EBD3] hover:bg-[#DED3C4] hover:text-[#555879]'
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  <span>{lang.flag}</span>
+                  <span>{lang.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/" className={`inline-flex items-center space-x-2 ${currentTheme.linkText} ${currentTheme.linkHover} transition-colors`}>
               <ArrowLeftIcon className="h-5 w-5" />
-              <span className="font-medium">Back to Models</span>
+              <span className="font-medium">{t.backToModels}</span>
             </Link>
             <div className="text-center">
-              <h1 className="text-2xl font-bold text-gray-900">{car.brand} {car.model}</h1>
-              <p className="text-gray-600">{car.year} • {car.segment}</p>
+              <h1 className={`text-2xl font-bold ${currentTheme.headerText}`}>{car.brand} {car.model}</h1>
+              <p className={currentTheme.headerSubtext}>{car.year} • {car.segment}</p>
             </div>
             <div className="w-24"></div>
           </div>
@@ -183,102 +418,106 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
         {/* Price and Key Stats */}
         <div className="mb-12">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 text-center">
+          <div className={`${currentTheme.priceBg} rounded-2xl p-8 text-center border ${currentTheme.priceBorder}`}>
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <CurrencyEuroIcon className="h-10 w-10 text-blue-600" />
-              <span className="text-4xl font-bold text-gray-900">€{car.price_eur.toLocaleString()}</span>
+              <CurrencyEuroIcon className={`h-10 w-10 ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-blue-600'}`} />
+              <span className={`text-4xl font-bold ${currentTheme.textPrimary}`}>€{car.price_eur.toLocaleString()}</span>
             </div>
             <div className="flex items-center justify-center space-x-2 mb-6">
-              <p className="text-gray-600 font-medium">Starting Price</p>
+              <p className={`${currentTheme.textSecondary} font-medium`}>{t.startingPrice}</p>
               <div className="relative group">
-                <InformationCircleIcon className="h-4 w-4 text-gray-400 cursor-help" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                  Estimated EU market value
+                <InformationCircleIcon className={`h-4 w-4 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-gray-400'} cursor-help`} />
+                <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 ${selectedTheme === 'dark' ? 'bg-[#555879] text-[#F4EBD3]' : 'bg-gray-800 text-white'} text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none`}>
+                  {selectedLanguage === 'tr' ? 'Tahmini AB pazar değeri' : 
+                   selectedLanguage === 'de' ? 'Geschätzter EU-Marktwert' :
+                   selectedLanguage === 'pl' ? 'Szacowana wartość rynkowa UE' :
+                   'Estimated EU market value'}
                 </div>
               </div>
             </div>
             
             {/* Key Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="bg-white rounded-xl p-4 shadow-sm">
+              <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
                 <div className="flex items-center justify-center space-x-2 mb-2">
-                  <BoltIcon className="h-6 w-6 text-green-600" />
-                  <span className="text-2xl font-bold text-gray-900">{car.ev_range_km} km</span>
+                  <BoltIcon className={`h-6 w-6 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-green-600'}`} />
+                  <span className={`text-2xl font-bold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
                 </div>
-                <p className="text-sm text-gray-600">Electric Range</p>
+                <p className={`text-sm ${currentTheme.textSecondary}`}>{t.electricRange}</p>
               </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm">
+              <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
                 <div className="flex items-center justify-center space-x-2 mb-2">
-                  <SparklesIcon className="h-6 w-6 text-blue-600" />
-                  <span className="text-2xl font-bold text-gray-900">{car.battery_kwh} kWh</span>
+                  <SparklesIcon className={`h-6 w-6 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-blue-600'}`} />
+                  <span className={`text-2xl font-bold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                 </div>
-                <p className="text-sm text-gray-600">Battery Capacity</p>
+                <p className={`text-sm ${currentTheme.textSecondary}`}>{t.batteryCapacity}</p>
               </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm">
+              <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
                 <div className="flex items-center justify-center space-x-2 mb-2">
-                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">HP</span>
+                  <div className={`w-6 h-6 ${selectedTheme === 'dark' ? 'bg-[#DED3C4]' : 'bg-orange-500'} rounded-full flex items-center justify-center`}>
+                    <span className={`text-xs font-bold ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-white'}`}>HP</span>
                   </div>
-                  <span className="text-2xl font-bold text-gray-900">{car.power_hp}</span>
+                  <span className={`text-2xl font-bold ${currentTheme.textPrimary}`}>{car.power_hp}</span>
                 </div>
-                <p className="text-sm text-gray-600">Power Output</p>
+                <p className={`text-sm ${currentTheme.textSecondary}`}>{t.powerOutput}</p>
               </div>
             </div>
           </div>
         </div>
 
+
         {/* Euro NCAP Section */}
         {car.euroncap_rating && (
-          <div className="mb-12">
-            <div className="bg-white rounded-2xl p-8 text-center max-w-lg mx-auto shadow-sm border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Safety Rating</h3>
-              <div className="flex justify-center mb-4">
-                <EuroNCAPStars rating={car.euroncap_rating} size="lg" showDetails={true} />
+          <div className="mb-8">
+            <div className={`${currentTheme.cardBg} rounded-xl p-6 text-center max-w-md mx-auto shadow-sm border ${currentTheme.cardBorder}`}>
+              <h3 className={`text-lg font-bold ${currentTheme.textPrimary} mb-4`}>{t.safetyRating}</h3>
+              <div className="flex justify-center mb-3">
+                <EuroNCAPStars rating={car.euroncap_rating} size="md" showDetails={false} />
               </div>
               <a 
                 href={`https://www.euroncap.com/en/results/${car.brand.toLowerCase().replace(/\s+/g, '-')}/${car.model.toLowerCase().replace(/\s+/g, '-')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-blue-600 hover:text-blue-800 transition-colors underline"
+                className={`text-xs ${selectedTheme === 'dark' ? 'text-[#DED3C4] hover:text-[#F4EBD3]' : 'text-blue-600 hover:text-blue-800'} transition-colors underline`}
               >
-                Source: Euro NCAP
+                {t.sourceEuroNCAP}
               </a>
             </div>
           </div>
         )}
 
         {/* Specifications Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {specifications.map((spec, index) => (
-            <div key={index} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-200">
+            <div key={index} className={`${currentTheme.cardBg} rounded-xl p-6 shadow-sm border ${currentTheme.cardBorder}`}>
+              <h3 className={`text-lg font-bold ${currentTheme.textPrimary} mb-4 pb-3 border-b ${currentTheme.cardBorder}`}>
                 {spec.category}
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {spec.items.map((item, itemIndex) => (
                   <div 
                     key={itemIndex} 
-                    className={`flex justify-between items-center py-4 px-5 rounded-xl transition-all ${
+                    className={`flex justify-between items-center py-3 px-4 rounded-lg transition-all ${
                       (item as any).highlight 
-                        ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200' 
-                        : 'bg-gray-50 hover:bg-gray-100'
+                        ? `${currentTheme.highlightBg} border ${currentTheme.highlightBorder}` 
+                        : `${currentTheme.specBg} ${currentTheme.specHover}`
                     }`}
                   >
-                    <div className="flex items-center space-x-3">
-                      {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-gray-600" })}
-                      <span className="text-gray-900 font-medium">{item.label}</span>
+                    <div className="flex items-center space-x-2">
+                      {(item as any).icon && React.createElement((item as any).icon, { className: `h-4 w-4 ${currentTheme.textSecondary}` })}
+                      <span className={`${currentTheme.textPrimary} font-medium text-sm`}>{item.label}</span>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <span className={`font-bold ${(item as any).highlight ? 'text-gray-900 text-lg' : 'text-gray-700'}`}>
+                    <div className="flex items-center space-x-2">
+                      <span className={`font-bold text-sm ${currentTheme.textPrimary}`}>
                         {item.value}
                       </span>
                       {(item as any).hasSimulator && (
                         <button
                           onClick={() => setIsRangeSimulatorOpen(true)}
-                          className="p-2 hover:bg-blue-100 rounded-lg transition-colors"
+                          className={`p-1.5 ${selectedTheme === 'dark' ? 'hover:bg-[#DED3C4]' : 'hover:bg-blue-100'} rounded-lg transition-colors`}
                           title="Range Simulator"
                         >
-                          <SparklesIcon className="h-4 w-4 text-blue-600" />
+                          <SparklesIcon className={`h-3 w-3 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-blue-600'}`} />
                         </button>
                       )}
                     </div>
@@ -289,22 +528,6 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           ))}
         </div>
 
-        {/* Battery Simulator Section - Always Visible */}
-        <div className="mb-12">
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 text-center border border-green-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Battery Range Simulator</h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Simulate your electric range based on real-world conditions like temperature, driving style, and road conditions
-            </p>
-            <button
-              onClick={() => setIsRangeSimulatorOpen(true)}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl inline-flex items-center space-x-3 text-lg transition-colors shadow-lg hover:shadow-xl"
-            >
-              <SparklesIcon className="h-6 w-6" />
-              <span>Open Range Simulator</span>
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* Range Simulator Modal */}
