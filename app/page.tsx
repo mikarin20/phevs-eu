@@ -90,7 +90,7 @@ export default function Home() {
   const [brandSearchTerm, setBrandSearchTerm] = useState('')
   const [isBrandDropdownOpen, setIsBrandDropdownOpen] = useState(false)
   const [isFilterOpen, setIsFilterOpen] = useState(false)
-  const [viewMode, setViewMode] = useState<ViewMode>('list')
+  const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortBy, setSortBy] = useState<SortOption>('name-asc')
   const [isLoading, setIsLoading] = useState(true)
   const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
@@ -717,8 +717,8 @@ export default function Home() {
               <option value="power-asc">Power (Low-High)</option>
             </select>
 
-            {/* View Toggle */}
-            <div className="flex border border-[#E2E8F0] rounded-lg overflow-hidden">
+            {/* View Toggle - Hidden on mobile */}
+            <div className="hidden sm:flex border border-[#E2E8F0] rounded-lg overflow-hidden">
               <button
                 onClick={() => toggleViewMode('list')}
                 className={`p-2 ${viewMode === 'list' ? 'bg-[#4F7C82] text-white' : 'bg-white text-[#4F7C82] hover:bg-[#F1F5F9]'}`}
