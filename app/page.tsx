@@ -355,7 +355,7 @@ export default function Home() {
       cardBg: 'bg-slate-500',
       cardBorder: 'border-slate-300',
       textPrimary: 'text-slate-100',
-      textSecondary: 'text-slate-300',
+      textSecondary: 'text-slate-200',
       filterBg: 'bg-slate-500',
       filterBorder: 'border-slate-300',
       filterText: 'text-slate-100',
@@ -439,15 +439,15 @@ export default function Home() {
               <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Plug-in Hybrid Comparison</span>
             </div>
             
-            {/* Dil ve Tema Seçicileri - Mobilde daha küçük */}
-            <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* Dil ve Tema Seçicileri - Mobilde gizli, tablet+ görünür */}
+            <div className="hidden sm:flex items-center space-x-2 lg:space-x-4">
               {/* Tema Seçici */}
               <div className="flex space-x-1">
                 {Object.entries(themes).map(([key, theme]) => (
                   <button
                     key={key}
                     onClick={() => setSelectedTheme(key)}
-                    className={`p-1.5 sm:p-2 rounded-lg transition-all duration-300 ${
+                    className={`p-2 rounded-lg transition-all duration-300 ${
                       selectedTheme === key
                         ? selectedTheme === 'dark' 
                           ? 'bg-slate-600 text-white shadow-lg'
@@ -458,12 +458,12 @@ export default function Home() {
                     }`}
                     title={theme.name}
                   >
-                    <span className="text-sm sm:text-base">{key === 'light' ? '☀️' : '🌙'}</span>
+                    <span className="text-base">{key === 'light' ? '☀️' : '🌙'}</span>
                   </button>
                 ))}
               </div>
 
-              {/* Dil Seçici - Mobilde daha küçük */}
+              {/* Dil Seçici */}
               <div className="flex space-x-1">
                 {[
                   { 
@@ -490,7 +490,7 @@ export default function Home() {
                   <button
                     key={lang.code}
                     onClick={() => setSelectedLanguage(lang.code)}
-                    className={`p-1.5 sm:p-2 rounded-lg transition-all duration-300 ${
+                    className={`p-2 rounded-lg transition-all duration-300 ${
                       selectedLanguage === lang.code
                         ? selectedTheme === 'dark' 
                           ? 'bg-slate-600 shadow-lg'
@@ -501,7 +501,7 @@ export default function Home() {
                     }`}
                     title={lang.code.toUpperCase()}
                   >
-                    <span className="text-sm sm:text-lg">{lang.flag}</span>
+                    <span className="text-lg">{lang.flag}</span>
                   </button>
                 ))}
               </div>
@@ -543,6 +543,42 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      {/* Range Simulator Banner */}
+      <div className={`${currentTheme.filterBg} border-b ${currentTheme.cardBorder}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className={`w-12 h-12 ${currentTheme.cardBg} rounded-xl flex items-center justify-center`}>
+                <SparklesIcon className={`h-6 w-6 ${currentTheme.textPrimary}`} />
+              </div>
+              <div>
+                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Range Simulator</h3>
+                <p className={`text-sm ${currentTheme.textSecondary}`}>Discover your real-world electric range based on temperature, climate control, and driving conditions</p>
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                if (selectedCars.length === 0) {
+                  alert('Please select a vehicle first to use Range Simulator')
+                  return
+                }
+                setSelectedCarForSimulator(selectedCars[0])
+                setIsRangeSimulatorOpen(true)
+              }}
+              className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                selectedCars.length === 0 
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                  : 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
+              }`}
+              disabled={selectedCars.length === 0}
+            >
+              <SparklesIcon className="h-5 w-5" />
+              <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
       {/* Filter Bar - EV Database Style */}
       <div className="filter-bar">
@@ -754,7 +790,7 @@ export default function Home() {
                       {car.brand} {car.model}
                     </h3>
                     <div className="flex items-center space-x-2">
-                      <div className={`text-xl font-bold ${currentTheme.textSecondary}`}>
+                      <div className={`text-xl font-bold ${currentTheme.textPrimary}`}>
                         €{car.price_eur.toLocaleString()}
                       </div>
                       <div className="relative group">
@@ -781,51 +817,51 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">EV Range:</span>
+                        <span className={`${currentTheme.textPrimary}`}>EV Range:</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
+                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.ev_range_km} km</span>
                       </div>
                     </div>
                       <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Battery:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Battery:</span>
                       </div>
-                      <span className="font-semibold text-[#4F7C82]">{car.battery_kwh} kWh</span>
+                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.battery_kwh} kWh</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Fuel Consumption:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
                         </div>
-                      <span className="font-semibold text-[#4F7C82]">{car.fuel_consumption} L/100km</span>
+                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.fuel_consumption} L/100km</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Total Power:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Total Power:</span>
                       </div>
-                      <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
+                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.power_hp} HP</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Charge Time:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Charge Time:</span>
                       </div>
-                      <span className="font-semibold text-[#4F7C82]">{car.charge_time_ac}h AC</span>
+                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.charge_time_ac}h AC</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <span className="text-[#0B2E33]">CO₂:</span>
+                        <span className={`${currentTheme.textPrimary}`}>CO₂:</span>
                       </div>
-                      <span className="font-semibold text-[#4F7C82]">{car.co2_emission} g/km</span>
+                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.co2_emission} g/km</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <span className="text-[#0B2E33]">Trunk:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
                       </div>
-                      <span className="font-semibold text-[#4F7C82]">{car.trunk_volume}L</span>
+                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.trunk_volume}L</span>
                       </div>
                     </div>
 
@@ -845,7 +881,7 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2">
+                    <div className="flex flex-row justify-center space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -882,7 +918,7 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
-                    <div className="aspect-[16/9] w-24 h-16 rounded-lg overflow-hidden">
+                    <div className="aspect-[16/9] w-32 h-20 rounded-lg overflow-hidden">
                       <img
                         src={car.image_url}
                         alt={`${car.brand} ${car.model}`}
@@ -915,7 +951,7 @@ export default function Home() {
                       </div>
                       <div className="text-right">
                         <div className="flex items-center justify-end space-x-2">
-                          <div className="text-xl font-bold text-[#4F7C82]">
+                          <div className={`text-xl font-bold ${currentTheme.textPrimary}`}>
                           €{car.price_eur.toLocaleString()}
                           </div>
                           <div className="relative group">
@@ -929,11 +965,11 @@ export default function Home() {
                     </div>
 
                     {/* Specifications */}
-                    <div className="mt-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm">
+                    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">EV Range:</span>
-                        <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
+                        <BoltIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
+                        <span className={`${currentTheme.textPrimary}`}>EV Range:</span>
+                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.ev_range_km} km</span>
                       <button
                           onClick={() => {
                             setSelectedCarForSimulator(car)
@@ -946,32 +982,32 @@ export default function Home() {
                       </button>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Battery:</span>
-                        <span className="font-semibold text-[#4F7C82]">{car.battery_kwh} kWh</span>
+                        <CpuChipIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Battery:</span>
+                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.battery_kwh} kWh</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Fuel Consumption:</span>
-                        <span className="font-semibold text-[#4F7C82]">{car.fuel_consumption} L/100km</span>
+                        <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
+                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.fuel_consumption} L/100km</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Total Power:</span>
-                        <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
+                        <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Total Power:</span>
+                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.power_hp} HP</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className="text-[#0B2E33]">Charge Time:</span>
-                        <span className="font-semibold text-[#4F7C82]">{car.charge_time_ac}h AC</span>
+                        <BoltIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Charge Time:</span>
+                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.charge_time_ac}h AC</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="text-[#0B2E33]">CO₂:</span>
-                        <span className="font-semibold text-[#4F7C82]">{car.co2_emission} g/km</span>
+                        <span className={`${currentTheme.textPrimary}`}>CO₂:</span>
+                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.co2_emission} g/km</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="text-[#0B2E33]">Trunk:</span>
-                        <span className="font-semibold text-[#4F7C82]">{car.trunk_volume}L</span>
+                        <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
+                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.trunk_volume}L</span>
                       </div>
                     </div>
                 </div>
@@ -992,7 +1028,7 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2">
+                    <div className="flex flex-row justify-center space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()

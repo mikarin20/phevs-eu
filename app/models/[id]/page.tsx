@@ -230,13 +230,13 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       background: 'bg-slate-500',
       headerBg: 'bg-slate-400',
       headerText: 'text-slate-100',
-      headerSubtext: 'text-slate-300',
-      linkText: 'text-slate-300',
+      headerSubtext: 'text-slate-200',
+      linkText: 'text-slate-200',
       linkHover: 'hover:text-slate-100',
       cardBg: 'bg-slate-500',
       cardBorder: 'border-slate-300',
       textPrimary: 'text-slate-100',
-      textSecondary: 'text-slate-300',
+      textSecondary: 'text-slate-200',
       priceBg: 'bg-gradient-to-r from-slate-400 to-slate-300',
       priceBorder: 'border-slate-300',
       statBg: 'bg-slate-500',
@@ -411,6 +411,29 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           </div>
         </div>
 
+        {/* Range Simulator Section */}
+        <div className="mb-8">
+          <div className={`${currentTheme.cardBg} rounded-xl p-6 shadow-sm border ${currentTheme.cardBorder}`}>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className={`w-12 h-12 ${currentTheme.highlightBg} rounded-xl flex items-center justify-center`}>
+                  <SparklesIcon className={`h-6 w-6 ${currentTheme.textPrimary}`} />
+                </div>
+                <div>
+                  <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Range Simulator</h3>
+                  <p className={`text-sm ${currentTheme.textSecondary}`}>Test real-world range with different conditions</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsRangeSimulatorOpen(true)}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105`}
+              >
+                <SparklesIcon className="h-5 w-5 inline mr-2" />
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
 
         {/* Euro NCAP Section */}
         {car.euroncap_rating && (
