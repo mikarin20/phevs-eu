@@ -123,18 +123,18 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
+    <div className="min-h-screen bg-[#F8FAFB]">
       {/* Header */}
-      <header className="header-metallic sticky top-0 z-50">
+      <header className="header-solid sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16">
             <Link href="/" className="btn-secondary inline-flex items-center space-x-2">
               <ArrowLeftIcon className="h-5 w-5" />
               <span>Back to Models</span>
             </Link>
             <div className="text-center">
-              <h1 className="text-2xl font-bold text-slate-800">{car.brand} {car.model}</h1>
-              <p className="text-slate-600">{car.year} • {car.segment}</p>
+              <h1 className="text-2xl font-bold text-[#0B2E33]">{car.brand} {car.model}</h1>
+              <p className="text-[#4F7C82]">{car.year} • {car.segment}</p>
             </div>
             <div className="w-24"></div>
           </div>
@@ -151,35 +151,35 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           {/* Specifications */}
           <div className="space-y-6">
             {/* Price Card */}
-            <div className="card p-6 text-center">
+            <div className="card-elevated p-6 text-center">
               <div className="flex items-center justify-center space-x-2 mb-4">
-                <CurrencyEuroIcon className="h-8 w-8 text-blue-600" />
-                <span className="text-3xl font-bold text-slate-800">€{car.price_eur.toLocaleString()}</span>
+                <CurrencyEuroIcon className="h-8 w-8 text-[#4F7C82]" />
+                <span className="text-3xl font-bold text-[#0B2E33]">€{car.price_eur.toLocaleString()}</span>
               </div>
-              <p className="text-slate-600">Starting Price</p>
+              <p className="text-[#4F7C82]">Starting Price</p>
             </div>
 
             {/* Specifications */}
             {specifications.map((spec, index) => (
               <div key={index} className="card p-6">
-                <h3 className="text-xl font-bold text-slate-800 mb-4 pb-3 border-b-2 border-slate-200">
+                <h3 className="text-xl font-bold text-[#0B2E33] mb-4 pb-3 border-b-2 border-[#E2E8F0]">
                   {spec.category}
                 </h3>
                 <div className="grid grid-cols-1 gap-4">
                   {spec.items.map((item, itemIndex) => (
                     <div 
                       key={itemIndex} 
-                      className={`flex justify-between items-center py-3 px-4 rounded-xl transition-all ${
+                      className={`flex justify-between items-center py-3 px-4 rounded-lg transition-all ${
                         (item as any).highlight 
-                          ? 'bg-gradient-to-r from-blue-50 to-slate-50 border-2 border-blue-200' 
-                          : 'bg-slate-50/50'
+                          ? 'bg-gradient-to-r from-[#B8E3E9] to-[#F1F5F9] border border-[#4F7C82]' 
+                          : 'bg-[#F8FAFB]'
                       }`}
                     >
                       <div className="flex items-center space-x-2">
-                        {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-blue-600" })}
-                        <span className="text-slate-600 font-medium">{item.label}</span>
+                        {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-[#4F7C82]" })}
+                        <span className="text-[#0B2E33] font-medium">{item.label}</span>
                       </div>
-                      <span className={`font-bold ${(item as any).highlight ? 'text-blue-700 text-lg' : 'text-slate-800'}`}>
+                      <span className={`font-bold ${(item as any).highlight ? 'text-[#0B2E33] text-lg' : 'text-[#4F7C82]'}`}>
                         {item.value}
                       </span>
                     </div>

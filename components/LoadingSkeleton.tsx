@@ -1,77 +1,87 @@
-export function CarCardSkeleton({ viewMode = 'list' }: { viewMode?: 'list' | 'grid' }) {
-  if (viewMode === 'grid') {
+export function CarCardSkeleton({ viewMode = 'list', count = 1 }: { viewMode?: 'list' | 'grid', count?: number }) {
+  const SkeletonCard = () => {
+    if (viewMode === 'grid') {
+      return (
+        <div className="card animate-pulse">
+          {/* Image */}
+          <div className="w-full h-48 bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg mb-4"></div>
+          
+          {/* Title */}
+          <div className="h-6 bg-[#E2E8F0] rounded-lg w-3/4 mb-2"></div>
+          
+          {/* Badges */}
+          <div className="flex items-center space-x-2 mb-4">
+            <div className="h-5 w-16 bg-[#F1F5F9] rounded-full"></div>
+            <div className="h-5 w-16 bg-[#F1F5F9] rounded-full"></div>
+          </div>
+          
+          {/* Price */}
+          <div className="h-8 bg-[#E2E8F0] rounded-lg w-1/2 mb-4"></div>
+          
+          {/* Stats */}
+          <div className="grid grid-cols-2 gap-3">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i}>
+                <div className="h-3 bg-[#F1F5F9] rounded w-16 mb-1"></div>
+                <div className="h-4 bg-[#E2E8F0] rounded w-20"></div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Buttons */}
+          <div className="flex items-center space-x-2 pt-4 mt-4 border-t border-[#E2E8F0]">
+            <div className="flex-1 h-10 bg-[#E2E8F0] rounded-lg"></div>
+            <div className="flex-1 h-10 bg-[#E2E8F0] rounded-lg"></div>
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div className="card animate-pulse">
-        {/* Image */}
-        <div className="w-full h-48 bg-gradient-to-br from-slate-200 to-slate-300 rounded-xl mb-4"></div>
-        
-        {/* Title */}
-        <div className="h-6 bg-slate-300 rounded-lg w-3/4 mb-2"></div>
-        
-        {/* Badges */}
-        <div className="flex items-center space-x-2 mb-4">
-          <div className="h-5 w-16 bg-slate-200 rounded-full"></div>
-          <div className="h-5 w-16 bg-slate-200 rounded-full"></div>
-        </div>
-        
-        {/* Price */}
-        <div className="h-8 bg-slate-300 rounded-lg w-1/2 mb-4"></div>
-        
-        {/* Stats */}
-        <div className="grid grid-cols-2 gap-3">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i}>
-              <div className="h-3 bg-slate-200 rounded w-16 mb-1"></div>
-              <div className="h-4 bg-slate-300 rounded w-20"></div>
+        <div className="flex items-start space-x-4">
+          {/* Image */}
+          <div className="flex-shrink-0 w-24 h-16 bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg"></div>
+          
+          {/* Info */}
+          <div className="flex-1">
+            {/* Title */}
+            <div className="h-6 bg-[#E2E8F0] rounded-lg w-1/2 mb-2"></div>
+            
+            {/* Badges */}
+            <div className="flex items-center space-x-2 mb-3">
+              <div className="h-5 w-16 bg-[#F1F5F9] rounded-full"></div>
+              <div className="h-5 w-20 bg-[#F1F5F9] rounded-full"></div>
             </div>
-          ))}
-        </div>
-        
-        {/* Buttons */}
-        <div className="flex items-center space-x-2 pt-4 mt-4 border-t border-slate-200">
-          <div className="flex-1 h-10 bg-slate-300 rounded-xl"></div>
-          <div className="flex-1 h-10 bg-slate-300 rounded-xl"></div>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i}>
+                  <div className="h-3 bg-[#F1F5F9] rounded w-24 mb-1"></div>
+                  <div className="h-4 bg-[#E2E8F0] rounded w-20"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Price & Actions */}
+          <div className="flex-shrink-0 flex flex-col items-end space-y-2">
+            <div className="h-10 bg-[#E2E8F0] rounded-lg w-32 mb-2"></div>
+            <div className="w-8 h-8 bg-[#F1F5F9] rounded-full"></div>
+            <div className="w-8 h-8 bg-[#F1F5F9] rounded-full"></div>
+          </div>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="card animate-pulse">
-      <div className="flex items-start space-x-6">
-        {/* Image */}
-        <div className="flex-shrink-0 w-32 h-20 bg-gradient-to-br from-slate-200 to-slate-300 rounded-xl"></div>
-        
-        {/* Info */}
-        <div className="flex-1">
-          {/* Title */}
-          <div className="h-6 bg-slate-300 rounded-lg w-1/2 mb-2"></div>
-          
-          {/* Badges */}
-          <div className="flex items-center space-x-2 mb-3">
-            <div className="h-5 w-16 bg-slate-200 rounded-full"></div>
-            <div className="h-5 w-20 bg-slate-200 rounded-full"></div>
-          </div>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i}>
-                <div className="h-3 bg-slate-200 rounded w-24 mb-1"></div>
-                <div className="h-4 bg-slate-300 rounded w-20"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Price & Actions */}
-        <div className="flex-shrink-0 flex flex-col items-end space-y-2">
-          <div className="h-10 bg-slate-300 rounded-lg w-32 mb-2"></div>
-          <div className="w-10 h-10 bg-slate-200 rounded-full"></div>
-          <div className="w-10 h-10 bg-slate-200 rounded-full"></div>
-        </div>
-      </div>
-    </div>
+    <>
+      {Array.from({ length: count }, (_, i) => (
+        <SkeletonCard key={i} />
+      ))}
+    </>
   )
 }
 

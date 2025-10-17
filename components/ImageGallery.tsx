@@ -9,22 +9,20 @@ interface ImageGalleryProps {
 
 export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0)
-  const [validImages, setValidImages] = useState<string[]>([])
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
+  const [loadedImages, setLoadedImages] = useState<string[]>([])
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
 
-  // İlk görseli yükle
+  // İlk görseli hemen yükle
   useEffect(() => {
     if (images && images.length > 0) {
-      setValidImages([images[0]])
+      setLoadedImages([images[0]])
     }
   }, [images])
 
   // Görsel başarıyla yüklendiğinde
   const handleImageLoad = (src: string) => {
-    setLoadedImages(prev => new Set([...prev, src]))
-    if (!validImages.includes(src)) {
-      setValidImages(prev => [...prev, src])
+    if (!loadedImages.includes(src)) {
+      setLoadedImages(prev => [...prev, src])
     }
   }
 
@@ -33,18 +31,16 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
     setFailedImages(prev => new Set([...prev, src]))
   }
 
-  // Görüntülenecek görseller - sadece yüklenenler ve henüz denenmeyenler
-  const displayImages = images.filter(img => 
-    !failedImages.has(img)
-  )
+  // Ana görsel
+  const mainImageSrc = loadedImages[selectedImage] || loadedImages[0] || '/images/placeholder-car.jpg'
 
-  // Ana görsel için fallback
-  const mainImageSrc = validImages[selectedImage] || validImages[0] || '/images/placeholder-car.jpg'
+  // Thumbnail'lar için görseller - sadece yüklenenler
+  const thumbnailImages = loadedImages.slice(1, 21) // İlk görseli çıkar, max 20 thumbnail
 
   return (
     <div className="space-y-4">
       {/* Main Image */}
-      <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl overflow-hidden shadow-2xl">
+      <div className="relative aspect-w-16 aspect-h-9 bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden shadow-md">
         <img
           src={mainImageSrc}
           alt={alt}
@@ -59,31 +55,54 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
       </div>
 
       {/* Thumbnail Images */}
-      <div className="grid grid-cols-5 gap-3">
-        {displayImages.slice(0, 20).map((image, index) => (
+      {thumbnailImages.length > 0 && (
+        <div className="grid grid-cols-5 gap-3">
+          {thumbnailImages.map((image, index) => (
+            <button
+              key={index}
+              onClick={() => setSelectedImage(index + 1)} // +1 çünkü ilk görsel ana görsel
+              className={`aspect-w-16 aspect-h-9 bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden transition-all duration-300 ${
+                selectedImage === index + 1 
+                  ? 'ring-2 ring-[#4F7C82] shadow-lg scale-105' 
+                  : 'hover:ring-1 hover:ring-[#93B1B5] hover:scale-105'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`${alt} ${index + 2}`}
+                className="w-full h-20 object-cover"
+                loading="lazy"
+                onLoad={() => handleImageLoad(image)}
+                onError={(e) => {
+                  handleImageError(image)
+                  e.currentTarget.style.display = 'none'
+                }}
+              />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Load more images button */}
+      {images.length > loadedImages.length && (
+        <div className="text-center">
           <button
-            key={index}
-            onClick={() => setSelectedImage(index)}
-            className={`aspect-w-16 aspect-h-9 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden transition-all duration-300 ${
-              selectedImage === index 
-                ? 'ring-4 ring-blue-500 shadow-xl shadow-blue-500/30 scale-105' 
-                : 'hover:ring-2 hover:ring-blue-300 hover:scale-105'
-            }`}
+            onClick={() => {
+              // Kalan görselleri yüklemeye başla
+              const remainingImages = images.slice(loadedImages.length, loadedImages.length + 10)
+              remainingImages.forEach(img => {
+                const testImg = new Image()
+                testImg.onload = () => handleImageLoad(img)
+                testImg.onerror = () => handleImageError(img)
+                testImg.src = img
+              })
+            }}
+            className="btn-secondary text-sm"
           >
-            <img
-              src={image}
-              alt={`${alt} ${index + 1}`}
-              className="w-full h-20 object-cover"
-              loading="lazy"
-              onLoad={() => handleImageLoad(image)}
-              onError={(e) => {
-                handleImageError(image)
-                e.currentTarget.style.display = 'none'
-              }}
-            />
+            Load More Images ({images.length - loadedImages.length} remaining)
           </button>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
   )
 }
