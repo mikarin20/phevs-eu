@@ -70,7 +70,6 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
         <div className="aspect-[16/9] w-full max-h-48">
           <img
             src={mainImageSrc}
-            srcSet={`${mainImageSrc} 1x, ${mainImageSrc.replace('.jpg', '@2x.jpg')} 2x`}
             alt={alt}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             loading="eager"
@@ -100,7 +99,6 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
               <div className="aspect-[16/9] w-full h-16">
                 <img
                   src={image}
-                  srcSet={`${image} 1x, ${image.replace('.jpg', '@2x.jpg')} 2x`}
                   alt={`${alt} ${index + 2}`}
                   className="w-full h-full object-cover"
                   loading="lazy"

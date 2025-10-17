@@ -362,7 +362,6 @@ export default function ComparePage() {
                 <div className="aspect-[16/9] w-full max-h-40">
                   <img
                     src={car.image_url}
-                    srcSet={`${car.image_url} 1x, ${car.image_url.replace('.jpg', '@2x.jpg')} 2x`}
                     alt={`${car.brand} ${car.model}`}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                     onError={(e) => {

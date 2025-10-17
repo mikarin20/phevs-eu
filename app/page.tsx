@@ -609,7 +609,6 @@ export default function Home() {
                   <div className="aspect-[16/9] w-full max-h-40 rounded-lg overflow-hidden">
                     <img
                       src={car.image_url}
-                      srcSet={`${car.image_url} 1x, ${car.image_url.replace('.jpg', '@2x.jpg')} 2x`}
                       alt={`${car.brand} ${car.model}`}
                       className="w-full h-full object-cover"
                       loading="lazy"
@@ -760,7 +759,6 @@ export default function Home() {
                     <div className="aspect-[16/9] w-24 h-16 rounded-lg overflow-hidden">
                       <img
                         src={car.image_url}
-                        srcSet={`${car.image_url} 1x, ${car.image_url.replace('.jpg', '@2x.jpg')} 2x`}
                         alt={`${car.brand} ${car.model}`}
                         className="w-full h-full object-cover"
                         loading="lazy"
