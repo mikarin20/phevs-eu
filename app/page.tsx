@@ -15,7 +15,8 @@ import {
   BoltIcon,
   CurrencyEuroIcon,
   CpuChipIcon,
-  WrenchScrewdriverIcon
+  WrenchScrewdriverIcon,
+  InformationCircleIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -586,11 +587,16 @@ export default function Home() {
                     <h3 className="text-lg font-semibold text-[#0B2E33]">
                       {car.brand} {car.model}
                     </h3>
-                    <div className="text-xl font-bold text-[#4F7C82]">
-                      €{car.price_eur.toLocaleString()}
-                    </div>
-                    <div className="text-xs text-slate-500 mt-1">
-                      Estimated EU price
+                    <div className="flex items-center space-x-2">
+                      <div className="text-xl font-bold text-[#4F7C82]">
+                        €{car.price_eur.toLocaleString()}
+                      </div>
+                      <div className="relative group">
+                        <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                          Estimated EU price
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -602,7 +608,7 @@ export default function Home() {
                     {car.euroncap_rating && (
                       <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
                     )}
-                  </div>
+                    </div>
 
                   {/* Specifications */}
                   <div className="space-y-2 text-sm mb-4">
@@ -721,11 +727,16 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-xl font-bold text-[#4F7C82]">
+                        <div className="flex items-center justify-end space-x-2">
+                          <div className="text-xl font-bold text-[#4F7C82]">
                           €{car.price_eur.toLocaleString()}
-                        </div>
-                        <div className="text-xs text-slate-500 mt-1">
-                          Estimated EU price
+                          </div>
+                          <div className="relative group">
+                            <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                              Estimated EU price
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

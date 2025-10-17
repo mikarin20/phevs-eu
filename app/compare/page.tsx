@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ArrowLeftIcon, XMarkIcon, CheckIcon, XCircleIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, XMarkIcon, CheckIcon, XCircleIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
@@ -80,8 +80,18 @@ export default function ComparePage() {
       title: 'Pricing',
       rows: [
         { 
-          label: 'Price (EUR)', 
-          getValue: (car: Car) => `€${car.price_eur.toLocaleString()} (Est. EU)`,
+          label: (
+            <div className="flex items-center space-x-1">
+              <span>Price (EUR)</span>
+              <div className="relative group">
+                <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                  Estimated EU price
+                </div>
+              </div>
+            </div>
+          ), 
+          getValue: (car: Car) => `€${car.price_eur.toLocaleString()}`,
           highlight: true,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.price_eur))
         },
@@ -315,11 +325,16 @@ export default function ComparePage() {
                     <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
                   </div>
                 )}
-                <div className="text-3xl font-bold text-blue-600">
-                  €{car.price_eur.toLocaleString()}
-                </div>
-                <div className="text-xs text-slate-500 mt-1">
-                  Estimated EU price
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="text-3xl font-bold text-blue-600">
+                    €{car.price_eur.toLocaleString()}
+                  </div>
+                  <div className="relative group">
+                    <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                      Estimated EU price
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -336,8 +351,8 @@ export default function ComparePage() {
               
               <div className="space-y-1">
                 {category.rows.map((row, rowIndex) => (
-                  <div 
-                    key={row.label}
+                  <div
+                    key={rowIndex}
                     className={`grid gap-4 py-4 px-4 rounded-xl transition-colors ${
                       rowIndex % 2 === 0 ? 'bg-slate-50/50' : 'bg-transparent'
                     }`}

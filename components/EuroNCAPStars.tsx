@@ -105,17 +105,17 @@ export default function EuroNCAPStars({ rating, size = 'md', showDetails = false
         {rating.stars}/5
       </div>
 
-      {/* Euro NCAP Label and Test Year */}
-      <div className="text-center">
-        <div className="text-xs font-medium text-[#4F7C82]">
-          Euro NCAP
-        </div>
-        {rating.test_year && (
-          <div className="text-xs text-[#93B1B5]">
-            {rating.test_year}
-          </div>
-        )}
+      {/* Euro NCAP Label */}
+      <div className="text-xs font-medium text-[#4F7C82]">
+        Euro NCAP
       </div>
+
+      {/* Test Year */}
+      {rating.test_year && (
+        <div className="text-xs text-[#93B1B5]">
+          {rating.test_year}
+        </div>
+      )}
 
       {/* Detailed Ratings */}
       {showDetails && (

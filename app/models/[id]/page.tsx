@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import ImageGallery from '@/components/ImageGallery'
@@ -184,8 +184,15 @@ export default function ModelDetail({ params }: ModelDetailProps) {
               <CurrencyEuroIcon className="h-8 w-8 text-[#4F7C82]" />
               <span className="text-3xl font-bold text-[#0B2E33]">€{car.price_eur.toLocaleString()}</span>
             </div>
-            <p className="text-[#4F7C82]">Starting Price</p>
-            <p className="text-xs text-slate-500 mt-1">Estimated EU market value</p>
+            <div className="flex items-center justify-center space-x-2">
+              <p className="text-[#4F7C82]">Starting Price</p>
+              <div className="relative group">
+                <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                  Estimated EU market value
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
