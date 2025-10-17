@@ -322,13 +322,20 @@ export default function Home() {
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => {
-                  setSelectedCarForSimulator(null)
+                  if (selectedCars.length === 0) {
+                    alert('Please select a vehicle first to use Range Simulator')
+                    return
+                  }
+                  setSelectedCarForSimulator(selectedCars[0])
                   setIsRangeSimulatorOpen(true)
                 }}
-                className="btn-secondary inline-flex items-center space-x-2"
+                className={`btn-secondary inline-flex items-center space-x-2 ${
+                  selectedCars.length === 0 ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+                disabled={selectedCars.length === 0}
               >
                 <SparklesIcon className="h-5 w-5" />
-                <span>Range Simulator</span>
+                <span>Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
               </button>
               <Link 
                 href="/compare" 

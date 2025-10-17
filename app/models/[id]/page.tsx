@@ -1,16 +1,12 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import ImageGallery from '@/components/ImageGallery'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
-
-// Static generation için gerekli
-export async function generateStaticParams() {
-  return carsData.map((car) => ({
-    id: car.id,
-  }))
-}
+import RangeSimulator from '@/components/RangeSimulator'
 
 interface Car {
   id: string
@@ -40,6 +36,27 @@ interface Car {
     overall_rating: number
     test_year?: number
   }
+  simulator_data?: {
+    base_range_km: number
+    temperature_efficiency: {
+      optimal_temp: number
+      cold_weather_factor: number
+      hot_weather_factor: number
+      mild_cold_factor: number
+      mild_hot_factor: number
+    }
+    ac_impact: number
+    highway_efficiency: {
+      city_factor: number
+      mixed_factor: number
+      highway_factor: number
+    }
+    driving_style: {
+      eco_factor: number
+      normal_factor: number
+      sport_factor: number
+    }
+  }
 }
 
 interface ModelDetailProps {
@@ -50,6 +67,7 @@ interface ModelDetailProps {
 
 export default function ModelDetail({ params }: ModelDetailProps) {
   const car = carsData.find(c => c.id === params.id) as Car
+  const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
 
   if (!car) {
     return (
@@ -99,7 +117,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     { 
       category: 'Electric Performance',
       items: [
-        { label: 'Electric Range', value: `${car.ev_range_km} km`, icon: BoltIcon, highlight: true },
+        { label: 'Electric Range', value: `${car.ev_range_km} km`, icon: BoltIcon, highlight: true, hasSimulator: true },
         { label: 'Battery Capacity', value: `${car.battery_kwh} kWh`, icon: SparklesIcon, highlight: true },
         { label: 'AC Charge Time', value: `${car.charge_time_ac} hours` },
         { label: 'DC Charge Time', value: `${car.charge_time_dc} minutes` },
@@ -194,9 +212,20 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                         {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-[#4F7C82]" })}
                         <span className="text-[#0B2E33] font-medium">{item.label}</span>
                       </div>
-                      <span className={`font-bold ${(item as any).highlight ? 'text-[#0B2E33] text-lg' : 'text-[#4F7C82]'}`}>
-                        {item.value}
-                      </span>
+                      <div className="flex items-center space-x-2">
+                        <span className={`font-bold ${(item as any).highlight ? 'text-[#0B2E33] text-lg' : 'text-[#4F7C82]'}`}>
+                          {item.value}
+                        </span>
+                        {(item as any).hasSimulator && (
+                          <button
+                            onClick={() => setIsRangeSimulatorOpen(true)}
+                            className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
+                            title="Range Simulator"
+                          >
+                            <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
+                          </button>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -205,6 +234,15 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           </div>
         </div>
       </div>
+
+      {/* Range Simulator */}
+      <RangeSimulator
+        baseRange={car.ev_range_km}
+        batteryCapacity={car.battery_kwh}
+        isOpen={isRangeSimulatorOpen}
+        onClose={() => setIsRangeSimulatorOpen(false)}
+        simulatorData={car.simulator_data}
+      />
     </div>
   )
 }

@@ -5,7 +5,8 @@ import {
   SunIcon, 
   InformationCircleIcon,
   ArrowLeftIcon,
-  XMarkIcon
+  XMarkIcon,
+  SparklesIcon
 } from '@heroicons/react/24/outline'
 
 interface RangeSimulatorProps {
@@ -99,71 +100,92 @@ export default function RangeSimulator({
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-gradient-to-br from-white via-blue-50/30 to-slate-50 rounded-3xl max-w-5xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-white/20">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <div className="flex items-center space-x-3">
+        <div className="relative bg-gradient-to-r from-[#0B2E33] via-[#4F7C82] to-[#93B1B5] p-6 text-white">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2E33]/90 to-[#4F7C82]/90"></div>
+          <div className="relative flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <button 
+                onClick={onClose}
+                className="p-2 hover:bg-white/20 rounded-full transition-all duration-200 backdrop-blur-sm"
+              >
+                <ArrowLeftIcon className="w-6 h-6" />
+              </button>
+              <div>
+                <h2 className="text-2xl font-bold">Range Simulator</h2>
+                <p className="text-blue-100 text-sm">Discover your electric range</p>
+              </div>
+            </div>
             <button 
               onClick={onClose}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              className="p-2 hover:bg-white/20 rounded-full transition-all duration-200 backdrop-blur-sm"
             >
-              <ArrowLeftIcon className="w-5 h-5" />
+              <XMarkIcon className="w-6 h-6" />
             </button>
-            <h2 className="text-xl font-semibold text-gray-900">Range Simulator</h2>
           </div>
-          <button 
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-          >
-            <XMarkIcon className="w-5 h-5" />
-          </button>
         </div>
 
         {/* Main Content */}
-        <div className="p-6">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+        <div className="p-8">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] text-white px-6 py-3 rounded-full mb-4">
+              <SparklesIcon className="w-5 h-5" />
+              <span className="font-semibold">Real-time Range Calculation</span>
+            </div>
+            <h3 className="text-3xl font-bold text-[#0B2E33] mb-3">
               Discover Your Electric Range
             </h3>
-            <p className="text-gray-600">
-              Simulate realistic electric range based on driving conditions
+            <p className="text-[#4F7C82] text-lg max-w-2xl mx-auto">
+              Simulate realistic electric range based on driving conditions and environmental factors
             </p>
             {simulatorData && (
-              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-                <p className="text-sm text-blue-800">
-                  <strong>Model-specific data:</strong> Using official efficiency parameters for this vehicle
-                </p>
+              <div className="mt-6 inline-flex items-center space-x-2 bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 text-green-800 px-4 py-2 rounded-full">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium">Using official efficiency parameters for this vehicle</span>
               </div>
             )}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Temperature Control */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <SunIcon className="w-5 h-5 text-gray-600" />
-                <h4 className="font-semibold text-gray-900">Outside Temperature</h4>
-                <InformationCircleIcon className="w-4 h-4 text-gray-400" />
+            <div className="space-y-6">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] rounded-lg">
+                  <SunIcon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#0B2E33] text-lg">Outside Temperature</h4>
+                  <p className="text-[#4F7C82] text-sm">Environmental impact on range</p>
+                </div>
+                <InformationCircleIcon className="w-5 h-5 text-[#93B1B5]" />
               </div>
               
-              <div className="relative">
-                <div className="h-64 bg-gradient-to-t from-blue-500 via-green-500 to-red-500 rounded-lg relative">
-                  <div className="absolute inset-0 flex flex-col justify-between p-4">
-                    <div className="flex items-center justify-center">
-                      <SunIcon className="w-6 h-6 text-white" />
-                      <span className="text-white font-semibold ml-2">30°C</span>
+              <div className="relative bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 border border-white/50 shadow-lg">
+                <div className="h-72 bg-gradient-to-t from-blue-600 via-emerald-500 to-red-500 rounded-xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/90 via-emerald-500/90 to-red-500/90"></div>
+                  
+                  {/* Temperature markers */}
+                  <div className="absolute inset-0 flex flex-col justify-between p-6">
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="p-2 bg-white/20 rounded-full backdrop-blur-sm">
+                        <SunIcon className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="text-white font-bold text-lg">30°C</span>
                     </div>
-                    <div className="flex items-center justify-center">
-                      <SunIcon className="w-6 h-6 text-white rotate-180" />
-                      <span className="text-white font-semibold ml-2">-10°C</span>
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="p-2 bg-white/20 rounded-full backdrop-blur-sm">
+                        <SunIcon className="w-6 h-6 text-white rotate-180" />
+                      </div>
+                      <span className="text-white font-bold text-lg">-10°C</span>
                     </div>
                   </div>
                   
                   {/* Optimal temperature indicator */}
                   {simulatorData && (
                     <div 
-                      className="absolute w-1 h-8 bg-yellow-300 rounded-full transform -translate-x-1/2"
+                      className="absolute w-2 h-12 bg-yellow-400 rounded-full transform -translate-x-1/2 shadow-lg"
                       style={{ 
                         left: '50%', 
                         top: `${((30 - simulatorData.temperature_efficiency.optimal_temp) / 40) * 100}%` 
@@ -181,78 +203,116 @@ export default function RangeSimulator({
                   />
                   
                   <div 
-                    className="absolute w-6 h-6 bg-white rounded-full shadow-lg border-2 border-gray-300 transform -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-8 h-8 bg-white rounded-full shadow-xl border-4 border-[#4F7C82] transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
                     style={{ 
                       left: '50%', 
                       top: `${((30 - temperature) / 40) * 100}%` 
                     }}
-                  />
+                  >
+                    <div className="w-3 h-3 bg-[#4F7C82] rounded-full"></div>
+                  </div>
                 </div>
-                <div className="text-center mt-2">
-                  <span className="text-2xl font-bold text-gray-900">{temperature}°C</span>
+                
+                <div className="text-center mt-4">
+                  <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#0B2E33] to-[#4F7C82] text-white px-6 py-3 rounded-full">
+                    <span className="text-3xl font-bold">{temperature}°C</span>
+                    <div className="w-px h-6 bg-white/30"></div>
+                    <span className="text-sm font-medium">
+                      {temperature < 0 ? 'Very Cold' : 
+                       temperature < 10 ? 'Cold' : 
+                       temperature < 20 ? 'Cool' : 
+                       temperature < 25 ? 'Mild' : 
+                       temperature < 30 ? 'Warm' : 'Hot'}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Range Display */}
-            <div className="flex flex-col items-center justify-center space-y-4">
+            <div className="flex flex-col items-center justify-center space-y-6">
               <div className="relative">
-                <div className="w-48 h-48 bg-gradient-to-br from-blue-100 via-green-100 to-red-100 rounded-full flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-200/20 via-green-200/20 to-red-200/20 animate-pulse" />
-                  <div className="text-center z-10">
-                    <div className="text-6xl font-bold text-gray-900">{calculatedRange}</div>
-                    <div className="text-xl text-gray-600">km</div>
+                <div className="w-64 h-64 bg-gradient-to-br from-[#0B2E33] via-[#4F7C82] to-[#93B1B5] rounded-full flex items-center justify-center relative overflow-hidden shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0B2E33]/90 via-[#4F7C82]/90 to-[#93B1B5]/90"></div>
+                  
+                  {/* Animated background circles */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 via-green-200/30 to-red-200/30 animate-pulse rounded-full"></div>
+                  <div className="absolute inset-4 bg-gradient-to-br from-white/20 to-transparent rounded-full animate-pulse"></div>
+                  
+                  {/* Range display */}
+                  <div className="text-center z-10 relative">
+                    <div className="text-7xl font-bold text-white drop-shadow-lg">{calculatedRange}</div>
+                    <div className="text-2xl text-white/90 font-medium">km</div>
+                    <div className="mt-2 text-sm text-white/80 font-medium">Electric Range</div>
                   </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <div className="absolute top-1/2 left-4 w-1 h-1 bg-blue-400 rounded-full animate-pulse"></div>
                 </div>
+                
+                {/* Range indicator ring */}
+                <div className="absolute inset-0 border-4 border-white/20 rounded-full"></div>
+                <div className="absolute inset-2 border-2 border-white/10 rounded-full"></div>
               </div>
-              <div className="text-center">
-                <p className="text-sm text-gray-600">
-                  Estimated electric range
-                </p>
-                <p className="text-xs text-gray-500 mt-1">
-                  Based on {batteryCapacity}kWh battery
+              
+              <div className="text-center space-y-3">
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#0B2E33] to-[#4F7C82] text-white px-4 py-2 rounded-full">
+                  <SparklesIcon className="w-4 h-4" />
+                  <span className="font-semibold">Estimated Range</span>
+                </div>
+                <p className="text-[#4F7C82] text-sm">
+                  Based on {batteryCapacity}kWh battery capacity
                 </p>
                 {simulatorData && (
-                  <div className="mt-2 text-xs text-gray-500">
-                    <p>WLTP Base: {simulatorData.base_range_km} km</p>
-                    <p>Optimal temp: {simulatorData.temperature_efficiency.optimal_temp}°C</p>
+                  <div className="space-y-1 text-xs text-[#93B1B5]">
+                    <p>WLTP Base: <span className="font-semibold">{simulatorData.base_range_km} km</span></p>
+                    <p>Optimal temp: <span className="font-semibold">{simulatorData.temperature_efficiency.optimal_temp}°C</span></p>
                   </div>
                 )}
               </div>
             </div>
 
             {/* AC Control */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <SunIcon className="w-5 h-5 text-gray-600" />
-                <h4 className="font-semibold text-gray-900">Air Conditioning</h4>
-                <InformationCircleIcon className="w-4 h-4 text-gray-400" />
+            <div className="space-y-6">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] rounded-lg">
+                  <SunIcon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#0B2E33] text-lg">Climate Control</h4>
+                  <p className="text-[#4F7C82] text-sm">AC impact on range</p>
+                </div>
+                <InformationCircleIcon className="w-5 h-5 text-[#93B1B5]" />
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <button
                   onClick={() => setAcEnabled(!acEnabled)}
-                  className={`w-full p-4 rounded-xl border-2 transition-all ${
+                  className={`w-full p-6 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105 ${
                     acEnabled 
-                      ? 'border-blue-500 bg-blue-50 text-blue-700' 
-                      : 'border-gray-200 bg-gray-50 text-gray-600'
+                      ? 'border-[#4F7C82] bg-gradient-to-r from-[#4F7C82]/10 to-[#93B1B5]/10 text-[#0B2E33] shadow-lg' 
+                      : 'border-gray-200 bg-gradient-to-r from-gray-50 to-gray-100 text-gray-600'
                   }`}
                 >
-                  <div className="flex items-center justify-center space-x-3">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      acEnabled ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
+                  <div className="flex items-center justify-center space-x-4">
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      acEnabled 
+                        ? 'bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] text-white shadow-lg' 
+                        : 'bg-gray-300 text-gray-600'
                     }`}>
-                      <SunIcon className="w-6 h-6" />
+                      <SunIcon className="w-8 h-8" />
                     </div>
                     <div className="text-left">
-                      <div className="font-semibold">
+                      <div className="font-bold text-lg">
                         {acEnabled ? 'AC Enabled' : 'AC Disabled'}
                       </div>
-                      <div className="text-sm">
+                      <div className="text-sm opacity-80">
                         {acEnabled ? 'Climate control active' : 'Climate control off'}
                       </div>
                       {simulatorData && (
-                        <div className="text-xs text-gray-500 mt-1">
+                        <div className="text-xs mt-1 font-medium">
                           Impact: {Math.round((1 - simulatorData.ac_impact) * 100)}% range reduction
                         </div>
                       )}
@@ -261,42 +321,75 @@ export default function RangeSimulator({
                 </button>
 
                 {/* Highway Share */}
-                <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Highway Driving: {highwayShare}%
-                  </label>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={highwayShare}
-                    onChange={(e) => setHighwayShare(Number(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>City</span>
-                    <span>Highway</span>
-                  </div>
-                  {simulatorData && (
-                    <div className="text-xs text-gray-500">
-                      <p>City efficiency: {Math.round(simulatorData.highway_efficiency.city_factor * 100)}%</p>
-                      <p>Highway efficiency: {Math.round(simulatorData.highway_efficiency.highway_factor * 100)}%</p>
+                <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 border border-white/50 shadow-lg">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <label className="text-lg font-bold text-[#0B2E33]">
+                        Highway Driving
+                      </label>
+                      <span className="text-2xl font-bold text-[#4F7C82]">{highwayShare}%</span>
                     </div>
-                  )}
+                    
+                    <div className="relative">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={highwayShare}
+                        onChange={(e) => setHighwayShare(Number(e.target.value))}
+                        className="w-full h-3 bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] rounded-lg appearance-none cursor-pointer slider"
+                        style={{
+                          background: `linear-gradient(to right, #4F7C82 0%, #93B1B5 100%)`
+                        }}
+                      />
+                      <div className="flex justify-between text-sm text-[#4F7C82] mt-2">
+                        <span className="font-medium">City Driving</span>
+                        <span className="font-medium">Highway Driving</span>
+                      </div>
+                    </div>
+                    
+                    {simulatorData && (
+                      <div className="grid grid-cols-2 gap-4 text-xs">
+                        <div className="bg-white/50 rounded-lg p-3 text-center">
+                          <div className="font-bold text-[#0B2E33]">City Efficiency</div>
+                          <div className="text-[#4F7C82] font-semibold">
+                            {Math.round(simulatorData.highway_efficiency.city_factor * 100)}%
+                          </div>
+                        </div>
+                        <div className="bg-white/50 rounded-lg p-3 text-center">
+                          <div className="font-bold text-[#0B2E33]">Highway Efficiency</div>
+                          <div className="text-[#4F7C82] font-semibold">
+                            {Math.round(simulatorData.highway_efficiency.highway_factor * 100)}%
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Information */}
-          <div className="mt-8 p-4 bg-gray-50 rounded-xl">
-            <p className="text-sm text-gray-600 mb-2">
-              <strong>Note:</strong> The achievable range depends particularly on your individual driving style. 
-              This simulation uses average consumption patterns.
-            </p>
-            <button className="text-sm text-blue-600 hover:text-blue-800 font-medium">
-              → Information about range data
-            </button>
+          <div className="mt-10 bg-gradient-to-r from-[#0B2E33]/5 via-[#4F7C82]/5 to-[#93B1B5]/5 rounded-2xl p-6 border border-white/50">
+            <div className="flex items-start space-x-4">
+              <div className="p-2 bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] rounded-lg">
+                <InformationCircleIcon className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-bold text-[#0B2E33] mb-2">Range Simulation Information</h4>
+                <p className="text-[#4F7C82] text-sm leading-relaxed mb-3">
+                  The achievable range depends particularly on your individual driving style. 
+                  This simulation uses average consumption patterns and official efficiency data.
+                </p>
+                <button className="inline-flex items-center space-x-2 text-[#4F7C82] hover:text-[#0B2E33] font-medium transition-colors">
+                  <span>Learn more about range data</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
