@@ -3,134 +3,134 @@
 import { useState } from 'react'
 
 export default function DemoPage() {
-  const [selectedTheme, setSelectedTheme] = useState('navy-beige-dark')
+  const [selectedTheme, setSelectedTheme] = useState('elegant-blue-beige')
 
   const themes = {
-    'navy-beige-dark': {
-      name: 'Navy Beige Dark',
-      headerBg: 'bg-[#1B3C53]',
-      headerText: 'text-white',
-      accentText: 'text-[#D2C1B6]',
-      primaryBtn: 'bg-[#234C6A] hover:bg-[#1B3C53]',
-      secondaryBtn: 'bg-[#456882] hover:bg-[#234C6A]',
-      cardBg: 'bg-[#1B3C53]',
-      cardBorder: 'border-[#234C6A]',
-      textPrimary: 'text-white',
-      textSecondary: 'text-[#D2C1B6]',
-      badgePrimary: 'bg-[#234C6A] text-[#D2C1B6]',
-      badgeSecondary: 'bg-[#456882] text-white',
-      iconColor: 'text-[#D2C1B6]',
-      priceColor: 'text-[#D2C1B6]',
-      inputBg: 'bg-[#234C6A]',
-      inputBorder: 'border-[#456882]',
-      inputText: 'text-white',
-      inputPlaceholder: 'placeholder-[#D2C1B6]',
-      background: 'bg-[#1B3C53]'
+    'elegant-blue-beige': {
+      name: 'Elegant Blue Beige',
+      headerBg: 'bg-[#555879]',
+      headerText: 'text-[#F4EBD3]',
+      accentText: 'text-[#DED3C4]',
+      primaryBtn: 'bg-[#98A1BC] hover:bg-[#555879] text-[#F4EBD3]',
+      secondaryBtn: 'bg-[#DED3C4] hover:bg-[#98A1BC] text-[#555879]',
+      cardBg: 'bg-[#555879]',
+      cardBorder: 'border-[#98A1BC]',
+      textPrimary: 'text-[#F4EBD3]',
+      textSecondary: 'text-[#DED3C4]',
+      badgePrimary: 'bg-[#98A1BC] text-[#F4EBD3]',
+      badgeSecondary: 'bg-[#DED3C4] text-[#555879]',
+      iconColor: 'text-[#DED3C4]',
+      priceColor: 'text-[#DED3C4]',
+      inputBg: 'bg-[#98A1BC]',
+      inputBorder: 'border-[#DED3C4]',
+      inputText: 'text-[#F4EBD3]',
+      inputPlaceholder: 'placeholder-[#DED3C4]',
+      background: 'bg-[#555879]'
     },
-    'navy-beige-light': {
-      name: 'Navy Beige Light',
-      headerBg: 'bg-[#234C6A]',
-      headerText: 'text-white',
-      accentText: 'text-[#D2C1B6]',
-      primaryBtn: 'bg-[#456882] hover:bg-[#234C6A]',
-      secondaryBtn: 'bg-[#1B3C53] hover:bg-[#234C6A]',
-      cardBg: 'bg-[#234C6A]',
-      cardBorder: 'border-[#456882]',
-      textPrimary: 'text-white',
-      textSecondary: 'text-[#D2C1B6]',
-      badgePrimary: 'bg-[#456882] text-white',
-      badgeSecondary: 'bg-[#1B3C53] text-[#D2C1B6]',
-      iconColor: 'text-[#D2C1B6]',
-      priceColor: 'text-[#D2C1B6]',
-      inputBg: 'bg-[#456882]',
-      inputBorder: 'border-[#234C6A]',
-      inputText: 'text-white',
-      inputPlaceholder: 'placeholder-[#D2C1B6]',
-      background: 'bg-[#234C6A]'
+    'soft-blue-cream': {
+      name: 'Soft Blue Cream',
+      headerBg: 'bg-[#98A1BC]',
+      headerText: 'text-[#F4EBD3]',
+      accentText: 'text-[#DED3C4]',
+      primaryBtn: 'bg-[#555879] hover:bg-[#98A1BC] text-[#F4EBD3]',
+      secondaryBtn: 'bg-[#DED3C4] hover:bg-[#555879] text-[#F4EBD3]',
+      cardBg: 'bg-[#98A1BC]',
+      cardBorder: 'border-[#DED3C4]',
+      textPrimary: 'text-[#F4EBD3]',
+      textSecondary: 'text-[#DED3C4]',
+      badgePrimary: 'bg-[#555879] text-[#F4EBD3]',
+      badgeSecondary: 'bg-[#DED3C4] text-[#555879]',
+      iconColor: 'text-[#DED3C4]',
+      priceColor: 'text-[#DED3C4]',
+      inputBg: 'bg-[#555879]',
+      inputBorder: 'border-[#DED3C4]',
+      inputText: 'text-[#F4EBD3]',
+      inputPlaceholder: 'placeholder-[#DED3C4]',
+      background: 'bg-[#98A1BC]'
     },
-    'navy-beige-soft': {
-      name: 'Navy Beige Soft',
-      headerBg: 'bg-[#456882]',
-      headerText: 'text-white',
-      accentText: 'text-[#D2C1B6]',
-      primaryBtn: 'bg-[#1B3C53] hover:bg-[#234C6A]',
-      secondaryBtn: 'bg-[#234C6A] hover:bg-[#1B3C53]',
-      cardBg: 'bg-[#456882]',
-      cardBorder: 'border-[#234C6A]',
-      textPrimary: 'text-white',
-      textSecondary: 'text-[#D2C1B6]',
-      badgePrimary: 'bg-[#1B3C53] text-[#D2C1B6]',
-      badgeSecondary: 'bg-[#234C6A] text-white',
-      iconColor: 'text-[#D2C1B6]',
-      priceColor: 'text-[#D2C1B6]',
-      inputBg: 'bg-[#1B3C53]',
-      inputBorder: 'border-[#456882]',
-      inputText: 'text-white',
-      inputPlaceholder: 'placeholder-[#D2C1B6]',
-      background: 'bg-[#456882]'
+    'warm-beige-blue': {
+      name: 'Warm Beige Blue',
+      headerBg: 'bg-[#DED3C4]',
+      headerText: 'text-[#555879]',
+      accentText: 'text-[#98A1BC]',
+      primaryBtn: 'bg-[#555879] hover:bg-[#98A1BC] text-[#F4EBD3]',
+      secondaryBtn: 'bg-[#98A1BC] hover:bg-[#555879] text-[#F4EBD3]',
+      cardBg: 'bg-[#DED3C4]',
+      cardBorder: 'border-[#98A1BC]',
+      textPrimary: 'text-[#555879]',
+      textSecondary: 'text-[#98A1BC]',
+      badgePrimary: 'bg-[#555879] text-[#F4EBD3]',
+      badgeSecondary: 'bg-[#98A1BC] text-[#F4EBD3]',
+      iconColor: 'text-[#98A1BC]',
+      priceColor: 'text-[#555879]',
+      inputBg: 'bg-[#F4EBD3]',
+      inputBorder: 'border-[#98A1BC]',
+      inputText: 'text-[#555879]',
+      inputPlaceholder: 'placeholder-[#98A1BC]',
+      background: 'bg-[#DED3C4]'
     },
-    'navy-beige-elegant': {
-      name: 'Navy Beige Elegant',
-      headerBg: 'bg-[#1B3C53]',
-      headerText: 'text-[#D2C1B6]',
-      accentText: 'text-[#D2C1B6]',
-      primaryBtn: 'bg-[#D2C1B6] hover:bg-[#C4B5A8] text-[#1B3C53]',
-      secondaryBtn: 'bg-[#456882] hover:bg-[#234C6A] text-white',
-      cardBg: 'bg-[#1B3C53]',
-      cardBorder: 'border-[#D2C1B6]',
-      textPrimary: 'text-[#D2C1B6]',
-      textSecondary: 'text-[#D2C1B6]',
-      badgePrimary: 'bg-[#D2C1B6] text-[#1B3C53]',
-      badgeSecondary: 'bg-[#456882] text-white',
-      iconColor: 'text-[#D2C1B6]',
-      priceColor: 'text-[#D2C1B6]',
-      inputBg: 'bg-[#234C6A]',
-      inputBorder: 'border-[#D2C1B6]',
-      inputText: 'text-white',
-      inputPlaceholder: 'placeholder-[#D2C1B6]',
-      background: 'bg-[#1B3C53]'
+    'cream-elegant': {
+      name: 'Cream Elegant',
+      headerBg: 'bg-[#F4EBD3]',
+      headerText: 'text-[#555879]',
+      accentText: 'text-[#98A1BC]',
+      primaryBtn: 'bg-[#555879] hover:bg-[#98A1BC] text-[#F4EBD3]',
+      secondaryBtn: 'bg-[#DED3C4] hover:bg-[#98A1BC] text-[#555879]',
+      cardBg: 'bg-[#F4EBD3]',
+      cardBorder: 'border-[#DED3C4]',
+      textPrimary: 'text-[#555879]',
+      textSecondary: 'text-[#98A1BC]',
+      badgePrimary: 'bg-[#555879] text-[#F4EBD3]',
+      badgeSecondary: 'bg-[#DED3C4] text-[#555879]',
+      iconColor: 'text-[#98A1BC]',
+      priceColor: 'text-[#555879]',
+      inputBg: 'bg-white',
+      inputBorder: 'border-[#98A1BC]',
+      inputText: 'text-[#555879]',
+      inputPlaceholder: 'placeholder-[#98A1BC]',
+      background: 'bg-[#F4EBD3]'
     },
-    'navy-beige-luxury': {
-      name: 'Navy Beige Luxury',
-      headerBg: 'bg-[#234C6A]',
-      headerText: 'text-[#D2C1B6]',
-      accentText: 'text-[#D2C1B6]',
-      primaryBtn: 'bg-[#D2C1B6] hover:bg-[#C4B5A8] text-[#1B3C53]',
-      secondaryBtn: 'bg-[#1B3C53] hover:bg-[#234C6A] text-[#D2C1B6]',
-      cardBg: 'bg-[#234C6A]',
-      cardBorder: 'border-[#D2C1B6]',
-      textPrimary: 'text-[#D2C1B6]',
-      textSecondary: 'text-[#D2C1B6]',
-      badgePrimary: 'bg-[#D2C1B6] text-[#1B3C53]',
-      badgeSecondary: 'bg-[#1B3C53] text-[#D2C1B6]',
-      iconColor: 'text-[#D2C1B6]',
-      priceColor: 'text-[#D2C1B6]',
-      inputBg: 'bg-[#456882]',
-      inputBorder: 'border-[#D2C1B6]',
-      inputText: 'text-white',
-      inputPlaceholder: 'placeholder-[#D2C1B6]',
-      background: 'bg-[#234C6A]'
+    'dark-elegant': {
+      name: 'Dark Elegant',
+      headerBg: 'bg-[#555879]',
+      headerText: 'text-[#F4EBD3]',
+      accentText: 'text-[#DED3C4]',
+      primaryBtn: 'bg-[#DED3C4] hover:bg-[#F4EBD3] text-[#555879]',
+      secondaryBtn: 'bg-[#98A1BC] hover:bg-[#555879] text-[#F4EBD3]',
+      cardBg: 'bg-[#555879]',
+      cardBorder: 'border-[#DED3C4]',
+      textPrimary: 'text-[#F4EBD3]',
+      textSecondary: 'text-[#DED3C4]',
+      badgePrimary: 'bg-[#DED3C4] text-[#555879]',
+      badgeSecondary: 'bg-[#98A1BC] text-[#F4EBD3]',
+      iconColor: 'text-[#DED3C4]',
+      priceColor: 'text-[#DED3C4]',
+      inputBg: 'bg-[#98A1BC]',
+      inputBorder: 'border-[#DED3C4]',
+      inputText: 'text-[#F4EBD3]',
+      inputPlaceholder: 'placeholder-[#DED3C4]',
+      background: 'bg-[#555879]'
     },
-    'navy-beige-premium': {
-      name: 'Navy Beige Premium',
-      headerBg: 'bg-[#456882]',
-      headerText: 'text-[#D2C1B6]',
-      accentText: 'text-[#D2C1B6]',
-      primaryBtn: 'bg-[#D2C1B6] hover:bg-[#C4B5A8] text-[#1B3C53]',
-      secondaryBtn: 'bg-[#234C6A] hover:bg-[#1B3C53] text-[#D2C1B6]',
-      cardBg: 'bg-[#456882]',
-      cardBorder: 'border-[#D2C1B6]',
-      textPrimary: 'text-[#D2C1B6]',
-      textSecondary: 'text-[#D2C1B6]',
-      badgePrimary: 'bg-[#D2C1B6] text-[#1B3C53]',
-      badgeSecondary: 'bg-[#234C6A] text-[#D2C1B6]',
-      iconColor: 'text-[#D2C1B6]',
-      priceColor: 'text-[#D2C1B6]',
-      inputBg: 'bg-[#1B3C53]',
-      inputBorder: 'border-[#D2C1B6]',
-      inputText: 'text-white',
-      inputPlaceholder: 'placeholder-[#D2C1B6]',
-      background: 'bg-[#456882]'
+    'luxury-gradient': {
+      name: 'Luxury Gradient',
+      headerBg: 'bg-gradient-to-r from-[#555879] to-[#98A1BC]',
+      headerText: 'text-[#F4EBD3]',
+      accentText: 'text-[#DED3C4]',
+      primaryBtn: 'bg-[#DED3C4] hover:bg-[#F4EBD3] text-[#555879]',
+      secondaryBtn: 'bg-[#98A1BC] hover:bg-[#555879] text-[#F4EBD3]',
+      cardBg: 'bg-gradient-to-br from-[#555879] to-[#98A1BC]',
+      cardBorder: 'border-[#DED3C4]',
+      textPrimary: 'text-[#F4EBD3]',
+      textSecondary: 'text-[#DED3C4]',
+      badgePrimary: 'bg-[#DED3C4] text-[#555879]',
+      badgeSecondary: 'bg-[#98A1BC] text-[#F4EBD3]',
+      iconColor: 'text-[#DED3C4]',
+      priceColor: 'text-[#DED3C4]',
+      inputBg: 'bg-[#98A1BC]',
+      inputBorder: 'border-[#DED3C4]',
+      inputText: 'text-[#F4EBD3]',
+      inputPlaceholder: 'placeholder-[#DED3C4]',
+      background: 'bg-gradient-to-br from-[#555879] to-[#98A1BC]'
     }
   }
 
@@ -138,10 +138,10 @@ export default function DemoPage() {
 
   return (
     <div className={`min-h-screen ${currentTheme.background}`}>
-      {/* Theme Selector - Navy Beige */}
-      <div className="bg-[#1B3C53] border-b border-[#234C6A] p-6 shadow-lg">
+      {/* Theme Selector - Color Hunt Palette */}
+      <div className="bg-[#555879] border-b border-[#98A1BC] p-6 shadow-lg">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl font-light mb-6 text-[#D2C1B6] tracking-wide">Navy Beige Renk Paleti Türevleri</h2>
+          <h2 className="text-xl font-light mb-6 text-[#F4EBD3] tracking-wide">Color Hunt Elegant Palette</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {Object.entries(themes).map(([key, theme]) => (
               <button
@@ -149,8 +149,8 @@ export default function DemoPage() {
                 onClick={() => setSelectedTheme(key)}
                 className={`w-full px-4 py-3 rounded-lg font-medium transition-all duration-300 text-sm ${
                   selectedTheme === key
-                    ? 'bg-[#D2C1B6] text-[#1B3C53] shadow-lg transform scale-105'
-                    : 'bg-[#234C6A] text-[#D2C1B6] hover:bg-[#456882] hover:shadow-md hover:scale-102'
+                    ? 'bg-[#DED3C4] text-[#555879] shadow-lg transform scale-105'
+                    : 'bg-[#98A1BC] text-[#F4EBD3] hover:bg-[#DED3C4] hover:text-[#555879] hover:shadow-md hover:scale-102'
                 }`}
               >
                 {theme.name}
@@ -162,7 +162,7 @@ export default function DemoPage() {
 
       {/* Demo Content */}
       <div className={`min-h-screen ${currentTheme.background}`}>
-        {/* Header - Navy Beige */}
+        {/* Header - Color Hunt Style */}
         <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} shadow-lg sticky top-0 z-50`}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex items-center justify-between h-20">
@@ -191,7 +191,7 @@ export default function DemoPage() {
           </div>
         </header>
 
-        {/* Filter Bar - Navy Beige */}
+        {/* Filter Bar - Color Hunt Style */}
         <div className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} py-6`}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex flex-wrap items-center gap-6">
@@ -201,19 +201,19 @@ export default function DemoPage() {
                   <input
                     type="text"
                     placeholder="Search by brand or model..."
-                    className={`w-full pl-12 pr-6 py-4 border ${currentTheme.inputBorder} rounded-lg focus:ring-2 focus:ring-[#D2C1B6] focus:border-[#D2C1B6] outline-none ${currentTheme.inputBg} ${currentTheme.inputText} ${currentTheme.inputPlaceholder} text-sm font-light tracking-wide`}
+                    className={`w-full pl-12 pr-6 py-4 border ${currentTheme.inputBorder} rounded-lg focus:ring-2 focus:ring-[#DED3C4] focus:border-[#DED3C4] outline-none ${currentTheme.inputBg} ${currentTheme.inputText} ${currentTheme.inputPlaceholder} text-sm font-light tracking-wide`}
                   />
                 </div>
               </div>
               
-              <select className={`${currentTheme.inputBg} ${currentTheme.inputText} border ${currentTheme.inputBorder} rounded-lg px-4 py-4 text-sm focus:ring-2 focus:ring-[#D2C1B6] focus:border-[#D2C1B6] outline-none font-light tracking-wide`}>
+              <select className={`${currentTheme.inputBg} ${currentTheme.inputText} border ${currentTheme.inputBorder} rounded-lg px-4 py-4 text-sm focus:ring-2 focus:ring-[#DED3C4] focus:border-[#DED3C4] outline-none font-light tracking-wide`}>
                 <option>All Brands</option>
                 <option>Audi</option>
                 <option>BMW</option>
                 <option>Mercedes</option>
               </select>
               
-              <select className={`${currentTheme.inputBg} ${currentTheme.inputText} border ${currentTheme.inputBorder} rounded-lg px-4 py-4 text-sm focus:ring-2 focus:ring-[#D2C1B6] focus:border-[#D2C1B6] outline-none font-light tracking-wide`}>
+              <select className={`${currentTheme.inputBg} ${currentTheme.inputText} border ${currentTheme.inputBorder} rounded-lg px-4 py-4 text-sm focus:ring-2 focus:ring-[#DED3C4] focus:border-[#DED3C4] outline-none font-light tracking-wide`}>
                 <option>All Segments</option>
                 <option>SUV</option>
                 <option>Sedan</option>
@@ -223,7 +223,7 @@ export default function DemoPage() {
           </div>
         </div>
 
-        {/* Range Simulator Banner - Navy Beige */}
+        {/* Range Simulator Banner - Color Hunt Style */}
         <div className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder}`}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
             <div className="flex items-center justify-between">
@@ -244,20 +244,20 @@ export default function DemoPage() {
           </div>
         </div>
 
-        {/* Main Content - Navy Beige */}
+        {/* Main Content - Color Hunt Style */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
           <div className="flex items-center justify-between mb-8">
             <h2 className={`text-xl font-light ${currentTheme.textPrimary} tracking-wide`}>87 vehicles found</h2>
           </div>
 
-          {/* Sample Car Cards - Navy Beige */}
+          {/* Sample Car Cards - Color Hunt Style */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Sample Car 1 */}
             <div className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 p-8 group`}>
               <div className="aspect-w-16 aspect-h-9 mb-6">
-                <div className="w-full h-64 bg-gradient-to-br from-[#234C6A] to-[#456882] rounded-lg flex items-center justify-center">
-                  <div className="w-16 h-16 border-2 border-[#D2C1B6] rounded-lg flex items-center justify-center">
-                    <div className="w-8 h-8 border border-[#D2C1B6] rounded-sm"></div>
+                <div className="w-full h-64 bg-gradient-to-br from-[#98A1BC] to-[#DED3C4] rounded-lg flex items-center justify-center">
+                  <div className="w-16 h-16 border-2 border-[#F4EBD3] rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 border border-[#F4EBD3] rounded-sm"></div>
                   </div>
                 </div>
               </div>
@@ -275,7 +275,7 @@ export default function DemoPage() {
                   </div>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <div key={i} className="w-3 h-3 bg-[#D2C1B6] rounded-full"></div>
+                      <div key={i} className="w-3 h-3 bg-[#DED3C4] rounded-full"></div>
                     ))}
                   </div>
                 </div>
@@ -305,11 +305,11 @@ export default function DemoPage() {
                 </div>
                 
                 <div className={`flex items-center justify-between pt-6 border-t ${currentTheme.cardBorder}`}>
-                  <button className={`p-3 hover:bg-[#234C6A] rounded-lg transition-all duration-300`}>
-                    <div className="w-5 h-5 border border-[#D2C1B6] rounded-sm hover:border-red-400 transition-colors"></div>
+                  <button className={`p-3 hover:bg-[#98A1BC] rounded-lg transition-all duration-300`}>
+                    <div className="w-5 h-5 border border-[#DED3C4] rounded-sm hover:border-red-400 transition-colors"></div>
                   </button>
-                  <button className={`w-10 h-10 rounded-lg border-2 ${currentTheme.cardBorder} hover:border-[#D2C1B6] flex items-center justify-center transition-all duration-300`}>
-                    <div className="w-4 h-4 border border-[#D2C1B6] rounded-sm"></div>
+                  <button className={`w-10 h-10 rounded-lg border-2 ${currentTheme.cardBorder} hover:border-[#DED3C4] flex items-center justify-center transition-all duration-300`}>
+                    <div className="w-4 h-4 border border-[#DED3C4] rounded-sm"></div>
                   </button>
                 </div>
               </div>
@@ -318,9 +318,9 @@ export default function DemoPage() {
             {/* Sample Car 2 */}
             <div className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 p-8 group`}>
               <div className="aspect-w-16 aspect-h-9 mb-6">
-                <div className="w-full h-64 bg-gradient-to-br from-[#234C6A] to-[#456882] rounded-lg flex items-center justify-center">
-                  <div className="w-16 h-16 border-2 border-[#D2C1B6] rounded-lg flex items-center justify-center">
-                    <div className="w-8 h-8 border border-[#D2C1B6] rounded-sm"></div>
+                <div className="w-full h-64 bg-gradient-to-br from-[#98A1BC] to-[#DED3C4] rounded-lg flex items-center justify-center">
+                  <div className="w-16 h-16 border-2 border-[#F4EBD3] rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 border border-[#F4EBD3] rounded-sm"></div>
                   </div>
                 </div>
               </div>
@@ -338,7 +338,7 @@ export default function DemoPage() {
                   </div>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <div key={i} className="w-3 h-3 bg-[#D2C1B6] rounded-full"></div>
+                      <div key={i} className="w-3 h-3 bg-[#DED3C4] rounded-full"></div>
                     ))}
                   </div>
                 </div>
@@ -368,11 +368,11 @@ export default function DemoPage() {
                 </div>
                 
                 <div className={`flex items-center justify-between pt-6 border-t ${currentTheme.cardBorder}`}>
-                  <button className={`p-3 hover:bg-[#234C6A] rounded-lg transition-all duration-300`}>
-                    <div className="w-5 h-5 border border-[#D2C1B6] rounded-sm hover:border-red-400 transition-colors"></div>
+                  <button className={`p-3 hover:bg-[#98A1BC] rounded-lg transition-all duration-300`}>
+                    <div className="w-5 h-5 border border-[#DED3C4] rounded-sm hover:border-red-400 transition-colors"></div>
                   </button>
-                  <button className={`w-10 h-10 rounded-lg border-2 ${currentTheme.cardBorder} hover:border-[#D2C1B6] flex items-center justify-center transition-all duration-300`}>
-                    <div className="w-4 h-4 border border-[#D2C1B6] rounded-sm"></div>
+                  <button className={`w-10 h-10 rounded-lg border-2 ${currentTheme.cardBorder} hover:border-[#DED3C4] flex items-center justify-center transition-all duration-300`}>
+                    <div className="w-4 h-4 border border-[#DED3C4] rounded-sm"></div>
                   </button>
                 </div>
               </div>
@@ -381,9 +381,9 @@ export default function DemoPage() {
             {/* Sample Car 3 */}
             <div className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 p-8 group`}>
               <div className="aspect-w-16 aspect-h-9 mb-6">
-                <div className="w-full h-64 bg-gradient-to-br from-[#234C6A] to-[#456882] rounded-lg flex items-center justify-center">
-                  <div className="w-16 h-16 border-2 border-[#D2C1B6] rounded-lg flex items-center justify-center">
-                    <div className="w-8 h-8 border border-[#D2C1B6] rounded-sm"></div>
+                <div className="w-full h-64 bg-gradient-to-br from-[#98A1BC] to-[#DED3C4] rounded-lg flex items-center justify-center">
+                  <div className="w-16 h-16 border-2 border-[#F4EBD3] rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 border border-[#F4EBD3] rounded-sm"></div>
                   </div>
                 </div>
               </div>
@@ -401,7 +401,7 @@ export default function DemoPage() {
                   </div>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <div key={i} className="w-3 h-3 bg-[#D2C1B6] rounded-full"></div>
+                      <div key={i} className="w-3 h-3 bg-[#DED3C4] rounded-full"></div>
                     ))}
                   </div>
                 </div>
@@ -431,11 +431,11 @@ export default function DemoPage() {
                 </div>
                 
                 <div className={`flex items-center justify-between pt-6 border-t ${currentTheme.cardBorder}`}>
-                  <button className={`p-3 hover:bg-[#234C6A] rounded-lg transition-all duration-300`}>
-                    <div className="w-5 h-5 border border-[#D2C1B6] rounded-sm hover:border-red-400 transition-colors"></div>
+                  <button className={`p-3 hover:bg-[#98A1BC] rounded-lg transition-all duration-300`}>
+                    <div className="w-5 h-5 border border-[#DED3C4] rounded-sm hover:border-red-400 transition-colors"></div>
                   </button>
-                  <button className={`w-10 h-10 rounded-lg border-2 ${currentTheme.cardBorder} hover:border-[#D2C1B6] flex items-center justify-center transition-all duration-300`}>
-                    <div className="w-4 h-4 border border-[#D2C1B6] rounded-sm"></div>
+                  <button className={`w-10 h-10 rounded-lg border-2 ${currentTheme.cardBorder} hover:border-[#DED3C4] flex items-center justify-center transition-all duration-300`}>
+                    <div className="w-4 h-4 border border-[#DED3C4] rounded-sm"></div>
                   </button>
                 </div>
               </div>
