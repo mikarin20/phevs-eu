@@ -1,3 +1,4 @@
+import React from 'react'
 import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
@@ -127,114 +128,58 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       <header className="header-metallic sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors group">
-              <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-              <span className="font-semibold">Back to Comparison</span>
+            <Link href="/" className="btn-secondary inline-flex items-center space-x-2">
+              <ArrowLeftIcon className="h-5 w-5" />
+              <span>Back to Models</span>
             </Link>
-            
-            <div className="text-right">
-              <div className="text-sm text-slate-400">{car.brand}</div>
-              <div className="text-lg font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
-                {car.model}
-              </div>
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-slate-800">{car.brand} {car.model}</h1>
+              <p className="text-slate-600">{car.year} • {car.segment}</p>
             </div>
+            <div className="w-24"></div>
           </div>
         </div>
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Panel - Images */}
-          <div>
-            <ImageGallery 
-              images={catalogImages} 
-              alt={`${car.brand} ${car.model}`} 
-            />
+          {/* Image Gallery */}
+          <div className="space-y-6">
+            <ImageGallery images={catalogImages} alt={`${car.brand} ${car.model} gallery`} />
           </div>
 
-          {/* Right Panel - Details */}
+          {/* Specifications */}
           <div className="space-y-6">
-            {/* Title and Price Card */}
-            <div className="card">
-              <div className="mb-6">
-                <div className="flex items-center space-x-2 mb-2">
-                  <span className="badge-steel">{car.year}</span>
-                  <span className="badge-steel">{car.segment}</span>
-                </div>
-                <h1 className="text-4xl font-bold text-slate-800 mb-2">
-                  {car.brand} {car.model}
-                </h1>
+            {/* Price Card */}
+            <div className="card p-6 text-center">
+              <div className="flex items-center justify-center space-x-2 mb-4">
+                <CurrencyEuroIcon className="h-8 w-8 text-blue-600" />
+                <span className="text-3xl font-bold text-slate-800">€{car.price_eur.toLocaleString()}</span>
               </div>
-
-              <div className="flex items-baseline space-x-3 mb-6">
-                <span className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                  €{car.price_eur.toLocaleString()}
-                </span>
-                <span className="text-slate-500">Starting Price</span>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border-2 border-green-200">
-                  <div className="flex items-center space-x-2 mb-1">
-                    <BoltIcon className="h-5 w-5 text-green-600" />
-                    <div className="text-xs text-green-700 font-semibold">Range</div>
-                  </div>
-                  <div className="text-2xl font-bold text-green-800">{car.ev_range_km} km</div>
-                </div>
-
-                <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-4 rounded-xl border-2 border-purple-200">
-                  <div className="flex items-center space-x-2 mb-1">
-                    <SparklesIcon className="h-5 w-5 text-purple-600" />
-                    <div className="text-xs text-purple-700 font-semibold">Battery</div>
-                  </div>
-                  <div className="text-2xl font-bold text-purple-800">{car.battery_kwh} kWh</div>
-                </div>
-
-                <div className="bg-gradient-to-br from-red-50 to-orange-50 p-4 rounded-xl border-2 border-red-200">
-                  <div className="flex items-center space-x-2 mb-1">
-                    <BoltIcon className="h-5 w-5 text-red-600" />
-                    <div className="text-xs text-red-700 font-semibold">Power</div>
-                  </div>
-                  <div className="text-2xl font-bold text-red-800">{car.power_hp} HP</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="grid grid-cols-2 gap-4">
-              <Link 
-                href="/"
-                className="btn-primary text-center"
-              >
-                Compare with Others
-              </Link>
-              <button className="btn-secondary">
-                Find Dealers
-              </button>
+              <p className="text-slate-600">Starting Price</p>
             </div>
 
             {/* Specifications */}
-            {specifications.map((spec) => (
-              <div key={spec.category} className="card">
+            {specifications.map((spec, index) => (
+              <div key={index} className="card p-6">
                 <h3 className="text-xl font-bold text-slate-800 mb-4 pb-3 border-b-2 border-slate-200">
                   {spec.category}
                 </h3>
                 <div className="grid grid-cols-1 gap-4">
-                  {spec.items.map((item, index) => (
+                  {spec.items.map((item, itemIndex) => (
                     <div 
-                      key={index} 
+                      key={itemIndex} 
                       className={`flex justify-between items-center py-3 px-4 rounded-xl transition-all ${
-                        item.highlight 
+                        (item as any).highlight 
                           ? 'bg-gradient-to-r from-blue-50 to-slate-50 border-2 border-blue-200' 
                           : 'bg-slate-50/50'
                       }`}
                     >
                       <div className="flex items-center space-x-2">
-                        {item.icon && <item.icon className="h-5 w-5 text-blue-600" />}
+                        {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-blue-600" })}
                         <span className="text-slate-600 font-medium">{item.label}</span>
                       </div>
-                      <span className={`font-bold ${item.highlight ? 'text-blue-700 text-lg' : 'text-slate-800'}`}>
+                      <span className={`font-bold ${(item as any).highlight ? 'text-blue-700 text-lg' : 'text-slate-800'}`}>
                         {item.value}
                       </span>
                     </div>
@@ -242,23 +187,6 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                 </div>
               </div>
             ))}
-
-            {/* Availability */}
-            <div className="card">
-              <h3 className="text-xl font-bold text-slate-800 mb-4 pb-3 border-b-2 border-slate-200">
-                Availability
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {car.country_availability.split(',').map((country, index) => (
-                  <span
-                    key={index}
-                    className="badge-primary text-base px-4 py-2"
-                  >
-                    {country.trim()}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
