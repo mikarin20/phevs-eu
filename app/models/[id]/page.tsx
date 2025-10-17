@@ -223,7 +223,8 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       specBg: 'bg-gray-300',
       specHover: 'hover:bg-gray-400',
       highlightBg: 'bg-gradient-to-r from-blue-200 to-indigo-200',
-      highlightBorder: 'border-blue-400'
+      highlightBorder: 'border-blue-400',
+      iconColor: 'text-gray-600'
     },
     dark: {
       name: 'Dark Theme',
@@ -243,7 +244,8 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       specBg: 'bg-slate-400',
       specHover: 'hover:bg-slate-300',
       highlightBg: 'bg-gradient-to-r from-slate-400 to-slate-300',
-      highlightBorder: 'border-slate-300'
+      highlightBorder: 'border-slate-300',
+      iconColor: 'text-slate-200'
     }
   }
 
@@ -473,7 +475,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                     }`}
                   >
                     <div className="flex items-center space-x-2">
-                      {(item as any).icon && React.createElement((item as any).icon, { className: `h-4 w-4 ${currentTheme.textSecondary}` })}
+                      {(item as any).icon && React.createElement((item as any).icon, { className: `h-4 w-4 ${currentTheme.iconColor}` })}
                       <span className={`${currentTheme.textPrimary} font-medium text-sm`}>{item.label}</span>
                     </div>
                     <div className="flex items-center space-x-2">

@@ -345,7 +345,8 @@ export default function Home() {
       filterText: 'text-gray-700',
       inputBg: 'bg-gray-200',
       inputBorder: 'border-gray-400',
-      inputText: 'text-gray-700'
+      inputText: 'text-gray-700',
+      iconColor: 'text-gray-600'
     },
     dark: {
       name: 'Dark',
@@ -361,7 +362,8 @@ export default function Home() {
       filterText: 'text-slate-100',
       inputBg: 'bg-slate-500',
       inputBorder: 'border-slate-300',
-      inputText: 'text-slate-100'
+      inputText: 'text-slate-100',
+      iconColor: 'text-slate-200'
     }
   }
 
@@ -375,7 +377,32 @@ export default function Home() {
       compare: 'Compare',
       favorites: 'Favorites',
       added: 'Added',
-      view: 'View'
+      view: 'View',
+      vehiclesFound: 'vehicles found',
+      noVehiclesFound: 'No vehicles found',
+      tryAdjustingFilters: 'Try adjusting your filters or search terms',
+      estimatedEU: 'Est. EU',
+      estimatedEUPrice: 'Estimated EU price',
+      evRange: 'EV Range',
+      battery: 'Battery',
+      fuelConsumption: 'Fuel Consumption',
+      totalPower: 'Total Power',
+      chargeTime: 'Charge Time',
+      co2: 'CO₂',
+      trunk: 'Trunk',
+      year: 'Year',
+      segment: 'Segment',
+      price: 'Price',
+      power: 'Power',
+      range: 'Range',
+      consumption: 'Consumption',
+      charge: 'Charge',
+      emission: 'Emission',
+      volume: 'Volume',
+      trySimulator: 'Try Range Simulator',
+      selectVehicle: 'Select Vehicle',
+      selectVehicleFirst: 'Please select a vehicle first to use Range Simulator',
+      discoverRange: 'Discover your real-world electric range based on temperature, climate control, and driving conditions'
     },
     de: {
       searchPlaceholder: 'Nach Marke oder Modell suchen...',
@@ -386,7 +413,32 @@ export default function Home() {
       compare: 'Vergleichen',
       favorites: 'Favoriten',
       added: 'Hinzugefügt',
-      view: 'Ansehen'
+      view: 'Ansehen',
+      vehiclesFound: 'Fahrzeuge gefunden',
+      noVehiclesFound: 'Keine Fahrzeuge gefunden',
+      tryAdjustingFilters: 'Versuchen Sie, Ihre Filter oder Suchbegriffe anzupassen',
+      estimatedEU: 'Geschätzt EU',
+      estimatedEUPrice: 'Geschätzter EU-Preis',
+      evRange: 'E-Reichweite',
+      battery: 'Batterie',
+      fuelConsumption: 'Kraftstoffverbrauch',
+      totalPower: 'Gesamtleistung',
+      chargeTime: 'Ladezeit',
+      co2: 'CO₂',
+      trunk: 'Kofferraum',
+      year: 'Jahr',
+      segment: 'Segment',
+      price: 'Preis',
+      power: 'Leistung',
+      range: 'Reichweite',
+      consumption: 'Verbrauch',
+      charge: 'Laden',
+      emission: 'Emission',
+      volume: 'Volumen',
+      trySimulator: 'Reichweiten-Simulator testen',
+      selectVehicle: 'Fahrzeug auswählen',
+      selectVehicleFirst: 'Bitte wählen Sie zuerst ein Fahrzeug aus, um den Reichweiten-Simulator zu verwenden',
+      discoverRange: 'Entdecken Sie Ihre realistische elektrische Reichweite basierend auf Temperatur, Klimaanlage und Fahrbedingungen'
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -397,7 +449,32 @@ export default function Home() {
       compare: 'Karşılaştır',
       favorites: 'Favoriler',
       added: 'Eklendi',
-      view: 'Görüntüle'
+      view: 'Görüntüle',
+      vehiclesFound: 'araç bulundu',
+      noVehiclesFound: 'Araç bulunamadı',
+      tryAdjustingFilters: 'Filtrelerinizi veya arama terimlerinizi ayarlamayı deneyin',
+      estimatedEU: 'Tahmini AB',
+      estimatedEUPrice: 'Tahmini AB fiyatı',
+      evRange: 'Elektrik Menzili',
+      battery: 'Batarya',
+      fuelConsumption: 'Yakıt Tüketimi',
+      totalPower: 'Toplam Güç',
+      chargeTime: 'Şarj Süresi',
+      co2: 'CO₂',
+      trunk: 'Bagaj',
+      year: 'Yıl',
+      segment: 'Segment',
+      price: 'Fiyat',
+      power: 'Güç',
+      range: 'Menzil',
+      consumption: 'Tüketim',
+      charge: 'Şarj',
+      emission: 'Emisyon',
+      volume: 'Hacim',
+      trySimulator: 'Menzil Simülatörünü Dene',
+      selectVehicle: 'Araç Seç',
+      selectVehicleFirst: 'Menzil Simülatörünü kullanmak için lütfen önce bir araç seçin',
+      discoverRange: 'Sıcaklık, iklim kontrolü ve sürüş koşullarına göre gerçek dünya elektrik menzilinizi keşfedin'
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -408,7 +485,32 @@ export default function Home() {
       compare: 'Porównaj',
       favorites: 'Ulubione',
       added: 'Dodano',
-      view: 'Zobacz'
+      view: 'Zobacz',
+      vehiclesFound: 'pojazdów znaleziono',
+      noVehiclesFound: 'Nie znaleziono pojazdów',
+      tryAdjustingFilters: 'Spróbuj dostosować filtry lub terminy wyszukiwania',
+      estimatedEU: 'Szac. UE',
+      estimatedEUPrice: 'Szacowana cena UE',
+      evRange: 'Zasięg EV',
+      battery: 'Bateria',
+      fuelConsumption: 'Zużycie Paliwa',
+      totalPower: 'Całkowita Moc',
+      chargeTime: 'Czas Ładowania',
+      co2: 'CO₂',
+      trunk: 'Bagażnik',
+      year: 'Rok',
+      segment: 'Segment',
+      price: 'Cena',
+      power: 'Moc',
+      range: 'Zasięg',
+      consumption: 'Zużycie',
+      charge: 'Ładowanie',
+      emission: 'Emisja',
+      volume: 'Objętość',
+      trySimulator: 'Wypróbuj Symulator Zasięgu',
+      selectVehicle: 'Wybierz Pojazd',
+      selectVehicleFirst: 'Najpierw wybierz pojazd, aby użyć Symulatora Zasięgu',
+      discoverRange: 'Odkryj swój rzeczywisty zasięg elektryczny na podstawie temperatury, klimatyzacji i warunków jazdy'
     }
   }
 
@@ -724,7 +826,7 @@ export default function Home() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-4">
             <h2 className="text-lg font-semibold text-[#0B2E33]">
-              {filteredAndSortedCars.length} vehicles found
+              {filteredAndSortedCars.length} {t.vehiclesFound}
             </h2>
             {(selectedBrands.length > 0 || filters.segment || searchTerm) && (
               <button
@@ -796,51 +898,51 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>EV Range:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.ev_range_km} km</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
                       </div>
                     </div>
                       <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>Battery:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
                       </div>
-                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.battery_kwh} kWh</span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
                         </div>
-                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.fuel_consumption} L/100km</span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>Total Power:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
                       </div>
-                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.power_hp} HP</span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>Charge Time:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
                       </div>
-                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.charge_time_ac}h AC</span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <span className={`${currentTheme.textPrimary}`}>CO₂:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.co2}:</span>
                       </div>
-                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.co2_emission} g/km</span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
                       </div>
-                      <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.trunk_volume}L</span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
                       </div>
                     </div>
 
@@ -946,9 +1048,9 @@ export default function Home() {
                     {/* Specifications */}
                     <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
-                        <span className={`${currentTheme.textPrimary}`}>EV Range:</span>
-                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.ev_range_km} km</span>
+                        <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
                       <button
                           onClick={() => {
                             setSelectedCarForSimulator(car)
@@ -961,32 +1063,32 @@ export default function Home() {
                       </button>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CpuChipIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Battery:</span>
-                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.battery_kwh} kWh</span>
+                        <CpuChipIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
-                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.fuel_consumption} L/100km</span>
+                        <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Total Power:</span>
-                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.power_hp} HP</span>
+                        <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className={`h-4 w-4 ${currentTheme.textSecondary}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Charge Time:</span>
-                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.charge_time_ac}h AC</span>
+                        <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className={`${currentTheme.textPrimary}`}>CO₂:</span>
-                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.co2_emission} g/km</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.co2}:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
-                        <span className={`font-semibold ${currentTheme.textSecondary}`}>{car.trunk_volume}L</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
                       </div>
                     </div>
                 </div>
@@ -1042,8 +1144,8 @@ export default function Home() {
         {filteredAndSortedCars.length === 0 && (
           <div className="text-center py-12">
             <div className="text-6xl mb-4">🚗</div>
-            <h3 className="text-xl font-semibold text-[#0B2E33] mb-2">No vehicles found</h3>
-            <p className="text-[#4F7C82] mb-4">Try adjusting your filters or search terms</p>
+            <h3 className="text-xl font-semibold text-[#0B2E33] mb-2">{t.noVehiclesFound}</h3>
+            <p className="text-[#4F7C82] mb-4">{t.tryAdjustingFilters}</p>
             <button
               onClick={clearFilters}
               className="btn-primary"
