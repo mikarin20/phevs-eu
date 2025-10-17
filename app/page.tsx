@@ -333,23 +333,35 @@ export default function Home() {
   const themes = {
     light: {
       name: 'Light',
-      background: 'bg-gray-50',
-      headerBg: 'bg-gray-100',
-      headerText: 'text-gray-800',
-      cardBg: 'bg-gray-50',
-      cardBorder: 'border-gray-300',
-      textPrimary: 'text-gray-800',
-      textSecondary: 'text-gray-500'
+      background: 'bg-gray-200',
+      headerBg: 'bg-gray-300',
+      headerText: 'text-gray-700',
+      cardBg: 'bg-gray-200',
+      cardBorder: 'border-gray-400',
+      textPrimary: 'text-gray-700',
+      textSecondary: 'text-gray-400',
+      filterBg: 'bg-gray-300',
+      filterBorder: 'border-gray-400',
+      filterText: 'text-gray-700',
+      inputBg: 'bg-gray-200',
+      inputBorder: 'border-gray-400',
+      inputText: 'text-gray-700'
     },
     dark: {
       name: 'Dark',
-      background: 'bg-slate-700',
-      headerBg: 'bg-slate-600',
-      headerText: 'text-slate-200',
-      cardBg: 'bg-slate-600',
-      cardBorder: 'border-slate-500',
-      textPrimary: 'text-slate-200',
-      textSecondary: 'text-slate-400'
+      background: 'bg-slate-500',
+      headerBg: 'bg-slate-400',
+      headerText: 'text-slate-100',
+      cardBg: 'bg-slate-500',
+      cardBorder: 'border-slate-300',
+      textPrimary: 'text-slate-100',
+      textSecondary: 'text-slate-300',
+      filterBg: 'bg-slate-500',
+      filterBorder: 'border-slate-300',
+      filterText: 'text-slate-100',
+      inputBg: 'bg-slate-500',
+      inputBorder: 'border-slate-300',
+      inputText: 'text-slate-100'
     }
   }
 
@@ -496,6 +508,25 @@ export default function Home() {
             </div>
 
             <div className="flex items-center space-x-4">
+              <button
+                onClick={() => {
+                  if (selectedCars.length === 0) {
+                    alert('Please select a vehicle first to use Range Simulator')
+                    return
+                  }
+                  setSelectedCarForSimulator(selectedCars[0])
+                  setIsRangeSimulatorOpen(true)
+                }}
+                className={`inline-flex items-center space-x-2 px-4 py-2 rounded-lg font-semibold transition-all duration-200 ${
+                  selectedCars.length === 0 
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                    : 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
+                }`}
+                disabled={selectedCars.length === 0}
+              >
+                <SparklesIcon className="h-5 w-5" />
+                <span>Range Simulator</span>
+              </button>
               <Link 
                 href="/compare" 
                 className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
@@ -520,13 +551,13 @@ export default function Home() {
             {/* Search */}
             <div className="flex-1 min-w-64">
               <div className="relative">
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#93B1B5]" />
+                <MagnifyingGlassIcon className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 ${currentTheme.textSecondary}`} />
                 <input
                   type="text"
                   placeholder={t.searchPlaceholder}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="input-clean w-full pl-10"
+                  className={`w-full pl-10 py-2 px-3 rounded-lg border ${currentTheme.inputBg} ${currentTheme.inputBorder} ${currentTheme.inputText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 />
               </div>
                   </div>
@@ -535,21 +566,21 @@ export default function Home() {
             <div className="relative brand-dropdown">
                           <button
                 onClick={() => setIsBrandDropdownOpen(!isBrandDropdownOpen)}
-                className="filter-select min-w-32 text-left flex items-center justify-between"
+                className={`min-w-32 text-left flex items-center justify-between py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} hover:bg-opacity-80 transition-colors`}
                           >
                 <span>{selectedBrands.length === 0 ? 'All Brands' : `${selectedBrands.length} selected`}</span>
                 <ChevronDownIcon className="h-4 w-4" />
                           </button>
 
               {isBrandDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-[#E2E8F0] rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+                <div className={`absolute top-full left-0 mt-1 w-64 ${currentTheme.filterBg} border ${currentTheme.filterBorder} rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto`}>
                   <div className="p-2">
                     <input
                       type="text"
                       placeholder="Search brands..."
                       value={brandSearchTerm}
                       onChange={(e) => setBrandSearchTerm(e.target.value)}
-                      className="input-clean w-full mb-2"
+                      className={`w-full mb-2 py-1 px-2 rounded border ${currentTheme.inputBg} ${currentTheme.inputBorder} ${currentTheme.inputText} focus:outline-none focus:ring-1 focus:ring-blue-500`}
                       onClick={(e) => e.stopPropagation()}
                     />
                     <div className="space-y-1">
@@ -596,7 +627,7 @@ export default function Home() {
                   <select
                     value={filters.segment}
               onChange={(e) => setFilters({...filters, segment: e.target.value})}
-              className="filter-select min-w-24"
+              className={`min-w-24 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
                   >
                     <option value="">All Segments</option>
               {segments.map(segment => (
@@ -608,7 +639,7 @@ export default function Home() {
             <select
               value={filters.batteryArchitecture}
               onChange={(e) => setFilters({...filters, batteryArchitecture: e.target.value})}
-              className="filter-select min-w-32"
+              className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
             >
               <option value="">All Architectures</option>
               <option value="modular">Modular</option>
@@ -620,7 +651,7 @@ export default function Home() {
             <select
               value={filters.batteryChemistry}
               onChange={(e) => setFilters({...filters, batteryChemistry: e.target.value})}
-              className="filter-select min-w-32"
+              className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
             >
               <option value="">All Chemistries</option>
               <option value="lithium-ion">Lithium-Ion</option>
@@ -633,7 +664,7 @@ export default function Home() {
             <select
               value={sortBy}
               onChange={(e) => handleSortChange(e.target.value as SortOption)}
-              className="filter-select min-w-32"
+              className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
             >
               <option value="name-asc">Name (A-Z)</option>
               <option value="price-asc">Price (Low-High)</option>
@@ -1007,6 +1038,15 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {/* Range Simulator Modal */}
+      <RangeSimulator
+        baseRange={selectedCarForSimulator?.ev_range_km || 100}
+        batteryCapacity={selectedCarForSimulator?.battery_kwh || 15}
+        isOpen={isRangeSimulatorOpen}
+        onClose={() => setIsRangeSimulatorOpen(false)}
+        simulatorData={selectedCarForSimulator?.simulator_data}
+      />
 
     </div>
   )
