@@ -502,7 +502,7 @@
     "fuel_consumption": 1.5,
     "battery_kwh": 25.7,
     "price_eur": 150000,
-    "image_url": "/images/cars/brands/bmw/xm/Main.jpg",
+    "image_url": "/images/cars/brands/bmw/xm/main.jpg",
     "power_hp": 653,
     "co2_emission": 30,
     "charge_time_ac": 3.5,

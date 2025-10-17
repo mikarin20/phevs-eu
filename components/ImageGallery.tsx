@@ -30,10 +30,35 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   // Görsel yüklenemediğinde
   const handleImageError = (src: string) => {
     setFailedImages(prev => new Set([...prev, src]))
+    // Eğer ana görsel yüklenemezse, ilk geçerli görseli kullan
+    if (src === mainImageSrc && loadedImages.length > 0) {
+      setSelectedImage(0)
+    }
   }
 
-  // Ana görsel
-  const mainImageSrc = loadedImages[selectedImage] || loadedImages[0] || '/images/placeholder-car.jpg'
+  // Ana görsel - önce images array'inden, sonra loadedImages'dan, en son placeholder
+  const getMainImageSrc = () => {
+    // Önce images array'inden seçili index'i dene
+    if (images?.[selectedImage] && !failedImages.has(images[selectedImage])) {
+      return images[selectedImage]
+    }
+    // Sonra images array'inden ilk geçerli görseli dene
+    if (images?.[0] && !failedImages.has(images[0])) {
+      return images[0]
+    }
+    // Sonra loadedImages'dan seçili index'i dene
+    if (loadedImages[selectedImage] && !failedImages.has(loadedImages[selectedImage])) {
+      return loadedImages[selectedImage]
+    }
+    // Sonra loadedImages'dan ilk geçerli görseli dene
+    if (loadedImages[0] && !failedImages.has(loadedImages[0])) {
+      return loadedImages[0]
+    }
+    // En son placeholder
+    return '/images/placeholder-car.jpg'
+  }
+  
+  const mainImageSrc = getMainImageSrc()
 
   // Thumbnail'lar için görseller - sadece yüklenenler
   const thumbnailImages = loadedImages.slice(1, 21) // İlk görseli çıkar, max 20 thumbnail
