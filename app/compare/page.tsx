@@ -42,14 +42,20 @@ export default function ComparePage() {
   useEffect(() => {
     // LocalStorage'dan seçili arabaları yükle
     const savedSelection = localStorage.getItem('phevs-selected-cars')
+    console.log('Saved selection from localStorage:', savedSelection)
+    
     if (savedSelection) {
       try {
         const carIds = JSON.parse(savedSelection)
+        console.log('Parsed car IDs:', carIds)
         const cars = carsData.filter((car: any) => carIds.includes(car.id))
+        console.log('Filtered cars:', cars)
         setSelectedCars(cars as Car[])
       } catch (e) {
         console.error('Error loading selected cars:', e)
       }
+    } else {
+      console.log('No saved selection found in localStorage')
     }
   }, [])
 

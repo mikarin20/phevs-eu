@@ -282,11 +282,11 @@ export default function Home() {
     if (selectedCars.find(c => c.id === car.id)) {
       const newSelected = selectedCars.filter(c => c.id !== car.id)
       setSelectedCars(newSelected)
-      localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected))
+      localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected.map(c => c.id)))
     } else if (selectedCars.length < 3) {
       const newSelected = [...selectedCars, car]
       setSelectedCars(newSelected)
-      localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected))
+      localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected.map(c => c.id)))
     }
   }
 
