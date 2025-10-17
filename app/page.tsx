@@ -439,9 +439,8 @@ export default function Home() {
               <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Plug-in Hybrid Comparison</span>
             </div>
             
-            {/* Dil ve Tema Seçicileri - Mobilde gizli, tablet+ görünür */}
-            <div className="hidden sm:flex items-center space-x-2 lg:space-x-4">
-              {/* Tema Seçici */}
+            {/* Tema Seçici - Mobilde gizli, tablet+ görünür */}
+            <div className="hidden sm:flex items-center space-x-2">
               <div className="flex space-x-1">
                 {Object.entries(themes).map(([key, theme]) => (
                   <button
@@ -462,8 +461,10 @@ export default function Home() {
                   </button>
                 ))}
               </div>
+            </div>
 
-              {/* Dil Seçici */}
+            <div className="flex items-center space-x-4">
+              {/* Dil Seçici - Compare'in solunda */}
               <div className="flex space-x-1">
                 {[
                   { 
@@ -505,28 +506,6 @@ export default function Home() {
                   </button>
                 ))}
               </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => {
-                  if (selectedCars.length === 0) {
-                    alert('Please select a vehicle first to use Range Simulator')
-                    return
-                  }
-                  setSelectedCarForSimulator(selectedCars[0])
-                  setIsRangeSimulatorOpen(true)
-                }}
-                className={`inline-flex items-center space-x-2 px-4 py-2 rounded-lg font-semibold transition-all duration-200 ${
-                  selectedCars.length === 0 
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                    : 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
-                }`}
-                disabled={selectedCars.length === 0}
-              >
-                <SparklesIcon className="h-5 w-5" />
-                <span>Range Simulator</span>
-              </button>
               <Link 
                 href="/compare" 
                 className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
