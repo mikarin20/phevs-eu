@@ -67,11 +67,11 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
     <div className="space-y-4">
       {/* Main Image */}
       <div className="relative bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden shadow-md">
-        <div className="aspect-[16/9] w-full h-96">
+        <div className="aspect-[4/3] w-full max-w-4xl mx-auto">
           <img
             src={mainImageSrc}
             alt={alt}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
             loading="eager"
             fetchPriority="high"
             onLoad={() => handleImageLoad(mainImageSrc)}
@@ -96,7 +96,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
                   : 'hover:ring-1 hover:ring-[#93B1B5] hover:scale-105'
               }`}
             >
-              <div className="aspect-[16/9] w-full h-16">
+              <div className="aspect-[4/3] w-full h-20">
                 <img
                   src={image}
                   alt={`${alt} ${index + 2}`}
