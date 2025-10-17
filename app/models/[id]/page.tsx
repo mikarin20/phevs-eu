@@ -147,7 +147,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: 'Brand', value: car.brand },
         { label: 'Model', value: car.model },
         { label: 'Year', value: car.year },
-        { label: 'Price', value: `€${car.price_eur.toLocaleString()}` },
+        { label: 'Price', value: `€${car.price_eur.toLocaleString()} (Est. EU)` },
       ]
     }
   ]
@@ -185,6 +185,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
               <span className="text-3xl font-bold text-[#0B2E33]">€{car.price_eur.toLocaleString()}</span>
             </div>
             <p className="text-[#4F7C82]">Starting Price</p>
+            <p className="text-xs text-slate-500 mt-1">Estimated EU market value</p>
           </div>
         </div>
 

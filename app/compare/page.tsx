@@ -81,7 +81,7 @@ export default function ComparePage() {
       rows: [
         { 
           label: 'Price (EUR)', 
-          getValue: (car: Car) => `€${car.price_eur.toLocaleString()}`,
+          getValue: (car: Car) => `€${car.price_eur.toLocaleString()} (Est. EU)`,
           highlight: true,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.price_eur))
         },
@@ -296,11 +296,7 @@ export default function ComparePage() {
                   alt={`${car.brand} ${car.model}`}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   onError={(e) => {
-                    e.currentTarget.style.display = 'none'
-                    const nextElement = e.currentTarget.nextElementSibling as HTMLElement
-                    if (nextElement) {
-                      nextElement.style.display = 'flex'
-                    }
+                    e.currentTarget.src = '/images/placeholder-car.jpg'
                   }}
                 />
                 <div className="hidden w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-600 text-6xl font-bold">
@@ -321,6 +317,9 @@ export default function ComparePage() {
                 )}
                 <div className="text-3xl font-bold text-blue-600">
                   €{car.price_eur.toLocaleString()}
+                </div>
+                <div className="text-xs text-slate-500 mt-1">
+                  Estimated EU price
                 </div>
               </div>
             </div>

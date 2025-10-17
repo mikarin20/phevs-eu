@@ -457,7 +457,7 @@ export default function Home() {
                           </div>
                       </div>
                 </div>
-              )}
+                  )}
                 </div>
 
                 {/* Segment Filter */}
@@ -574,6 +574,9 @@ export default function Home() {
                           alt={`${car.brand} ${car.model}`}
                     className="w-full h-48 object-cover rounded-lg"
                     loading="lazy"
+                          onError={(e) => {
+                      e.currentTarget.src = '/images/placeholder-car.jpg'
+                    }}
                   />
                 </div>
 
@@ -585,6 +588,9 @@ export default function Home() {
                     </h3>
                     <div className="text-xl font-bold text-[#4F7C82]">
                       €{car.price_eur.toLocaleString()}
+                    </div>
+                    <div className="text-xs text-slate-500 mt-1">
+                      Estimated EU price
                     </div>
                   </div>
 
@@ -637,7 +643,7 @@ export default function Home() {
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">Total Power:</span>
-                      </div>
+                        </div>
                       <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
                       </div>
                     </div>
@@ -691,7 +697,10 @@ export default function Home() {
                         alt={`${car.brand} ${car.model}`}
                       className="w-24 h-16 object-cover rounded-lg"
                       loading="lazy"
-                    />
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
                   </div>
 
                   {/* Car Info */}
@@ -714,6 +723,9 @@ export default function Home() {
                       <div className="text-right">
                         <div className="text-xl font-bold text-[#4F7C82]">
                           €{car.price_eur.toLocaleString()}
+                        </div>
+                        <div className="text-xs text-slate-500 mt-1">
+                          Estimated EU price
                         </div>
                       </div>
                     </div>

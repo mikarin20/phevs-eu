@@ -86,6 +86,32 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
+        
+        {/* Footer */}
+        <footer className="bg-slate-900 text-white py-8 mt-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold mb-2">PHEVs.eu</h3>
+                <p className="text-slate-300 text-sm">
+                  Europe's most comprehensive plug-in hybrid vehicle comparison platform
+                </p>
+              </div>
+              
+              <div className="border-t border-slate-700 pt-4">
+                <p className="text-slate-400 text-xs">
+                  Data sources: Euro NCAP, manufacturer specifications, WLTP testing
+                </p>
+                <p className="text-slate-500 text-xs mt-1">
+                  Prices are estimated EU market values. Actual prices may vary by country and configuration.
+                </p>
+                <p className="text-slate-500 text-xs mt-2">
+                  © 2025 PHEVs.eu. All rights reserved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   )
