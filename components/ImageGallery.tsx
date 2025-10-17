@@ -45,7 +45,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
         <img
           src={mainImageSrc}
           alt={alt}
-          className="w-full h-96 object-cover hover:scale-105 transition-transform duration-500"
+          className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
           loading="eager"
           onLoad={() => handleImageLoad(mainImageSrc)}
           onError={(e) => {

@@ -105,27 +105,27 @@ export default function Home() {
   // LocalStorage'dan verileri yükle
   useEffect(() => {
     const timer = setTimeout(() => {
-      const savedFilters = localStorage.getItem('phevs-filters')
-      const savedBrands = localStorage.getItem('phevs-selected-brands')
+    const savedFilters = localStorage.getItem('phevs-filters')
+    const savedBrands = localStorage.getItem('phevs-selected-brands')
       const savedFavorites = localStorage.getItem('phevs-favorites')
       const savedViewMode = localStorage.getItem('phevs-view-mode')
       const savedSort = localStorage.getItem('phevs-sort')
-      
-      if (savedFilters) {
-        try {
-          setFilters(JSON.parse(savedFilters))
-        } catch (e) {
-          console.error('Error loading filters:', e)
-        }
+    
+    if (savedFilters) {
+      try {
+        setFilters(JSON.parse(savedFilters))
+      } catch (e) {
+        console.error('Error loading filters:', e)
       }
-      
-      if (savedBrands) {
-        try {
-          setSelectedBrands(JSON.parse(savedBrands))
-        } catch (e) {
-          console.error('Error loading brands:', e)
-        }
+    }
+    
+    if (savedBrands) {
+      try {
+        setSelectedBrands(JSON.parse(savedBrands))
+      } catch (e) {
+        console.error('Error loading brands:', e)
       }
+    }
 
       if (savedFavorites) {
         try {
@@ -152,7 +152,7 @@ export default function Home() {
   // Filtreleri otomatik kaydet
   useEffect(() => {
     if (!isLoading) {
-      localStorage.setItem('phevs-filters', JSON.stringify(filters))
+    localStorage.setItem('phevs-filters', JSON.stringify(filters))
       localStorage.setItem('phevs-selected-brands', JSON.stringify(selectedBrands))
     }
   }, [filters, selectedBrands, isLoading])
@@ -366,8 +366,10 @@ export default function Home() {
               </button>
               <Link 
                 href="/compare" 
-                className={`btn-primary inline-flex items-center space-x-2 ${
-                  selectedCars.length < 2 ? 'opacity-50 cursor-not-allowed' : ''
+                className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                  selectedCars.length < 2 
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
                 }`}
                 onClick={(e) => selectedCars.length < 2 && e.preventDefault()}
               >
@@ -395,18 +397,18 @@ export default function Home() {
                   className="input-clean w-full pl-10"
                 />
               </div>
-            </div>
-
+                  </div>
+                  
             {/* Brand Filter */}
             <div className="relative brand-dropdown">
-              <button
+                          <button
                 onClick={() => setIsBrandDropdownOpen(!isBrandDropdownOpen)}
                 className="filter-select min-w-32 text-left flex items-center justify-between"
-              >
+                          >
                 <span>{selectedBrands.length === 0 ? 'All Brands' : `${selectedBrands.length} selected`}</span>
                 <ChevronDownIcon className="h-4 w-4" />
-              </button>
-              
+                          </button>
+
               {isBrandDropdownOpen && (
                 <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-[#E2E8F0] rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
                   <div className="p-2">
@@ -420,14 +422,14 @@ export default function Home() {
                     />
                     <div className="space-y-1">
                       {filteredBrands.map(brand => (
-                        <label 
-                          key={brand} 
+                            <label
+                              key={brand}
                           className="flex items-center space-x-2 p-2 hover:bg-[#F1F5F9] rounded cursor-pointer"
                           onClick={(e) => e.stopPropagation()}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={selectedBrands.includes(brand)}
+                            >
+                              <input
+                                type="checkbox"
+                                checked={selectedBrands.includes(brand)}
                             onChange={(e) => {
                               e.stopPropagation()
                               if (e.target.checked) {
@@ -439,7 +441,7 @@ export default function Home() {
                             className="rounded border-[#E2E8F0] text-[#4F7C82] focus:ring-[#4F7C82]"
                           />
                           <span className="text-sm text-[#0B2E33]">{brand}</span>
-                        </label>
+                            </label>
                       ))}
                     </div>
                     <div className="mt-2 pt-2 border-t border-[#E2E8F0]">
@@ -452,23 +454,23 @@ export default function Home() {
                       >
                         Clear all brands
                       </button>
-                    </div>
-                  </div>
+                          </div>
+                      </div>
                 </div>
               )}
-            </div>
+                </div>
 
-            {/* Segment Filter */}
-            <select
-              value={filters.segment}
+                {/* Segment Filter */}
+                  <select
+                    value={filters.segment}
               onChange={(e) => setFilters({...filters, segment: e.target.value})}
               className="filter-select min-w-24"
-            >
-              <option value="">All Segments</option>
+                  >
+                    <option value="">All Segments</option>
               {segments.map(segment => (
                 <option key={segment} value={segment}>{segment}</option>
-              ))}
-            </select>
+                    ))}
+                  </select>
 
             {/* Battery Architecture Filter */}
             <select
@@ -524,18 +526,18 @@ export default function Home() {
               >
                 <Squares2X2Icon className="h-5 w-5" />
               </button>
-            </div>
+                </div>
 
-            {/* Clear Filters */}
-            <button
+                {/* Clear Filters */}
+                <button
               onClick={clearFilters}
               className="btn-ghost text-sm"
             >
               Clear Filters
-            </button>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -557,19 +559,19 @@ export default function Home() {
           {/* Debug Info */}
           <div className="text-xs text-[#93B1B5]">
             Brands: [{selectedBrands.join(', ')}] (Count: {selectedBrands.length}), Segment: {filters.segment || 'All'}, Search: "{searchTerm}", Battery: {filters.batteryArchitecture || 'All'}/{filters.batteryChemistry || 'All'}, Filtered Count: {filteredAndSortedCars.length}, Total Cars: {cars.length}
-          </div>
-        </div>
+              </div>
+            </div>
 
         {/* Cars List/Grid */}
         {viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredAndSortedCars.map((car) => (
-              <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-md transition-all duration-200 block">
+              <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-xl hover:scale-102 transition-all duration-300 block group">
                 {/* Car Image */}
                 <div className="aspect-w-16 aspect-h-9 mb-4">
-                  <img
-                    src={car.image_url}
-                    alt={`${car.brand} ${car.model}`}
+                        <img
+                          src={car.image_url}
+                          alt={`${car.brand} ${car.model}`}
                     className="w-full h-48 object-cover rounded-lg"
                     loading="lazy"
                   />
@@ -617,28 +619,28 @@ export default function Home() {
                         </button>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">Battery:</span>
                       </div>
                       <span className="font-semibold text-[#4F7C82]">{car.battery_kwh} kWh</span>
-                    </div>
+                        </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">Fuel Consumption:</span>
-                      </div>
+                        </div>
                       <span className="font-semibold text-[#4F7C82]">{car.fuel_consumption} L/100km</span>
-                    </div>
+                        </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">Total Power:</span>
                       </div>
                       <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
+                      </div>
                     </div>
-                  </div>
 
                   {/* Actions */}
                   <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0]">
@@ -656,44 +658,44 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <button
+                      <button
                       onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
                         toggleCarSelection(car)
                       }}
-                      className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
-                        selectedCars.find(c => c.id === car.id)
+                        className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ${
+                          selectedCars.find(c => c.id === car.id)
                           ? 'border-[#4F7C82] bg-[#4F7C82] text-white'
                           : 'border-[#E2E8F0] hover:border-[#4F7C82]'
-                      }`}
-                    >
+                        }`}
+                      >
                       {selectedCars.find(c => c.id === car.id) && (
                         <CheckIcon className="h-4 w-4" />
                       )}
-                    </button>
+                      </button>
                   </div>
                 </div>
               </Link>
-            ))}
+              ))}
           </div>
         ) : (
-          <div className="space-y-4">
+                <div className="space-y-4">
             {filteredAndSortedCars.map((car) => (
-              <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-md transition-all duration-200 block">
+              <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-xl hover:scale-102 transition-all duration-300 block group">
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
-                    <img
-                      src={car.image_url}
-                      alt={`${car.brand} ${car.model}`}
+                      <img
+                        src={car.image_url}
+                        alt={`${car.brand} ${car.model}`}
                       className="w-24 h-16 object-cover rounded-lg"
                       loading="lazy"
                     />
                   </div>
 
                   {/* Car Info */}
-                  <div className="flex-1 min-w-0">
+                      <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="text-lg font-semibold text-[#0B2E33]">
@@ -722,7 +724,7 @@ export default function Home() {
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">EV Range:</span>
                         <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
-                        <button
+                      <button
                           onClick={() => {
                             setSelectedCarForSimulator(car)
                             setIsRangeSimulatorOpen(true)
@@ -731,7 +733,7 @@ export default function Home() {
                           title="Range Simulator"
                         >
                           <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
-                        </button>
+                      </button>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
@@ -749,7 +751,7 @@ export default function Home() {
                         <span className="font-semibold text-[#4F7C82]">{car.power_hp} HP</span>
                       </div>
                     </div>
-                  </div>
+                </div>
 
                   {/* Actions */}
                   <div className="flex-shrink-0 flex items-center space-x-2">
@@ -783,12 +785,12 @@ export default function Home() {
                         <CheckIcon className="h-4 w-4" />
                       )}
                     </button>
-                  </div>
+              </div>
                 </div>
               </Link>
             ))}
-          </div>
-        )}
+              </div>
+            )}
 
         {filteredAndSortedCars.length === 0 && (
           <div className="text-center py-12">

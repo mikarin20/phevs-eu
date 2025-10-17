@@ -109,12 +109,12 @@
 
   .badge-secondary {
     @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
-           bg-[#93B1B5] text-white;
+           bg-[#4F7C82] text-white;
   }
 
   .badge-accent {
     @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
-           bg-[#B8E3E9] text-[#0B2E33];
+           bg-[#0B2E33] text-white;
   }
 
   /* Loading Animation */

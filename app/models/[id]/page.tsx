@@ -160,15 +160,10 @@ export default function ModelDetail({ params }: ModelDetailProps) {
               <ArrowLeftIcon className="h-5 w-5" />
               <span>Back to Models</span>
             </Link>
-                    <div className="text-center">
-                      <h1 className="text-2xl font-bold text-[#0B2E33]">{car.brand} {car.model}</h1>
-                      <p className="text-[#4F7C82]">{car.year} • {car.segment}</p>
-                      {car.euroncap_rating && (
-                        <div className="mt-2 flex justify-center">
-                          <EuroNCAPStars rating={car.euroncap_rating} size="md" showDetails={true} />
-                        </div>
-                      )}
-                    </div>
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-[#0B2E33]">{car.brand} {car.model}</h1>
+              <p className="text-[#4F7C82]">{car.year} • {car.segment}</p>
+            </div>
             <div className="w-24"></div>
           </div>
         </div>
@@ -190,6 +185,26 @@ export default function ModelDetail({ params }: ModelDetailProps) {
             <p className="text-[#4F7C82]">Starting Price</p>
           </div>
         </div>
+
+        {/* Euro NCAP Section */}
+        {car.euroncap_rating && (
+          <div className="mb-8">
+            <div className="card p-6 text-center max-w-md mx-auto">
+              <h3 className="text-lg font-semibold text-[#0B2E33] mb-4">Safety Rating</h3>
+              <div className="flex justify-center mb-2">
+                <EuroNCAPStars rating={car.euroncap_rating} size="lg" showDetails={true} />
+              </div>
+              <a 
+                href={`https://www.euroncap.com/en/results/${car.brand.toLowerCase().replace(/\s+/g, '-')}/${car.model.toLowerCase().replace(/\s+/g, '-')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[#4F7C82] hover:text-[#0B2E33] transition-colors underline"
+              >
+                Source: Euro NCAP
+              </a>
+            </div>
+          </div>
+        )}
 
         {/* Specifications Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
