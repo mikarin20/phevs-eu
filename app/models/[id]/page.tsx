@@ -175,63 +175,62 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Image Gallery */}
-          <div className="space-y-6">
-            <ImageGallery images={catalogImages} alt={`${car.brand} ${car.model} gallery`} />
-          </div>
+        {/* Images Section */}
+        <div className="mb-8">
+          <ImageGallery images={catalogImages} alt={`${car.brand} ${car.model} gallery`} />
+        </div>
 
-          {/* Specifications */}
-          <div className="space-y-6">
-            {/* Price Card */}
-            <div className="card-elevated p-6 text-center">
-              <div className="flex items-center justify-center space-x-2 mb-4">
-                <CurrencyEuroIcon className="h-8 w-8 text-[#4F7C82]" />
-                <span className="text-3xl font-bold text-[#0B2E33]">€{car.price_eur.toLocaleString()}</span>
-              </div>
-              <p className="text-[#4F7C82]">Starting Price</p>
+        {/* Price Card */}
+        <div className="mb-8">
+          <div className="card-elevated p-6 text-center max-w-md mx-auto">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <CurrencyEuroIcon className="h-8 w-8 text-[#4F7C82]" />
+              <span className="text-3xl font-bold text-[#0B2E33]">€{car.price_eur.toLocaleString()}</span>
             </div>
-
-            {/* Specifications */}
-            {specifications.map((spec, index) => (
-              <div key={index} className="card p-6">
-                <h3 className="text-xl font-bold text-[#0B2E33] mb-4 pb-3 border-b-2 border-[#E2E8F0]">
-                  {spec.category}
-                </h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {spec.items.map((item, itemIndex) => (
-                    <div 
-                      key={itemIndex} 
-                      className={`flex justify-between items-center py-3 px-4 rounded-lg transition-all ${
-                        (item as any).highlight 
-                          ? 'bg-gradient-to-r from-[#B8E3E9] to-[#F1F5F9] border border-[#4F7C82]' 
-                          : 'bg-[#F8FAFB]'
-                      }`}
-                    >
-                      <div className="flex items-center space-x-2">
-                        {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-[#4F7C82]" })}
-                        <span className="text-[#0B2E33] font-medium">{item.label}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <span className={`font-bold ${(item as any).highlight ? 'text-[#0B2E33] text-lg' : 'text-[#4F7C82]'}`}>
-                          {item.value}
-                        </span>
-                        {(item as any).hasSimulator && (
-                          <button
-                            onClick={() => setIsRangeSimulatorOpen(true)}
-                            className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
-                            title="Range Simulator"
-                          >
-                            <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+            <p className="text-[#4F7C82]">Starting Price</p>
           </div>
+        </div>
+
+        {/* Specifications Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {specifications.map((spec, index) => (
+            <div key={index} className="card p-6">
+              <h3 className="text-xl font-bold text-[#0B2E33] mb-4 pb-3 border-b-2 border-[#E2E8F0]">
+                {spec.category}
+              </h3>
+              <div className="space-y-3">
+                {spec.items.map((item, itemIndex) => (
+                  <div 
+                    key={itemIndex} 
+                    className={`flex justify-between items-center py-3 px-4 rounded-lg transition-all ${
+                      (item as any).highlight 
+                        ? 'bg-gradient-to-r from-[#B8E3E9] to-[#F1F5F9] border border-[#4F7C82]' 
+                        : 'bg-[#F8FAFB]'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-2">
+                      {(item as any).icon && React.createElement((item as any).icon, { className: "h-5 w-5 text-[#4F7C82]" })}
+                      <span className="text-[#0B2E33] font-medium">{item.label}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className={`font-bold ${(item as any).highlight ? 'text-[#0B2E33] text-lg' : 'text-[#4F7C82]'}`}>
+                        {item.value}
+                      </span>
+                      {(item as any).hasSimulator && (
+                        <button
+                          onClick={() => setIsRangeSimulatorOpen(true)}
+                          className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
+                          title="Range Simulator"
+                        >
+                          <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

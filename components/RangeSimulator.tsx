@@ -371,18 +371,27 @@ export default function RangeSimulator({
           </div>
 
           {/* Information */}
-          <div className="mt-10 bg-gradient-to-r from-[#0B2E33]/5 via-[#4F7C82]/5 to-[#93B1B5]/5 rounded-2xl p-6 border border-white/50">
-            <div className="flex items-start space-x-4">
-              <div className="p-2 bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] rounded-lg">
-                <InformationCircleIcon className="w-6 h-6 text-white" />
+          <div className="mt-10 bg-gradient-to-r from-[#0B2E33]/10 via-[#4F7C82]/10 to-[#93B1B5]/10 rounded-2xl p-8 border border-white/30 shadow-lg">
+            <div className="flex items-start space-x-6">
+              <div className="p-3 bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] rounded-xl shadow-md">
+                <InformationCircleIcon className="w-8 h-8 text-white" />
               </div>
               <div className="flex-1">
-                <h4 className="font-bold text-[#0B2E33] mb-2">Range Simulation Information</h4>
-                <p className="text-[#4F7C82] text-sm leading-relaxed mb-3">
+                <h4 className="font-bold text-[#0B2E33] text-xl mb-3">Range Simulation Information</h4>
+                <p className="text-[#0B2E33] text-base leading-relaxed mb-4 font-medium">
                   The achievable range depends particularly on your individual driving style. 
                   This simulation uses average consumption patterns and official efficiency data.
                 </p>
-                <button className="inline-flex items-center space-x-2 text-[#4F7C82] hover:text-[#0B2E33] font-medium transition-colors">
+                <div className="bg-white/50 rounded-lg p-4 mb-4">
+                  <h5 className="font-semibold text-[#0B2E33] mb-2">Key Factors:</h5>
+                  <ul className="text-[#4F7C82] text-sm space-y-1">
+                    <li>• Temperature significantly affects battery efficiency</li>
+                    <li>• Air conditioning reduces range by 10-15%</li>
+                    <li>• Highway driving is less efficient than city driving</li>
+                    <li>• Driving style impacts overall consumption</li>
+                  </ul>
+                </div>
+                <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#4F7C82] to-[#93B1B5] text-white px-4 py-2 rounded-lg hover:shadow-md transition-all font-medium">
                   <span>Learn more about range data</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -12,10 +12,11 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   const [loadedImages, setLoadedImages] = useState<string[]>([])
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
 
-  // İlk görseli hemen yükle
+  // İlk 7 görseli otomatik yükle
   useEffect(() => {
     if (images && images.length > 0) {
-      setLoadedImages([images[0]])
+      const imagesToLoad = images.slice(0, 7) // İlk 7 görseli al
+      setLoadedImages(imagesToLoad)
     }
   }, [images])
 
@@ -83,26 +84,6 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
         </div>
       )}
 
-      {/* Load more images button */}
-      {images.length > loadedImages.length && (
-        <div className="text-center">
-          <button
-            onClick={() => {
-              // Kalan görselleri yüklemeye başla
-              const remainingImages = images.slice(loadedImages.length, loadedImages.length + 10)
-              remainingImages.forEach(img => {
-                const testImg = new Image()
-                testImg.onload = () => handleImageLoad(img)
-                testImg.onerror = () => handleImageError(img)
-                testImg.src = img
-              })
-            }}
-            className="btn-secondary text-sm"
-          >
-            Load More Images ({images.length - loadedImages.length} remaining)
-          </button>
-        </div>
-      )}
     </div>
   )
 }

@@ -172,11 +172,36 @@ export default function Home() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [isBrandDropdownOpen])
 
+  // Özel karakterleri normalize eden fonksiyon
+  const normalizeText = (text: string) => {
+    return text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // Diacritics kaldır
+      .replace(/[š]/g, 's') // Š -> s
+      .replace(/[č]/g, 'c') // Č -> c
+      .replace(/[ž]/g, 'z') // Ž -> z
+      .replace(/[ć]/g, 'c') // Ć -> c
+      .replace(/[đ]/g, 'd') // Đ -> d
+      .replace(/[ł]/g, 'l') // Ł -> l
+      .replace(/[ń]/g, 'n') // Ń -> n
+      .replace(/[ą]/g, 'a') // Ą -> a
+      .replace(/[ę]/g, 'e') // Ę -> e
+      .replace(/[ó]/g, 'o') // Ó -> o
+      .replace(/[ś]/g, 's') // Ś -> s
+      .replace(/[ź]/g, 'z') // Ź -> z
+      .replace(/[ż]/g, 'z') // Ż -> z
+  }
+
   // Filtreleme ve sıralama
   const filteredAndSortedCars = useMemo(() => {
     let filtered = cars.filter(car => {
-      const matchesSearch = car.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           car.model.toLowerCase().includes(searchTerm.toLowerCase())
+      const normalizedSearchTerm = normalizeText(searchTerm)
+      const normalizedBrand = normalizeText(car.brand)
+      const normalizedModel = normalizeText(car.model)
+      
+      const matchesSearch = normalizedBrand.includes(normalizedSearchTerm) ||
+                           normalizedModel.includes(normalizedSearchTerm)
       
       const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(car.brand)
       
@@ -229,9 +254,11 @@ export default function Home() {
 
   // Filtrelenmiş markalar
   const filteredBrands = useMemo(() => {
-    return brands.filter(brand => 
-      brand.toLowerCase().includes(brandSearchTerm.toLowerCase())
-    )
+    return brands.filter(brand => {
+      const normalizedBrand = normalizeText(brand)
+      const normalizedSearchTerm = normalizeText(brandSearchTerm)
+      return normalizedBrand.includes(normalizedSearchTerm)
+    })
   }, [brands, brandSearchTerm])
 
   // Segments
