@@ -22,6 +22,7 @@ import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import { CarCardSkeleton } from '@/components/LoadingSkeleton'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
+import RangeSimulator from '@/components/RangeSimulator'
 
 interface Car {
   id: string
@@ -51,6 +52,27 @@ interface Car {
     overall_rating: number
     test_year?: number
   }
+  simulator_data?: {
+    base_range_km: number
+    temperature_efficiency: {
+      optimal_temp: number
+      cold_weather_factor: number
+      hot_weather_factor: number
+      mild_cold_factor: number
+      mild_hot_factor: number
+    }
+    ac_impact: number
+    highway_efficiency: {
+      city_factor: number
+      mixed_factor: number
+      highway_factor: number
+    }
+    driving_style: {
+      eco_factor: number
+      normal_factor: number
+      sport_factor: number
+    }
+  }
 }
 
 type ViewMode = 'grid' | 'list'
@@ -68,6 +90,8 @@ export default function Home() {
   const [viewMode, setViewMode] = useState<ViewMode>('list')
   const [sortBy, setSortBy] = useState<SortOption>('name-asc')
   const [isLoading, setIsLoading] = useState(true)
+  const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
+  const [selectedCarForSimulator, setSelectedCarForSimulator] = useState<Car | null>(null)
   
   const [filters, setFilters] = useState({
     segment: '',
@@ -296,6 +320,16 @@ export default function Home() {
               <span className="text-sm text-[#4F7C82]">Plug-in Hybrid Comparison</span>
             </div>
             <div className="flex items-center space-x-4">
+              <button
+                onClick={() => {
+                  setSelectedCarForSimulator(null)
+                  setIsRangeSimulatorOpen(true)
+                }}
+                className="btn-secondary inline-flex items-center space-x-2"
+              >
+                <SparklesIcon className="h-5 w-5" />
+                <span>Range Simulator</span>
+              </button>
               <Link 
                 href="/compare" 
                 className={`btn-primary inline-flex items-center space-x-2 ${
@@ -535,7 +569,19 @@ export default function Home() {
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">EV Range:</span>
                       </div>
-                      <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
+                      <div className="flex items-center space-x-2">
+                        <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
+                        <button
+                          onClick={() => {
+                            setSelectedCarForSimulator(car)
+                            setIsRangeSimulatorOpen(true)
+                          }}
+                          className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
+                          title="Range Simulator"
+                        >
+                          <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
+                        </button>
+                      </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
@@ -634,6 +680,16 @@ export default function Home() {
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
                         <span className="text-[#0B2E33]">EV Range:</span>
                         <span className="font-semibold text-[#4F7C82]">{car.ev_range_km} km</span>
+                        <button
+                          onClick={() => {
+                            setSelectedCarForSimulator(car)
+                            setIsRangeSimulatorOpen(true)
+                          }}
+                          className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
+                          title="Range Simulator"
+                        >
+                          <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
+                        </button>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
@@ -698,6 +754,15 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {/* Range Simulator */}
+      <RangeSimulator
+        baseRange={selectedCarForSimulator?.ev_range_km || 100}
+        batteryCapacity={selectedCarForSimulator?.battery_kwh || 15}
+        isOpen={isRangeSimulatorOpen}
+        onClose={() => setIsRangeSimulatorOpen(false)}
+        simulatorData={selectedCarForSimulator?.simulator_data}
+      />
     </div>
   )
 }

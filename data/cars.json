@@ -1241,6 +1241,27 @@
       "safety_assist": 75,
       "overall_rating": 5,
       "test_year": 2024
+    },
+    "simulator_data": {
+      "base_range_km": 75,
+      "temperature_efficiency": {
+        "optimal_temp": 20,
+        "cold_weather_factor": 0.6,
+        "hot_weather_factor": 0.8,
+        "mild_cold_factor": 0.75,
+        "mild_hot_factor": 0.9
+      },
+      "ac_impact": 0.85,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.9,
+        "highway_factor": 0.8
+      },
+      "driving_style": {
+        "eco_factor": 1.1,
+        "normal_factor": 1.0,
+        "sport_factor": 0.85
+      }
     }
   },
   {
@@ -1270,6 +1291,27 @@
       "safety_assist": 75,
       "overall_rating": 5,
       "test_year": 2024
+    },
+    "simulator_data": {
+      "base_range_km": 100,
+      "temperature_efficiency": {
+        "optimal_temp": 22,
+        "cold_weather_factor": 0.65,
+        "hot_weather_factor": 0.82,
+        "mild_cold_factor": 0.78,
+        "mild_hot_factor": 0.92
+      },
+      "ac_impact": 0.88,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.92,
+        "highway_factor": 0.85
+      },
+      "driving_style": {
+        "eco_factor": 1.12,
+        "normal_factor": 1.0,
+        "sport_factor": 0.88
+      }
     }
   },
   {
@@ -1299,6 +1341,27 @@
       "safety_assist": 75,
       "overall_rating": 5,
       "test_year": 2024
+    },
+    "simulator_data": {
+      "base_range_km": 75,
+      "temperature_efficiency": {
+        "optimal_temp": 20,
+        "cold_weather_factor": 0.6,
+        "hot_weather_factor": 0.8,
+        "mild_cold_factor": 0.75,
+        "mild_hot_factor": 0.9
+      },
+      "ac_impact": 0.85,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.9,
+        "highway_factor": 0.8
+      },
+      "driving_style": {
+        "eco_factor": 1.1,
+        "normal_factor": 1.0,
+        "sport_factor": 0.85
+      }
     }
   },
   {
@@ -1328,6 +1391,27 @@
       "safety_assist": 75,
       "overall_rating": 5,
       "test_year": 2024
+    },
+    "simulator_data": {
+      "base_range_km": 103,
+      "temperature_efficiency": {
+        "optimal_temp": 22,
+        "cold_weather_factor": 0.7,
+        "hot_weather_factor": 0.85,
+        "mild_cold_factor": 0.8,
+        "mild_hot_factor": 0.93
+      },
+      "ac_impact": 0.9,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.94,
+        "highway_factor": 0.88
+      },
+      "driving_style": {
+        "eco_factor": 1.15,
+        "normal_factor": 1.0,
+        "sport_factor": 0.9
+      }
     }
   },
   {
@@ -1348,7 +1432,28 @@
     "trunk_volume": 435,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "simulator_data": {
+      "base_range_km": 70,
+      "temperature_efficiency": {
+        "optimal_temp": 20,
+        "cold_weather_factor": 0.58,
+        "hot_weather_factor": 0.78,
+        "mild_cold_factor": 0.73,
+        "mild_hot_factor": 0.88
+      },
+      "ac_impact": 0.83,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.88,
+        "highway_factor": 0.78
+      },
+      "driving_style": {
+        "eco_factor": 1.08,
+        "normal_factor": 1.0,
+        "sport_factor": 0.83
+      }
+    }
   },
   {
     "id": "mercedes-5",
@@ -1368,7 +1473,28 @@
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "simulator_data": {
+      "base_range_km": 103,
+      "temperature_efficiency": {
+        "optimal_temp": 22,
+        "cold_weather_factor": 0.7,
+        "hot_weather_factor": 0.85,
+        "mild_cold_factor": 0.8,
+        "mild_hot_factor": 0.93
+      },
+      "ac_impact": 0.9,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.94,
+        "highway_factor": 0.88
+      },
+      "driving_style": {
+        "eco_factor": 1.15,
+        "normal_factor": 1.0,
+        "sport_factor": 0.9
+      }
+    }
   },
   {
     "id": "mercedesbenz-glc",
@@ -1388,7 +1514,28 @@
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "simulator_data": {
+      "base_range_km": 103,
+      "temperature_efficiency": {
+        "optimal_temp": 22,
+        "cold_weather_factor": 0.7,
+        "hot_weather_factor": 0.85,
+        "mild_cold_factor": 0.8,
+        "mild_hot_factor": 0.93
+      },
+      "ac_impact": 0.9,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.94,
+        "highway_factor": 0.88
+      },
+      "driving_style": {
+        "eco_factor": 1.15,
+        "normal_factor": 1.0,
+        "sport_factor": 0.9
+      }
+    }
   },
   {
     "id": "mercedes-7",
@@ -1408,7 +1555,28 @@
     "trunk_volume": 630,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "simulator_data": {
+      "base_range_km": 103,
+      "temperature_efficiency": {
+        "optimal_temp": 22,
+        "cold_weather_factor": 0.72,
+        "hot_weather_factor": 0.87,
+        "mild_cold_factor": 0.82,
+        "mild_hot_factor": 0.94
+      },
+      "ac_impact": 0.91,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.95,
+        "highway_factor": 0.89
+      },
+      "driving_style": {
+        "eco_factor": 1.18,
+        "normal_factor": 1.0,
+        "sport_factor": 0.92
+      }
+    }
   },
   {
     "id": "mercedesbenz-gle",
@@ -1428,7 +1596,28 @@
     "trunk_volume": 630,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES"
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "simulator_data": {
+      "base_range_km": 103,
+      "temperature_efficiency": {
+        "optimal_temp": 22,
+        "cold_weather_factor": 0.72,
+        "hot_weather_factor": 0.87,
+        "mild_cold_factor": 0.82,
+        "mild_hot_factor": 0.94
+      },
+      "ac_impact": 0.91,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.95,
+        "highway_factor": 0.89
+      },
+      "driving_style": {
+        "eco_factor": 1.18,
+        "normal_factor": 1.0,
+        "sport_factor": 0.92
+      }
+    }
   },
   {
     "id": "mercedesbenz-sclass",
@@ -1457,6 +1646,27 @@
       "safety_assist": 75,
       "overall_rating": 5,
       "test_year": 2024
+    },
+    "simulator_data": {
+      "base_range_km": 100,
+      "temperature_efficiency": {
+        "optimal_temp": 24,
+        "cold_weather_factor": 0.75,
+        "hot_weather_factor": 0.9,
+        "mild_cold_factor": 0.85,
+        "mild_hot_factor": 0.95
+      },
+      "ac_impact": 0.93,
+      "highway_efficiency": {
+        "city_factor": 1.0,
+        "mixed_factor": 0.96,
+        "highway_factor": 0.91
+      },
+      "driving_style": {
+        "eco_factor": 1.2,
+        "normal_factor": 1.0,
+        "sport_factor": 0.94
+      }
     }
   },
   {
