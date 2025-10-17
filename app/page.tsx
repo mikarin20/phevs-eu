@@ -168,6 +168,7 @@ export default function Home() {
       const matchesBatteryArchitecture = !filters.batteryArchitecture || true // Şimdilik her zaman true
       const matchesBatteryChemistry = !filters.batteryChemistry || true // Şimdilik her zaman true
 
+
       return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && matchesFuel && matchesBatteryArchitecture && matchesBatteryChemistry
     })
 
@@ -487,7 +488,7 @@ export default function Home() {
           </div>
           {/* Debug Info */}
           <div className="text-xs text-[#93B1B5]">
-            Brands: [{selectedBrands.join(', ')}], Segment: {filters.segment || 'All'}, Search: "{searchTerm}", Battery: {filters.batteryArchitecture || 'All'}/{filters.batteryChemistry || 'All'}
+            Brands: [{selectedBrands.join(', ')}] (Count: {selectedBrands.length}), Segment: {filters.segment || 'All'}, Search: "{searchTerm}", Battery: {filters.batteryArchitecture || 'All'}/{filters.batteryChemistry || 'All'}, Filtered Count: {filteredAndSortedCars.length}, Total Cars: {cars.length}
           </div>
         </div>
 
