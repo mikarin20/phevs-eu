@@ -359,7 +359,7 @@ export default function ComparePage() {
 
               {/* Car Image */}
               <div className="w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden mb-4 shadow-lg">
-                <div className="aspect-[16/9] w-full max-h-48">
+                <div className="aspect-[16/9] w-full max-h-40">
                   <img
                     src={car.image_url}
                     srcSet={`${car.image_url} 1x, ${car.image_url.replace('.jpg', '@2x.jpg')} 2x`}

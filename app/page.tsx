@@ -606,7 +606,7 @@ export default function Home() {
               <Link key={car.id} href={`/models/${car.id}`} className="card hover:shadow-xl hover:scale-102 transition-all duration-300 block group">
                 {/* Car Image */}
                 <div className="mb-4">
-                  <div className="aspect-[16/9] w-full max-h-48 rounded-lg overflow-hidden">
+                  <div className="aspect-[16/9] w-full max-h-40 rounded-lg overflow-hidden">
                     <img
                       src={car.image_url}
                       srcSet={`${car.image_url} 1x, ${car.image_url.replace('.jpg', '@2x.jpg')} 2x`}
