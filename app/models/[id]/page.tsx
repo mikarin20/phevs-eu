@@ -236,7 +236,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       cardBg: 'bg-slate-500',
       cardBorder: 'border-slate-300',
       textPrimary: 'text-slate-100',
-      textSecondary: 'text-slate-200',
+      textSecondary: 'text-slate-100',
       priceBg: 'bg-gradient-to-r from-slate-400 to-slate-300',
       priceBorder: 'border-slate-300',
       statBg: 'bg-slate-500',

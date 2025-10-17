@@ -355,7 +355,7 @@ export default function Home() {
       cardBg: 'bg-slate-500',
       cardBorder: 'border-slate-300',
       textPrimary: 'text-slate-100',
-      textSecondary: 'text-slate-200',
+      textSecondary: 'text-slate-100',
       filterBg: 'bg-slate-500',
       filterBorder: 'border-slate-300',
       filterText: 'text-slate-100',
@@ -469,22 +469,26 @@ export default function Home() {
                   { 
                     code: 'en', 
                     name: 'EN', 
-                    flag: '🇬🇧'
+                    flag: '🇬🇧',
+                    cssFlag: '🇬🇧'
                   },
                   { 
                     code: 'de', 
                     name: 'DE', 
-                    flag: '🇩🇪'
+                    flag: '🇩🇪',
+                    cssFlag: '🇩🇪'
                   },
                   { 
                     code: 'tr', 
                     name: 'TR', 
-                    flag: '🇹🇷'
+                    flag: '🇹🇷',
+                    cssFlag: '🇹🇷'
                   },
                   { 
                     code: 'pl', 
                     name: 'PL', 
-                    flag: '🇵🇱'
+                    flag: '🇵🇱',
+                    cssFlag: '🇵🇱'
                   }
                 ].map((lang) => (
                   <button
@@ -501,7 +505,9 @@ export default function Home() {
                     }`}
                     title={lang.code.toUpperCase()}
                   >
-                    <span className="text-lg">{lang.flag}</span>
+                    <span className="text-lg" title={lang.name}>
+                      {lang.flag}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -881,7 +887,7 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-center space-x-2">
+                    <div className="flex flex-row justify-start space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -1028,7 +1034,7 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-center space-x-2">
+                    <div className="flex flex-row justify-start space-x-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
