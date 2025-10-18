@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import CookieConsent from '@/components/CookieConsent'
+import PerformanceOptimizer from '@/components/PerformanceOptimizer'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -90,6 +93,15 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         
+        {/* Google Analytics */}
+        <GoogleAnalytics />
+        
+        {/* Performance Optimizer */}
+        <PerformanceOptimizer />
+        
+        {/* Cookie Consent */}
+        <CookieConsent />
+        
         {/* Footer */}
         <footer className="bg-slate-900 text-white py-8 mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,16 +148,56 @@ export default function RootLayout({
                 </p>
               </div>
               
-              <div className="border-t border-slate-700 pt-4">
-                <p className="text-slate-400 text-xs">
-                  Data sources: EV-Database, Euro NCAP, manufacturer specifications, WLTP testing
-                </p>
-                <p className="text-slate-500 text-xs mt-1">
-                  Prices are estimated EU market values. Actual prices may vary by country and configuration.
-                </p>
-                <p className="text-slate-500 text-xs mt-2">
-                  © 2025 PHEVs.eu. All rights reserved.
-                </p>
+              <div className="border-t border-slate-700 pt-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                  <div>
+                    <h4 className="text-sm font-semibold text-white mb-3">About</h4>
+                    <ul className="space-y-2 text-xs text-slate-400">
+                      <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
+                      <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
+                      <li><a href="/blog" className="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-sm font-semibold text-white mb-3">Legal</h4>
+                    <ul className="space-y-2 text-xs text-slate-400">
+                      <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                      <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
+                      <li><a href="/cookies" className="hover:text-white transition-colors">Cookie Policy</a></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-sm font-semibold text-white mb-3">Resources</h4>
+                    <ul className="space-y-2 text-xs text-slate-400">
+                      <li><a href="/compare" className="hover:text-white transition-colors">Compare Vehicles</a></li>
+                      <li><a href="/guides" className="hover:text-white transition-colors">PHEV Guides</a></li>
+                      <li><a href="/calculator" className="hover:text-white transition-colors">Range Calculator</a></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-sm font-semibold text-white mb-3">Connect</h4>
+                    <ul className="space-y-2 text-xs text-slate-400">
+                      <li><a href="https://twitter.com/phevs_eu" className="hover:text-white transition-colors">Twitter</a></li>
+                      <li><a href="https://linkedin.com/company/phevs-eu" className="hover:text-white transition-colors">LinkedIn</a></li>
+                      <li><a href="mailto:info@phevs.eu" className="hover:text-white transition-colors">Email</a></li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="border-t border-slate-700 pt-4">
+                  <p className="text-slate-400 text-xs">
+                    Data sources: EV-Database, Euro NCAP, manufacturer specifications, WLTP testing
+                  </p>
+                  <p className="text-slate-500 text-xs mt-1">
+                    Prices are estimated EU market values. Actual prices may vary by country and configuration.
+                  </p>
+                  <p className="text-slate-500 text-xs mt-2">
+                    © 2025 PHEVs.eu. All rights reserved.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
