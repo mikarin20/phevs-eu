@@ -905,9 +905,9 @@ export default function Home() {
             {filteredAndSortedCars.map((car, index) => {
               const cardVariants = [
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20`
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-700 dark:to-slate-600`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-700 dark:to-slate-600`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-700 dark:to-slate-600`
               ]
               const cardStyle = cardVariants[index % 4]
               
@@ -1109,22 +1109,9 @@ export default function Home() {
                   </div>
 
                   {/* Actions */}
-                  <div className={`flex items-center justify-center pt-4 border-t ${currentTheme.cardBorder}`}>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault()
-                        e.stopPropagation()
-                        toggleFavorite(car.id)
-                      }}
-                      className={`p-2 hover:bg-opacity-20 rounded-lg transition-colors ${currentTheme.cardBg}`}
-                    >
-                      {favorites.includes(car.id) ? (
-                        <HeartSolidIcon className="h-5 w-5 text-red-500" />
-                      ) : (
-                        <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
-                      )}
-                    </button>
-                    <div className="flex flex-col space-y-2 ml-2">
+                  <div className={`pt-4 border-t ${currentTheme.cardBorder}`}>
+                    <div className="grid grid-cols-2 gap-2">
+                      {/* Top Row */}
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -1148,6 +1135,22 @@ export default function Home() {
                         <EyeIcon className="h-3 w-3 inline mr-1" />
                         {t.view}
                       </Link>
+                      
+                      {/* Bottom Row */}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          toggleFavorite(car.id)
+                        }}
+                        className={`p-2 hover:bg-opacity-20 rounded-lg transition-colors ${currentTheme.cardBg} flex items-center justify-center`}
+                      >
+                        {favorites.includes(car.id) ? (
+                          <HeartSolidIcon className="h-5 w-5 text-red-500" />
+                        ) : (
+                          <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
+                        )}
+                      </button>
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -1178,8 +1181,16 @@ export default function Home() {
               ]
               const buttonStyle = buttonVariants[index % 4]
               
+              const cardVariants = [
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-700 dark:to-slate-600`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-700 dark:to-slate-600`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-700 dark:to-slate-600`
+              ]
+              const cardStyle = cardVariants[index % 4]
+              
               return (
-              <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
+              <Link key={car.id} href={`/models/${car.id}`} className={`${cardStyle} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
