@@ -34,6 +34,7 @@ import FilterModal from '@/components/FilterModal'
 import MobileAccordion from '@/components/MobileAccordion'
 import CompareInfoBar from '@/components/CompareInfoBar'
 import HybridLogo from '@/components/HybridLogo'
+import AdSense from '@/components/AdSense'
 
 interface Car {
   id: string
@@ -979,6 +980,21 @@ export default function Home() {
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
             {filteredAndSortedCars.map((car, index) => {
+              // Add AdSense ad every 6 cars
+              const shouldShowAd = index > 0 && index % 6 === 0
+              
+              return (
+                <>
+                  {shouldShowAd && (
+                    <div key={`ad-${index}`} className="col-span-full my-4">
+                      <AdSense 
+                        adSlot="YOUR_IN_FEED_AD_SLOT_ID" 
+                        adFormat="horizontal"
+                        className="w-full"
+                        responsive={true}
+                      />
+                    </div>
+                  )}
               const cardVariants = [
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-600 dark:to-slate-500`,
@@ -1554,6 +1570,18 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* AdSense Banner - After Recently Viewed */}
+      <div className={`${currentTheme.background} py-8`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AdSense 
+            adSlot="YOUR_BANNER_AD_SLOT_ID" 
+            adFormat="horizontal"
+            className="w-full"
+            responsive={true}
+          />
+        </div>
+      </div>
 
       {/* Range Simulator Modal */}
       <RangeSimulator

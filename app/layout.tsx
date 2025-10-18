@@ -4,6 +4,7 @@ import './globals.css'
 import CookieConsent from '@/components/CookieConsent'
 import PerformanceOptimizer from '@/components/PerformanceOptimizer'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -89,6 +90,13 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         {/* Flag Icons CDN */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
+        {/* AdSense Script */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2031503694387888"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
       </head>
       <body className={inter.className}>
         {children}
