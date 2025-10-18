@@ -201,23 +201,15 @@ export default function ComparePage() {
     if (!row.getBest || selectedCars.length < 2) return false
     
     const bestValue = row.getBest(selectedCars)
+    const currentValue = row.getValue(car)
     
-    if (row.label.includes('Price') || row.label.includes('Consumption') || row.label.includes('CO₂') || row.label.includes('Charge Time')) {
-      // Lower is better
-      return car.price_eur === bestValue || 
-             car.fuel_consumption === bestValue || 
-             car.co2_emission === bestValue ||
-             car.charge_time_ac === bestValue ||
-             car.charge_time_dc === bestValue
-    } else {
-      // Higher is better
-      return car.ev_range_km === bestValue || 
-             car.battery_kwh === bestValue || 
-             car.power_hp === bestValue ||
-             car.trunk_volume === bestValue ||
-             car.seats === bestValue ||
-             car.warranty_years === bestValue
+    // Only highlight if this car has the best value AND it's the first occurrence
+    if (currentValue === bestValue) {
+      const carsWithBestValue = selectedCars.filter(c => row.getValue(c) === bestValue)
+      return carsWithBestValue[0].id === car.id
     }
+    
+    return false
   }
 
   if (selectedCars.length < 2) {

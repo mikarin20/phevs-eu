@@ -664,20 +664,6 @@ export default function Home() {
               >
                 <span className="text-sm sm:text-base">Suggest Model</span>
               </button>
-              <Link 
-                href="/compare" 
-                className={`inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 ${
-                  selectedCars.length < 2 
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                    : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
-                }`}
-                onClick={(e) => selectedCars.length < 2 && e.preventDefault()}
-              >
-                <ArrowsUpDownIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="text-sm sm:text-base">
-                  {selectedCars.length < 2 ? `Compare (${selectedCars.length}/2)` : `Compare (${selectedCars.length}/3)`}
-                </span>
-              </Link>
             </div>
           </div>
         </div>
