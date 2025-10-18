@@ -19,7 +19,8 @@ import {
   InformationCircleIcon,
   EyeIcon,
   PlusIcon,
-  CalculatorIcon
+  CalculatorIcon,
+  Cog6ToothIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -46,6 +47,7 @@ interface Car {
   price_eur: number
   image_url: string
   power_hp: number
+  engine_displacement?: number
   co2_emission: number
   charge_time_ac: number
   charge_time_dc: number
@@ -1021,19 +1023,14 @@ export default function Home() {
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <Tooltip content="CO₂ emissions in grams per kilometer - Lower values mean better environmental performance">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.co2}:</span>
+                        <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
+                        <Tooltip content="Engine displacement in liters - Internal combustion engine size">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>Engine:</span>
                         </Tooltip>
                       </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
-                        </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <Tooltip content="Trunk volume in liters - Cargo space capacity with all seats in normal position">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>Trunk:</span>
-                        </Tooltip>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>
+                        {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
+                      </span>
                         </div>
                     </div>
 
@@ -1076,9 +1073,12 @@ export default function Home() {
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <span className={`${currentTheme.textPrimary}`}>{t.co2}:</span>
+                            <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>Engine:</span>
                           </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>
+                            {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
+                          </span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
@@ -1092,12 +1092,6 @@ export default function Home() {
 
                     <MobileAccordion title="Practical Details">
                       <div className="space-y-3 text-sm">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
-                        </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <span className={`${currentTheme.textPrimary}`}>Year:</span>
@@ -1130,14 +1124,14 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-center space-x-1 ml-2">
+                    <div className="flex flex-col space-y-2 ml-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
                           e.stopPropagation()
                           toggleCarSelection(car)
                         }}
-                        className={`px-2 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        className={`px-3 py-2 rounded-full text-xs font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-blue-600 text-white'
                           : buttonStyle
@@ -1149,7 +1143,7 @@ export default function Home() {
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className={`px-2 py-1.5 rounded-full text-xs font-medium ${buttonStyle} transition-colors`}
+                        className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle} transition-colors text-center block`}
                       >
                         <EyeIcon className="h-3 w-3 inline mr-1" />
                         {t.view}
@@ -1161,7 +1155,7 @@ export default function Home() {
                           setSelectedCarForSimulator(car)
                           setIsRangeSimulatorOpen(true)
                         }}
-                        className={`px-2 py-1.5 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
+                        className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
                       >
                         <CalculatorIcon className="h-3 w-3 inline mr-1" />
                         Range
@@ -1264,12 +1258,11 @@ export default function Home() {
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className={`${currentTheme.textPrimary}`}>{t.co2}:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
+                        <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>
+                          {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
+                        </span>
                       </div>
                     </div>
 
@@ -1367,14 +1360,14 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-center space-x-1 ml-2">
+                    <div className="flex flex-col space-y-2 ml-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
                           e.stopPropagation()
                           toggleCarSelection(car)
                         }}
-                        className={`px-2 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        className={`px-3 py-2 rounded-full text-xs font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-blue-600 text-white'
                           : buttonStyle
@@ -1386,7 +1379,7 @@ export default function Home() {
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className={`px-2 py-1.5 rounded-full text-xs font-medium ${buttonStyle} transition-colors`}
+                        className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle} transition-colors text-center block`}
                       >
                         <EyeIcon className="h-3 w-3 inline mr-1" />
                         {t.view}
@@ -1398,7 +1391,7 @@ export default function Home() {
                           setSelectedCarForSimulator(car)
                           setIsRangeSimulatorOpen(true)
                         }}
-                        className={`px-2 py-1.5 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
+                        className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
                       >
                         <CalculatorIcon className="h-3 w-3 inline mr-1" />
                         Range

@@ -7,7 +7,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 51000,
     "image_url": "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/main.jpg",
     "power_hp": 200,
@@ -26,7 +26,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.3
   },
   {
     "id": "audi-1",
@@ -36,7 +37,7 @@
     "segment": "Hatchback",
     "ev_range_km": 100,
     "fuel_consumption": 1.4,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 45000,
     "image_url": "/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg",
     "power_hp": 204,
@@ -55,7 +56,8 @@
       "safety_assist": 73,
       "overall_rating": 79,
       "test_year": 2020
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "new-4",
@@ -65,7 +67,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 108800,
     "image_url": "/images/cars/brands/audi/a5-limousine-e-hybrid/main.jpg",
     "power_hp": 200,
@@ -84,7 +86,8 @@
       "safety_assist": 73,
       "overall_rating": 79,
       "test_year": 2020
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "audi-5",
@@ -113,7 +116,8 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2018
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "new-6",
@@ -123,7 +127,7 @@
     "segment": "SUV",
     "ev_range_km": 100,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 65000,
     "image_url": "/images/cars/brands/audi/a7-sportback-tfsi-e/main.jpg",
     "power_hp": 367,
@@ -142,7 +146,8 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2018
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "audi-2",
@@ -171,7 +176,8 @@
       "safety_assist": 85,
       "overall_rating": 85,
       "test_year": 2018
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "audi-4",
@@ -200,7 +206,8 @@
       "safety_assist": 58,
       "overall_rating": 77,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 3
   },
   {
     "id": "audi-6",
@@ -210,7 +217,7 @@
     "segment": "SUV",
     "ev_range_km": 100,
     "fuel_consumption": 2.4,
-    "battery_kwh": 8.0,
+    "battery_kwh": 8,
     "price_eur": 65000,
     "image_url": "/images/cars/brands/audi/q7-tfsi-e/main.jpg",
     "power_hp": 340,
@@ -229,7 +236,8 @@
       "safety_assist": 58,
       "overall_rating": 77,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "audi-8",
@@ -239,7 +247,7 @@
     "segment": "SUV",
     "ev_range_km": 84,
     "fuel_consumption": 2,
-    "battery_kwh": 9.0,
+    "battery_kwh": 9,
     "price_eur": 75000,
     "image_url": "/images/cars/brands/audi/q8-tfsi-e/main.jpg",
     "power_hp": 360,
@@ -258,7 +266,8 @@
       "safety_assist": 58,
       "overall_rating": 77,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 3
   },
   {
     "id": "bmw-5",
@@ -268,7 +277,7 @@
     "segment": "Sedan",
     "ev_range_km": 95,
     "fuel_consumption": 1.8,
-    "battery_kwh": 12.0,
+    "battery_kwh": 12,
     "price_eur": 55000,
     "image_url": "/images/cars/brands/bmw/5-series-phev/main.jpg",
     "power_hp": 292,
@@ -287,7 +296,8 @@
       "safety_assist": 59,
       "overall_rating": 79,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "bmw-8",
@@ -316,7 +326,8 @@
       "safety_assist": 59,
       "overall_rating": 79,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 3
   },
   {
     "id": "bmw-m5touring",
@@ -345,7 +356,8 @@
       "safety_assist": 59,
       "overall_rating": 79,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 4.4
   },
   {
     "id": "new-14",
@@ -374,7 +386,8 @@
       "safety_assist": 70,
       "overall_rating": 80,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "bmw-serii3limuzyna",
@@ -384,7 +397,7 @@
     "segment": "Sedan",
     "ev_range_km": 88,
     "fuel_consumption": 1.7,
-    "battery_kwh": 12.0,
+    "battery_kwh": 12,
     "price_eur": 55000,
     "image_url": "/images/cars/brands/bmw/serii-3-limuzyna-phev/main.jpg",
     "power_hp": 292,
@@ -403,7 +416,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "bmw-3",
@@ -432,7 +446,8 @@
       "safety_assist": 70,
       "overall_rating": 80,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 4.4
   },
   {
     "id": "bmw-6",
@@ -442,7 +457,7 @@
     "segment": "SUV",
     "ev_range_km": 80,
     "fuel_consumption": 2.8,
-    "battery_kwh": 12.0,
+    "battery_kwh": 12,
     "price_eur": 50000,
     "image_url": "/images/cars/brands/bmw/x3-phev/main.jpg",
     "power_hp": 292,
@@ -461,7 +476,8 @@
       "safety_assist": 58,
       "overall_rating": 76,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "bmw-x5",
@@ -490,7 +506,8 @@
       "safety_assist": 58,
       "overall_rating": 76,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 3
   },
   {
     "id": "new-19",
@@ -519,7 +536,8 @@
       "safety_assist": 58,
       "overall_rating": 76,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 4.4
   },
   {
     "id": "new-20",
@@ -548,7 +566,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "byd-seal6dmi",
@@ -558,7 +577,7 @@
     "segment": "SUV",
     "ev_range_km": 100,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/byd/seal-6-dm-i/main.jpg",
     "power_hp": 200,
@@ -577,7 +596,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "byd-sealudmi",
@@ -606,7 +626,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "new-23",
@@ -616,7 +637,7 @@
     "segment": "SUV",
     "ev_range_km": 100,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 28000,
     "image_url": "/images/cars/brands/chery/tiggo-7-phev/main.jpg",
     "power_hp": 200,
@@ -636,7 +657,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "chery-tiggo8",
@@ -646,7 +668,7 @@
     "segment": "SUV",
     "ev_range_km": 100,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 32000,
     "image_url": "/images/cars/brands/chery/tiggo-8-phev/main.jpg",
     "power_hp": 200,
@@ -665,7 +687,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "chery-tiggo9",
@@ -675,7 +698,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 46.0,
+    "battery_kwh": 46,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/chery/tiggo-9-phev/main.jpg",
     "power_hp": 200,
@@ -694,7 +717,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "citroen-1",
@@ -704,7 +728,7 @@
     "segment": "SUV",
     "ev_range_km": 59,
     "fuel_consumption": 1.6,
-    "battery_kwh": 97.0,
+    "battery_kwh": 97,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/citroen/c5-aircross-plug-in-hybrid/main.jpg",
     "power_hp": 225,
@@ -723,7 +747,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "citroën-c5x",
@@ -752,7 +777,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "cupra-2",
@@ -781,7 +807,8 @@
       "safety_assist": 78,
       "overall_rating": 83,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "cupra-1",
@@ -810,7 +837,8 @@
       "safety_assist": 78,
       "overall_rating": 83,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "new-31",
@@ -820,7 +848,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/ds-automobiles/ds-7/main.jpg",
     "power_hp": 200,
@@ -839,7 +867,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "new-32",
@@ -849,7 +878,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 45000,
     "image_url": "/images/cars/brands/ds-automobiles/ds-9/main.jpg",
     "power_hp": 200,
@@ -868,7 +897,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "new-33",
@@ -878,7 +908,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 43000,
     "image_url": "/images/cars/brands/ds-automobiles/n4/main.jpg",
     "power_hp": 200,
@@ -897,7 +927,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "ford-1",
@@ -926,7 +957,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 2.5
   },
   {
     "id": "new-34",
@@ -936,7 +968,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 73610,
     "image_url": "/images/cars/brands/ford/nowy-ranger-phev-phev/main.jpg",
     "power_hp": 270,
@@ -955,7 +987,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 2.3
   },
   {
     "id": "new-35",
@@ -965,7 +998,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/ford/nowy-tourneo-connect/main.jpg",
     "power_hp": 200,
@@ -984,7 +1017,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "hyundai-3",
@@ -1013,7 +1047,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "hyundai-2",
@@ -1042,7 +1077,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "new-38",
@@ -1052,7 +1088,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 40000,
     "image_url": "/images/cars/brands/jaecoo/j7-super-hybrid/main.jpg",
     "power_hp": 200,
@@ -1071,7 +1107,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "new-39",
@@ -1081,7 +1118,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 40000,
     "image_url": "/images/cars/brands/jaecoo/omoda-9-super-hybrid/main.jpg",
     "power_hp": 200,
@@ -1100,7 +1137,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "jeep-2",
@@ -1129,7 +1167,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "jeep-3",
@@ -1158,7 +1197,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "kia-1",
@@ -1187,7 +1227,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "2",
@@ -1216,7 +1257,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "kia-2",
@@ -1245,7 +1287,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "new-45",
@@ -1255,7 +1298,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 70000,
     "image_url": "/images/cars/brands/land-rover/defender-110/main.jpg",
     "power_hp": 200,
@@ -1274,7 +1317,8 @@
       "safety_assist": 69,
       "overall_rating": 76,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "new-46",
@@ -1284,7 +1328,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 50000,
     "image_url": "/images/cars/brands/land-rover/discovery-sport/main.jpg",
     "power_hp": 200,
@@ -1303,7 +1347,8 @@
       "safety_assist": 69,
       "overall_rating": 76,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "new-47",
@@ -1313,7 +1358,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 48000,
     "image_url": "/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg",
     "power_hp": 200,
@@ -1332,7 +1377,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 2.5
   },
   {
     "id": "new-48",
@@ -1342,7 +1388,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 65000,
     "image_url": "/images/cars/brands/lexus/rx-450h-plus-phev/main.jpg",
     "power_hp": 200,
@@ -1361,7 +1407,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 2.5
   },
   {
     "id": "mazda-1",
@@ -1390,7 +1437,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 2.5
   },
   {
     "id": "mazda-cx80",
@@ -1419,7 +1467,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 2.5
   },
   {
     "id": "mercedes-1",
@@ -1460,16 +1509,17 @@
       },
       "ac_impact": 0.85,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.9,
         "highway_factor": 0.8
       },
       "driving_style": {
         "eco_factor": 1.1,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.85
       }
-    }
+    },
+    "engine_displacement": 1.3
   },
   {
     "id": "mercedesbenz-cclass",
@@ -1510,16 +1560,17 @@
       },
       "ac_impact": 0.88,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.92,
         "highway_factor": 0.85
       },
       "driving_style": {
         "eco_factor": 1.12,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.88
       }
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "mercedesbenz-cla",
@@ -1560,16 +1611,17 @@
       },
       "ac_impact": 0.85,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.9,
         "highway_factor": 0.8
       },
       "driving_style": {
         "eco_factor": 1.1,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.85
       }
-    }
+    },
+    "engine_displacement": 1.3
   },
   {
     "id": "mercedes-6",
@@ -1610,16 +1662,17 @@
       },
       "ac_impact": 0.9,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.94,
         "highway_factor": 0.88
       },
       "driving_style": {
         "eco_factor": 1.15,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.9
       }
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "mercedes-3",
@@ -1651,13 +1704,13 @@
       },
       "ac_impact": 0.83,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.88,
         "highway_factor": 0.78
       },
       "driving_style": {
         "eco_factor": 1.08,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.83
       }
     },
@@ -1669,7 +1722,8 @@
       "safety_assist": 75,
       "overall_rating": 89,
       "test_year": 2018
-    }
+    },
+    "engine_displacement": 1.3
   },
   {
     "id": "mercedes-5",
@@ -1701,13 +1755,13 @@
       },
       "ac_impact": 0.9,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.94,
         "highway_factor": 0.88
       },
       "driving_style": {
         "eco_factor": 1.15,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.9
       }
     },
@@ -1719,7 +1773,8 @@
       "safety_assist": 75,
       "overall_rating": 89,
       "test_year": 2018
-    }
+    },
+    "engine_displacement": 1.3
   },
   {
     "id": "mercedesbenz-glc",
@@ -1751,13 +1806,13 @@
       },
       "ac_impact": 0.9,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.94,
         "highway_factor": 0.88
       },
       "driving_style": {
         "eco_factor": 1.15,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.9
       }
     },
@@ -1769,7 +1824,8 @@
       "safety_assist": 75,
       "overall_rating": 89,
       "test_year": 2018
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "mercedes-7",
@@ -1801,13 +1857,13 @@
       },
       "ac_impact": 0.91,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.95,
         "highway_factor": 0.89
       },
       "driving_style": {
         "eco_factor": 1.18,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.92
       }
     },
@@ -1819,7 +1875,8 @@
       "safety_assist": 75,
       "overall_rating": 89,
       "test_year": 2018
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "mercedesbenz-gle",
@@ -1851,13 +1908,13 @@
       },
       "ac_impact": 0.91,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.95,
         "highway_factor": 0.89
       },
       "driving_style": {
         "eco_factor": 1.18,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.92
       }
     },
@@ -1869,7 +1926,8 @@
       "safety_assist": 75,
       "overall_rating": 89,
       "test_year": 2018
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "mercedesbenz-sclass",
@@ -1910,16 +1968,17 @@
       },
       "ac_impact": 0.93,
       "highway_efficiency": {
-        "city_factor": 1.0,
+        "city_factor": 1,
         "mixed_factor": 0.96,
         "highway_factor": 0.91
       },
       "driving_style": {
         "eco_factor": 1.2,
-        "normal_factor": 1.0,
+        "normal_factor": 1,
         "sport_factor": 0.94
       }
-    }
+    },
+    "engine_displacement": 3
   },
   {
     "id": "mg-2",
@@ -1948,7 +2007,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "mini-1",
@@ -1977,7 +2037,8 @@
       "safety_assist": 70,
       "overall_rating": 80,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.5
   },
   {
     "id": "mitsubishi-2",
@@ -2006,7 +2067,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 2.4
   },
   {
     "id": "mitsubishi-1",
@@ -2035,7 +2097,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 2.4
   },
   {
     "id": "opel-2",
@@ -2064,7 +2127,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "opel-3",
@@ -2093,7 +2157,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "new-67",
@@ -2103,7 +2168,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/peugeot/3008 Plug-in/main.jpeg",
     "power_hp": 200,
@@ -2122,7 +2187,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "peugeot-2",
@@ -2151,7 +2217,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "new-69",
@@ -2161,7 +2228,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 32000,
     "image_url": "/images/cars/brands/peugeot/408-hybrid/main.jpeg",
     "power_hp": 200,
@@ -2180,7 +2247,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "new-70",
@@ -2190,7 +2258,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 136000,
     "image_url": "/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg",
     "power_hp": 340,
@@ -2209,7 +2277,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 3
   },
   {
     "id": "new-71",
@@ -2219,7 +2288,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 107780,
     "image_url": "/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg",
     "power_hp": 462,
@@ -2238,7 +2307,8 @@
       "safety_assist": 76,
       "overall_rating": 85,
       "test_year": 2021
-    }
+    },
+    "engine_displacement": 2.9
   },
   {
     "id": "new-72",
@@ -2248,7 +2318,7 @@
     "segment": "SUV",
     "ev_range_km": 200,
     "fuel_consumption": 1.5,
-    "battery_kwh": 22.0,
+    "battery_kwh": 22,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/renault/rafale-plug-in-hybrid/005.jpg",
     "power_hp": 200,
@@ -2267,7 +2337,8 @@
       "safety_assist": 65,
       "overall_rating": 76,
       "test_year": 2022
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "skoda-3",
@@ -2296,7 +2367,8 @@
       "safety_assist": 58,
       "overall_rating": 76,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "skoda-2",
@@ -2325,7 +2397,8 @@
       "safety_assist": 58,
       "overall_rating": 76,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "skoda-superbiv",
@@ -2354,7 +2427,8 @@
       "safety_assist": 58,
       "overall_rating": 76,
       "test_year": 2017
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "new-76",
@@ -2383,7 +2457,8 @@
       "safety_assist": 78,
       "overall_rating": 82,
       "test_year": 2016
-    }
+    },
+    "engine_displacement": 1.8
   },
   {
     "id": "toyota-1",
@@ -2412,7 +2487,8 @@
       "safety_assist": 85,
       "overall_rating": 84,
       "test_year": 2016
-    }
+    },
+    "engine_displacement": 1.8
   },
   {
     "id": "toyota-2",
@@ -2441,7 +2517,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 1.8
   },
   {
     "id": "vw-1",
@@ -2470,7 +2547,8 @@
       "safety_assist": 78,
       "overall_rating": 83,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "vw-2",
@@ -2500,7 +2578,8 @@
       "safety_assist": 78,
       "overall_rating": 83,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "new-81",
@@ -2510,7 +2589,7 @@
     "segment": "SUV",
     "ev_range_km": 127,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 45000,
     "image_url": "/images/cars/brands/volkswagen/tayron/main.jpg",
     "power_hp": 200,
@@ -2530,7 +2609,8 @@
       "safety_assist": 78,
       "overall_rating": 83,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "vw-3",
@@ -2559,7 +2639,8 @@
       "safety_assist": 78,
       "overall_rating": 83,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 1.4
   },
   {
     "id": "new-83",
@@ -2569,7 +2650,7 @@
     "segment": "SUV",
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 55000,
     "image_url": "/images/cars/brands/volkswagen/tuareg/main.jpg",
     "power_hp": 200,
@@ -2588,7 +2669,8 @@
       "safety_assist": 78,
       "overall_rating": 83,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 3
   },
   {
     "id": "volvo-5",
@@ -2617,7 +2699,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "volvo-7",
@@ -2646,7 +2729,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "volvo-2",
@@ -2675,7 +2759,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "volvo-3",
@@ -2704,6 +2789,7 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2019
-    }
+    },
+    "engine_displacement": 2
   }
 ]
