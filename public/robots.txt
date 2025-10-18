@@ -1,24 +1,56 @@
 # PHEVs.eu Robots.txt
+# Europe's most comprehensive PHEV comparison platform
 
 User-agent: *
 Allow: /
+Allow: /models/
+Allow: /compare/
+Allow: /demo/
+Allow: /brands/
+Allow: /segments/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /scripts/
 
 # Sitemap
 Sitemap: https://phevs.eu/sitemap.xml
 
 # Crawl Delay
-Crawl-delay: 0
+Crawl-delay: 1
 
-# Specific bots
+# Specific bots optimization
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Block AI training bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
 

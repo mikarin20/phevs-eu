@@ -575,8 +575,84 @@ export default function Home() {
     )
   }
 
+  // JSON-LD Structured Data
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PHEVs.eu",
+    "url": "https://phevs.eu",
+    "description": "Europe's most comprehensive plug-in hybrid vehicle comparison platform. Compare 87 PHEV models from 28 brands.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://phevs.eu?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PHEVs.eu",
+      "url": "https://phevs.eu"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Plug-in Hybrid Electric Vehicles",
+      "description": "Complete list of PHEV models available in Europe",
+      "numberOfItems": filteredAndSortedCars.length,
+      "itemListElement": filteredAndSortedCars.slice(0, 10).map((car, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Car",
+          "name": `${car.brand} ${car.model}`,
+          "brand": {
+            "@type": "Brand",
+            "name": car.brand
+          },
+          "model": car.model,
+          "vehicleModelDate": car.year,
+          "vehicleConfiguration": car.segment,
+          "fuelType": "Hybrid",
+          "fuelEfficiency": {
+            "@type": "QuantitativeValue",
+            "value": car.fuel_consumption,
+            "unitCode": "L/100km"
+          },
+          "emissionsCO2": {
+            "@type": "QuantitativeValue",
+            "value": car.co2_emission,
+            "unitCode": "g/km"
+          },
+          "vehicleEngine": {
+            "@type": "EngineSpecification",
+            "engineDisplacement": {
+              "@type": "QuantitativeValue",
+              "value": car.engine_displacement || 1.5,
+              "unitCode": "L"
+            },
+            "enginePower": {
+              "@type": "QuantitativeValue",
+              "value": car.power_hp,
+              "unitCode": "HP"
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": car.price_eur,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "url": `https://phevs.eu/models/${car.id}`
+        }
+      }))
+    }
+  }
+
   return (
     <div className={`min-h-screen ${currentTheme.background}`}>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Header */}
       <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

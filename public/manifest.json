@@ -1,12 +1,13 @@
 {
-  "name": "PHEVs.eu - PHEV Comparison Platform",
+  "name": "PHEVs.eu - Europe's PHEV Comparison Platform",
   "short_name": "PHEVs.eu",
-  "description": "Compare 87 plug-in hybrid vehicles from 28 brands. Find the best PHEV for your needs.",
+  "description": "Compare 87 plug-in hybrid electric vehicles from 28 premium brands across Europe. Detailed specifications, pricing, EV range, and performance data.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f8fafc",
   "theme_color": "#1e40af",
   "orientation": "portrait-primary",
+  "scope": "/",
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -19,10 +20,39 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ],
-  "categories": ["automotive", "lifestyle", "utilities"],
+  "categories": ["automotive", "lifestyle", "utilities", "productivity"],
   "lang": "en",
-  "dir": "ltr"
+  "dir": "ltr",
+  "screenshots": [
+    {
+      "src": "/images/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "PHEV Comparison Platform"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Compare Vehicles",
+      "short_name": "Compare",
+      "description": "Start comparing PHEV vehicles",
+      "url": "/compare",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
 

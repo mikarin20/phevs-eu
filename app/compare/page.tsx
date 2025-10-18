@@ -72,9 +72,10 @@ export default function ComparePage() {
     if (!comparisonRef.current) return null
 
     try {
-      const canvas = await html2canvas(comparisonRef.current, {
+      // Önce karşılaştırma tablosunu yakala
+      const comparisonCanvas = await html2canvas(comparisonRef.current, {
         backgroundColor: '#ffffff',
-        scale: 2, // Yüksek kalite için
+        scale: 2,
         useCORS: true,
         allowTaint: true,
         scrollX: 0,
@@ -82,8 +83,55 @@ export default function ComparePage() {
         width: comparisonRef.current.scrollWidth,
         height: comparisonRef.current.scrollHeight
       })
+
+      // Yeni canvas oluştur (header + comparison + footer)
+      const finalCanvas = document.createElement('canvas')
+      const ctx = finalCanvas.getContext('2d')
+      if (!ctx) return null
+
+      // Canvas boyutlarını hesapla
+      const headerHeight = 120
+      const footerHeight = 80
+      const padding = 40
+      const totalWidth = comparisonCanvas.width + (padding * 2)
+      const totalHeight = headerHeight + comparisonCanvas.height + footerHeight + (padding * 2)
+
+      finalCanvas.width = totalWidth
+      finalCanvas.height = totalHeight
+
+      // Beyaz arka plan
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0, 0, totalWidth, totalHeight)
+
+      // Header ekle
+      ctx.fillStyle = '#1e293b'
+      ctx.fillRect(0, 0, totalWidth, headerHeight)
+
+      // Site logosu ve başlık
+      ctx.fillStyle = '#ffffff'
+      ctx.font = 'bold 24px Arial'
+      ctx.textAlign = 'center'
+      ctx.fillText('phevs.eu', totalWidth / 2, 35)
       
-      return canvas.toDataURL('image/png', 1.0)
+      ctx.font = '16px Arial'
+      ctx.fillText('Plug-in Hybrid Electric Vehicle Comparison', totalWidth / 2, 60)
+      
+      ctx.font = '14px Arial'
+      ctx.fillText(`${selectedCars.map(c => `${c.brand} ${c.model}`).join(' vs ')}`, totalWidth / 2, 85)
+
+      // Karşılaştırma tablosunu ekle
+      ctx.drawImage(comparisonCanvas, padding, headerHeight + padding)
+
+      // Footer ekle
+      const footerY = headerHeight + comparisonCanvas.height + padding + 20
+      ctx.fillStyle = '#64748b'
+      ctx.font = '12px Arial'
+      ctx.textAlign = 'center'
+      ctx.fillText(`Generated on ${new Date().toLocaleDateString('tr-TR')} at phevs.eu`, totalWidth / 2, footerY)
+      ctx.fillText('Compare PHEV vehicles and find your perfect match', totalWidth / 2, footerY + 20)
+      ctx.fillText('Visit phevs.eu for more comparisons', totalWidth / 2, footerY + 40)
+      
+      return finalCanvas.toDataURL('image/png', 1.0)
     } catch (error) {
       console.error('Error capturing comparison:', error)
       return null

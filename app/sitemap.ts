@@ -4,7 +4,7 @@ import carsData from '@/data/cars.json'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://phevs.eu'
   
-  // Ana sayfa
+  // Ana sayfa ve önemli sayfalar
   const routes = [
     {
       url: baseUrl,
@@ -16,18 +16,57 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/compare`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.8,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/demo`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     },
   ]
 
-  // Tüm araba model sayfaları
-  const carRoutes = carsData.map((car) => ({
-    url: `${baseUrl}/models/${car.id}`,
+  // Marka bazında sayfalar oluştur
+  const brands = [...new Set(carsData.map(car => car.brand))]
+  const brandRoutes = brands.map((brand) => ({
+    url: `${baseUrl}/brands/${brand.toLowerCase().replace(/\s+/g, '-')}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
+
+  // Segment bazında sayfalar oluştur
+  const segments = [...new Set(carsData.map(car => car.segment))]
+  const segmentRoutes = segments.map((segment) => ({
+    url: `${baseUrl}/segments/${segment.toLowerCase().replace(/\s+/g, '-')}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))
 
-  return [...routes, ...carRoutes]
+  // Tüm araba model sayfaları - öncelik sıralaması
+  const carRoutes = carsData.map((car) => {
+    let priority = 0.6
+    
+    // Popüler markalar için yüksek öncelik
+    const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia']
+    if (popularBrands.includes(car.brand)) {
+      priority = 0.8
+    }
+    
+    // Yeni modeller için yüksek öncelik
+    if (car.year >= 2024) {
+      priority = Math.max(priority, 0.7)
+    }
+
+    return {
+      url: `${baseUrl}/models/${car.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority,
+    }
+  })
+
+  return [...routes, ...brandRoutes, ...segmentRoutes, ...carRoutes]
 }
 
