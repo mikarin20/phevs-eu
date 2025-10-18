@@ -6,6 +6,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://phevs.eu'),
+  alternates: {
+    canonical: 'https://phevs.eu'
+  },
   title: {
     default: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles from 28 Brands',
     template: '%s | PHEVs.eu'
@@ -143,36 +146,36 @@ export default function RootLayout({
                   <div>
                     <h4 className="text-sm font-semibold text-white mb-3">About</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
-                      <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
-                      <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
-                      <li><a href="/blog" className="hover:text-white transition-colors">Blog</a></li>
+                      <li><a href="/about" className="hover:text-white transition-colors" title="About Us">About Us</a></li>
+                      <li><a href="/contact" className="hover:text-white transition-colors" title="Contact">Contact</a></li>
+                      <li><a href="/blog" className="hover:text-white transition-colors" title="Blog">Blog</a></li>
                     </ul>
                   </div>
                   
                   <div>
                     <h4 className="text-sm font-semibold text-white mb-3">Legal</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
-                      <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                      <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
-                      <li><a href="/cookies" className="hover:text-white transition-colors">Cookie Policy</a></li>
+                      <li><a href="/privacy" className="hover:text-white transition-colors" title="Privacy Policy">Privacy Policy</a></li>
+                      <li><a href="/terms" className="hover:text-white transition-colors" title="Terms of Service">Terms of Service</a></li>
+                      <li><a href="/cookies" className="hover:text-white transition-colors" title="Cookie Policy">Cookie Policy</a></li>
                     </ul>
                   </div>
                   
                   <div>
                     <h4 className="text-sm font-semibold text-white mb-3">Resources</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
-                      <li><a href="/compare" className="hover:text-white transition-colors">Compare Vehicles</a></li>
-                      <li><a href="/guides" className="hover:text-white transition-colors">PHEV Guides</a></li>
-                      <li><a href="/calculator" className="hover:text-white transition-colors">Range Calculator</a></li>
+                      <li><a href="/compare" className="hover:text-white transition-colors" title="Compare Vehicles">Compare Vehicles</a></li>
+                      <li><a href="/guides" className="hover:text-white transition-colors" title="PHEV Guides">PHEV Guides</a></li>
+                      <li><a href="/calculator" className="hover:text-white transition-colors" title="Range Calculator">Range Calculator</a></li>
                     </ul>
                   </div>
                   
                   <div>
                     <h4 className="text-sm font-semibold text-white mb-3">Connect</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
-                      <li><a href="https://twitter.com/phevs_eu" className="hover:text-white transition-colors">Twitter</a></li>
-                      <li><a href="https://linkedin.com/company/phevs-eu" className="hover:text-white transition-colors">LinkedIn</a></li>
-                      <li><a href="mailto:info@phevs.eu" className="hover:text-white transition-colors">Email</a></li>
+                      <li><a href="https://twitter.com/phevs_eu" className="hover:text-white transition-colors" title="Twitter" rel="nofollow">Twitter</a></li>
+                      <li><a href="https://linkedin.com/company/phevs-eu" className="hover:text-white transition-colors" title="LinkedIn" rel="nofollow">LinkedIn</a></li>
+                      <li><a href="mailto:info@phevs.eu" className="hover:text-white transition-colors" title="Email">Email</a></li>
                     </ul>
                   </div>
                 </div>

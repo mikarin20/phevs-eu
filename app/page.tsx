@@ -726,7 +726,7 @@ export default function Home() {
               <div className="flex items-center space-x-2">
                 <HybridLogo size="sm" className="text-slate-700 dark:text-slate-200" />
                 <div>
-                  <h1 className={`text-lg sm:text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
+                  <h1 className={`text-2xl sm:text-4xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
                   <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Compare the best PHEVs in Europe</span>
                 </div>
               </div>
