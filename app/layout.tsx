@@ -87,7 +87,7 @@ export default function RootLayout({
         {/* Flag Icons CDN */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
         {/* AdSense Script */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2031503694387888" crossorigin="anonymous"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2031503694387888" crossOrigin="anonymous"></script>
       </head>
       <body className={inter.className}>
         {children}
