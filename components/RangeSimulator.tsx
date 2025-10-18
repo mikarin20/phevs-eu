@@ -10,11 +10,23 @@ import {
   Cog6ToothIcon
 } from '@heroicons/react/24/outline'
 
+interface Car {
+  id: string
+  brand: string
+  model: string
+  year: number
+  image_url: string
+  ev_range_km: number
+  battery_kwh: number
+  price_eur: number
+}
+
 interface RangeSimulatorProps {
   baseRange: number
   batteryCapacity: number
   isOpen: boolean
   onClose: () => void
+  selectedCar?: Car | null
   simulatorData?: {
     base_range_km: number
     temperature_efficiency: {
@@ -43,6 +55,7 @@ export default function RangeSimulator({
   batteryCapacity, 
   isOpen, 
   onClose,
+  selectedCar,
   simulatorData
 }: RangeSimulatorProps) {
   const [temperature, setTemperature] = useState(20) // °C
@@ -131,6 +144,9 @@ export default function RangeSimulator({
 
           {/* Content */}
           <div className="p-8 bg-gradient-to-br from-slate-50 to-white">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Left Column - Simulator */}
+              <div className="lg:col-span-2">
             {/* Status Indicators */}
             <div className="flex justify-center space-x-4 mb-8">
               <div className="flex items-center space-x-2 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-medium">
@@ -277,6 +293,64 @@ export default function RangeSimulator({
                     </div>
                   )}
                 </div>
+              </div>
+            </div>
+              </div>
+
+              {/* Right Column - Car Info */}
+              <div className="lg:col-span-1">
+                {selectedCar ? (
+                  <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">Selected Vehicle</h3>
+                    
+                    {/* Car Image */}
+                    <div className="mb-4">
+                      <div className="aspect-[16/9] w-full rounded-lg overflow-hidden">
+                        <img
+                          src={selectedCar.image_url}
+                          alt={`${selectedCar.brand} ${selectedCar.model}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Car Details */}
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="text-lg font-semibold text-slate-800">
+                          {selectedCar.brand} {selectedCar.model}
+                        </h4>
+                        <p className="text-slate-600 text-sm">{selectedCar.year}</p>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3 text-sm">
+                        <div className="bg-slate-50 rounded-lg p-3">
+                          <div className="text-slate-600">Base Range</div>
+                          <div className="font-semibold text-slate-800">{selectedCar.ev_range_km} km</div>
+                        </div>
+                        <div className="bg-slate-50 rounded-lg p-3">
+                          <div className="text-slate-600">Battery</div>
+                          <div className="font-semibold text-slate-800">{selectedCar.battery_kwh} kWh</div>
+                        </div>
+                        <div className="bg-slate-50 rounded-lg p-3">
+                          <div className="text-slate-600">Price</div>
+                          <div className="font-semibold text-slate-800">€{selectedCar.price_eur.toLocaleString()}</div>
+                        </div>
+                        <div className="bg-slate-50 rounded-lg p-3">
+                          <div className="text-slate-600">Simulated</div>
+                          <div className="font-semibold text-emerald-600">{Math.round(calculatedRange)} km</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-slate-100 rounded-2xl p-6 text-center">
+                    <div className="text-slate-500">
+                      <BoltIcon className="h-12 w-12 mx-auto mb-3 text-slate-400" />
+                      <p className="text-sm">No vehicle selected</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

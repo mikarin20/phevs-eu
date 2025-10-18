@@ -899,7 +899,7 @@ export default function Home() {
 
         {/* Cars List/Grid */}
         {viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4">
             {filteredAndSortedCars.map((car, index) => {
               const cardVariants = [
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
@@ -914,11 +914,11 @@ export default function Home() {
                 key={car.id} 
                 href={`/models/${car.id}`} 
                 onClick={() => updateRecentlyViewed(car)}
-                className={`${cardStyle} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 block group`}
+                className={`${cardStyle} rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 block group`}
               >
                 {/* Car Image */}
                 <div className="mb-4">
-                  <div className="aspect-[16/9] w-full max-h-40 rounded-lg overflow-hidden">
+                  <div className="aspect-[16/9] w-full max-h-32 rounded-lg overflow-hidden">
                     <img
                       src={car.image_url}
                       alt={`${car.brand} ${car.model}`}
@@ -933,9 +933,9 @@ export default function Home() {
                 </div>
 
                 {/* Car Info */}
-                <div className="p-4">
+                <div className="p-3">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className={`text-lg font-semibold ${currentTheme.textPrimary} line-clamp-2 h-14 flex items-center`}>
+                    <h3 className={`text-base font-semibold ${currentTheme.textPrimary} line-clamp-2 h-12 flex items-center`}>
                       {car.brand} {car.model}
                     </h3>
                     <div className="flex items-center space-x-2">
@@ -962,10 +962,10 @@ export default function Home() {
                     </div>
 
                   {/* Specifications - Desktop */}
-                  <div className="hidden sm:block space-y-2 text-sm mb-4">
+                  <div className="hidden sm:block space-y-1 text-xs mb-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
                         <Tooltip content="WLTP (Worldwide Harmonized Light Vehicles Test Procedure) - Official EU test standard for electric range">
                           <span className={`${currentTheme.textPrimary} cursor-help`}>{t.evRange}:</span>
                         </Tooltip>
@@ -976,7 +976,7 @@ export default function Home() {
                     </div>
                       <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
                         <Tooltip content="Battery capacity in kilowatt-hours (kWh) - Higher capacity means longer electric range">
                           <span className={`${currentTheme.textPrimary} cursor-help`}>{t.battery}:</span>
                         </Tooltip>
@@ -985,7 +985,7 @@ export default function Home() {
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <CurrencyEuroIcon className="h-3 w-3 text-[#4F7C82]" />
                         <Tooltip content="Fuel consumption in liters per 100km - Lower values mean better fuel efficiency">
                           <span className={`${currentTheme.textPrimary} cursor-help`}>{t.fuelConsumption}:</span>
                         </Tooltip>
@@ -994,7 +994,7 @@ export default function Home() {
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
                         <Tooltip content="Total power output in horsepower (HP) - Combined electric and combustion engine power">
                           <span className={`${currentTheme.textPrimary} cursor-help`}>{t.totalPower}:</span>
                         </Tooltip>
@@ -1003,7 +1003,7 @@ export default function Home() {
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
                         <Tooltip content="AC charging time in hours - Time to fully charge the battery using home/office charger">
                           <span className={`${currentTheme.textPrimary} cursor-help`}>{t.chargeTime}:</span>
                         </Tooltip>
@@ -1034,21 +1034,21 @@ export default function Home() {
                       <div className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
                             <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
                             <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
                             <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
@@ -1060,7 +1060,7 @@ export default function Home() {
                       <div className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <CurrencyEuroIcon className="h-3 w-3 text-[#4F7C82]" />
                             <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
@@ -1073,7 +1073,7 @@ export default function Home() {
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
                             <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
@@ -1231,7 +1231,7 @@ export default function Home() {
                           className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
                           title="Range Simulator"
                         >
-                          <SparklesIcon className="h-4 w-4 text-[#4F7C82]" />
+                          <SparklesIcon className="h-3 w-3 text-[#4F7C82]" />
                       </button>
                       </div>
                       <div className="flex items-center space-x-2">
@@ -1459,6 +1459,7 @@ export default function Home() {
         batteryCapacity={selectedCarForSimulator?.battery_kwh || 15}
         isOpen={isRangeSimulatorOpen}
         onClose={() => setIsRangeSimulatorOpen(false)}
+        selectedCar={selectedCarForSimulator}
         simulatorData={selectedCarForSimulator?.simulator_data}
       />
 
