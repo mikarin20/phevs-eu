@@ -399,17 +399,17 @@ export default function Home() {
       background: 'bg-slate-900',
       headerBg: 'bg-slate-800',
       headerText: 'text-white',
-      cardBg: 'bg-slate-800',
-      cardBorder: 'border-slate-600',
-      textPrimary: 'text-white',
-      textSecondary: 'text-slate-200',
+      cardBg: 'bg-slate-700',
+      cardBorder: 'border-slate-500',
+      textPrimary: 'text-gray-900',
+      textSecondary: 'text-gray-700',
       filterBg: 'bg-slate-800',
       filterBorder: 'border-slate-600',
       filterText: 'text-white',
-      inputBg: 'bg-slate-700',
-      inputBorder: 'border-slate-600',
+      inputBg: 'bg-slate-600',
+      inputBorder: 'border-slate-500',
       inputText: 'text-white',
-      iconColor: 'text-slate-200'
+      iconColor: 'text-gray-700'
     }
   }
 
@@ -905,9 +905,9 @@ export default function Home() {
             {filteredAndSortedCars.map((car, index) => {
               const cardVariants = [
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-700 dark:to-slate-600`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-700 dark:to-slate-600`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-700 dark:to-slate-600`
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-600 dark:to-slate-500`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-600 dark:to-slate-500`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-600 dark:to-slate-500`
               ]
               const cardStyle = cardVariants[index % 4]
               
@@ -1183,9 +1183,9 @@ export default function Home() {
               
               const cardVariants = [
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-700 dark:to-slate-600`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-700 dark:to-slate-600`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-700 dark:to-slate-600`
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-600 dark:to-slate-500`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-600 dark:to-slate-500`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-600 dark:to-slate-500`
               ]
               const cardStyle = cardVariants[index % 4]
               
