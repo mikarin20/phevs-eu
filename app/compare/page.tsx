@@ -319,6 +319,72 @@ export default function ComparePage() {
     },
   ]
 
+  const getCarStrengths = (car: Car, allCars: Car[]) => {
+    const strengths: string[] = []
+    
+    // Price advantage
+    const minPrice = Math.min(...allCars.map(c => c.price_eur))
+    if (car.price_eur === minPrice) {
+      strengths.push('En uygun fiyat')
+    }
+    
+    // Range advantage
+    const maxRange = Math.max(...allCars.map(c => c.ev_range_km))
+    if (car.ev_range_km === maxRange) {
+      strengths.push('En yüksek elektrik menzili')
+    }
+    
+    // Battery capacity advantage
+    const maxBattery = Math.max(...allCars.map(c => c.battery_kwh))
+    if (car.battery_kwh === maxBattery) {
+      strengths.push('En büyük batarya kapasitesi')
+    }
+    
+    // Power advantage
+    const maxPower = Math.max(...allCars.map(c => c.power_hp))
+    if (car.power_hp === maxPower) {
+      strengths.push('En yüksek güç')
+    }
+    
+    // Fuel consumption advantage
+    const minConsumption = Math.min(...allCars.map(c => c.fuel_consumption))
+    if (car.fuel_consumption === minConsumption) {
+      strengths.push('En düşük yakıt tüketimi')
+    }
+    
+    // CO2 advantage
+    const minCO2 = Math.min(...allCars.map(c => c.co2_emission))
+    if (car.co2_emission === minCO2) {
+      strengths.push('En düşük CO₂ emisyonu')
+    }
+    
+    // Trunk volume advantage
+    const maxTrunk = Math.max(...allCars.map(c => c.trunk_volume))
+    if (car.trunk_volume === maxTrunk) {
+      strengths.push('En büyük bagaj hacmi')
+    }
+    
+    // Charge time advantage (AC)
+    const minChargeAC = Math.min(...allCars.map(c => c.charge_time_ac))
+    if (car.charge_time_ac === minChargeAC) {
+      strengths.push('En hızlı AC şarj')
+    }
+    
+    // Charge time advantage (DC)
+    const minChargeDC = Math.min(...allCars.map(c => c.charge_time_dc))
+    if (car.charge_time_dc === minChargeDC) {
+      strengths.push('En hızlı DC şarj')
+    }
+    
+    // Warranty advantage
+    const maxWarranty = Math.max(...allCars.map(c => c.warranty_years))
+    if (car.warranty_years === maxWarranty) {
+      strengths.push('En uzun garanti süresi')
+    }
+    
+    return strengths
+  }
+
   const isBestValue = (car: Car, row: any) => {
     if (!row.getBest || selectedCars.length < 2) return false
     
@@ -576,17 +642,17 @@ export default function ComparePage() {
 
               {/* Car Info */}
               <div className="text-center">
-                <h2 className="text-lg font-bold text-slate-800 mb-2">
+                <h2 className="text-sm font-bold text-slate-800 mb-1">
                   {car.brand}
                 </h2>
-                <p className="text-sm text-slate-600 mb-2">{car.model}</p>
+                <p className="text-xs text-slate-600 mb-2">{car.model}</p>
                 {car.euroncap_rating && (
                   <div className="mb-3 flex justify-center">
                     <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
                   </div>
                 )}
                 <div className="flex items-center justify-center space-x-2">
-                  <div className="text-lg font-bold text-blue-600">
+                  <div className="text-sm font-bold text-blue-600">
                     €{car.price_eur.toLocaleString()}
                   </div>
                   <div className="relative group">
@@ -605,7 +671,7 @@ export default function ComparePage() {
         <div ref={comparisonRef} className="space-y-6">
           {comparisonCategories.map((category) => (
             <div key={category.title} className="card">
-              <h3 className="text-base font-bold text-slate-800 mb-3 pb-2 border-b-2 border-slate-200">
+              <h3 className="text-sm font-bold text-slate-800 mb-2 pb-1 border-b-2 border-slate-200">
                 {category.title}
               </h3>
               
@@ -623,7 +689,7 @@ export default function ComparePage() {
                   >
                     {/* Label */}
                     <div className="flex items-center">
-                      <span className="font-medium text-sm text-slate-700">{row.label}</span>
+                      <span className="font-medium text-xs text-slate-700">{row.label}</span>
                     </div>
 
                     {/* Values */}
@@ -641,7 +707,7 @@ export default function ComparePage() {
                           }`}
                         >
                           <div>
-                            <div className={`font-bold text-sm ${isBest && (row as any).highlight ? 'text-green-700' : 'text-slate-800'}`}>
+                            <div className={`font-bold text-xs ${isBest && (row as any).highlight ? 'text-green-700' : 'text-slate-800'}`}>
                               {value}
                             </div>
                             {isBest && (row as any).highlight && (
@@ -678,14 +744,36 @@ export default function ComparePage() {
           </button>
         </div>
 
+        {/* Strengths Summary */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {selectedCars.map((car, index) => {
+            const strengths = getCarStrengths(car, selectedCars)
+            return (
+              <div key={car.id} className="card-steel">
+                <h3 className="text-sm font-bold text-slate-800 mb-3 pb-2 border-b-2 border-slate-200">
+                  {car.brand} {car.model} - Güçlü Yönler
+                </h3>
+                <div className="space-y-2">
+                  {strengths.map((strength, idx) => (
+                    <div key={idx} className="flex items-center space-x-2">
+                      <CheckIcon className="h-4 w-4 text-green-600 flex-shrink-0" />
+                      <span className="text-xs text-slate-700">{strength}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
         {/* Legend */}
         <div className="mt-8 card-steel">
           <div className="flex items-start space-x-6">
             <div className="flex items-center space-x-2">
               <div className="w-6 h-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded"></div>
-              <span className="text-sm font-medium text-slate-700">Best Value</span>
+              <span className="text-xs font-medium text-slate-700">Best Value</span>
             </div>
-            <p className="text-sm text-slate-600 flex-1">
+            <p className="text-xs text-slate-600 flex-1">
               Highlighted cells indicate the best value in each category. Lower values are better for price, consumption, and emissions. Higher values are better for range, power, and capacity.
             </p>
           </div>
