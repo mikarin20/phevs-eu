@@ -7,7 +7,13 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL('https://phevs.eu'),
   alternates: {
-    canonical: 'https://phevs.eu'
+    canonical: 'https://phevs.eu',
+    languages: {
+      'en': 'https://phevs.eu',
+      'de': 'https://phevs.eu/de',
+      'tr': 'https://phevs.eu/tr',
+      'pl': 'https://phevs.eu/pl'
+    }
   },
   title: {
     default: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles from 28 Brands',

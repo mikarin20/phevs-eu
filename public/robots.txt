@@ -8,6 +8,11 @@ Allow: /compare/
 Allow: /demo/
 Allow: /brands/
 Allow: /segments/
+Allow: /about/
+Allow: /blog/
+Allow: /privacy/
+Allow: /terms/
+Allow: /cookies/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/

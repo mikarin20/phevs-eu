@@ -810,41 +810,56 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Range Simulator Banner */}
-      <div className={`${currentTheme.filterBg} border-b ${currentTheme.cardBorder}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className={`w-12 h-12 ${currentTheme.cardBg} rounded-xl flex items-center justify-center`}>
-                <SparklesIcon className={`h-6 w-6 ${currentTheme.textPrimary}`} />
+      {/* Hero Section - SEO Content */}
+      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Europe's Most Comprehensive PHEV Comparison Platform
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+              Compare 85 plug-in hybrid electric vehicles from 28 premium brands. Find the perfect PHEV for your lifestyle 
+              with detailed specifications, real-world range data, pricing information, and expert insights.
+            </p>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="text-center p-6 rounded-lg bg-white dark:bg-slate-800 shadow-lg">
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">85</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">PHEV Models</div>
               </div>
-              <div>
-                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Range Simulator</h3>
-                <p className={`text-sm ${currentTheme.textSecondary}`}>Discover your real-world electric range based on temperature, climate control, and driving conditions</p>
+              <div className="text-center p-6 rounded-lg bg-white dark:bg-slate-800 shadow-lg">
+                <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">28</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">Premium Brands</div>
+              </div>
+              <div className="text-center p-6 rounded-lg bg-white dark:bg-slate-800 shadow-lg">
+                <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">7</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">Vehicle Segments</div>
               </div>
             </div>
-            <button
-              onClick={() => {
-                if (selectedCars.length === 0) {
-                  alert('Please select a vehicle first to use Range Simulator')
-                  return
-                }
-                setSelectedCarForSimulator(selectedCars[0])
-                setIsRangeSimulatorOpen(true)
-              }}
-              className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
-                selectedCars.length === 0 
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                  : 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
-              }`}
-              disabled={selectedCars.length === 0}
-            >
-              <SparklesIcon className="h-5 w-5" />
-              <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
-            </button>
+            
+            {/* Key Features */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+              <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+                <CheckIcon className="h-5 w-5 text-green-500" />
+                <span>Real-world Range Data</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+                <CheckIcon className="h-5 w-5 text-green-500" />
+                <span>Price Comparison</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+                <CheckIcon className="h-5 w-5 text-green-500" />
+                <span>Technical Specifications</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+                <CheckIcon className="h-5 w-5 text-green-500" />
+                <span>Range Simulator</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Filter Bar - EV Database Style */}
       <div className="filter-bar">
@@ -1015,6 +1030,42 @@ export default function Home() {
             </div>
           </div>
 
+
+      {/* Range Simulator Banner */}
+      <div className={`${currentTheme.filterBg} border-b ${currentTheme.cardBorder}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className={`w-12 h-12 ${currentTheme.cardBg} rounded-xl flex items-center justify-center`}>
+                <SparklesIcon className={`h-6 w-6 ${currentTheme.textPrimary}`} />
+              </div>
+              <div>
+                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Range Simulator</h3>
+                <p className={`text-sm ${currentTheme.textSecondary}`}>Discover your real-world electric range based on temperature, climate control, and driving conditions</p>
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                if (selectedCars.length === 0) {
+                  alert('Please select a vehicle first to use Range Simulator')
+                  return
+                }
+                setSelectedCarForSimulator(selectedCars[0])
+                setIsRangeSimulatorOpen(true)
+              }}
+              className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                selectedCars.length === 0 
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                  : 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
+              }`}
+              disabled={selectedCars.length === 0}
+            >
+              <SparklesIcon className="h-5 w-5" />
+              <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -1618,6 +1669,72 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* FAQ Section - SEO Content */}
+      <section className={`${currentTheme.background} py-16`}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Everything you need to know about plug-in hybrid electric vehicles
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                What is a Plug-in Hybrid Electric Vehicle (PHEV)?
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                A PHEV combines a traditional internal combustion engine with an electric motor and a rechargeable battery. 
+                You can drive on electric power alone for short distances, then switch to the gasoline engine for longer trips.
+              </p>
+            </div>
+            
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                How far can I drive on electric power alone?
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Most PHEVs offer 30-100 km of electric range, depending on the model and battery size. Our range simulator 
+                helps you understand real-world performance based on driving conditions and temperature.
+              </p>
+            </div>
+            
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                How long does it take to charge a PHEV?
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Charging times vary by model and charger type. Most PHEVs can be fully charged in 2-4 hours using a 
+                home wallbox, or 30-60 minutes at a public DC fast charger.
+              </p>
+            </div>
+            
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Are PHEVs more expensive than regular cars?
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                PHEVs typically cost more upfront than conventional vehicles, but you can save money on fuel costs and 
+                may qualify for government incentives. Our price comparison tool helps you find the best value.
+              </p>
+            </div>
+            
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Which PHEV brands are available in Europe?
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                We compare PHEVs from 28 premium brands including BMW, Mercedes-Benz, Audi, Volkswagen, Toyota, 
+                Volvo, and many more. All models are available in European markets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Range Simulator Modal */}
       <RangeSimulator
