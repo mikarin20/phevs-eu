@@ -200,6 +200,15 @@ export default function ComparePage() {
   const isBestValue = (car: Car, row: any) => {
     if (!row.getBest || selectedCars.length < 2) return false
     
+    // Check if all cars are from the same group (segment)
+    const segments = selectedCars.map(c => c.segment)
+    const uniqueSegments = [...new Set(segments)]
+    
+    // If all cars are from the same segment, don't show "Best Value"
+    if (uniqueSegments.length === 1) {
+      return false
+    }
+    
     const bestValue = row.getBest(selectedCars)
     
     // Get the raw value for comparison (not the formatted string)

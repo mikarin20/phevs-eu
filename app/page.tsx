@@ -1143,7 +1143,7 @@ export default function Home() {
                           e.stopPropagation()
                           toggleFavorite(car.id)
                         }}
-                        className={`p-2 hover:bg-opacity-20 rounded-lg transition-colors ${currentTheme.cardBg} flex items-center justify-center`}
+                        className="p-2 hover:bg-opacity-20 rounded-lg transition-colors flex items-center justify-center"
                       >
                         {favorites.includes(car.id) ? (
                           <HeartSolidIcon className="h-5 w-5 text-red-500" />
@@ -1399,7 +1399,7 @@ export default function Home() {
                           e.stopPropagation()
                           toggleFavorite(car.id)
                         }}
-                        className={`p-2 hover:bg-opacity-20 rounded-lg transition-colors ${currentTheme.cardBg} flex items-center justify-center`}
+                        className="p-2 hover:bg-opacity-20 rounded-lg transition-colors flex items-center justify-center"
                       >
                         {favorites.includes(car.id) ? (
                           <HeartSolidIcon className="h-5 w-5 text-red-500" />
