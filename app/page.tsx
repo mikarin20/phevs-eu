@@ -396,20 +396,20 @@ export default function Home() {
     },
     dark: {
       name: 'Dark',
-      background: 'bg-slate-500',
-      headerBg: 'bg-slate-400',
+      background: 'bg-slate-900',
+      headerBg: 'bg-slate-800',
       headerText: 'text-slate-100',
-      cardBg: 'bg-slate-500',
-      cardBorder: 'border-slate-300',
+      cardBg: 'bg-slate-800',
+      cardBorder: 'border-slate-600',
       textPrimary: 'text-slate-100',
-      textSecondary: 'text-slate-100',
-      filterBg: 'bg-slate-500',
-      filterBorder: 'border-slate-300',
+      textSecondary: 'text-slate-300',
+      filterBg: 'bg-slate-800',
+      filterBorder: 'border-slate-600',
       filterText: 'text-slate-100',
-      inputBg: 'bg-slate-500',
-      inputBorder: 'border-slate-300',
+      inputBg: 'bg-slate-700',
+      inputBorder: 'border-slate-600',
       inputText: 'text-slate-100',
-      iconColor: 'text-slate-200'
+      iconColor: 'text-slate-300'
     }
   }
 
