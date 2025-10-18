@@ -96,13 +96,11 @@ export default function RootLayout({
             <div className="text-center">
               <div className="mb-4">
                 <div className="flex items-center justify-center space-x-2 mb-2">
-                  <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded flex items-center justify-center">
-                    <img 
-                      src="/symbol.png" 
-                      alt="PHEV Hybrid Symbol" 
-                      className="w-4 h-4 filter brightness-0 invert"
-                    />
-                  </div>
+                  <img 
+                    src="/symbol.png" 
+                    alt="PHEV Hybrid Symbol" 
+                    className="w-6 h-6 filter brightness-0 invert"
+                  />
                   <h3 className="text-lg font-semibold">PHEVs.eu</h3>
                 </div>
                 <p className="text-slate-300 text-sm">

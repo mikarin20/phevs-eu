@@ -18,7 +18,8 @@ import {
   WrenchScrewdriverIcon,
   InformationCircleIcon,
   EyeIcon,
-  PlusIcon
+  PlusIcon,
+  CalculatorIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -581,9 +582,7 @@ export default function Home() {
             {/* Logo, Başlık ve Tema Seçici - Mobilde kompakt */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <HybridLogo size="sm" className="text-white" />
-                </div>
+                <HybridLogo size="sm" className="text-slate-700 dark:text-slate-200" />
                 <div>
                   <h1 className={`text-lg sm:text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
                   <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Compare the best PHEVs in Europe</span>
@@ -936,7 +935,7 @@ export default function Home() {
                 {/* Car Info */}
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>
+                    <h3 className={`text-lg font-semibold ${currentTheme.textPrimary} line-clamp-2 h-14 flex items-center`}>
                       {car.brand} {car.model}
                     </h3>
                     <div className="flex items-center space-x-2">
@@ -1122,7 +1121,7 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-center space-x-2">
+                    <div className="flex flex-row justify-center space-x-2 ml-4">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -1146,6 +1145,18 @@ export default function Home() {
                         <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {t.view}
                       </Link>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          setSelectedCarForSimulator(car)
+                          setIsSimulatorOpen(true)
+                        }}
+                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-green-600 hover:text-white transition-colors`}
+                      >
+                        <CalculatorIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                        Range
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1178,7 +1189,7 @@ export default function Home() {
                       <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-lg font-semibold text-[#0B2E33]">
+                        <h3 className="text-lg font-semibold text-[#0B2E33] line-clamp-2 h-14 flex items-center">
                           {car.brand} {car.model}
                         </h3>
                         <div className="flex items-center justify-between mt-1">
@@ -1347,7 +1358,7 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-center space-x-2">
+                    <div className="flex flex-row justify-center space-x-2 ml-4">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -1371,6 +1382,18 @@ export default function Home() {
                         <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
                         {t.view}
                       </Link>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          setSelectedCarForSimulator(car)
+                          setIsSimulatorOpen(true)
+                        }}
+                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-green-600 hover:text-white transition-colors`}
+                      >
+                        <CalculatorIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                        Range
+                      </button>
                     </div>
               </div>
                 </div>

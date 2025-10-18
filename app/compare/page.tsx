@@ -201,11 +201,86 @@ export default function ComparePage() {
     if (!row.getBest || selectedCars.length < 2) return false
     
     const bestValue = row.getBest(selectedCars)
-    const currentValue = row.getValue(car)
+    
+    // Get the raw value for comparison (not the formatted string)
+    let currentValue: any
+    if (row.label.includes('Price')) {
+      currentValue = car.price_eur
+    } else if (row.label.includes('Electric Range')) {
+      currentValue = car.ev_range_km
+    } else if (row.label.includes('Battery Capacity')) {
+      currentValue = car.battery_kwh
+    } else if (row.label.includes('AC Charge Time')) {
+      currentValue = car.charge_time_ac
+    } else if (row.label.includes('DC Charge Time')) {
+      currentValue = car.charge_time_dc
+    } else if (row.label.includes('Power')) {
+      currentValue = car.power_hp
+    } else if (row.label.includes('Fuel Consumption')) {
+      currentValue = car.fuel_consumption
+    } else if (row.label.includes('CO₂ Emission')) {
+      currentValue = car.co2_emission
+    } else if (row.label.includes('Trunk Volume')) {
+      currentValue = car.trunk_volume
+    } else if (row.label.includes('Seats')) {
+      currentValue = car.seats
+    } else if (row.label.includes('Overall Rating')) {
+      currentValue = car.euroncap_rating?.stars
+    } else if (row.label.includes('Adult Occupant Protection')) {
+      currentValue = car.euroncap_rating?.adult_occupant
+    } else if (row.label.includes('Child Occupant Protection')) {
+      currentValue = car.euroncap_rating?.child_occupant
+    } else if (row.label.includes('Pedestrian Protection')) {
+      currentValue = car.euroncap_rating?.pedestrian_protection
+    } else if (row.label.includes('Safety Assist')) {
+      currentValue = car.euroncap_rating?.safety_assist
+    } else if (row.label.includes('Warranty')) {
+      currentValue = car.warranty_years
+    } else {
+      return false
+    }
     
     // Only highlight if this car has the best value AND it's the first occurrence
     if (currentValue === bestValue) {
-      const carsWithBestValue = selectedCars.filter(c => row.getValue(c) === bestValue)
+      const carsWithBestValue = selectedCars.filter(c => {
+        let cValue: any
+        if (row.label.includes('Price')) {
+          cValue = c.price_eur
+        } else if (row.label.includes('Electric Range')) {
+          cValue = c.ev_range_km
+        } else if (row.label.includes('Battery Capacity')) {
+          cValue = c.battery_kwh
+        } else if (row.label.includes('AC Charge Time')) {
+          cValue = c.charge_time_ac
+        } else if (row.label.includes('DC Charge Time')) {
+          cValue = c.charge_time_dc
+        } else if (row.label.includes('Power')) {
+          cValue = c.power_hp
+        } else if (row.label.includes('Fuel Consumption')) {
+          cValue = c.fuel_consumption
+        } else if (row.label.includes('CO₂ Emission')) {
+          cValue = c.co2_emission
+        } else if (row.label.includes('Trunk Volume')) {
+          cValue = c.trunk_volume
+        } else if (row.label.includes('Seats')) {
+          cValue = c.seats
+        } else if (row.label.includes('Overall Rating')) {
+          cValue = c.euroncap_rating?.stars
+        } else if (row.label.includes('Adult Occupant Protection')) {
+          cValue = c.euroncap_rating?.adult_occupant
+        } else if (row.label.includes('Child Occupant Protection')) {
+          cValue = c.euroncap_rating?.child_occupant
+        } else if (row.label.includes('Pedestrian Protection')) {
+          cValue = c.euroncap_rating?.pedestrian_protection
+        } else if (row.label.includes('Safety Assist')) {
+          cValue = c.euroncap_rating?.safety_assist
+        } else if (row.label.includes('Warranty')) {
+          cValue = c.warranty_years
+        } else {
+          cValue = null
+        }
+        return cValue === bestValue
+      })
       return carsWithBestValue[0].id === car.id
     }
     
