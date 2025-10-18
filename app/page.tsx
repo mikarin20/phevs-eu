@@ -448,7 +448,23 @@ export default function Home() {
       trySimulator: 'Try Range Simulator',
       selectVehicle: 'Select Vehicle',
       selectVehicleFirst: 'Please select a vehicle first to use Range Simulator',
-      discoverRange: 'Discover your real-world electric range based on temperature, climate control, and driving conditions'
+      discoverRange: 'Discover your real-world electric range based on temperature, climate control, and driving conditions',
+      allArchitectures: 'All Architectures',
+      allChemistries: 'All Chemistries',
+      modular: 'Modular',
+      integrated: 'Integrated',
+      skateboard: 'Skateboard',
+      lithiumIon: 'Lithium-Ion',
+      lfp: 'LFP',
+      ncm: 'NCM',
+      nca: 'NCA',
+      nameAsc: 'Name (A-Z)',
+      priceAsc: 'Price (Low-High)',
+      priceDesc: 'Price (High-Low)',
+      rangeDesc: 'Range (High-Low)',
+      rangeAsc: 'Range (Low-High)',
+      powerDesc: 'Power (High-Low)',
+      powerAsc: 'Power (Low-High)'
     },
     de: {
       searchPlaceholder: 'Nach Marke oder Modell suchen...',
@@ -484,7 +500,16 @@ export default function Home() {
       trySimulator: 'Reichweiten-Simulator testen',
       selectVehicle: 'Fahrzeug auswählen',
       selectVehicleFirst: 'Bitte wählen Sie zuerst ein Fahrzeug aus, um den Reichweiten-Simulator zu verwenden',
-      discoverRange: 'Entdecken Sie Ihre realistische elektrische Reichweite basierend auf Temperatur, Klimaanlage und Fahrbedingungen'
+      discoverRange: 'Entdecken Sie Ihre realistische elektrische Reichweite basierend auf Temperatur, Klimaanlage und Fahrbedingungen',
+      allArchitectures: 'Alle Architekturen',
+      allChemistries: 'Alle Chemien',
+      modular: 'Modular',
+      integrated: 'Integriert',
+      skateboard: 'Skateboard',
+      lithiumIon: 'Lithium-Ion',
+      lfp: 'LFP',
+      ncm: 'NCM',
+      nca: 'NCA'
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -520,7 +545,16 @@ export default function Home() {
       trySimulator: 'Menzil Simülatörünü Dene',
       selectVehicle: 'Araç Seç',
       selectVehicleFirst: 'Menzil Simülatörünü kullanmak için lütfen önce bir araç seçin',
-      discoverRange: 'Sıcaklık, iklim kontrolü ve sürüş koşullarına göre gerçek dünya elektrik menzilinizi keşfedin'
+      discoverRange: 'Sıcaklık, iklim kontrolü ve sürüş koşullarına göre gerçek dünya elektrik menzilinizi keşfedin',
+      allArchitectures: 'Tüm Mimariler',
+      allChemistries: 'Tüm Kimyalar',
+      modular: 'Modüler',
+      integrated: 'Entegre',
+      skateboard: 'Skateboard',
+      lithiumIon: 'Lityum-İyon',
+      lfp: 'LFP',
+      ncm: 'NCM',
+      nca: 'NCA'
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -556,7 +590,16 @@ export default function Home() {
       trySimulator: 'Wypróbuj Symulator Zasięgu',
       selectVehicle: 'Wybierz Pojazd',
       selectVehicleFirst: 'Najpierw wybierz pojazd, aby użyć Symulatora Zasięgu',
-      discoverRange: 'Odkryj swój rzeczywisty zasięg elektryczny na podstawie temperatury, klimatyzacji i warunków jazdy'
+      discoverRange: 'Odkryj swój rzeczywisty zasięg elektryczny na podstawie temperatury, klimatyzacji i warunków jazdy',
+      allArchitectures: 'Wszystkie Architektury',
+      allChemistries: 'Wszystkie Chemie',
+      modular: 'Modularny',
+      integrated: 'Zintegrowany',
+      skateboard: 'Skateboard',
+      lithiumIon: 'Litowo-Jonowy',
+      lfp: 'LFP',
+      ncm: 'NCM',
+      nca: 'NCA'
     }
   }
 
@@ -878,7 +921,7 @@ export default function Home() {
               onChange={(e) => setFilters({...filters, segment: e.target.value})}
               className={`min-w-24 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
                   >
-                    <option value="">All Segments</option>
+                    <option value="">{t.allSegments}</option>
               {segments.map(segment => (
                 <option key={segment} value={segment}>{segment}</option>
                     ))}
@@ -890,10 +933,10 @@ export default function Home() {
               onChange={(e) => setFilters({...filters, batteryArchitecture: e.target.value})}
               className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
             >
-              <option value="">All Architectures</option>
-              <option value="modular">Modular</option>
-              <option value="integrated">Integrated</option>
-              <option value="skateboard">Skateboard</option>
+              <option value="">{t.allArchitectures}</option>
+              <option value="modular">{t.modular}</option>
+              <option value="integrated">{t.integrated}</option>
+              <option value="skateboard">{t.skateboard}</option>
             </select>
 
             {/* Battery Chemistry Filter */}
@@ -902,11 +945,11 @@ export default function Home() {
               onChange={(e) => setFilters({...filters, batteryChemistry: e.target.value})}
               className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
             >
-              <option value="">All Chemistries</option>
-              <option value="lithium-ion">Lithium-Ion</option>
-              <option value="lithium-iron-phosphate">LFP</option>
-              <option value="nickel-cobalt-manganese">NCM</option>
-              <option value="nickel-cobalt-aluminum">NCA</option>
+              <option value="">{t.allChemistries}</option>
+              <option value="lithium-ion">{t.lithiumIon}</option>
+              <option value="lithium-iron-phosphate">{t.lfp}</option>
+              <option value="nickel-cobalt-manganese">{t.ncm}</option>
+              <option value="nickel-cobalt-aluminum">{t.nca}</option>
             </select>
 
             {/* Sort */}
@@ -915,13 +958,13 @@ export default function Home() {
               onChange={(e) => handleSortChange(e.target.value as SortOption)}
               className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
             >
-              <option value="name-asc">Name (A-Z)</option>
-              <option value="price-asc">Price (Low-High)</option>
-              <option value="price-desc">Price (High-Low)</option>
-              <option value="range-desc">Range (High-Low)</option>
-              <option value="range-asc">Range (Low-High)</option>
-              <option value="power-desc">Power (High-Low)</option>
-              <option value="power-asc">Power (Low-High)</option>
+              <option value="name-asc">{t.nameAsc}</option>
+              <option value="price-asc">{t.priceAsc}</option>
+              <option value="price-desc">{t.priceDesc}</option>
+              <option value="range-desc">{t.rangeDesc}</option>
+              <option value="range-asc">{t.rangeAsc}</option>
+              <option value="power-desc">{t.powerDesc}</option>
+              <option value="power-asc">{t.powerAsc}</option>
             </select>
 
             {/* View Toggle - Hidden on mobile */}

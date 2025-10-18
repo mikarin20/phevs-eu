@@ -322,15 +322,6 @@ export default function ComparePage() {
   const isBestValue = (car: Car, row: any) => {
     if (!row.getBest || selectedCars.length < 2) return false
     
-    // Check if all cars are from the same group (segment)
-    const segments = selectedCars.map(c => c.segment)
-    const uniqueSegments = [...new Set(segments)]
-    
-    // If all cars are from the same segment, don't show "Best Value"
-    if (uniqueSegments.length === 1) {
-      return false
-    }
-    
     const bestValue = row.getBest(selectedCars)
     
     // Get the raw value for comparison (not the formatted string)
@@ -420,7 +411,7 @@ export default function ComparePage() {
 
   if (selectedCars.length < 2) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
+      <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
         <header className="header-metallic">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-20">
@@ -485,7 +476,7 @@ export default function ComparePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
+    <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
       {/* Header */}
       <header className="header-metallic sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -618,7 +609,7 @@ export default function ComparePage() {
                 {category.title}
               </h3>
               
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto max-h-[70vh] overflow-y-auto">
                 <div className="space-y-1 min-w-[600px]">
                 {category.rows.map((row, rowIndex) => (
                   <div
