@@ -28,6 +28,8 @@ import EuroNCAPStars from '@/components/EuroNCAPStars'
 import RangeSimulator from '@/components/RangeSimulator'
 import Tooltip from '@/components/Tooltip'
 import SuggestModelForm from '@/components/SuggestModelForm'
+import FilterModal from '@/components/FilterModal'
+import MobileAccordion from '@/components/MobileAccordion'
 
 interface Car {
   id: string
@@ -100,6 +102,8 @@ export default function Home() {
   const [selectedTheme, setSelectedTheme] = useState('light')
   const [selectedLanguage, setSelectedLanguage] = useState('en')
   const [isSuggestFormOpen, setIsSuggestFormOpen] = useState(false)
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
+  const [recentlyViewed, setRecentlyViewed] = useState<Car[]>([])
 
   // Otomatik dil algılama
   useEffect(() => {
@@ -133,6 +137,7 @@ export default function Home() {
       const savedFavorites = localStorage.getItem('phevs-favorites')
       const savedViewMode = localStorage.getItem('phevs-view-mode')
       const savedSort = localStorage.getItem('phevs-sort')
+      const savedRecentlyViewed = localStorage.getItem('phevs-recently-viewed')
     
     if (savedFilters) {
       try {
@@ -164,6 +169,16 @@ export default function Home() {
 
       if (savedSort) {
         setSortBy(savedSort as SortOption)
+      }
+      
+      if (savedRecentlyViewed) {
+        try {
+          const viewedIds = JSON.parse(savedRecentlyViewed)
+          const viewedCars = cars.filter(car => viewedIds.includes(car.id))
+          setRecentlyViewed(viewedCars)
+        } catch (e) {
+          console.error('Error loading recently viewed:', e)
+        }
       }
 
       setIsLoading(false)
@@ -311,6 +326,14 @@ export default function Home() {
       setSelectedCars(newSelected)
       localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected.map(c => c.id)))
     }
+  }
+
+  // Recently viewed'ı güncelle
+  const updateRecentlyViewed = (car: Car) => {
+    const currentViewed = recentlyViewed.filter(c => c.id !== car.id)
+    const newViewed = [car, ...currentViewed].slice(0, 6) // Son 6 araç
+    setRecentlyViewed(newViewed)
+    localStorage.setItem('phevs-recently-viewed', JSON.stringify(newViewed.map(c => c.id)))
   }
 
   // Filtreleri temizle
@@ -629,7 +652,7 @@ export default function Home() {
                     }`}
                     title={lang.code.toUpperCase()}
                   >
-                    <span className={`fi fi-${lang.flag} text-sm sm:text-lg`} title={lang.name}></span>
+                    <span className={`fi fi-${lang.flag} text-xs sm:text-sm`} title={lang.name}></span>
                   </button>
                 ))}
               </div>
@@ -695,7 +718,18 @@ export default function Home() {
       {/* Filter Bar - EV Database Style */}
       <div className="filter-bar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-4">
+          {/* Mobile Filter Button */}
+          <div className="sm:hidden mb-4">
+            <button
+              onClick={() => setIsFilterModalOpen(true)}
+              className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <FunnelIcon className="h-5 w-5" />
+              <span>Filters</span>
+            </button>
+          </div>
+          
+          <div className="hidden sm:flex flex-wrap items-center gap-4">
             {/* Search */}
             <div className="flex-1 min-w-64">
               <div className="relative">
@@ -877,8 +911,22 @@ export default function Home() {
         {/* Cars List/Grid */}
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-            {filteredAndSortedCars.map((car) => (
-              <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
+            {filteredAndSortedCars.map((car, index) => {
+              const cardVariants = [
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20`,
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20`
+              ]
+              const cardStyle = cardVariants[index % 4]
+              
+              return (
+              <Link 
+                key={car.id} 
+                href={`/models/${car.id}`} 
+                onClick={() => updateRecentlyViewed(car)}
+                className={`${cardStyle} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 block group`}
+              >
                 {/* Car Image */}
                 <div className="mb-4">
                   <div className="aspect-[16/9] w-full max-h-40 rounded-lg overflow-hidden">
@@ -924,8 +972,8 @@ export default function Home() {
                     )}
                     </div>
 
-                  {/* Specifications */}
-                  <div className="space-y-2 text-sm mb-4">
+                  {/* Specifications - Desktop */}
+                  <div className="hidden sm:block space-y-2 text-sm mb-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
@@ -991,6 +1039,83 @@ export default function Home() {
                         </div>
                     </div>
 
+                  {/* Mobile Accordions */}
+                  <div className="sm:hidden mb-4 space-y-2">
+                    <MobileAccordion title="Key Features" defaultOpen={true}>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <CpuChipIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <WrenchScrewdriverIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
+                        </div>
+                      </div>
+                    </MobileAccordion>
+
+                    <MobileAccordion title="Performance & Efficiency">
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <CurrencyEuroIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <span className={`${currentTheme.textPrimary}`}>{t.co2}:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <BoltIcon className="h-4 w-4 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
+                        </div>
+                      </div>
+                    </MobileAccordion>
+
+                    <MobileAccordion title="Practical Details">
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <span className={`${currentTheme.textPrimary}`}>Year:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.year}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <span className={`${currentTheme.textPrimary}`}>Segment:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.segment}</span>
+                        </div>
+                      </div>
+                    </MobileAccordion>
+                  </div>
+
                   {/* Actions */}
                   <div className={`flex items-center justify-center pt-4 border-t ${currentTheme.cardBorder}`}>
                     <button
@@ -1035,7 +1160,8 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
-              ))}
+              )
+            })}
           </div>
         ) : (
                 <div className="space-y-4">
@@ -1090,8 +1216,8 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Specifications */}
-                    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+                    {/* Specifications - Desktop */}
+                    <div className="hidden sm:block mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
                         <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
@@ -1135,6 +1261,83 @@ export default function Home() {
                         <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
                       </div>
+                    </div>
+
+                    {/* Mobile Accordions */}
+                    <div className="sm:hidden mt-4 space-y-2">
+                      <MobileAccordion title="Key Features" defaultOpen={true}>
+                        <div className="space-y-3 text-sm">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <CpuChipIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
+                          </div>
+                        </div>
+                      </MobileAccordion>
+
+                      <MobileAccordion title="Performance & Efficiency">
+                        <div className="space-y-3 text-sm">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <span className={`${currentTheme.textPrimary}`}>{t.co2}:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
+                          </div>
+                        </div>
+                      </MobileAccordion>
+
+                      <MobileAccordion title="Practical Details">
+                        <div className="space-y-3 text-sm">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <span className={`${currentTheme.textPrimary}`}>Year:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.year}</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <span className={`${currentTheme.textPrimary}`}>Segment:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.segment}</span>
+                          </div>
+                        </div>
+                      </MobileAccordion>
                     </div>
                 </div>
 
@@ -1201,6 +1404,42 @@ export default function Home() {
         )}
       </div>
 
+      {/* Recently Viewed Section */}
+      {recentlyViewed.length > 0 && (
+        <div className={`${currentTheme.background} py-12`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className={`text-2xl font-bold ${currentTheme.textPrimary} mb-6`}>
+              Recently Viewed
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              {recentlyViewed.map((car) => (
+                <Link
+                  key={car.id}
+                  href={`/models/${car.id}`}
+                  onClick={() => updateRecentlyViewed(car)}
+                  className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-lg p-3 hover:shadow-lg transition-all duration-200 group`}
+                >
+                  <div className="aspect-[16/9] w-full rounded-lg overflow-hidden mb-2">
+                    <img
+                      src={car.image_url}
+                      alt={`${car.brand} ${car.model}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className={`text-xs font-medium ${currentTheme.textPrimary} truncate`}>
+                    {car.brand} {car.model}
+                  </div>
+                  <div className={`text-xs ${currentTheme.textSecondary}`}>
+                    €{car.price_eur.toLocaleString()}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Range Simulator Modal */}
       <RangeSimulator
         baseRange={selectedCarForSimulator?.ev_range_km || 100}
@@ -1214,6 +1453,26 @@ export default function Home() {
       <SuggestModelForm
         isOpen={isSuggestFormOpen}
         onClose={() => setIsSuggestFormOpen(false)}
+      />
+
+      {/* Filter Modal */}
+      <FilterModal
+        isOpen={isFilterModalOpen}
+        onClose={() => setIsFilterModalOpen(false)}
+        selectedBrand={selectedBrands.join(',')}
+        setSelectedBrand={(brand) => setSelectedBrands(brand ? brand.split(',') : [])}
+        selectedSegment={filters.segment}
+        setSelectedSegment={(segment) => setFilters({...filters, segment})}
+        selectedPriceRange=""
+        setSelectedPriceRange={() => {}}
+        selectedRange=""
+        setSelectedRange={() => {}}
+        brands={brands}
+        segments={segments}
+        priceRanges={[]}
+        rangeRanges={[]}
+        onApplyFilters={() => {}}
+        onClearFilters={clearFilters}
       />
 
     </div>
