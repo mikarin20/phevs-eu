@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import CookieConsent from '@/components/CookieConsent'
-import PerformanceOptimizer from '@/components/PerformanceOptimizer'
-import GoogleAnalytics from '@/components/GoogleAnalytics'
-import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -91,24 +87,10 @@ export default function RootLayout({
         {/* Flag Icons CDN */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
         {/* AdSense Script */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2031503694387888"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2031503694387888" crossorigin="anonymous"></script>
       </head>
       <body className={inter.className}>
         {children}
-        
-        {/* Google Analytics */}
-        <GoogleAnalytics />
-        
-        {/* Performance Optimizer */}
-        <PerformanceOptimizer />
-        
-        {/* Cookie Consent */}
-        <CookieConsent />
         
         {/* Footer */}
         <footer className="bg-slate-900 text-white py-8 mt-16">

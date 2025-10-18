@@ -576,7 +576,7 @@ export default function Home() {
   }
 
   // JSON-LD Structured Data
-  const structuredData = {
+  const structuredData = useMemo(() => ({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "PHEVs.eu",
@@ -644,7 +644,7 @@ export default function Home() {
         }
       }))
     }
-  }
+  }), [filteredAndSortedCars])
 
   return (
     <div className={`min-h-screen ${currentTheme.background}`}>
