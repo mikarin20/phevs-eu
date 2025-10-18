@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { ArrowLeftIcon, XMarkIcon, CheckIcon, XCircleIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
+import { useState, useEffect, useRef } from 'react'
+import { ArrowLeftIcon, XMarkIcon, CheckIcon, XCircleIcon, InformationCircleIcon, ShareIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
+import html2canvas from 'html2canvas'
 
 interface Car {
   id: string
@@ -38,6 +39,7 @@ interface Car {
 
 export default function ComparePage() {
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
+  const comparisonRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // LocalStorage'dan seçili arabaları yükle
@@ -63,6 +65,78 @@ export default function ComparePage() {
     const updated = selectedCars.filter(c => c.id !== carId)
     setSelectedCars(updated)
     localStorage.setItem('phevs-selected-cars', JSON.stringify(updated.map(c => c.id)))
+  }
+
+  // Görüntü paylaşım fonksiyonları
+  const captureComparison = async () => {
+    if (!comparisonRef.current) return null
+
+    try {
+      const canvas = await html2canvas(comparisonRef.current, {
+        backgroundColor: '#ffffff',
+        scale: 2, // Yüksek kalite için
+        useCORS: true,
+        allowTaint: true,
+        scrollX: 0,
+        scrollY: 0,
+        width: comparisonRef.current.scrollWidth,
+        height: comparisonRef.current.scrollHeight
+      })
+      
+      return canvas.toDataURL('image/png', 1.0)
+    } catch (error) {
+      console.error('Error capturing comparison:', error)
+      return null
+    }
+  }
+
+  const shareAsImage = async () => {
+    const dataUrl = await captureComparison()
+    if (!dataUrl) {
+      alert('Görüntü oluşturulamadı. Lütfen tekrar deneyin.')
+      return
+    }
+
+    // Web Share API kullan
+    if (navigator.share && navigator.canShare) {
+      try {
+        // Data URL'i blob'a çevir
+        const response = await fetch(dataUrl)
+        const blob = await response.blob()
+        const file = new File([blob], 'car-comparison.png', { type: 'image/png' })
+
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: 'Araç Karşılaştırması',
+            text: `${selectedCars.map(c => `${c.brand} ${c.model}`).join(' vs ')} karşılaştırması`,
+            files: [file]
+          })
+        } else {
+          // Fallback: URL paylaşımı
+          const comparisonUrl = `${window.location.origin}/compare?cars=${selectedCars.map(c => c.id).join(',')}`
+          await navigator.share({
+            title: 'Araç Karşılaştırması',
+            text: `${selectedCars.map(c => `${c.brand} ${c.model}`).join(' vs ')} karşılaştırması`,
+            url: comparisonUrl
+          })
+        }
+      } catch (error) {
+        console.error('Error sharing:', error)
+        downloadImage(dataUrl)
+      }
+    } else {
+      // Fallback: İndirme
+      downloadImage(dataUrl)
+    }
+  }
+
+  const downloadImage = (dataUrl: string) => {
+    const link = document.createElement('a')
+    link.download = `car-comparison-${selectedCars.map(c => c.brand).join('-')}-${new Date().toISOString().split('T')[0]}.png`
+    link.href = dataUrl
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   // Karşılaştırma kategorileri
@@ -402,15 +476,26 @@ export default function ComparePage() {
                 </button>
                 
                 <button
-                  onClick={() => {
-                    const comparisonUrl = `${window.location.origin}/compare?cars=${selectedCars.map(c => c.id).join(',')}`
-                    navigator.clipboard.writeText(comparisonUrl).then(() => {
-                      alert('Comparison link copied to clipboard!')
-                    })
-                  }}
-                  className="btn-primary text-sm"
+                  onClick={shareAsImage}
+                  className="btn-primary text-sm flex items-center space-x-1"
                 >
-                  Share
+                  <ShareIcon className="h-4 w-4" />
+                  <span>Share Image</span>
+                </button>
+
+                <button
+                  onClick={async () => {
+                    const dataUrl = await captureComparison()
+                    if (dataUrl) {
+                      downloadImage(dataUrl)
+                    } else {
+                      alert('Görüntü oluşturulamadı. Lütfen tekrar deneyin.')
+                    }
+                  }}
+                  className="btn-secondary text-sm flex items-center space-x-1"
+                >
+                  <ArrowDownTrayIcon className="h-4 w-4" />
+                  <span>Download</span>
                 </button>
               </div>
             </div>
@@ -478,7 +563,7 @@ export default function ComparePage() {
         </div>
 
         {/* Comparison Table */}
-        <div className="space-y-6">
+        <div ref={comparisonRef} className="space-y-6">
           {comparisonCategories.map((category) => (
             <div key={category.title} className="card">
               <h3 className="text-base font-bold text-slate-800 mb-3 pb-2 border-b-2 border-slate-200">
