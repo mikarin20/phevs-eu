@@ -509,7 +509,14 @@ export default function Home() {
       lithiumIon: 'Lithium-Ion',
       lfp: 'LFP',
       ncm: 'NCM',
-      nca: 'NCA'
+      nca: 'NCA',
+      nameAsc: 'Name (A-Z)',
+      priceAsc: 'Preis (Niedrig-Hoch)',
+      priceDesc: 'Preis (Hoch-Niedrig)',
+      rangeDesc: 'Reichweite (Hoch-Niedrig)',
+      rangeAsc: 'Reichweite (Niedrig-Hoch)',
+      powerDesc: 'Leistung (Hoch-Niedrig)',
+      powerAsc: 'Leistung (Niedrig-Hoch)'
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -554,7 +561,14 @@ export default function Home() {
       lithiumIon: 'Lityum-İyon',
       lfp: 'LFP',
       ncm: 'NCM',
-      nca: 'NCA'
+      nca: 'NCA',
+      nameAsc: 'İsim (A-Z)',
+      priceAsc: 'Fiyat (Düşük-Yüksek)',
+      priceDesc: 'Fiyat (Yüksek-Düşük)',
+      rangeDesc: 'Menzil (Yüksek-Düşük)',
+      rangeAsc: 'Menzil (Düşük-Yüksek)',
+      powerDesc: 'Güç (Yüksek-Düşük)',
+      powerAsc: 'Güç (Düşük-Yüksek)'
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -599,7 +613,14 @@ export default function Home() {
       lithiumIon: 'Litowo-Jonowy',
       lfp: 'LFP',
       ncm: 'NCM',
-      nca: 'NCA'
+      nca: 'NCA',
+      nameAsc: 'Nazwa (A-Z)',
+      priceAsc: 'Cena (Niska-Wysoka)',
+      priceDesc: 'Cena (Wysoka-Niska)',
+      rangeDesc: 'Zasięg (Wysoki-Niski)',
+      rangeAsc: 'Zasięg (Niski-Wysoki)',
+      powerDesc: 'Moc (Wysoka-Niska)',
+      powerAsc: 'Moc (Niska-Wysoka)'
     }
   }
 
