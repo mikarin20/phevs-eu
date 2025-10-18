@@ -270,7 +270,7 @@ export default function ComparePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="card text-center py-20">
             <div className="text-8xl mb-6">⚔️</div>
-            <h1 className="text-2xl font-bold text-slate-800 mb-4">
+            <h1 className="text-xl font-bold text-slate-800 mb-4">
               {selectedCars.length === 0 ? 'No Vehicles Selected' : 'Not Enough Vehicles Selected'}
             </h1>
             <p className="text-sm text-slate-600 mb-8">
@@ -299,7 +299,7 @@ export default function ComparePage() {
             
             <div className="flex items-center space-x-6">
               <div>
-                <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
+                <h1 className="text-lg font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
                   Vehicle Comparison
                 </h1>
                 <p className="text-xs text-slate-400 text-right">Comparing {selectedCars.length} vehicles</p>
@@ -376,7 +376,7 @@ export default function ComparePage() {
 
               {/* Car Info */}
               <div className="text-center">
-                <h2 className="text-xl font-bold text-slate-800 mb-2">
+                <h2 className="text-lg font-bold text-slate-800 mb-2">
                   {car.brand}
                 </h2>
                 <p className="text-sm text-slate-600 mb-2">{car.model}</p>
@@ -386,7 +386,7 @@ export default function ComparePage() {
                   </div>
                 )}
                 <div className="flex items-center justify-center space-x-2">
-                  <div className="text-2xl font-bold text-blue-600">
+                  <div className="text-lg font-bold text-blue-600">
                     €{car.price_eur.toLocaleString()}
                   </div>
                   <div className="relative group">
@@ -405,7 +405,7 @@ export default function ComparePage() {
         <div className="space-y-6">
           {comparisonCategories.map((category) => (
             <div key={category.title} className="card">
-              <h3 className="text-lg font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">
+              <h3 className="text-base font-bold text-slate-800 mb-3 pb-2 border-b-2 border-slate-200">
                 {category.title}
               </h3>
               

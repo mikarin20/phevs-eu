@@ -30,6 +30,8 @@ import Tooltip from '@/components/Tooltip'
 import SuggestModelForm from '@/components/SuggestModelForm'
 import FilterModal from '@/components/FilterModal'
 import MobileAccordion from '@/components/MobileAccordion'
+import CompareInfoBar from '@/components/CompareInfoBar'
+import HybridLogo from '@/components/HybridLogo'
 
 interface Car {
   id: string
@@ -580,7 +582,7 @@ export default function Home() {
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm sm:text-lg">P</span>
+                  <HybridLogo size="sm" className="text-white" />
                 </div>
                 <div>
                   <h1 className={`text-lg sm:text-2xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
@@ -672,7 +674,9 @@ export default function Home() {
                 onClick={(e) => selectedCars.length < 2 && e.preventDefault()}
               >
                 <ArrowsUpDownIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="text-sm sm:text-base">Compare ({selectedCars.length}/3)</span>
+                <span className="text-sm sm:text-base">
+                  {selectedCars.length < 2 ? `Compare (${selectedCars.length}/2)` : `Compare (${selectedCars.length}/3)`}
+                </span>
               </Link>
             </div>
           </div>
@@ -916,7 +920,7 @@ export default function Home() {
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20`,
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20`
+                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20`
               ]
               const cardStyle = cardVariants[index % 4]
               
@@ -1473,6 +1477,21 @@ export default function Home() {
         rangeRanges={[]}
         onApplyFilters={() => {}}
         onClearFilters={clearFilters}
+      />
+
+      {/* Compare Info Bar */}
+      <CompareInfoBar
+        selectedCars={selectedCars}
+        onRemoveCar={(carId) => {
+          const newSelected = selectedCars.filter(car => car.id !== carId)
+          setSelectedCars(newSelected)
+          localStorage.setItem('phevs-selected-cars', JSON.stringify(newSelected.map(c => c.id)))
+        }}
+        onClearAll={() => {
+          setSelectedCars([])
+          localStorage.removeItem('phevs-selected-cars')
+        }}
+        isVisible={selectedCars.length > 0}
       />
 
     </div>

@@ -2040,7 +2040,7 @@
   {
     "id": "opel-2",
     "brand": "Opel",
-    "model": "Astra Electric",
+    "model": "Astra PHEV",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 59,

@@ -78,6 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
@@ -94,7 +95,24 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2">PHEVs.eu</h3>
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" viewBox="0 0 64 64" fill="none">
+                      <rect x="20" y="32" width="24" height="20" rx="2" fill="currentColor" opacity="0.8"/>
+                      <rect x="22" y="8" width="20" height="20" rx="2" fill="currentColor" opacity="0.9"/>
+                      <path d="M28 16C28 14.5 29 13 30.5 13C32 13 33 14.5 33 16C33 17.5 30.5 20 30.5 20C30.5 20 28 17.5 28 16Z" fill="white"/>
+                      <path d="M36 14L34 18H37L35 22L36 14Z" fill="white"/>
+                      <path d="M20 36C16 36 12 40 12 44C12 48 16 52 20 52" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                      <rect x="8" y="50" width="8" height="4" rx="1" fill="currentColor"/>
+                      <rect x="10" y="48" width="4" height="6" rx="1" fill="currentColor"/>
+                      <path d="M44 36C48 36 52 40 52 44C52 48 48 52 44 52" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                      <rect x="48" y="50" width="8" height="4" rx="1" fill="currentColor"/>
+                      <rect x="50" y="48" width="4" height="6" rx="1" fill="currentColor"/>
+                      <rect x="51" y="46" width="2" height="8" rx="0.5" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold">PHEVs.eu</h3>
+                </div>
                 <p className="text-slate-300 text-sm">
                   Europe's most comprehensive plug-in hybrid vehicle comparison platform
                 </p>
