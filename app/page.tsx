@@ -1169,7 +1169,16 @@ export default function Home() {
           </div>
         ) : (
                 <div className="space-y-4">
-            {filteredAndSortedCars.map((car) => (
+            {filteredAndSortedCars.map((car, index) => {
+              const buttonVariants = [
+                `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`,
+                `bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white dark:bg-blue-900/30 dark:text-blue-300`,
+                `bg-green-100 text-green-700 hover:bg-green-600 hover:text-white dark:bg-green-900/30 dark:text-green-300`,
+                `bg-cyan-100 text-cyan-700 hover:bg-cyan-600 hover:text-white dark:bg-cyan-900/30 dark:text-cyan-300`
+              ]
+              const buttonStyle = buttonVariants[index % 4]
+              
+              return (
               <Link key={car.id} href={`/models/${car.id}`} className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
@@ -1400,7 +1409,8 @@ export default function Home() {
               </div>
                 </div>
               </Link>
-            ))}
+              )
+            })}
               </div>
             )}
 
