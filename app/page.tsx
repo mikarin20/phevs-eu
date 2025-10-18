@@ -398,18 +398,18 @@ export default function Home() {
       name: 'Dark',
       background: 'bg-slate-900',
       headerBg: 'bg-slate-800',
-      headerText: 'text-slate-100',
+      headerText: 'text-white',
       cardBg: 'bg-slate-800',
       cardBorder: 'border-slate-600',
-      textPrimary: 'text-slate-100',
-      textSecondary: 'text-slate-300',
+      textPrimary: 'text-white',
+      textSecondary: 'text-slate-200',
       filterBg: 'bg-slate-800',
       filterBorder: 'border-slate-600',
-      filterText: 'text-slate-100',
+      filterText: 'text-white',
       inputBg: 'bg-slate-700',
       inputBorder: 'border-slate-600',
-      inputText: 'text-slate-100',
-      iconColor: 'text-slate-300'
+      inputText: 'text-white',
+      iconColor: 'text-slate-200'
     }
   }
 
@@ -1354,22 +1354,9 @@ export default function Home() {
                 </div>
 
                   {/* Actions */}
-                  <div className="flex-shrink-0 flex items-center justify-center space-x-2">
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault()
-                        e.stopPropagation()
-                        toggleFavorite(car.id)
-                      }}
-                      className={`p-2 hover:bg-opacity-20 rounded-lg transition-colors ${currentTheme.cardBg}`}
-                    >
-                      {favorites.includes(car.id) ? (
-                        <HeartSolidIcon className="h-5 w-5 text-red-500" />
-                      ) : (
-                        <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
-                      )}
-                    </button>
-                    <div className="flex flex-col space-y-2 ml-2">
+                  <div className="flex-shrink-0 flex items-center justify-center">
+                    <div className="grid grid-cols-2 gap-2">
+                      {/* Top Row */}
                       <button
                         onClick={(e) => {
                           e.preventDefault()
@@ -1393,6 +1380,22 @@ export default function Home() {
                         <EyeIcon className="h-3 w-3 inline mr-1" />
                         {t.view}
                       </Link>
+                      
+                      {/* Bottom Row */}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          toggleFavorite(car.id)
+                        }}
+                        className={`p-2 hover:bg-opacity-20 rounded-lg transition-colors ${currentTheme.cardBg} flex items-center justify-center`}
+                      >
+                        {favorites.includes(car.id) ? (
+                          <HeartSolidIcon className="h-5 w-5 text-red-500" />
+                        ) : (
+                          <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
+                        )}
+                      </button>
                       <button
                         onClick={(e) => {
                           e.preventDefault()
