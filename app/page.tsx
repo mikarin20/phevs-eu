@@ -899,7 +899,7 @@ export default function Home() {
 
         {/* Cars List/Grid */}
         {viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
             {filteredAndSortedCars.map((car, index) => {
               const cardVariants = [
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
@@ -908,6 +908,15 @@ export default function Home() {
                 `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20`
               ]
               const cardStyle = cardVariants[index % 4]
+              
+              // Button styles based on card variant
+              const buttonVariants = [
+                `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`,
+                `bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white dark:bg-blue-900/30 dark:text-blue-300`,
+                `bg-green-100 text-green-700 hover:bg-green-600 hover:text-white dark:bg-green-900/30 dark:text-green-300`,
+                `bg-cyan-100 text-cyan-700 hover:bg-cyan-600 hover:text-white dark:bg-cyan-900/30 dark:text-cyan-300`
+              ]
+              const buttonStyle = buttonVariants[index % 4]
               
               return (
               <Link 
@@ -1121,28 +1130,28 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-center space-x-2 ml-4">
+                    <div className="flex flex-row justify-center space-x-1 ml-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
                           e.stopPropagation()
                           toggleCarSelection(car)
                         }}
-                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                        className={`px-2 py-1.5 rounded-full text-xs font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-blue-600 text-white'
-                          : `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`
+                          : buttonStyle
                         }`}
                       >
-                        <PlusIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                        <PlusIcon className="h-3 w-3 inline mr-1" />
                         {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white transition-colors`}
+                        className={`px-2 py-1.5 rounded-full text-xs font-medium ${buttonStyle} transition-colors`}
                       >
-                        <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                        <EyeIcon className="h-3 w-3 inline mr-1" />
                         {t.view}
                       </Link>
                       <button
@@ -1152,9 +1161,9 @@ export default function Home() {
                           setSelectedCarForSimulator(car)
                           setIsRangeSimulatorOpen(true)
                         }}
-                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-green-600 hover:text-white transition-colors`}
+                        className={`px-2 py-1.5 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
                       >
-                        <CalculatorIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                        <CalculatorIcon className="h-3 w-3 inline mr-1" />
                         Range
                       </button>
                     </div>
@@ -1358,28 +1367,28 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
                       )}
                     </button>
-                    <div className="flex flex-row justify-center space-x-2 ml-4">
+                    <div className="flex flex-row justify-center space-x-1 ml-2">
                       <button
                         onClick={(e) => {
                           e.preventDefault()
                           e.stopPropagation()
                           toggleCarSelection(car)
                         }}
-                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                        className={`px-2 py-1.5 rounded-full text-xs font-medium transition-colors ${
                           selectedCars.find(c => c.id === car.id)
                           ? 'bg-blue-600 text-white'
-                          : `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`
+                          : buttonStyle
                         }`}
                       >
-                        <PlusIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                        <PlusIcon className="h-3 w-3 inline mr-1" />
                         {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
                       <Link
                         href={`/models/${car.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white transition-colors`}
+                        className={`px-2 py-1.5 rounded-full text-xs font-medium ${buttonStyle} transition-colors`}
                       >
-                        <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                        <EyeIcon className="h-3 w-3 inline mr-1" />
                         {t.view}
                       </Link>
                       <button
@@ -1389,9 +1398,9 @@ export default function Home() {
                           setSelectedCarForSimulator(car)
                           setIsRangeSimulatorOpen(true)
                         }}
-                        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-green-600 hover:text-white transition-colors`}
+                        className={`px-2 py-1.5 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
                       >
-                        <CalculatorIcon className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                        <CalculatorIcon className="h-3 w-3 inline mr-1" />
                         Range
                       </button>
                     </div>
