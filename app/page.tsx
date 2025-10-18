@@ -1150,7 +1150,7 @@ export default function Home() {
                           e.preventDefault()
                           e.stopPropagation()
                           setSelectedCarForSimulator(car)
-                          setIsSimulatorOpen(true)
+                          setIsRangeSimulatorOpen(true)
                         }}
                         className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-green-600 hover:text-white transition-colors`}
                       >
@@ -1387,7 +1387,7 @@ export default function Home() {
                           e.preventDefault()
                           e.stopPropagation()
                           setSelectedCarForSimulator(car)
-                          setIsSimulatorOpen(true)
+                          setIsRangeSimulatorOpen(true)
                         }}
                         className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-green-600 hover:text-white transition-colors`}
                       >
