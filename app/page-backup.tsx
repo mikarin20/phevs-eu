@@ -55,6 +55,7 @@ interface Car {
   seats: number
   warranty_years: number
   country_availability: string
+  slug: string
   euroncap_rating?: {
     stars: number
     adult_occupant: number
