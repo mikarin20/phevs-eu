@@ -29,21 +29,28 @@
     },
     "engine_displacement": 1.3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Rear left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Rear left"
+    },
+    "slug": "alfa-romeo-tonale-phev"
   },
   {
     "id": "audi-1",
     "brand": "Audi",
     "model": "A3 Sportback",
-    "year": 2020,
+    "year": 2024,
     "segment": "Hatchback",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.4,
-    "battery_kwh": 12.4,
+    "ev_range_km": 130,
+    "fuel_consumption": 0.35,
+    "battery_kwh": 19.7,
     "price_eur": 45000,
     "image_url": "/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg",
-    "power_hp": 204,
-    "co2_emission": 32,
+    "power_hp": 272,
+    "co2_emission": 8,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
     "trunk_volume": 380,
@@ -59,23 +66,30 @@
       "overall_rating": 79,
       "test_year": 2020
     },
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "audi-a3-sportback-phev"
   },
   {
     "id": "new-4",
     "brand": "Audi",
     "model": "A5 Limousine",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "ev_range_km": 100,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 17.9,
     "price_eur": 108800,
     "image_url": "/images/cars/brands/audi/a5-limousine-e-hybrid/main.jpg",
-    "power_hp": 200,
-    "co2_emission": 30,
+    "power_hp": 245,
+    "co2_emission": 32,
     "charge_time_ac": 3,
     "charge_time_dc": 45,
     "trunk_volume": 500,
@@ -93,21 +107,28 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "audi-a5-limousine-phev"
   },
   {
     "id": "audi-5",
     "brand": "Audi",
     "model": "A6 Limousine",
-    "year": 2018,
+    "year": 2024,
     "segment": "Station/Estate",
-    "ev_range_km": 62,
-    "fuel_consumption": 2,
+    "ev_range_km": 95,
+    "fuel_consumption": 1.5,
     "battery_kwh": 17.9,
     "price_eur": 55000,
     "image_url": "/images/cars/brands/audi/a6-limousine-e-hybrid/main.jpg",
     "power_hp": 299,
-    "co2_emission": 45,
+    "co2_emission": 34,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
     "trunk_volume": 565,
@@ -125,21 +146,28 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "audi-a6-limousine-phev"
   },
   {
     "id": "new-6",
     "brand": "Audi",
     "model": "A7 Sportback",
-    "year": 2018,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
-    "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "ev_range_km": 90,
+    "fuel_consumption": 1.6,
+    "battery_kwh": 17.9,
     "price_eur": 65000,
     "image_url": "/images/cars/brands/audi/a7-sportback-tfsi-e/main.jpg",
-    "power_hp": 367,
-    "co2_emission": 30,
+    "power_hp": 340,
+    "co2_emission": 36,
     "charge_time_ac": 3,
     "charge_time_dc": 45,
     "trunk_volume": 500,
@@ -157,20 +185,27 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "audi-a7-sportback-phev"
   },
   {
     "id": "audi-2",
     "brand": "Audi",
     "model": "Q3",
-    "year": 2019,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 85,
     "fuel_consumption": 1.8,
-    "battery_kwh": 12.4,
+    "battery_kwh": 17.9,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/audi/q3-tfsi-e/main.jpg",
-    "power_hp": 180,
+    "power_hp": 245,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -187,23 +222,30 @@
       "overall_rating": 85,
       "test_year": 2018
     },
-    "engine_displacement": 1.5,
+    "engine_displacement": 1.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "audi-q3-phev"
   },
   {
     "id": "audi-4",
     "brand": "Audi",
     "model": "Q5",
-    "year": 2017,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 62,
-    "fuel_consumption": 1.8,
-    "battery_kwh": 14.4,
+    "ev_range_km": 80,
+    "fuel_consumption": 2,
+    "battery_kwh": 17.9,
     "price_eur": 50000,
     "image_url": "/images/cars/brands/audi/q5-tfsi-e/main.jpg",
-    "power_hp": 270,
-    "co2_emission": 41,
+    "power_hp": 299,
+    "co2_emission": 45,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
     "trunk_volume": 550,
@@ -219,23 +261,30 @@
       "overall_rating": 77,
       "test_year": 2017
     },
-    "engine_displacement": 3,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "audi-q5-phev"
   },
   {
     "id": "audi-6",
     "brand": "Audi",
     "model": "Q7",
-    "year": 2015,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 45,
-    "fuel_consumption": 2.4,
+    "ev_range_km": 75,
+    "fuel_consumption": 2.5,
     "battery_kwh": 17.9,
     "price_eur": 65000,
     "image_url": "/images/cars/brands/audi/q7-tfsi-e/main.jpg",
     "power_hp": 340,
-    "co2_emission": 54,
+    "co2_emission": 57,
     "charge_time_ac": 4,
     "charge_time_dc": 45,
     "trunk_volume": 865,
@@ -251,23 +300,30 @@
       "overall_rating": 77,
       "test_year": 2017
     },
-    "engine_displacement": 2,
+    "engine_displacement": 3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "audi-q7-phev"
   },
   {
     "id": "audi-8",
     "brand": "Audi",
     "model": "Q8",
-    "year": 2018,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 45,
-    "fuel_consumption": 2,
+    "ev_range_km": 70,
+    "fuel_consumption": 2.7,
     "battery_kwh": 17.9,
     "price_eur": 75000,
     "image_url": "/images/cars/brands/audi/q8-tfsi-e/main.jpg",
-    "power_hp": 360,
-    "co2_emission": 45,
+    "power_hp": 340,
+    "co2_emission": 61,
     "charge_time_ac": 4,
     "charge_time_dc": 45,
     "trunk_volume": 605,
@@ -285,20 +341,27 @@
     },
     "engine_displacement": 3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "audi-q8-phev"
   },
   {
     "id": "bmw-5",
     "brand": "BMW",
     "model": "5 Series",
-    "year": 2017,
+    "year": 2024,
     "segment": "Sedan",
-    "ev_range_km": 50,
+    "ev_range_km": 55,
     "fuel_consumption": 1.8,
-    "battery_kwh": 12,
+    "battery_kwh": 18.7,
     "price_eur": 55000,
     "image_url": "/images/cars/brands/bmw/5-series-phev/main.jpg",
-    "power_hp": 292,
+    "power_hp": 299,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -317,20 +380,27 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-5-series-phev"
   },
   {
     "id": "bmw-8",
     "brand": "BMW",
     "model": "7 Series",
-    "year": 2015,
+    "year": 2024,
     "segment": "Sedan",
-    "ev_range_km": 45,
+    "ev_range_km": 50,
     "fuel_consumption": 1.8,
-    "battery_kwh": 18.6,
+    "battery_kwh": 18.7,
     "price_eur": 95000,
     "image_url": "/images/cars/brands/bmw/7-series-phev/main.jpg",
-    "power_hp": 400,
+    "power_hp": 489,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -349,7 +419,14 @@
     },
     "engine_displacement": 3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-7-series-phev"
   },
   {
     "id": "bmw-m5touring",
@@ -359,10 +436,10 @@
     "segment": "Estate",
     "ev_range_km": 45,
     "fuel_consumption": 2.1,
-    "battery_kwh": 18.6,
+    "battery_kwh": 18.7,
     "price_eur": 120000,
     "image_url": "/images/cars/brands/bmw/m5-touring/main.jpg",
-    "power_hp": 560,
+    "power_hp": 727,
     "co2_emission": 48,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -381,17 +458,24 @@
     },
     "engine_displacement": 4.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-m5-touring-phev"
   },
   {
     "id": "new-14",
     "brand": "BMW",
     "model": "2 Series Active Tourer",
-    "year": 2014,
+    "year": 2024,
     "segment": "MPV",
-    "ev_range_km": 50,
+    "ev_range_km": 63,
     "fuel_consumption": 1.8,
-    "battery_kwh": 14.9,
+    "battery_kwh": 12,
     "price_eur": 40000,
     "image_url": "/images/cars/brands/bmw/serii-2-active-tourer-phev/main.jpg",
     "power_hp": 245,
@@ -413,15 +497,22 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-2-series-active-tourer-phev"
   },
   {
     "id": "bmw-serii3limuzyna",
     "brand": "BMW",
     "model": "3 Series Sedan",
-    "year": 2019,
+    "year": 2024,
     "segment": "Sedan",
-    "ev_range_km": 50,
+    "ev_range_km": 63,
     "fuel_consumption": 1.7,
     "battery_kwh": 12,
     "price_eur": 55000,
@@ -445,17 +536,24 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-3-series-sedan-phev"
   },
   {
     "id": "bmw-3",
     "brand": "BMW",
     "model": "X1",
-    "year": 2015,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 60,
     "fuel_consumption": 1.8,
-    "battery_kwh": 10.7,
+    "battery_kwh": 12,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/bmw/x1-phev/main.jpg",
     "power_hp": 245,
@@ -477,15 +575,22 @@
     },
     "engine_displacement": 4.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-x1-phev"
   },
   {
     "id": "bmw-6",
     "brand": "BMW",
     "model": "X3",
-    "year": 2017,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 55,
     "fuel_consumption": 2.8,
     "battery_kwh": 12,
     "price_eur": 50000,
@@ -509,20 +614,27 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-x3-phev"
   },
   {
     "id": "bmw-x5",
     "brand": "BMW",
     "model": "X5",
-    "year": 2018,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 45,
+    "ev_range_km": 82,
     "fuel_consumption": 2.1,
-    "battery_kwh": 18.6,
+    "battery_kwh": 24,
     "price_eur": 65000,
     "image_url": "/images/cars/brands/bmw/x5-phev/main.jpg",
-    "power_hp": 394,
+    "power_hp": 490,
     "co2_emission": 48,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -541,20 +653,27 @@
     },
     "engine_displacement": 3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-x5-phev"
   },
   {
     "id": "new-19",
     "brand": "BMW",
     "model": "Xm",
-    "year": 2022,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 45,
+    "ev_range_km": 75,
     "fuel_consumption": 1.5,
     "battery_kwh": 25.7,
     "price_eur": 150000,
     "image_url": "/images/cars/brands/bmw/xm/main.jpg",
-    "power_hp": 653,
+    "power_hp": 476,
     "co2_emission": 30,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -573,7 +692,14 @@
     },
     "engine_displacement": 4.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "bmw-xm-phev"
   },
   {
     "id": "new-20",
@@ -605,7 +731,14 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "LFP",
-    "battery_architecture": "blade"
+    "battery_architecture": "blade",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front right",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front right"
+    },
+    "slug": "byd-seal-5-dm-i-phev"
   },
   {
     "id": "byd-seal6dmi",
@@ -637,7 +770,14 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "LFP",
-    "battery_architecture": "blade"
+    "battery_architecture": "blade",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front right",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front right"
+    },
+    "slug": "byd-seal-6-dm-i-phev"
   },
   {
     "id": "byd-sealudmi",
@@ -669,7 +809,14 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "LFP",
-    "battery_architecture": "blade"
+    "battery_architecture": "blade",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front right",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front right"
+    },
+    "slug": "byd-seal-u-dm-i-phev"
   },
   {
     "id": "new-23",
@@ -701,7 +848,14 @@
       "test_year": 2021
     },
     "engine_displacement": 1.5,
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "chery-tiggo-7-phev"
   },
   {
     "id": "chery-tiggo8",
@@ -733,7 +887,14 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "chery-tiggo-8-phev"
   },
   {
     "id": "chery-tiggo9",
@@ -765,13 +926,20 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "chery-tiggo-9-phev"
   },
   {
     "id": "citroen-1",
     "brand": "Citroën",
     "model": "C5 Aircross",
-    "year": 2018,
+    "year": 2024,
     "segment": "SUV",
     "ev_range_km": 55,
     "fuel_consumption": 1.6,
@@ -797,17 +965,24 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "citron-c5-aircross-phev"
   },
   {
     "id": "citroën-c5x",
     "brand": "Citroën",
     "model": "C5 X",
-    "year": 2020,
+    "year": 2024,
     "segment": "SUV",
     "ev_range_km": 55,
     "fuel_consumption": 1.6,
-    "battery_kwh": 11.4,
+    "battery_kwh": 13.2,
     "price_eur": 38000,
     "image_url": "/images/cars/brands/citroen/c5x-plug-in-hybrid/main.jpg",
     "power_hp": 225,
@@ -829,7 +1004,14 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "citron-c5-x-phev"
   },
   {
     "id": "cupra-2",
@@ -861,7 +1043,14 @@
     },
     "engine_displacement": 1.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "cupra-formentor-phev"
   },
   {
     "id": "cupra-1",
@@ -893,20 +1082,27 @@
     },
     "engine_displacement": 1.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "cupra-leon-phev"
   },
   {
     "id": "new-31",
     "brand": "DS",
     "model": "7 Crossback",
-    "year": 2020,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
+    "ev_range_km": 58,
     "fuel_consumption": 1.5,
     "battery_kwh": 13.2,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/ds-automobiles/ds-7/main.jpg",
-    "power_hp": 200,
+    "power_hp": 225,
     "co2_emission": 30,
     "charge_time_ac": 3,
     "charge_time_dc": 45,
@@ -925,17 +1121,24 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "ds-7-crossback-phev"
   },
   {
     "id": "new-33",
     "brand": "DS",
     "model": "N4",
-    "year": 2023,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 48,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13.2,
+    "battery_kwh": 11.9,
     "price_eur": 43000,
     "image_url": "/images/cars/brands/ds-automobiles/n4/main.png",
     "power_hp": 200,
@@ -957,7 +1160,14 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "ds-n4-phev"
   },
   {
     "id": "ford-1",
@@ -989,7 +1199,14 @@
     },
     "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "ford-kuga-phev"
   },
   {
     "id": "new-34",
@@ -1021,7 +1238,14 @@
     },
     "engine_displacement": 2.3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "ford-ranger-phev"
   },
   {
     "id": "new-35",
@@ -1053,7 +1277,14 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "ford-tourneo-connect-phev"
   },
   {
     "id": "hyundai-3",
@@ -1085,7 +1316,14 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "hyundai-santa-fe-phev"
   },
   {
     "id": "hyundai-2",
@@ -1117,7 +1355,14 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "hyundai-tucson-phev"
   },
   {
     "id": "new-38",
@@ -1149,7 +1394,14 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front right",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front right"
+    },
+    "slug": "jaecoo-j7-super-hybrid-phev"
   },
   {
     "id": "new-39",
@@ -1181,15 +1433,22 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front right",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front right"
+    },
+    "slug": "jaecoo-omoda-9-super-hybrid-phev"
   },
   {
     "id": "jeep-2",
     "brand": "Jeep",
     "model": "Compass 4xe",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 45,
+    "ev_range_km": 50,
     "fuel_consumption": 1.8,
     "battery_kwh": 11.4,
     "price_eur": 40000,
@@ -1213,15 +1472,22 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "jeep-compass-4xe-phev"
   },
   {
     "id": "jeep-3",
     "brand": "Jeep",
     "model": "Grand Cherokee",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 45,
+    "ev_range_km": 40,
     "fuel_consumption": 2.1,
     "battery_kwh": 17.3,
     "price_eur": 55000,
@@ -1245,13 +1511,20 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "jeep-grand-cherokee-phev"
   },
   {
     "id": "kia-1",
     "brand": "Kia",
     "model": "Niro",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
     "ev_range_km": 65,
     "fuel_consumption": 1.3,
@@ -1277,20 +1550,27 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "kia-niro-phev"
   },
   {
     "id": "2",
     "brand": "Kia",
     "model": "Sportage",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 70,
+    "ev_range_km": 78,
     "fuel_consumption": 1.4,
     "battery_kwh": 13.8,
     "price_eur": 37477,
     "image_url": "/images/cars/brands/kia/nowy-sportage-phev/main.jpg",
-    "power_hp": 230,
+    "power_hp": 265,
     "co2_emission": 26,
     "charge_time_ac": 3.2,
     "charge_time_dc": 40,
@@ -1309,15 +1589,22 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "kia-sportage-phev"
   },
   {
     "id": "kia-2",
     "brand": "Kia",
     "model": "Sorento",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 58,
+    "ev_range_km": 57,
     "fuel_consumption": 1.6,
     "battery_kwh": 13.8,
     "price_eur": 36542,
@@ -1341,7 +1628,14 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "kia-sorento-phev"
   },
   {
     "id": "new-45",
@@ -1373,7 +1667,14 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "land-rover-defender-110-phev"
   },
   {
     "id": "new-46",
@@ -1405,7 +1706,14 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "land-rover-discovery-sport-phev"
   },
   {
     "id": "new-47",
@@ -1437,7 +1745,14 @@
     },
     "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "lexus-nx-450h-phev"
   },
   {
     "id": "new-48",
@@ -1469,7 +1784,14 @@
     },
     "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "lexus-rx-450h-phev"
   },
   {
     "id": "mazda-1",
@@ -1501,7 +1823,14 @@
     },
     "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mazda-cx-60-phev"
   },
   {
     "id": "mazda-cx80",
@@ -1533,15 +1862,22 @@
     },
     "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mazda-cx-80-phev"
   },
   {
     "id": "mercedes-1",
     "brand": "Mercedes-Benz",
     "model": "A-Class",
-    "year": 2022,
+    "year": 2024,
     "segment": "Hatchback",
-    "ev_range_km": 75,
+    "ev_range_km": 70,
     "fuel_consumption": 1.4,
     "battery_kwh": 15.6,
     "price_eur": 38000,
@@ -1586,17 +1922,24 @@
     },
     "engine_displacement": 1.3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mercedes-benz-a-class-phev"
   },
   {
     "id": "mercedesbenz-cclass",
     "brand": "Mercedes-Benz",
     "model": "C-Class",
-    "year": 2022,
+    "year": 2024,
     "segment": "Sedan",
-    "ev_range_km": 100,
+    "ev_range_km": 108,
     "fuel_consumption": 1.8,
-    "battery_kwh": 13.5,
+    "battery_kwh": 25.4,
     "price_eur": 48000,
     "image_url": "/images/cars/brands/mercedes-benz/c-class-phev/main.jpg",
     "power_hp": 313,
@@ -1639,15 +1982,22 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mercedes-benz-c-class-phev"
   },
   {
     "id": "mercedesbenz-cla",
     "brand": "Mercedes-Benz",
     "model": "CLA",
-    "year": 2022,
+    "year": 2024,
     "segment": "Coupe",
-    "ev_range_km": 75,
+    "ev_range_km": 70,
     "fuel_consumption": 1.4,
     "battery_kwh": 15.6,
     "price_eur": 40000,
@@ -1692,20 +2042,27 @@
     },
     "engine_displacement": 1.3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mercedes-benz-cla-phev"
   },
   {
     "id": "mercedes-6",
     "brand": "Mercedes-Benz",
     "model": "E-Class",
-    "year": 2020,
+    "year": 2024,
     "segment": "Sedan",
-    "ev_range_km": 50,
+    "ev_range_km": 100,
     "fuel_consumption": 1.8,
     "battery_kwh": 25.4,
     "price_eur": 55000,
     "image_url": "/images/cars/brands/mercedes-benz/e-class-phev/main.jpg",
-    "power_hp": 435,
+    "power_hp": 381,
     "co2_emission": 41,
     "charge_time_ac": 4.5,
     "charge_time_dc": 50,
@@ -1745,13 +2102,20 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mercedes-benz-e-class-phev"
   },
   {
     "id": "mercedes-3",
     "brand": "Mercedes-Benz",
     "model": "GLA",
-    "year": 2022,
+    "year": 2024,
     "segment": "SUV",
     "ev_range_km": 70,
     "fuel_consumption": 1.5,
@@ -1798,20 +2162,27 @@
     },
     "engine_displacement": 1.3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mercedes-benz-gla-phev"
   },
   {
     "id": "mercedes-5",
     "brand": "Mercedes-Benz",
     "model": "GLC Coupé",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 100,
     "fuel_consumption": 1.8,
     "battery_kwh": 25.4,
     "price_eur": 52000,
     "image_url": "/images/cars/brands/mercedes-benz/glc-coupe-phev/main.jpg",
-    "power_hp": 435,
+    "power_hp": 313,
     "co2_emission": 41,
     "charge_time_ac": 4.5,
     "charge_time_dc": 50,
@@ -1851,20 +2222,27 @@
     },
     "engine_displacement": 1.3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mercedes-benz-glc-coup-phev"
   },
   {
     "id": "mercedesbenz-glc",
     "brand": "Mercedes-Benz",
     "model": "GLC",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 100,
     "fuel_consumption": 1.8,
     "battery_kwh": 25.4,
     "price_eur": 50000,
     "image_url": "/images/cars/brands/mercedes-benz/glc-phev/main.jpg",
-    "power_hp": 435,
+    "power_hp": 313,
     "co2_emission": 41,
     "charge_time_ac": 4.5,
     "charge_time_dc": 50,
@@ -1904,20 +2282,27 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mercedes-benz-glc-phev"
   },
   {
     "id": "mercedes-7",
     "brand": "Mercedes-Benz",
     "model": "GLE Coupé",
-    "year": 2020,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 45,
+    "ev_range_km": 90,
     "fuel_consumption": 1.8,
-    "battery_kwh": 31.2,
+    "battery_kwh": 25.4,
     "price_eur": 68000,
     "image_url": "/images/cars/brands/mercedes-benz/gle-coupe-phev/main.jpg",
-    "power_hp": 435,
+    "power_hp": 381,
     "co2_emission": 41,
     "charge_time_ac": 5,
     "charge_time_dc": 55,
@@ -1957,20 +2342,27 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Rear left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Rear left"
+    },
+    "slug": "mercedes-benz-gle-coup-phev"
   },
   {
     "id": "mercedesbenz-gle",
     "brand": "Mercedes-Benz",
     "model": "GLE",
-    "year": 2022,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 45,
+    "ev_range_km": 90,
     "fuel_consumption": 1.8,
-    "battery_kwh": 31.2,
+    "battery_kwh": 25.4,
     "price_eur": 65000,
     "image_url": "/images/cars/brands/mercedes-benz/gle-phev/main.jpg",
-    "power_hp": 435,
+    "power_hp": 381,
     "co2_emission": 41,
     "charge_time_ac": 5,
     "charge_time_dc": 55,
@@ -2010,17 +2402,24 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Rear left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Rear left"
+    },
+    "slug": "mercedes-benz-gle-phev"
   },
   {
     "id": "mercedesbenz-sclass",
     "brand": "Mercedes-Benz",
     "model": "S-Class",
-    "year": 2020,
+    "year": 2024,
     "segment": "Sedan",
-    "ev_range_km": 40,
+    "ev_range_km": 77,
     "fuel_consumption": 1.8,
-    "battery_kwh": 28.6,
+    "battery_kwh": 28,
     "price_eur": 95000,
     "image_url": "/images/cars/brands/mercedes-benz/s-class-phev/main.jpg",
     "power_hp": 510,
@@ -2063,7 +2462,14 @@
     },
     "engine_displacement": 3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Rear left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Rear left"
+    },
+    "slug": "mercedes-benz-s-class-phev"
   },
   {
     "id": "mg-2",
@@ -2095,7 +2501,14 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mg-hs-phev"
   },
   {
     "id": "mini-1",
@@ -2127,7 +2540,14 @@
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mini-countryman-phev"
   },
   {
     "id": "mitsubishi-2",
@@ -2159,7 +2579,14 @@
     },
     "engine_displacement": 2.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mitsubishi-eclipse-cross-phev"
   },
   {
     "id": "mitsubishi-1",
@@ -2191,17 +2618,24 @@
     },
     "engine_displacement": 2.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "mitsubishi-outlander-phev"
   },
   {
     "id": "opel-2",
     "brand": "Opel",
     "model": "Astra PHEV",
-    "year": 2023,
+    "year": 2024,
     "segment": "Hatchback",
-    "ev_range_km": 59,
+    "ev_range_km": 65,
     "fuel_consumption": 1.4,
-    "battery_kwh": 11.4,
+    "battery_kwh": 12.4,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/opel/astra-Phev/main.jpg",
     "power_hp": 180,
@@ -2223,20 +2657,27 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "opel-astra-phev-phev"
   },
   {
     "id": "opel-3",
     "brand": "Opel",
     "model": "Grandland",
-    "year": 2017,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 59,
     "fuel_consumption": 1.6,
-    "battery_kwh": 11.4,
+    "battery_kwh": 13.2,
     "price_eur": 40000,
     "image_url": "/images/cars/brands/opel/grandland-grandland-overview/main.jpg",
-    "power_hp": 180,
+    "power_hp": 225,
     "co2_emission": 36,
     "charge_time_ac": 3,
     "charge_time_dc": 35,
@@ -2255,20 +2696,27 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "opel-grandland-phev"
   },
   {
     "id": "new-67",
     "brand": "Peugeot",
     "model": "3008",
-    "year": 2021,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
+    "ev_range_km": 59,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "battery_kwh": 13.2,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/peugeot/3008 Plug-in/main.jpeg",
-    "power_hp": 200,
+    "power_hp": 225,
     "co2_emission": 30,
     "charge_time_ac": 3,
     "charge_time_dc": 45,
@@ -2287,17 +2735,24 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "peugeot-3008-phev"
   },
   {
     "id": "peugeot-2",
     "brand": "Peugeot",
     "model": "308",
-    "year": 2020,
+    "year": 2024,
     "segment": "Hatchback",
-    "ev_range_km": 59,
+    "ev_range_km": 68,
     "fuel_consumption": 1.4,
-    "battery_kwh": 11.4,
+    "battery_kwh": 11.8,
     "price_eur": 37400,
     "image_url": "/images/cars/brands/peugeot/308-hybrid/main.jpg",
     "power_hp": 180,
@@ -2319,20 +2774,27 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "peugeot-308-phev"
   },
   {
     "id": "new-69",
     "brand": "Peugeot",
     "model": "408",
-    "year": 2023,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
+    "ev_range_km": 65,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "battery_kwh": 11.8,
     "price_eur": 32000,
     "image_url": "/images/cars/brands/peugeot/408-hybrid/main.jpeg",
-    "power_hp": 200,
+    "power_hp": 180,
     "co2_emission": 30,
     "charge_time_ac": 3,
     "charge_time_dc": 45,
@@ -2351,15 +2813,22 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "peugeot-408-phev"
   },
   {
     "id": "new-70",
     "brand": "Porsche",
     "model": "Cayenne",
-    "year": 2010,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 44,
     "fuel_consumption": 1.5,
     "battery_kwh": 17.9,
     "price_eur": 136000,
@@ -2383,20 +2852,27 @@
     },
     "engine_displacement": 3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "porsche-cayenne-phev"
   },
   {
     "id": "new-71",
     "brand": "Porsche",
     "model": "Panamera 4",
-    "year": 2020,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
+    "ev_range_km": 50,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "battery_kwh": 17.9,
     "price_eur": 107780,
     "image_url": "/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg",
-    "power_hp": 462,
+    "power_hp": 340,
     "co2_emission": 30,
     "charge_time_ac": 3,
     "charge_time_dc": 45,
@@ -2415,7 +2891,14 @@
     },
     "engine_displacement": 2.9,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "porsche-panamera-4-phev"
   },
   {
     "id": "new-72",
@@ -2447,20 +2930,27 @@
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "renault-rafale-phev"
   },
   {
     "id": "skoda-3",
     "brand": "Škoda",
     "model": "Kodiaq",
-    "year": 2023,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
+    "ev_range_km": 55,
     "fuel_consumption": 1.8,
     "battery_kwh": 13,
     "price_eur": 38000,
     "image_url": "/images/cars/brands/skoda/kodiaq-phev/main.jpg",
-    "power_hp": 204,
+    "power_hp": 245,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -2479,20 +2969,27 @@
     },
     "engine_displacement": 1.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "koda-kodiaq-phev"
   },
   {
     "id": "skoda-2",
     "brand": "Škoda",
     "model": "Superb Combi",
-    "year": 2022,
+    "year": 2024,
     "segment": "Sedan",
-    "ev_range_km": 55,
+    "ev_range_km": 56,
     "fuel_consumption": 1.4,
     "battery_kwh": 13,
     "price_eur": 36000,
     "image_url": "/images/cars/brands/skoda/superb-combi-phev/main.jpg",
-    "power_hp": 204,
+    "power_hp": 245,
     "co2_emission": 32,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -2511,20 +3008,27 @@
     },
     "engine_displacement": 1.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "koda-superb-combi-phev"
   },
   {
     "id": "skoda-superbiv",
     "brand": "Škoda",
     "model": "Superb IV",
-    "year": 2015,
+    "year": 2024,
     "segment": "Sedan",
-    "ev_range_km": 55,
+    "ev_range_km": 56,
     "fuel_consumption": 1.4,
     "battery_kwh": 13,
     "price_eur": 39900,
     "image_url": "/images/cars/brands/skoda/superb-iv-phev/main.jpg",
-    "power_hp": 204,
+    "power_hp": 245,
     "co2_emission": 32,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -2543,7 +3047,14 @@
     },
     "engine_displacement": 1.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "koda-superb-iv-phev"
   },
   {
     "id": "new-76",
@@ -2575,7 +3086,14 @@
     },
     "engine_displacement": 1.8,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "toyota-c-hr-phev"
   },
   {
     "id": "toyota-1",
@@ -2607,7 +3125,14 @@
     },
     "engine_displacement": 1.8,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "toyota-prius-phev"
   },
   {
     "id": "toyota-2",
@@ -2639,20 +3164,27 @@
     },
     "engine_displacement": 1.8,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "toyota-rav4-phev"
   },
   {
     "id": "vw-1",
     "brand": "Volkswagen",
     "model": "Golf",
-    "year": 2012,
+    "year": 2024,
     "segment": "Hatchback",
-    "ev_range_km": 71,
+    "ev_range_km": 60,
     "fuel_consumption": 1.2,
     "battery_kwh": 13,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/volkswagen/golf/main.jpg",
-    "power_hp": 204,
+    "power_hp": 245,
     "co2_emission": 27,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -2671,20 +3203,27 @@
     },
     "engine_displacement": 1.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volkswagen-golf-phev"
   },
   {
     "id": "vw-2",
     "brand": "Volkswagen",
     "model": "Passat",
-    "year": 2014,
+    "year": 2024,
     "segment": "Station/Estate",
-    "ev_range_km": 55,
+    "ev_range_km": 56,
     "fuel_consumption": 1.2,
     "battery_kwh": 13,
     "price_eur": 38000,
     "image_url": "/images/cars/brands/volkswagen/passat/main.jpg",
-    "power_hp": 204,
+    "power_hp": 245,
     "co2_emission": 27,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -2703,20 +3242,27 @@
       "test_year": 2019
     },
     "engine_displacement": 1.4,
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volkswagen-passat-phev"
   },
   {
     "id": "new-81",
     "brand": "Volkswagen",
     "model": "Tayron",
-    "year": 2018,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 100,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "battery_kwh": 19.7,
     "price_eur": 45000,
     "image_url": "/images/cars/brands/volkswagen/tayron/main.jpg",
-    "power_hp": 200,
+    "power_hp": 245,
     "co2_emission": 30,
     "charge_time_ac": 3,
     "charge_time_dc": 45,
@@ -2735,20 +3281,27 @@
       "test_year": 2019
     },
     "engine_displacement": 1.4,
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volkswagen-tayron-phev"
   },
   {
     "id": "vw-3",
     "brand": "Volkswagen",
     "model": "Tiguan",
-    "year": 2016,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 50,
+    "ev_range_km": 60,
     "fuel_consumption": 1.9,
     "battery_kwh": 13,
     "price_eur": 40000,
     "image_url": "/images/cars/brands/volkswagen/tiguan/main.jpg",
-    "power_hp": 204,
+    "power_hp": 245,
     "co2_emission": 43,
     "charge_time_ac": 3.5,
     "charge_time_dc": 40,
@@ -2767,20 +3320,27 @@
     },
     "engine_displacement": 1.4,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volkswagen-tiguan-phev"
   },
   {
     "id": "new-83",
     "brand": "Volkswagen",
     "model": "Touareg",
-    "year": 2023,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
+    "ev_range_km": 50,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "battery_kwh": 17.9,
     "price_eur": 55000,
     "image_url": "/images/cars/brands/volkswagen/tuareg/main.jpg",
-    "power_hp": 200,
+    "power_hp": 340,
     "co2_emission": 30,
     "charge_time_ac": 3,
     "charge_time_dc": 45,
@@ -2799,7 +3359,14 @@
     },
     "engine_displacement": 3,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volkswagen-touareg-phev"
   },
   {
     "id": "volvo-5",
@@ -2831,7 +3398,14 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volvo-v60-phev"
   },
   {
     "id": "volvo-7",
@@ -2863,7 +3437,14 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volvo-v90-phev"
   },
   {
     "id": "volvo-2",
@@ -2895,7 +3476,14 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volvo-xc60-phev"
   },
   {
     "id": "volvo-3",
@@ -2927,6 +3515,13 @@
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
-    "battery_architecture": "modular"
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "slug": "volvo-xc90-phev"
   }
 ]

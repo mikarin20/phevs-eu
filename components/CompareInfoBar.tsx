@@ -10,6 +10,7 @@ interface Car {
   model: string
   year: number
   image_url: string
+  slug: string
 }
 
 interface CompareInfoBarProps {
@@ -52,7 +53,7 @@ export default function CompareInfoBar({
           <div className="flex items-center space-x-3">
             {selectedCars.length >= 2 && (
               <Link
-                href="/compare"
+                href={`/compare/${selectedCars.map(car => car.slug).join('-vs-')}`}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
                 <ArrowsUpDownIcon className="h-4 w-4" />

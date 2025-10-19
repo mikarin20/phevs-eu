@@ -26,6 +26,7 @@ interface Car {
   seats: number
   warranty_years: number
   country_availability: string
+  slug: string
   euroncap_rating?: {
     stars: number
     adult_occupant: number
@@ -37,16 +38,47 @@ interface Car {
   }
 }
 
-export default function ComparePage() {
+interface ComparePageProps {
+  params: {
+    cars: string
+  }
+}
+
+export default function ComparePage({ params }: ComparePageProps) {
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
+  const [currentLanguage, setCurrentLanguage] = useState<string>('en')
   const comparisonRef = useRef<HTMLDivElement>(null)
 
+  // URL'yi güncelle
+  const updateUrl = (cars: Car[]) => {
+    if (cars.length >= 2) {
+      const carSlugs = cars.map(car => car.slug).join('-vs-')
+      const newUrl = `/compare/${carSlugs}`
+      window.history.pushState({}, '', newUrl)
+    } else if (cars.length === 1) {
+      window.history.pushState({}, '', '/compare')
+    }
+  }
+
   useEffect(() => {
-    // LocalStorage'dan seçili arabaları yükle
-    const savedSelection = localStorage.getItem('phevs-selected-cars')
-    console.log('Saved selection from localStorage:', savedSelection)
+    // URL'den araç slug'larını al
+    const carSlugs = params.cars.split('-vs-')
+    console.log('Car slugs from URL:', carSlugs)
     
-    if (savedSelection) {
+    // Slug'lardan araçları bul
+    const carsFromUrl = carSlugs.map(slug => 
+      carsData.find(car => car.slug === slug)
+    ).filter(Boolean) as Car[]
+    
+    if (carsFromUrl.length > 0) {
+      setSelectedCars(carsFromUrl)
+      console.log('Cars loaded from URL:', carsFromUrl)
+    } else {
+      // Fallback: LocalStorage'dan seçili arabaları yükle
+      const savedSelection = localStorage.getItem('phevs-selected-cars')
+      console.log('Saved selection from localStorage:', savedSelection)
+      
+      if (savedSelection) {
       try {
         const carIds = JSON.parse(savedSelection)
         console.log('Parsed car IDs:', carIds)
@@ -59,12 +91,17 @@ export default function ComparePage() {
     } else {
       console.log('No saved selection found in localStorage')
     }
+
+    // Dil algılama
+    const savedLanguage = localStorage.getItem('phevs-language') || 'en'
+    setCurrentLanguage(savedLanguage)
   }, [])
 
   const removeCar = (carId: string) => {
     const updated = selectedCars.filter(c => c.id !== carId)
     setSelectedCars(updated)
     localStorage.setItem('phevs-selected-cars', JSON.stringify(updated.map(c => c.id)))
+    updateUrl(updated)
   }
 
   // Görüntü paylaşım fonksiyonları
@@ -72,7 +109,7 @@ export default function ComparePage() {
     if (!comparisonRef.current) return null
 
     try {
-      // Önce karşılaştırma tablosunu yakala
+      // Tüm karşılaştırma içeriğini yakala (radar chart dahil)
       const comparisonCanvas = await html2canvas(comparisonRef.current, {
         backgroundColor: '#ffffff',
         scale: 2,
@@ -119,7 +156,7 @@ export default function ComparePage() {
       ctx.font = '14px Arial'
       ctx.fillText(`${selectedCars.map(c => `${c.brand} ${c.model}`).join(' vs ')}`, totalWidth / 2, 85)
 
-      // Karşılaştırma tablosunu ekle
+      // Karşılaştırma içeriğini ekle
       ctx.drawImage(comparisonCanvas, padding, headerHeight + padding)
 
       // Footer ekle
@@ -234,6 +271,16 @@ export default function ComparePage() {
           getValue: (car: Car) => `${car.charge_time_dc} minutes`,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.charge_time_dc))
         },
+        { 
+          label: 'Charging Port Location', 
+          getValue: (car: Car) => car.charging_port ? car.charging_port.ac_location : 'N/A',
+          highlight: false
+        },
+        { 
+          label: 'AC Port Type', 
+          getValue: (car: Car) => car.charging_port ? car.charging_port.ac_type : 'N/A',
+          highlight: false
+        },
       ]
     },
     {
@@ -318,6 +365,7 @@ export default function ComparePage() {
       ]
     },
   ]
+
 
   const getCarStrengths = (car: Car, allCars: Car[]) => {
     const strengths: string[] = []
@@ -609,6 +657,7 @@ export default function ComparePage() {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div ref={comparisonRef}>
         {/* Vehicle Cards Header */}
         <div className="grid grid-cols-1 gap-6 mb-8" style={{ 
           gridTemplateColumns: selectedCars.length === 2 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)' 
@@ -667,8 +716,33 @@ export default function ComparePage() {
           ))}
         </div>
 
+
+        {/* Strengths Summary */}
+        {selectedCars.length >= 2 && (
+          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {selectedCars.map((car, index) => {
+              const strengths = getCarStrengths(car, selectedCars)
+              return (
+                <div key={car.id} className="card-steel">
+                  <h3 className="text-sm font-bold text-slate-800 mb-3 pb-2 border-b-2 border-slate-200">
+                    {car.brand} {car.model} - Güçlü Yönler
+                  </h3>
+                  <div className="space-y-2">
+                    {strengths.map((strength, idx) => (
+                      <div key={idx} className="flex items-center space-x-2">
+                        <CheckIcon className="h-4 w-4 text-green-600 flex-shrink-0" />
+                        <span className="text-xs text-slate-700">{strength}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
+
         {/* Comparison Table */}
-        <div ref={comparisonRef} className="space-y-6">
+        <div className="space-y-6">
           {comparisonCategories.map((category) => (
             <div key={category.title} className="card">
               <h3 className="text-sm font-bold text-slate-800 mb-2 pb-1 border-b-2 border-slate-200">
@@ -744,27 +818,6 @@ export default function ComparePage() {
           </button>
         </div>
 
-        {/* Strengths Summary */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {selectedCars.map((car, index) => {
-            const strengths = getCarStrengths(car, selectedCars)
-            return (
-              <div key={car.id} className="card-steel">
-                <h3 className="text-sm font-bold text-slate-800 mb-3 pb-2 border-b-2 border-slate-200">
-                  {car.brand} {car.model} - Güçlü Yönler
-                </h3>
-                <div className="space-y-2">
-                  {strengths.map((strength, idx) => (
-                    <div key={idx} className="flex items-center space-x-2">
-                      <CheckIcon className="h-4 w-4 text-green-600 flex-shrink-0" />
-                      <span className="text-xs text-slate-700">{strength}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )
-          })}
-        </div>
 
         {/* Legend */}
         <div className="mt-8 card-steel">
@@ -777,6 +830,7 @@ export default function ComparePage() {
               Highlighted cells indicate the best value in each category. Lower values are better for price, consumption, and emissions. Higher values are better for range, power, and capacity.
             </p>
           </div>
+        </div>
         </div>
       </div>
     </div>

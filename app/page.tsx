@@ -55,6 +55,7 @@ interface Car {
   seats: number
   warranty_years: number
   country_availability: string
+  slug: string
   euroncap_rating?: {
     stars: number
     adult_occupant: number
@@ -811,30 +812,29 @@ export default function Home() {
       </header>
 
       {/* Hero Section - SEO Content */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
               Europe's Most Comprehensive PHEV Comparison Platform
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              Compare 85 plug-in hybrid electric vehicles from 28 premium brands. Find the perfect PHEV for your lifestyle 
-              with detailed specifications, real-world range data, pricing information, and expert insights.
+            <p className="text-base text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+              Compare 85 plug-in hybrid electric vehicles from 28 premium brands. Find the perfect PHEV for your lifestyle.
             </p>
             
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="text-center p-6 rounded-lg bg-white dark:bg-slate-800 shadow-lg">
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">85</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">PHEV Models</div>
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              <div className="text-center p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">85</div>
+                <div className="text-xs text-gray-600 dark:text-gray-300">PHEV Models</div>
               </div>
-              <div className="text-center p-6 rounded-lg bg-white dark:bg-slate-800 shadow-lg">
-                <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">28</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">Premium Brands</div>
+              <div className="text-center p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">28</div>
+                <div className="text-xs text-gray-600 dark:text-gray-300">Premium Brands</div>
               </div>
-              <div className="text-center p-6 rounded-lg bg-white dark:bg-slate-800 shadow-lg">
-                <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">7</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">Vehicle Segments</div>
+              <div className="text-center p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
+                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">7</div>
+                <div className="text-xs text-gray-600 dark:text-gray-300">Vehicle Segments</div>
               </div>
             </div>
             
@@ -1223,6 +1223,19 @@ export default function Home() {
                         {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
                       </span>
                         </div>
+                    {car.charging_port && (
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                          <Tooltip content="Charging port type and location">
+                            <span className={`${currentTheme.textPrimary} cursor-help`}>Charging:</span>
+                          </Tooltip>
+                        </div>
+                        <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
+                          {car.charging_port.ac_location}
+                        </span>
+                      </div>
+                    )}
                     </div>
 
                   {/* Mobile Accordions */}
@@ -1278,6 +1291,17 @@ export default function Home() {
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                         </div>
+                        {car.charging_port && (
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                              <span className={`${currentTheme.textPrimary}`}>Charging:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
+                              {car.charging_port.ac_location}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </MobileAccordion>
 
