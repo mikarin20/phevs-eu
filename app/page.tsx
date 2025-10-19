@@ -1,4 +1,4 @@
-'use client'
+  'use client'
 
 import { useState, useEffect, useMemo } from 'react'
 import { 
@@ -56,6 +56,14 @@ interface Car {
   warranty_years: number
   country_availability: string
   slug: string
+  battery_chemistry?: string
+  battery_architecture?: string
+  charging_port?: {
+    ac_type: string
+    ac_location: string
+    dc_type: string
+    dc_location: string
+  }
   euroncap_rating?: {
     stars: number
     adult_occupant: number
