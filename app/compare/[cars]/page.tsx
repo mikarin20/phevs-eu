@@ -27,6 +27,15 @@ interface Car {
   warranty_years: number
   country_availability: string
   slug: string
+  engine_displacement?: number
+  battery_chemistry?: string
+  battery_architecture?: string
+  charging_port?: {
+    ac_type: string
+    ac_location: string
+    dc_type: string
+    dc_location: string
+  }
   euroncap_rating?: {
     stars: number
     adult_occupant: number
