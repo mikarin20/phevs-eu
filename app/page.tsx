@@ -1,4 +1,4 @@
-  'use client'
+'use client'
 
 import { useState, useEffect, useMemo } from 'react'
 import { 
@@ -473,7 +473,9 @@ export default function Home() {
       rangeDesc: 'Range (High-Low)',
       rangeAsc: 'Range (Low-High)',
       powerDesc: 'Power (High-Low)',
-      powerAsc: 'Power (Low-High)'
+      powerAsc: 'Power (Low-High)',
+      engine: 'Engine',
+      charging: 'Charging'
     },
     de: {
       searchPlaceholder: 'Nach Marke oder Modell suchen...',
@@ -525,7 +527,9 @@ export default function Home() {
       rangeDesc: 'Reichweite (Hoch-Niedrig)',
       rangeAsc: 'Reichweite (Niedrig-Hoch)',
       powerDesc: 'Leistung (Hoch-Niedrig)',
-      powerAsc: 'Leistung (Niedrig-Hoch)'
+      powerAsc: 'Leistung (Niedrig-Hoch)',
+      engine: 'Motor',
+      charging: 'Laden'
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -577,7 +581,9 @@ export default function Home() {
       rangeDesc: 'Menzil (Yüksek-Düşük)',
       rangeAsc: 'Menzil (Düşük-Yüksek)',
       powerDesc: 'Güç (Yüksek-Düşük)',
-      powerAsc: 'Güç (Düşük-Yüksek)'
+      powerAsc: 'Güç (Düşük-Yüksek)',
+      engine: 'Motor',
+      charging: 'Şarj'
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -629,7 +635,9 @@ export default function Home() {
       rangeDesc: 'Zasięg (Wysoki-Niski)',
       rangeAsc: 'Zasięg (Niski-Wysoki)',
       powerDesc: 'Moc (Wysoka-Niska)',
-      powerAsc: 'Moc (Niska-Wysoka)'
+      powerAsc: 'Moc (Niska-Wysoka)',
+      engine: 'Silnik',
+      charging: 'Ładowanie'
     }
   }
 
@@ -737,14 +745,14 @@ export default function Home() {
                 <div>
                   <h1 className={`text-2xl sm:text-4xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
                   <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Compare the best PHEVs in Europe</span>
-                </div>
+            </div>
               </div>
               
               {/* Tema Seçici - Mobilde gizli, tablet+ görünür */}
               <div className="hidden sm:flex items-center space-x-2 ml-4">
                 <div className="flex space-x-1">
                   {Object.entries(themes).map(([key, theme]) => (
-                    <button
+              <button
                       key={key}
                       onClick={() => setSelectedTheme(key)}
                       className={`p-2 rounded-lg transition-all duration-300 ${
@@ -759,7 +767,7 @@ export default function Home() {
                       title={theme.name}
                     >
                       <span className="text-base">{key === 'light' ? '☀️' : '🌙'}</span>
-                    </button>
+              </button>
                   ))}
                 </div>
               </div>
@@ -1072,8 +1080,8 @@ export default function Home() {
               <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
             </button>
           </div>
-        </div>
-      </div>
+              </div>
+            </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -1210,7 +1218,7 @@ export default function Home() {
                         </Tooltip>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
-                        </div>
+                    </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
@@ -1219,12 +1227,12 @@ export default function Home() {
                         </Tooltip>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
-                        </div>
+                    </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
                         <Tooltip content="Engine displacement in liters - Internal combustion engine size">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>Engine:</span>
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.engine}:</span>
                         </Tooltip>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>
@@ -1232,13 +1240,13 @@ export default function Home() {
                       </span>
                         </div>
                     {car.charging_port && (
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
                           <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
                           <Tooltip content="Charging port type and location">
-                            <span className={`${currentTheme.textPrimary} cursor-help`}>Charging:</span>
+                            <span className={`${currentTheme.textPrimary} cursor-help`}>{t.charging}:</span>
                           </Tooltip>
-                        </div>
+                      </div>
                         <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
                           {car.charging_port.ac_location}
                         </span>
@@ -1286,7 +1294,7 @@ export default function Home() {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                            <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>
                             {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
@@ -1303,7 +1311,7 @@ export default function Home() {
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-2">
                               <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                              <span className={`${currentTheme.textPrimary}`}>Charging:</span>
+                              <span className={`${currentTheme.textPrimary}`}>{t.charging}:</span>
                             </div>
                             <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
                               {car.charging_port.ac_location}
@@ -1329,7 +1337,7 @@ export default function Home() {
                         </div>
                       </div>
                     </MobileAccordion>
-                  </div>
+                    </div>
 
                   {/* Actions */}
                   <div className={`pt-4 border-t ${currentTheme.cardBorder}`}>
@@ -1360,24 +1368,24 @@ export default function Home() {
                       </Link>
                       
                       {/* Bottom Row */}
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation()
-                          toggleFavorite(car.id)
-                        }}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        toggleFavorite(car.id)
+                      }}
                         className="p-2 hover:bg-opacity-20 rounded-lg transition-colors flex items-center justify-center"
-                      >
-                        {favorites.includes(car.id) ? (
-                          <HeartSolidIcon className="h-5 w-5 text-red-500" />
-                        ) : (
-                          <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
-                        )}
-                      </button>
+                    >
+                      {favorites.includes(car.id) ? (
+                        <HeartSolidIcon className="h-5 w-5 text-red-500" />
+                      ) : (
+                        <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
+                      )}
+                    </button>
                       <button
-                        onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation()
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
                           setSelectedCarForSimulator(car)
                           setIsRangeSimulatorOpen(true)
                         }}
@@ -1502,7 +1510,7 @@ export default function Home() {
                       </div>
                       <div className="flex items-center space-x-2">
                         <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>
                           {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
                         </span>
@@ -1514,12 +1522,12 @@ export default function Home() {
                       <MobileAccordion title="Key Features" defaultOpen={true}>
                         <div className="space-y-3 text-sm">
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-2">
                               <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
                               <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
-                            </div>
+                      </div>
                             <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
-                          </div>
+                    </div>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-2">
                               <CpuChipIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
@@ -1616,24 +1624,24 @@ export default function Home() {
                       </Link>
                       
                       {/* Bottom Row */}
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation()
-                          toggleFavorite(car.id)
-                        }}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        toggleFavorite(car.id)
+                      }}
                         className="p-2 hover:bg-opacity-20 rounded-lg transition-colors flex items-center justify-center"
-                      >
-                        {favorites.includes(car.id) ? (
-                          <HeartSolidIcon className="h-5 w-5 text-red-500" />
-                        ) : (
-                          <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
-                        )}
-                      </button>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation()
+                    >
+                      {favorites.includes(car.id) ? (
+                        <HeartSolidIcon className="h-5 w-5 text-red-500" />
+                      ) : (
+                        <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
+                      )}
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
                           setSelectedCarForSimulator(car)
                           setIsRangeSimulatorOpen(true)
                         }}
@@ -1641,7 +1649,7 @@ export default function Home() {
                       >
                         <CalculatorIcon className="h-3 w-3 inline mr-1" />
                         Range
-                      </button>
+                    </button>
                     </div>
               </div>
                 </div>
