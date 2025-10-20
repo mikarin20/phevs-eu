@@ -102,14 +102,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#1e40af" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         
-        {/* Preload Critical Assets */}
-        <link
-          rel="preload"
-          href={inter.url}
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        {/* next/font already preloads fonts; explicit preload removed */}
         
         {/* Flag Icons CDN - Load async */}
         <link 
