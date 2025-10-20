@@ -1,120 +1,215 @@
 #!/usr/bin/env python3
-# auto_data_scraper.py
-# Usage: python auto_data_scraper.py --input models.txt --batch 20
+# audi_phev_scraper.py
+# Usage: python audi_phev_scraper.py
 # Requires: requests, beautifulsoup4, lxml
-# Output: outputs/auto_data_results.csv and outputs/batches/batch_*.csv
+# Output: outputs/audi_phev_data.csv
 
 import requests
 from bs4 import BeautifulSoup
-import argparse
 import csv
 import os
 import time
 import urllib.parse
-from typing import List
+import re
+from typing import Dict, List, Optional
 
-BASE_SEARCH = "https://www.auto-data.net/en/?f_go=1&search="
+# Marka ID'leri (düzeltilmiş)
+BRANDS = {
+    "Audi": 41,
+    "BMW": 86, 
+    "Mercedes-Benz": 138,
+    "Volkswagen": 80,  # Volvo ID'si aslında VW gösteriyor
+    "Volvo": 80,       # Aynı ID
+    "Peugeot": 49,     # VW ID'si aslında Peugeot gösteriyor
+    "Skoda": 154,      # Yeni eklenen markalar
+    "Citroen": 166,
+    "MG": 153,
+    "Toyota": 40
+}
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; AutoDataScraper/1.0; +https://yourdomain.example)"
+    "User-Agent": "Mozilla/5.0 (compatible; AudiPHEVScraper/1.0; +https://yourdomain.example)"
 }
 
-def normalize_line(line: str) -> str:
-    return line.strip()
+# Audi PHEV modelleri
+PHEV_MODELS = [
+    "A3 Sportback TFSI e",
+    "A5 Limousine e-hybrid", 
+    "A6 Limousine e-hybrid",
+    "A7 Sportback TFSI e",
+    "A8 TFSI e",
+    "Q3 TFSI e",
+    "Q5 TFSI e", 
+    "Q7 TFSI e",
+    "Q8 TFSI e"
+]
 
-def build_query(term: str) -> str:
-    # auto-data supports query via GET param; we'll URL-encode term
-    return BASE_SEARCH + urllib.parse.quote_plus(term)
-
-def scrape_first_result(search_html: str) -> str:
-    soup = BeautifulSoup(search_html, "lxml")
-    # Results usually in <div class="search-result"> or direct table of results.
-    # We'll try several fallbacks.
-    # 1) link in table of results:
-    link = soup.select_one("table.table a")
-    if link and link.has_attr("href"):
-        return urllib.parse.urljoin("https://www.auto-data.net", link["href"])
-    # 2) generic first anchor in results area
-    link = soup.select_one("a.result-link, a[href*='/en/']")
-    if link and link.has_attr("href"):
-        return urllib.parse.urljoin("https://www.auto-data.net", link["href"])
-    # 3) fallback: first <a> pointing to /en/ models
-    for a in soup.find_all("a", href=True):
-        if "/en/" in a["href"] and "model" in a.get_text("").lower() or "plug-in" in a.get_text("").lower():
-            return urllib.parse.urljoin("https://www.auto-data.net", a["href"])
-    return ""
-
-def find_autodata_url(term: str) -> str:
-    q = build_query(term)
+def find_phev_models(brand_name: str, brand_id: int) -> List[str]:
+    """Marka sayfasından PHEV modellerini bul"""
+    url = f"https://www.auto-data.net/en/results?brand={brand_id}&model=0&power1=&power2=&fuel%5B%5D=7"
     try:
-        r = requests.get(q, headers=HEADERS, timeout=15)
+        r = requests.get(url, headers=HEADERS, timeout=15)
         r.raise_for_status()
-        url = scrape_first_result(r.text)
-        # If search returns a direct redirect to model page, requests will have r.url updated:
-        if url == "" and r.url and "auto-data.net/en" in r.url:
-            # if r.url looks like an entry page and not the search landing, use it
-            url = r.url
-        return url
+        soup = BeautifulSoup(r.text, "html.parser")
+        
+        phev_links = []
+        # PHEV modellerini bul (e-hybrid, TFSI e, plug-in)
+        for link in soup.find_all("a", href=True):
+            text = link.get_text().strip()
+            href = link["href"]
+            
+            if any(keyword in text.lower() for keyword in ["e-hybrid", "tfsi e", "plug-in hybrid", "hybrid"]):
+                full_url = urllib.parse.urljoin("https://www.auto-data.net", href)
+                phev_links.append((text, full_url, brand_name))
+        
+        return phev_links
     except Exception as e:
-        print(f"ERROR searching '{term}': {e}")
-        return ""
+        print(f"ERROR fetching {brand_name} models: {e}")
+        return []
 
-def chunk_list(items: List[str], n: int):
-    for i in range(0, len(items), n):
-        yield items[i:i+n]
+def extract_model_data(model_url: str) -> Dict[str, str]:
+    """Model sayfasından teknik veri çek"""
+    try:
+        r = requests.get(model_url, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "html.parser")
+        
+        data = {}
+        
+        # Model adı
+        title = soup.find("h1")
+        if title:
+            data["model"] = title.get_text().strip()
+        
+        # Teknik özellikler tablosundan veri çek
+        tables = soup.find_all("table")
+        for table in tables:
+            rows = table.find_all("tr")
+            for row in rows:
+                cells = row.find_all(["td", "th"])
+                if len(cells) >= 2:
+                    key = cells[0].get_text().strip()
+                    value = cells[1].get_text().strip()
+                    
+                    # Önemli alanları filtrele
+                    if any(keyword in key.lower() for keyword in [
+                        "price", "engine", "power", "battery", "range", "consumption", 
+                        "emission", "acceleration", "top speed", "weight", "length", "width", "height",
+                        "charging", "socket", "port", "plug", "connector", "type", "ac", "dc", "ccs", "chademo"
+                    ]):
+                        data[key] = value
+        
+        # Fiyat bilgisini özel olarak ara
+        price_patterns = [
+            r"€\s*([\d,\.]+)",
+            r"EUR\s*([\d,\.]+)", 
+            r"Price.*?([\d,\.]+)",
+            r"Starting.*?([\d,\.]+)"
+        ]
+        
+        page_text = soup.get_text()
+        for pattern in price_patterns:
+            match = re.search(pattern, page_text, re.IGNORECASE)
+            if match:
+                data["price_eur"] = match.group(1).replace(",", "")
+                break
+        
+        # Şarj port tipleri ve soket detayları için özel arama
+        charging_keywords = [
+            "charging port", "socket", "plug", "connector", "charging type",
+            "AC charging", "DC charging", "CCS", "CHAdeMO", "Type 1", "Type 2",
+            "charging time", "charging speed", "charging power", "charging location",
+            "mennekes", "iec", "j1772", "combo", "fast charging", "slow charging"
+        ]
+        
+        # Sayfa içeriğinde şarj bilgilerini ara
+        page_text_lower = page_text.lower()
+        for keyword in charging_keywords:
+            if keyword.lower() in page_text_lower:
+                # İlgili bölümü bul
+                for table in tables:
+                    rows = table.find_all("tr")
+                    for row in rows:
+                        cells = row.find_all(["td", "th"])
+                        if len(cells) >= 2:
+                            key = cells[0].get_text().strip()
+                            if keyword.lower() in key.lower():
+                                value = cells[1].get_text().strip()
+                                if value:
+                                    data[key] = value
+        
+        return data
+        
+    except Exception as e:
+        print(f"ERROR extracting data from {model_url}: {e}")
+        return {}
 
-def main(input_file: str, batch_size: int, delay: float):
-    with open(input_file, "r", encoding="utf-8") as f:
-        lines = [normalize_line(l) for l in f if l.strip()]
-
-    os.makedirs("outputs/batches", exist_ok=True)
-    results = []
-    for idx, line in enumerate(lines, start=1):
-        # prefer brand+model query: extract last path segment if line is URL, else use raw
-        term = line
-        if line.startswith("http"):
-            # try to extract readable name from URL path
-            path = urllib.parse.urlparse(line).path
-            parts = [p for p in path.split("/") if p]
-            # heuristic: last 2-3 parts joined
-            if parts:
-                guess = " ".join(parts[-3:]).replace("-", " ")
-                term = guess
-        print(f"[{idx}/{len(lines)}] Searching Auto-Data for: {term}")
-        url = find_autodata_url(term)
-        if not url:
-            # try a more verbose query: include 'plug-in hybrid' tag
-            alt_term = f"{term} plug-in hybrid 2025"
-            print(f"  Not found, trying alt: {alt_term}")
-            url = find_autodata_url(alt_term)
-        if not url:
-            results.append((line, "Not found"))
-        else:
-            results.append((line, url))
-        time.sleep(delay)
-
-    # write all results CSV
-    out_all = "outputs/auto_data_results.csv"
-    with open(out_all, "w", newline='', encoding="utf-8") as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(["source_line", "auto_data_url_or_status"])
-        for r in results:
-            writer.writerow(r)
-    print(f"Wrote {len(results)} rows to {out_all}")
-
-    # write batches
-    for i, chunk in enumerate(chunk_list(results, batch_size), start=1):
-        out_batch = f"outputs/batches/batch_{i:02d}.csv"
-        with open(out_batch, "w", newline='', encoding="utf-8") as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(["source_line", "auto_data_url_or_status"])
-            for r in chunk:
-                writer.writerow(r)
-        print(f"Wrote batch {i} ({len(chunk)} rows) to {out_batch}")
+def main():
+    """Ana fonksiyon - Tüm markaların PHEV modellerini bul ve veri çek"""
+    print("Tüm markaların PHEV modelleri aranıyor...")
+    
+    # Çıktı klasörünü oluştur
+    os.makedirs("outputs", exist_ok=True)
+    
+    all_data = []
+    total_models = 0
+    
+    # Her marka için PHEV modellerini bul
+    for brand_name, brand_id in BRANDS.items():
+        print(f"\n{brand_name} PHEV modelleri aranıyor...")
+        phev_models = find_phev_models(brand_name, brand_id)
+        print(f"Bulunan {brand_name} PHEV modelleri: {len(phev_models)}")
+        
+        if not phev_models:
+            print(f"{brand_name} için PHEV model bulunamadı!")
+            continue
+        
+        # Her model için veri çek
+        for idx, (model_name, model_url, brand) in enumerate(phev_models, 1):
+            total_models += 1
+            print(f"[{total_models}] {brand} - Veri çekiliyor: {model_name[:50]}...")
+            
+            data = extract_model_data(model_url)
+            if data:
+                data["url"] = model_url
+                data["brand"] = brand
+                all_data.append(data)
+                print(f"  ✓ {len(data)} alan bulundu")
+            else:
+                print(f"  ✗ Veri çekilemedi")
+            
+            time.sleep(1.5)  # Rate limiting
+    
+    # CSV'ye yaz
+    if all_data:
+        output_file = "outputs/all_phev_data.csv"
+        
+        # Tüm alanları topla
+        all_fields = set()
+        for data in all_data:
+            all_fields.update(data.keys())
+        
+        fieldnames = ["brand", "model", "url"] + sorted([f for f in all_fields if f not in ["brand", "model", "url"]])
+        
+        with open(output_file, "w", newline='', encoding="utf-8") as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for data in all_data:
+                writer.writerow(data)
+        
+        print(f"\n✓ {len(all_data)} model verisi {output_file} dosyasına yazıldı")
+        print(f"✓ Toplam {len(fieldnames)} alan bulundu")
+        
+        # Marka bazında özet
+        brand_counts = {}
+        for data in all_data:
+            brand = data.get("brand", "Unknown")
+            brand_counts[brand] = brand_counts.get(brand, 0) + 1
+        
+        print("\nMarka bazında özet:")
+        for brand, count in brand_counts.items():
+            print(f"  {brand}: {count} model")
+    else:
+        print("✗ Hiç veri çekilemedi!")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Find Auto-Data links for model list")
-    parser.add_argument("--input", "-i", default="models.txt", help="Input file (one URL or model per line)")
-    parser.add_argument("--batch", "-b", type=int, default=20, help="Batch size for output files")
-    parser.add_argument("--delay", "-d", type=float, default=1.2, help="Delay between requests (s)")
-    args = parser.parse_args()
-    main(args.input, args.batch, args.delay)
+    main()

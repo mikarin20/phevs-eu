@@ -1,0 +1,30 @@
+Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Gross Battery (kWh),Net Battery (kWh),System Power (HP),Electric Motor Power (HP),Acceleration 0-100 (sec),Weight (kg),Length (mm),Width (mm),Height (mm),Battery Technology,Battery Voltage (V),Engine Displacement (L)
+5 Series,2024,Local Data,85,299,55000,18.7,1.8,41,3.5,520,5,3,,,,,,,,,,NCM,,2
+7 Series,2024,Local Data,80,489,95000,18.7,1.8,41,3.5,515,5,3,,,,,,,,,,NCM,,3
+M5 Touring,2024,Local Data,60,727,120000,18.7,2.1,48,3.5,520,5,3,,,,,,,,,,NCM,,4.4
+2 Series Active Tourer,2024,Local Data,95,245,40000,12,1.8,41,3.5,500,5,3,,,,,,,,,,NCM,,1.5
+3 Series Sedan,2024,Local Data,80,292,55000,12,1.7,38,3.5,500,5,3,,,,,,,,,,NCM,,2
+X1,2024,Local Data,95,245,42000,12,1.8,41,3.2,450,5,3,,,,,,,,,,NCM,,4.4
+X3,2024,Local Data,80,292,50000,12,2.8,64,3.5,550,5,3,,,,,,,,,,NCM,,1.5
+X5,2024,Local Data,80,490,65000,24,2.1,48,3.5,520,5,3,,,,,,,,,,NCM,,3
+Xm,2024,Local Data,60,476,150000,25.7,1.5,30,3.5,500,5,3,,,,,,,,,,NCM,,4.4
+BMW M5 Touring,2024-2025,Scraped Data,67,585,,18.6 kWh,"2.0 l/100 km
+							117.61 US mpg141.24 UK mpg50 km/l",46 g/km,,,,,22.1 kWh,18.6 kWh,727,197,3.6,2475,5096,1970,1516,Lithium-ion (Li-Ion),347.5,4.395
+BMW 5 Series Touring,2024-2025,Scraped Data,98,190,,19.4 kWh,"0.7-0.9 l/100 km
+							336.02 - 261.35 US mpg403.54 - 313.87 UK mpg142.86 - 111.11 km/l",16-21 g/km,,,,,22.1 kWh,19.4 kWh,299,184,6.4,2065,5060,1900,1515,Lithium-ion (Li-Ion),347.5,1.998
+BMW 5 Series Touring,2024-2025,Scraped Data,92,190,,19.4 kWh,"0.8-1 l/100 km
+							294.02 - 235.21 US mpg353.1 - 282.48 UK mpg125 - 100 km/l",18-22 g/km,,,,,22.1 kWh,19.4 kWh,299,184,6.4,2120,5060,1900,1515,Lithium-ion (Li-Ion),347.5,1.998
+BMW 5 Series Sedan,2024-2025,Scraped Data,95,190,,19.4 kWh,"0.7-1 l/100 km
+							336.02 - 235.21 US mpg403.54 - 282.48 UK mpg142.86 - 100 km/l",17-22 g/km,,,,,22.1 kWh,19.4 kWh,299,184,6.3,2055,5060,1900,1515,Lithium-ion (Li-Ion),347.5,1.998
+BMW M5,2024-2025,Scraped Data,69,585,,18.6 kWh,"1.6-1.7 l/100 km
+							147.01 - 138.36 US mpg176.55 - 166.17 UK mpg62.5 - 58.82 km/l",37-39 g/km,,,,,22.1 kWh,18.6 kWh,727,197,3.5,2435,5096,1970,1510,Lithium-ion (Li-Ion),347.5,4.395
+BMW X3,2024-2025,Scraped Data,90,190,,19.7 kWh,"0.9-1.1 l/100 km
+							261.35 - 213.83 US mpg313.87 - 256.8 UK mpg111.11 - 90.91 km/l",21-26 g/km,,,,,,19.7 kWh,299,184,6.2,2065,4755,1920,1660,Lithium-ion (Li-Ion),392,1.998
+BMW 3 Series Touring,2024-2025,Scraped Data,91,184,,19.5 kWh,"1-1.2 l/100 km
+							235.21 - 196.01 US mpg282.48 - 235.4 UK mpg100 - 83.33 km/l",23-26 g/km,,,,,,19.5 kWh,292,109,6,1950,4713,1827,1448,Lithium-ion (Li-Ion),391,1.998
+BMW 3 Series Touring,2024-2025,Scraped Data,98,184,,19.5 kWh,"0.9-1.1 l/100 km
+							261.35 - 213.83 US mpg313.87 - 256.8 UK mpg111.11 - 90.91 km/l",20-24 g/km,,,,,,19.5 kWh,292,109,6,1895,4713,1827,1448,Lithium-ion (Li-Ion),391,1.998
+BMW 3 Series Sedan,2024-2025,Scraped Data,96,184,,19.5 kWh,"0.9-1.2 l/100 km
+							261.35 - 196.01 US mpg313.87 - 235.4 UK mpg111.11 - 83.33 km/l",21-27 g/km,,,,,,19.5 kWh,292,109,5.9,1885,4713,1827,1446,Lithium-ion (Li-Ion),391,1.998
+BMW 3 Series Sedan,2024-2025,Scraped Data,101,184,,19.5 kWh,"0.8-1.1 l/100 km
+							294.02 - 213.83 US mpg353.1 - 256.8 UK mpg125 - 90.91 km/l",19-25 g/km,,,,,,19.5 kWh,292,109,5.9,1835,4713,1827,1446,Lithium-ion (Li-Ion),391,1.998

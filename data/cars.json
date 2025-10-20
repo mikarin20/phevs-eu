@@ -13,7 +13,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -50,7 +49,6 @@
     "power_hp": 272,
     "co2_emission": 8,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 380,
     "seats": 5,
     "warranty_years": 3,
@@ -69,9 +67,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "audi-a3-sportback-phev"
   },
@@ -89,7 +85,6 @@
     "power_hp": 245,
     "co2_emission": 32,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -108,9 +103,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "audi-a5-limousine-phev"
   },
@@ -128,7 +121,6 @@
     "power_hp": 299,
     "co2_emission": 34,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 565,
     "seats": 5,
     "warranty_years": 3,
@@ -147,9 +139,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "audi-a6-limousine-phev"
   },
@@ -167,7 +157,6 @@
     "power_hp": 340,
     "co2_emission": 36,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -186,9 +175,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "audi-a7-sportback-phev"
   },
@@ -206,7 +193,6 @@
     "power_hp": 245,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 530,
     "seats": 5,
     "warranty_years": 3,
@@ -225,9 +211,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "audi-q3-phev"
   },
@@ -245,7 +229,6 @@
     "power_hp": 299,
     "co2_emission": 45,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
@@ -264,9 +247,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "audi-q5-phev"
   },
@@ -284,7 +265,6 @@
     "power_hp": 340,
     "co2_emission": 57,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 865,
     "seats": 7,
     "warranty_years": 3,
@@ -303,9 +283,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "audi-q7-phev"
   },
@@ -323,7 +301,6 @@
     "power_hp": 340,
     "co2_emission": 61,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 605,
     "seats": 5,
     "warranty_years": 3,
@@ -342,9 +319,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "audi-q8-phev"
   },
@@ -362,7 +337,6 @@
     "power_hp": 299,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
@@ -381,9 +355,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-5-series-phev"
   },
@@ -401,7 +373,6 @@
     "power_hp": 489,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 515,
     "seats": 5,
     "warranty_years": 3,
@@ -420,9 +391,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-7-series-phev"
   },
@@ -440,7 +409,6 @@
     "power_hp": 727,
     "co2_emission": 48,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
@@ -459,9 +427,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-m5-touring-phev"
   },
@@ -479,7 +445,6 @@
     "power_hp": 245,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -498,9 +463,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-2-series-active-tourer-phev"
   },
@@ -518,7 +481,6 @@
     "power_hp": 292,
     "co2_emission": 38,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -537,9 +499,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-3-series-sedan-phev"
   },
@@ -557,7 +517,6 @@
     "power_hp": 245,
     "co2_emission": 41,
     "charge_time_ac": 3.2,
-    "charge_time_dc": 35,
     "trunk_volume": 450,
     "seats": 5,
     "warranty_years": 3,
@@ -576,9 +535,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-x1-phev"
   },
@@ -596,7 +553,6 @@
     "power_hp": 292,
     "co2_emission": 64,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
@@ -615,9 +571,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-x3-phev"
   },
@@ -635,7 +589,6 @@
     "power_hp": 490,
     "co2_emission": 48,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
@@ -654,9 +607,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-x5-phev"
   },
@@ -674,7 +625,6 @@
     "power_hp": 476,
     "co2_emission": 30,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -693,9 +643,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "bmw-xm-phev"
   },
@@ -713,7 +661,6 @@
     "power_hp": 218,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -732,9 +679,7 @@
     "battery_architecture": "blade",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front right"
+      "ac_location": "Front right"
     },
     "slug": "byd-seal-5-dm-i-phev"
   },
@@ -752,7 +697,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -771,9 +715,7 @@
     "battery_architecture": "blade",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front right"
+      "ac_location": "Front right"
     },
     "slug": "byd-seal-6-dm-i-phev"
   },
@@ -791,7 +733,6 @@
     "power_hp": 218,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -810,9 +751,7 @@
     "battery_architecture": "blade",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front right"
+      "ac_location": "Front right"
     },
     "slug": "byd-seal-u-dm-i-phev"
   },
@@ -830,7 +769,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -849,9 +787,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "chery-tiggo-7-phev"
   },
@@ -869,7 +805,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -888,9 +823,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "chery-tiggo-8-phev"
   },
@@ -908,7 +841,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -927,9 +859,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "chery-tiggo-9-phev"
   },
@@ -947,7 +877,6 @@
     "power_hp": 225,
     "co2_emission": 36,
     "charge_time_ac": 3,
-    "charge_time_dc": 35,
     "trunk_volume": 580,
     "seats": 5,
     "warranty_years": 3,
@@ -966,9 +895,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "citron-c5-aircross-phev"
   },
@@ -986,7 +913,6 @@
     "power_hp": 225,
     "co2_emission": 36,
     "charge_time_ac": 3,
-    "charge_time_dc": 35,
     "trunk_volume": 580,
     "seats": 5,
     "warranty_years": 3,
@@ -1005,9 +931,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "citron-c5-x-phev"
   },
@@ -1025,7 +949,6 @@
     "power_hp": 204,
     "co2_emission": 36,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 450,
     "seats": 5,
     "warranty_years": 3,
@@ -1044,9 +967,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "cupra-formentor-phev"
   },
@@ -1064,7 +985,6 @@
     "power_hp": 204,
     "co2_emission": 32,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 380,
     "seats": 5,
     "warranty_years": 3,
@@ -1083,9 +1003,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "cupra-leon-phev"
   },
@@ -1103,7 +1021,6 @@
     "power_hp": 225,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1122,9 +1039,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "ds-7-crossback-phev"
   },
@@ -1142,7 +1057,6 @@
     "power_hp": 225,
     "co2_emission": 60,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1161,9 +1075,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "ds-n4-phev"
   },
@@ -1181,7 +1093,6 @@
     "power_hp": 243,
     "co2_emission": 20,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 456,
     "seats": 5,
     "warranty_years": 3,
@@ -1200,9 +1111,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "ford-kuga-phev"
   },
@@ -1220,7 +1129,6 @@
     "power_hp": 270,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1239,9 +1147,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "ford-ranger-phev"
   },
@@ -1259,7 +1165,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1278,9 +1183,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "ford-tourneo-connect-phev"
   },
@@ -1298,7 +1201,6 @@
     "power_hp": 265,
     "co2_emission": 36,
     "charge_time_ac": 3.2,
-    "charge_time_dc": 40,
     "trunk_volume": 571,
     "seats": 7,
     "warranty_years": 5,
@@ -1317,9 +1219,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "hyundai-santa-fe-phev"
   },
@@ -1337,7 +1237,6 @@
     "power_hp": 230,
     "co2_emission": 32,
     "charge_time_ac": 3.2,
-    "charge_time_dc": 40,
     "trunk_volume": 513,
     "seats": 5,
     "warranty_years": 5,
@@ -1356,9 +1255,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "hyundai-tucson-phev"
   },
@@ -1376,7 +1273,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1395,9 +1291,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front right"
+      "ac_location": "Front right"
     },
     "slug": "jaecoo-j7-super-hybrid-phev"
   },
@@ -1415,7 +1309,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1434,9 +1327,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front right"
+      "ac_location": "Front right"
     },
     "slug": "jaecoo-omoda-9-super-hybrid-phev"
   },
@@ -1454,7 +1345,6 @@
     "power_hp": 240,
     "co2_emission": 41,
     "charge_time_ac": 3,
-    "charge_time_dc": 35,
     "trunk_volume": 438,
     "seats": 5,
     "warranty_years": 3,
@@ -1473,9 +1363,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "jeep-compass-4xe-phev"
   },
@@ -1493,7 +1381,6 @@
     "power_hp": 375,
     "co2_emission": 47,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 239,
     "seats": 5,
     "warranty_years": 3,
@@ -1512,9 +1399,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "jeep-grand-cherokee-phev"
   },
@@ -1532,7 +1417,6 @@
     "power_hp": 141,
     "co2_emission": 29,
     "charge_time_ac": 2.5,
-    "charge_time_dc": 30,
     "trunk_volume": 451,
     "seats": 5,
     "warranty_years": 7,
@@ -1551,9 +1435,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "kia-niro-phev"
   },
@@ -1571,7 +1453,6 @@
     "power_hp": 265,
     "co2_emission": 26,
     "charge_time_ac": 3.2,
-    "charge_time_dc": 40,
     "trunk_volume": 540,
     "seats": 5,
     "warranty_years": 7,
@@ -1590,9 +1471,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "kia-sportage-phev"
   },
@@ -1610,7 +1489,6 @@
     "power_hp": 265,
     "co2_emission": 36,
     "charge_time_ac": 3.2,
-    "charge_time_dc": 40,
     "trunk_volume": 175,
     "seats": 7,
     "warranty_years": 7,
@@ -1629,9 +1507,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "kia-sorento-phev"
   },
@@ -1649,7 +1525,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1668,9 +1543,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "land-rover-defender-110-phev"
   },
@@ -1688,7 +1561,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1707,9 +1579,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "land-rover-discovery-sport-phev"
   },
@@ -1727,7 +1597,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1746,9 +1615,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "lexus-nx-450h-phev"
   },
@@ -1766,7 +1633,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -1785,9 +1651,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "lexus-rx-450h-phev"
   },
@@ -1805,7 +1669,6 @@
     "power_hp": 327,
     "co2_emission": 34,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 570,
     "seats": 5,
     "warranty_years": 3,
@@ -1824,9 +1687,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mazda-cx-60-phev"
   },
@@ -1844,7 +1705,6 @@
     "power_hp": 327,
     "co2_emission": 34,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 570,
     "seats": 5,
     "warranty_years": 3,
@@ -1863,9 +1723,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mazda-cx-80-phev"
   },
@@ -1883,7 +1741,6 @@
     "power_hp": 218,
     "co2_emission": 32,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 370,
     "seats": 5,
     "warranty_years": 3,
@@ -1923,9 +1780,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mercedes-benz-a-class-phev"
   },
@@ -1943,7 +1798,6 @@
     "power_hp": 313,
     "co2_emission": 41,
     "charge_time_ac": 4.5,
-    "charge_time_dc": 50,
     "trunk_volume": 370,
     "seats": 5,
     "warranty_years": 3,
@@ -1983,9 +1837,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mercedes-benz-c-class-phev"
   },
@@ -2003,7 +1855,6 @@
     "power_hp": 218,
     "co2_emission": 32,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 370,
     "seats": 5,
     "warranty_years": 3,
@@ -2043,9 +1894,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mercedes-benz-cla-phev"
   },
@@ -2063,7 +1912,6 @@
     "power_hp": 381,
     "co2_emission": 41,
     "charge_time_ac": 4.5,
-    "charge_time_dc": 50,
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
@@ -2103,9 +1951,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mercedes-benz-e-class-phev"
   },
@@ -2123,7 +1969,6 @@
     "power_hp": 218,
     "co2_emission": 34,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 435,
     "seats": 5,
     "warranty_years": 3,
@@ -2163,9 +2008,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mercedes-benz-gla-phev"
   },
@@ -2183,7 +2026,6 @@
     "power_hp": 313,
     "co2_emission": 41,
     "charge_time_ac": 4.5,
-    "charge_time_dc": 50,
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
@@ -2223,9 +2065,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mercedes-benz-glc-coup-phev"
   },
@@ -2243,7 +2083,6 @@
     "power_hp": 313,
     "co2_emission": 41,
     "charge_time_ac": 4.5,
-    "charge_time_dc": 50,
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
@@ -2283,9 +2122,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mercedes-benz-glc-phev"
   },
@@ -2303,7 +2140,6 @@
     "power_hp": 381,
     "co2_emission": 41,
     "charge_time_ac": 5,
-    "charge_time_dc": 55,
     "trunk_volume": 630,
     "seats": 5,
     "warranty_years": 3,
@@ -2343,9 +2179,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Rear left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Rear left"
+      "ac_location": "Rear left"
     },
     "slug": "mercedes-benz-gle-coup-phev"
   },
@@ -2363,7 +2197,6 @@
     "power_hp": 381,
     "co2_emission": 41,
     "charge_time_ac": 5,
-    "charge_time_dc": 55,
     "trunk_volume": 630,
     "seats": 5,
     "warranty_years": 3,
@@ -2403,9 +2236,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Rear left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Rear left"
+      "ac_location": "Rear left"
     },
     "slug": "mercedes-benz-gle-phev"
   },
@@ -2423,7 +2254,6 @@
     "power_hp": 510,
     "co2_emission": 41,
     "charge_time_ac": 4.5,
-    "charge_time_dc": 50,
     "trunk_volume": 370,
     "seats": 5,
     "warranty_years": 3,
@@ -2463,9 +2293,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Rear left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Rear left"
+      "ac_location": "Rear left"
     },
     "slug": "mercedes-benz-s-class-phev"
   },
@@ -2483,7 +2311,6 @@
     "power_hp": 192,
     "co2_emission": 27,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 463,
     "seats": 5,
     "warranty_years": 7,
@@ -2502,9 +2329,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mg-hs-phev"
   },
@@ -2522,7 +2347,6 @@
     "power_hp": 220,
     "co2_emission": 41,
     "charge_time_ac": 3.2,
-    "charge_time_dc": 35,
     "trunk_volume": 450,
     "seats": 5,
     "warranty_years": 3,
@@ -2541,9 +2365,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mini-countryman-phev"
   },
@@ -2561,7 +2383,6 @@
     "power_hp": 141,
     "co2_emission": 34,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 405,
     "seats": 5,
     "warranty_years": 5,
@@ -2580,9 +2401,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mitsubishi-eclipse-cross-phev"
   },
@@ -2600,7 +2419,6 @@
     "power_hp": 165,
     "co2_emission": 38,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 463,
     "seats": 7,
     "warranty_years": 5,
@@ -2619,9 +2437,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "mitsubishi-outlander-phev"
   },
@@ -2639,7 +2455,6 @@
     "power_hp": 180,
     "co2_emission": 32,
     "charge_time_ac": 3,
-    "charge_time_dc": 35,
     "trunk_volume": 422,
     "seats": 5,
     "warranty_years": 3,
@@ -2658,9 +2473,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "opel-astra-phev-phev"
   },
@@ -2678,7 +2491,6 @@
     "power_hp": 225,
     "co2_emission": 36,
     "charge_time_ac": 3,
-    "charge_time_dc": 35,
     "trunk_volume": 514,
     "seats": 5,
     "warranty_years": 3,
@@ -2697,9 +2509,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "opel-grandland-phev"
   },
@@ -2717,7 +2527,6 @@
     "power_hp": 225,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -2736,9 +2545,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "peugeot-3008-phev"
   },
@@ -2756,7 +2563,6 @@
     "power_hp": 180,
     "co2_emission": 32,
     "charge_time_ac": 3,
-    "charge_time_dc": 35,
     "trunk_volume": 470,
     "seats": 5,
     "warranty_years": 3,
@@ -2775,9 +2581,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "peugeot-308-phev"
   },
@@ -2795,7 +2599,6 @@
     "power_hp": 180,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -2814,9 +2617,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "peugeot-408-phev"
   },
@@ -2834,7 +2635,6 @@
     "power_hp": 340,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -2853,9 +2653,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "porsche-cayenne-phev"
   },
@@ -2873,7 +2671,6 @@
     "power_hp": 340,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -2892,9 +2689,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "porsche-panamera-4-phev"
   },
@@ -2912,7 +2707,6 @@
     "power_hp": 200,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -2931,9 +2725,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "renault-rafale-phev"
   },
@@ -2951,7 +2743,6 @@
     "power_hp": 245,
     "co2_emission": 41,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 630,
     "seats": 7,
     "warranty_years": 3,
@@ -2970,9 +2761,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "koda-kodiaq-phev"
   },
@@ -2990,7 +2779,6 @@
     "power_hp": 245,
     "co2_emission": 32,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 625,
     "seats": 5,
     "warranty_years": 3,
@@ -3009,9 +2797,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "koda-superb-combi-phev"
   },
@@ -3029,7 +2815,6 @@
     "power_hp": 245,
     "co2_emission": 32,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 625,
     "seats": 5,
     "warranty_years": 3,
@@ -3048,9 +2833,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "koda-superb-iv-phev"
   },
@@ -3068,7 +2851,6 @@
     "power_hp": 184,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -3087,9 +2869,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "toyota-c-hr-phev"
   },
@@ -3107,7 +2887,6 @@
     "power_hp": 220,
     "co2_emission": 27,
     "charge_time_ac": 2.5,
-    "charge_time_dc": 30,
     "trunk_volume": 343,
     "seats": 5,
     "warranty_years": 5,
@@ -3126,9 +2905,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "toyota-prius-phev"
   },
@@ -3146,7 +2923,6 @@
     "power_hp": 225,
     "co2_emission": 32,
     "charge_time_ac": 4.5,
-    "charge_time_dc": 50,
     "trunk_volume": 580,
     "seats": 5,
     "warranty_years": 5,
@@ -3165,9 +2941,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "toyota-rav4-phev"
   },
@@ -3185,7 +2959,6 @@
     "power_hp": 245,
     "co2_emission": 27,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 380,
     "seats": 5,
     "warranty_years": 3,
@@ -3204,9 +2977,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volkswagen-golf-phev"
   },
@@ -3224,7 +2995,6 @@
     "power_hp": 245,
     "co2_emission": 27,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 650,
     "seats": 5,
     "warranty_years": 3,
@@ -3243,9 +3013,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volkswagen-passat-phev"
   },
@@ -3263,7 +3031,6 @@
     "power_hp": 245,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -3282,9 +3049,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volkswagen-tayron-phev"
   },
@@ -3302,7 +3067,6 @@
     "power_hp": 245,
     "co2_emission": 43,
     "charge_time_ac": 3.5,
-    "charge_time_dc": 40,
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
@@ -3321,9 +3085,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volkswagen-tiguan-phev"
   },
@@ -3341,7 +3103,6 @@
     "power_hp": 340,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "charge_time_dc": 45,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
@@ -3360,9 +3121,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volkswagen-touareg-phev"
   },
@@ -3380,7 +3139,6 @@
     "power_hp": 340,
     "co2_emission": 43,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 529,
     "seats": 5,
     "warranty_years": 3,
@@ -3399,9 +3157,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volvo-v60-phev"
   },
@@ -3419,7 +3175,6 @@
     "power_hp": 340,
     "co2_emission": 47,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 560,
     "seats": 5,
     "warranty_years": 3,
@@ -3438,9 +3193,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volvo-v90-phev"
   },
@@ -3458,7 +3211,6 @@
     "power_hp": 455,
     "co2_emission": 43,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 505,
     "seats": 5,
     "warranty_years": 3,
@@ -3477,9 +3229,7 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volvo-xc60-phev"
   },
@@ -3497,7 +3247,6 @@
     "power_hp": 192,
     "co2_emission": 47,
     "charge_time_ac": 4,
-    "charge_time_dc": 45,
     "trunk_volume": 314,
     "seats": 7,
     "warranty_years": 3,
@@ -3516,10 +3265,64 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left"
+      "ac_location": "Front left"
     },
     "slug": "volvo-xc90-phev"
+  },
+  {
+    "id": "skoda-1",
+    "brand": "Skoda",
+    "model": "Kodiaq iV",
+    "year": 2025,
+    "segment": "D - Orta Segment SUV",
+    "ev_range_km": 60,
+    "fuel_consumption": 1.8,
+    "battery_kwh": 13,
+    "price_eur": 44900,
+    "image_url": "/images/cars/brands/skoda/kodiaq-phev/main.jpg",
+    "power_hp": 204,
+    "co2_emission": 41,
+    "charge_time_ac": 3.5,
+    "charge_time_dc": 40,
+    "trunk_volume": 630,
+    "seats": 7,
+    "warranty_years": 3,
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "engine_displacement": 1.4,
+    "battery_chemistry": "NCM",
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "slug": "skoda-kodiaq-iv-phev"
+  },
+  {
+    "id": "skoda-2",
+    "brand": "Skoda",
+    "model": "Superb iV",
+    "year": 2025,
+    "segment": "D - Orta Segment Sedan",
+    "ev_range_km": 60,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 13,
+    "price_eur": 39900,
+    "image_url": "/images/cars/brands/skoda/superb-combi-phev/main.png",
+    "power_hp": 204,
+    "co2_emission": 32,
+    "charge_time_ac": 3.5,
+    "charge_time_dc": 40,
+    "trunk_volume": 625,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "engine_displacement": 1.4,
+    "battery_chemistry": "NCM",
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "slug": "skoda-superb-iv-phev"
   }
 ]

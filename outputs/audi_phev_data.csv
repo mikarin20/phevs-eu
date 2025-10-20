@@ -1,0 +1,471 @@
+model,url,Acceleration 0 - 100 km/h,Acceleration 0 - 60 mph (Calculated by Auto-Data.net),Acceleration 0 - 62 mph,All-electric range,All-electric range (WLTP),Average Energy consumption,Average Energy consumption (NEDC),Average Energy consumption (WLTP),Battery location,Battery technology,Battery voltage,CO2 emissions,CO2 emissions (NEDC),CO2 emissions (WLTP),Combined fuel consumption (WLTP),Electric motor power,Emission standard,Engine Model/Code,Engine aspiration,Engine configuration,Engine displacement,Engine layout,Engine oil capacity,Engine oil specification,Engine systems,Fuel consumption (economy) - combined,Fuel consumption (economy) - combined (NEDC),Gross battery capacity,Height,"How much power, Audi A3 Crossover 2024 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","How much power, Audi A3 Hatchback 2024 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","How much power, Audi A3 Hatchback 2024 45 TFSI e (272 Hp) Plug-in Hybrid S tronic?","How much power, Audi A5 Liftback 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi A5 Liftback 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi A5 Station wagon (estate) 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi A5 Station wagon (estate) 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi A6 Sedan 2021 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A6 Sedan 2021 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A6 Sedan 2023 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A6 Sedan 2023 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A6 Sedan 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi A6 Sedan 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi A6 Station wagon (estate) 2023 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A6 Station wagon (estate) 2023 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A6 Station wagon (estate) 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi A6 Station wagon (estate) 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi A7 Liftback 2021 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A7 Liftback 2021 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A7 Liftback 2023 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A7 Liftback 2023 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","How much power, Audi A8 Sedan 2022 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","How much power, Audi Q3 Coupe, SUV 2025 1.5 TFSI (272 Hp) e-hybrid S tronic?","How much power, Audi Q3 SUV 2025 1.5 TFSI (272 Hp) e-hybrid S tronic?","How much power, Audi Q5 SUV 2021 50 TFSI e (299 Hp) Plug-in Hybrid quattro S tronic?","How much power, Audi Q5 SUV 2021 55 TFSI e (367 Hp) Plug-in Hybrid quattro S tronic?","How much power, Audi Q5 SUV 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi Q5 SUV 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","How much power, Audi Q7 SUV 2020 55 TFSI e V6 (381 Hp) Plug-in Hybrid quattro tiptronic?","How much power, Audi Q7 SUV 2024 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","How much power, Audi Q7 SUV 2024 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","How much power, Audi Q8 SUV 2024 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","How much power, Audi Q8 SUV 2024 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?",Kerb Weight,Length,Max. weight,Modification (Engine),Net (usable) battery capacity,Power,Power per litre,Power steering,Powertrain Architecture,System power,Weight-to-power ratio,Weight-to-torque ratio,"What is electricity consumption, Audi A3 Sportback (8Y, facelift 2024) 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is electricity consumption, Audi A3 Sportback (8Y, facelift 2024) 45 TFSI e (272 Hp) Plug-in Hybrid S tronic?","What is electricity consumption, Audi A3 allstreet (8Y, facelift 2024) 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is electricity consumption, Audi A5 Avant (B10) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi A5 Avant (B10) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi A5 Sedan (B10) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi A5 Sedan (B10) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Avant (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Avant (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Avant (C9) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Avant (C9) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Sedan (C8) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Sedan (C8) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Sedan (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Sedan (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Sedan (C9) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi A6 Sedan (C9) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi A7 Sportback (C8) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A7 Sportback (C8) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A7 Sportback (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A7 Sportback (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is electricity consumption, Audi A8 (D5, facelift 2021) 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","What is electricity consumption, Audi A8L (D5, facelift 2021) 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","What is electricity consumption, Audi Q3 III (FJ) 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is electricity consumption, Audi Q3 III Sportback (FJ) 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is electricity consumption, Audi Q5 II Sportback (FY, facelift 2020) 50 TFSI e (299 Hp) Plug-in Hybrid quattro S tronic?","What is electricity consumption, Audi Q5 II Sportback (FY, facelift 2020) 55 TFSI e (367 Hp) Plug-in Hybrid quattro S tronic?","What is electricity consumption, Audi Q5 III (GU) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi Q5 III (GU) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi Q5 III Sportback (GU) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi Q5 III Sportback (GU) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is electricity consumption, Audi Q7 (Typ 4M, facelift 2019) 55 TFSI e V6 (381 Hp) Plug-in Hybrid quattro tiptronic?","What is electricity consumption, Audi Q7 (Typ 4M, facelift 2024) 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is electricity consumption, Audi Q7 (Typ 4M, facelift 2024) 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","What is electricity consumption, Audi Q8 (4M, facelift 2023) 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is electricity consumption, Audi Q8 (4M, facelift 2023) 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","What is the curb weight, 2020 Audi Q7 (Typ 4M, facelift 2019) 55 TFSI e V6 (381 Hp) Plug-in Hybrid quattro tiptronic?","What is the curb weight, 2021 Audi A6 Sedan (C8) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2021 Audi A6 Sedan (C8) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2021 Audi A7 Sportback (C8) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2021 Audi A7 Sportback (C8) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2021 Audi Q5 II Sportback (FY, facelift 2020) 50 TFSI e (299 Hp) Plug-in Hybrid quattro S tronic?","What is the curb weight, 2021 Audi Q5 II Sportback (FY, facelift 2020) 55 TFSI e (367 Hp) Plug-in Hybrid quattro S tronic?","What is the curb weight, 2022 Audi A8 (D5, facelift 2021) 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","What is the curb weight, 2022 Audi A8L (D5, facelift 2021) 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","What is the curb weight, 2023 Audi A6 Avant (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2023 Audi A6 Avant (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2023 Audi A6 Sedan (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2023 Audi A6 Sedan (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2023 Audi A7 Sportback (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2023 Audi A7 Sportback (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the curb weight, 2024 Audi A3 Sportback (8Y, facelift 2024) 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is the curb weight, 2024 Audi A3 Sportback (8Y, facelift 2024) 45 TFSI e (272 Hp) Plug-in Hybrid S tronic?","What is the curb weight, 2024 Audi A3 allstreet (8Y, facelift 2024) 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is the curb weight, 2024 Audi Q7 (Typ 4M, facelift 2024) 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is the curb weight, 2024 Audi Q7 (Typ 4M, facelift 2024) 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","What is the curb weight, 2024 Audi Q8 (4M, facelift 2023) 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is the curb weight, 2024 Audi Q8 (4M, facelift 2023) 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","What is the curb weight, 2025 Audi A5 Avant (B10) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi A5 Avant (B10) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi A5 Sedan (B10) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi A5 Sedan (B10) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi A6 Avant (C9) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi A6 Avant (C9) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi A6 Sedan (C9) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi A6 Sedan (C9) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi Q3 III (FJ) 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is the curb weight, 2025 Audi Q3 III Sportback (FJ) 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is the curb weight, 2025 Audi Q5 III (GU) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi Q5 III (GU) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi Q5 III Sportback (GU) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the curb weight, 2025 Audi Q5 III Sportback (GU) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A3 Crossover 2024 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is the engine size, Audi A3 Hatchback 2024 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is the engine size, Audi A3 Hatchback 2024 45 TFSI e (272 Hp) Plug-in Hybrid S tronic?","What is the engine size, Audi A5 Liftback 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A5 Liftback 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A5 Station wagon (estate) 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A5 Station wagon (estate) 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Sedan 2021 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Sedan 2021 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Sedan 2023 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Sedan 2023 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Sedan 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Sedan 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Station wagon (estate) 2023 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Station wagon (estate) 2023 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Station wagon (estate) 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A6 Station wagon (estate) 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi A7 Liftback 2021 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A7 Liftback 2021 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A7 Liftback 2023 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A7 Liftback 2023 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the engine size, Audi A8 Sedan 2022 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","What is the engine size, Audi Q3 Coupe, SUV 2025 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is the engine size, Audi Q3 SUV 2025 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is the engine size, Audi Q5 SUV 2021 50 TFSI e (299 Hp) Plug-in Hybrid quattro S tronic?","What is the engine size, Audi Q5 SUV 2021 55 TFSI e (367 Hp) Plug-in Hybrid quattro S tronic?","What is the engine size, Audi Q5 SUV 2025 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi Q5 SUV 2025 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the engine size, Audi Q7 SUV 2020 55 TFSI e V6 (381 Hp) Plug-in Hybrid quattro tiptronic?","What is the engine size, Audi Q7 SUV 2024 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is the engine size, Audi Q7 SUV 2024 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","What is the engine size, Audi Q8 SUV 2024 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is the engine size, Audi Q8 SUV 2024 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","What is the gross weight, 2020 Audi Q7 (Typ 4M, facelift 2019) 55 TFSI e V6 (381 Hp) Plug-in Hybrid quattro tiptronic?","What is the gross weight, 2021 Audi A6 Sedan (C8) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2021 Audi A6 Sedan (C8) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2021 Audi A7 Sportback (C8) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2021 Audi A7 Sportback (C8) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2021 Audi Q5 II Sportback (FY, facelift 2020) 50 TFSI e (299 Hp) Plug-in Hybrid quattro S tronic?","What is the gross weight, 2021 Audi Q5 II Sportback (FY, facelift 2020) 55 TFSI e (367 Hp) Plug-in Hybrid quattro S tronic?","What is the gross weight, 2022 Audi A8 (D5, facelift 2021) 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","What is the gross weight, 2022 Audi A8L (D5, facelift 2021) 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","What is the gross weight, 2023 Audi A6 Avant (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2023 Audi A6 Avant (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2023 Audi A6 Sedan (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2023 Audi A6 Sedan (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2023 Audi A7 Sportback (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2023 Audi A7 Sportback (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the gross weight, 2024 Audi A3 Sportback (8Y, facelift 2024) 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is the gross weight, 2024 Audi A3 Sportback (8Y, facelift 2024) 45 TFSI e (272 Hp) Plug-in Hybrid S tronic?","What is the gross weight, 2024 Audi A3 allstreet (8Y, facelift 2024) 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is the gross weight, 2024 Audi Q7 (Typ 4M, facelift 2024) 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is the gross weight, 2024 Audi Q7 (Typ 4M, facelift 2024) 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","What is the gross weight, 2024 Audi Q8 (4M, facelift 2023) 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is the gross weight, 2024 Audi Q8 (4M, facelift 2023) 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?","What is the gross weight, 2025 Audi A5 Avant (B10) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi A5 Avant (B10) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi A5 Sedan (B10) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi A5 Sedan (B10) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi A6 Avant (C9) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi A6 Avant (C9) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi A6 Sedan (C9) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi A6 Sedan (C9) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi Q3 III (FJ) 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is the gross weight, 2025 Audi Q3 III Sportback (FJ) 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is the gross weight, 2025 Audi Q5 III (GU) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi Q5 III (GU) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi Q5 III Sportback (GU) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the gross weight, 2025 Audi Q5 III Sportback (GU) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the range of pure electric driving, 1.5 TFSI (272 Hp) e-hybrid S tronic?","What is the range of pure electric driving, 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic?","What is the range of pure electric driving, 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic?","What is the range of pure electric driving, 40 TFSI e (204 Hp) Plug-in Hybrid S tronic?","What is the range of pure electric driving, 45 TFSI e (272 Hp) Plug-in Hybrid S tronic?","What is the range of pure electric driving, 50 TFSI e (299 Hp) Plug-in Hybrid quattro S tronic?","What is the range of pure electric driving, 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the range of pure electric driving, 55 TFSI e (367 Hp) Plug-in Hybrid quattro S tronic?","What is the range of pure electric driving, 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic?","What is the range of pure electric driving, 55 TFSI e V6 (381 Hp) Plug-in Hybrid quattro tiptronic?","What is the range of pure electric driving, 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic?","What is the range of pure electric driving, 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic?","What is the range of pure electric driving, 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic?",Width,Width including mirrors
+Specs of Audi Q3 III Sportback (FJ) 1.5 TFSI (272 Hp) e-hybrid S tronic /2025/,https://www.auto-data.net/en/audi-q3-iii-sportback-fj-1.5-tfsi-272hp-e-hybrid-s-tronic-55189,6.8 sec,6.5 sec,6.8 sec,,"104-118 km
+					64.62 - 73.32 mi",,,"14-15.1 kWh/100 km
+				    
+				22.53 - 24.3 kWh/100 mi150 - 139 MPGe7.1 - 6.6 km/kWh4.4 - 4.1 mi/kWh",Under the rear seats,Lithium-ion (Li-Ion),400 V,,,40-50 g/km,"1.7-6.7 l/100 km
+							138.36 - 35.11 US mpg166.17 - 42.16 UK mpg58.82 - 14.93 km/l",116 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1498 cm3
+91.41 cu. in.","Front, Transverse","4 l
+					4.23 US qt | 3.52 UK qt",,Start & Stop SystemParticulate filter,,,25.7 kWh,"1559 mm
+					61.38 in.",,,,,,,,,,,,,,,,,,,,,,,"272  Hp, 400  Nm295.02 lb.-ft.",,,,,,,,,,,"1825 kg
+					4023.44 lbs.","4531 mm
+					178.39 in.","2405 kg
+					5302.12 lbs.",1.5 TFSI (272 Hp) e-hybrid S tronic,19.7 kWh,177 Hp @ 5500-6000 rpm.,118.2 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),272 Hp,"6.7 kg/Hp, 149 Hp/tonne","4.6 kg/Nm, 219.2 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,14-15.1 kWh/100 km22.53 - 24.3 kWh/100 mi150 - 139 MPGe7.1 - 6.6 km/kWh4.4 - 4.1 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1825  kg4023.44 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,1.5 l1498  cm3 91.41 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2405  kg5302.12 lbs.,,,,,104-118  km64.62 - 73.32 mi,,,,,,,,,,,,,"1859 mm
+					73.19 in.","2087 mm
+					82.17 in."
+Specs of Audi Q3 III (FJ) 1.5 TFSI (272 Hp) e-hybrid S tronic /2025/,https://www.auto-data.net/en/audi-q3-iii-fj-1.5-tfsi-272hp-e-hybrid-s-tronic-54585,6.8 sec,6.5 sec,6.8 sec,"105-119 km
+					65.24 - 73.94 mi",,"13.9-15 kWh/100 km
+				    
+				22.37 - 24.14 kWh/100 mi151 - 140 MPGe7.2 - 6.7 km/kWh4.5 - 4.1 mi/kWh",,,Under the rear seats,Lithium-ion (Li-Ion),400 V,39-49 g/km,,,,116 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1498 cm3
+91.41 cu. in.","Front, Transverse","4.3 l
+					4.54 US qt | 3.78 UK qt",,Start & Stop SystemParticulate filter,"1.7-6.6 l/100 km
+							138.36 - 35.64 US mpg166.17 - 42.8 UK mpg58.82 - 15.15 km/l",,25.7 kWh,"1601 mm
+					63.03 in.",,,,,,,,,,,,,,,,,,,,,,,,"272  Hp, 400  Nm295.02 lb.-ft.",,,,,,,,,,"1825 kg
+					4023.44 lbs.","4531 mm
+					178.39 in.","2405 kg
+					5302.12 lbs.",1.5 TFSI (272 Hp) e-hybrid S tronic,19.7 kWh,177 Hp @ 5500-6000 rpm.,118.2 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),272 Hp,"6.7 kg/Hp, 149 Hp/tonne","4.6 kg/Nm, 219.2 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,13.9-15 kWh/100 km22.37 - 24.14 kWh/100 mi151 - 140 MPGe7.2 - 6.7 km/kWh4.5 - 4.1 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1825  kg4023.44 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.5 l1498  cm3 91.41 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2405  kg5302.12 lbs.,,,,,,105-119  km65.24 - 73.94 mi,,,,,,,,,,,,,"1859 mm
+					73.19 in.","2087 mm
+					82.17 in."
+Specs of Audi Q5 III (GU) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-q5-iii-gu-2.0-tfsi-367hp-e-hybrid-quattro-ultra-s-tronic-54561,5.1 sec,4.8 sec,5.1 sec,,"81-92 km
+					50.33 - 57.17 mi",,,"15.8-16.9 kWh/100 km
+				    
+				25.43 - 27.2 kWh/100 mi133 - 124 MPGe6.3 - 5.9 km/kWh3.9 - 3.7 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,60-77 g/km,"2.6-8.4 l/100 km
+							90.47 - 28 US mpg108.65 - 33.63 UK mpg38.46 - 11.9 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1626-1661 mm
+					64.02 - 65.39 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,"2170 kg
+					4784.03 lbs.","4717 mm
+					185.71 in.","2735 kg
+					6029.64 lbs.",2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.9 kg/Hp, 169.1 Hp/tonne","4.3 kg/Nm, 230.4 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,,15.8-16.9 kWh/100 km25.43 - 27.2 kWh/100 mi133 - 124 MPGe6.3 - 5.9 km/kWh3.9 - 3.7 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2170  kg4784.03 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2735  kg6029.64 lbs.,,,,,81-92  km50.33 - 57.17 mi,,,,,,,,,,,"1900 mm
+					74.8 in.","2155 mm
+					84.84 in."
+Specs of Audi Q5 III (GU) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-q5-iii-gu-2.0-tfsi-299hp-e-hybrid-quattro-ultra-s-tronic-54560,6.2 sec,5.9 sec,6.2 sec,,"82-100 km
+					50.95 - 62.14 mi",,,"15.5-16.8 kWh/100 km
+				    
+				24.94 - 27.04 kWh/100 mi135 - 125 MPGe6.5 - 6 km/kWh4 - 3.7 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,56-75 g/km,"2.5-8.3 l/100 km
+							94.09 - 28.34 US mpg112.99 - 34.03 UK mpg40 - 12.05 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1614-1668 mm
+					63.54 - 65.67 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,"2150 kg
+					4739.94 lbs.","4717 mm
+					185.71 in.","2735 kg
+					6029.64 lbs.",2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6000 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"7.2 kg/Hp, 139.1 Hp/tonne","4.8 kg/Nm, 209.3 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,15.5-16.8 kWh/100 km24.94 - 27.04 kWh/100 mi135 - 125 MPGe6.5 - 6 km/kWh4 - 3.7 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2150  kg4739.94 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2735  kg6029.64 lbs.,,,,,82-100  km50.95 - 62.14 mi,,,,,,,,,,,,"1900 mm
+					74.8 in.","2155 mm
+					84.84 in."
+Specs of Audi Q5 III Sportback (GU) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-q5-iii-sportback-gu-2.0-tfsi-367hp-e-hybrid-quattro-ultra-s-tronic-54559,5.1 sec,4.8 sec,5.1 sec,,"82-92 km
+					50.95 - 57.17 mi",,,"15.8-16.8 kWh/100 km
+				    
+				25.43 - 27.04 kWh/100 mi133 - 125 MPGe6.3 - 6 km/kWh3.9 - 3.7 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,60-76 g/km,"2.6-8.3 l/100 km
+							90.47 - 28.34 US mpg108.65 - 34.03 UK mpg38.46 - 12.05 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1622-1657 mm
+					63.86 - 65.24 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,"2170 kg
+					4784.03 lbs.","4717 mm
+					185.71 in.","2735 kg
+					6029.64 lbs.",2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.9 kg/Hp, 169.1 Hp/tonne","4.3 kg/Nm, 230.4 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,15.8-16.8 kWh/100 km25.43 - 27.04 kWh/100 mi133 - 125 MPGe6.3 - 6 km/kWh3.9 - 3.7 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2170  kg4784.03 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2735  kg6029.64 lbs.,,,82-92  km50.95 - 57.17 mi,,,,,,,,,,,"1900 mm
+					74.8 in.","2155 mm
+					84.84 in."
+Specs of Audi Q5 III Sportback (GU) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-q5-iii-sportback-gu-2.0-tfsi-299hp-e-hybrid-quattro-ultra-s-tronic-54558,6.2 sec,5.9 sec,6.2 sec,,"82-100 km
+					50.95 - 62.14 mi",,,"15.5-16.8 kWh/100 km
+				    
+				24.94 - 27.04 kWh/100 mi135 - 125 MPGe6.5 - 6 km/kWh4 - 3.7 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,56-75 g/km,"2.5-8.2 l/100 km
+							94.09 - 28.68 US mpg112.99 - 34.45 UK mpg40 - 12.2 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1622-1657 mm
+					63.86 - 65.24 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,"2150 kg
+					4739.94 lbs.","4717 mm
+					185.71 in.","2735 kg
+					6029.64 lbs.",2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6000 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"7.2 kg/Hp, 139.1 Hp/tonne","4.8 kg/Nm, 209.3 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,15.5-16.8 kWh/100 km24.94 - 27.04 kWh/100 mi135 - 125 MPGe6.5 - 6 km/kWh4 - 3.7 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2150  kg4739.94 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2735  kg6029.64 lbs.,,,82-100  km50.95 - 62.14 mi,,,,,,,,,,,,"1900 mm
+					74.8 in.","2155 mm
+					84.84 in."
+Specs of Audi A6 Avant (C9) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-a6-avant-c9-2.0-tfsi-367hp-e-hybrid-quattro-ultra-s-tronic-54209,5.3 sec,5 sec,5.3 sec,,"85-100 km
+					52.82 - 62.14 mi",,,"15.4-16.3 kWh/100 km
+				    
+				24.78 - 26.23 kWh/100 mi136 - 128 MPGe6.5 - 6.1 km/kWh4 - 3.8 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,54-65 g/km,"2.4-7.7 l/100 km
+							98.01 - 30.55 US mpg117.7 - 36.69 UK mpg41.67 - 12.99 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1472 mm
+					57.95 in.",,,,,,,,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,,,,,"2165 kg
+					4773.01 lbs.","4999 mm
+					196.81 in.","2775 kg
+					6117.83 lbs.",2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.9 kg/Hp, 169.5 Hp/tonne","4.3 kg/Nm, 230.9 Nm/tonne",,,,,,,,,,,15.4-16.3 kWh/100 km24.78 - 26.23 kWh/100 mi136 - 128 MPGe6.5 - 6.1 km/kWh4 - 3.8 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2165  kg4773.01 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2775  kg6117.83 lbs.,,,,,,,,,,,85-100  km52.82 - 62.14 mi,,,,,,,,,,,"1875 mm
+					73.82 in.","2099 mm
+					82.64 in."
+Specs of Audi A6 Avant (C9) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-a6-avant-c9-2.0-tfsi-299hp-e-hybrid-quattro-ultra-s-tronic-54208,6 sec,5.7 sec,6 sec,,"90-104 km
+					55.92 - 64.62 mi",,,"15.2-16.2 kWh/100 km
+				    
+				24.46 - 26.07 kWh/100 mi138 - 129 MPGe6.6 - 6.2 km/kWh4.1 - 3.8 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,51-65 g/km,"2.2-7.6 l/100 km
+							106.92 - 30.95 US mpg128.4 - 37.17 UK mpg45.45 - 13.16 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1472 mm
+					57.95 in.",,,,,,,,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,,,,,"2150 kg
+					4739.94 lbs.","4999 mm
+					196.81 in.","2760 kg
+					6084.76 lbs.",2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"7.2 kg/Hp, 139.1 Hp/tonne","4.8 kg/Nm, 209.3 Nm/tonne",,,,,,,,,,15.2-16.2 kWh/100 km24.46 - 26.07 kWh/100 mi138 - 129 MPGe6.6 - 6.2 km/kWh4.1 - 3.8 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2150  kg4739.94 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2760  kg6084.76 lbs.,,,,,,,,,,,90-104  km55.92 - 64.62 mi,,,,,,,,,,,,"1875 mm
+					73.82 in.","2099 mm
+					82.64 in."
+Specs of Audi A6 Sedan (C9) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-a6-limousine-c9-2.0-tfsi-367hp-e-hybrid-quattro-ultra-s-tronic-54207,5.3 sec,5 sec,5.3 sec,,"92-103 km
+					57.17 - 64 mi",,,"15.2-16.1 kWh/100 km
+				    
+				24.46 - 25.91 kWh/100 mi138 - 130 MPGe6.6 - 6.2 km/kWh4.1 - 3.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,51-63 g/km,"2.2-7.5 l/100 km
+							106.92 - 31.36 US mpg128.4 - 37.66 UK mpg45.45 - 13.33 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1452 mm
+					57.17 in.",,,,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,,,,,,,,,"2145 kg
+					4728.92 lbs.","4999 mm
+					196.81 in.","2755 kg
+					6073.74 lbs.",2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.8 kg/Hp, 171.1 Hp/tonne","4.3 kg/Nm, 233.1 Nm/tonne",,,,,,,,,,,,,,,,,15.2-16.1 kWh/100 km24.46 - 25.91 kWh/100 mi138 - 130 MPGe6.6 - 6.2 km/kWh4.1 - 3.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2145  kg4728.92 lbs.,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2755  kg6073.74 lbs.,,,,,,,,,92-103  km57.17 - 64 mi,,,,,,,,,,,"1875 mm
+					73.82 in.","2099 mm
+					82.64 in."
+Specs of Audi A6 Sedan (C9) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-a6-limousine-c9-2.0-tfsi-299hp-e-hybrid-quattro-ultra-s-tronic-54206,6 sec,5.7 sec,6 sec,,"88-106 km
+					54.68 - 65.87 mi",,,"15-16.1 kWh/100 km
+				    
+				24.14 - 25.91 kWh/100 mi140 - 130 MPGe6.7 - 6.2 km/kWh4.1 - 3.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,48-63 g/km,"2.1-7.5 l/100 km
+							112.01 - 31.36 US mpg134.51 - 37.66 UK mpg47.62 - 13.33 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1452 mm
+					57.17 in.",,,,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,"2130 kg
+					4695.85 lbs.","4999 mm
+					196.81 in.","2740 kg
+					6040.67 lbs.",2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"7.1 kg/Hp, 140.4 Hp/tonne","4.7 kg/Nm, 211.3 Nm/tonne",,,,,,,,,,,,,,,,15-16.1 kWh/100 km24.14 - 25.91 kWh/100 mi140 - 130 MPGe6.7 - 6.2 km/kWh4.1 - 3.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2130  kg4695.85 lbs.,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2740  kg6040.67 lbs.,,,,,,,,,88-106  km54.68 - 65.87 mi,,,,,,,,,,,,"1875 mm
+					73.82 in.","2099 mm
+					82.64 in."
+Specs of Audi A5 Avant (B10) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-a5-avant-b10-2.0-tfsi-367hp-e-hybrid-quattro-ultra-s-tronic-54003,5.1 sec,4.8 sec,5.1 sec,,"104 km
+					64.62 mi",,,"15.3-15.9 kWh/100 km
+				    
+				24.62 - 25.59 kWh/100 mi137 - 132 MPGe6.5 - 6.3 km/kWh4.1 - 3.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,50-61 g/km,"2.2-7.4 l/100 km
+							106.92 - 31.79 US mpg128.4 - 38.17 UK mpg45.45 - 13.51 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1458 mm
+					57.4 in.",,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,,,"2110 kg
+					4651.75 lbs.","4829 mm
+					190.12 in.","2665 kg
+					5875.32 lbs.",2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.7 kg/Hp, 173.9 Hp/tonne","4.2 kg/Nm, 237 Nm/tonne",,,,,15.3-15.9 kWh/100 km24.62 - 25.59 kWh/100 mi137 - 132 MPGe6.5 - 6.3 km/kWh4.1 - 3.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2110  kg4651.75 lbs.,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2665  kg5875.32 lbs.,,,,,,,,,,,,,,,104  km64.62 mi,,,,,,,,,,,"1860 mm
+					73.23 in.","2099 mm
+					82.64 in."
+Specs of Audi A5 Avant (B10) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-a5-avant-b10-2.0-tfsi-299hp-e-hybrid-quattro-ultra-s-tronic-54002,5.9 sec,5.6 sec,5.9 sec,,"108 km
+					67.11 mi",,,"15-15.8 kWh/100 km
+				    
+				24.14 - 25.43 kWh/100 mi140 - 133 MPGe6.7 - 6.3 km/kWh4.1 - 3.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,47-60 g/km,"2.1-7.4 l/100 km
+							112.01 - 31.79 US mpg134.51 - 38.17 UK mpg47.62 - 13.51 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1458 mm
+					57.4 in.",,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,,,,"2085 kg
+					4596.64 lbs.","4829 mm
+					190.12 in.","2655 kg
+					5853.27 lbs.",2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"7 kg/Hp, 143.4 Hp/tonne","4.6 kg/Nm, 215.8 Nm/tonne",,,,15-15.8 kWh/100 km24.14 - 25.43 kWh/100 mi140 - 133 MPGe6.7 - 6.3 km/kWh4.1 - 3.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2085  kg4596.64 lbs.,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2655  kg5853.27 lbs.,,,,,,,,,,,,,,,108  km67.11 mi,,,,,,,,,,,,"1860 mm
+					73.23 in.","2099 mm
+					82.64 in."
+Specs of Audi A5 Sedan (B10) 2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-a5-sedan-b10-2.0-tfsi-367hp-e-hybrid-quattro-ultra-s-tronic-54001,5.1 sec,4.8 sec,5.1 sec,,"107 km
+					66.49 mi",,,"15.1-15.7 kWh/100 km
+				    
+				24.3 - 25.27 kWh/100 mi139 - 133 MPGe6.6 - 6.4 km/kWh4.1 - 4 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,47-60 g/km,"2.1-7.3 l/100 km
+							112.01 - 32.22 US mpg134.51 - 38.7 UK mpg47.62 - 13.7 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1443 mm
+					56.81 in.",,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,"2095 kg
+					4618.68 lbs.","4829 mm
+					190.12 in.","2645 kg
+					5831.23 lbs.",2.0 TFSI (367 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.7 kg/Hp, 175.2 Hp/tonne","4.2 kg/Nm, 238.7 Nm/tonne",,,,,,,15.1-15.7 kWh/100 km24.3 - 25.27 kWh/100 mi139 - 133 MPGe6.6 - 6.4 km/kWh4.1 - 4 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2095  kg4618.68 lbs.,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2645  kg5831.23 lbs.,,,,,,,,,,,,,107  km66.49 mi,,,,,,,,,,,"1860 mm
+					73.23 in.","2099 mm
+					82.64 in."
+Specs of Audi A5 Sedan (B10) 2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic /2025/,https://www.auto-data.net/en/audi-a5-sedan-b10-2.0-tfsi-299hp-e-hybrid-quattro-ultra-s-tronic-54000,5.9 sec,5.6 sec,5.9 sec,,"110 km
+					68.35 mi",,,"14.9-15.7 kWh/100 km
+				    
+				23.98 - 25.27 kWh/100 mi141 - 133 MPGe6.7 - 6.4 km/kWh4.2 - 4 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,45-60 g/km,"2-7.3 l/100 km
+							117.61 - 32.22 US mpg141.24 - 38.7 UK mpg50 - 13.7 km/l",143 Hp,Euro 6e,,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","6 l
+					6.34 US qt | 5.28 UK qt",,Start & Stop SystemParticulate filter,,,25.9 kWh,"1443 mm
+					56.81 in.",,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"2070 kg
+					4563.57 lbs.","4829 mm
+					190.12 in.","2635 kg
+					5809.18 lbs.",2.0 TFSI (299 Hp) e-hybrid quattro ultra S tronic,20.7 kWh,252 Hp @ 5000-6500 rpm.,127 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"6.9 kg/Hp, 144.4 Hp/tonne","4.6 kg/Nm, 217.4 Nm/tonne",,,,,,14.9-15.7 kWh/100 km23.98 - 25.27 kWh/100 mi141 - 133 MPGe6.7 - 6.4 km/kWh4.2 - 4 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2070  kg4563.57 lbs.,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2635  kg5809.18 lbs.,,,,,,,,,,,,,110  km68.35 mi,,,,,,,,,,,,"1860 mm
+					73.23 in.","2099 mm
+					82.64 in."
+"Specs of Audi A3 allstreet (8Y, facelift 2024) 40 TFSI e (204 Hp) Plug-in Hybrid S tronic /2024, 2025/",https://www.auto-data.net/en/audi-a3-allstreet-8y-facelift-2024-40-tfsi-e-204hp-plug-in-hybrid-s-tronic-53140,7.4 sec,7 sec,7.4 sec,,"128-139 km
+					79.54 - 86.37 mi",,,"15-16 kWh/100 km
+				    
+				24.14 - 25.75 kWh/100 mi140 - 131 MPGe6.7 - 6.3 km/kWh4.1 - 3.9 mi/kWh","Below the floor, under the rear seats",Lithium nickel manganese cobalt oxides (Li-NMC),400 V,,,7-8 g/km,"0.3-0.4 l/100 km
+							784.05 - 588.04 US mpg941.6 - 706.2 UK mpg333.33 - 250 km/l",116 Hp,Euro 6e,EA211 evo2,"Turbocharger, Intercooler",Inline,"1498 cm3
+91.41 cu. in.","Front, Transverse","4.3 l
+					4.54 US qt | 3.78 UK qt",,Start & Stop SystemParticulate filter,,,25.7 kWh,"1470 mm
+					57.87 in.","204  Hp, 350  Nm258.15 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"1610 kg
+					3549.44 lbs.","4353 mm
+					171.38 in.","2095 kg
+					4618.68 lbs.",40 TFSI e (204 Hp) Plug-in Hybrid S tronic,19.7 kWh,150 Hp @ 5000-6000 rpm.,100.1 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),204 Hp,"7.9 kg/Hp, 126.7 Hp/tonne","4.6 kg/Nm, 217.4 Nm/tonne",,,15-16 kWh/100 km24.14 - 25.75 kWh/100 mi140 - 131 MPGe6.7 - 6.3 km/kWh4.1 - 3.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1610  kg3549.44 lbs.,,,,,,,,,,,,,,,,,,,1.5 l1498  cm3 91.41 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2095  kg4618.68 lbs.,,,,,,,,,,,,,,,,,,,,,,128-139  km79.54 - 86.37 mi,,,,,,,,,,"1816 mm
+					71.5 in.","1984 mm
+					78.11 in."
+"Specs of Audi A3 Sportback (8Y, facelift 2024) 45 TFSI e (272 Hp) Plug-in Hybrid S tronic /2024, 2025/",https://www.auto-data.net/en/audi-a3-sportback-8y-facelift-2024-45-tfsi-e-272hp-plug-in-hybrid-s-tronic-52954,6.3 sec,6 sec,6.3 sec,,"124-135 km
+					77.05 - 83.89 mi",,,"15.6-16.6 kWh/100 km
+				    
+				25.11 - 26.72 kWh/100 mi134 - 126 MPGe6.4 - 6 km/kWh4 - 3.7 mi/kWh","Below the floor, under the rear seats",Lithium nickel manganese cobalt oxides (Li-NMC),400 V,,,7-9 g/km,"0.3-0.4 l/100 km
+							784.05 - 588.04 US mpg941.6 - 706.2 UK mpg333.33 - 250 km/l",116 Hp,Euro 6e,EA211 evo2,"Turbocharger, Intercooler",Inline,"1498 cm3
+91.41 cu. in.","Front, Transverse","4.3 l
+					4.54 US qt | 3.78 UK qt",,Start & Stop SystemParticulate filter,,,25.7 kWh,"1451 mm
+					57.13 in.",,,"272  Hp, 400  Nm295.02 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"1610 kg
+					3549.44 lbs.","4352 mm
+					171.34 in.","2105-2115 kg
+					4640.73 - 4662.78 lbs.",45 TFSI e (272 Hp) Plug-in Hybrid S tronic,19.7 kWh,177 Hp @ 5000-6000 rpm.,118.2 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),272 Hp,"5.9 kg/Hp, 168.9 Hp/tonne","4 kg/Nm, 248.4 Nm/tonne",,15.6-16.6 kWh/100 km25.11 - 26.72 kWh/100 mi134 - 126 MPGe6.4 - 6 km/kWh4 - 3.7 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1610  kg3549.44 lbs.,,,,,,,,,,,,,,,,,,,,,,1.5 l1498  cm3 91.41 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2105-2115  kg4640.73 - 4662.78 lbs.,,,,,,,,,,,,,,,,,,,,,,,,124-135  km77.05 - 83.89 mi,,,,,,,,,"1816 mm
+					71.5 in.","1984 mm
+					78.11 in."
+"Specs of Audi A3 Sportback (8Y, facelift 2024) 40 TFSI e (204 Hp) Plug-in Hybrid S tronic /2024, 2025/",https://www.auto-data.net/en/audi-a3-sportback-8y-facelift-2024-40-tfsi-e-204hp-plug-in-hybrid-s-tronic-52953,7.4 sec,7 sec,7.4 sec,,"126-143 km
+					78.29 - 88.86 mi",,,"14.6-16.2 kWh/100 km
+				    
+				23.5 - 26.07 kWh/100 mi143 - 129 MPGe6.8 - 6.2 km/kWh4.3 - 3.8 mi/kWh","Below the floor, under the rear seats",Lithium nickel manganese cobalt oxides (Li-NMC),400 V,,,6-8 g/km,"0.3-0.4 l/100 km
+							784.05 - 588.04 US mpg941.6 - 706.2 UK mpg333.33 - 250 km/l",116 Hp,Euro 6e,EA211 evo2,"Turbocharger, Intercooler",Inline,"1498 cm3
+91.41 cu. in.","Front, Transverse","4.3 l
+					4.54 US qt | 3.78 UK qt",,Start & Stop SystemParticulate filter,,,25.7 kWh,"1451 mm
+					57.13 in.",,"204  Hp, 350  Nm258.15 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"1600 kg
+					3527.4 lbs.","4352 mm
+					171.34 in.","2095-2110 kg
+					4618.68 - 4651.75 lbs.",40 TFSI e (204 Hp) Plug-in Hybrid S tronic,19.7 kWh,150 Hp @ 5000-6000 rpm.,100.1 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),204 Hp,"7.8 kg/Hp, 127.5 Hp/tonne","4.6 kg/Nm, 218.8 Nm/tonne",14.6-16.2 kWh/100 km23.5 - 26.07 kWh/100 mi143 - 129 MPGe6.8 - 6.2 km/kWh4.3 - 3.8 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1600  kg3527.4 lbs.,,,,,,,,,,,,,,,,,,,,,,1.5 l1498  cm3 91.41 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2095-2110  kg4618.68 - 4651.75 lbs.,,,,,,,,,,,,,,,,,,,,,,,,126-143  km78.29 - 88.86 mi,,,,,,,,,,"1816 mm
+					71.5 in.","1984 mm
+					78.11 in."
+"Specs of Audi A8 (D5, facelift 2021) 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic /2022, 2023, 2024, 2025/",https://www.auto-data.net/en/audi-a8-d5-facelift-2021-60-tfsi-e-v6-462hp-plug-in-hybrid-quattro-tiptronic-52201,4.7 sec,4.5 sec,4.7 sec,,"54-60 km
+					33.55 - 37.28 mi",,,"21.9-23.6 kWh/100 km
+				    
+				35.24 - 37.98 kWh/100 mi96 - 89 MPGe4.6 - 4.2 km/kWh2.8 - 2.6 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,39-48 g/km,"1.7-2.1 l/100 km
+							138.36 - 112.01 US mpg166.17 - 134.51 UK mpg58.82 - 47.62 km/l",136 Hp,Euro 6e,EA839 / CZSE,"Turbocharger, Intercooler",V-engine,"2995 cm3
+182.77 cu. in.","Front, Longitudinal","7.6 l
+					8.03 US qt | 6.69 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1462-1487 mm
+					57.56 - 58.54 in.",,,,,,,,,,,,,,,,,,,,,,"462  Hp, 700  Nm516.29 lb.-ft.",,,,,,,,,,,,"2310 kg
+					5092.68 lbs.","5190 mm
+					204.33 in.","2910 kg
+					6415.45 lbs.",60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic,14.4 kWh,340 Hp @ 5000-6400 rpm.,113.5 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),462 Hp,"5 kg/Hp, 200 Hp/tonne","3.3 kg/Nm, 303 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,21.9-23.6 kWh/100 km35.24 - 37.98 kWh/100 mi96 - 89 MPGe4.6 - 4.2 km/kWh2.8 - 2.6 mi/kWh,,,,,,,,,,,,,,,,,,,,,,2310  kg5092.68 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0 l2995  cm3 182.77 cu. in.,,,,,,,,,,,,,,,,,,,2910  kg6415.45 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,54-60  km33.55 - 37.28 mi,,"1945 mm
+					76.57 in.","2130 mm
+					83.86 in."
+"Specs of Audi Q8 (4M, facelift 2023) 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic /2024, 2025/",https://www.auto-data.net/en/audi-q8-4m-facelift-2023-60-tfsi-e-v6-490hp-plug-in-hybrid-quattro-tiptronic-51705,5 sec,4.8 sec,5 sec,,"76-84 km
+					47.22 - 52.2 mi",,,"27.9-30.2 kWh/100 km
+				    
+				44.9 - 48.6 kWh/100 mi75 - 69 MPGe3.6 - 3.3 km/kWh2.2 - 2.1 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,28-36 g/km,"1.2-1.6 l/100 km
+							196.01 - 147.01 US mpg235.4 - 176.55 UK mpg83.33 - 62.5 km/l",177 Hp,Euro 6e,,"Turbocharger, Intercooler",V-engine,"2995 cm3
+182.77 cu. in.","Front, Longitudinal","7.2 l
+					7.61 US qt | 6.34 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,25.9 kWh,"1678-1717 mm
+					66.06 - 67.6 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"490  Hp, 700  Nm516.29 lb.-ft.","2415 kg
+					5324.16 lbs.","4992 mm
+					196.54 in.","3110 kg
+					6856.38 lbs.",60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic,22 kWh,340 Hp @ 5200-6400 rpm.,113.5 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),490 Hp,"4.9 kg/Hp, 202.9 Hp/tonne","3.5 kg/Nm, 289.9 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,27.9-30.2 kWh/100 km44.9 - 48.6 kWh/100 mi75 - 69 MPGe3.6 - 3.3 km/kWh2.2 - 2.1 mi/kWh,,,,,,,,,,,,,,,,,,,,,,2415  kg5324.16 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0 l2995  cm3 182.77 cu. in.,,,,,,,,,,,,,,,,,,,,,,3110  kg6856.38 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,76-84  km47.22 - 52.2 mi,"1995 mm
+					78.54 in.","2190 mm
+					86.22 in."
+"Specs of Audi Q8 (4M, facelift 2023) 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic /2024, 2025/",https://www.auto-data.net/en/audi-q8-4m-facelift-2023-55-tfsi-e-v6-394hp-plug-in-hybrid-quattro-tiptronic-51704,5.7 sec,5.4 sec,5.7 sec,,"75-85 km
+					46.6 - 52.82 mi",,,"27.7-30.4 kWh/100 km
+				    
+				44.58 - 48.92 kWh/100 mi76 - 69 MPGe3.6 - 3.3 km/kWh2.2 - 2 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,27-37 g/km,"1.2-1.6 l/100 km
+							196.01 - 147.01 US mpg235.4 - 176.55 UK mpg83.33 - 62.5 km/l",177 Hp,Euro 6e,,"Turbocharger, Intercooler",V-engine,"2995 cm3
+182.77 cu. in.","Front, Longitudinal","7.2 l
+					7.61 US qt | 6.34 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,25.9 kWh,"1697 mm
+					66.81 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"394  Hp, 600  Nm442.54 lb.-ft.",,"2415 kg
+					5324.16 lbs.","4992 mm
+					196.54 in.","3110 kg
+					6856.38 lbs.",55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic,22 kWh,340 Hp @ 5300-6400 rpm.,113.5 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),394 Hp,"6.1 kg/Hp, 163.1 Hp/tonne","4 kg/Nm, 248.4 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,27.7-30.4 kWh/100 km44.58 - 48.92 kWh/100 mi76 - 69 MPGe3.6 - 3.3 km/kWh2.2 - 2 mi/kWh,,,,,,,,,,,,,,,,,,,,,,2415  kg5324.16 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0 l2995  cm3 182.77 cu. in.,,,,,,,,,,,,,,,,,,,,,,3110  kg6856.38 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,75-85  km46.6 - 52.82 mi,,,"1995 mm
+					78.54 in.","2190 mm
+					86.22 in."
+"Specs of Audi Q7 (Typ 4M, facelift 2024) 60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic /2024, 2025/",https://www.auto-data.net/en/audi-q7-typ-4m-facelift-2024-60-tfsi-e-v6-490hp-plug-in-hybrid-quattro-tiptronic-51703,5 sec,4.8 sec,5 sec,,"80-84 km
+					49.71 - 52.2 mi",,,"28-29.1 kWh/100 km
+				    
+				45.06 - 46.83 kWh/100 mi75 - 72 MPGe3.6 - 3.4 km/kWh2.2 - 2.1 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,29-33 g/km,"1.3-1.4 l/100 km
+							180.93 - 168.01 US mpg217.29 - 201.77 UK mpg76.92 - 71.43 km/l",177 Hp,Euro 6e,,"Turbocharger, Intercooler",V-engine,"2995 cm3
+182.77 cu. in.","Front, Longitudinal","7.2 l
+					7.61 US qt | 6.34 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,25.9 kWh,"1690-1748 mm
+					66.54 - 68.82 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"490  Hp, 700  Nm516.29 lb.-ft.",,,"2385 kg
+					5258.02 lbs.","5072 mm
+					199.69 in.","3100 kg
+					6834.33 lbs.",60 TFSI e V6 (490 Hp) Plug-in Hybrid quattro tiptronic,22 kWh,340 Hp @ 5200-6400 rpm.,113.5 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),490 Hp,"4.9 kg/Hp, 205.5 Hp/tonne","3.4 kg/Nm, 293.5 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,28-29.1 kWh/100 km45.06 - 46.83 kWh/100 mi75 - 72 MPGe3.6 - 3.4 km/kWh2.2 - 2.1 mi/kWh,,,,,,,,,,,,,,,,,,,,,,2385  kg5258.02 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0 l2995  cm3 182.77 cu. in.,,,,,,,,,,,,,,,,,,,,,,3100  kg6834.33 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,80-84  km49.71 - 52.2 mi,"1970 mm
+					77.56 in.","2212 mm
+					87.09 in."
+"Specs of Audi Q7 (Typ 4M, facelift 2024) 55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic /2024, 2025/",https://www.auto-data.net/en/audi-q7-typ-4m-facelift-2024-55-tfsi-e-v6-394hp-plug-in-hybrid-quattro-tiptronic-51702,5.7 sec,5.4 sec,5.7 sec,,"80-84 km
+					49.71 - 52.2 mi",,,"27.8-29.1 kWh/100 km
+				    
+				44.74 - 46.83 kWh/100 mi75 - 72 MPGe3.6 - 3.4 km/kWh2.2 - 2.1 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,28-33 g/km,"1.2-1.4 l/100 km
+							196.01 - 168.01 US mpg235.4 - 201.77 UK mpg83.33 - 71.43 km/l",177 Hp,Euro 6e,,"Turbocharger, Intercooler",V-engine,"2995 cm3
+182.77 cu. in.","Front, Longitudinal","7.2 l
+					7.61 US qt | 6.34 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,25.9 kWh,"1735 mm
+					68.31 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"394  Hp, 600  Nm442.54 lb.-ft.",,,,"2385 kg
+					5258.02 lbs.","5072 mm
+					199.69 in.","3100 kg
+					6834.33 lbs.",55 TFSI e V6 (394 Hp) Plug-in Hybrid quattro tiptronic,22 kWh,340 Hp @ 5200-6400 rpm.,113.5 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),394 Hp,"6.1 kg/Hp, 165.2 Hp/tonne","4 kg/Nm, 251.6 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,27.8-29.1 kWh/100 km44.74 - 46.83 kWh/100 mi75 - 72 MPGe3.6 - 3.4 km/kWh2.2 - 2.1 mi/kWh,,,,,,,,,,,,,,,,,,,,,,2385  kg5258.02 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0 l2995  cm3 182.77 cu. in.,,,,,,,,,,,,,,,,,,,,,,3100  kg6834.33 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,80-84  km49.71 - 52.2 mi,,,"1970 mm
+					77.56 in.","2212 mm
+					87.09 in."
+"Specs of Audi Q7 (Typ 4M, facelift 2019) 55 TFSI e V6 (381 Hp) Plug-in Hybrid quattro tiptronic /2020, 2021/",https://www.auto-data.net/en/audi-q7-typ-4m-facelift-2019-55-tfsi-e-v6-381hp-plug-in-hybrid-quattro-tiptronic-51070,5.8 sec,5.5 sec,5.8 sec,,"44-48 km
+					27.34 - 29.83 mi",,,"21.7-22.6 kWh/100 km
+				    
+				34.92 - 36.37 kWh/100 mi96 - 93 MPGe4.6 - 4.4 km/kWh2.9 - 2.7 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),,,,59-62 g/km,"2.6-2.7 l/100 km
+							90.47 - 87.12 US mpg108.65 - 104.62 UK mpg38.46 - 37.04 km/l",136 Hp,Euro 6d-ISC-FCM,DCBE,"Turbocharger, Intercooler",V-engine,"2995 cm3
+182.77 cu. in.","Front, Longitudinal","7.6 l
+					8.03 US qt | 6.69 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1739 mm
+					68.46 in.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,"381  Hp, 600  Nm442.54 lb.-ft.",,,,,"2375-2385 kg
+					5235.98 - 5258.02 lbs.","5063 mm
+					199.33 in.","3025-3035 kg
+					6668.98 - 6691.03 lbs.",55 TFSI e V6 (381 Hp) Plug-in Hybrid quattro tiptronic,14.4 kWh,340 Hp @ 5300-6400 rpm.,113.5 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),381 Hp,"6.2 kg/Hp, 160.4 Hp/tonne","4 kg/Nm, 252.6 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,21.7-22.6 kWh/100 km34.92 - 36.37 kWh/100 mi96 - 93 MPGe4.6 - 4.4 km/kWh2.9 - 2.7 mi/kWh,,,,,2375-2385  kg5235.98 - 5258.02 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0 l2995  cm3 182.77 cu. in.,,,,,3025-3035  kg6668.98 - 6691.03 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,44-48  km27.34 - 29.83 mi,,,,"1970 mm
+					77.56 in.","2212 mm
+					87.09 in."
+"Specs of Audi A6 Avant (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic /2023, 2024, 2025/",https://www.auto-data.net/en/audi-a6-avant-c8-facelift-2023-50-tfsi-e-299hp-plug-in-hybrid-quattro-ultra-s-tronic-50769,6.3 sec,6 sec,6.3 sec,,"60-66 km
+					37.28 - 41.01 mi",,,"20.1-21.5 kWh/100 km
+				    
+				32.35 - 34.6 kWh/100 mi104 - 97 MPGe5 - 4.7 km/kWh3.1 - 2.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,31-37 g/km,"1.4-1.7 l/100 km
+							168.01 - 138.36 US mpg201.77 - 166.17 UK mpg71.43 - 58.82 km/l",143 Hp,Euro 6e,EA888evo4,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1494 mm
+					58.82 in.",,,,,,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,,,,,,,"2075 kg
+					4574.59 lbs.","4939 mm
+					194.45 in.","2675 kg
+					5897.37 lbs.",50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"6.9 kg/Hp, 144.1 Hp/tonne","4.6 kg/Nm, 216.9 Nm/tonne",,,,,,,,20.1-21.5 kWh/100 km32.35 - 34.6 kWh/100 mi104 - 97 MPGe5 - 4.7 km/kWh3.1 - 2.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2075  kg4574.59 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2675  kg5897.37 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,60-66  km37.28 - 41.01 mi,,,,,,,"1886 mm
+					74.25 in.","2110 mm
+					83.07 in."
+"Specs of Audi A6 Sedan (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic /2023, 2024, 2025/",https://www.auto-data.net/en/audi-a6-limousine-c8-facelift-2023-55-tfsi-e-367hp-plug-in-hybrid-quattro-ultra-s-tronic-50768,5.6 sec,5.3 sec,5.6 sec,,"63-68 km
+					39.15 - 42.25 mi",,,"19.1-21.1 kWh/100 km
+				    
+				30.74 - 33.96 kWh/100 mi110 - 99 MPGe5.2 - 4.7 km/kWh3.3 - 2.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,27-35 g/km,"1.2-1.6 l/100 km
+							196.01 - 147.01 US mpg235.4 - 176.55 UK mpg83.33 - 62.5 km/l",143 Hp,Euro 6e,EA888evo4,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1459 mm
+					57.44 in.",,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,"2010 kg
+					4431.29 lbs.","4939 mm
+					194.45 in.","2610 kg
+					5754.07 lbs.",55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.5 kg/Hp, 182.6 Hp/tonne","4 kg/Nm, 248.8 Nm/tonne",,,,,,,,,,,,,,,19.1-21.1 kWh/100 km30.74 - 33.96 kWh/100 mi110 - 99 MPGe5.2 - 4.7 km/kWh3.3 - 2.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2010  kg4431.29 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2610  kg5754.07 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,63-68  km39.15 - 42.25 mi,,,,,"1886 mm
+					74.25 in.","2110 mm
+					83.07 in."
+"Specs of Audi A7 Sportback (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic /2023, 2024, 2025/",https://www.auto-data.net/en/audi-a7-sportback-c8-facelift-2023-55-tfsi-e-367hp-plug-in-hybrid-quattro-ultra-s-tronic-50767,5.7 sec,5.4 sec,5.7 sec,,"61-67 km
+					37.9 - 41.63 mi",,,"19.7-21.2 kWh/100 km
+				    
+				31.7 - 34.12 kWh/100 mi106 - 99 MPGe5.1 - 4.7 km/kWh3.2 - 2.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,30-36 g/km,"1.3-1.6 l/100 km
+							180.93 - 147.01 US mpg217.29 - 176.55 UK mpg76.92 - 62.5 km/l",143 Hp,Euro 6e,EA888evo4,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1421 mm
+					55.94 in.",,,,,,,,,,,,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,"2065 kg
+					4552.55 lbs.","4969 mm
+					195.63 in.","2650 kg
+					5842.25 lbs.",55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.6 kg/Hp, 177.7 Hp/tonne","4.1 kg/Nm, 242.1 Nm/tonne",,,,,,,,,,,,,,,,,,,,,19.7-21.2 kWh/100 km31.7 - 34.12 kWh/100 mi106 - 99 MPGe5.1 - 4.7 km/kWh3.2 - 2.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2065  kg4552.55 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,2650  kg5842.25 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,61-67  km37.9 - 41.63 mi,,,,,"1908 mm
+					75.12 in.","2118 mm
+					83.39 in."
+"Specs of Audi A7 Sportback (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic /2023, 2024, 2025/",https://www.auto-data.net/en/audi-a7-sportback-c8-facelift-2023-50-tfsi-e-299hp-plug-in-hybrid-quattro-ultra-s-tronic-50766,6.3 sec,6 sec,6.3 sec,,"61-71 km
+					37.9 - 44.12 mi",,,"18.9-21.2 kWh/100 km
+				    
+				30.42 - 34.12 kWh/100 mi111 - 99 MPGe5.3 - 4.7 km/kWh3.3 - 2.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,25-36 g/km,"1.1-1.6 l/100 km
+							213.83 - 147.01 US mpg256.8 - 176.55 UK mpg90.91 - 62.5 km/l",143 Hp,Euro 6e,EA888evo4,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1421 mm
+					55.94 in.",,,,,,,,,,,,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,"2065 kg
+					4552.55 lbs.","4969 mm
+					195.63 in.","2650 kg
+					5842.25 lbs.",50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"6.9 kg/Hp, 144.8 Hp/tonne","4.6 kg/Nm, 217.9 Nm/tonne",,,,,,,,,,,,,,,,,,,,18.9-21.2 kWh/100 km30.42 - 34.12 kWh/100 mi111 - 99 MPGe5.3 - 4.7 km/kWh3.3 - 2.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2065  kg4552.55 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,2650  kg5842.25 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,61-71  km37.9 - 44.12 mi,,,,,,,"1908 mm
+					75.12 in.","2118 mm
+					83.39 in."
+"Specs of Audi A6 Avant (C8, facelift 2023) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic /2023, 2024, 2025/",https://www.auto-data.net/en/audi-a6-avant-c8-facelift-2023-55-tfsi-e-367hp-plug-in-hybrid-quattro-ultra-s-tronic-50763,5.7 sec,5.4 sec,5.7 sec,,"60-66 km
+					37.28 - 41.01 mi",,,"20.2-21.5 kWh/100 km
+				    
+				32.51 - 34.6 kWh/100 mi104 - 97 MPGe5 - 4.7 km/kWh3.1 - 2.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,32-37 g/km,"1.4-1.6 l/100 km
+							168.01 - 147.01 US mpg201.77 - 176.55 UK mpg71.43 - 62.5 km/l",143 Hp,Euro 6e,EA888evo4,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1494 mm
+					58.82 in.",,,,,,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,,,,,,,"2075 kg
+					4574.59 lbs.","4939 mm
+					194.45 in.","2675 kg
+					5897.37 lbs.",55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.7 kg/Hp, 176.9 Hp/tonne","4.2 kg/Nm, 241 Nm/tonne",,,,,,,,,20.2-21.5 kWh/100 km32.51 - 34.6 kWh/100 mi104 - 97 MPGe5 - 4.7 km/kWh3.1 - 2.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2075  kg4574.59 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2675  kg5897.37 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,60-66  km37.28 - 41.01 mi,,,,,"1886 mm
+					74.25 in.","2110 mm
+					83.07 in."
+"Specs of Audi A6 Sedan (C8, facelift 2023) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic /2023, 2024, 2025/",https://www.auto-data.net/en/audi-a6-limousine-c8-facelift-2023-50-tfsi-e-299hp-plug-in-hybrid-quattro-ultra-s-tronic-50728,6.2 sec,5.9 sec,6.2 sec,,"62-73 km
+					38.53 - 45.36 mi",,,"18.7-21.1 kWh/100 km
+				    
+				30.09 - 33.96 kWh/100 mi112 - 99 MPGe5.3 - 4.7 km/kWh3.3 - 2.9 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,24-36 g/km,"1.1-1.6 l/100 km
+							213.83 - 147.01 US mpg256.8 - 176.55 UK mpg90.91 - 62.5 km/l",143 Hp,Euro 6e,EA888evo4,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1459 mm
+					57.44 in.",,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,"2010 kg
+					4431.29 lbs.","4939 mm
+					194.45 in.","2610 kg
+					5754.07 lbs.",50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"6.7 kg/Hp, 148.8 Hp/tonne","4.5 kg/Nm, 223.9 Nm/tonne",,,,,,,,,,,,,,18.7-21.1 kWh/100 km30.09 - 33.96 kWh/100 mi112 - 99 MPGe5.3 - 4.7 km/kWh3.3 - 2.9 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2010  kg4431.29 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2610  kg5754.07 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,62-73  km38.53 - 45.36 mi,,,,,,,"1886 mm
+					74.25 in.","2110 mm
+					83.07 in."
+"Specs of Audi A6 Sedan (C8) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic /2021, 2022, 2023/",https://www.auto-data.net/en/audi-a6-limousine-c8-55-tfsi-e-367hp-plug-in-hybrid-quattro-ultra-s-tronic-45458,5.6 sec,5.3 sec,5.6 sec,,"63-68 km
+					39.15 - 42.25 mi",,"17.2-17.9 kWh/100 km
+				    
+				27.68 - 28.81 kWh/100 mi122 - 117 MPGe5.8 - 5.6 km/kWh3.6 - 3.5 mi/kWh",,Under the trunk,Lithium-ion (Li-Ion),,,33-36 g/km,,,143 Hp,Euro 6d-ISC-FCM,DRYA,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,"1.5-1.6 l/100 km
+							156.81 - 147.01 US mpg188.32 - 176.55 UK mpg66.67 - 62.5 km/l",17.9 kWh,"1457 mm
+					57.36 in.",,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,"2010 kg
+					4431.29 lbs.","4951 mm
+					194.92 in.","2610 kg
+					5754.07 lbs.",55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.5 kg/Hp, 182.6 Hp/tonne","4 kg/Nm, 248.8 Nm/tonne",,,,,,,,,,,,,17.2-17.9 kWh/100 km27.68 - 28.81 kWh/100 mi122 - 117 MPGe5.8 - 5.6 km/kWh3.6 - 3.5 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,2010  kg4431.29 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,2610  kg5754.07 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,63-68  km39.15 - 42.25 mi,,,,,"1886 mm
+					74.25 in.","2110 mm
+					83.07 in."
+"Specs of Audi A6 Sedan (C8) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic /2021, 2022, 2023/",https://www.auto-data.net/en/audi-a6-limousine-c8-50-tfsi-e-299hp-plug-in-hybrid-quattro-ultra-s-tronic-45457,6.2 sec,5.9 sec,6.2 sec,,"62-73 km
+					38.53 - 45.36 mi",,"16.7-17.9 kWh/100 km
+				    
+				26.88 - 28.81 kWh/100 mi125 - 117 MPGe6 - 5.6 km/kWh3.7 - 3.5 mi/kWh",,Under the trunk,Lithium-ion (Li-Ion),,,31-36 g/km,,,143 Hp,Euro 6d-ISC-FCM,DRYA,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,"1.4-1.6 l/100 km
+							168.01 - 147.01 US mpg201.77 - 176.55 UK mpg71.43 - 62.5 km/l",17.9 kWh,"1459 mm
+					57.44 in.",,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,,,,,,,,,,,,,"2010 kg
+					4431.29 lbs.","4939 mm
+					194.45 in.","2610 kg
+					5754.07 lbs.",50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"6.7 kg/Hp, 148.8 Hp/tonne","4.5 kg/Nm, 223.9 Nm/tonne",,,,,,,,,,,,16.7-17.9 kWh/100 km26.88 - 28.81 kWh/100 mi125 - 117 MPGe6 - 5.6 km/kWh3.7 - 3.5 mi/kWh,,,,,,,,,,,,,,,,,,,,,,,,,,2010  kg4431.29 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,,,,,,,,,2610  kg5754.07 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,62-73  km38.53 - 45.36 mi,,,,,,,"1886 mm
+					74.25 in.","2110 mm
+					83.07 in."
+"Specs of Audi A8L (D5, facelift 2021) 60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic /2022, 2023, 2024, 2025/",https://www.auto-data.net/en/audi-a8l-d5-facelift-2021-60-tfsi-e-v6-462hp-plug-in-hybrid-quattro-tiptronic-45406,4.9 sec,4.7 sec,4.9 sec,,"54-60 km
+					33.55 - 37.28 mi",,,"22-23.8 kWh/100 km
+				    
+				35.41 - 38.3 kWh/100 mi95 - 88 MPGe4.5 - 4.2 km/kWh2.8 - 2.6 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),400 V,,,40-49 g/km,"1.8-2.2 l/100 km
+							130.67 - 106.92 US mpg156.93 - 128.4 UK mpg55.56 - 45.45 km/l",136 Hp,Euro 6d-ISC-FCM,EA839 / CZSE,"Turbocharger, Intercooler",V-engine,"2995 cm3
+182.77 cu. in.","Front, Longitudinal","7.6 l
+					8.03 US qt | 6.69 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1486 mm
+					58.5 in.",,,,,,,,,,,,,,,,,,,,,,"462  Hp, 700  Nm516.29 lb.-ft.",,,,,,,,,,,,"2340 kg
+					5158.82 lbs.","5320 mm
+					209.45 in.","2950 kg
+					6503.64 lbs.",60 TFSI e V6 (462 Hp) Plug-in Hybrid quattro tiptronic,14.4 kWh,340 Hp @ 5000-6400 rpm.,113.5 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),462 Hp,"5.1 kg/Hp, 197.4 Hp/tonne","3.3 kg/Nm, 299.1 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,22-23.8 kWh/100 km35.41 - 38.3 kWh/100 mi95 - 88 MPGe4.5 - 4.2 km/kWh2.8 - 2.6 mi/kWh,,,,,,,,,,,,,,,,,,,,,,2340  kg5158.82 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0 l2995  cm3 182.77 cu. in.,,,,,,,,,,,,,,,,,,,,2950  kg6503.64 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,54-60  km33.55 - 37.28 mi,,"1945 mm
+					76.57 in.","2130 mm
+					83.86 in."
+"Specs of Audi A7 Sportback (C8) 50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic /2021, 2022, 2023/",https://www.auto-data.net/en/audi-a7-sportback-c8-50-tfsi-e-299hp-plug-in-hybrid-quattro-ultra-s-tronic-45397,6.3 sec,6 sec,6.3 sec,,"61-69 km
+					37.9 - 42.87 mi",,,"16.9-17.9 kWh/100 km
+				    
+				27.2 - 28.81 kWh/100 mi124 - 117 MPGe5.9 - 5.6 km/kWh3.7 - 3.5 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),381 V,,,32-36 g/km,"1.4-1.6 l/100 km
+							168.01 - 147.01 US mpg201.77 - 176.55 UK mpg71.43 - 62.5 km/l",143 Hp,Euro 6d-ISC-FCM,DRYA,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1421 mm
+					55.94 in.",,,,,,,,,,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,,,,,,,,"2065 kg
+					4552.55 lbs.","4969 mm
+					195.63 in.","2650 kg
+					5842.25 lbs.",50 TFSI e (299 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"6.9 kg/Hp, 144.8 Hp/tonne","4.6 kg/Nm, 217.9 Nm/tonne",,,,,,,,,,,,,,,,,,16.9-17.9 kWh/100 km27.2 - 28.81 kWh/100 mi124 - 117 MPGe5.9 - 5.6 km/kWh3.7 - 3.5 mi/kWh,,,,,,,,,,,,,,,,,,,,,,2065  kg4552.55 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,2650  kg5842.25 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,61-69  km37.9 - 42.87 mi,,,,,,,"1908 mm
+					75.12 in.","2118 mm
+					83.39 in."
+"Specs of Audi A7 Sportback (C8) 55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic /2021, 2022, 2023/",https://www.auto-data.net/en/audi-a7-sportback-c8-55-tfsi-e-367hp-plug-in-hybrid-quattro-ultra-s-tronic-45396,5.7 sec,5.4 sec,5.7 sec,,"61-66 km
+					37.9 - 41.01 mi",,,"17.3-17.9 kWh/100 km
+				    
+				27.84 - 28.81 kWh/100 mi121 - 117 MPGe5.8 - 5.6 km/kWh3.6 - 3.5 mi/kWh",Under the trunk,Lithium-ion (Li-Ion),381 V,,,34-36 g/km,"1.5-1.6 l/100 km
+							156.81 - 147.01 US mpg188.32 - 176.55 UK mpg66.67 - 62.5 km/l",143 Hp,Euro 6d-ISC-FCM,DRYA,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,,17.9 kWh,"1419 mm
+					55.87 in.",,,,,,,,,,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,,,,,,,,"2065 kg
+					4552.55 lbs.","4976 mm
+					195.91 in.","2650 kg
+					5842.25 lbs.",55 TFSI e (367 Hp) Plug-in Hybrid quattro ultra S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.6 kg/Hp, 177.7 Hp/tonne","4.1 kg/Nm, 242.1 Nm/tonne",,,,,,,,,,,,,,,,,,,17.3-17.9 kWh/100 km27.84 - 28.81 kWh/100 mi121 - 117 MPGe5.8 - 5.6 km/kWh3.6 - 3.5 mi/kWh,,,,,,,,,,,,,,,,,,,,,,2065  kg4552.55 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,,,,,,2650  kg5842.25 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,61-66  km37.9 - 41.01 mi,,,,,"1908 mm
+					75.12 in.","2118 mm
+					83.39 in."
+"Specs of Audi Q5 II Sportback (FY, facelift 2020) 55 TFSI e (367 Hp) Plug-in Hybrid quattro S tronic /2021, 2022, 2023, 2024/",https://www.auto-data.net/en/audi-q5-ii-sportback-fy-facelift-2020-55-tfsi-e-367hp-plug-in-hybrid-quattro-s-tronic-45248,5.3 sec,5 sec,5.3 sec,,"56-61 km
+					34.8 - 37.9 mi",,"19.3-19.6 kWh/100 km
+				    
+				31.06 - 31.54 kWh/100 mi108 - 107 MPGe5.2 - 5.1 km/kWh3.2 - 3.2 mi/kWh",,Under the trunk,Lithium-ion (Li-Ion),381 V,,42-45 g/km,36-43 g/km,"1.5-1.8 l/100 km
+							156.81 - 130.67 US mpg188.32 - 156.93 UK mpg66.67 - 55.56 km/l",143 Hp,Euro 6d-ISC-FCM,DRYA,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,"1.8-2 l/100 km
+							130.67 - 117.61 US mpg156.93 - 141.24 UK mpg55.56 - 50 km/l",17.9 kWh,"1658 mm
+					65.28 in.",,,,,,,,,,,,,,,,,,,,,,,,,,"367  Hp, 500  Nm368.78 lb.-ft.",,,,,,,,"2075 kg
+					4574.59 lbs.","4689 mm
+					184.61 in.","2660 kg
+					5864.3 lbs.",55 TFSI e (367 Hp) Plug-in Hybrid quattro S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),367 Hp,"5.7 kg/Hp, 176.9 Hp/tonne","4.2 kg/Nm, 241 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,,19.3-19.6 kWh/100 km31.06 - 31.54 kWh/100 mi108 - 107 MPGe5.2 - 5.1 km/kWh3.2 - 3.2 mi/kWh,,,,,,,,,,,,,,,,2075  kg4574.59 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,2660  kg5864.3 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,56-61  km34.8 - 37.9 mi,,,,,,"1893 mm
+					74.53 in.","2140 mm
+					84.25 in."
+"Specs of Audi Q5 II Sportback (FY, facelift 2020) 50 TFSI e (299 Hp) Plug-in Hybrid quattro S tronic /2021, 2022, 2023, 2024/",https://www.auto-data.net/en/audi-q5-ii-sportback-fy-facelift-2020-50-tfsi-e-299hp-plug-in-hybrid-quattro-s-tronic-45247,6.1 sec,5.8 sec,6.1 sec,,"56-62 km
+					34.8 - 38.53 mi",,"19.3-19.6 kWh/100 km
+				    
+				31.06 - 31.54 kWh/100 mi108 - 107 MPGe5.2 - 5.1 km/kWh3.2 - 3.2 mi/kWh",,Under the trunk,Lithium-ion (Li-Ion),381 V,,42-45 g/km,35-42 g/km,"1.5-1.8 l/100 km
+							156.81 - 130.67 US mpg188.32 - 156.93 UK mpg66.67 - 55.56 km/l",143 Hp,Euro 6d-ISC-FCM,DRYA,"Turbocharger, Intercooler",Inline,"1984 cm3
+121.07 cu. in.","Front, Longitudinal","5.2 l
+					5.49 US qt | 4.58 UK qt",Log in to see.,Start & Stop SystemParticulate filter,,"1.8-2 l/100 km
+							130.67 - 117.61 US mpg156.93 - 141.24 UK mpg55.56 - 50 km/l",17.9 kWh,"1609 mm
+					63.35 in.",,,,,,,,,,,,,,,,,,,,,,,,,"299  Hp, 450  Nm331.9 lb.-ft.",,,,,,,,,"2075 kg
+					4574.59 lbs.","4689 mm
+					184.61 in.","2660 kg
+					5864.3 lbs.",50 TFSI e (299 Hp) Plug-in Hybrid quattro S tronic,14.4 kWh,265 Hp @ 5250-6500 rpm.,133.6 Hp/l,Electric Steering,PHEV (Plug-in Hybrid Electric Vehicle),299 Hp,"6.9 kg/Hp, 144.1 Hp/tonne","4.6 kg/Nm, 216.9 Nm/tonne",,,,,,,,,,,,,,,,,,,,,,,,,,19.3-19.6 kWh/100 km31.06 - 31.54 kWh/100 mi108 - 107 MPGe5.2 - 5.1 km/kWh3.2 - 3.2 mi/kWh,,,,,,,,,,,,,,,,2075  kg4574.59 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2.0 l1984  cm3 121.07 cu. in.,,,,,,,,,,,,,,2660  kg5864.3 lbs.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,56-62  km34.8 - 38.53 mi,,,,,,,,"1893 mm
+					74.53 in.","2140 mm
+					84.25 in."

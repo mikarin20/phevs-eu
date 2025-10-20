@@ -1080,34 +1080,34 @@ export default function Home() {
       </header>
 
       {/* Hero Section - SEO Content */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 py-6">
+      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 py-4">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
               Europe's Most Comprehensive PHEV Comparison Platform
             </h2>
-            <p className="text-base text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 max-w-2xl mx-auto">
               Compare 85 plug-in hybrid electric vehicles from 28 premium brands. Find the perfect PHEV for your lifestyle.
             </p>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              <div className="text-center p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">85</div>
+            <div className="grid grid-cols-3 gap-3 mb-4">
+              <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-md">
+                <div className="text-xl font-bold text-blue-600 dark:text-blue-400 mb-1">85</div>
                 <div className="text-xs text-gray-600 dark:text-gray-300">PHEV Models</div>
               </div>
-              <div className="text-center p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">28</div>
+              <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-md">
+                <div className="text-xl font-bold text-green-600 dark:text-green-400 mb-1">28</div>
                 <div className="text-xs text-gray-600 dark:text-gray-300">Premium Brands</div>
               </div>
-              <div className="text-center p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">7</div>
+              <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-md">
+                <div className="text-xl font-bold text-purple-600 dark:text-purple-400 mb-1">7</div>
                 <div className="text-xs text-gray-600 dark:text-gray-300">Vehicle Segments</div>
               </div>
             </div>
             
             {/* Key Features */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
               <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
                 <CheckIcon className="h-5 w-5 text-green-500" />
                 <span>Real-world Range Data</span>
