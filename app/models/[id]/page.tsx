@@ -14,6 +14,7 @@ interface Car {
   model: string
   year: number
   segment: string
+  slug?: string
   ev_range_km: number
   fuel_consumption: number
   battery_kwh: number
