@@ -1500,30 +1500,27 @@ export default function Home() {
                       {car.brand} {car.model}
                     </h3>
                     <div className="flex items-center space-x-2">
-                      <div className={`text-xl font-bold ${currentTheme.textPrimary}`}>
-                        €{car.price_eur.toLocaleString()}
-                      </div>
-                      <div className="relative group">
-                        <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                          Estimated EU price
+                      {car.data_status?.price === 'verified' && car.price_eur ? (
+                        <div className={`text-xl font-bold ${currentTheme.textPrimary}`}>
+                          From €{car.price_eur.toLocaleString()}
                         </div>
-                      </div>
+                      ) : null}
+                      {car.data_status?.price === 'verified' && (
+                        <div className="relative group">
+                          <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                            Verified price
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-2">
                       <span className="badge-secondary">{car.year}</span>
                       <span className="badge-accent">{car.segment}</span>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-xs text-gray-500">
-                          Güncelleme: {car.last_updated 
-                            ? new Date(car.last_updated).toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric' })
-                            : 'Tarih bilgisi yok'
-                          }
-                        </span>
-                        {car.data_status && (
+                      {car.data_status && (
                           <div className="flex items-center space-x-1">
                             <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
                               car.data_status.technical_specs === 'complete'
@@ -1533,28 +1530,29 @@ export default function Home() {
                                 : 'bg-gray-100 text-gray-800'
                             }`}>
                               {car.data_status.technical_specs === 'complete'
-                                ? 'Tam Veri'
+                                ? (selectedLanguage==='tr'?'Tam Veri':'Complete')
                                 : car.data_status.technical_specs === 'partial'
-                                ? 'Kısmi Veri'
-                                : 'Veri Bekleniyor'
+                                ? (selectedLanguage==='tr'?'Kısmi Veri':'Partial')
+                                : (selectedLanguage==='tr'?'Veri Bekleniyor':'Pending')
                               }
                             </span>
                             {car.data_status.price === 'verified' && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
-                                Doğrulanmış Fiyat
+                                {selectedLanguage==='tr'?'Doğrulanmış Fiyat':'Verified Price'}
                               </span>
                             )}
                             {car.data_status.range_data === 'real_world' && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
-                                Gerçek Menzil
+                                {selectedLanguage==='tr'?'Gerçek Menzil':'Real Range'}
                               </span>
                             )}
                           </div>
                         )}
-                      </div>
                     </div>
                     {car.euroncap_rating && (
-                      <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
+                      <div className="w-24 flex justify-end">
+                        <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
+                      </div>
                     )}
                     </div>
 
@@ -1571,6 +1569,8 @@ export default function Home() {
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
                       </div>
                     </div>
+
+                    {/* Update date moved to very bottom under action buttons */}
                       <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
@@ -1635,7 +1635,7 @@ export default function Home() {
                               {car.charging_capabilities?.ac_power && ` - ${car.charging_capabilities.ac_power}kW`}
                             </span>
                           </div>
-                          {car.charging_port.dc_type && (
+                          {(car.charging_port.dc_type && (car.charging_port.dc_location || car.charging_capabilities?.dc_power)) && (
                             <div className="flex items-center justify-between">
                               <div className="flex items-center space-x-2">
                                 <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
@@ -1755,7 +1755,7 @@ export default function Home() {
                                 {car.charging_port.ac_type} ({car.charging_port.ac_location})
                               </span>
                             </div>
-                            {car.charging_port.dc_type && (
+                            {(car.charging_port.dc_type && (car.charging_port.dc_location || car.charging_capabilities?.dc_power)) && (
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-2">
                                   <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
@@ -1878,6 +1878,15 @@ export default function Home() {
                         Range
                       </button>
                     </div>
+                    {/* Update date at very bottom of the card */}
+                    <div className="col-span-2 mt-2 text-[11px] text-gray-500">
+                      {t.update}: {car.last_updated
+                        ? new Date(car.last_updated).toLocaleDateString(
+                            selectedLanguage === 'de' ? 'de-DE' : selectedLanguage === 'tr' ? 'tr-TR' : selectedLanguage === 'pl' ? 'pl-PL' : 'en-US',
+                            { day: '2-digit', month: '2-digit', year: 'numeric' }
+                          )
+                        : t.dataNotFound}
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -1945,15 +1954,19 @@ export default function Home() {
                       </div>
                       <div className="text-right">
                         <div className="flex items-center justify-end space-x-2">
-                          <div className={`text-xl font-bold ${currentTheme.textPrimary}`}>
-                          €{car.price_eur.toLocaleString()}
-                          </div>
-                          <div className="relative group">
-                            <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
-                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                              Estimated EU price
+                          {car.data_status?.price === 'verified' && car.price_eur ? (
+                            <div className={`text-xl font-bold ${currentTheme.textPrimary}`}>
+                              From €{car.price_eur.toLocaleString()}
                             </div>
-                          </div>
+                          ) : null}
+                          {car.data_status?.price === 'verified' && (
+                            <div className="relative group">
+                              <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+                              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                                Verified price
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -2187,9 +2200,11 @@ export default function Home() {
                   <div className={`text-xs font-medium ${currentTheme.textPrimary} truncate`}>
                     {car.brand} {car.model}
                   </div>
-                  <div className={`text-xs ${currentTheme.textSecondary}`}>
-                    €{car.price_eur.toLocaleString()}
-                  </div>
+                  {car.data_status?.price === 'verified' && car.price_eur ? (
+                    <div className={`text-xs ${currentTheme.textSecondary}`}>
+                      From €{car.price_eur.toLocaleString()}
+                    </div>
+                  ) : null}
                 </Link>
               ))}
             </div>
