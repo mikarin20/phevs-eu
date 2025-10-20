@@ -319,6 +319,22 @@ export default function Home() {
 
   // Filtreleme ve sıralama
   const filteredAndSortedCars = useMemo(() => {
+    const getPair = (val: number[] | undefined, def: [number, number]): [number, number] => {
+      if (Array.isArray(val) && val.length === 2) {
+        const a = Number(val[0])
+        const b = Number(val[1])
+        return [isNaN(a) ? def[0] : a, isNaN(b) ? def[1] : b]
+      }
+      return def
+    }
+
+    const [minPrice, maxPrice] = getPair(filters?.priceRange as number[], [0, 150000])
+    const [minRange, maxRange] = getPair(filters?.rangeRange as number[], [0, 100])
+    const [minFuel, maxFuel] = getPair(filters?.fuelConsumption as number[], [0, 10])
+    const [minPower, maxPower] = getPair(filters?.powerRange as number[], [0, 500])
+    const [minYear, maxYear] = getPair(filters?.yearRange as number[], [2020, 2025])
+    const [minEmission, maxEmission] = getPair(filters?.emissionRange as number[], [0, 150])
+
     let filtered = cars.filter(car => {
       const normalizedSearchTerm = normalizeText(searchTerm)
       const normalizedBrand = normalizeText(car.brand)
@@ -331,11 +347,11 @@ export default function Home() {
       
       const matchesSegment = !filters.segment || car.segment === filters.segment
       
-      const matchesPrice = car.price_eur >= filters.priceRange[0] && car.price_eur <= filters.priceRange[1]
+      const matchesPrice = car.price_eur >= minPrice && car.price_eur <= maxPrice
       
-      const matchesRange = car.ev_range_km >= filters.rangeRange[0] && car.ev_range_km <= filters.rangeRange[1]
+      const matchesRange = car.ev_range_km >= minRange && car.ev_range_km <= maxRange
       
-      const matchesFuel = car.fuel_consumption >= filters.fuelConsumption[0] && car.fuel_consumption <= filters.fuelConsumption[1]
+      const matchesFuel = car.fuel_consumption >= minFuel && car.fuel_consumption <= maxFuel
       
       // Placeholder değerler - gerçek veri yapısına göre güncellenecek
       const matchesBatteryArchitecture = !filters.batteryArchitecture || 
@@ -348,11 +364,11 @@ export default function Home() {
         (filters.chargingType === 'ac' && car.charging_port?.ac_type) ||
         (filters.chargingType === 'dc' && car.charging_port?.dc_type)
       
-      const matchesPowerRange = car.power_hp >= filters.powerRange[0] && car.power_hp <= filters.powerRange[1]
+      const matchesPowerRange = car.power_hp >= minPower && car.power_hp <= maxPower
       
-      const matchesYearRange = car.year >= filters.yearRange[0] && car.year <= filters.yearRange[1]
+      const matchesYearRange = car.year >= minYear && car.year <= maxYear
       
-      const matchesEmissionRange = car.co2_emission >= filters.emissionRange[0] && car.co2_emission <= filters.emissionRange[1]
+      const matchesEmissionRange = car.co2_emission >= minEmission && car.co2_emission <= maxEmission
       
 
 
