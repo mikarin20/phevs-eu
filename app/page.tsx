@@ -1129,6 +1129,283 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Quick Compare Section */}
+      <section className="bg-white dark:bg-slate-900 py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              Quick Compare Popular Models
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
+              Compare the most popular PHEV models side by side
+            </p>
+          </div>
+          
+          {/* Quick Compare Slider */}
+          <div className="relative">
+            <button 
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-slate-800 rounded-full p-2 shadow-lg border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+              onClick={() => {
+                const container = document.getElementById('compare-slider');
+                if (container) {
+                  container.scrollBy({ left: -320, behavior: 'smooth' });
+                }
+              }}
+            >
+              <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button 
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-slate-800 rounded-full p-2 shadow-lg border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+              onClick={() => {
+                const container = document.getElementById('compare-slider');
+                if (container) {
+                  container.scrollBy({ left: 320, behavior: 'smooth' });
+                }
+              }}
+            >
+              <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            
+            <div id="compare-slider" className="overflow-x-auto scrollbar-hide">
+              <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
+              {/* Tiguan vs 3008 */}
+              <Link href="/compare/vw-3,new-67" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/volkswagen/tiguan/main.jpg"
+                        alt="Volkswagen Tiguan"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/peugeot/3008 Plug-in/main.jpeg"
+                        alt="Peugeot 3008"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">VW Tiguan</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Peugeot 3008</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>110km • €40,000</span>
+                      <span>59km • €42,500</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* C5 Aircross vs Ford Kuga */}
+              <Link href="/compare/citroen-1,ford-1" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/citroen/c5-aircross-plug-in-hybrid/main.jpg"
+                        alt="Citroën C5 Aircross"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/ford/kuga/main.jpg"
+                        alt="Ford Kuga"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Citroën C5 Aircross</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Ford Kuga</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>55km • €35,000</span>
+                      <span>100km • €40,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Skoda Kodiaq vs Tiguan */}
+              <Link href="/compare/skoda-1,vw-3" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/skoda/kodiaq-phev/main.jpg"
+                        alt="Skoda Kodiaq iV"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/volkswagen/tiguan/main.jpg"
+                        alt="Volkswagen Tiguan"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Skoda Kodiaq iV</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">VW Tiguan</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>60km • €44,900</span>
+                      <span>110km • €40,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* 3008 vs Ford Kuga */}
+              <Link href="/compare/new-67,ford-1" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/peugeot/3008 Plug-in/main.jpeg"
+                        alt="Peugeot 3008"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/ford/kuga/main.jpg"
+                        alt="Ford Kuga"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Peugeot 3008</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Ford Kuga</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>59km • €42,500</span>
+                      <span>100km • €40,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Golf vs 308 */}
+              <Link href="/compare/vw-1,peugeot-2" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/volkswagen/golf/main.jpg"
+                        alt="Volkswagen Golf GTE"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/peugeot/308-hybrid/main.jpg"
+                        alt="Peugeot 308"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">VW Golf GTE</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Peugeot 308</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>110km • €38,500</span>
+                      <span>68km • €37,400</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Golf vs Audi A3 */}
+              <Link href="/compare/vw-1,audi-1" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/volkswagen/golf/main.jpg"
+                        alt="Volkswagen Golf GTE"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg"
+                        alt="Audi A3 Sportback"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">VW Golf GTE</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Audi A3 Sportback</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>110km • €38,500</span>
+                      <span>130km • €44,200</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mobile Search and Actions */}
       <div className="fixed top-0 left-0 right-0 z-50 sm:hidden bg-white border-b border-gray-200 shadow-lg">
         <div className="p-2">

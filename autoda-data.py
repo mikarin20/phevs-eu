@@ -24,24 +24,15 @@ BRANDS = {
     "Skoda": 154,      # Yeni eklenen markalar
     "Citroen": 166,
     "MG": 153,
-    "Toyota": 40
+    "Toyota": 40,
+    "Kia": 23,         # Yeni eklenen markalar
+    "BYD": 116,
+    "Cupra": 256
 }
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; AudiPHEVScraper/1.0; +https://yourdomain.example)"
 }
-
-# Audi PHEV modelleri
-PHEV_MODELS = [
-    "A3 Sportback TFSI e",
-    "A5 Limousine e-hybrid", 
-    "A6 Limousine e-hybrid",
-    "A7 Sportback TFSI e",
-    "A8 TFSI e",
-    "Q3 TFSI e",
-    "Q5 TFSI e", 
-    "Q7 TFSI e",
-    "Q8 TFSI e"
-]
 
 def find_phev_models(brand_name: str, brand_id: int) -> List[str]:
     """Marka sayfasından PHEV modellerini bul"""

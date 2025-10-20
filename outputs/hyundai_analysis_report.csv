@@ -1,0 +1,18 @@
+Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Gross Battery (kWh),Net Battery (kWh),System Power (HP),Electric Motor Power (HP),Acceleration 0-100 (sec),Weight (kg),Length (mm),Width (mm),Height (mm),Battery Technology,Battery Voltage (V),Engine Displacement (L)
+Santa Fe,2021,Local Data,65,265,50000,13.8,1.6,36,3.2,571,7,5,,,,,,,,,,NCM,,1.6
+Tucson,2022,Local Data,65,230,45000,13.8,1.4,32,3.2,513,5,5,,,,,,,,,,NCM,,1.6
+Hyundai Kona II 65 kWh,2024-2025,Scraped Data,510,,,,,,,,,,65 kWh,,204,204,8.1,1698-1795,4355,1825,1580,Lithium-ion (Li-Ion),,
+Hyundai Kona II 49 kWh,2024-2025,Scraped Data,380,,,,,,,,,,49 kWh,,135,135,9.9,1615-1690,4355,1825,1580,Lithium-ion (Li-Ion),,
+Hyundai Creta II,2024-2025,Scraped Data,,,,,,,,,,,51.4 kWh,,171,171,,,4340,1790,1655,Lithium-ion (Li-Ion),,
+Hyundai Creta II,2024-2025,Scraped Data,,,,,,,,,,,42 kWh,,135,135,,,4340,1790,1655,Lithium-ion (Li-Ion),,
+Hyundai IONIQ 5,2024-2025,Scraped Data,,,,,,,,,,,84 kWh,,320,224,,2135,4655,1890,1626,Lithium-ion (Li-Ion),697,
+Hyundai Casper 49 kWh,2024-2025,Scraped Data,,,,,,,,,,,49 kWh,,115,115,,1335-1355,3825,1610,1610,Lithium-ion (Li-Ion),310,
+Hyundai Casper 42 kWh,2024-2025,Scraped Data,,,,,,,,,,,42 kWh,,97,97,,1300,3825,1610,1610,Lithium-ion (Li-Ion),266,
+Hyundai IONIQ 5,2024-2025,Scraped Data,,,,63 kWh,,,,,,,,63 kWh,170,170,8.5,1880-1960,4655,1890,1605,Lithium-ion (Li-Ion),,
+Hyundai Inster Long Range 49 kWh,2024-2025,Scraped Data,355,,,,,,,,,,49 kWh,,115,115,10.6,,3825,1610,1575,Lithium nickel manganese cobalt oxides (Li-NMC),,
+Hyundai Inster Standard Range 42 kWh,2024-2025,Scraped Data,300,,,,,,,,,,42 kWh,,97,97,11.7,,3825,1610,1575,Lithium nickel manganese cobalt oxides (Li-NMC),,
+Hyundai IONIQ 5,2024-2025,Scraped Data,,,,,,,,,,,84 kWh,,325,,,2120-2160,4655,1890,1605,Lithium-ion (Li-Ion),697,
+Hyundai IONIQ 5,2024-2025,Scraped Data,,,,,,,,,,,84 kWh,,229,229,,2015-2055,4655,1890,1605,Lithium-ion (Li-Ion),697,
+Hyundai IONIQ 5 N 84 kWh,2024-2025,Scraped Data,,,,,,,,,,,84 kWh,,650,412,3.4,,4715,1940,1585,Lithium-polymer (LiPo),,
+Hyundai Kona II 48.4 kWh,2024-2025,Scraped Data,377,,,,,,,,,,48.4 kWh,,156,156,8.8,1690-1765,4355,1825,1575,Lithium-ion (Li-Ion),400,
+Hyundai Kona II 65.4 kWh,2024-2025,Scraped Data,514,,,,,,,,,,65.4 kWh,,218,218,7.8,1773-1870,4355,1825,1575,Lithium-ion (Li-Ion),400,

@@ -1,0 +1,13 @@
+Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Gross Battery (kWh),Net Battery (kWh),System Power (HP),Electric Motor Power (HP),Acceleration 0-100 (sec),Weight (kg),Length (mm),Width (mm),Height (mm),Battery Technology,Battery Voltage (V),Engine Displacement (L)
+Citroen C5 Aircross II,2024-2025,Scraped Data,81,150,,,"2.5-2.6 l/100 km
+							94.09 - 90.47 US mpg112.99 - 108.65 UK mpg40 - 38.46 km/l",55-58 g/km,,,,,17.8 kWh,,195,125,8.3,1874-2000,4650,1870,1665-1695,Lithium-ion (Li-Ion),,1.598
+Citroen C5 X 1.6,2024-2025,Scraped Data,54,150,,,"1.8-1.9 l/100 km
+							130.67 - 123.8 US mpg156.93 - 148.67 UK mpg55.56 - 52.63 km/l",32-33 g/km,,,,,12.4 kWh,,181,110,8.6,1722-1781,4805,1815,1485,Lithium-ion (Li-Ion),,1.598
+Citroen C5 Aircross I,2024-2025,Scraped Data,49,150,,,"1.7-1.8 l/100 km
+							138.36 - 130.67 US mpg166.17 - 156.93 UK mpg58.82 - 55.56 km/l",39-42 g/km,,,,,12.4 kWh,,181,110,8.9,1770-1860,4500,1969,1689,Lithium-ion (Li-Ion),,1.598
+Citroen C5 Aircross I,2024-2025,Scraped Data,55,181,,,"1.4-1.5 l/100 km
+							168.01 - 156.81 US mpg201.77 - 188.32 UK mpg71.43 - 66.67 km/l",31-33 g/km,,,,,13.2 kWh,,224,110,8.7,1760,4500,1969,1689,Lithium-ion (Li-Ion),,1.598
+Citroen C5 X 1.6 PureTech,2024-2025,Scraped Data,60,180,,,"1.3-1.4 l/100 km
+							180.93 - 168.01 US mpg217.29 - 201.77 UK mpg76.92 - 71.43 km/l",29-30 g/km,,,,,12.4 kWh,,225,110,7.9,1722-1781,4805,1815,1485,Lithium-ion (Li-Ion),,1.598
+Citroen C5 Aircross I,2024-2025,Scraped Data,50,181,,11.5 kWh,"1.4-1.5 l/100 km
+							168.01 - 156.81 US mpg201.77 - 188.32 UK mpg71.43 - 66.67 km/l",31-33 g/km,,,,,13.2 kWh,11.5 kWh,225,110,8.9,1750,4500,1969,1689,Lithium-ion (Li-Ion),200,1.598

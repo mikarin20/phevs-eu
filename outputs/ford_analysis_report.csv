@@ -1,0 +1,29 @@
+Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Gross Battery (kWh),Net Battery (kWh),System Power (HP),Electric Motor Power (HP),Acceleration 0-100 (sec),Weight (kg),Length (mm),Width (mm),Height (mm),Battery Technology,Battery Voltage (V),Engine Displacement (L)
+Kuga,2024,Local Data,100,243,40000,11.4,0.9,20,3.5,456,5,3,,,,,,,,,,NCM,,2.5
+Ranger,2021,Local Data,60,270,73610,13,1.5,30,3,500,5,3,,,,,,,,,,NCM,,2.3
+Tourneo Connect,2023,Local Data,60,200,35000,13,1.5,30,3,500,5,3,,,,,,,,,,NCM,,2
+Ford Equator,2024-2025,Scraped Data,,150,,,,,,,,,18.4 kWh,,218,218,7.7,2060,4920,1930,1760,Lithium iron phosphate (LiFePO4),,1.498
+Ford Transit Connect III FlexCab L2 1.5 EcoBoost,2024-2025,Scraped Data,118,116,,19.7 kWh,"0.5 l/100 km
+							470.43 US mpg564.96 UK mpg200 km/l",12 g/km,,,,,25.7 kWh,19.7 kWh,150,116,,1866,4853,1855,1835,Lithium nickel manganese cobalt oxides (Li-NMC),,1.498
+Ford Transit Connect III Panel Van L2 1.5 EcoBoost,2024-2025,Scraped Data,118,116,,19.7 kWh,"0.5 l/100 km
+							470.43 US mpg564.96 UK mpg200 km/l",11-12 g/km,,,,,25.7 kWh,19.7 kWh,150,116,,1739,4853,1855,1860,Lithium nickel manganese cobalt oxides (Li-NMC),,1.498
+Ford Transit Connect III FlexCab L1 1.5 EcoBoost,2024-2025,Scraped Data,118,116,,19.7 kWh,"0.5 l/100 km
+							470.43 US mpg564.96 UK mpg200 km/l",12 g/km,,,,,25.7 kWh,19.7 kWh,150,116,,1823,4500,1855,1833,Lithium nickel manganese cobalt oxides (Li-NMC),,1.498
+Ford Transit Connect III Panel Van L1 1.5 EcoBoost,2024-2025,Scraped Data,118,116,,19.7 kWh,"0.5 l/100 km
+							470.43 US mpg564.96 UK mpg200 km/l",11 g/km,,,,,25.7 kWh,19.7 kWh,150,116,,1694,4500,1855,1856,Lithium nickel manganese cobalt oxides (Li-NMC),,1.498
+Ford Tourneo Custom II L2 2.5 Duratec,2024-2025,Scraped Data,51,118,,11.8 kWh,"1.8-2.9 l/100 km
+							130.67 - 81.11 US mpg156.93 - 97.41 UK mpg55.56 - 34.48 km/l",40-65 g/km,,,,,16.5 kWh,11.8 kWh,233,152,,,5450,2032,1963-2031,Lithium nickel manganese cobalt oxides (Li-NMC),,2.488
+Ford Tourneo Custom II L1 2.5 Duratec,2024-2025,Scraped Data,51,118,,11.8 kWh,"1.7-2.9 l/100 km
+							138.36 - 81.11 US mpg166.17 - 97.41 UK mpg58.82 - 34.48 km/l",39-65 g/km,,,,,16.5 kWh,11.8 kWh,233,152,,,5050,2032,1959-2040,Lithium nickel manganese cobalt oxides (Li-NMC),,2.488
+Ford Kuga III,2024-2025,Scraped Data,69,,,,"0.9-1.2 l/100 km
+							261.35 - 196.01 US mpg313.87 - 235.4 UK mpg111.11 - 83.33 km/l",20-28 g/km,,,,,14.4 kWh,,243,,7.3,,4645,1882,1683,Lithium-ion (Li-Ion),,2.488
+Ford Kuga III,2024-2025,Scraped Data,69,,,,"0.9-1.2 l/100 km
+							261.35 - 196.01 US mpg313.87 - 235.4 UK mpg111.11 - 83.33 km/l",20-28 g/km,,,,,14.4 kWh,,243,,7.3,,4615,1882,1651,Lithium-ion (Li-Ion),,2.488
+Ford Kuga III,2024-2025,Scraped Data,69,,,,"0.9-1.2 l/100 km
+							261.35 - 196.01 US mpg313.87 - 235.4 UK mpg111.11 - 83.33 km/l",20-28 g/km,,,,,14.4 kWh,,243,,7.3,1784,4604,1882,1679,Lithium-ion (Li-Ion),,2.488
+Ford Tourneo Custom I,2024-2025,Scraped Data,40.4,,,,"3.3 l/100 km
+							71.28 US mpg85.6 UK mpg30.3 km/l",75 g/km,,,,,13.6 kWh,,126,126,,2609,4973,1986,1959-1979,Lithium-ion (Li-Ion),,0.998
+Ford Escape IV,2024-2025,Scraped Data,,163,,,,,,,,,,,210,,,1771,4575,1882,1679,Lithium-ion (Li-Ion),,2.49
+Ford Fusion II 2.0,2024-2025,Scraped Data,,141,,,,,,,,,7.6 kWh,,188,118,,1775,4872,1852,1473,Lithium-ion (Li-Ion),,1.999
+Ford C-MAX II,2024-2025,Scraped Data,,141,,,,,,,,,7.6 kWh,,188,120,,1769,4409,1828,1621,Lithium-ion (Li-Ion),240,1.999
+Ford Escape IV 2.5,2024-2025,Scraped Data,,162,,,,,,,,,14.4 kWh,,221,,,1762,4585,1882,1679,Lithium-ion (Li-Ion),,2.491

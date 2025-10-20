@@ -1,0 +1,20 @@
+Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Gross Battery (kWh),Net Battery (kWh),System Power (HP),Electric Motor Power (HP),Acceleration 0-100 (sec),Weight (kg),Length (mm),Width (mm),Height (mm),Battery Technology,Battery Voltage (V),Engine Displacement (L)
+Kodiaq iV,2025,Local Data,60,204,44900,13,1.8,41,3.5,630,7,3,,,,,,,,,,NCM,,1.4
+Superb iV,2025,Local Data,60,204,39900,13,1.4,32,3.5,625,5,3,,,,,,,,,,NCM,,1.4
+Skoda Superb IV iV 1.5 TSI,2024-2025,Scraped Data,137,150,,19.7 kWh,"0.3-0.5 l/100 km
+							784.05 - 470.43 US mpg941.6 - 564.96 UK mpg333.33 - 200 km/l",8-11 g/km,,,,,25.7 kWh,19.7 kWh,204,116,8.1,1774-1914,4912,1849,1495-1496,Lithium nickel manganese cobalt oxides (Li-NMC),,1.498
+Skoda Superb IV Combi iV 1.5 TSI,2024-2025,Scraped Data,100,150,,19.7 kWh,"0.4-0.5 l/100 km
+							588.04 - 470.43 US mpg706.2 - 564.96 UK mpg250 - 200 km/l",8-11 g/km,,,,,25.7 kWh,19.7 kWh,204,116,8.1,1778-1912,4902,1849,1483,Lithium nickel manganese cobalt oxides (Li-NMC),,1.498
+Skoda Kodiaq II iV 1.5 TSI,2024-2025,Scraped Data,100,150,,19.7 kWh,,,,,,,25.7 kWh,19.7 kWh,204,116,8.4,1838-2009,4758,1864,1659,Lithium nickel manganese cobalt oxides (Li-NMC),,1.498
+Skoda Octavia IV Combi RS iV 1.4 TSI,2024-2025,Scraped Data,62,150,,10 kWh,"1.2 l/100 km
+							196.01 US mpg235.4 UK mpg83.33 km/l",27 g/km,,,,,13 kWh,10 kWh,245,116,7.3,1632-1685,4702,1829,1500,Lithium-ion (Li-Ion),,1.395
+Skoda Octavia IV RS iV 1.4 TSI,2024-2025,Scraped Data,60,150,,10 kWh,"1.1 l/100 km
+							213.83 US mpg256.8 UK mpg90.91 km/l",30 g/km,,,,,13 kWh,10 kWh,245,116,7.3,1620-1705,4702,1829,1476,Lithium-ion (Li-Ion),,1.395
+Skoda Octavia IV Combi iV 1.4 TSI,2024-2025,Scraped Data,67.95,150,,10 kWh,"1.02-1.17 l/100 km
+							230.6 - 201.04 US mpg276.94 - 241.44 UK mpg98.04 - 85.47 km/l",22.44-26.44 g/km,,,,,13 kWh,10 kWh,204,116,7.5,1545,4689,1829,1468,Lithium-ion (Li-Ion),,1.395
+Skoda Octavia IV iV 1.4 TSI,2024-2025,Scraped Data,70.67,150,,10 kWh,"1.0 l/100 km
+							235.21 US mpg282.48 UK mpg100 km/l",22 g/km,,,,,13 kWh,10 kWh,204,116,7.7,1533-1673,4689,1829,1477,Lithium-ion (Li-Ion),,1.395
+Skoda Superb III Combi,2024-2025,Scraped Data,,156,,,"1.1-1.9 l/100 km
+							213.83 - 123.8 US mpg256.8 - 148.67 UK mpg90.91 - 52.63 km/l",25-42 g/km,,,,,13 kWh,,218,116,7.8,1677,4862,1864,1477,,,1.395
+Skoda Superb III,2024-2025,Scraped Data,,156,,,"1.1-1.9 l/100 km
+							213.83 - 123.8 US mpg256.8 - 148.67 UK mpg90.91 - 52.63 km/l",25-42 g/km,,,,,13 kWh,,218,116,7.7,1655,4869,1864,1468,,,1.395

@@ -1,0 +1,11 @@
+Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Gross Battery (kWh),Net Battery (kWh),System Power (HP),Electric Motor Power (HP),Acceleration 0-100 (sec),Weight (kg),Length (mm),Width (mm),Height (mm),Battery Technology,Battery Voltage (V),Engine Displacement (L)
+CX-60,2022,Local Data,60,327,45000,17.8,1.5,34,4,570,5,3,,,,,,,,,,NCM,,2.5
+CX-80,2023,Local Data,60,327,50000,17.8,1.5,34,4,570,5,3,,,,,,,,,,NCM,,2.5
+Mazda CX-80 2.5 e-Skyactiv,2024-2025,Scraped Data,60,191,,,"1.6 l/100 km
+							147.01 US mpg176.55 UK mpg62.5 km/l",36 g/km,,,,,17.8 kWh,,327,175,6.8,2165-2248,4995,1890,1710,Lithium-ion (Li-Ion),355,2.488
+Mazda CX-70 2.5 e-Skyactiv,2024-2025,Scraped Data,,189,,,,,,,,,17.8 kWh,,323,173,,2358,5121,1994,1745,Lithium-ion (Li-Ion),355,2.488
+Mazda CX-90 2.5 e-SKYACTIV-G,2024-2025,Scraped Data,,189,,,,,,,,,17.8 kWh,,323,173,,2378,5121,,1745,Lithium-ion (Li-Ion),355,2.488
+Mazda MX-30 0.8 e-SKYACTIV R-EV,2024-2025,Scraped Data,85,75,,,"1.0 l/100 km
+							235.21 US mpg282.48 UK mpg100 km/l",21 g/km,,,,,17.8 kWh,,170,170,9.1,1778,4395,1795,1555,Lithium-ion (Li-Ion),355,0.83
+Mazda CX-60 2.5 e-Skyactiv,2024-2025,Scraped Data,63,192,,,"1.5 l/100 km
+							156.81 US mpg188.32 UK mpg66.67 km/l",33 g/km,,,,,17.8 kWh,,328,136,5.8,1980-2072,4745,1890,1680-1685,Lithium-ion (Li-Ion),355,2.488
