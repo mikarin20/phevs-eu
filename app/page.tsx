@@ -152,6 +152,19 @@ interface Car {
 
 type ViewMode = 'grid' | 'list'
 type SortOption = 'price-asc' | 'price-desc' | 'range-asc' | 'range-desc' | 'power-asc' | 'power-desc' | 'name-asc'
+type FiltersState = {
+  segment: string
+  priceRange: [number, number]
+  rangeRange: [number, number]
+  fuelConsumption: [number, number]
+  batteryArchitecture: string
+  batteryChemistry: string
+  chargingType: string
+  powerRange: [number, number]
+  yearRange: [number, number]
+  emissionRange: [number, number]
+  sortBy: SortOption
+}
 
 export default function Home() {
   const [cars, setCars] = useState<Car[]>(typedCarsData)
@@ -188,7 +201,7 @@ export default function Home() {
     detectLanguage()
   }, [])
   
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState<FiltersState>({
     segment: '',
     priceRange: [0, 150000],
     rangeRange: [0, 100],
@@ -199,7 +212,7 @@ export default function Home() {
     powerRange: [0, 500],
     yearRange: [2020, 2025],
     emissionRange: [0, 150],
-    sortBy: 'name-asc' as SortOption
+    sortBy: 'name-asc'
   })
 
   // LocalStorage'dan verileri yükle

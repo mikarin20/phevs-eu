@@ -8,15 +8,15 @@ interface FilterModalProps {
   onClose: () => void
   filters: {
     segment: string
-    priceRange: [number, number]
-    rangeRange: [number, number]
-    fuelConsumption: [number, number]
+    priceRange: number[]
+    rangeRange: number[]
+    fuelConsumption: number[]
     batteryArchitecture: string
     batteryChemistry: string
     chargingType: string
-    powerRange: [number, number]
-    yearRange: [number, number]
-    emissionRange: [number, number]
+    powerRange: number[]
+    yearRange: number[]
+    emissionRange: number[]
   }
   setFilters: (filters: any) => void
   brands: string[]
