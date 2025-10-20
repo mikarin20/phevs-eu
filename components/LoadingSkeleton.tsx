@@ -2,36 +2,58 @@ export function CarCardSkeleton({ viewMode = 'list', count = 1 }: { viewMode?: '
   const SkeletonCard = () => {
     if (viewMode === 'grid') {
       return (
-        <div className="card animate-pulse">
+        <div className="card animate-pulse relative overflow-hidden">
+          {/* Shimmer Effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+          
           {/* Image */}
-          <div className="w-full h-48 bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg mb-4"></div>
+          <div className="relative w-full h-48 rounded-lg mb-4 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0]"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer-fast"></div>
+          </div>
           
           {/* Title */}
-          <div className="h-6 bg-[#E2E8F0] rounded-lg w-3/4 mb-2"></div>
+          <div className="relative h-6 bg-[#E2E8F0] rounded-lg w-3/4 mb-2 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+          </div>
           
           {/* Badges */}
           <div className="flex items-center space-x-2 mb-4">
-            <div className="h-5 w-16 bg-[#F1F5F9] rounded-full"></div>
-            <div className="h-5 w-16 bg-[#F1F5F9] rounded-full"></div>
+            <div className="relative h-5 w-16 bg-[#F1F5F9] rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+            </div>
+            <div className="relative h-5 w-16 bg-[#F1F5F9] rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+            </div>
           </div>
           
           {/* Price */}
-          <div className="h-8 bg-[#E2E8F0] rounded-lg w-1/2 mb-4"></div>
+          <div className="relative h-8 bg-[#E2E8F0] rounded-lg w-1/2 mb-4 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+          </div>
           
           {/* Stats */}
           <div className="grid grid-cols-2 gap-3">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i}>
-                <div className="h-3 bg-[#F1F5F9] rounded w-16 mb-1"></div>
-                <div className="h-4 bg-[#E2E8F0] rounded w-20"></div>
+              <div key={i} className="relative overflow-hidden">
+                <div className="h-3 bg-[#F1F5F9] rounded w-16 mb-1">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+                </div>
+                <div className="h-4 bg-[#E2E8F0] rounded w-20">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+                </div>
               </div>
             ))}
           </div>
           
           {/* Buttons */}
           <div className="flex items-center space-x-2 pt-4 mt-4 border-t border-[#E2E8F0]">
-            <div className="flex-1 h-10 bg-[#E2E8F0] rounded-lg"></div>
-            <div className="flex-1 h-10 bg-[#E2E8F0] rounded-lg"></div>
+            <div className="relative flex-1 h-10 bg-[#E2E8F0] rounded-lg overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+            </div>
+            <div className="relative flex-1 h-10 bg-[#E2E8F0] rounded-lg overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+            </div>
           </div>
         </div>
       )

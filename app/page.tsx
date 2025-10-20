@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
+import Image from 'next/image'
 import { 
   MagnifyingGlassIcon, 
   ArrowsUpDownIcon, 
@@ -24,16 +25,37 @@ import {
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import carsData from '@/data/cars.json'
+import carsData from '@/data/cars.json' assert { type: 'json' }
+const typedCarsData = carsData as Car[]
 import { CarCardSkeleton } from '@/components/LoadingSkeleton'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
-import RangeSimulator from '@/components/RangeSimulator'
+import dynamic from 'next/dynamic'
+
+// Statik importlar
 import Tooltip from '@/components/Tooltip'
-import SuggestModelForm from '@/components/SuggestModelForm'
-import FilterModal from '@/components/FilterModal'
-import MobileAccordion from '@/components/MobileAccordion'
-import CompareInfoBar from '@/components/CompareInfoBar'
 import HybridLogo from '@/components/HybridLogo'
+
+// Dinamik importlar
+const RangeSimulator = dynamic(() => import('@/components/RangeSimulator'), {
+  loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-96"></div>,
+  ssr: false
+})
+
+const SuggestModelForm = dynamic(() => import('@/components/SuggestModelForm'), {
+  loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-96"></div>,
+  ssr: false
+})
+
+const FilterModal = dynamic(() => import('@/components/FilterModal'), {
+  loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-96"></div>,
+  ssr: false
+})
+
+const MobileAccordion = dynamic(() => import('@/components/MobileAccordion'))
+
+const CompareInfoBar = dynamic(() => import('@/components/CompareInfoBar'), {
+  ssr: false
+})
 
 interface Car {
   id: string
@@ -56,13 +78,45 @@ interface Car {
   warranty_years: number
   country_availability: string
   slug: string
-  battery_chemistry?: string
-  battery_architecture?: string
+  last_updated?: string
+  dominant_color?: string
+  data_status?: {
+    technical_specs: 'complete' | 'partial' | 'pending'
+    price: 'verified' | 'estimated' | 'outdated'
+    range_data: 'wltp' | 'real_world' | 'estimated'
+  }
+  battery_details?: {
+    chemistry: string
+    architecture: string
+    cycles: number
+    degradation_rate: number
+    warranty_capacity: number
+    thermal_management: string
+  }
+  charging_capabilities?: {
+    ac_power: number
+    dc_power: number
+    charging_curve: {
+      soc: number[]
+      power: number[]
+    }
+  }
   charging_port?: {
     ac_type: string
     ac_location: string
-    dc_type: string
-    dc_location: string
+    dc_type?: string
+    dc_location?: string
+    ac_phases?: number
+    ac_current?: number
+  }
+  real_world_data?: {
+    winter_range_km: number
+    summer_range_km: number
+    mixed_range_km: number
+    city_consumption: number
+    highway_consumption: number
+    measured_date: string
+    test_conditions: string
   }
   euroncap_rating?: {
     stars: number
@@ -100,7 +154,7 @@ type ViewMode = 'grid' | 'list'
 type SortOption = 'price-asc' | 'price-desc' | 'range-asc' | 'range-desc' | 'power-asc' | 'power-desc' | 'name-asc'
 
 export default function Home() {
-  const [cars, setCars] = useState<Car[]>(carsData)
+  const [cars, setCars] = useState<Car[]>(typedCarsData)
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
   const [favorites, setFavorites] = useState<string[]>([])
   const [searchTerm, setSearchTerm] = useState('')
@@ -140,7 +194,12 @@ export default function Home() {
     rangeRange: [0, 100],
     fuelConsumption: [0, 10],
     batteryArchitecture: '',
-    batteryChemistry: ''
+    batteryChemistry: '',
+    chargingType: '',
+    powerRange: [0, 500],
+    yearRange: [2020, 2025],
+    emissionRange: [0, 150],
+    sortBy: 'name-asc' as SortOption
   })
 
   // LocalStorage'dan verileri yükle
@@ -266,11 +325,27 @@ export default function Home() {
       const matchesFuel = car.fuel_consumption >= filters.fuelConsumption[0] && car.fuel_consumption <= filters.fuelConsumption[1]
       
       // Placeholder değerler - gerçek veri yapısına göre güncellenecek
-      const matchesBatteryArchitecture = !filters.batteryArchitecture || true // Şimdilik her zaman true
-      const matchesBatteryChemistry = !filters.batteryChemistry || true // Şimdilik her zaman true
+      const matchesBatteryArchitecture = !filters.batteryArchitecture || 
+        (car.battery_details?.architecture === filters.batteryArchitecture)
+      
+      const matchesBatteryChemistry = !filters.batteryChemistry || 
+        (car.battery_details?.chemistry === filters.batteryChemistry)
+      
+      const matchesChargingType = !filters.chargingType || 
+        (filters.chargingType === 'ac' && car.charging_port?.ac_type) ||
+        (filters.chargingType === 'dc' && car.charging_port?.dc_type)
+      
+      const matchesPowerRange = car.power_hp >= filters.powerRange[0] && car.power_hp <= filters.powerRange[1]
+      
+      const matchesYearRange = car.year >= filters.yearRange[0] && car.year <= filters.yearRange[1]
+      
+      const matchesEmissionRange = car.co2_emission >= filters.emissionRange[0] && car.co2_emission <= filters.emissionRange[1]
+      
 
 
-      return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && matchesFuel && matchesBatteryArchitecture && matchesBatteryChemistry
+      return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && 
+        matchesFuel && matchesBatteryArchitecture && matchesBatteryChemistry && matchesChargingType && 
+        matchesPowerRange && matchesYearRange && matchesEmissionRange
     })
 
     // Sıralama
@@ -360,7 +435,12 @@ export default function Home() {
       rangeRange: [0, 100],
       fuelConsumption: [0, 10],
       batteryArchitecture: '',
-      batteryChemistry: ''
+      batteryChemistry: '',
+      chargingType: '',
+      powerRange: [0, 500],
+      yearRange: [2020, 2025],
+      emissionRange: [0, 150],
+      sortBy: 'name-asc'
     })
     localStorage.removeItem('phevs-filters')
     localStorage.removeItem('phevs-selected-brands')
@@ -475,7 +555,20 @@ export default function Home() {
       powerDesc: 'Power (High-Low)',
       powerAsc: 'Power (Low-High)',
       engine: 'Engine',
-      charging: 'Charging'
+      charging: 'Charging',
+      suggestModel: 'Suggest Model',
+      advancedFilters: 'Advanced Filters',
+      active: 'Active',
+      filter: 'Filter',
+      manufacturerPending: 'Manufacturer data pending',
+      testResultsPending: 'Test results pending',
+      batteryType: 'Battery Type',
+      warranty: 'Warranty',
+      realWorldRange: 'Real World Range',
+      testDate: 'Test',
+      update: 'Update',
+      dataNotFound: 'Data not found',
+      selectToCompare: 'Please select a vehicle to compare'
     },
     de: {
       searchPlaceholder: 'Nach Marke oder Modell suchen...',
@@ -529,7 +622,20 @@ export default function Home() {
       powerDesc: 'Leistung (Hoch-Niedrig)',
       powerAsc: 'Leistung (Niedrig-Hoch)',
       engine: 'Motor',
-      charging: 'Laden'
+      charging: 'Laden',
+      suggestModel: 'Modell vorschlagen',
+      advancedFilters: 'Erweiterte Filter',
+      active: 'Aktiv',
+      filter: 'Filter',
+      manufacturerPending: 'Herstellerdaten ausstehend',
+      testResultsPending: 'Testergebnisse ausstehend',
+      batteryType: 'Batterietyp',
+      warranty: 'Garantie',
+      realWorldRange: 'Reale Reichweite',
+      testDate: 'Test',
+      update: 'Aktualisierung',
+      dataNotFound: 'Daten nicht gefunden',
+      selectToCompare: 'Bitte wählen Sie ein Fahrzeug zum Vergleichen'
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -583,7 +689,20 @@ export default function Home() {
       powerDesc: 'Güç (Yüksek-Düşük)',
       powerAsc: 'Güç (Düşük-Yüksek)',
       engine: 'Motor',
-      charging: 'Şarj'
+      charging: 'Şarj',
+      suggestModel: 'Model Öner',
+      advancedFilters: 'Gelişmiş Filtreler',
+      active: 'Aktif',
+      filter: 'Filtrele',
+      manufacturerPending: 'Üretici verisi bekleniyor',
+      testResultsPending: 'Test sonuçları hazırlanıyor',
+      batteryType: 'Batarya Tipi',
+      warranty: 'Garanti',
+      realWorldRange: 'Gerçek Menzil',
+      testDate: 'Test',
+      update: 'Güncelleme',
+      dataNotFound: 'Veri bulunamadı',
+      selectToCompare: 'Lütfen önce karşılaştırmak için araç seçin'
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -637,7 +756,20 @@ export default function Home() {
       powerDesc: 'Moc (Wysoka-Niska)',
       powerAsc: 'Moc (Niska-Wysoka)',
       engine: 'Silnik',
-      charging: 'Ładowanie'
+      charging: 'Ładowanie',
+      suggestModel: 'Zaproponuj Model',
+      advancedFilters: 'Zaawansowane Filtry',
+      active: 'Aktywny',
+      filter: 'Filtruj',
+      manufacturerPending: 'Oczekiwanie na dane producenta',
+      testResultsPending: 'Oczekiwanie na wyniki testów',
+      batteryType: 'Typ Baterii',
+      warranty: 'Gwarancja',
+      realWorldRange: 'Rzeczywisty Zasięg',
+      testDate: 'Test',
+      update: 'Aktualizacja',
+      dataNotFound: 'Nie znaleziono danych',
+      selectToCompare: 'Wybierz pojazd do porównania'
     }
   }
 
@@ -671,7 +803,13 @@ export default function Home() {
     "publisher": {
       "@type": "Organization",
       "name": "PHEVs.eu",
-      "url": "https://phevs.eu"
+      "url": "https://phevs.eu",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://phevs.eu/images/logo.png",
+        "width": "180",
+        "height": "60"
+      }
     },
     "mainEntity": {
       "@type": "ItemList",
@@ -682,16 +820,23 @@ export default function Home() {
         "@type": "ListItem",
         "position": index + 1,
         "item": {
-          "@type": "Car",
+          "@type": "Vehicle",
           "name": `${car.brand} ${car.model}`,
-          "brand": {
-            "@type": "Brand",
+          "manufacturer": {
+            "@type": "Organization",
             "name": car.brand
           },
           "model": car.model,
-          "vehicleModelDate": car.year,
+          "modelDate": car.year.toString(),
           "vehicleConfiguration": car.segment,
-          "fuelType": "Hybrid",
+          "fuelType": ["Gasoline", "Electric"],
+          "vehicleSeatingCapacity": car.seats,
+          "cargoVolume": {
+            "@type": "QuantitativeValue",
+            "value": car.trunk_volume,
+            "unitCode": "LTR"
+          },
+          "driveWheelConfiguration": "AWD",
           "fuelEfficiency": {
             "@type": "QuantitativeValue",
             "value": car.fuel_consumption,
@@ -707,21 +852,60 @@ export default function Home() {
             "engineDisplacement": {
               "@type": "QuantitativeValue",
               "value": car.engine_displacement || 1.5,
-              "unitCode": "L"
+              "unitCode": "LTR"
             },
             "enginePower": {
               "@type": "QuantitativeValue",
               "value": car.power_hp,
-              "unitCode": "HP"
-            }
+              "unitCode": "BHP"
+            },
+            "engineType": "Plug-in Hybrid"
+          },
+          "vehicleTransmission": "Automatic",
+          "batteryCapacity": {
+            "@type": "QuantitativeValue",
+            "value": car.battery_kwh,
+            "unitCode": "KWH"
+          },
+          "electricRange": {
+            "@type": "QuantitativeValue",
+            "value": car.ev_range_km,
+            "unitCode": "KMT"
+          },
+          "chargingTime": {
+            "@type": "QuantitativeValue",
+            "value": car.charge_time_ac,
+            "unitCode": "HUR",
+            "description": "AC charging time"
           },
           "offers": {
             "@type": "Offer",
             "price": car.price_eur,
             "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock"
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": car.brand
+            },
+            "validFrom": new Date().toISOString().split('T')[0],
+            "priceValidUntil": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split('T')[0]
           },
-          "url": `https://phevs.eu/models/${car.id}`
+          "url": `https://phevs.eu/models/${car.slug || car.id}`,
+          "image": car.image_url,
+          "review": car.euroncap_rating ? {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": car.euroncap_rating.stars,
+              "bestRating": "5",
+              "worstRating": "0"
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "Euro NCAP"
+            },
+            "reviewBody": `Euro NCAP Safety Rating: ${car.euroncap_rating.stars} stars. Adult Occupant: ${car.euroncap_rating.adult_occupant}%, Child Occupant: ${car.euroncap_rating.child_occupant}%, Pedestrian Protection: ${car.euroncap_rating.pedestrian_protection}%, Safety Assist: ${car.euroncap_rating.safety_assist}%`
+          } : null
         }
       }))
     }
@@ -877,8 +1061,87 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Mobile Search and Actions */}
+      <div className="fixed top-0 left-0 right-0 z-50 sm:hidden bg-white border-b border-gray-200 shadow-lg">
+        <div className="p-2">
+          <div className="relative mb-2">
+            <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder={t.searchPlaceholder}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-1">
+            <button
+              onClick={() => setIsFilterModalOpen(true)}
+              className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+              <FunnelIcon className="h-4 w-4" />
+              <span className="text-sm">Filtrele</span>
+            </button>
+            <button
+              onClick={() => setIsSuggestFormOpen(true)}
+              className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+              <PlusIcon className="h-4 w-4" />
+              <span className="text-sm">{t.suggestModel}</span>
+            </button>
+            <button
+              onClick={() => {
+                if (selectedCars.length === 0) {
+                  alert(t.selectToCompare)
+                  return
+                }
+                window.location.href = '/compare/' + selectedCars.map(car => car.id).join('-')
+              }}
+              className={`flex items-center justify-center space-x-1 py-2 px-3 rounded-lg transition-colors ${
+                selectedCars.length > 0
+                  ? 'bg-blue-600 text-white hover:bg-blue-700'
+                  : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              <ArrowsUpDownIcon className="h-4 w-4" />
+              <span className="text-sm">Karşılaştır ({selectedCars.length})</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Mobile Bottom Actions */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white border-t border-gray-200 shadow-lg">
+        <div className="grid grid-cols-2 gap-1 p-2">
+          <button
+            onClick={() => setIsFilterModalOpen(true)}
+            className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+          >
+            <FunnelIcon className="h-4 w-4" />
+            <span className="text-sm">Filtrele</span>
+          </button>
+          <button
+            onClick={() => {
+              if (selectedCars.length === 0) {
+                alert('Lütfen önce karşılaştırmak için araç seçin')
+                return
+              }
+              window.location.href = '/compare/' + selectedCars.map(car => car.id).join('-')
+            }}
+            className={`flex items-center justify-center space-x-1 py-2 px-3 rounded-lg transition-colors ${
+              selectedCars.length > 0
+                ? 'bg-blue-600 text-white hover:bg-blue-700'
+                : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+            }`}
+          >
+            <ArrowsUpDownIcon className="h-4 w-4" />
+            <span className="text-sm">Karşılaştır ({selectedCars.length})</span>
+          </button>
+        </div>
+      </div>
+
       {/* Filter Bar - EV Database Style */}
-      <div className="filter-bar">
+      <div className="filter-bar mb-16 sm:mb-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mobile Filter Button */}
           <div className="sm:hidden mb-4">
@@ -887,7 +1150,7 @@ export default function Home() {
               className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <FunnelIcon className="h-5 w-5" />
-              <span>Filters</span>
+              <span>Filtrele</span>
             </button>
           </div>
           
@@ -979,30 +1242,28 @@ export default function Home() {
                     ))}
                   </select>
 
-            {/* Battery Architecture Filter */}
-            <select
-              value={filters.batteryArchitecture}
-              onChange={(e) => setFilters({...filters, batteryArchitecture: e.target.value})}
-              className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-            >
-              <option value="">{t.allArchitectures}</option>
-              <option value="modular">{t.modular}</option>
-              <option value="integrated">{t.integrated}</option>
-              <option value="skateboard">{t.skateboard}</option>
-            </select>
+            {/* Advanced Filters Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsFilterModalOpen(true)}
+                className={`flex items-center space-x-2 py-2 px-4 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} hover:bg-opacity-80 transition-colors`}
+              >
+                <FunnelIcon className="h-4 w-4" />
+                <span>{t.advancedFilters}</span>
+                {(filters.batteryArchitecture || filters.batteryChemistry || filters.chargingType || 
+                  filters.powerRange[0] !== 0 || filters.powerRange[1] !== 500 ||
+                  filters.yearRange[0] !== 2020 || filters.yearRange[1] !== 2025 ||
+                  filters.emissionRange[0] !== 0 || filters.emissionRange[1] !== 150) && (
+                  <span className="ml-2 px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">
+                    {t.active}
+                  </span>
+                )}
+              </button>
+            </div>
 
-            {/* Battery Chemistry Filter */}
-            <select
-              value={filters.batteryChemistry}
-              onChange={(e) => setFilters({...filters, batteryChemistry: e.target.value})}
-              className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-            >
-              <option value="">{t.allChemistries}</option>
-              <option value="lithium-ion">{t.lithiumIon}</option>
-              <option value="lithium-iron-phosphate">{t.lfp}</option>
-              <option value="nickel-cobalt-manganese">{t.ncm}</option>
-              <option value="nickel-cobalt-aluminum">{t.nca}</option>
-            </select>
+            {/* Quick Filters */}
+            <div className="flex items-center space-x-2">
+            </div>
 
             {/* Sort */}
             <select
@@ -1130,23 +1391,37 @@ export default function Home() {
               return (
               <Link 
                 key={car.id} 
-                href={`/models/${car.id}`} 
+                href={`/models/${car.slug || car.id}`} 
                 onClick={() => updateRecentlyViewed(car)}
                 className={`${cardStyle} rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 block group`}
               >
                 {/* Car Image */}
                 <div className="mb-4">
                   <div className="aspect-[16/9] w-full max-h-32 rounded-lg overflow-hidden">
-                    <img
-                      src={car.image_url}
-                      alt={`${car.brand} ${car.model}`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      fetchPriority="low"
-                      onError={(e) => {
-                        e.currentTarget.src = '/images/placeholder-car.jpg'
-                      }}
-                    />
+                    <div className="relative w-full h-full">
+                      {/* Placeholder/Blur Effect */}
+                      <div 
+                        className="absolute inset-0 bg-gray-200 animate-pulse"
+                        style={{
+                          backgroundColor: car.dominant_color || '#f3f4f6'
+                        }}
+                      />
+                      
+                      {/* Main Image */}
+                      <Image
+                        src={car.image_url}
+                        alt={`${car.brand} ${car.model} - ${car.year} model PHEV`}
+                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        quality={75}
+                        priority={false}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -1173,6 +1448,42 @@ export default function Home() {
                     <div className="flex items-center space-x-2">
                       <span className="badge-secondary">{car.year}</span>
                       <span className="badge-accent">{car.segment}</span>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-xs text-gray-500">
+                          Güncelleme: {car.last_updated 
+                            ? new Date(car.last_updated).toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+                            : 'Tarih bilgisi yok'
+                          }
+                        </span>
+                        {car.data_status && (
+                          <div className="flex items-center space-x-1">
+                            <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
+                              car.data_status.technical_specs === 'complete'
+                                ? 'bg-green-100 text-green-800'
+                                : car.data_status.technical_specs === 'partial'
+                                ? 'bg-yellow-100 text-yellow-800'
+                                : 'bg-gray-100 text-gray-800'
+                            }`}>
+                              {car.data_status.technical_specs === 'complete'
+                                ? 'Tam Veri'
+                                : car.data_status.technical_specs === 'partial'
+                                ? 'Kısmi Veri'
+                                : 'Veri Bekleniyor'
+                              }
+                            </span>
+                            {car.data_status.price === 'verified' && (
+                              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                                Doğrulanmış Fiyat
+                              </span>
+                            )}
+                            {car.data_status.range_data === 'real_world' && (
+                              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                                Gerçek Menzil
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
                     {car.euroncap_rating && (
                       <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
@@ -1239,19 +1550,77 @@ export default function Home() {
                         {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
                       </span>
                         </div>
-                    {car.charging_port && (
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                          <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                          <Tooltip content="Charging port type and location">
-                            <span className={`${currentTheme.textPrimary} cursor-help`}>{t.charging}:</span>
-                          </Tooltip>
-                      </div>
-                        <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
-                          {car.charging_port.ac_location}
-                        </span>
+                    {/* Charging Information */}
+                    <div className="space-y-2">
+                      {car.charging_port ? (
+                        <>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                              <Tooltip content="AC charging port type, location and capabilities">
+                                <span className={`${currentTheme.textPrimary} cursor-help`}>AC {t.charging}:</span>
+                              </Tooltip>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
+                              {car.charging_port.ac_type} ({car.charging_port.ac_location})
+                              {car.charging_port.ac_phases && ` - ${car.charging_port.ac_phases}ph`}
+                              {car.charging_capabilities?.ac_power && ` - ${car.charging_capabilities.ac_power}kW`}
+                            </span>
+                          </div>
+                          {car.charging_port.dc_type && (
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center space-x-2">
+                                <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                                <Tooltip content="DC fast charging port type, location and max power">
+                                  <span className={`${currentTheme.textPrimary} cursor-help`}>DC {t.charging}:</span>
+                                </Tooltip>
+                              </div>
+                              <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
+                                {car.charging_port.dc_type} ({car.charging_port.dc_location})
+                                {car.charging_capabilities?.dc_power && ` - ${car.charging_capabilities.dc_power}kW`}
+                              </span>
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>{t.charging}:</span>
+                          </div>
+                          <span className="text-xs text-amber-600">{t.manufacturerPending}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Battery Details */}
+                    {car.battery_details && (
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
+                            <Tooltip content="Battery chemistry and architecture">
+                              <span className={`${currentTheme.textPrimary} cursor-help`}>Batarya Tipi:</span>
+                            </Tooltip>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
+                            {car.battery_details.chemistry} - {car.battery_details.architecture}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
+                            <Tooltip content="Battery warranty and degradation">
+                              <span className={`${currentTheme.textPrimary} cursor-help`}>Garanti:</span>
+                            </Tooltip>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
+                            {car.battery_details.warranty_capacity}% - {car.warranty_years} yıl
+                          </span>
+                        </div>
                       </div>
                     )}
+
                     </div>
 
                   {/* Mobile Accordions */}
@@ -1308,15 +1677,28 @@ export default function Home() {
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                         </div>
                         {car.charging_port && (
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                              <span className={`${currentTheme.textPrimary}`}>{t.charging}:</span>
+                          <>
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center space-x-2">
+                                <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                                <span className={`${currentTheme.textPrimary}`}>AC {t.charging}:</span>
+                              </div>
+                              <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
+                                {car.charging_port.ac_type} ({car.charging_port.ac_location})
+                              </span>
                             </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
-                              {car.charging_port.ac_location}
-                            </span>
-                          </div>
+                            {car.charging_port.dc_type && (
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-2">
+                                  <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                                  <span className={`${currentTheme.textPrimary}`}>DC {t.charging}:</span>
+                                </div>
+                                <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
+                                  {car.charging_port.dc_type} ({car.charging_port.dc_location})
+                                </span>
+                              </div>
+                            )}
+                          </>
                         )}
                       </div>
                     </MobileAccordion>
@@ -1354,16 +1736,28 @@ export default function Home() {
                           ? 'bg-blue-600 text-white'
                           : buttonStyle
                         }`}
+                        aria-label={selectedCars.find(c => c.id === car.id) 
+                          ? `Remove ${car.brand} ${car.model} from comparison` 
+                          : `Add ${car.brand} ${car.model} to comparison`}
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            toggleCarSelection(car)
+                          }
+                        }}
                       >
-                        <PlusIcon className="h-3 w-3 inline mr-1" />
+                        <PlusIcon className="h-3 w-3 inline mr-1" aria-hidden="true" />
                         {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
                       <Link
-                        href={`/models/${car.id}`}
+                        href={`/models/${car.slug || car.id}`}
                         onClick={(e) => e.stopPropagation()}
                         className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle} transition-colors text-center block`}
+                        aria-label={`View details of ${car.brand} ${car.model}`}
                       >
-                        <EyeIcon className="h-3 w-3 inline mr-1" />
+                        <EyeIcon className="h-3 w-3 inline mr-1" aria-hidden="true" />
                         {t.view}
                       </Link>
                       
@@ -1374,12 +1768,23 @@ export default function Home() {
                         e.stopPropagation()
                         toggleFavorite(car.id)
                       }}
-                        className="p-2 hover:bg-opacity-20 rounded-lg transition-colors flex items-center justify-center"
+                      className="p-2 hover:bg-opacity-20 rounded-lg transition-colors flex items-center justify-center"
+                      aria-label={favorites.includes(car.id) 
+                        ? `Remove ${car.brand} ${car.model} from favorites` 
+                        : `Add ${car.brand} ${car.model} to favorites`}
+                      role="button"
+                      tabIndex={0}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault()
+                          toggleFavorite(car.id)
+                        }
+                      }}
                     >
                       {favorites.includes(car.id) ? (
-                        <HeartSolidIcon className="h-5 w-5 text-red-500" />
+                        <HeartSolidIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
                       ) : (
-                        <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" />
+                        <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" aria-hidden="true" />
                       )}
                     </button>
                       <button
@@ -1390,8 +1795,18 @@ export default function Home() {
                           setIsRangeSimulatorOpen(true)
                         }}
                         className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
+                        aria-label={`Open range simulator for ${car.brand} ${car.model}`}
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            setSelectedCarForSimulator(car)
+                            setIsRangeSimulatorOpen(true)
+                          }
+                        }}
                       >
-                        <CalculatorIcon className="h-3 w-3 inline mr-1" />
+                        <CalculatorIcon className="h-3 w-3 inline mr-1" aria-hidden="true" />
                         Range
                       </button>
                     </div>
@@ -1421,19 +1836,20 @@ export default function Home() {
               const cardStyle = cardVariants[index % 4]
               
               return (
-              <Link key={car.id} href={`/models/${car.id}`} className={`${cardStyle} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
+              <Link key={car.id} href={`/models/${car.slug || car.id}`} className={`${cardStyle} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
                     <div className="aspect-[16/9] w-32 h-20 rounded-lg overflow-hidden">
                       <img
                         src={car.image_url}
-                        alt={`${car.brand} ${car.model}`}
+                        alt={`${car.brand} ${car.model} - ${car.year} model PHEV with ${car.ev_range_km}km electric range and ${car.power_hp}HP total power`}
                         className="w-full h-full object-cover"
                         loading="lazy"
                         fetchPriority="low"
                         onError={(e) => {
                           e.currentTarget.src = '/images/placeholder-car.jpg'
+                          e.currentTarget.alt = 'Placeholder image for vehicle'
                         }}
                       />
                     </div>
@@ -1450,6 +1866,9 @@ export default function Home() {
                           <div className="flex items-center space-x-2">
                             <span className="badge-secondary">{car.year}</span>
                             <span className="badge-accent">{car.segment}</span>
+                            <span className="text-xs text-gray-500">
+                              Güncelleme: {new Date().toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                            </span>
                           </div>
                           {car.euroncap_rating && (
                             <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
@@ -1615,7 +2034,7 @@ export default function Home() {
                         {selectedCars.find(c => c.id === car.id) ? t.added : t.compare}
                       </button>
                       <Link
-                        href={`/models/${car.id}`}
+                        href={`/models/${car.slug || car.id}`}
                         onClick={(e) => e.stopPropagation()}
                         className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle} transition-colors text-center block`}
                       >
@@ -1685,7 +2104,7 @@ export default function Home() {
               {recentlyViewed.map((car) => (
                 <Link
                   key={car.id}
-                  href={`/models/${car.id}`}
+                  href={`/models/${car.slug || car.id}`}
                   onClick={() => updateRecentlyViewed(car)}
                   className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-lg p-3 hover:shadow-lg transition-all duration-200 group`}
                 >
@@ -1796,19 +2215,14 @@ export default function Home() {
       <FilterModal
         isOpen={isFilterModalOpen}
         onClose={() => setIsFilterModalOpen(false)}
-        selectedBrand={selectedBrands.join(',')}
-        setSelectedBrand={(brand) => setSelectedBrands(brand ? brand.split(',') : [])}
-        selectedSegment={filters.segment}
-        setSelectedSegment={(segment) => setFilters({...filters, segment})}
-        selectedPriceRange=""
-        setSelectedPriceRange={() => {}}
-        selectedRange=""
-        setSelectedRange={() => {}}
+        filters={filters}
+        setFilters={setFilters}
         brands={brands}
         segments={segments}
-        priceRanges={[]}
-        rangeRanges={[]}
-        onApplyFilters={() => {}}
+        onApplyFilters={() => {
+          saveFilters()
+          setIsFilterModalOpen(false)
+        }}
         onClearFilters={clearFilters}
       />
 

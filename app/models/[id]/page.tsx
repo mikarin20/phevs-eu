@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import Head from 'next/head'
 import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
@@ -21,6 +20,7 @@ interface Car {
   price_eur: number
   image_url: string
   power_hp: number
+  engine_displacement?: number
   co2_emission: number
   charge_time_ac: number
   charge_time_dc: number
@@ -67,7 +67,9 @@ interface ModelDetailProps {
 }
 
 export default function ModelDetail({ params }: ModelDetailProps) {
-  const car = carsData.find(c => c.id === params.id) as Car
+  const typedCarsData = carsData as Car[]
+  // Accept both numeric/string id and SEO slug in the same dynamic route
+  const car = typedCarsData.find(c => c.id === params.id || c.slug === (params.id as any)) as Car
   const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState('light')
   const [selectedLanguage, setSelectedLanguage] = useState('en')
@@ -91,7 +93,11 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       batteryCapacityLabel: 'Battery Capacity',
       acChargeTime: 'AC Charge Time',
       dcChargeTime: 'DC Charge Time',
+      acCharging: 'AC Charging',
+      dcCharging: 'DC Charging',
+      batteryType: 'Battery Type',
       power: 'Power',
+      engine: 'Engine',
       fuelConsumption: 'Fuel Consumption',
       co2Emission: 'CO₂ Emission',
       segment: 'Segment',
@@ -123,7 +129,11 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       batteryCapacityLabel: 'Batteriekapazität',
       acChargeTime: 'AC-Ladezeit',
       dcChargeTime: 'DC-Ladezeit',
+      acCharging: 'AC-Laden',
+      dcCharging: 'DC-Laden',
+      batteryType: 'Batterietyp',
       power: 'Leistung',
+      engine: 'Motor',
       fuelConsumption: 'Kraftstoffverbrauch',
       co2Emission: 'CO₂-Emission',
       segment: 'Segment',
@@ -155,7 +165,11 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       batteryCapacityLabel: 'Batarya Kapasitesi',
       acChargeTime: 'AC Şarj Süresi',
       dcChargeTime: 'DC Şarj Süresi',
+      acCharging: 'AC Şarj',
+      dcCharging: 'DC Şarj',
+      batteryType: 'Batarya Tipi',
       power: 'Güç',
+      engine: 'Motor',
       fuelConsumption: 'Yakıt Tüketimi',
       co2Emission: 'CO₂ Emisyonu',
       segment: 'Segment',
@@ -187,7 +201,11 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       batteryCapacityLabel: 'Pojemność Baterii',
       acChargeTime: 'Czas Ładowania AC',
       dcChargeTime: 'Czas Ładowania DC',
+      acCharging: 'Ładowanie AC',
+      dcCharging: 'Ładowanie DC',
+      batteryType: 'Typ Baterii',
       power: 'Moc',
+      engine: 'Silnik',
       fuelConsumption: 'Zużycie Paliwa',
       co2Emission: 'Emisja CO₂',
       segment: 'Segment',
@@ -308,12 +326,22 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: t.batteryCapacityLabel, value: `${car.battery_kwh} kWh`, icon: SparklesIcon, highlight: true },
         { label: t.acChargeTime, value: `${car.charge_time_ac} ${selectedLanguage === 'tr' ? 'saat' : selectedLanguage === 'de' ? 'Stunden' : selectedLanguage === 'pl' ? 'godziny' : 'hours'}` },
         { label: t.dcChargeTime, value: `${car.charge_time_dc} ${selectedLanguage === 'tr' ? 'dakika' : selectedLanguage === 'de' ? 'Minuten' : selectedLanguage === 'pl' ? 'minuty' : 'minutes'}` },
+        // Battery details if available
+        ...(car.battery_details ? [
+          { label: t.batteryType, value: `${car.battery_details.chemistry} • ${car.battery_details.architecture}` },
+        ] : [] as any),
+        // Charging port and capabilities
+        ...(car.charging_port ? [
+          { label: t.acCharging, value: `${car.charging_port.ac_type} (${car.charging_port.ac_location})${car.charging_capabilities?.ac_power ? ` • ${car.charging_capabilities.ac_power}kW` : ''}${car.charging_port.ac_phases ? ` • ${car.charging_port.ac_phases}ph` : ''}` },
+          ...(car.charging_port.dc_type ? [{ label: t.dcCharging, value: `${car.charging_port.dc_type} (${car.charging_port.dc_location})${car.charging_capabilities?.dc_power ? ` • ${car.charging_capabilities.dc_power}kW` : ''}` }] : [])
+        ] : [] as any),
       ]
     },
     {
       category: t.enginePerformance,
       items: [
         { label: t.power, value: `${car.power_hp} HP`, highlight: true },
+        { label: t.engine, value: car.engine_displacement ? `${car.engine_displacement}L` : 'N/A' },
         { label: t.fuelConsumption, value: `${car.fuel_consumption} L/100km` },
         { label: t.co2Emission, value: `${car.co2_emission} g/km` },
         { label: t.segment, value: car.segment },
@@ -341,67 +369,6 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
   return (
     <>
-      <Head>
-        <title>{`${car.year} ${car.brand} ${car.model} Specs, Range & Charging | PHEVs.eu`}</title>
-        <meta name="description" content={`Compare ${car.year} ${car.brand} ${car.model} plug-in hybrid specifications, electric range (${car.ev_range_km}km), battery capacity (${car.battery_kwh}kWh), charging times, and pricing (€${car.price_eur.toLocaleString()}).`} />
-        <meta name="keywords" content={`${car.brand} ${car.model}, plug-in hybrid, PHEV, electric range, battery, charging, ${car.year}`} />
-        <meta property="og:title" content={`${car.year} ${car.brand} ${car.model} - PHEVs.eu`} />
-        <meta property="og:description" content={`Compare ${car.year} ${car.brand} ${car.model} plug-in hybrid specifications and pricing.`} />
-        <meta property="og:image" content={car.image_url} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${car.year} ${car.brand} ${car.model} - PHEVs.eu`} />
-        <meta name="twitter:description" content={`Compare ${car.year} ${car.brand} ${car.model} plug-in hybrid specifications and pricing.`} />
-        <meta name="twitter:image" content={car.image_url} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Vehicle",
-              "name": `${car.year} ${car.brand} ${car.model}`,
-              "brand": {
-                "@type": "Brand",
-                "name": car.brand
-              },
-              "model": car.model,
-              "vehicleModelDate": car.year,
-              "bodyType": car.segment,
-              "fuelType": "Hybrid",
-              "fuelEfficiency": {
-                "@type": "QuantitativeValue",
-                "value": car.fuel_consumption,
-                "unitCode": "L/100KM"
-              },
-              "emissionsCO2": {
-                "@type": "QuantitativeValue",
-                "value": car.co2_emission,
-                "unitCode": "G/KM"
-              },
-              "vehicleEngine": {
-                "@type": "EngineSpecification",
-                "enginePower": {
-                  "@type": "QuantitativeValue",
-                  "value": car.power_hp,
-                  "unitCode": "HP"
-                }
-              },
-              "cargoVolume": {
-                "@type": "QuantitativeValue",
-                "value": car.trunk_volume,
-                "unitCode": "LTR"
-              },
-              "seatingCapacity": car.seats,
-              "image": car.image_url,
-              "offers": {
-                "@type": "Offer",
-                "price": car.price_eur,
-                "priceCurrency": "EUR"
-              }
-            })
-          }}
-        />
-      </Head>
       <div className={`min-h-screen ${currentTheme.background}`}>
 
       {/* Header */}
@@ -428,13 +395,13 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         </div>
 
         {/* Price and Key Stats */}
-        <div className="mb-12">
-          <div className={`${currentTheme.priceBg} rounded-2xl p-8 text-center border ${currentTheme.priceBorder}`}>
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <CurrencyEuroIcon className={`h-10 w-10 ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-blue-600'}`} />
-              <span className={`text-4xl font-bold ${currentTheme.textPrimary}`}>€{car.price_eur.toLocaleString()}</span>
+        <div className="mb-6">
+          <div className={`${currentTheme.priceBg} rounded-2xl p-4 md:p-6 text-center border ${currentTheme.priceBorder}`}>
+            <div className="flex items-center justify-center space-x-2 md:space-x-3 mb-2 md:mb-3">
+              <CurrencyEuroIcon className={`h-8 w-8 md:h-9 md:w-9 ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-blue-600'}`} />
+              <span className={`text-3xl md:text-4xl font-bold ${currentTheme.textPrimary}`}>€{car.price_eur.toLocaleString()}</span>
             </div>
-            <div className="flex items-center justify-center space-x-2 mb-6">
+            <div className="flex items-center justify-center space-x-2 mb-3 md:mb-4">
               <p className={`${currentTheme.textSecondary} font-medium`}>{t.startingPrice}</p>
               <div className="relative group">
                 <InformationCircleIcon className={`h-4 w-4 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-gray-400'} cursor-help`} />
@@ -448,27 +415,27 @@ export default function ModelDetail({ params }: ModelDetailProps) {
             </div>
             
             {/* Key Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto">
-              <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
-                <div className="flex items-center justify-center space-x-2 mb-2">
-                  <BoltIcon className={`h-6 w-6 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-green-600'}`} />
-                  <span className={`text-xl font-bold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 max-w-xl md:max-w-2xl mx-auto">
+              <div className={`${currentTheme.statBg} rounded-xl p-3 shadow-sm border ${currentTheme.cardBorder}`}>
+                <div className="flex items-center justify-center space-x-2 mb-1.5">
+                  <BoltIcon className={`h-5 w-5 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-green-600'}`} />
+                  <span className={`text-lg md:text-xl font-bold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
                 </div>
                 <p className={`text-sm ${currentTheme.textSecondary}`}>{t.electricRange}</p>
               </div>
-              <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
-                <div className="flex items-center justify-center space-x-2 mb-2">
-                  <SparklesIcon className={`h-6 w-6 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-blue-600'}`} />
-                  <span className={`text-xl font-bold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
+              <div className={`${currentTheme.statBg} rounded-xl p-3 shadow-sm border ${currentTheme.cardBorder}`}>
+                <div className="flex items-center justify-center space-x-2 mb-1.5">
+                  <SparklesIcon className={`h-5 w-5 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-blue-600'}`} />
+                  <span className={`text-lg md:text-xl font-bold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                 </div>
                 <p className={`text-sm ${currentTheme.textSecondary}`}>{t.batteryCapacity}</p>
               </div>
-              <div className={`${currentTheme.statBg} rounded-xl p-4 shadow-sm border ${currentTheme.cardBorder}`}>
-                <div className="flex items-center justify-center space-x-2 mb-2">
-                  <div className={`w-6 h-6 ${selectedTheme === 'dark' ? 'bg-[#DED3C4]' : 'bg-orange-500'} rounded-full flex items-center justify-center`}>
-                    <span className={`text-xs font-bold ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-white'}`}>HP</span>
+              <div className={`${currentTheme.statBg} rounded-xl p-3 shadow-sm border ${currentTheme.cardBorder}`}>
+                <div className="flex items-center justify-center space-x-2 mb-1.5">
+                  <div className={`w-5 h-5 ${selectedTheme === 'dark' ? 'bg-[#DED3C4]' : 'bg-orange-500'} rounded-full flex items-center justify-center`}>
+                    <span className={`text-[10px] font-bold ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-white'}`}>HP</span>
                   </div>
-                  <span className={`text-xl font-bold ${currentTheme.textPrimary}`}>{car.power_hp}</span>
+                  <span className={`text-lg md:text-xl font-bold ${currentTheme.textPrimary}`}>{car.power_hp}</span>
                 </div>
                 <p className={`text-sm ${currentTheme.textSecondary}`}>{t.powerOutput}</p>
               </div>
@@ -570,6 +537,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         batteryCapacity={car.battery_kwh}
         isOpen={isRangeSimulatorOpen}
         onClose={() => setIsRangeSimulatorOpen(false)}
+        selectedCar={car}
         simulatorData={car.simulator_data}
       />
       </div>
