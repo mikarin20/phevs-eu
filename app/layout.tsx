@@ -22,11 +22,7 @@ export const metadata: Metadata = {
       'pl-PL': 'https://phevs.eu/pl'
     }
   },
-  openGraph: {
-    siteName: 'PHEVs.eu',
-    locale: 'en_EU',
-    alternateLocale: ['de_DE', 'tr_TR', 'pl_PL']
-  },
+  // Open Graph configuration is defined below with full details
   title: {
     default: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles from 28 Brands',
     template: '%s | PHEVs.eu'
