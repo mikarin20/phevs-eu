@@ -29,6 +29,30 @@ interface Car {
   seats: number
   warranty_years: number
   country_availability: string
+  battery_details?: {
+    chemistry: string
+    architecture: string
+    cycles?: number
+    degradation_rate?: number
+    warranty_capacity?: number
+    thermal_management?: string
+  }
+  charging_capabilities?: {
+    ac_power?: number
+    dc_power?: number
+    charging_curve?: {
+      soc: number[]
+      power: number[]
+    }
+  }
+  charging_port?: {
+    ac_type: string
+    ac_location: string
+    dc_type?: string
+    dc_location?: string
+    ac_phases?: number
+    ac_current?: number
+  }
   euroncap_rating?: {
     stars: number
     adult_occupant: number
