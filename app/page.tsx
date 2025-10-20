@@ -215,6 +215,45 @@ export default function Home() {
     sortBy: 'name-asc'
   })
 
+  const defaultFilters: FiltersState = {
+    segment: '',
+    priceRange: [0, 150000],
+    rangeRange: [0, 100],
+    fuelConsumption: [0, 10],
+    batteryArchitecture: '',
+    batteryChemistry: '',
+    chargingType: '',
+    powerRange: [0, 500],
+    yearRange: [2020, 2025],
+    emissionRange: [0, 150],
+    sortBy: 'name-asc'
+  }
+
+  const normalizePair = (val: any, def: [number, number]): [number, number] => {
+    return Array.isArray(val) && val.length === 2
+      ? [Number(val[0]) || def[0], Number(val[1]) || def[1]]
+      : def
+  }
+
+  const normalizeFilters = (raw: any): FiltersState => {
+    if (!raw || typeof raw !== 'object') return defaultFilters
+    return {
+      segment: typeof raw.segment === 'string' ? raw.segment : '',
+      priceRange: normalizePair(raw.priceRange, defaultFilters.priceRange),
+      rangeRange: normalizePair(raw.rangeRange, defaultFilters.rangeRange),
+      fuelConsumption: normalizePair(raw.fuelConsumption, defaultFilters.fuelConsumption),
+      batteryArchitecture: typeof raw.batteryArchitecture === 'string' ? raw.batteryArchitecture : '',
+      batteryChemistry: typeof raw.batteryChemistry === 'string' ? raw.batteryChemistry : '',
+      chargingType: typeof raw.chargingType === 'string' ? raw.chargingType : '',
+      powerRange: normalizePair(raw.powerRange, defaultFilters.powerRange),
+      yearRange: normalizePair(raw.yearRange, defaultFilters.yearRange),
+      emissionRange: normalizePair(raw.emissionRange, defaultFilters.emissionRange),
+      sortBy: (['price-asc','price-desc','range-asc','range-desc','power-asc','power-desc','name-asc'] as SortOption[]).includes(raw.sortBy)
+        ? raw.sortBy
+        : 'name-asc'
+    }
+  }
+
   // LocalStorage'dan verileri yükle
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -227,7 +266,7 @@ export default function Home() {
     
     if (savedFilters) {
       try {
-        setFilters(JSON.parse(savedFilters))
+        setFilters(normalizeFilters(JSON.parse(savedFilters)))
       } catch (e) {
         console.error('Error loading filters:', e)
       }
