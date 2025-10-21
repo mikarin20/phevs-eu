@@ -186,69 +186,6 @@ export default function Home() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
   const [recentlyViewed, setRecentlyViewed] = useState<Car[]>([])
 
-  // Quick Compare karşılaştırmaları
-  const comparisons = [
-    {
-      id: 'tiguan-3008',
-      href: '/compare/volkswagen-tiguan-phev-vs-peugeot-3008-phev',
-      leftCar: { name: 'VW Tiguan', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '110km • €40,000' },
-      rightCar: { name: 'Peugeot 3008', image: '/images/cars/brands/peugeot/3008 Plug-in/main.jpeg', alt: 'Peugeot 3008', specs: '59km • €42,500' }
-    },
-    {
-      id: 'c5-kuga',
-      href: '/compare/citroen-c5-aircross-phev-vs-ford-kuga-phev',
-      leftCar: { name: 'Citroën C5 Aircross', image: '/images/cars/brands/citroen/c5-aircross-plug-in-hybrid/main.jpg', alt: 'Citroën C5 Aircross', specs: '55km • €35,000' },
-      rightCar: { name: 'Ford Kuga', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '100km • €40,000' }
-    },
-    {
-      id: 'kodiaq-tiguan',
-      href: '/compare/skoda-kodiaq-iv-phev-vs-volkswagen-tiguan-phev',
-      leftCar: { name: 'Skoda Kodiaq iV', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq iV', specs: '60km • €44,900' },
-      rightCar: { name: 'VW Tiguan', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '110km • €40,000' }
-    },
-    {
-      id: 'mg-3008',
-      href: '/compare/mg-hs-phev-vs-peugeot-3008-phev',
-      leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
-      rightCar: { name: 'Peugeot 3008', image: '/images/cars/brands/peugeot/3008 Plug-in/main.jpeg', alt: 'Peugeot 3008', specs: '59km • €42,500' }
-    },
-    {
-      id: 'golf-308',
-      href: '/compare/volkswagen-golf-phev-vs-peugeot-308-phev',
-      leftCar: { name: 'VW Golf GTE', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '110km • €38,500' },
-      rightCar: { name: 'Peugeot 308', image: '/images/cars/brands/peugeot/308-hybrid/main.jpg', alt: 'Peugeot 308', specs: '68km • €37,400' }
-    },
-    {
-      id: 'golf-a3',
-      href: '/compare/volkswagen-golf-phev-vs-audi-a3-sportback-phev',
-      leftCar: { name: 'VW Golf GTE', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '110km • €38,500' },
-      rightCar: { name: 'Audi A3 Sportback', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '130km • €44,200' }
-    },
-    {
-      id: 'renault-mg',
-      href: '/compare/renault-rafale-phev-vs-mg-hs-phev',
-      leftCar: { name: 'Renault Rafale', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
-      rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
-    },
-    {
-      id: 'kia-mg',
-      href: '/compare/kia-niro-phev-vs-mg-hs-phev',
-      leftCar: { name: 'Kia Niro', image: '/images/cars/brands/kia/niro-phev/main.jpg', alt: 'Kia Niro', specs: '58km • €38,500' },
-      rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
-    },
-    {
-      id: 'mg-cupra',
-      href: '/compare/mg-hs-phev-vs-cupra-formentor-e-hybrid',
-      leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
-      rightCar: { name: 'Cupra Formentor', image: '/images/cars/brands/cupra/formentor-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '55km • €42,000' }
-    }
-  ]
-
-  // Random sıralama
-  const shuffledComparisons = useMemo(() => {
-    return [...comparisons].sort(() => Math.random() - 0.5)
-  }, [])
-
   // Dil algılama - localStorage'dan oku, yoksa browser dilini kullan
   useEffect(() => {
     const detectLanguage = () => {
@@ -1159,7 +1096,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section - SEO Content */}
-      <section className={`py-4 pt-24 sm:pt-4 ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-gradient-to-r from-blue-50 to-indigo-50'}`}>
+      <section className={`py-4 ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-gradient-to-r from-blue-50 to-indigo-50'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className={`text-xl sm:text-2xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
@@ -1252,52 +1189,609 @@ export default function Home() {
             
             <div id="compare-slider" className="overflow-x-auto scrollbar-hide">
               <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
-              {shuffledComparisons.map((comparison) => (
-                <Link key={comparison.id} href={comparison.href} className="group flex-shrink-0">
-                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
-                    <div className="grid grid-cols-2 gap-0">
-                      <div className="relative h-32">
-                        <Image
-                          src={comparison.leftCar.image}
-                          alt={comparison.leftCar.alt}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-200"
-                          onError={(e) => {
-                            e.currentTarget.src = '/images/placeholder-car.jpg'
-                          }}
-                        />
+              {(() => {
+                // Quick Compare karşılaştırmaları
+                const comparisons = [
+                  {
+                    id: 'tiguan-3008',
+                    href: '/compare/volkswagen-tiguan-phev-vs-peugeot-3008-phev',
+                    leftCar: { name: 'VW Tiguan', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '110km • €40,000' },
+                    rightCar: { name: 'Peugeot 3008', image: '/images/cars/brands/peugeot/3008 Plug-in/main.jpeg', alt: 'Peugeot 3008', specs: '59km • €42,500' }
+                  },
+                  {
+                    id: 'c5-kuga',
+                    href: '/compare/citroen-c5-aircross-phev-vs-ford-kuga-phev',
+                    leftCar: { name: 'Citroën C5 Aircross', image: '/images/cars/brands/citroen/c5-aircross-plug-in-hybrid/main.jpg', alt: 'Citroën C5 Aircross', specs: '65km • €38,000' },
+                    rightCar: { name: 'Ford Kuga', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '70km • €42,000' }
+                  },
+                  {
+                    id: 'kodiaq-tiguan',
+                    href: '/compare/skoda-kodiaq-iv-phev-vs-volkswagen-tiguan-phev',
+                    leftCar: { name: 'Skoda Kodiaq', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq', specs: '65km • €45,000' },
+                    rightCar: { name: 'VW Tiguan', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '110km • €40,000' }
+                  },
+                  {
+                    id: '3008-kuga',
+                    href: '/compare/peugeot-3008-phev-vs-ford-kuga-phev',
+                    leftCar: { name: 'Peugeot 3008', image: '/images/cars/brands/peugeot/3008 Plug-in/main.jpeg', alt: 'Peugeot 3008', specs: '59km • €42,500' },
+                    rightCar: { name: 'Ford Kuga', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '70km • €42,000' }
+                  },
+                  {
+                    id: 'golf-308',
+                    href: '/compare/volkswagen-golf-phev-vs-peugeot-308-phev',
+                    leftCar: { name: 'VW Golf GTE', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf', specs: '110km • €38,500' },
+                    rightCar: { name: 'Peugeot 308', image: '/images/cars/brands/peugeot/308-hybrid/main.jpg', alt: 'Peugeot 308', specs: '60km • €39,000' }
+                  },
+                  {
+                    id: 'golf-a3',
+                    href: '/compare/volkswagen-golf-phev-vs-audi-a3-sportback-phev',
+                    leftCar: { name: 'VW Golf GTE', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf', specs: '110km • €38,500' },
+                    rightCar: { name: 'Audi A3 Sportback', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '130km • €44,200' }
+                  },
+                  {
+                    id: 'renault-mg',
+                    href: '/compare/renault-rafale-phev-vs-mg-hs-phev',
+                    leftCar: { name: 'Renault Rafale', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
+                    rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+                  },
+                  {
+                    id: 'cupra-cupra',
+                    href: '/compare/cupra-formentor-e-hybrid-vs-cupra-leon-e-hybrid',
+                    leftCar: { name: 'Cupra Formentor', image: '/images/cars/brands/cupra/formentor-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '55km • €42,000' },
+                    rightCar: { name: 'Cupra Leon', image: '/images/cars/brands/cupra/leon-e-hybrid/main.jpg', alt: 'Cupra Leon', specs: '60km • €38,000' }
+                  },
+                  {
+                    id: 'kia-mg',
+                    href: '/compare/kia-niro-phev-vs-mg-hs-phev',
+                    leftCar: { name: 'Kia Niro', image: '/images/cars/brands/kia/niro-phev/main.jpg', alt: 'Kia Niro', specs: '58km • €38,500' },
+                    rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+                  },
+                  {
+                    id: 'mg-cupra',
+                    href: '/compare/mg-hs-phev-vs-cupra-formentor-e-hybrid',
+                    leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
+                    rightCar: { name: 'Cupra Formentor', image: '/images/cars/brands/cupra/formentor-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '55km • €42,000' }
+                  },
+                  {
+                    id: 'mg-peugeot',
+                    href: '/compare/mg-hs-phev-vs-peugeot-3008-phev',
+                    leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
+                    rightCar: { name: 'Peugeot 3008', image: '/images/cars/brands/peugeot/3008 Plug-in/main.jpeg', alt: 'Peugeot 3008', specs: '59km • €42,500' }
+                  }
+                ]
+
+                // Random sıralama
+                const shuffledComparisons = [...comparisons].sort(() => Math.random() - 0.5)
+
+                return shuffledComparisons.map((comparison) => (
+                  <Link key={comparison.id} href={comparison.href} className="group flex-shrink-0">
+                    <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                      <div className="grid grid-cols-2 gap-0">
+                        <div className="relative h-32">
+                          <Image
+                            src={comparison.leftCar.image}
+                            alt={comparison.leftCar.alt}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-200"
+                            onError={(e) => {
+                              e.currentTarget.src = '/images/placeholder-car.jpg'
+                            }}
+                          />
+                        </div>
+                        <div className="relative h-32">
+                          <Image
+                            src={comparison.rightCar.image}
+                            alt={comparison.rightCar.alt}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-200"
+                            onError={(e) => {
+                              e.currentTarget.src = '/images/placeholder-car.jpg'
+                            }}
+                          />
+                        </div>
                       </div>
-                      <div className="relative h-32">
-                        <Image
-                          src={comparison.rightCar.image}
-                          alt={comparison.rightCar.alt}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-200"
-                          onError={(e) => {
-                            e.currentTarget.src = '/images/placeholder-car.jpg'
-                          }}
-                        />
+                      <div className="p-4">
+                        <div className="flex justify-between items-center mb-2">
+                          <h4 className="font-semibold text-sm text-gray-900 dark:text-white">{comparison.leftCar.name}</h4>
+                          <h4 className="font-semibold text-sm text-gray-900 dark:text-white">{comparison.rightCar.name}</h4>
+                        </div>
+                        <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                          <span>{comparison.leftCar.specs}</span>
+                          <span>{comparison.rightCar.specs}</span>
+                        </div>
+                        <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                          <span>Compare These Models</span>
+                          <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                        </div>
                       </div>
                     </div>
-                    <div className="p-4">
-                      <div className="flex justify-between items-center mb-2">
-                        <h4 className="font-semibold text-sm text-gray-900 dark:text-white">{comparison.leftCar.name}</h4>
-                        <h4 className="font-semibold text-sm text-gray-900 dark:text-white">{comparison.rightCar.name}</h4>
-                      </div>
-                      <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
-                        <span>{comparison.leftCar.specs}</span>
-                        <span>{comparison.rightCar.specs}</span>
-                      </div>
-                      <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
-                        <span>Compare These Models</span>
-                        <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
-                      </div>
+                  </Link>
+                ))
+              })()}
+                        alt="Volkswagen Tiguan"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/peugeot/3008 Plug-in/main.jpeg"
+                        alt="Peugeot 3008"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
                     </div>
                   </div>
-                </Link>
-              ))}
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">VW Tiguan</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Peugeot 3008</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>110km • €40,000</span>
+                      <span>59km • €42,500</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
 
+              {/* C5 Aircross vs Ford Kuga */}
+              <Link href="/compare/citroen-c5-aircross-phev-vs-ford-kuga-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/citroen/c5-aircross-plug-in-hybrid/main.jpg"
+                        alt="Citroën C5 Aircross"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/ford/kuga/main.jpg"
+                        alt="Ford Kuga"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Citroën C5 Aircross</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Ford Kuga</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>55km • €35,000</span>
+                      <span>100km • €40,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
 
+              {/* Skoda Kodiaq vs Tiguan */}
+              <Link href="/compare/skoda-kodiaq-iv-phev-vs-volkswagen-tiguan-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/skoda/kodiaq-phev/main.jpg"
+                        alt="Skoda Kodiaq iV"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/volkswagen/tiguan/main.jpg"
+                        alt="Volkswagen Tiguan"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Skoda Kodiaq iV</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">VW Tiguan</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>60km • €44,900</span>
+                      <span>110km • €40,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* 3008 vs Ford Kuga */}
+              <Link href="/compare/peugeot-3008-phev-vs-ford-kuga-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/peugeot/3008 Plug-in/main.jpeg"
+                        alt="Peugeot 3008"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/ford/kuga/main.jpg"
+                        alt="Ford Kuga"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Peugeot 3008</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Ford Kuga</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>59km • €42,500</span>
+                      <span>100km • €40,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Golf vs 308 */}
+              <Link href="/compare/volkswagen-golf-phev-vs-peugeot-308-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/volkswagen/golf/main.jpg"
+                        alt="Volkswagen Golf GTE"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/peugeot/308-hybrid/main.jpg"
+                        alt="Peugeot 308"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">VW Golf GTE</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Peugeot 308</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>110km • €38,500</span>
+                      <span>68km • €37,400</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Golf vs Audi A3 */}
+              <Link href="/compare/volkswagen-golf-phev-vs-audi-a3-sportback-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/volkswagen/golf/main.jpg"
+                        alt="Volkswagen Golf GTE"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg"
+                        alt="Audi A3 Sportback"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">VW Golf GTE</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Audi A3 Sportback</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>110km • €38,500</span>
+                      <span>130km • €44,200</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Renault Rafale vs MG HS */}
+              <Link href="/compare/renault-rafale-phev-vs-mg-hs-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/renault/rafale-plug-in-hybrid/main.png"
+                        alt="Renault Rafale"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg"
+                        alt="MG HS"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Renault Rafale</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">MG HS</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>65km • €35,000</span>
+                      <span>75km • €32,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Cupra Formentor vs Cupra Leon */}
+              <Link href="/compare/cupra-formentor-e-hybrid-vs-cupra-leon-e-hybrid" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/cupra/formentor-e-hybrid/main.jpg"
+                        alt="Cupra Formentor"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/cupra/leon-e-hybrid/main.jpg"
+                        alt="Cupra Leon"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Cupra Formentor</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Cupra Leon</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>55km • €42,000</span>
+                      <span>60km • €38,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Kia Niro vs MG HS */}
+              <Link href="/compare/kia-niro-phev-vs-mg-hs-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/kia/niro-phev/main.jpg"
+                        alt="Kia Niro"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg"
+                        alt="MG HS"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Kia Niro</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">MG HS</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>58km • €38,500</span>
+                      <span>75km • €32,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Renault Rafale vs MG HS */}
+              <Link href="/compare/renault-rafale-phev-vs-mg-hs-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/renault/rafale-plug-in-hybrid/main.png"
+                        alt="Renault Rafale"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg"
+                        alt="MG HS"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Renault Rafale</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">MG HS</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>65km • €35,000</span>
+                      <span>75km • €32,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* MG HS vs Cupra Formentor */}
+              <Link href="/compare/mg-hs-phev-vs-cupra-formentor-e-hybrid" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg"
+                        alt="MG HS"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/cupra/formentor-e-hybrid/main.jpg"
+                        alt="Cupra Formentor"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">MG HS</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Cupra Formentor</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>75km • €32,000</span>
+                      <span>55km • €42,000</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* MG HS vs Peugeot 3008 */}
+              <Link href="/compare/mg-hs-phev-vs-peugeot-3008-phev" className="group flex-shrink-0">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg"
+                        alt="MG HS"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                    <div className="relative h-32">
+                      <Image
+                        src="/images/cars/brands/peugeot/3008 Plug-in/main.jpeg"
+                        alt="Peugeot 3008"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">MG HS</h4>
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white">Peugeot 3008</h4>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
+                      <span>75km • €32,000</span>
+                      <span>59km • €42,500</span>
+                    </div>
+                    <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
+                      <span>Compare These Models</span>
+                      <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
               </div>
             </div>
           </div>
@@ -1317,53 +1811,20 @@ export default function Home() {
               className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div className="grid grid-cols-4 gap-1">
-            {/* Dil Seçici */}
-            <div className="flex space-x-1">
-              {[
-                { 
-                  code: 'en', 
-                  name: 'EN', 
-                  flag: 'gb'
-                },
-                { 
-                  code: 'tr', 
-                  name: 'TR', 
-                  flag: 'tr'
-                }
-              ].map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => {
-                    setSelectedLanguage(lang.code)
-                    localStorage.setItem('phevs-language', lang.code)
-                    // Custom event gönder
-                    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
-                  }}
-                  className={`p-1 rounded-lg transition-all duration-300 ${
-                    selectedLanguage === lang.code
-                      ? 'bg-blue-600 shadow-lg'
-                      : 'bg-gray-100 hover:bg-gray-200'
-                  }`}
-                  title={lang.code.toUpperCase()}
-                >
-                  <span className={`fi fi-${lang.flag} text-xs`} title={lang.name}></span>
-                </button>
-              ))}
-            </div>
+          <div className="grid grid-cols-3 gap-1">
             <button
               onClick={() => setIsFilterModalOpen(true)}
-              className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+              className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
             >
               <FunnelIcon className="h-4 w-4" />
-              <span className="text-xs">Filtrele</span>
+              <span className="text-sm">Filtrele</span>
             </button>
             <button
               onClick={() => setIsSuggestFormOpen(true)}
-              className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+              className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
             >
               <PlusIcon className="h-4 w-4" />
-              <span className="text-xs">{t.suggestModel}</span>
+              <span className="text-sm">{t.suggestModel}</span>
             </button>
             <button
               onClick={() => {
@@ -1373,14 +1834,14 @@ export default function Home() {
                 }
                 window.location.href = '/compare/' + selectedCars.map(car => car.id).join('-')
               }}
-              className={`flex items-center justify-center space-x-1 py-2 px-2 rounded-lg transition-colors ${
+              className={`flex items-center justify-center space-x-1 py-2 px-3 rounded-lg transition-colors ${
                 selectedCars.length > 0
                   ? 'bg-blue-600 text-white hover:bg-blue-700'
                   : 'bg-gray-100 text-gray-400 cursor-not-allowed'
               }`}
             >
               <ArrowsUpDownIcon className="h-4 w-4" />
-              <span className="text-xs">Karşılaştır ({selectedCars.length})</span>
+              <span className="text-sm">Karşılaştır ({selectedCars.length})</span>
             </button>
           </div>
         </div>

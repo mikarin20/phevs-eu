@@ -21,7 +21,11 @@ export default function MobileAccordion({
   return (
     <div className={`border-b border-gray-200 dark:border-gray-700 ${className}`}>
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          setIsOpen(!isOpen)
+        }}
         className="w-full flex items-center justify-between py-3 px-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
       >
         <span className="font-medium text-gray-900 dark:text-white">{title}</span>

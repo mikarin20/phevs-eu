@@ -1,2 +1,2 @@
 Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Weight (kg),Length (mm),Width (mm),Height (mm),Wheelbase (mm),Max Trunk Volume (L),Electric Motor Power (HP),Engine Displacement (L),Battery Chemistry,Battery Voltage (V),Charging Port,Emission Standard
-Tonale,2025,cars.json,60,200,51000,15.5,1.5,30,3,500,5,3,,,,,,,,1.3,NCM,,"{'ac_type': 'Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)', 'ac_location': 'Rear left'}",
+Rafale,2025,cars.json,65,200,35000,22,1.5,30,3,500,5,3,,,,,,,,1.6,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",

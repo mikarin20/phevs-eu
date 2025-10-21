@@ -685,63 +685,73 @@ export default function ComparePage({ params }: ComparePageProps) {
   const getCarStrengths = (car: Car, allCars: Car[]) => {
     const strengths: string[] = []
     
-    // Price advantage
+    // Price advantage - sadece tek bir araç en uygun fiyatlı ise göster
     const minPrice = Math.min(...allCars.map(c => c.price_eur))
-    if (car.price_eur === minPrice) {
+    const carsWithMinPrice = allCars.filter(c => c.price_eur === minPrice)
+    if (car.price_eur === minPrice && carsWithMinPrice.length === 1) {
       strengths.push(t.bestPrice)
     }
     
-    // Range advantage
+    // Range advantage - sadece tek bir araç en yüksek menzilli ise göster
     const maxRange = Math.max(...allCars.map(c => c.ev_range_km))
-    if (car.ev_range_km === maxRange) {
+    const carsWithMaxRange = allCars.filter(c => c.ev_range_km === maxRange)
+    if (car.ev_range_km === maxRange && carsWithMaxRange.length === 1) {
       strengths.push(t.highestElectricRange)
     }
     
-    // Battery capacity advantage
+    // Battery capacity advantage - sadece tek bir araç en büyük bataryalı ise göster
     const maxBattery = Math.max(...allCars.map(c => c.battery_kwh))
-    if (car.battery_kwh === maxBattery) {
+    const carsWithMaxBattery = allCars.filter(c => c.battery_kwh === maxBattery)
+    if (car.battery_kwh === maxBattery && carsWithMaxBattery.length === 1) {
       strengths.push(t.largestBatteryCapacity)
     }
     
-    // Power advantage
+    // Power advantage - sadece tek bir araç en güçlü ise göster
     const maxPower = Math.max(...allCars.map(c => c.power_hp))
-    if (car.power_hp === maxPower) {
+    const carsWithMaxPower = allCars.filter(c => c.power_hp === maxPower)
+    if (car.power_hp === maxPower && carsWithMaxPower.length === 1) {
       strengths.push(t.highestPower)
     }
     
-    // Fuel consumption advantage
+    // Fuel consumption advantage - sadece tek bir araç en düşük tüketimli ise göster
     const minConsumption = Math.min(...allCars.map(c => c.fuel_consumption))
-    if (car.fuel_consumption === minConsumption) {
+    const carsWithMinConsumption = allCars.filter(c => c.fuel_consumption === minConsumption)
+    if (car.fuel_consumption === minConsumption && carsWithMinConsumption.length === 1) {
       strengths.push(t.lowestFuelConsumption)
     }
     
-    // CO2 advantage
+    // CO2 advantage - sadece tek bir araç en düşük CO2'li ise göster
     const minCO2 = Math.min(...allCars.map(c => c.co2_emission))
-    if (car.co2_emission === minCO2) {
+    const carsWithMinCO2 = allCars.filter(c => c.co2_emission === minCO2)
+    if (car.co2_emission === minCO2 && carsWithMinCO2.length === 1) {
       strengths.push(t.lowestCO2Emission)
     }
     
-    // Trunk volume advantage
+    // Trunk volume advantage - sadece tek bir araç en büyük bagajlı ise göster
     const maxTrunk = Math.max(...allCars.map(c => c.trunk_volume))
-    if (car.trunk_volume === maxTrunk) {
+    const carsWithMaxTrunk = allCars.filter(c => c.trunk_volume === maxTrunk)
+    if (car.trunk_volume === maxTrunk && carsWithMaxTrunk.length === 1) {
       strengths.push(t.largestTrunkVolume)
     }
     
-    // Charge time advantage (AC)
+    // Charge time advantage (AC) - sadece tek bir araç en hızlı AC şarjlı ise göster
     const minChargeAC = Math.min(...allCars.map(c => c.charge_time_ac))
-    if (car.charge_time_ac === minChargeAC) {
+    const carsWithMinChargeAC = allCars.filter(c => c.charge_time_ac === minChargeAC)
+    if (car.charge_time_ac === minChargeAC && carsWithMinChargeAC.length === 1) {
       strengths.push(t.fastestACCharging)
     }
     
-    // Charge time advantage (DC)
+    // Charge time advantage (DC) - sadece tek bir araç en hızlı DC şarjlı ise göster
     const minChargeDC = Math.min(...allCars.map(c => c.charge_time_dc))
-    if (car.charge_time_dc === minChargeDC) {
+    const carsWithMinChargeDC = allCars.filter(c => c.charge_time_dc === minChargeDC)
+    if (car.charge_time_dc === minChargeDC && carsWithMinChargeDC.length === 1) {
       strengths.push(t.fastestDCCharging)
     }
     
-    // Warranty advantage
+    // Warranty advantage - sadece tek bir araç en uzun garantili ise göster
     const maxWarranty = Math.max(...allCars.map(c => c.warranty_years))
-    if (car.warranty_years === maxWarranty) {
+    const carsWithMaxWarranty = allCars.filter(c => c.warranty_years === maxWarranty)
+    if (car.warranty_years === maxWarranty && carsWithMaxWarranty.length === 1) {
       strengths.push(t.longestWarranty)
     }
     
@@ -1034,7 +1044,7 @@ export default function ComparePage({ params }: ComparePageProps) {
 
         {/* Strengths Summary */}
         {selectedCars.length >= 2 && (
-          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {selectedCars.map((car, index) => {
               const strengths = getCarStrengths(car, selectedCars)
               return (
@@ -1044,11 +1054,8 @@ export default function ComparePage({ params }: ComparePageProps) {
                   
                   {/* Content */}
                   <div className="relative z-10">
-                    <div className="flex items-center space-x-2 mb-4">
-                      <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
-                        <CheckIcon className="h-5 w-5 text-white" />
-                      </div>
-                      <h3 className="text-base font-bold text-slate-800">
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold text-slate-800 mb-2 border-b-2 border-green-200 pb-3">
                         {car.brand} {car.model} - {t.strongPoints}
                       </h3>
                     </div>
