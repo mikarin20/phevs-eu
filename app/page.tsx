@@ -182,6 +182,7 @@ export default function Home() {
   const [selectedCarForSimulator, setSelectedCarForSimulator] = useState<Car | null>(null)
   const [selectedTheme, setSelectedTheme] = useState('light')
   const [selectedLanguage, setSelectedLanguage] = useState('en')
+  const [isMobileLanguageDropdownOpen, setIsMobileLanguageDropdownOpen] = useState(false)
   const [isSuggestFormOpen, setIsSuggestFormOpen] = useState(false)
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
   const [recentlyViewed, setRecentlyViewed] = useState<Car[]>([])
@@ -394,20 +395,23 @@ export default function Home() {
     }
   }, [filters, selectedBrands, isLoading])
 
-  // Dropdown'ı dışına tıklandığında kapat
+  // Dropdown'ları dışına tıklandığında kapat
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (isBrandDropdownOpen) {
-        const target = event.target as HTMLElement
-        if (!target.closest('.brand-dropdown')) {
-          setIsBrandDropdownOpen(false)
-        }
+      const target = event.target as HTMLElement
+      
+      if (isBrandDropdownOpen && !target.closest('.brand-dropdown')) {
+        setIsBrandDropdownOpen(false)
+      }
+      
+      if (isMobileLanguageDropdownOpen && !target.closest('.mobile-language-dropdown')) {
+        setIsMobileLanguageDropdownOpen(false)
       }
     }
 
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [isBrandDropdownOpen])
+  }, [isBrandDropdownOpen, isMobileLanguageDropdownOpen])
 
   // Özel karakterleri normalize eden fonksiyon
   const normalizeText = (text: string) => {
@@ -1317,47 +1321,60 @@ export default function Home() {
               className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div className="grid grid-cols-4 gap-1">
-            {/* Dil Seçici */}
-            <div className="flex space-x-1">
-              {[
-                { 
-                  code: 'en', 
-                  name: 'EN', 
-                  flag: 'gb'
-                },
-                { 
-                  code: 'tr', 
-                  name: 'TR', 
-                  flag: 'tr'
-                }
-              ].map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => {
-                    setSelectedLanguage(lang.code)
-                    localStorage.setItem('phevs-language', lang.code)
-                    // Custom event gönder
-                    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
-                  }}
-                  className={`p-1 rounded-lg transition-all duration-300 ${
-                    selectedLanguage === lang.code
-                      ? 'bg-blue-600 shadow-lg'
-                      : 'bg-gray-100 hover:bg-gray-200'
-                  }`}
-                  title={lang.code.toUpperCase()}
-                >
-                  <span className={`fi fi-${lang.flag} text-xs`} title={lang.name}></span>
-                </button>
-              ))}
+          <div className="grid grid-cols-3 gap-1">
+            {/* Mobil Dil Seçici - Dropdown */}
+            <div className="relative mobile-language-dropdown">
+              <button
+                onClick={() => setIsMobileLanguageDropdownOpen(!isMobileLanguageDropdownOpen)}
+                className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors w-full"
+              >
+                <span className={`fi fi-${selectedLanguage === 'en' ? 'gb' : selectedLanguage === 'de' ? 'de' : selectedLanguage === 'tr' ? 'tr' : 'pl'} text-xs`}></span>
+                <ChevronDownIcon className="h-3 w-3" />
+              </button>
+              
+              {isMobileLanguageDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-32">
+                  {[
+                    { 
+                      code: 'en', 
+                      name: 'English', 
+                      flag: 'gb'
+                    },
+                    { 
+                      code: 'de', 
+                      name: 'Deutsch', 
+                      flag: 'de'
+                    },
+                    { 
+                      code: 'tr', 
+                      name: 'Türkçe', 
+                      flag: 'tr'
+                    },
+                    { 
+                      code: 'pl', 
+                      name: 'Polski', 
+                      flag: 'pl'
+                    }
+                  ].map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setSelectedLanguage(lang.code)
+                        localStorage.setItem('phevs-language', lang.code)
+                        window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
+                        setIsMobileLanguageDropdownOpen(false)
+                      }}
+                      className={`w-full flex items-center space-x-2 px-3 py-2 text-left hover:bg-gray-50 transition-colors ${
+                        selectedLanguage === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                      }`}
+                    >
+                      <span className={`fi fi-${lang.flag} text-sm`}></span>
+                      <span className="text-xs">{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-            <button
-              onClick={() => setIsFilterModalOpen(true)}
-              className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-            >
-              <FunnelIcon className="h-4 w-4" />
-              <span className="text-xs">Filtrele</span>
-            </button>
             <button
               onClick={() => setIsSuggestFormOpen(true)}
               className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
