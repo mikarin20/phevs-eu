@@ -186,15 +186,26 @@ export default function Home() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
   const [recentlyViewed, setRecentlyViewed] = useState<Car[]>([])
 
-  // Otomatik dil algılama
+  // Dil algılama - localStorage'dan oku, yoksa browser dilini kullan
   useEffect(() => {
     const detectLanguage = () => {
+      // Önce localStorage'dan oku
+      const savedLanguage = localStorage.getItem('phevs-language')
+      if (savedLanguage) {
+        console.log('Main page - Language from localStorage:', savedLanguage)
+        setSelectedLanguage(savedLanguage)
+        return
+      }
+      
+      // Yoksa browser dilini algıla
       const browserLang = navigator.language || navigator.languages?.[0] || 'en'
       const langCode = browserLang.split('-')[0].toLowerCase()
       
       const supportedLangs = ['en', 'de', 'tr', 'pl']
       if (supportedLangs.includes(langCode)) {
+        console.log('Main page - Browser language detected:', langCode)
         setSelectedLanguage(langCode)
+        localStorage.setItem('phevs-language', langCode)
       }
     }
     
@@ -556,17 +567,17 @@ export default function Home() {
       background: 'bg-slate-900',
       headerBg: 'bg-slate-800',
       headerText: 'text-white',
-      cardBg: 'bg-slate-700',
-      cardBorder: 'border-slate-500',
-      textPrimary: 'text-gray-900',
-      textSecondary: 'text-gray-700',
+      cardBg: 'bg-slate-800',
+      cardBorder: 'border-slate-600',
+      textPrimary: 'text-white',
+      textSecondary: 'text-gray-300',
       filterBg: 'bg-slate-800',
       filterBorder: 'border-slate-600',
       filterText: 'text-white',
       inputBg: 'bg-slate-600',
       inputBorder: 'border-slate-500',
       inputText: 'text-white',
-      iconColor: 'text-gray-700'
+      iconColor: 'text-gray-300'
     }
   }
 
@@ -846,7 +857,7 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className={`min-h-screen ${currentTheme.background}`}>
+      <div className={`min-h-screen ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="space-y-6">
             <CarCardSkeleton count={6} viewMode="list" />
@@ -980,7 +991,7 @@ export default function Home() {
   }
 
   return (
-    <div className={`min-h-screen ${currentTheme.background}`}>
+    <div className={`min-h-screen ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gray-200'}`}>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -1052,7 +1063,12 @@ export default function Home() {
                 ].map((lang) => (
                   <button
                     key={lang.code}
-                    onClick={() => setSelectedLanguage(lang.code)}
+                    onClick={() => {
+                      setSelectedLanguage(lang.code)
+                      localStorage.setItem('phevs-language', lang.code)
+                      // Custom event gönder
+                      window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
+                    }}
                     className={`p-1.5 sm:p-2 rounded-lg transition-all duration-300 ${
                       selectedLanguage === lang.code
                         ? selectedTheme === 'dark' 
@@ -1080,47 +1096,47 @@ export default function Home() {
       </header>
 
       {/* Hero Section - SEO Content */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 py-4">
+      <section className={`py-4 ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-gradient-to-r from-blue-50 to-indigo-50'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className={`text-xl sm:text-2xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
               Europe's Most Comprehensive PHEV Comparison Platform
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 max-w-2xl mx-auto">
+            <p className={`text-sm mb-4 max-w-2xl mx-auto ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
               Compare 85 plug-in hybrid electric vehicles from 28 premium brands. Find the perfect PHEV for your lifestyle.
             </p>
             
             {/* Stats */}
             <div className="grid grid-cols-3 gap-3 mb-4">
-              <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                <div className="text-xl font-bold text-blue-600 dark:text-blue-400 mb-1">85</div>
-                <div className="text-xs text-gray-600 dark:text-gray-300">PHEV Models</div>
+              <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
+                <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>85</div>
+                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>PHEV Models</div>
               </div>
-              <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                <div className="text-xl font-bold text-green-600 dark:text-green-400 mb-1">28</div>
-                <div className="text-xs text-gray-600 dark:text-gray-300">Premium Brands</div>
+              <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
+                <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
+                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Premium Brands</div>
               </div>
-              <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                <div className="text-xl font-bold text-purple-600 dark:text-purple-400 mb-1">7</div>
-                <div className="text-xs text-gray-600 dark:text-gray-300">Vehicle Segments</div>
+              <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
+                <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
+                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Vehicle Segments</div>
               </div>
             </div>
             
             {/* Key Features */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-              <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+              <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 <CheckIcon className="h-5 w-5 text-green-500" />
                 <span>Real-world Range Data</span>
               </div>
-              <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+              <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 <CheckIcon className="h-5 w-5 text-green-500" />
                 <span>Price Comparison</span>
               </div>
-              <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+              <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 <CheckIcon className="h-5 w-5 text-green-500" />
                 <span>Technical Specifications</span>
               </div>
-              <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+              <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 <CheckIcon className="h-5 w-5 text-green-500" />
                 <span>Range Simulator</span>
               </div>
@@ -1130,13 +1146,13 @@ export default function Home() {
       </section>
 
       {/* Quick Compare Section */}
-      <section className="bg-white dark:bg-slate-900 py-6">
+      <section className={`py-6 ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className={`text-lg font-semibold mb-2 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
               Quick Compare Popular Models
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className={`text-sm ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
               Compare the most popular PHEV models side by side
             </p>
           </div>
@@ -1250,7 +1266,7 @@ export default function Home() {
               </Link>
 
               {/* Skoda Kodiaq vs Tiguan */}
-              <Link href="/compare/skoda-kodiaq-phev-vs-volkswagen-tiguan-phev" className="group flex-shrink-0">
+              <Link href="/compare/skoda-kodiaq-iv-phev-vs-volkswagen-tiguan-phev" className="group flex-shrink-0">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
                   <div className="grid grid-cols-2 gap-0">
                     <div className="relative h-32">
@@ -1707,7 +1723,7 @@ export default function Home() {
             )}
           </div>
           {/* Debug Info */}
-          <div className="text-xs text-[#93B1B5]">
+          <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
             Brands: [{selectedBrands.join(', ')}] (Count: {selectedBrands.length}), Segment: {filters.segment || 'All'}, Search: "{searchTerm}", Battery: {filters.batteryArchitecture || 'All'}/{filters.batteryChemistry || 'All'}, Filtered Count: {filteredAndSortedCars.length}, Total Cars: {cars.length}
               </div>
             </div>
@@ -1716,22 +1732,11 @@ export default function Home() {
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
             {filteredAndSortedCars.map((car, index) => {
-              const cardVariants = [
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-600 dark:to-slate-500`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-600 dark:to-slate-500`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-600 dark:to-slate-500`
-              ]
-              const cardStyle = cardVariants[index % 4]
+              // Tüm kartları koyu renk (Tonale stili) yap
+              const cardStyle = `${currentTheme.cardBg} border ${currentTheme.cardBorder}`
               
-              // Button styles based on card variant
-              const buttonVariants = [
-                `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`,
-                `bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white dark:bg-blue-900/30 dark:text-blue-300`,
-                `bg-green-100 text-green-700 hover:bg-green-600 hover:text-white dark:bg-green-900/30 dark:text-green-300`,
-                `bg-cyan-100 text-cyan-700 hover:bg-cyan-600 hover:text-white dark:bg-cyan-900/30 dark:text-cyan-300`
-              ]
-              const buttonStyle = buttonVariants[index % 4]
+              // Tüm butonları koyu renk (Tonale stili) yap
+              const buttonStyle = `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`
               
               return (
               <Link 
@@ -2156,7 +2161,7 @@ export default function Home() {
                       </button>
                     </div>
                     {/* Update date at very bottom of the card */}
-                    <div className="col-span-2 mt-2 text-[11px] text-gray-500">
+                    <div className={`col-span-2 mt-2 text-[11px] ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
                       {t.update}: {car.last_updated
                         ? new Date(car.last_updated).toLocaleDateString(
                             selectedLanguage === 'de' ? 'de-DE' : selectedLanguage === 'tr' ? 'tr-TR' : selectedLanguage === 'pl' ? 'pl-PL' : 'en-US',
@@ -2181,13 +2186,8 @@ export default function Home() {
               ]
               const buttonStyle = buttonVariants[index % 4]
               
-              const cardVariants = [
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder}`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-600 dark:to-slate-500`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-600 dark:to-slate-500`,
-                `${currentTheme.cardBg} border ${currentTheme.cardBorder} bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-600 dark:to-slate-500`
-              ]
-              const cardStyle = cardVariants[index % 4]
+              // Tüm kartları koyu renk (Tonale stili) yap
+              const cardStyle = `${currentTheme.cardBg} border ${currentTheme.cardBorder}`
               
               return (
               <Link key={car.id} href={`/models/${car.slug || car.id}`} className={`${cardStyle} rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:scale-102 transition-all duration-300 block group`}>
@@ -2220,7 +2220,7 @@ export default function Home() {
                           <div className="flex items-center space-x-2">
                             <span className="badge-secondary">{car.year}</span>
                             <span className="badge-accent">{car.segment}</span>
-                            <span className="text-xs text-gray-500">
+                            <span className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
                               Güncelleme: {new Date().toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric' })}
                             </span>
                           </div>

@@ -55,8 +55,279 @@ interface ComparePageProps {
 
 export default function ComparePage({ params }: ComparePageProps) {
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
-  const [currentLanguage, setCurrentLanguage] = useState<string>('en')
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('en')
+  const [isClient, setIsClient] = useState(false)
   const comparisonRef = useRef<HTMLDivElement>(null)
+
+  // Çeviri sistemi
+  const translations = {
+    en: {
+      backToHome: 'Back to Home',
+      saveComparison: 'Save Comparison',
+      shareComparison: 'Share Comparison',
+      noVehiclesSelected: 'No Vehicles Selected',
+      notEnoughVehicles: 'Not Enough Vehicles Selected',
+      selectVehiclesMessage: 'Please select at least 2 vehicles (up to 3) from the home page to compare them',
+      goToHomePage: 'Go to Home Page',
+      remove: 'Remove',
+      addVehicle: 'Add Vehicle',
+      downloadImage: 'Download Image',
+      shareImage: 'Share Image',
+      price: 'Price',
+      electricRange: 'Electric Range',
+      batteryCapacity: 'Battery Capacity',
+      power: 'Power',
+      co2Emission: 'CO₂ Emission',
+      chargeTimeAC: 'AC Charge Time',
+      chargeTimeDC: 'DC Charge Time',
+      trunkVolume: 'Trunk Volume',
+      seats: 'Seats',
+      warranty: 'Warranty',
+      realWorldRange: 'Real World Range',
+      testDate: 'Test',
+      update: 'Update',
+      dataNotFound: 'Data not found',
+      selectToCompare: 'Please select a vehicle to compare',
+      priceEur: 'Price (EUR)',
+      electricRangeKm: 'Electric Range (km)',
+      batteryCapacityKwh: 'Battery Capacity (kWh)',
+      powerHp: 'Power (HP)',
+      co2EmissionGkm: 'CO₂ Emission (g/km)',
+      chargeTimeACHours: 'AC Charge Time (hours)',
+      chargeTimeDCHours: 'DC Charge Time (hours)',
+      trunkVolumeL: 'Trunk Volume (L)',
+      seatsCount: 'Seats',
+      warrantyYears: 'Warranty (years)',
+      engineDisplacementL: 'Engine Displacement (L)',
+      batteryChemistry: 'Battery Chemistry',
+      batteryArchitecture: 'Battery Architecture',
+      chargingPortLocation: 'Charging Port Location',
+      acPortType: 'AC Port Type',
+      brand: 'Brand',
+      model: 'Model',
+      year: 'Year',
+      segment: 'Segment',
+      dcChargeTimeMinutes: 'DC Charge Time (minutes)',
+      fuelConsumptionL100km: 'Fuel Consumption (L/100km)',
+      overallRating: 'Overall Rating',
+      adultOccupantProtection: 'Adult Occupant Protection',
+      childOccupantProtection: 'Child Occupant Protection',
+      pedestrianProtection: 'Pedestrian Protection',
+      safetyAssist: 'Safety Assist',
+      countryAvailability: 'Country Availability',
+      strongPoints: 'Strong Points',
+      bestPrice: 'Best Price',
+      highestElectricRange: 'Highest Electric Range',
+      largestBatteryCapacity: 'Largest Battery Capacity',
+      highestPower: 'Highest Power',
+      lowestFuelConsumption: 'Lowest Fuel Consumption',
+      lowestCO2Emission: 'Lowest CO₂ Emission',
+      largestTrunkVolume: 'Largest Trunk Volume',
+      fastestACCharging: 'Fastest AC Charging',
+      fastestDCCharging: 'Fastest DC Charging',
+      longestWarranty: 'Longest Warranty'
+    },
+    de: {
+      backToHome: 'Zurück zur Startseite',
+      saveComparison: 'Vergleich speichern',
+      shareComparison: 'Vergleich teilen',
+      noVehiclesSelected: 'Keine Fahrzeuge ausgewählt',
+      notEnoughVehicles: 'Nicht genügend Fahrzeuge ausgewählt',
+      selectVehiclesMessage: 'Bitte wählen Sie mindestens 2 Fahrzeuge (bis zu 3) von der Startseite aus, um sie zu vergleichen',
+      goToHomePage: 'Zur Startseite gehen',
+      remove: 'Entfernen',
+      addVehicle: 'Fahrzeug hinzufügen',
+      downloadImage: 'Bild herunterladen',
+      shareImage: 'Bild teilen',
+      price: 'Preis',
+      electricRange: 'Elektrische Reichweite',
+      batteryCapacity: 'Batteriekapazität',
+      power: 'Leistung',
+      co2Emission: 'CO₂-Emission',
+      chargeTimeAC: 'AC-Ladezeit',
+      chargeTimeDC: 'DC-Ladezeit',
+      trunkVolume: 'Kofferraumvolumen',
+      seats: 'Sitze',
+      warranty: 'Garantie',
+      realWorldRange: 'Reale Reichweite',
+      testDate: 'Test',
+      update: 'Aktualisierung',
+      dataNotFound: 'Daten nicht gefunden',
+      selectToCompare: 'Bitte wählen Sie ein Fahrzeug zum Vergleichen',
+      priceEur: 'Preis (EUR)',
+      electricRangeKm: 'Elektrische Reichweite (km)',
+      batteryCapacityKwh: 'Batteriekapazität (kWh)',
+      powerHp: 'Leistung (PS)',
+      co2EmissionGkm: 'CO₂-Emission (g/km)',
+      chargeTimeACHours: 'AC-Ladezeit (Stunden)',
+      chargeTimeDCHours: 'DC-Ladezeit (Stunden)',
+      trunkVolumeL: 'Kofferraumvolumen (L)',
+      seatsCount: 'Sitze',
+      warrantyYears: 'Garantie (Jahre)',
+      engineDisplacementL: 'Hubraum (L)',
+      batteryChemistry: 'Batteriechemie',
+      batteryArchitecture: 'Batteriearchitektur',
+      chargingPortLocation: 'Ladeanschluss-Position',
+      acPortType: 'AC-Anschlusstyp',
+      brand: 'Marke',
+      model: 'Modell',
+      year: 'Jahr',
+      segment: 'Segment',
+      dcChargeTimeMinutes: 'DC-Ladezeit (Minuten)',
+      fuelConsumptionL100km: 'Kraftstoffverbrauch (L/100km)',
+      overallRating: 'Gesamtbewertung',
+      adultOccupantProtection: 'Erwachsenenschutz',
+      childOccupantProtection: 'Kinderschutz',
+      pedestrianProtection: 'Fußgängerschutz',
+      safetyAssist: 'Sicherheitsassistent',
+      countryAvailability: 'Länderverfügbarkeit',
+      strongPoints: 'Stärken',
+      bestPrice: 'Bester Preis',
+      highestElectricRange: 'Höchste Elektrische Reichweite',
+      largestBatteryCapacity: 'Größte Batteriekapazität',
+      highestPower: 'Höchste Leistung',
+      lowestFuelConsumption: 'Niedrigster Kraftstoffverbrauch',
+      lowestCO2Emission: 'Niedrigste CO₂-Emission',
+      largestTrunkVolume: 'Größtes Kofferraumvolumen',
+      fastestACCharging: 'Schnellstes AC-Laden',
+      fastestDCCharging: 'Schnellstes DC-Laden',
+      longestWarranty: 'Längste Garantie'
+    },
+    tr: {
+      backToHome: 'Ana Sayfaya Dön',
+      saveComparison: 'Karşılaştırmayı Kaydet',
+      shareComparison: 'Karşılaştırmayı Paylaş',
+      noVehiclesSelected: 'Araç Seçilmedi',
+      notEnoughVehicles: 'Yeterli Araç Seçilmedi',
+      selectVehiclesMessage: 'Lütfen karşılaştırmak için ana sayfadan en az 2 araç (en fazla 3) seçin',
+      goToHomePage: 'Ana Sayfaya Git',
+      remove: 'Kaldır',
+      addVehicle: 'Araç Ekle',
+      downloadImage: 'Görseli İndir',
+      shareImage: 'Görseli Paylaş',
+      price: 'Fiyat',
+      electricRange: 'Elektrik Menzili',
+      batteryCapacity: 'Batarya Kapasitesi',
+      power: 'Güç',
+      co2Emission: 'CO₂ Emisyonu',
+      chargeTimeAC: 'AC Şarj Süresi',
+      chargeTimeDC: 'DC Şarj Süresi',
+      trunkVolume: 'Bagaj Hacmi',
+      seats: 'Koltuk',
+      warranty: 'Garanti',
+      realWorldRange: 'Gerçek Menzil',
+      testDate: 'Test',
+      update: 'Güncelleme',
+      dataNotFound: 'Veri bulunamadı',
+      selectToCompare: 'Lütfen önce karşılaştırmak için araç seçin',
+      priceEur: 'Fiyat (EUR)',
+      electricRangeKm: 'Elektrik Menzili (km)',
+      batteryCapacityKwh: 'Batarya Kapasitesi (kWh)',
+      powerHp: 'Güç (HP)',
+      co2EmissionGkm: 'CO₂ Emisyonu (g/km)',
+      chargeTimeACHours: 'AC Şarj Süresi (saat)',
+      chargeTimeDCHours: 'DC Şarj Süresi (saat)',
+      trunkVolumeL: 'Bagaj Hacmi (L)',
+      seatsCount: 'Koltuk',
+      warrantyYears: 'Garanti (yıl)',
+      engineDisplacementL: 'Motor Hacmi (L)',
+      batteryChemistry: 'Batarya Kimyası',
+      batteryArchitecture: 'Batarya Mimarisi',
+      chargingPortLocation: 'Şarj Portu Konumu',
+      acPortType: 'AC Port Tipi',
+      brand: 'Marka',
+      model: 'Model',
+      year: 'Yıl',
+      segment: 'Segment',
+      dcChargeTimeMinutes: 'DC Şarj Süresi (dakika)',
+      fuelConsumptionL100km: 'Yakıt Tüketimi (L/100km)',
+      overallRating: 'Genel Değerlendirme',
+      adultOccupantProtection: 'Yetişkin Koruma',
+      childOccupantProtection: 'Çocuk Koruma',
+      pedestrianProtection: 'Yaya Koruma',
+      safetyAssist: 'Güvenlik Asistanı',
+      countryAvailability: 'Ülke Mevcudiyeti',
+      strongPoints: 'Güçlü Yönler',
+      bestPrice: 'En Uygun Fiyat',
+      highestElectricRange: 'En Yüksek Elektrik Menzili',
+      largestBatteryCapacity: 'En Büyük Batarya Kapasitesi',
+      highestPower: 'En Yüksek Güç',
+      lowestFuelConsumption: 'En Düşük Yakıt Tüketimi',
+      lowestCO2Emission: 'En Düşük CO₂ Emisyonu',
+      largestTrunkVolume: 'En Büyük Bagaj Hacmi',
+      fastestACCharging: 'En Hızlı AC Şarj',
+      fastestDCCharging: 'En Hızlı DC Şarj',
+      longestWarranty: 'En Uzun Garanti Süresi'
+    },
+    pl: {
+      backToHome: 'Powrót do strony głównej',
+      saveComparison: 'Zapisz porównanie',
+      shareComparison: 'Udostępnij porównanie',
+      noVehiclesSelected: 'Nie wybrano pojazdów',
+      notEnoughVehicles: 'Nie wybrano wystarczającej liczby pojazdów',
+      selectVehiclesMessage: 'Proszę wybrać co najmniej 2 pojazdy (maksymalnie 3) ze strony głównej, aby je porównać',
+      goToHomePage: 'Przejdź do strony głównej',
+      remove: 'Usuń',
+      addVehicle: 'Dodaj pojazd',
+      downloadImage: 'Pobierz obraz',
+      shareImage: 'Udostępnij obraz',
+      price: 'Cena',
+      electricRange: 'Zasięg elektryczny',
+      batteryCapacity: 'Pojemność baterii',
+      power: 'Moc',
+      co2Emission: 'Emisja CO₂',
+      chargeTimeAC: 'Czas ładowania AC',
+      chargeTimeDC: 'Czas ładowania DC',
+      trunkVolume: 'Pojemność bagażnika',
+      seats: 'Miejsca',
+      warranty: 'Gwarancja',
+      realWorldRange: 'Rzeczywisty Zasięg',
+      testDate: 'Test',
+      update: 'Aktualizacja',
+      dataNotFound: 'Nie znaleziono danych',
+      selectToCompare: 'Wybierz pojazd do porównania',
+      priceEur: 'Cena (EUR)',
+      electricRangeKm: 'Zasięg elektryczny (km)',
+      batteryCapacityKwh: 'Pojemność baterii (kWh)',
+      powerHp: 'Moc (KM)',
+      co2EmissionGkm: 'Emisja CO₂ (g/km)',
+      chargeTimeACHours: 'Czas ładowania AC (godziny)',
+      chargeTimeDCHours: 'Czas ładowania DC (godziny)',
+      trunkVolumeL: 'Pojemność bagażnika (L)',
+      seatsCount: 'Miejsca',
+      warrantyYears: 'Gwarancja (lata)',
+      engineDisplacementL: 'Pojemność silnika (L)',
+      batteryChemistry: 'Chemia baterii',
+      batteryArchitecture: 'Architektura baterii',
+      chargingPortLocation: 'Lokalizacja portu ładowania',
+      acPortType: 'Typ portu AC',
+      brand: 'Marka',
+      model: 'Model',
+      year: 'Rok',
+      segment: 'Segment',
+      dcChargeTimeMinutes: 'Czas ładowania DC (minuty)',
+      fuelConsumptionL100km: 'Zużycie paliwa (L/100km)',
+      overallRating: 'Ogólna ocena',
+      adultOccupantProtection: 'Ochrona dorosłych',
+      childOccupantProtection: 'Ochrona dzieci',
+      pedestrianProtection: 'Ochrona pieszych',
+      safetyAssist: 'Asystent bezpieczeństwa',
+      countryAvailability: 'Dostępność w krajach',
+      strongPoints: 'Mocne strony',
+      bestPrice: 'Najlepsza Cena',
+      highestElectricRange: 'Najwyższy Zasięg Elektryczny',
+      largestBatteryCapacity: 'Największa Pojemność Baterii',
+      highestPower: 'Najwyższa Moc',
+      lowestFuelConsumption: 'Najniższe Zużycie Paliwa',
+      lowestCO2Emission: 'Najniższa Emisja CO₂',
+      largestTrunkVolume: 'Największa Pojemność Bagażnika',
+      fastestACCharging: 'Najszybsze Ładowanie AC',
+      fastestDCCharging: 'Najszybsze Ładowanie DC',
+      longestWarranty: 'Najdłuższa Gwarancja'
+    }
+  }
+
+  const t = isClient ? translations[selectedLanguage as keyof typeof translations] : translations['en']
 
   // URL'yi güncelle
   const updateUrl = (cars: Car[]) => {
@@ -73,11 +344,17 @@ export default function ComparePage({ params }: ComparePageProps) {
     // URL'den araç slug'larını al
     const carSlugs = params.cars.split('-vs-')
     console.log('Car slugs from URL:', carSlugs)
+    console.log('carsData length:', carsData.length)
+    console.log('First few cars:', carsData.slice(0, 3).map(car => ({ id: car.id, slug: car.slug })))
     
     // Slug'lardan araçları bul
-    const carsFromUrl = carSlugs.map(slug => 
-      carsData.find(car => car.slug === slug)
-    ).filter(Boolean) as Car[]
+    const carsFromUrl = carSlugs.map(slug => {
+      const found = carsData.find(car => car.slug === slug)
+      console.log(`Looking for slug "${slug}":`, found ? 'FOUND' : 'NOT FOUND')
+      return found
+    }).filter(Boolean) as Car[]
+    
+    console.log('Cars found from URL:', carsFromUrl.length, carsFromUrl.map(car => car.slug))
     
     if (carsFromUrl.length > 0) {
       setSelectedCars(carsFromUrl)
@@ -101,11 +378,39 @@ export default function ComparePage({ params }: ComparePageProps) {
         console.log('No saved selection found in localStorage')
       }
     }
-
-    // Dil algılama
-    const savedLanguage = localStorage.getItem('phevs-language') || 'en'
-    setCurrentLanguage(savedLanguage)
   }, [params.cars])
+
+  // Client-side hydration kontrolü
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Dil algılama - client-side'da çalışır
+  useEffect(() => {
+    if (!isClient) return
+
+    const savedLanguage = localStorage.getItem('phevs-language') || 'en'
+    console.log('Language from localStorage:', savedLanguage)
+    setSelectedLanguage(savedLanguage)
+
+    // Dil değişikliklerini dinle
+    const handleLanguageChange = () => {
+      const newLanguage = localStorage.getItem('phevs-language') || 'en'
+      console.log('Language changed to:', newLanguage)
+      setSelectedLanguage(newLanguage)
+    }
+
+    // Storage event listener ekle
+    window.addEventListener('storage', handleLanguageChange)
+    
+    // Custom event listener ekle (aynı tab içinde dil değişikliği için)
+    window.addEventListener('languageChanged', handleLanguageChange)
+
+    return () => {
+      window.removeEventListener('storage', handleLanguageChange)
+      window.removeEventListener('languageChanged', handleLanguageChange)
+    }
+  }, [isClient])
 
   const removeCar = (carId: string) => {
     const updated = selectedCars.filter(c => c.id !== carId)
@@ -239,17 +544,17 @@ export default function ComparePage({ params }: ComparePageProps) {
     {
       title: 'General Information',
       rows: [
-        { label: 'Brand', getValue: (car: Car) => car.brand },
-        { label: 'Model', getValue: (car: Car) => car.model },
-        { label: 'Year', getValue: (car: Car) => car.year },
-        { label: 'Segment', getValue: (car: Car) => car.segment },
+        { label: t.brand, getValue: (car: Car) => car.brand },
+        { label: t.model, getValue: (car: Car) => car.model },
+        { label: t.year, getValue: (car: Car) => car.year },
+        { label: t.segment, getValue: (car: Car) => car.segment },
       ]
     },
     {
       title: 'Pricing',
       rows: [
         { 
-          label: 'Price (EUR)', 
+          label: t.priceEur, 
           getValue: (car: Car) => `€${car.price_eur.toLocaleString()}`,
           highlight: true,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.price_eur))
@@ -260,34 +565,34 @@ export default function ComparePage({ params }: ComparePageProps) {
       title: 'Electric Performance',
       rows: [
         { 
-          label: 'Electric Range (km)', 
+          label: t.electricRangeKm, 
           getValue: (car: Car) => `${car.ev_range_km} km`,
           highlight: true,
           getBest: (cars: Car[]) => Math.max(...cars.map(c => c.ev_range_km))
         },
         { 
-          label: 'Battery Capacity (kWh)', 
+          label: t.batteryCapacityKwh, 
           getValue: (car: Car) => `${car.battery_kwh} kWh`,
           highlight: true,
           getBest: (cars: Car[]) => Math.max(...cars.map(c => c.battery_kwh))
         },
         { 
-          label: 'AC Charge Time (hours)', 
+          label: t.chargeTimeACHours, 
           getValue: (car: Car) => `${car.charge_time_ac} hours`,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.charge_time_ac))
         },
         { 
-          label: 'DC Charge Time (minutes)', 
+          label: t.dcChargeTimeMinutes, 
           getValue: (car: Car) => `${car.charge_time_dc} minutes`,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.charge_time_dc))
         },
         { 
-          label: 'Charging Port Location', 
+          label: t.chargingPortLocation, 
           getValue: (car: Car) => car.charging_port ? car.charging_port.ac_location : 'N/A',
           highlight: false
         },
         { 
-          label: 'AC Port Type', 
+          label: t.acPortType, 
           getValue: (car: Car) => car.charging_port ? car.charging_port.ac_type : 'N/A',
           highlight: false
         },
@@ -297,18 +602,18 @@ export default function ComparePage({ params }: ComparePageProps) {
       title: 'Engine & Performance',
       rows: [
         { 
-          label: 'Power (HP)', 
+          label: t.powerHp, 
           getValue: (car: Car) => `${car.power_hp} HP`,
           highlight: true,
           getBest: (cars: Car[]) => Math.max(...cars.map(c => c.power_hp))
         },
         { 
-          label: 'Fuel Consumption (L/100km)', 
+          label: t.fuelConsumptionL100km, 
           getValue: (car: Car) => `${car.fuel_consumption} L/100km`,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.fuel_consumption))
         },
         { 
-          label: 'CO₂ Emission (g/km)', 
+          label: t.co2EmissionGkm, 
           getValue: (car: Car) => `${car.co2_emission} g/km`,
           getBest: (cars: Car[]) => Math.min(...cars.map(c => c.co2_emission))
         },
@@ -318,12 +623,12 @@ export default function ComparePage({ params }: ComparePageProps) {
       title: 'Comfort & Space',
       rows: [
         { 
-          label: 'Trunk Volume (L)', 
+          label: t.trunkVolumeL, 
           getValue: (car: Car) => `${car.trunk_volume} L`,
           getBest: (cars: Car[]) => Math.max(...cars.map(c => c.trunk_volume))
         },
         { 
-          label: 'Seats', 
+          label: t.seatsCount, 
           getValue: (car: Car) => car.seats.toString(),
           getBest: (cars: Car[]) => Math.max(...cars.map(c => c.seats))
         },
@@ -333,28 +638,28 @@ export default function ComparePage({ params }: ComparePageProps) {
       title: 'Safety (Euro NCAP)',
       rows: [
         { 
-          label: 'Overall Rating', 
+          label: t.overallRating, 
           getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.stars}/5 stars` : 'N/A',
           highlight: true,
           getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.stars))
         },
         { 
-          label: 'Adult Occupant Protection', 
+          label: t.adultOccupantProtection, 
           getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.adult_occupant}%` : 'N/A',
           getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.adult_occupant))
         },
         { 
-          label: 'Child Occupant Protection', 
+          label: t.childOccupantProtection, 
           getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.child_occupant}%` : 'N/A',
           getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.child_occupant))
         },
         { 
-          label: 'Pedestrian Protection', 
+          label: t.pedestrianProtection, 
           getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.pedestrian_protection}%` : 'N/A',
           getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.pedestrian_protection))
         },
         { 
-          label: 'Safety Assist', 
+          label: t.safetyAssist, 
           getValue: (car: Car) => car.euroncap_rating ? `${car.euroncap_rating.safety_assist}%` : 'N/A',
           getBest: (cars: Car[]) => Math.max(...cars.filter(c => c.euroncap_rating).map(c => c.euroncap_rating!.safety_assist))
         },
@@ -364,12 +669,12 @@ export default function ComparePage({ params }: ComparePageProps) {
       title: 'Warranty & Availability',
       rows: [
         { 
-          label: 'Warranty (years)', 
+          label: t.warrantyYears, 
           getValue: (car: Car) => `${car.warranty_years} years`,
           getBest: (cars: Car[]) => Math.max(...cars.map(c => c.warranty_years))
         },
         { 
-          label: 'Country Availability', 
+          label: t.countryAvailability, 
           getValue: (car: Car) => car.country_availability,
         },
       ]
@@ -383,61 +688,61 @@ export default function ComparePage({ params }: ComparePageProps) {
     // Price advantage
     const minPrice = Math.min(...allCars.map(c => c.price_eur))
     if (car.price_eur === minPrice) {
-      strengths.push('En uygun fiyat')
+      strengths.push(t.bestPrice)
     }
     
     // Range advantage
     const maxRange = Math.max(...allCars.map(c => c.ev_range_km))
     if (car.ev_range_km === maxRange) {
-      strengths.push('En yüksek elektrik menzili')
+      strengths.push(t.highestElectricRange)
     }
     
     // Battery capacity advantage
     const maxBattery = Math.max(...allCars.map(c => c.battery_kwh))
     if (car.battery_kwh === maxBattery) {
-      strengths.push('En büyük batarya kapasitesi')
+      strengths.push(t.largestBatteryCapacity)
     }
     
     // Power advantage
     const maxPower = Math.max(...allCars.map(c => c.power_hp))
     if (car.power_hp === maxPower) {
-      strengths.push('En yüksek güç')
+      strengths.push(t.highestPower)
     }
     
     // Fuel consumption advantage
     const minConsumption = Math.min(...allCars.map(c => c.fuel_consumption))
     if (car.fuel_consumption === minConsumption) {
-      strengths.push('En düşük yakıt tüketimi')
+      strengths.push(t.lowestFuelConsumption)
     }
     
     // CO2 advantage
     const minCO2 = Math.min(...allCars.map(c => c.co2_emission))
     if (car.co2_emission === minCO2) {
-      strengths.push('En düşük CO₂ emisyonu')
+      strengths.push(t.lowestCO2Emission)
     }
     
     // Trunk volume advantage
     const maxTrunk = Math.max(...allCars.map(c => c.trunk_volume))
     if (car.trunk_volume === maxTrunk) {
-      strengths.push('En büyük bagaj hacmi')
+      strengths.push(t.largestTrunkVolume)
     }
     
     // Charge time advantage (AC)
     const minChargeAC = Math.min(...allCars.map(c => c.charge_time_ac))
     if (car.charge_time_ac === minChargeAC) {
-      strengths.push('En hızlı AC şarj')
+      strengths.push(t.fastestACCharging)
     }
     
     // Charge time advantage (DC)
     const minChargeDC = Math.min(...allCars.map(c => c.charge_time_dc))
     if (car.charge_time_dc === minChargeDC) {
-      strengths.push('En hızlı DC şarj')
+      strengths.push(t.fastestDCCharging)
     }
     
     // Warranty advantage
     const maxWarranty = Math.max(...allCars.map(c => c.warranty_years))
     if (car.warranty_years === maxWarranty) {
-      strengths.push('En uzun garanti süresi')
+      strengths.push(t.longestWarranty)
     }
     
     return strengths
@@ -541,7 +846,7 @@ export default function ComparePage({ params }: ComparePageProps) {
             <div className="flex items-center justify-between h-20">
               <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors">
                 <ArrowLeftIcon className="h-5 w-5 mr-2" />
-                Back to Home
+                {t.backToHome}
               </Link>
               
               <div className="flex items-center space-x-4">
@@ -561,7 +866,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                   }}
                   className="btn-secondary"
                 >
-                  Save Comparison
+                  {t.saveComparison}
                 </button>
                 
                 <button
@@ -573,7 +878,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                   }}
                   className="btn-primary"
                 >
-                  Share Comparison
+                  {t.shareComparison}
                 </button>
               </div>
             </div>
@@ -584,14 +889,14 @@ export default function ComparePage({ params }: ComparePageProps) {
           <div className="card text-center py-20">
             <div className="text-8xl mb-6">⚔️</div>
             <h1 className="text-xl font-bold text-slate-800 mb-4">
-              {selectedCars.length === 0 ? 'No Vehicles Selected' : 'Not Enough Vehicles Selected'}
+              {selectedCars.length === 0 ? t.noVehiclesSelected : t.notEnoughVehicles}
             </h1>
             <p className="text-sm text-slate-600 mb-8">
-              Please select at least 2 vehicles (up to 3) from the home page to compare them
+              {t.selectVehiclesMessage}
             </p>
             <Link href="/" className="btn-primary inline-flex items-center space-x-2">
               <ArrowLeftIcon className="h-5 w-5" />
-              <span>Go to Home Page</span>
+              <span>{t.goToHomePage}</span>
             </Link>
           </div>
         </div>
@@ -607,7 +912,7 @@ export default function ComparePage({ params }: ComparePageProps) {
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors group">
               <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-              <span className="font-semibold">Back to Home</span>
+              <span className="font-semibold">{t.backToHome}</span>
             </Link>
             
             <div className="flex items-center space-x-6">
@@ -733,18 +1038,36 @@ export default function ComparePage({ params }: ComparePageProps) {
             {selectedCars.map((car, index) => {
               const strengths = getCarStrengths(car, selectedCars)
               return (
-                <div key={car.id} className="card-steel">
-                  <h3 className="text-sm font-bold text-slate-800 mb-3 pb-2 border-b-2 border-slate-200">
-                    {car.brand} {car.model} - Güçlü Yönler
-                  </h3>
-                  <div className="space-y-2">
-                    {strengths.map((strength, idx) => (
-                      <div key={idx} className="flex items-center space-x-2">
-                        <CheckIcon className="h-4 w-4 text-green-600 flex-shrink-0" />
-                        <span className="text-xs text-slate-700">{strength}</span>
+                <div key={car.id} className="card-steel relative overflow-hidden">
+                  {/* Gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 opacity-60"></div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-center space-x-2 mb-4">
+                      <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+                        <CheckIcon className="h-5 w-5 text-white" />
                       </div>
-                    ))}
+                      <h3 className="text-base font-bold text-slate-800">
+                        {car.brand} {car.model} - {t.strongPoints}
+                      </h3>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      {strengths.map((strength, idx) => (
+                        <div key={idx} className="flex items-start space-x-3 p-2 rounded-lg bg-white/70 backdrop-blur-sm border border-green-100 hover:bg-white/90 transition-all duration-200">
+                          <div className="w-5 h-5 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckIcon className="h-3 w-3 text-white" />
+                          </div>
+                          <span className="text-sm text-slate-700 font-medium leading-relaxed">{strength}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-200/30 to-emerald-200/30 rounded-full -translate-y-10 translate-x-10"></div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-teal-200/30 to-green-200/30 rounded-full translate-y-8 -translate-x-8"></div>
                 </div>
               )
             })}

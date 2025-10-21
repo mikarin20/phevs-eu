@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
@@ -98,6 +98,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState('light')
   const [selectedLanguage, setSelectedLanguage] = useState('en')
+  const [isClient, setIsClient] = useState(false)
 
   const translations = {
     en: {
@@ -246,7 +247,39 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     }
   }
 
-  const t = translations[selectedLanguage as keyof typeof translations]
+  const t = isClient ? translations[selectedLanguage as keyof typeof translations] : translations['en']
+
+  // Client-side hydration kontrolü
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Dil algılama - client-side'da çalışır
+  useEffect(() => {
+    if (!isClient) return
+
+    const savedLanguage = localStorage.getItem('phevs-language') || 'en'
+    console.log('Model page - Language from localStorage:', savedLanguage)
+    setSelectedLanguage(savedLanguage)
+
+    // Dil değişikliklerini dinle
+    const handleLanguageChange = () => {
+      const newLanguage = localStorage.getItem('phevs-language') || 'en'
+      console.log('Model page - Language changed to:', newLanguage)
+      setSelectedLanguage(newLanguage)
+    }
+
+    // Storage event listener ekle
+    window.addEventListener('storage', handleLanguageChange)
+    
+    // Custom event listener ekle (aynı tab içinde dil değişikliği için)
+    window.addEventListener('languageChanged', handleLanguageChange)
+
+    return () => {
+      window.removeEventListener('storage', handleLanguageChange)
+      window.removeEventListener('languageChanged', handleLanguageChange)
+    }
+  }, [isClient])
 
   const themes = {
     light: {
@@ -272,24 +305,24 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     },
     dark: {
       name: 'Dark Theme',
-      background: 'bg-slate-500',
-      headerBg: 'bg-slate-400',
-      headerText: 'text-slate-100',
-      headerSubtext: 'text-slate-200',
-      linkText: 'text-slate-200',
-      linkHover: 'hover:text-slate-100',
-      cardBg: 'bg-slate-500',
-      cardBorder: 'border-slate-300',
-      textPrimary: 'text-slate-100',
-      textSecondary: 'text-slate-100',
-      priceBg: 'bg-gradient-to-r from-slate-400 to-slate-300',
-      priceBorder: 'border-slate-300',
-      statBg: 'bg-slate-500',
-      specBg: 'bg-slate-400',
-      specHover: 'hover:bg-slate-300',
-      highlightBg: 'bg-gradient-to-r from-slate-400 to-slate-300',
-      highlightBorder: 'border-slate-300',
-      iconColor: 'text-slate-200'
+      background: 'bg-slate-900',
+      headerBg: 'bg-slate-800',
+      headerText: 'text-white',
+      headerSubtext: 'text-gray-300',
+      linkText: 'text-gray-300',
+      linkHover: 'hover:text-white',
+      cardBg: 'bg-slate-700',
+      cardBorder: 'border-slate-500',
+      textPrimary: 'text-white',
+      textSecondary: 'text-gray-300',
+      priceBg: 'bg-gradient-to-r from-slate-600 to-slate-500',
+      priceBorder: 'border-slate-400',
+      statBg: 'bg-slate-700',
+      specBg: 'bg-slate-600',
+      specHover: 'hover:bg-slate-500',
+      highlightBg: 'bg-gradient-to-r from-slate-600 to-slate-500',
+      highlightBorder: 'border-slate-400',
+      iconColor: 'text-gray-300'
     }
   }
 
