@@ -21,7 +21,7 @@ interface Car {
   power_hp: number
   co2_emission: number
   charge_time_ac: number
-  charge_time_dc: number
+  charge_time_dc?: number
   trunk_volume: number
   seats: number
   warranty_years: number
@@ -583,8 +583,8 @@ export default function ComparePage({ params }: ComparePageProps) {
         },
         { 
           label: t.dcChargeTimeMinutes, 
-          getValue: (car: Car) => `${car.charge_time_dc} minutes`,
-          getBest: (cars: Car[]) => Math.min(...cars.map(c => c.charge_time_dc))
+          getValue: (car: Car) => car.charge_time_dc ? `${car.charge_time_dc} minutes` : 'N/A',
+          getBest: (cars: Car[]) => Math.min(...cars.map(c => c.charge_time_dc || Infinity).filter(v => v !== Infinity))
         },
         { 
           label: t.chargingPortLocation, 
@@ -742,10 +742,13 @@ export default function ComparePage({ params }: ComparePageProps) {
     }
     
     // Charge time advantage (DC) - sadece tek bir araç en hızlı DC şarjlı ise göster
-    const minChargeDC = Math.min(...allCars.map(c => c.charge_time_dc))
-    const carsWithMinChargeDC = allCars.filter(c => c.charge_time_dc === minChargeDC)
-    if (car.charge_time_dc === minChargeDC && carsWithMinChargeDC.length === 1) {
-      strengths.push(t.fastestDCCharging)
+    const carsWithDC = allCars.filter(c => c.charge_time_dc !== undefined)
+    if (carsWithDC.length > 0) {
+      const minChargeDC = Math.min(...carsWithDC.map(c => c.charge_time_dc!))
+      const carsWithMinChargeDC = carsWithDC.filter(c => c.charge_time_dc === minChargeDC)
+      if (car.charge_time_dc === minChargeDC && carsWithMinChargeDC.length === 1) {
+        strengths.push(t.fastestDCCharging)
+      }
     }
     
     // Warranty advantage - sadece tek bir araç en uzun garantili ise göster
