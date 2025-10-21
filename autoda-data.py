@@ -43,12 +43,25 @@ def find_phev_models(brand_name: str, brand_id: int) -> List[str]:
         soup = BeautifulSoup(r.text, "html.parser")
         
         phev_links = []
-        # PHEV modellerini bul (e-hybrid, TFSI e, plug-in)
+        # PHEV modellerini bul (e-hybrid, TFSI e, plug-in) - MHEV'leri hariç tut
         for link in soup.find_all("a", href=True):
             text = link.get_text().strip()
             href = link["href"]
             
-            if any(keyword in text.lower() for keyword in ["e-hybrid", "tfsi e", "plug-in hybrid", "hybrid"]):
+            # PHEV anahtar kelimeleri (plug-in hybrid)
+            phev_keywords = ["e-hybrid", "tfsi e", "plug-in hybrid", "phev", "phev", "plug-in"]
+            # MHEV anahtar kelimeleri (mild hybrid) - bunları hariç tut
+            mhev_keywords = ["mhev", "mild hybrid", "48v", "48-volt", "micro hybrid"]
+            
+            text_lower = text.lower()
+            
+            # PHEV anahtar kelimelerinden herhangi biri var mı?
+            has_phev = any(keyword in text_lower for keyword in phev_keywords)
+            # MHEV anahtar kelimelerinden herhangi biri var mı?
+            has_mhev = any(keyword in text_lower for keyword in mhev_keywords)
+            
+            # Sadece PHEV varsa ve MHEV yoksa ekle
+            if has_phev and not has_mhev:
                 full_url = urllib.parse.urljoin("https://www.auto-data.net", href)
                 phev_links.append((text, full_url, brand_name))
         
@@ -70,6 +83,14 @@ def extract_model_data(model_url: str) -> Dict[str, str]:
         title = soup.find("h1")
         if title:
             data["model"] = title.get_text().strip()
+        
+        # PHEV/MHEV ayrımı yap
+        page_text = soup.get_text().lower()
+        if any(keyword in page_text for keyword in ["mhev", "mild hybrid", "48v", "48-volt", "micro hybrid"]):
+            data["hybrid_type"] = "MHEV"
+            return None  # MHEV modellerini hariç tut
+        else:
+            data["hybrid_type"] = "PHEV"
         
         # Teknik özellikler tablosundan veri çek
         tables = soup.find_all("table")

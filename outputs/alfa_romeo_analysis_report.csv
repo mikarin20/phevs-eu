@@ -1,0 +1,8 @@
+Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Gross Battery (kWh),Net Battery (kWh),System Power (HP),Electric Motor Power (HP),Acceleration 0-100 (sec),Weight (kg),Length (mm),Width (mm),Height (mm),Battery Technology,Battery Voltage (V),Engine Displacement (L)
+Tonale,2022,Local Data,60,200,51000,15.5,1.5,30,3,500,5,3,,,,,,,,,,NCM,,1.3
+Alfa Romeo Tonale,2024-2025,Scraped Data,61,150,,,"3.4-3.7 l/100 km
+							69.18 - 63.57 US mpg83.08 - 76.35 UK mpg29.41 - 27.03 km/l",77-83 g/km,,,,,15.5 kWh,,269,128,6.6,1835,4522,1841,1614,Lithium-ion (Li-Ion),306,1.332
+Alfa Romeo Tonale 1.3 T MultiAir,2024-2025,Scraped Data,,130,,12 kWh,"1.1-1.4 l/100 km
+							213.83 - 168.01 US mpg256.8 - 201.77 UK mpg90.91 - 71.43 km/l",29-32 g/km,,,,,15.5 kWh,12 kWh,190,95,7.1,1875,4528,1841,1601,Lithium-ion (Li-Ion),304,1.332
+Alfa Romeo Tonale 1.3 T MultiAir,2024-2025,Scraped Data,68.6,180,,12 kWh,"1.13-1.48 l/100 km
+							208.15 - 158.93 US mpg249.98 - 190.87 UK mpg88.5 - 67.57 km/l",26-34 g/km,,,,,15.5 kWh,12 kWh,280,122,6.2,1835,4528,1835,1614,Lithium-ion (Li-Ion),306,1.332
