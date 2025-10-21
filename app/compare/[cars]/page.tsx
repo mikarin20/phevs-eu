@@ -1173,7 +1173,6 @@ export default function ComparePage({ params }: ComparePageProps) {
                         ? '150px repeat(2, 1fr)' 
                         : '150px repeat(3, 1fr)' 
                     }}
-                    className="sm:grid-cols-3 sm:grid-cols-4"
                   >
                     {/* Label */}
                     <div className="flex items-center">
