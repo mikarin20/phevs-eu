@@ -1174,7 +1174,7 @@ export default function Home() {
             <div id="compare-slider" className="overflow-x-auto scrollbar-hide">
               <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
               {/* Tiguan vs 3008 */}
-              <Link href="/compare/vw-3,new-67" className="group flex-shrink-0">
+              <Link href="/compare/volkswagen-tiguan-phev-vs-peugeot-3008-phev" className="group flex-shrink-0">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
                   <div className="grid grid-cols-2 gap-0">
                     <div className="relative h-32">
@@ -1212,7 +1212,7 @@ export default function Home() {
               </Link>
 
               {/* C5 Aircross vs Ford Kuga */}
-              <Link href="/compare/citroen-1,ford-1" className="group flex-shrink-0">
+              <Link href="/compare/citroen-c5-aircross-phev-vs-ford-kuga-phev" className="group flex-shrink-0">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
                   <div className="grid grid-cols-2 gap-0">
                     <div className="relative h-32">
@@ -1250,7 +1250,7 @@ export default function Home() {
               </Link>
 
               {/* Skoda Kodiaq vs Tiguan */}
-              <Link href="/compare/skoda-1,vw-3" className="group flex-shrink-0">
+              <Link href="/compare/skoda-kodiaq-phev-vs-volkswagen-tiguan-phev" className="group flex-shrink-0">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
                   <div className="grid grid-cols-2 gap-0">
                     <div className="relative h-32">
@@ -1288,7 +1288,7 @@ export default function Home() {
               </Link>
 
               {/* 3008 vs Ford Kuga */}
-              <Link href="/compare/new-67,ford-1" className="group flex-shrink-0">
+              <Link href="/compare/peugeot-3008-phev-vs-ford-kuga-phev" className="group flex-shrink-0">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
                   <div className="grid grid-cols-2 gap-0">
                     <div className="relative h-32">
@@ -1326,7 +1326,7 @@ export default function Home() {
               </Link>
 
               {/* Golf vs 308 */}
-              <Link href="/compare/vw-1,peugeot-2" className="group flex-shrink-0">
+              <Link href="/compare/volkswagen-golf-phev-vs-peugeot-308-phev" className="group flex-shrink-0">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
                   <div className="grid grid-cols-2 gap-0">
                     <div className="relative h-32">
@@ -1364,7 +1364,7 @@ export default function Home() {
               </Link>
 
               {/* Golf vs Audi A3 */}
-              <Link href="/compare/vw-1,audi-1" className="group flex-shrink-0">
+              <Link href="/compare/volkswagen-golf-phev-vs-audi-a3-sportback-phev" className="group flex-shrink-0">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
                   <div className="grid grid-cols-2 gap-0">
                     <div className="relative h-32">
