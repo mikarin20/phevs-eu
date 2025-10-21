@@ -24,9 +24,12 @@
     "max_trunk_volume": 1430,
     "electric_motor_power_hp": 120,
     "engine_displacement": 1.3,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Rear left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -38,13 +41,7 @@
       "overall_rating": 76,
       "test_year": 2022
     },
-    "engine_displacement": 1.3,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
-      "ac_location": "Rear left"
-    },
     "slug": "alfa-romeo-tonale-phev"
   },
   {
@@ -684,7 +681,7 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 85.5,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 19.7,
     "price_eur": 50000,
     "image_url": "/images/cars/brands/bmw/x3-phev/main.jpg",
@@ -837,9 +834,12 @@
     "max_trunk_volume": 508,
     "electric_motor_power_hp": 163,
     "engine_displacement": 1.5,
-    "battery_chemistry": "LiFePO4",
+    "battery_chemistry": "LFP",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front right"
+    },
     "emission_standard": "China VI",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -851,13 +851,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 1.5,
-    "battery_chemistry": "LFP",
     "battery_architecture": "blade",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right"
-    },
     "slug": "byd-seal-5-dm-i-phev"
   },
   {
@@ -885,9 +879,12 @@
     "max_trunk_volume": 500,
     "electric_motor_power_hp": 120,
     "engine_displacement": 1.5,
-    "battery_chemistry": "LiFePO4",
+    "battery_chemistry": "LFP",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front right"
+    },
     "emission_standard": "China VI",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -899,13 +896,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 1.5,
-    "battery_chemistry": "LFP",
     "battery_architecture": "blade",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right"
-    },
     "slug": "byd-seal-6-dm-i-phev"
   },
   {
@@ -933,9 +924,12 @@
     "max_trunk_volume": 500,
     "electric_motor_power_hp": 150,
     "engine_displacement": 1.5,
-    "battery_chemistry": "LiFePO4",
+    "battery_chemistry": "LFP",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front right"
+    },
     "emission_standard": "China VI",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -947,13 +941,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 1.5,
-    "battery_chemistry": "LFP",
     "battery_architecture": "blade",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right"
-    },
     "slug": "byd-seal-u-dm-i-phev"
   },
   {
@@ -1178,10 +1166,13 @@
     "wheelbase_mm": 2680,
     "max_trunk_volume": 345,
     "electric_motor_power_hp": 115,
-    "engine_displacement": 1.5,
-    "battery_chemistry": "Li-Ion",
+    "engine_displacement": 1.4,
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -1193,13 +1184,7 @@
       "overall_rating": 83,
       "test_year": 2019
     },
-    "engine_displacement": 1.4,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "cupra-formentor-phev"
   },
   {
@@ -1226,10 +1211,13 @@
     "wheelbase_mm": 2680,
     "max_trunk_volume": 380,
     "electric_motor_power_hp": 116,
-    "engine_displacement": 1.498,
-    "battery_chemistry": "Li-Ion",
+    "engine_displacement": 1.4,
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -1241,13 +1229,7 @@
       "overall_rating": 83,
       "test_year": 2019
     },
-    "engine_displacement": 1.4,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "cupra-leon-phev"
   },
   {
@@ -1293,7 +1275,7 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 77,
-    "fuel_consumption": 3.0,
+    "fuel_consumption": 3,
     "battery_kwh": 17.2,
     "price_eur": 43000,
     "image_url": "/images/cars/brands/ds-automobiles/n4/main.png",
@@ -1347,9 +1329,12 @@
     "max_trunk_volume": 1534,
     "electric_motor_power_hp": 100,
     "engine_displacement": 2.5,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -1361,13 +1346,7 @@
       "overall_rating": 76,
       "test_year": 2022
     },
-    "engine_displacement": 2.5,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "ford-kuga-phev"
   },
   {
@@ -1467,9 +1446,12 @@
     "max_trunk_volume": 571,
     "electric_motor_power_hp": 90,
     "engine_displacement": 1.6,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -1481,13 +1463,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 1.6,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "hyundai-santa-fe-phev"
   },
   {
@@ -1515,9 +1491,12 @@
     "max_trunk_volume": 513,
     "electric_motor_power_hp": 90,
     "engine_displacement": 1.6,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -1529,13 +1508,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 1.6,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "hyundai-tucson-phev"
   },
   {
@@ -1634,10 +1607,13 @@
     "wheelbase_mm": 2636,
     "max_trunk_volume": 438,
     "electric_motor_power_hp": 60,
-    "engine_displacement": 2.0,
-    "battery_chemistry": "Li-Ion",
+    "engine_displacement": 2,
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -1649,13 +1625,7 @@
       "overall_rating": 76,
       "test_year": 2022
     },
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "jeep-compass-4xe-phev"
   },
   {
@@ -1682,10 +1652,13 @@
     "wheelbase_mm": 2915,
     "max_trunk_volume": 239,
     "electric_motor_power_hp": 134,
-    "engine_displacement": 2.0,
-    "battery_chemistry": "Li-Ion",
+    "engine_displacement": 2,
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -1697,13 +1670,7 @@
       "overall_rating": 76,
       "test_year": 2022
     },
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "jeep-grand-cherokee-phev"
   },
   {
@@ -1865,10 +1832,13 @@
     "wheelbase_mm": 3022,
     "max_trunk_volume": 500,
     "electric_motor_power_hp": 80,
-    "engine_displacement": 2.0,
-    "battery_chemistry": "Li-Ion",
+    "engine_displacement": 2,
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -1880,13 +1850,7 @@
       "overall_rating": 76,
       "test_year": 2019
     },
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "land-rover-defender-110-phev"
   },
   {
@@ -1914,9 +1878,12 @@
     "max_trunk_volume": 500,
     "electric_motor_power_hp": 80,
     "engine_displacement": 1.5,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -1928,13 +1895,7 @@
       "overall_rating": 76,
       "test_year": 2019
     },
-    "engine_displacement": 1.5,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "land-rover-discovery-sport-phev"
   },
   {
@@ -1962,9 +1923,12 @@
     "max_trunk_volume": 500,
     "electric_motor_power_hp": 80,
     "engine_displacement": 2.5,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -1976,13 +1940,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 2.5,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "lexus-nx-450h-phev"
   },
   {
@@ -2010,9 +1968,12 @@
     "max_trunk_volume": 500,
     "electric_motor_power_hp": 80,
     "engine_displacement": 2.5,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -2024,13 +1985,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 2.5,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "lexus-rx-450h-phev"
   },
   {
@@ -3042,9 +2997,12 @@
     "max_trunk_volume": 1404,
     "electric_motor_power_hp": 120,
     "engine_displacement": 2.4,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -3056,13 +3014,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 2.4,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "mitsubishi-outlander-phev"
   },
   {
@@ -3090,9 +3042,12 @@
     "max_trunk_volume": 422,
     "electric_motor_power_hp": 110,
     "engine_displacement": 1.6,
-    "battery_chemistry": "Li-Ion",
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -3104,13 +3059,7 @@
       "overall_rating": 76,
       "test_year": 2022
     },
-    "engine_displacement": 1.6,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "opel-astra-phev-phev"
   },
   {
@@ -3308,10 +3257,13 @@
     "wheelbase_mm": 2895,
     "max_trunk_volume": 1344,
     "electric_motor_power_hp": 134,
-    "engine_displacement": 4.0,
-    "battery_chemistry": "Li-Ion",
+    "engine_displacement": 3,
+    "battery_chemistry": "NCM",
     "battery_voltage": 800,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -3323,13 +3275,7 @@
       "overall_rating": 85,
       "test_year": 2021
     },
-    "engine_displacement": 3,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "porsche-cayenne-phev"
   },
   {
@@ -3392,10 +3338,13 @@
     "wheelbase_mm": 2734,
     "max_trunk_volume": 1826,
     "electric_motor_power_hp": 160,
-    "engine_displacement": 1.2,
-    "battery_chemistry": "Li-Ion",
+    "engine_displacement": 1.6,
+    "battery_chemistry": "NCM",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -3407,13 +3356,7 @@
       "overall_rating": 76,
       "test_year": 2022
     },
-    "engine_displacement": 1.6,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "slug": "renault-rafale-phev"
   },
   {
@@ -3621,7 +3564,7 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 75,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 18.1,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg",
@@ -4172,7 +4115,10 @@
     "engine_displacement": 1.498,
     "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "slug": "seat-leon-sportstourer-1-5-tsi",
@@ -4195,15 +4141,24 @@
       "ac_power": 7.4,
       "dc_power": 50,
       "charging_curve": {
-        "soc": [0, 20, 40, 60, 80, 100],
-        "power": [50, 50, 45, 35, 20, 5]
+        "soc": [
+          0,
+          20,
+          40,
+          60,
+          80,
+          100
+        ],
+        "power": [
+          50,
+          50,
+          45,
+          35,
+          20,
+          5
+        ]
       }
-    },
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "slug": "seat-leon-sportstourer-1-5-tsi"
+    }
   },
   {
     "id": "seat-2",
@@ -4232,7 +4187,10 @@
     "engine_displacement": 1.498,
     "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "slug": "seat-leon-1-5-tsi",
@@ -4255,15 +4213,24 @@
       "ac_power": 7.4,
       "dc_power": 50,
       "charging_curve": {
-        "soc": [0, 20, 40, 60, 80, 100],
-        "power": [50, 50, 45, 35, 20, 5]
+        "soc": [
+          0,
+          20,
+          40,
+          60,
+          80,
+          100
+        ],
+        "power": [
+          50,
+          50,
+          45,
+          35,
+          20,
+          5
+        ]
       }
-    },
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "slug": "seat-leon-1-5-tsi"
+    }
   },
   {
     "id": "seat-3",
@@ -4292,7 +4259,10 @@
     "engine_displacement": 1.395,
     "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "slug": "seat-tarraco-1-4-tsi",
@@ -4315,15 +4285,24 @@
       "ac_power": 3.6,
       "dc_power": 50,
       "charging_curve": {
-        "soc": [0, 20, 40, 60, 80, 100],
-        "power": [50, 50, 45, 35, 20, 5]
+        "soc": [
+          0,
+          20,
+          40,
+          60,
+          80,
+          100
+        ],
+        "power": [
+          50,
+          50,
+          45,
+          35,
+          20,
+          5
+        ]
       }
-    },
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "slug": "seat-tarraco-1-4-tsi"
+    }
   },
   {
     "id": "seat-4",
@@ -4352,7 +4331,10 @@
     "engine_displacement": 1.395,
     "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "slug": "seat-leon-sportstourer-1-4-e-hybrid",
@@ -4375,15 +4357,24 @@
       "ac_power": 3.6,
       "dc_power": 50,
       "charging_curve": {
-        "soc": [0, 20, 40, 60, 80, 100],
-        "power": [50, 50, 45, 35, 20, 5]
+        "soc": [
+          0,
+          20,
+          40,
+          60,
+          80,
+          100
+        ],
+        "power": [
+          50,
+          50,
+          45,
+          35,
+          20,
+          5
+        ]
       }
-    },
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "slug": "seat-leon-sportstourer-1-4-e-hybrid"
+    }
   },
   {
     "id": "seat-5",
@@ -4412,7 +4403,10 @@
     "engine_displacement": 1.395,
     "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "slug": "seat-leon-1-4-e-hybrid",
@@ -4435,14 +4429,815 @@
       "ac_power": 3.6,
       "dc_power": 50,
       "charging_curve": {
-        "soc": [0, 20, 40, 60, 80, 100],
-        "power": [50, 50, 45, 35, 20, 5]
+        "soc": [
+          0,
+          20,
+          40,
+          60,
+          80,
+          100
+        ],
+        "power": [
+          50,
+          50,
+          45,
+          35,
+          20,
+          5
+        ]
       }
-    },
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "slug": "seat-leon-1-4-e-hybrid"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "5 Series",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 85,
+    "fuel_consumption": 1.8,
+    "battery_kwh": 18.7,
+    "price_eur": 55000,
+    "image_url": "/images/cars/brands/bmw/5-series-2024/main.jpg",
+    "power_hp": 299,
+    "co2_emission": 41,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 520,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 2
+  },
+  {
+    "brand": "BMW",
+    "model": "7 Series",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 80,
+    "fuel_consumption": 1.8,
+    "battery_kwh": 18.7,
+    "price_eur": 95000,
+    "image_url": "/images/cars/brands/bmw/7-series-2024/main.jpg",
+    "power_hp": 489,
+    "co2_emission": 41,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 515,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 3
+  },
+  {
+    "brand": "BMW",
+    "model": "M5 Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 60,
+    "fuel_consumption": 2.1,
+    "battery_kwh": 18.7,
+    "price_eur": 120000,
+    "image_url": "/images/cars/brands/bmw/m5-touring-2024/main.jpg",
+    "power_hp": 727,
+    "co2_emission": 48,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 520,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 4.4
+  },
+  {
+    "brand": "BMW",
+    "model": "2 Series Active Tourer",
+    "year": 2024,
+    "segment": "MPV",
+    "ev_range_km": 95,
+    "fuel_consumption": 1.8,
+    "battery_kwh": 12,
+    "price_eur": 40000,
+    "image_url": "/images/cars/brands/bmw/2-series-active-tourer-2024/main.jpg",
+    "power_hp": 245,
+    "co2_emission": 41,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 1.5
+  },
+  {
+    "brand": "BMW",
+    "model": "3 Series Sedan",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 80,
+    "fuel_consumption": 1.7,
+    "battery_kwh": 12,
+    "price_eur": 55000,
+    "image_url": "/images/cars/brands/bmw/3-series-sedan-2024/main.jpg",
+    "power_hp": 292,
+    "co2_emission": 38,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 2
+  },
+  {
+    "brand": "BMW",
+    "model": "X1",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 95,
+    "fuel_consumption": 1.8,
+    "battery_kwh": 12,
+    "price_eur": 42000,
+    "image_url": "/images/cars/brands/bmw/x1-2024/main.jpg",
+    "power_hp": 245,
+    "co2_emission": 41,
+    "charge_time_ac": 3.2,
+    "trunk_volume": 450,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 4.4
+  },
+  {
+    "brand": "BMW",
+    "model": "X3",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 80,
+    "fuel_consumption": 2.8,
+    "battery_kwh": 12,
+    "price_eur": 50000,
+    "image_url": "/images/cars/brands/bmw/x3-2024/main.jpg",
+    "power_hp": 292,
+    "co2_emission": 64,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 550,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 1.5
+  },
+  {
+    "brand": "BMW",
+    "model": "X5",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 80,
+    "fuel_consumption": 2.1,
+    "battery_kwh": 24,
+    "price_eur": 65000,
+    "image_url": "/images/cars/brands/bmw/x5-2024/main.jpg",
+    "power_hp": 490,
+    "co2_emission": 48,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 520,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 3
+  },
+  {
+    "brand": "BMW",
+    "model": "Xm",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 60,
+    "fuel_consumption": 1.5,
+    "battery_kwh": 25.7,
+    "price_eur": 150000,
+    "image_url": "/images/cars/brands/bmw/xm-2024/main.jpg",
+    "power_hp": 476,
+    "co2_emission": 30,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 4.4
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW M5 Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 67,
+    "fuel_consumption": 0,
+    "battery_kwh": 18.6,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/main.jpg",
+    "power_hp": 585,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t117.61 US mpg141.24 UK mpg50 km/l\"",
+    "year": 46,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 18.6,
+    "battery_kwh": 22.1,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/11761-us-mpg14124-uk-mpg50-kml-46 g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 727,
+    "charge_time_ac": 197,
+    "trunk_volume": 3.6,
+    "seats": 2475,
+    "warranty_years": 5096,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 5 Series Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 98,
+    "fuel_consumption": 0,
+    "battery_kwh": 19.4,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-5-series-touring-2024-2025/main.jpg",
+    "power_hp": 190,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t336.02 - 261.35 US mpg403.54 - 313.87 UK mpg142.86 - 111.11 km/l\"",
+    "year": 16,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 19.4,
+    "battery_kwh": 22.1,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/33602-26135-us-mpg40354-31387-uk-mpg14286-11111-kml-16-21g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 299,
+    "charge_time_ac": 184,
+    "trunk_volume": 6.4,
+    "seats": 2065,
+    "warranty_years": 5060,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 5 Series Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 92,
+    "fuel_consumption": 0,
+    "battery_kwh": 19.4,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-5-series-touring-2024-2025/main.jpg",
+    "power_hp": 190,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t294.02 - 235.21 US mpg353.1 - 282.48 UK mpg125 - 100 km/l\"",
+    "year": 18,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 19.4,
+    "battery_kwh": 22.1,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/29402-23521-us-mpg3531-28248-uk-mpg125-100-kml-18-22g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 299,
+    "charge_time_ac": 184,
+    "trunk_volume": 6.4,
+    "seats": 2120,
+    "warranty_years": 5060,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 5 Series Sedan",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 95,
+    "fuel_consumption": 0,
+    "battery_kwh": 19.4,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-5-series-sedan-2024-2025/main.jpg",
+    "power_hp": 190,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t336.02 - 235.21 US mpg403.54 - 282.48 UK mpg142.86 - 100 km/l\"",
+    "year": 17,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 19.4,
+    "battery_kwh": 22.1,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/33602-23521-us-mpg40354-28248-uk-mpg14286-100-kml-17-22g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 299,
+    "charge_time_ac": 184,
+    "trunk_volume": 6.3,
+    "seats": 2055,
+    "warranty_years": 5060,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW M5",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 69,
+    "fuel_consumption": 0,
+    "battery_kwh": 18.6,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-m5-2024-2025/main.jpg",
+    "power_hp": 585,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t147.01 - 138.36 US mpg176.55 - 166.17 UK mpg62.5 - 58.82 km/l\"",
+    "year": 37,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 18.6,
+    "battery_kwh": 22.1,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/14701-13836-us-mpg17655-16617-uk-mpg625-5882-kml-37-39g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 727,
+    "charge_time_ac": 197,
+    "trunk_volume": 3.5,
+    "seats": 2435,
+    "warranty_years": 5096,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW X3",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 90,
+    "fuel_consumption": 0,
+    "battery_kwh": 19.7,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-x3-2024-2025/main.jpg",
+    "power_hp": 190,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t261.35 - 213.83 US mpg313.87 - 256.8 UK mpg111.11 - 90.91 km/l\"",
+    "year": 21,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 19.7,
+    "battery_kwh": 0,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/26135-21383-us-mpg31387-2568-uk-mpg11111-9091-kml-21-26g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 299,
+    "charge_time_ac": 184,
+    "trunk_volume": 6.2,
+    "seats": 2065,
+    "warranty_years": 4755,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 3 Series Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 91,
+    "fuel_consumption": 0,
+    "battery_kwh": 19.5,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-3-series-touring-2024-2025/main.jpg",
+    "power_hp": 184,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t235.21 - 196.01 US mpg282.48 - 235.4 UK mpg100 - 83.33 km/l\"",
+    "year": 23,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 19.5,
+    "battery_kwh": 0,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/23521-19601-us-mpg28248-2354-uk-mpg100-8333-kml-23-26g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 292,
+    "charge_time_ac": 109,
+    "trunk_volume": 6,
+    "seats": 1950,
+    "warranty_years": 4713,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 3 Series Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 98,
+    "fuel_consumption": 0,
+    "battery_kwh": 19.5,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-3-series-touring-2024-2025/main.jpg",
+    "power_hp": 184,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t261.35 - 213.83 US mpg313.87 - 256.8 UK mpg111.11 - 90.91 km/l\"",
+    "year": 20,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 19.5,
+    "battery_kwh": 0,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/26135-21383-us-mpg31387-2568-uk-mpg11111-9091-kml-20-24g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 292,
+    "charge_time_ac": 109,
+    "trunk_volume": 6,
+    "seats": 1895,
+    "warranty_years": 4713,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 3 Series Sedan",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 96,
+    "fuel_consumption": 0,
+    "battery_kwh": 19.5,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/main.jpg",
+    "power_hp": 184,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t261.35 - 196.01 US mpg313.87 - 235.4 UK mpg111.11 - 83.33 km/l\"",
+    "year": 21,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 19.5,
+    "battery_kwh": 0,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/26135-19601-us-mpg31387-2354-uk-mpg11111-8333-kml-21-27g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 292,
+    "charge_time_ac": 109,
+    "trunk_volume": 5.9,
+    "seats": 1885,
+    "warranty_years": 4713,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 3 Series Sedan",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 101,
+    "fuel_consumption": 0,
+    "battery_kwh": 19.5,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/main.jpg",
+    "power_hp": 184,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "\t\t\t\t\t\t\t294.02 - 213.83 US mpg353.1 - 256.8 UK mpg125 - 90.91 km/l\"",
+    "year": 19,
+    "segment": "Sedan",
+    "ev_range_km": 0,
+    "fuel_consumption": 19.5,
+    "battery_kwh": 0,
+    "price_eur": 0,
+    "image_url": "/images/cars/brands/bmw/29402-21383-us-mpg3531-2568-uk-mpg125-9091-kml-19-25g/km/main.jpg",
+    "power_hp": 0,
+    "co2_emission": 292,
+    "charge_time_ac": 109,
+    "trunk_volume": 5.9,
+    "seats": 1835,
+    "warranty_years": 4713,
+    "weight_kg": 0,
+    "length_mm": 0,
+    "width_mm": 0,
+    "height_mm": 0,
+    "engine_displacement_l": 0
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW M5 Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 67,
+    "fuel_consumption": 2,
+    "battery_kwh": 18.6,
+    "price_eur": 120000,
+    "image_url": "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/main.jpg",
+    "power_hp": 727,
+    "co2_emission": 46,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2475,
+    "length_mm": 5096,
+    "width_mm": 1970,
+    "height_mm": 1516,
+    "engine_displacement_l": 4.395
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 5 Series Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 98,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 19.4,
+    "price_eur": 55000,
+    "image_url": "/images/cars/brands/bmw/bmw-5-series-touring-2024-2025/main.jpg",
+    "power_hp": 299,
+    "co2_emission": 18,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 520,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2065,
+    "length_mm": 5060,
+    "width_mm": 1900,
+    "height_mm": 1515,
+    "engine_displacement_l": 1.998
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 5 Series Sedan",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 95,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 19.4,
+    "price_eur": 55000,
+    "image_url": "/images/cars/brands/bmw/bmw-5-series-sedan-2024-2025/main.jpg",
+    "power_hp": 299,
+    "co2_emission": 19,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 520,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2055,
+    "length_mm": 5060,
+    "width_mm": 1900,
+    "height_mm": 1515,
+    "engine_displacement_l": 1.998
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW M5",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 69,
+    "fuel_consumption": 1.6,
+    "battery_kwh": 18.6,
+    "price_eur": 120000,
+    "image_url": "/images/cars/brands/bmw/bmw-m5-2024-2025/main.jpg",
+    "power_hp": 727,
+    "co2_emission": 38,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2435,
+    "length_mm": 5096,
+    "width_mm": 1970,
+    "height_mm": 1510,
+    "engine_displacement_l": 4.395
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW X3",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 90,
+    "fuel_consumption": 1,
+    "battery_kwh": 19.7,
+    "price_eur": 50000,
+    "image_url": "/images/cars/brands/bmw/bmw-x3-2024-2025/main.jpg",
+    "power_hp": 299,
+    "co2_emission": 23,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 550,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2065,
+    "length_mm": 4755,
+    "width_mm": 1920,
+    "height_mm": 1660,
+    "engine_displacement_l": 1.998
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 3 Series Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 91,
+    "fuel_consumption": 1.1,
+    "battery_kwh": 19.5,
+    "price_eur": 55000,
+    "image_url": "/images/cars/brands/bmw/bmw-3-series-touring-2024-2025/main.jpg",
+    "power_hp": 292,
+    "co2_emission": 24,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1950,
+    "length_mm": 4713,
+    "width_mm": 1827,
+    "height_mm": 1448,
+    "engine_displacement_l": 1.998
+  },
+  {
+    "brand": "BMW",
+    "model": "BMW 3 Series Sedan",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 96,
+    "fuel_consumption": 1,
+    "battery_kwh": 19.5,
+    "price_eur": 55000,
+    "image_url": "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/main.jpg",
+    "power_hp": 292,
+    "co2_emission": 24,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1885,
+    "length_mm": 4713,
+    "width_mm": 1827,
+    "height_mm": 1446,
+    "engine_displacement_l": 1.998
   }
 ]

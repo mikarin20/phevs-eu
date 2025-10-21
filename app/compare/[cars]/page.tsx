@@ -922,7 +922,8 @@ export default function ComparePage({ params }: ComparePageProps) {
       {/* Header */}
       <header className="header-metallic sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          {/* Desktop Header */}
+          <div className="hidden sm:flex items-center justify-between h-20">
             <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors group">
               <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
               <span className="font-semibold">{t.backToHome}</span>
@@ -981,15 +982,82 @@ export default function ComparePage({ params }: ComparePageProps) {
               </div>
             </div>
           </div>
+
+          {/* Mobile Header */}
+          <div className="sm:hidden">
+            {/* Top Row - Back and Title */}
+            <div className="flex items-center justify-between h-16 px-2">
+              <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors">
+                <ArrowLeftIcon className="h-5 w-5 mr-1" />
+                <span className="text-sm font-medium">Back</span>
+              </Link>
+              
+              <div className="text-center flex-1 mx-4">
+                <h1 className="text-sm font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
+                  Vehicle Comparison
+                </h1>
+                <p className="text-xs text-slate-400">Comparing {selectedCars.length} vehicles</p>
+              </div>
+              
+              <div className="w-16"></div> {/* Spacer for balance */}
+            </div>
+            
+            {/* Bottom Row - Action Buttons */}
+            <div className="flex items-center justify-center space-x-2 pb-3 px-2">
+              <button
+                onClick={() => {
+                  const comparisonData = {
+                    cars: selectedCars.map(car => ({
+                      id: car.id,
+                      brand: car.brand,
+                      model: car.model,
+                      year: car.year
+                    })),
+                    timestamp: new Date().toISOString()
+                  }
+                  localStorage.setItem('phevs-saved-comparison', JSON.stringify(comparisonData))
+                  alert('Comparison saved successfully!')
+                }}
+                className="btn-secondary text-xs px-3 py-2"
+              >
+                Save
+              </button>
+              
+              <button
+                onClick={shareAsImage}
+                className="btn-primary text-xs px-3 py-2 flex items-center space-x-1"
+              >
+                <ShareIcon className="h-3 w-3" />
+                <span>Share</span>
+              </button>
+
+              <button
+                onClick={async () => {
+                  const dataUrl = await captureComparison()
+                  if (dataUrl) {
+                    downloadImage(dataUrl)
+                  } else {
+                    alert('Görüntü oluşturulamadı. Lütfen tekrar deneyin.')
+                  }
+                }}
+                className="btn-secondary text-xs px-3 py-2 flex items-center space-x-1"
+              >
+                <ArrowDownTrayIcon className="h-3 w-3" />
+                <span>Download</span>
+              </button>
+            </div>
+          </div>
         </div>
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div ref={comparisonRef}>
         {/* Vehicle Cards Header */}
-        <div className="grid grid-cols-1 gap-6 mb-8" style={{ 
-          gridTemplateColumns: selectedCars.length === 2 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)' 
-        }}>
+        <div className={`grid gap-4 sm:gap-6 mb-8 ${
+          selectedCars.length === 2 
+            ? 'grid-cols-1 sm:grid-cols-2' 
+            : 'grid-cols-1 sm:grid-cols-3'
+        }`}>
           {selectedCars.map((car) => (
             <div key={car.id} className="card relative">
               {/* Remove Button */}
@@ -1002,7 +1070,7 @@ export default function ComparePage({ params }: ComparePageProps) {
 
               {/* Car Image */}
               <div className="w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden mb-4 shadow-lg">
-                <div className="aspect-[16/9] w-full max-h-40">
+                <div className="aspect-[16/9] w-full max-h-32 sm:max-h-40">
                   <img
                     src={car.image_url}
                     alt={`${car.brand} ${car.model}`}
@@ -1047,7 +1115,7 @@ export default function ComparePage({ params }: ComparePageProps) {
 
         {/* Strengths Summary */}
         {selectedCars.length >= 2 && (
-          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {selectedCars.map((car, index) => {
               const strengths = getCarStrengths(car, selectedCars)
               return (
@@ -1093,7 +1161,7 @@ export default function ComparePage({ params }: ComparePageProps) {
               </h3>
               
               <div className="overflow-x-auto max-h-[70vh] overflow-y-auto">
-                <div className="space-y-1 min-w-[600px]">
+                <div className="space-y-1 min-w-[400px] sm:min-w-[600px]">
                 {category.rows.map((row, rowIndex) => (
                   <div
                     key={rowIndex}
@@ -1101,12 +1169,15 @@ export default function ComparePage({ params }: ComparePageProps) {
                       rowIndex % 2 === 0 ? 'bg-slate-50/50' : 'bg-transparent'
                     }`}
                     style={{ 
-                      gridTemplateColumns: selectedCars.length === 2 ? '200px repeat(2, 1fr)' : '200px repeat(3, 1fr)' 
+                      gridTemplateColumns: selectedCars.length === 2 
+                        ? '150px repeat(2, 1fr)' 
+                        : '150px repeat(3, 1fr)' 
                     }}
+                    className="sm:grid-cols-3 sm:grid-cols-4"
                   >
                     {/* Label */}
                     <div className="flex items-center">
-                      <span className="font-medium text-xs text-slate-700">{row.label}</span>
+                      <span className="font-medium text-xs sm:text-sm text-slate-700">{row.label}</span>
                     </div>
 
                     {/* Values */}
@@ -1124,7 +1195,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                           }`}
                         >
                           <div>
-                            <div className={`font-bold text-xs ${isBest && (row as any).highlight ? 'text-green-700' : 'text-slate-800'}`}>
+                            <div className={`font-bold text-xs sm:text-sm ${isBest && (row as any).highlight ? 'text-green-700' : 'text-slate-800'}`}>
                               {value}
                             </div>
                             {isBest && (row as any).highlight && (
@@ -1146,8 +1217,8 @@ export default function ComparePage({ params }: ComparePageProps) {
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-8 flex justify-center space-x-4">
-          <Link href="/" className="btn-primary">
+        <div className="mt-8 flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+          <Link href="/" className="btn-primary text-center">
             Compare More Vehicles
           </Link>
           <button
@@ -1155,7 +1226,7 @@ export default function ComparePage({ params }: ComparePageProps) {
               setSelectedCars([])
               localStorage.removeItem('phevs-selected-cars')
             }}
-            className="btn-secondary"
+            className="btn-secondary text-center"
           >
             Clear Comparison
           </button>
