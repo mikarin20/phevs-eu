@@ -714,7 +714,17 @@ export default function Home() {
       testDate: 'Test',
       update: 'Update',
       dataNotFound: 'Data not found',
-      selectToCompare: 'Please select a vehicle to compare'
+      selectToCompare: 'Please select a vehicle to compare',
+      heroTitle: "Europe's Most Comprehensive PHEV Comparison Platform",
+      heroDescription: 'Compare 85 plug-in hybrid electric vehicles from 28 premium brands. Find the perfect PHEV for your lifestyle.',
+      phevModels: 'PHEV Models',
+      premiumBrands: 'Premium Brands',
+      vehicleSegments: 'Vehicle Segments',
+      realWorldRangeData: 'Real-world Range Data',
+      priceComparison: 'Price Comparison',
+      technicalSpecifications: 'Technical Specifications',
+      quickCompareTitle: 'Quick Compare Popular Models',
+      quickCompareDescription: 'Compare the most popular PHEV models side by side'
     },
     de: {
       searchPlaceholder: 'Nach Marke oder Modell suchen...',
@@ -781,7 +791,17 @@ export default function Home() {
       testDate: 'Test',
       update: 'Aktualisierung',
       dataNotFound: 'Daten nicht gefunden',
-      selectToCompare: 'Bitte wählen Sie ein Fahrzeug zum Vergleichen'
+      selectToCompare: 'Bitte wählen Sie ein Fahrzeug zum Vergleichen',
+      heroTitle: 'Europas umfassendste PHEV-Vergleichsplattform',
+      heroDescription: 'Vergleichen Sie 85 Plug-in-Hybrid-Elektrofahrzeuge von 28 Premium-Marken. Finden Sie das perfekte PHEV für Ihren Lebensstil.',
+      phevModels: 'PHEV-Modelle',
+      premiumBrands: 'Premium-Marken',
+      vehicleSegments: 'Fahrzeugsegmente',
+      realWorldRangeData: 'Realistische Reichweitendaten',
+      priceComparison: 'Preisvergleich',
+      technicalSpecifications: 'Technische Spezifikationen',
+      quickCompareTitle: 'Schnellvergleich beliebter Modelle',
+      quickCompareDescription: 'Vergleichen Sie die beliebtesten PHEV-Modelle nebeneinander'
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -848,7 +868,17 @@ export default function Home() {
       testDate: 'Test',
       update: 'Güncelleme',
       dataNotFound: 'Veri bulunamadı',
-      selectToCompare: 'Lütfen önce karşılaştırmak için araç seçin'
+      selectToCompare: 'Lütfen önce karşılaştırmak için araç seçin',
+      heroTitle: 'Avrupa\'nın En Kapsamlı PHEV Karşılaştırma Platformu',
+      heroDescription: '28 premium markadan 85 plug-in hibrit elektrikli aracı karşılaştırın. Yaşam tarzınıza uygun mükemmel PHEV\'i bulun.',
+      phevModels: 'PHEV Modelleri',
+      premiumBrands: 'Premium Markalar',
+      vehicleSegments: 'Araç Segmentleri',
+      realWorldRangeData: 'Gerçek Dünya Menzil Verileri',
+      priceComparison: 'Fiyat Karşılaştırması',
+      technicalSpecifications: 'Teknik Özellikler',
+      quickCompareTitle: 'Popüler Modelleri Hızlı Karşılaştır',
+      quickCompareDescription: 'En popüler PHEV modellerini yan yana karşılaştırın'
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -915,7 +945,17 @@ export default function Home() {
       testDate: 'Test',
       update: 'Aktualizacja',
       dataNotFound: 'Nie znaleziono danych',
-      selectToCompare: 'Wybierz pojazd do porównania'
+      selectToCompare: 'Wybierz pojazd do porównania',
+      heroTitle: 'Najbardziej kompleksowa europejska platforma porównawcza PHEV',
+      heroDescription: 'Porównaj 85 hybrydowych pojazdów elektrycznych plug-in od 28 premium marek. Znajdź idealny PHEV dla swojego stylu życia.',
+      phevModels: 'Modele PHEV',
+      premiumBrands: 'Marki Premium',
+      vehicleSegments: 'Segmenty Pojazdów',
+      realWorldRangeData: 'Dane rzeczywistego zasięgu',
+      priceComparison: 'Porównanie cen',
+      technicalSpecifications: 'Specyfikacje techniczne',
+      quickCompareTitle: 'Szybkie porównanie popularnych modeli',
+      quickCompareDescription: 'Porównaj najpopularniejsze modele PHEV obok siebie'
     }
   }
 
@@ -1167,25 +1207,25 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className={`text-xl sm:text-2xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-              Europe's Most Comprehensive PHEV Comparison Platform
+              {t.heroTitle}
             </h2>
             <p className={`text-sm mb-4 max-w-2xl mx-auto ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-              Compare 85 plug-in hybrid electric vehicles from 28 premium brands. Find the perfect PHEV for your lifestyle.
+              {t.heroDescription}
             </p>
             
             {/* Stats */}
             <div className="grid grid-cols-3 gap-3 mb-4">
               <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
                 <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>85</div>
-                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>PHEV Models</div>
+                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.phevModels}</div>
               </div>
               <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
                 <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
-                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Premium Brands</div>
+                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.premiumBrands}</div>
               </div>
               <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
                 <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
-                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Vehicle Segments</div>
+                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.vehicleSegments}</div>
               </div>
             </div>
             
@@ -1193,19 +1233,19 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
               <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 <CheckIcon className="h-5 w-5 text-green-500" />
-                <span>Real-world Range Data</span>
+                <span>{t.realWorldRangeData}</span>
               </div>
               <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 <CheckIcon className="h-5 w-5 text-green-500" />
-                <span>Price Comparison</span>
+                <span>{t.priceComparison}</span>
               </div>
               <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 <CheckIcon className="h-5 w-5 text-green-500" />
-                <span>Technical Specifications</span>
+                <span>{t.technicalSpecifications}</span>
               </div>
               <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 <CheckIcon className="h-5 w-5 text-green-500" />
-                <span>Range Simulator</span>
+                <span>{t.rangeSimulator}</span>
               </div>
             </div>
           </div>
@@ -1217,10 +1257,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <h3 className={`text-lg font-semibold mb-2 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-              Quick Compare Popular Models
+              {t.quickCompareTitle}
             </h3>
             <p className={`text-sm ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-              Compare the most popular PHEV models side by side
+              {t.quickCompareDescription}
             </p>
           </div>
           
