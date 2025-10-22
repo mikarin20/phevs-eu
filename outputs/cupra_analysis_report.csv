@@ -1,3 +1,0 @@
-Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Weight (kg),Length (mm),Width (mm),Height (mm),Wheelbase (mm),Max Trunk Volume (L),Electric Motor Power (HP),Engine Displacement (L),Battery Chemistry,Battery Voltage (V),Charging Port,Emission Standard
-Formentor,2025,cars.json,65,204,45000,13,1.6,36,3.5,450,5,3,,,,,,,,1.4,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",
-Leon,2025,cars.json,70,204,40000,13,1.4,32,3.5,380,5,3,,,,,,,,1.4,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",

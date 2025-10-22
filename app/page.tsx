@@ -76,6 +76,8 @@ interface Car {
   trunk_volume: number
   seats: number
   warranty_years: number
+  weight_kg: number
+  battery_chemistry: string
   country_availability: string
   slug: string
   last_updated?: string
@@ -198,8 +200,8 @@ export default function Home() {
     {
       id: 'c5-kuga',
       href: '/compare/citroen-c5-aircross-phev-vs-ford-kuga-phev',
-      leftCar: { name: 'Citroën C5 Aircross', image: '/images/cars/brands/citroen/c5-aircross-plug-in-hybrid/main.jpg', alt: 'Citroën C5 Aircross', specs: '55km • €35,000' },
-      rightCar: { name: 'Ford Kuga', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '100km • €40,000' }
+      leftCar: { name: 'Citroën C5 Aircross', image: '/images/cars/brands/citroen/c5-aircross-ii-phev/main.jpg', alt: 'Citroën C5 Aircross', specs: '81km • €35,000' },
+      rightCar: { name: 'Ford Kuga', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '65km • €40,000' }
     },
     {
       id: 'kodiaq-tiguan',
@@ -241,7 +243,7 @@ export default function Home() {
       id: 'mg-cupra',
       href: '/compare/mg-hs-phev-vs-cupra-formentor-e-hybrid',
       leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
-      rightCar: { name: 'Cupra Formentor', image: '/images/cars/brands/cupra/formentor-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '55km • €42,000' }
+      rightCar: { name: 'Cupra Formentor', image: '/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '65km • €42,000' }
     }
   ]
 
@@ -279,7 +281,7 @@ export default function Home() {
   const [filters, setFilters] = useState<FiltersState>({
     segment: '',
     priceRange: [0, 150000],
-    rangeRange: [0, 100],
+    rangeRange: [0, 200],
     fuelConsumption: [0, 10],
     batteryArchitecture: '',
     batteryChemistry: '',
@@ -293,7 +295,7 @@ export default function Home() {
   const defaultFilters: FiltersState = {
     segment: '',
     priceRange: [0, 150000],
-    rangeRange: [0, 100],
+    rangeRange: [0, 200],
     fuelConsumption: [0, 10],
     batteryArchitecture: '',
     batteryChemistry: '',
@@ -446,7 +448,7 @@ export default function Home() {
     }
 
     const [minPrice, maxPrice] = getPair(filters?.priceRange as number[], [0, 150000])
-    const [minRange, maxRange] = getPair(filters?.rangeRange as number[], [0, 100])
+    const [minRange, maxRange] = getPair(filters?.rangeRange as number[], [0, 200])
     const [minFuel, maxFuel] = getPair(filters?.fuelConsumption as number[], [0, 10])
     const [minPower, maxPower] = getPair(filters?.powerRange as number[], [0, 500])
     const [minYear, maxYear] = getPair(filters?.yearRange as number[], [2020, 2025])
@@ -457,8 +459,9 @@ export default function Home() {
       const normalizedBrand = normalizeText(car.brand)
       const normalizedModel = normalizeText(car.model)
       
-      const matchesSearch = normalizedBrand.includes(normalizedSearchTerm) ||
-                           normalizedModel.includes(normalizedSearchTerm)
+      const matchesSearch = normalizedSearchTerm === '' || 
+        normalizedBrand.includes(normalizedSearchTerm) || 
+        normalizedModel.includes(normalizedSearchTerm)
       
       const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(car.brand)
       
@@ -578,7 +581,7 @@ export default function Home() {
     setFilters({
       segment: '',
       priceRange: [0, 150000],
-      rangeRange: [0, 100],
+      rangeRange: [0, 200],
       fuelConsumption: [0, 10],
       batteryArchitecture: '',
       batteryChemistry: '',
@@ -1871,7 +1874,57 @@ export default function Home() {
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>
                         {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
                       </span>
-                        </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                        <Tooltip content="CO2 emissions in grams per kilometer - Lower values mean better environmental performance">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.co2}:</span>
+                        </Tooltip>
+                      </div>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                        <Tooltip content="Trunk volume in liters - Cargo space capacity">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.trunk}:</span>
+                        </Tooltip>
+                      </div>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                        <Tooltip content="Vehicle weight in kilograms - Affects efficiency and performance">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>Weight:</span>
+                        </Tooltip>
+                      </div>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg}kg</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                        <Tooltip content="Battery chemistry type - Affects performance, lifespan and safety">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>Battery Type:</span>
+                        </Tooltip>
+                      </div>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_chemistry}</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                        <Tooltip content="Warranty period in years - Manufacturer's guarantee coverage">
+                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.warranty}:</span>
+                        </Tooltip>
+                      </div>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.warranty_years} years</span>
+                    </div>
                     {/* Charging Information */}
                     <div className="space-y-2">
                       {car.charging_port ? (

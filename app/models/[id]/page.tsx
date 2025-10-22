@@ -24,7 +24,7 @@ interface Car {
   engine_displacement?: number
   co2_emission: number
   charge_time_ac: number
-  charge_time_dc: number
+  charge_time_dc?: number
   trunk_volume: number
   seats: number
   warranty_years: number

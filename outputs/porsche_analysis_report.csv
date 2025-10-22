@@ -1,3 +1,0 @@
-Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Weight (kg),Length (mm),Width (mm),Height (mm),Wheelbase (mm),Max Trunk Volume (L),Electric Motor Power (HP),Engine Displacement (L),Battery Chemistry,Battery Voltage (V),Charging Port,Emission Standard
-Cayenne,2025,cars.json,50,340,136000,17.9,1.5,30,3,500,5,3,,,,,,,,3,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",
-Panamera 4,2025,cars.json,55,340,107780,17.9,1.5,30,3,500,5,3,,,,,,,,2.9,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",

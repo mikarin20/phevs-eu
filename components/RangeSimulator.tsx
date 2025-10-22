@@ -50,14 +50,14 @@ interface RangeSimulatorProps {
   }
 }
 
-export default function RangeSimulator({ 
-  baseRange, 
-  batteryCapacity, 
-  isOpen, 
-  onClose,
-  selectedCar,
-  simulatorData
-}: RangeSimulatorProps) {
+function RangeSimulator({ 
+    baseRange, 
+    batteryCapacity, 
+    isOpen, 
+    onClose,
+    selectedCar,
+    simulatorData
+  }: RangeSimulatorProps) {
   const [temperature, setTemperature] = useState(20) // °C
   const [acEnabled, setAcEnabled] = useState(true)
   const [highwayShare, setHighwayShare] = useState(35) // %
@@ -374,3 +374,5 @@ export default function RangeSimulator({
     </div>
   )
 }
+
+export default RangeSimulator

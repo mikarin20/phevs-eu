@@ -1,5 +1,0 @@
-Model,Year,Source,EV Range (km),Power (HP),Price (EUR),Battery (kWh),Fuel Consumption (L/100km),CO2 (g/km),Charge Time AC (h),Trunk Volume (L),Seats,Warranty (years),Weight (kg),Length (mm),Width (mm),Height (mm),Wheelbase (mm),Max Trunk Volume (L),Electric Motor Power (HP),Engine Displacement (L),Battery Chemistry,Battery Voltage (V),Charging Port,Emission Standard
-V60,2025,cars.json,64,340,50000,18.8,1.9,43,4,529,5,3,,,,,,,,2,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",
-V90,2025,cars.json,64,340,65000,18.8,2.1,47,4,560,5,3,,,,,,,,2,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",
-XC60,2025,cars.json,64,455,55000,18.8,1.9,43,4,505,5,3,,,,,,,,2,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",
-XC90,2025,cars.json,64,192,65000,18.8,2.1,47,4,314,7,3,,,,,,,,2,NCM,,"{'ac_type': 'Type 2 AC (Mennekes)', 'ac_location': 'Front left'}",

@@ -14,6 +14,12 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   webpack: (config, { dev, isServer }) => {
+    // JSON import support
+    config.module.rules.push({
+      test: /\.json$/,
+      type: 'json',
+    })
+
     // Optimize bundle size
     if (!isServer) {
       config.optimization = {
