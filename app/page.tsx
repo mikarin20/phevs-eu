@@ -734,7 +734,7 @@ export default function Home() {
       dataNotFound: 'Data not found',
       selectToCompare: 'Please select a vehicle to compare',
       heroTitle: "Europe's Most Comprehensive PHEV Comparison Platform",
-      heroDescription: 'Compare 85 plug-in hybrid electric vehicles from 28 premium brands. Find the perfect PHEV for your lifestyle.',
+      heroDescription: 'Compare 126 plug-in hybrid electric vehicles from 30 premium brands. Find the perfect PHEV for your lifestyle.',
       phevModels: 'PHEV Models',
       premiumBrands: 'Premium Brands',
       vehicleSegments: 'Vehicle Segments',
@@ -811,7 +811,7 @@ export default function Home() {
       dataNotFound: 'Daten nicht gefunden',
       selectToCompare: 'Bitte wählen Sie ein Fahrzeug zum Vergleichen',
       heroTitle: 'Europas umfassendste PHEV-Vergleichsplattform',
-      heroDescription: 'Vergleichen Sie 85 Plug-in-Hybrid-Elektrofahrzeuge von 28 Premium-Marken. Finden Sie das perfekte PHEV für Ihren Lebensstil.',
+      heroDescription: 'Vergleichen Sie 126 Plug-in-Hybrid-Elektrofahrzeuge von 30 Premium-Marken. Finden Sie das perfekte PHEV für Ihren Lebensstil.',
       phevModels: 'PHEV-Modelle',
       premiumBrands: 'Premium-Marken',
       vehicleSegments: 'Fahrzeugsegmente',
@@ -888,7 +888,7 @@ export default function Home() {
       dataNotFound: 'Veri bulunamadı',
       selectToCompare: 'Lütfen önce karşılaştırmak için araç seçin',
       heroTitle: 'Avrupa\'nın En Kapsamlı PHEV Karşılaştırma Platformu',
-      heroDescription: '28 premium markadan 85 plug-in hibrit elektrikli aracı karşılaştırın. Yaşam tarzınıza uygun mükemmel PHEV\'i bulun.',
+      heroDescription: '30 premium markadan 126 plug-in hibrit elektrikli aracı karşılaştırın. Yaşam tarzınıza uygun mükemmel PHEV\'i bulun.',
       phevModels: 'PHEV Modelleri',
       premiumBrands: 'Premium Markalar',
       vehicleSegments: 'Araç Segmentleri',
@@ -965,7 +965,7 @@ export default function Home() {
       dataNotFound: 'Nie znaleziono danych',
       selectToCompare: 'Wybierz pojazd do porównania',
       heroTitle: 'Najbardziej kompleksowa europejska platforma porównawcza PHEV',
-      heroDescription: 'Porównaj 85 hybrydowych pojazdów elektrycznych plug-in od 28 premium marek. Znajdź idealny PHEV dla swojego stylu życia.',
+      heroDescription: 'Porównaj 126 hybrydowych pojazdów elektrycznych plug-in od 30 premium marek. Znajdź idealny PHEV dla swojego stylu życia.',
       phevModels: 'Modele PHEV',
       premiumBrands: 'Marki Premium',
       vehicleSegments: 'Segmenty Pojazdów',
@@ -998,7 +998,7 @@ export default function Home() {
     "@type": "WebSite",
     "name": "PHEVs.eu",
     "url": "https://phevs.eu",
-    "description": "Europe's most comprehensive plug-in hybrid vehicle comparison platform. Compare 87 PHEV models from 28 brands.",
+    "description": "Europe's most comprehensive plug-in hybrid vehicle comparison platform. Compare 126 PHEV models from 30 brands.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://phevs.eu?search={search_term_string}",
@@ -2467,7 +2467,7 @@ export default function Home() {
                 Which PHEV brands are available in Europe?
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                We compare PHEVs from 28 premium brands including BMW, Mercedes-Benz, Audi, Volkswagen, Toyota, 
+                We compare PHEVs from 30 premium brands including BMW, Mercedes-Benz, Audi, Volkswagen, Toyota, 
                 Volvo, and many more. All models are available in European markets.
               </p>
             </div>
