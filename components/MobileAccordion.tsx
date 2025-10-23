@@ -8,13 +8,17 @@ interface MobileAccordionProps {
   children: React.ReactNode
   defaultOpen?: boolean
   className?: string
+  textColor?: string
+  iconColor?: string
 }
 
 export default function MobileAccordion({ 
   title, 
   children, 
   defaultOpen = false,
-  className = ""
+  className = "",
+  textColor = "text-gray-900 dark:text-white",
+  iconColor = "text-gray-500"
 }: MobileAccordionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
@@ -26,13 +30,13 @@ export default function MobileAccordion({
           e.stopPropagation()
           setIsOpen(!isOpen)
         }}
-        className="w-full flex items-center justify-between py-3 px-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+        className="w-full flex items-center justify-between py-3 px-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
       >
-        <span className="font-medium text-gray-900 dark:text-white">{title}</span>
+        <span className={`font-medium ${textColor}`}>{title}</span>
         {isOpen ? (
-          <ChevronUpIcon className="h-5 w-5 text-gray-500" />
+          <ChevronUpIcon className={`h-5 w-5 ${iconColor}`} />
         ) : (
-          <ChevronDownIcon className="h-5 w-5 text-gray-500" />
+          <ChevronDownIcon className={`h-5 w-5 ${iconColor}`} />
         )}
       </button>
       

@@ -21,7 +21,10 @@ import {
   EyeIcon,
   PlusIcon,
   CalculatorIcon,
-  Cog6ToothIcon
+  Cog6ToothIcon,
+  UserGroupIcon,
+  ShieldCheckIcon,
+  ScaleIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -32,7 +35,6 @@ import EuroNCAPStars from '@/components/EuroNCAPStars'
 import dynamic from 'next/dynamic'
 
 // Statik importlar
-import Tooltip from '@/components/Tooltip'
 import HybridLogo from '@/components/HybridLogo'
 
 // Dinamik importlar
@@ -69,6 +71,7 @@ interface Car {
   price_eur: number
   image_url: string
   power_hp: number
+  electric_motor_power_hp?: number
   engine_displacement?: number
   co2_emission: number
   charge_time_ac: number
@@ -232,6 +235,18 @@ export default function Home() {
       href: '/compare/renault-rafale-phev-vs-mg-hs-phev',
       leftCar: { name: 'Renault Rafale', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
       rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+    },
+    {
+      id: 'jeep-wrangler-compass',
+      href: '/compare/jeep-wrangler-4xe-vs-jeep-compass-4xe',
+      leftCar: { name: 'Jeep Wrangler 4xe', image: '/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg', alt: 'Jeep Wrangler 4xe', specs: '45km • €65,000' },
+      rightCar: { name: 'Jeep Compass 4xe', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' }
+    },
+    {
+      id: 'jeep-compass-renegade',
+      href: '/compare/jeep-compass-4xe-vs-jeep-renegade-4xe',
+      leftCar: { name: 'Jeep Compass 4xe', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' },
+      rightCar: { name: 'Jeep Renegade 4xe', image: '/images/cars/brands/jeep/renegade-4xe-240hp/main.jpeg', alt: 'Jeep Renegade 4xe', specs: '42km • €35,000' }
     },
     {
       id: 'kia-mg',
@@ -1818,9 +1833,7 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="WLTP (Worldwide Harmonized Light Vehicles Test Procedure) - Official EU test standard for electric range">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.evRange}:</span>
-                        </Tooltip>
+                        <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
@@ -1831,176 +1844,58 @@ export default function Home() {
                       <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="Battery capacity in kilowatt-hours (kWh) - Higher capacity means longer electric range">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.battery}:</span>
-                        </Tooltip>
+                        <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                         </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <CurrencyEuroIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="Fuel consumption in liters per 100km - Lower values mean better fuel efficiency">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.fuelConsumption}:</span>
-                        </Tooltip>
-                        </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
-                        </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="Total power output in horsepower (HP) - Combined electric and combustion engine power">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.totalPower}:</span>
-                        </Tooltip>
+                        <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="AC charging time in hours - Time to fully charge the battery using home/office charger">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.chargeTime}:</span>
-                        </Tooltip>
+                        <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
+                        <ScaleIcon className="h-3 w-3 text-[#4F7C82]" />
+                        <span className={`${currentTheme.textPrimary}`}>Weight:</span>
+                      </div>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
                         <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="Engine displacement in liters - Internal combustion engine size">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.engine}:</span>
-                        </Tooltip>
+                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
                       </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>
-                        {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
-                      </span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
                     </div>
-                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
+                        <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
+                      </div>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
+                    </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="CO2 emissions in grams per kilometer - Lower values mean better environmental performance">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.co2}:</span>
-                        </Tooltip>
+                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
                       </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
+                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
                     </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="Trunk volume in liters - Cargo space capacity">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.trunk}:</span>
-                        </Tooltip>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="Vehicle weight in kilograms - Affects efficiency and performance">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>Weight:</span>
-                        </Tooltip>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg}kg</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="Battery chemistry type - Affects performance, lifespan and safety">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>Battery Type:</span>
-                        </Tooltip>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_chemistry}</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <Tooltip content="Warranty period in years - Manufacturer's guarantee coverage">
-                          <span className={`${currentTheme.textPrimary} cursor-help`}>{t.warranty}:</span>
-                        </Tooltip>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.warranty_years} years</span>
-                    </div>
-                    {/* Charging Information */}
-                    <div className="space-y-2">
-                      {car.charging_port ? (
-                        <>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                              <Tooltip content="AC charging port type, location and capabilities">
-                                <span className={`${currentTheme.textPrimary} cursor-help`}>AC {t.charging}:</span>
-                              </Tooltip>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
-                              {car.charging_port.ac_type} ({car.charging_port.ac_location})
-                              {car.charging_port.ac_phases && ` - ${car.charging_port.ac_phases}ph`}
-                              {car.charging_capabilities?.ac_power && ` - ${car.charging_capabilities.ac_power}kW`}
-                            </span>
-                          </div>
-                          {(car.charging_port.dc_type && (car.charging_port.dc_location || car.charging_capabilities?.dc_power)) && (
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center space-x-2">
-                                <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                                <Tooltip content="DC fast charging port type, location and max power">
-                                  <span className={`${currentTheme.textPrimary} cursor-help`}>DC {t.charging}:</span>
-                                </Tooltip>
-                              </div>
-                              <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
-                                {car.charging_port.dc_type} ({car.charging_port.dc_location})
-                                {car.charging_capabilities?.dc_power && ` - ${car.charging_capabilities.dc_power}kW`}
-                              </span>
-                            </div>
-                          )}
-                        </>
-                      ) : (
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>{t.charging}:</span>
-                          </div>
-                          <span className="text-xs text-amber-600">{t.manufacturerPending}</span>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Battery Details */}
-                    {car.battery_details && (
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <Tooltip content="Battery chemistry and architecture">
-                              <span className={`${currentTheme.textPrimary} cursor-help`}>Batarya Tipi:</span>
-                            </Tooltip>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
-                            {car.battery_details.chemistry} - {car.battery_details.architecture}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <Tooltip content="Battery warranty and degradation">
-                              <span className={`${currentTheme.textPrimary} cursor-help`}>Garanti:</span>
-                            </Tooltip>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
-                            {car.battery_details.warranty_capacity}% - {car.warranty_years} yıl
-                          </span>
-                        </div>
-                      </div>
-                    )}
 
                     </div>
 
                   {/* Mobile Accordions */}
                   <div className="sm:hidden mb-4 space-y-2">
-                    <MobileAccordion title="Key Features" defaultOpen={true}>
+                    <MobileAccordion title="Key Features" defaultOpen={true} textColor={currentTheme.textPrimary} iconColor={currentTheme.iconColor}>
                       <div className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
@@ -2023,27 +1918,6 @@ export default function Home() {
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
                         </div>
-                      </div>
-                    </MobileAccordion>
-
-                    <MobileAccordion title="Performance & Efficiency">
-                      <div className="space-y-3 text-sm">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <CurrencyEuroIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>
-                            {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
-                          </span>
-                        </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
@@ -2051,46 +1925,38 @@ export default function Home() {
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                         </div>
-                        {car.charging_port && (
-                          <>
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center space-x-2">
-                                <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                                <span className={`${currentTheme.textPrimary}`}>AC {t.charging}:</span>
-                              </div>
-                              <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
-                                {car.charging_port.ac_type} ({car.charging_port.ac_location})
-                              </span>
-                            </div>
-                            {(car.charging_port.dc_type && (car.charging_port.dc_location || car.charging_capabilities?.dc_power)) && (
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center space-x-2">
-                                  <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                                  <span className={`${currentTheme.textPrimary}`}>DC {t.charging}:</span>
-                                </div>
-                                <span className={`font-semibold ${currentTheme.textPrimary} text-xs`}>
-                                  {car.charging_port.dc_type} ({car.charging_port.dc_location})
-                                </span>
-                              </div>
-                            )}
-                          </>
-                        )}
-                      </div>
-                    </MobileAccordion>
-
-                    <MobileAccordion title="Practical Details">
-                      <div className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <span className={`${currentTheme.textPrimary}`}>Year:</span>
+                            <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>Engine:</span>
                           </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.year}</span>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <span className={`${currentTheme.textPrimary}`}>Segment:</span>
+                            <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
                           </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.segment}</span>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
+                        </div>
+                      </div>
+                    </MobileAccordion>
+
+                    <MobileAccordion title="Performance & Efficiency" textColor={currentTheme.textPrimary} iconColor={currentTheme.iconColor}>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                            <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
+                          </div>
+                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                         </div>
                       </div>
                     </MobileAccordion>
@@ -2274,7 +2140,7 @@ export default function Home() {
                     </div>
 
                     {/* Specifications - Desktop */}
-                    <div className="hidden sm:block mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+                    <div className="hidden sm:block mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
                         <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
@@ -2296,11 +2162,6 @@ export default function Home() {
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
                         <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
@@ -2311,17 +2172,45 @@ export default function Home() {
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                       </div>
                       <div className="flex items-center space-x-2">
+                        <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>{t.price}:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>€{car.price_eur?.toLocaleString()}</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <UserGroupIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Seats:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.seats}</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <ShieldCheckIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Warranty:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.warranty_years} years</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <ScaleIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Weight:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
                         <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>
-                          {car.engine_displacement ? `${car.engine_displacement}L` : 'N/A'}
-                        </span>
+                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
+                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
                       </div>
                     </div>
 
                     {/* Mobile Accordions */}
                     <div className="sm:hidden mt-4 space-y-2">
-                      <MobileAccordion title="Key Features" defaultOpen={true}>
+                      <MobileAccordion title="Key Features" defaultOpen={true} textColor={currentTheme.textPrimary} iconColor={currentTheme.iconColor}>
                         <div className="space-y-3 text-sm">
                           <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
@@ -2344,24 +2233,6 @@ export default function Home() {
                             </div>
                             <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
                           </div>
-                        </div>
-                      </MobileAccordion>
-
-                      <MobileAccordion title="Performance & Efficiency">
-                        <div className="space-y-3 text-sm">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                              <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <span className={`${currentTheme.textPrimary}`}>{t.co2}:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.co2_emission} g/km</span>
-                          </div>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-2">
                               <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
@@ -2369,28 +2240,52 @@ export default function Home() {
                             </div>
                             <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                           </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>{t.price}:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>€{car.price_eur?.toLocaleString()}</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <UserGroupIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>Seats:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.seats}</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
+                            </div>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
+                          </div>
                         </div>
                       </MobileAccordion>
 
-                      <MobileAccordion title="Practical Details">
+                      <MobileAccordion title="Performance & Efficiency" textColor={currentTheme.textPrimary} iconColor={currentTheme.iconColor}>
                         <div className="space-y-3 text-sm">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-2">
-                              <span className={`${currentTheme.textPrimary}`}>Trunk:</span>
+                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                              <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
                             </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.trunk_volume}L</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <span className={`${currentTheme.textPrimary}`}>Year:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.year}</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <span className={`${currentTheme.textPrimary}`}>Segment:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.segment}</span>
+                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
                           </div>
                         </div>
                       </MobileAccordion>
