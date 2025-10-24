@@ -271,6 +271,18 @@ export default function Home() {
       href: '/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
       leftCar: { name: 'Land Rover Defender', image: '/images/cars/brands/land-rover/defender-110/main.jpg', alt: 'Land Rover Defender', specs: '43km • €75,000' },
       rightCar: { name: 'Discovery Sport', image: '/images/cars/brands/land-rover/discovery-sport/main.jpg', alt: 'Discovery Sport', specs: '55km • €52,000' }
+    },
+    {
+      id: 'lexus-nx-rx',
+      href: '/compare/lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev',
+      leftCar: { name: 'Lexus NX 450h+', image: '/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg', alt: 'Lexus NX 450h+', specs: '76km • €52,000' },
+      rightCar: { name: 'Lexus RX 450h+', image: '/images/cars/brands/lexus/rx-450h-plus-phev/main.jpg', alt: 'Lexus RX 450h+', specs: '65km • €68,000' }
+    },
+    {
+      id: 'lexus-es-ux',
+      href: '/compare/lexus-es-300h-phev-vs-lexus-ux-300e-phev',
+      leftCar: { name: 'Lexus ES 300h', image: '/images/cars/brands/lexus/es-300h-phev/main.jpg', alt: 'Lexus ES 300h', specs: '70km • €55,000' },
+      rightCar: { name: 'Lexus UX 300e', image: '/images/cars/brands/lexus/ux-300e-phev/main.jpg', alt: 'Lexus UX 300e', specs: '55km • €45,000' }
     }
   ]
 

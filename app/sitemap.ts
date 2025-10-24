@@ -111,7 +111,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     let priority = 0.6
     
     // Popüler markalar için yüksek öncelik
-    const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia', 'Land Rover']
+    const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia', 'Land Rover', 'Lexus']
     if (popularBrands.includes(car.brand)) {
       priority = 0.8
     }

@@ -3,167 +3,188 @@ import Link from 'next/link'
 import { ChevronRightIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 
 export const metadata: Metadata = {
-  title: 'PHEV SSS - Sık Sorulan Sorular | PHEVs.eu',
-  description: 'Plug-in hibrit elektrikli araçlar hakkında en sık sorulan sorular ve detaylı cevaplar. PHEV satın alma, şarj, menzil ve teknik özellikler hakkında bilmeniz gereken her şey.',
+  title: 'All You Need to Know About PHEV - Complete Guide | PHEVs.eu',
+  description: 'Complete guide to Plug-in Hybrid Electric Vehicles (PHEV). Everything you need to know about PHEV technology, buying guide, charging, range, benefits, and more.',
   keywords: [
-    'PHEV SSS',
-    'plug-in hibrit sorular',
-    'PHEV satın alma rehberi',
-    'hibrit araç soruları',
-    'elektrikli araç SSS',
-    'PHEV şarj soruları',
-    'hibrit araç menzil'
+    'PHEV guide',
+    'plug-in hybrid complete guide',
+    'PHEV everything you need to know',
+    'hybrid car guide',
+    'PHEV technology explained',
+    'plug-in hybrid benefits',
+    'PHEV buying guide',
+    'hybrid vehicle guide'
   ],
   openGraph: {
-    title: 'PHEV SSS - Sık Sorulan Sorular | PHEVs.eu',
-    description: 'Plug-in hibrit elektrikli araçlar hakkında en sık sorulan sorular ve detaylı cevaplar.',
+    title: 'All You Need to Know About PHEV - Complete Guide',
+    description: 'Complete guide to Plug-in Hybrid Electric Vehicles (PHEV). Everything you need to know about PHEV technology, benefits, and buying guide.',
     type: 'website',
   },
 }
 
-const faqCategories = [
+const guideCategories = [
   {
-    id: 'genel',
-    title: 'Genel Sorular',
-    icon: '🔍',
-    questions: [
+    id: 'basics',
+    title: 'PHEV Basics & Technology',
+    icon: '🔧',
+    description: 'Understanding PHEV technology and how it works',
+    color: 'bg-blue-50 dark:bg-blue-900/20',
+    textColor: 'text-blue-700 dark:text-blue-300',
+    borderColor: 'border-blue-200 dark:border-blue-700',
+    topics: [
       {
         id: 'phev-nedir',
-        question: 'PHEV nedir ve nasıl çalışır?',
-        shortAnswer: 'Plug-in Hybrid Electric Vehicle (PHEV), hem elektrik motoru hem de benzin motoru bulunan hibrit araçlardır.',
+        title: 'What is PHEV and How Does It Work?',
+        shortDescription: 'Complete explanation of Plug-in Hybrid Electric Vehicle technology',
         slug: 'phev-nedir-nasil-calisir'
       },
       {
         id: 'phev-bev-fark',
-        question: 'PHEV ile BEV arasındaki fark nedir?',
-        shortAnswer: 'PHEV hem elektrik hem benzin kullanırken, BEV sadece elektrikle çalışır.',
+        title: 'PHEV vs BEV vs Hybrid: Key Differences',
+        shortDescription: 'Understanding different types of electric and hybrid vehicles',
         slug: 'phev-bev-farki-nedir'
       },
       {
         id: 'phev-avantajlari',
-        question: 'PHEV\'in avantajları nelerdir?',
-        shortAnswer: 'Düşük yakıt tüketimi, uzun menzil, şarj altyapısı bağımsızlığı ve çevre dostu sürüş.',
+        title: 'Benefits and Advantages of PHEV',
+        shortDescription: 'Why choose PHEV over other vehicle types',
         slug: 'phev-avantajlari-nelerdir'
       }
     ]
   },
   {
-    id: 'satin-alma',
-    title: 'Satın Alma Rehberi',
+    id: 'buying',
+    title: 'Buying Guide',
     icon: '💰',
-    questions: [
+    description: 'Complete guide to buying your first PHEV',
+    color: 'bg-green-50 dark:bg-green-900/20',
+    textColor: 'text-green-700 dark:text-green-300',
+    borderColor: 'border-green-200 dark:border-green-700',
+    topics: [
       {
         id: 'phev-satin-alma-rehberi',
-        question: 'PHEV satın alırken nelere dikkat etmeliyim?',
-        shortAnswer: 'Menzil, şarj süresi, fiyat, garanti ve servis ağı gibi faktörleri değerlendirin.',
+        title: 'Complete PHEV Buying Guide',
+        shortDescription: 'Everything to consider when buying a PHEV',
         slug: 'phev-satin-alma-rehberi'
       },
       {
         id: 'phev-fiyat-araligi',
-        question: 'PHEV fiyat aralığı nedir?',
-        shortAnswer: 'PHEV fiyatları 25.000€ ile 150.000€ arasında değişmektedir.',
+        title: 'PHEV Price Ranges & Budget Planning',
+        shortDescription: 'Understanding PHEV pricing and financing options',
         slug: 'phev-fiyat-araligi-nedir'
       },
       {
         id: 'phev-teşvikler',
-        question: 'PHEV için hangi teşvikler mevcut?',
-        shortAnswer: 'Ülkeye göre değişen devlet teşvikleri, vergi indirimleri ve şarj altyapı desteği.',
+        title: 'Government Incentives & Tax Benefits',
+        shortDescription: 'Available incentives and tax benefits for PHEV buyers',
         slug: 'phev-tesvikler-hangi-ulkelerde'
       }
     ]
   },
   {
-    id: 'teknik',
-    title: 'Teknik Özellikler',
+    id: 'technical',
+    title: 'Technical Specifications',
     icon: '⚙️',
-    questions: [
+    description: 'Understanding PHEV technical aspects and performance',
+    color: 'bg-purple-50 dark:bg-purple-900/20',
+    textColor: 'text-purple-700 dark:text-purple-300',
+    borderColor: 'border-purple-200 dark:border-purple-700',
+    topics: [
       {
         id: 'phev-menzil-hesaplama',
-        question: 'PHEV menzili nasıl hesaplanır?',
-        shortAnswer: 'WLTP test döngüsü ile belirlenen elektrik menzili ve hibrit menzil toplamı.',
+        title: 'PHEV Range Calculation & WLTP Standards',
+        shortDescription: 'How PHEV range is calculated and what WLTP means',
         slug: 'phev-menzil-hesaplama-nasil'
       },
       {
         id: 'phev-sarj-sureleri',
-        question: 'PHEV şarj süreleri ne kadar?',
-        shortAnswer: 'AC şarj 2-8 saat, DC hızlı şarj 30-60 dakika arasında değişir.',
+        title: 'Charging Times & Speed Comparison',
+        shortDescription: 'AC vs DC charging times and speed differences',
         slug: 'phev-sarj-sureleri-ne-kadar'
       },
       {
         id: 'phev-batarya-omru',
-        question: 'PHEV batarya ömrü ne kadar?',
-        shortAnswer: 'Modern PHEV bataryaları 8-10 yıl veya 150.000-200.000 km dayanabilir.',
+        title: 'Battery Life & Degradation',
+        shortDescription: 'Understanding PHEV battery lifespan and maintenance',
         slug: 'phev-batarya-omru-ne-kadar'
       }
     ]
   },
   {
-    id: 'sarj',
-    title: 'Şarj ve Altyapı',
+    id: 'charging',
+    title: 'Charging Infrastructure',
     icon: '🔌',
-    questions: [
+    description: 'Everything about PHEV charging and infrastructure',
+    color: 'bg-orange-50 dark:bg-orange-900/20',
+    textColor: 'text-orange-700 dark:text-orange-300',
+    borderColor: 'border-orange-200 dark:border-orange-700',
+    topics: [
       {
         id: 'phev-sarj-tipleri',
-        question: 'PHEV şarj tipleri nelerdir?',
-        shortAnswer: 'Type 2 AC şarj, CCS DC hızlı şarj ve ev tipi şarj cihazları.',
+        title: 'Charging Types & Connectors',
+        shortDescription: 'Type 2, CCS, and home charging options explained',
         slug: 'phev-sarj-tipleri-nelerdir'
       },
       {
         id: 'ev-sarj-cihazi',
-        question: 'Evde PHEV şarj cihazı gerekli mi?',
-        shortAnswer: 'Zorunlu değil ama daha hızlı ve güvenli şarj için önerilir.',
+        title: 'Home Charging Solutions',
+        shortDescription: 'Do you need a home charging station?',
         slug: 'ev-phev-sarj-cihazi-gerekli-mi'
       },
       {
         id: 'sarj-istasyonu-bulma',
-        question: 'PHEV şarj istasyonu nasıl bulunur?',
-        shortAnswer: 'Mobil uygulamalar, harita servisleri ve araç içi navigasyon ile.',
+        title: 'Finding Charging Stations',
+        shortDescription: 'Apps and tools to locate charging stations',
         slug: 'phev-sarj-istasyonu-nasil-bulunur'
       }
     ]
   },
   {
-    id: 'bakim',
-    title: 'Bakım ve Servis',
+    id: 'maintenance',
+    title: 'Maintenance & Service',
     icon: '🔧',
-    questions: [
+    description: 'PHEV maintenance, service, and ownership costs',
+    color: 'bg-red-50 dark:bg-red-900/20',
+    textColor: 'text-red-700 dark:text-red-300',
+    borderColor: 'border-red-200 dark:border-red-700',
+    topics: [
       {
         id: 'phev-bakim-maliyeti',
-        question: 'PHEV bakım maliyeti nedir?',
-        shortAnswer: 'Geleneksel araçlara göre daha düşük bakım maliyeti, daha az fren ve motor bakımı.',
+        title: 'Maintenance Costs & Savings',
+        shortDescription: 'Understanding PHEV maintenance costs vs traditional cars',
         slug: 'phev-bakim-maliyeti-nedir'
       },
       {
         id: 'phev-garanti-suresi',
-        question: 'PHEV garanti süresi ne kadar?',
-        shortAnswer: 'Genellikle 3-5 yıl veya 100.000 km, batarya için 8 yıl garanti.',
+        title: 'Warranty Coverage & Terms',
+        shortDescription: 'PHEV warranty coverage and battery guarantees',
         slug: 'phev-garanti-suresi-ne-kadar'
       },
       {
         id: 'phev-servis-aglari',
-        question: 'PHEV servis ağları yeterli mi?',
-        shortAnswer: 'Ana markaların servis ağları PHEV bakımı için yeterli ekipmana sahip.',
+        title: 'Service Network & Support',
+        shortDescription: 'PHEV service network availability and support',
         slug: 'phev-servis-aglari-yeterli-mi'
       }
     ]
   }
 ]
 
-export default function FAQPage() {
-  // FAQ Structured Data
+export default function PHEVGuidePage() {
+  // Guide Structured Data
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqCategories.flatMap(category => 
-      category.questions.map(faq => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.shortAnswer
-        }
-      }))
-    )
+    "@type": "Guide",
+    "name": "All You Need to Know About PHEV - Complete Guide",
+    "description": "Complete guide to Plug-in Hybrid Electric Vehicles (PHEV). Everything you need to know about PHEV technology, benefits, and buying guide.",
+    "author": {
+      "@type": "Organization",
+      "name": "PHEVs.eu"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Plug-in Hybrid Electric Vehicles"
+    }
   }
 
   return (
@@ -177,15 +198,22 @@ export default function FAQPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-4">
-              <QuestionMarkCircleIcon className="h-12 w-12 text-blue-600 dark:text-blue-400" />
+              <div className="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-full">
+                <QuestionMarkCircleIcon className="h-12 w-12 text-blue-600 dark:text-blue-400" />
+              </div>
             </div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              PHEV Sık Sorulan Sorular
+              All You Need to Know About PHEV
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Plug-in hibrit elektrikli araçlar hakkında merak ettiğiniz her şeyi detaylı cevaplarla bulun.
-              Uzman ekibimiz tarafından hazırlanan kapsamlı rehberler.
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6">
+              Complete guide to Plug-in Hybrid Electric Vehicles. Everything you need to know about PHEV technology, 
+              benefits, buying guide, charging, and maintenance.
             </p>
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 max-w-2xl mx-auto">
+              <p className="text-blue-800 dark:text-blue-200 font-medium">
+                📚 Comprehensive PHEV Guide • 🔧 Technical Details • 💰 Buying Tips • 🔌 Charging Solutions
+              </p>
+            </div>
           </div>
 
           {/* FAQ Categories */}
