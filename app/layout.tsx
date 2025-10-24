@@ -191,7 +191,7 @@ export default function RootLayout({
                     <h4 className="text-sm font-semibold text-white mb-3">Resources</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
                       <li><a href="/compare" className="hover:text-white transition-colors" title="Compare Vehicles">Compare Vehicles</a></li>
-                      <li><a href="/faq" className="hover:text-white transition-colors" title="FAQ">FAQ</a></li>
+                      <li><a href="/faq" className="hover:text-white transition-colors" title="All You Need to Know About PHEV">All You Need to Know About PHEV</a></li>
                       <li><a href="/guides" className="hover:text-white transition-colors" title="PHEV Guides">PHEV Guides</a></li>
                       <li><a href="/calculator" className="hover:text-white transition-colors" title="Range Calculator">Range Calculator</a></li>
                     </ul>

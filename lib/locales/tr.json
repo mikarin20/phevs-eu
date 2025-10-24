@@ -1,0 +1,42 @@
+{
+  "faq": {
+    "title": "PHEV Hakkında Bilmeniz Gereken Her Şey",
+    "subtitle": "Plug-in Hibrit Elektrikli Araçlar için kapsamlı rehber. PHEV teknolojisi, faydaları, satın alma rehberi, şarj ve bakım hakkında bilmeniz gereken her şey.",
+    "categories": {
+      "basics": {
+        "title": "PHEV Temelleri ve Teknoloji",
+        "description": "PHEV teknolojisini ve nasıl çalıştığını anlama"
+      },
+      "buying": {
+        "title": "Satın Alma Rehberi",
+        "description": "İlk PHEV'inizi satın alma için kapsamlı rehber"
+      },
+      "technical": {
+        "title": "Teknik Özellikler",
+        "description": "PHEV sistemleri hakkında detaylı teknik bilgi"
+      },
+      "charging": {
+        "title": "Şarj ve Altyapı",
+        "description": "PHEV şarj çözümleri hakkında her şey"
+      },
+      "maintenance": {
+        "title": "Bakım ve Servis",
+        "description": "PHEV bakım ve servis bilgileri"
+      }
+    },
+    "topics": {
+      "phev-nedir": {
+        "title": "PHEV Nedir ve Nasıl Çalışır?",
+        "description": "Plug-in Hibrit Elektrikli Araç teknolojisinin kapsamlı açıklaması"
+      },
+      "phev-bev-fark": {
+        "title": "PHEV vs BEV vs Hibrit: Temel Farklar",
+        "description": "Farklı elektrikli ve hibrit araç türlerini anlama"
+      },
+      "phev-avantajlari": {
+        "title": "PHEV'in Faydaları ve Avantajları",
+        "description": "Neden diğer araç türleri yerine PHEV seçmelisiniz"
+      }
+    }
+  }
+}

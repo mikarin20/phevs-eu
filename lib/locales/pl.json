@@ -1,0 +1,42 @@
+{
+  "faq": {
+    "title": "Wszystko co musisz wiedzieć o PHEV",
+    "subtitle": "Kompleksowy przewodnik po pojazdach hybrydowych typu plug-in. Wszystko co musisz wiedzieć o technologii PHEV, korzyściach, przewodniku zakupowym, ładowaniu i konserwacji.",
+    "categories": {
+      "basics": {
+        "title": "Podstawy i technologia PHEV",
+        "description": "Zrozumienie technologii PHEV i jak działa"
+      },
+      "buying": {
+        "title": "Przewodnik zakupowy",
+        "description": "Kompleksowy przewodnik do zakupu pierwszego PHEV"
+      },
+      "technical": {
+        "title": "Specyfikacje techniczne",
+        "description": "Szczegółowe informacje techniczne o systemach PHEV"
+      },
+      "charging": {
+        "title": "Ładowanie i infrastruktura",
+        "description": "Wszystko o rozwiązaniach ładowania PHEV"
+      },
+      "maintenance": {
+        "title": "Konserwacja i serwis",
+        "description": "Informacje o konserwacji i serwisie PHEV"
+      }
+    },
+    "topics": {
+      "phev-nedir": {
+        "title": "Czym jest PHEV i jak działa?",
+        "description": "Kompleksowe wyjaśnienie technologii pojazdów hybrydowych typu plug-in"
+      },
+      "phev-bev-fark": {
+        "title": "PHEV vs BEV vs Hybrid: Kluczowe różnice",
+        "description": "Zrozumienie różnych typów pojazdów elektrycznych i hybrydowych"
+      },
+      "phev-avantajlari": {
+        "title": "Korzyści i zalety PHEV",
+        "description": "Dlaczego wybrać PHEV zamiast innych typów pojazdów"
+      }
+    }
+  }
+}

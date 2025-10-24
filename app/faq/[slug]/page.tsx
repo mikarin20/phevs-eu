@@ -357,6 +357,427 @@ const faqData = {
       'phev-tesvikler-hangi-ulkelerde',
       'phev-menzil-hesaplama-nasil'
     ]
+  },
+  'phev-fiyat-araligi-nedir': {
+    title: 'PHEV fiyat aralığı nedir?',
+    category: 'Satın Alma Rehberi',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV fiyatları, model, marka ve özelliklere göre değişiklik gösterir. Genel olarak geleneksel benzinli araçlardan daha pahalı olsa da, uzun vadede yakıt tasarrufu ile bu fark kapanır.',
+      sections: [
+        {
+          title: 'Fiyat Aralıkları',
+          content: `
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800">Giriş Seviyesi</h4>
+                <p class="text-2xl font-bold text-green-600">€25,000 - €35,000</p>
+                <ul class="text-sm text-green-700 mt-2">
+                  <li>• Kia Niro PHEV</li>
+                  <li>• Hyundai IONIQ PHEV</li>
+                  <li>• Toyota Prius Prime</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800">Orta Segment</h4>
+                <p class="text-2xl font-bold text-blue-600">€35,000 - €50,000</p>
+                <ul class="text-sm text-blue-700 mt-2">
+                  <li>• BMW 3 Series PHEV</li>
+                  <li>• Audi A3 e-tron</li>
+                  <li>• Mercedes C-Class PHEV</li>
+                </ul>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-purple-800">Lüks Segment</h4>
+                <p class="text-2xl font-bold text-purple-600">€50,000+</p>
+                <ul class="text-sm text-purple-700 mt-2">
+                  <li>• BMW X5 PHEV</li>
+                  <li>• Porsche Cayenne PHEV</li>
+                  <li>• Range Rover PHEV</li>
+                </ul>
+              </div>
+            </div>
+          `
+        },
+        {
+          title: 'Fiyatı Etkileyen Faktörler',
+          content: `
+            <ul class="space-y-3">
+              <li><strong>Batarya Kapasitesi:</strong> Daha büyük batarya = daha yüksek fiyat</li>
+              <li><strong>Elektrik Menzili:</strong> Uzun menzil = premium fiyat</li>
+              <li><strong>Marka Prestiji:</strong> Lüks markalar daha pahalı</li>
+              <li><strong>Donanım Seviyesi:</strong> Premium donanım ek maliyet</li>
+              <li><strong>Ülke Vergileri:</strong> Vergi oranları fiyatı etkiler</li>
+            </ul>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-satin-alma-rehberi',
+      'phev-tesvikler-hangi-ulkelerde',
+      'phev-bakim-maliyeti-nedir'
+    ]
+  },
+  'phev-tesvikler-hangi-ulkelerde': {
+    title: 'PHEV teşvikleri hangi ülkelerde mevcut?',
+    category: 'Satın Alma Rehberi',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'Avrupa ülkelerinde PHEV satın alımını teşvik etmek için çeşitli devlet teşvikleri ve vergi indirimleri bulunmaktadır.',
+      sections: [
+        {
+          title: 'Avrupa Ülkeleri Teşvikleri',
+          content: `
+            <div class="space-y-4">
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-semibold">🇩🇪 Almanya</h4>
+                <p>• Çevre bonusu: €4,500 (2023 sonrası €3,000)</p>
+                <p>• KDV indirimi: %19'dan %7'ye</p>
+                <p>• Motorlu taşıt vergisi muafiyeti</p>
+              </div>
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-semibold">🇫🇷 Fransa</h4>
+                <p>• Bonus écologique: €2,000 - €5,000</p>
+                <p>• Prime à la conversion: €1,000 - €4,000</p>
+                <p>• CO2 vergisi indirimi</p>
+              </div>
+              <div class="border-l-4 border-red-500 pl-4">
+                <h4 class="font-semibold">🇳🇱 Hollanda</h4>
+                <p>• BPM vergisi muafiyeti</p>
+                <p>• Şirket araçları için vergi avantajı</p>
+                <p>• Şehir merkezi giriş ücretsiz</p>
+              </div>
+            </div>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-satin-alma-rehberi',
+      'phev-fiyat-araligi-nedir',
+      'phev-bakim-maliyeti-nedir'
+    ]
+  },
+  'phev-menzil-hesaplama-nasil': {
+    title: 'PHEV menzil hesaplama nasıl yapılır?',
+    category: 'Teknik Özellikler',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV menzil hesaplama, WLTP standartlarına göre yapılır ve gerçek sürüş koşullarından farklı olabilir.',
+      sections: [
+        {
+          title: 'WLTP Standartları',
+          content: `
+            <p>WLTP (Worldwide Harmonized Light Vehicles Test Procedure), PHEV menzilini standart koşullarda test eder:</p>
+            <ul>
+              <li>• Sıcaklık: 23°C</li>
+              <li>• Rüzgar: Yok</li>
+              <li>• Yol yüzeyi: Düz</li>
+              <li>• Hız: Şehir içi + otoyol karışımı</li>
+            </ul>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-nedir-nasil-calisir',
+      'phev-sarj-sureleri-ne-kadar',
+      'phev-batarya-omru-ne-kadar'
+    ]
+  },
+  'phev-sarj-sureleri-ne-kadar': {
+    title: 'PHEV şarj süreleri ne kadar?',
+    category: 'Teknik Özellikler',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV şarj süreleri, şarj türü ve batarya kapasitesine göre değişir.',
+      sections: [
+        {
+          title: 'Şarj Süreleri',
+          content: `
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4>AC Şarj (Ev/İş)</h4>
+                <ul>
+                  <li>• 3.7 kW: 4-6 saat</li>
+                  <li>• 7.4 kW: 2-3 saat</li>
+                  <li>• 11 kW: 1.5-2 saat</li>
+                </ul>
+              </div>
+              <div>
+                <h4>DC Hızlı Şarj</h4>
+                <ul>
+                  <li>• 50 kW: 30-45 dakika</li>
+                  <li>• 150 kW: 15-20 dakika</li>
+                </ul>
+              </div>
+            </div>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-sarj-tipleri-nelerdir',
+      'phev-menzil-hesaplama-nasil',
+      'phev-batarya-omru-ne-kadar'
+    ]
+  },
+  'phev-batarya-omru-ne-kadar': {
+    title: 'PHEV batarya ömrü ne kadar?',
+    category: 'Teknik Özellikler',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV bataryaları genellikle 8-10 yıl veya 150,000-200,000 km ömre sahiptir.',
+      sections: [
+        {
+          title: 'Batarya Ömrü Faktörleri',
+          content: `
+            <ul>
+              <li>• Sıcaklık kontrolü</li>
+              <li>• Şarj alışkanlıkları</li>
+              <li>• Kullanım sıklığı</li>
+              <li>• Kalite ve teknoloji</li>
+            </ul>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-sarj-sureleri-ne-kadar',
+      'phev-bakim-maliyeti-nedir',
+      'phev-garanti-suresi-ne-kadar'
+    ]
+  },
+  'phev-sarj-tipleri-nelerdir': {
+    title: 'PHEV şarj tipleri nelerdir?',
+    category: 'Şarj ve Altyapı',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV\'ler farklı şarj tiplerini destekler. En yaygın olanları Type 2 AC ve CCS DC\'dir.',
+      sections: [
+        {
+          title: 'Şarj Tipleri',
+          content: `
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4>AC Şarj (Alternatif Akım)</h4>
+                <ul>
+                  <li>• Type 2 (Mennekes) - En yaygın</li>
+                  <li>• Ev şarj cihazları</li>
+                  <li>• İş yeri şarj noktaları</li>
+                  <li>• 3.7 kW - 22 kW güç</li>
+                </ul>
+              </div>
+              <div>
+                <h4>DC Şarj (Doğru Akım)</h4>
+                <ul>
+                  <li>• CCS Combo 2 - Hızlı şarj</li>
+                  <li>• CHAdeMO - Japon standardı</li>
+                  <li>• Hızlı şarj istasyonları</li>
+                  <li>• 50 kW - 350 kW güç</li>
+                </ul>
+              </div>
+            </div>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-sarj-sureleri-ne-kadar',
+      'ev-phev-sarj-cihazi-gerekli-mi',
+      'phev-sarj-istasyonu-nasil-bulunur'
+    ]
+  },
+  'ev-phev-sarj-cihazi-gerekli-mi': {
+    title: 'EV/PHEV şarj cihazı gerekli mi?',
+    category: 'Şarj ve Altyapı',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV sahipleri için ev şarj cihazı zorunlu değildir, ancak konfor ve hız açısından önerilir.',
+      sections: [
+        {
+          title: 'Şarj Seçenekleri',
+          content: `
+            <div class="space-y-4">
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-semibold">Ev Şarj Cihazı (Önerilen)</h4>
+                <p>• 7.4 kW güç</p>
+                <p>• 2-3 saatte tam şarj</p>
+                <p>• Gece şarjı için ideal</p>
+                <p>• Maliyet: €800-1,500</p>
+              </div>
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-semibold">Standart Ev Prizı</h4>
+                <p>• 2.3 kW güç</p>
+                <p>• 6-8 saatte tam şarj</p>
+                <p>• Acil durumlar için</p>
+                <p>• Ek maliyet yok</p>
+              </div>
+            </div>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-sarj-tipleri-nelerdir',
+      'phev-sarj-istasyonu-nasil-bulunur',
+      'phev-sarj-sureleri-ne-kadar'
+    ]
+  },
+  'phev-sarj-istasyonu-nasil-bulunur': {
+    title: 'PHEV şarj istasyonu nasıl bulunur?',
+    category: 'Şarj ve Altyapı',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV şarj istasyonları çeşitli uygulamalar ve haritalar ile kolayca bulunabilir.',
+      sections: [
+        {
+          title: 'Şarj İstasyonu Bulma Yöntemleri',
+          content: `
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4>Mobil Uygulamalar</h4>
+                <ul>
+                  <li>• PlugShare - En kapsamlı</li>
+                  <li>• ChargePoint - ABD odaklı</li>
+                  <li>• EVgo - Hızlı şarj</li>
+                  <li>• Tesla Supercharger</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Web Siteleri</h4>
+                <ul>
+                  <li>• OpenChargeMap.org</li>
+                  <li>• Zap-Map (İngiltere)</li>
+                  <li>• GoingElectric.de (Almanya)</li>
+                  <li>• ChargeFinder (Avrupa)</li>
+                </ul>
+              </div>
+            </div>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-sarj-tipleri-nelerdir',
+      'ev-phev-sarj-cihazi-gerekli-mi',
+      'phev-sarj-sureleri-ne-kadar'
+    ]
+  },
+  'phev-bakim-maliyeti-nedir': {
+    title: 'PHEV bakım maliyeti nedir?',
+    category: 'Bakım ve Servis',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV bakım maliyetleri geleneksel araçlara göre genellikle daha düşüktür.',
+      sections: [
+        {
+          title: 'Bakım Maliyetleri',
+          content: `
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4>Düşük Maliyetli Bakım</h4>
+                <ul>
+                  <li>• Fren balata değişimi az</li>
+                  <li>• Motor yağı değişimi az</li>
+                  <li>• Egzoz sistemi bakımı yok</li>
+                  <li>• Daha az aşınma</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Yüksek Maliyetli Bakım</h4>
+                <ul>
+                  <li>• Batarya değişimi (8-10 yıl)</li>
+                  <li>• Elektrik sistemi bakımı</li>
+                  <li>• Özel servis gereksinimi</li>
+                  <li>• Yedek parça maliyeti</li>
+                </ul>
+              </div>
+            </div>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-garanti-suresi-ne-kadar',
+      'phev-servis-aglari-yeterli-mi',
+      'phev-batarya-omru-ne-kadar'
+    ]
+  },
+  'phev-garanti-suresi-ne-kadar': {
+    title: 'PHEV garanti süresi ne kadar?',
+    category: 'Bakım ve Servis',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV garantileri genellikle 3-8 yıl arasında değişir ve batarya garantisi ayrıdır.',
+      sections: [
+        {
+          title: 'Garanti Türleri',
+          content: `
+            <div class="space-y-4">
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-semibold">Araç Garantisi</h4>
+                <p>• 3-5 yıl veya 100,000 km</p>
+                <p>• Motor ve şanzıman</p>
+                <p>• Elektrik sistemi</p>
+              </div>
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-semibold">Batarya Garantisi</h4>
+                <p>• 8 yıl veya 160,000 km</p>
+                <p>• Kapasite garantisi (%70-80)</p>
+                <p>• Ücretsiz değişim</p>
+              </div>
+            </div>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-bakim-maliyeti-nedir',
+      'phev-servis-aglari-yeterli-mi',
+      'phev-batarya-omru-ne-kadar'
+    ]
+  },
+  'phev-servis-aglari-yeterli-mi': {
+    title: 'PHEV servis ağları yeterli mi?',
+    category: 'Bakım ve Servis',
+    lastUpdated: '2025-01-27',
+    content: {
+      overview: 'PHEV servis ağları hızla gelişmekte ve çoğu büyük şehirde yeterli kapsama sahiptir.',
+      sections: [
+        {
+          title: 'Servis Ağı Durumu',
+          content: `
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4>Gelişmiş Servis</h4>
+                <ul>
+                  <li>• BMW, Mercedes, Audi</li>
+                  <li>• Toyota, Lexus</li>
+                  <li>• Volkswagen, Skoda</li>
+                  <li>• Kapsamlı ağ</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Gelişen Servis</h4>
+                <ul>
+                  <li>• Kia, Hyundai</li>
+                  <li>• MG, BYD</li>
+                  <li>• Hızla büyüyen ağ</li>
+                  <li>• Özel servis merkezleri</li>
+                </ul>
+              </div>
+            </div>
+          `
+        }
+      ]
+    },
+    relatedQuestions: [
+      'phev-bakim-maliyeti-nedir',
+      'phev-garanti-suresi-ne-kadar',
+      'phev-satin-alma-rehberi'
+    ]
   }
 }
 

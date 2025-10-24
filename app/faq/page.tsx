@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { ChevronRightIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
+import { getFaqTranslations } from '@/lib/i18n'
 
 export const metadata: Metadata = {
   title: 'All You Need to Know About PHEV - Complete Guide | PHEVs.eu',
@@ -22,161 +23,171 @@ export const metadata: Metadata = {
   },
 }
 
-const guideCategories = [
-  {
-    id: 'basics',
-    title: 'PHEV Basics & Technology',
-    icon: '🔧',
-    description: 'Understanding PHEV technology and how it works',
-    color: 'bg-blue-50 dark:bg-blue-900/20',
-    textColor: 'text-blue-700 dark:text-blue-300',
-    borderColor: 'border-blue-200 dark:border-blue-700',
-    topics: [
-      {
-        id: 'phev-nedir',
-        title: 'What is PHEV and How Does It Work?',
-        shortDescription: 'Complete explanation of Plug-in Hybrid Electric Vehicle technology',
-        slug: 'phev-nedir-nasil-calisir'
-      },
-      {
-        id: 'phev-bev-fark',
-        title: 'PHEV vs BEV vs Hybrid: Key Differences',
-        shortDescription: 'Understanding different types of electric and hybrid vehicles',
-        slug: 'phev-bev-farki-nedir'
-      },
-      {
-        id: 'phev-avantajlari',
-        title: 'Benefits and Advantages of PHEV',
-        shortDescription: 'Why choose PHEV over other vehicle types',
-        slug: 'phev-avantajlari-nelerdir'
-      }
-    ]
-  },
-  {
-    id: 'buying',
-    title: 'Buying Guide',
-    icon: '💰',
-    description: 'Complete guide to buying your first PHEV',
-    color: 'bg-green-50 dark:bg-green-900/20',
-    textColor: 'text-green-700 dark:text-green-300',
-    borderColor: 'border-green-200 dark:border-green-700',
-    topics: [
-      {
-        id: 'phev-satin-alma-rehberi',
-        title: 'Complete PHEV Buying Guide',
-        shortDescription: 'Everything to consider when buying a PHEV',
-        slug: 'phev-satin-alma-rehberi'
-      },
-      {
-        id: 'phev-fiyat-araligi',
-        title: 'PHEV Price Ranges & Budget Planning',
-        shortDescription: 'Understanding PHEV pricing and financing options',
-        slug: 'phev-fiyat-araligi-nedir'
-      },
-      {
-        id: 'phev-teşvikler',
-        title: 'Government Incentives & Tax Benefits',
-        shortDescription: 'Available incentives and tax benefits for PHEV buyers',
-        slug: 'phev-tesvikler-hangi-ulkelerde'
-      }
-    ]
-  },
-  {
-    id: 'technical',
-    title: 'Technical Specifications',
-    icon: '⚙️',
-    description: 'Understanding PHEV technical aspects and performance',
-    color: 'bg-purple-50 dark:bg-purple-900/20',
-    textColor: 'text-purple-700 dark:text-purple-300',
-    borderColor: 'border-purple-200 dark:border-purple-700',
-    topics: [
-      {
-        id: 'phev-menzil-hesaplama',
-        title: 'PHEV Range Calculation & WLTP Standards',
-        shortDescription: 'How PHEV range is calculated and what WLTP means',
-        slug: 'phev-menzil-hesaplama-nasil'
-      },
-      {
-        id: 'phev-sarj-sureleri',
-        title: 'Charging Times & Speed Comparison',
-        shortDescription: 'AC vs DC charging times and speed differences',
-        slug: 'phev-sarj-sureleri-ne-kadar'
-      },
-      {
-        id: 'phev-batarya-omru',
-        title: 'Battery Life & Degradation',
-        shortDescription: 'Understanding PHEV battery lifespan and maintenance',
-        slug: 'phev-batarya-omru-ne-kadar'
-      }
-    ]
-  },
-  {
-    id: 'charging',
-    title: 'Charging Infrastructure',
-    icon: '🔌',
-    description: 'Everything about PHEV charging and infrastructure',
-    color: 'bg-orange-50 dark:bg-orange-900/20',
-    textColor: 'text-orange-700 dark:text-orange-300',
-    borderColor: 'border-orange-200 dark:border-orange-700',
-    topics: [
-      {
-        id: 'phev-sarj-tipleri',
-        title: 'Charging Types & Connectors',
-        shortDescription: 'Type 2, CCS, and home charging options explained',
-        slug: 'phev-sarj-tipleri-nelerdir'
-      },
-      {
-        id: 'ev-sarj-cihazi',
-        title: 'Home Charging Solutions',
-        shortDescription: 'Do you need a home charging station?',
-        slug: 'ev-phev-sarj-cihazi-gerekli-mi'
-      },
-      {
-        id: 'sarj-istasyonu-bulma',
-        title: 'Finding Charging Stations',
-        shortDescription: 'Apps and tools to locate charging stations',
-        slug: 'phev-sarj-istasyonu-nasil-bulunur'
-      }
-    ]
-  },
-  {
-    id: 'maintenance',
-    title: 'Maintenance & Service',
-    icon: '🔧',
-    description: 'PHEV maintenance, service, and ownership costs',
-    color: 'bg-red-50 dark:bg-red-900/20',
-    textColor: 'text-red-700 dark:text-red-300',
-    borderColor: 'border-red-200 dark:border-red-700',
-    topics: [
-      {
-        id: 'phev-bakim-maliyeti',
-        title: 'Maintenance Costs & Savings',
-        shortDescription: 'Understanding PHEV maintenance costs vs traditional cars',
-        slug: 'phev-bakim-maliyeti-nedir'
-      },
-      {
-        id: 'phev-garanti-suresi',
-        title: 'Warranty Coverage & Terms',
-        shortDescription: 'PHEV warranty coverage and battery guarantees',
-        slug: 'phev-garanti-suresi-ne-kadar'
-      },
-      {
-        id: 'phev-servis-aglari',
-        title: 'Service Network & Support',
-        shortDescription: 'PHEV service network availability and support',
-        slug: 'phev-servis-aglari-yeterli-mi'
-      }
-    ]
-  }
-]
+// guideCategories will be generated dynamically based on locale
 
-export default function PHEVGuidePage() {
+export default function PHEVGuidePage({ 
+  searchParams 
+}: { 
+  searchParams: { lang?: string } 
+}) {
+  const locale = (searchParams?.lang as 'en' | 'tr' | 'de' | 'pl') || 'en'
+  const t = getFaqTranslations(locale)
+  
+  // Generate guide categories dynamically based on locale
+  const guideCategories = [
+    {
+      id: 'basics',
+      title: t.categories.basics.title,
+      icon: '🔧',
+      description: t.categories.basics.description,
+      color: 'bg-blue-50 dark:bg-blue-900/20',
+      textColor: 'text-blue-700 dark:text-blue-300',
+      borderColor: 'border-blue-200 dark:border-blue-700',
+      topics: [
+        {
+          id: 'phev-nedir',
+          title: t.topics['phev-nedir'].title,
+          shortDescription: t.topics['phev-nedir'].description,
+          slug: 'phev-nedir-nasil-calisir'
+        },
+        {
+          id: 'phev-bev-fark',
+          title: t.topics['phev-bev-fark'].title,
+          shortDescription: t.topics['phev-bev-fark'].description,
+          slug: 'phev-bev-farki-nedir'
+        },
+        {
+          id: 'phev-avantajlari',
+          title: t.topics['phev-avantajlari'].title,
+          shortDescription: t.topics['phev-avantajlari'].description,
+          slug: 'phev-avantajlari-nelerdir'
+        }
+      ]
+    },
+    {
+      id: 'buying',
+      title: t.categories.buying.title,
+      icon: '💰',
+      description: t.categories.buying.description,
+      color: 'bg-green-50 dark:bg-green-900/20',
+      textColor: 'text-green-700 dark:text-green-300',
+      borderColor: 'border-green-200 dark:border-green-700',
+      topics: [
+        {
+          id: 'phev-satin-alma-rehberi',
+          title: 'Complete PHEV Buying Guide',
+          shortDescription: 'Everything to consider when buying a PHEV',
+          slug: 'phev-satin-alma-rehberi'
+        },
+        {
+          id: 'phev-fiyat-araligi',
+          title: 'PHEV Price Ranges & Budget Planning',
+          shortDescription: 'Understanding PHEV pricing and financing options',
+          slug: 'phev-fiyat-araligi-nedir'
+        },
+        {
+          id: 'phev-teşvikler',
+          title: 'Government Incentives & Tax Benefits',
+          shortDescription: 'Available incentives and tax benefits for PHEV buyers',
+          slug: 'phev-tesvikler-hangi-ulkelerde'
+        }
+      ]
+    },
+    {
+      id: 'technical',
+      title: t.categories.technical.title,
+      icon: '⚙️',
+      description: t.categories.technical.description,
+      color: 'bg-purple-50 dark:bg-purple-900/20',
+      textColor: 'text-purple-700 dark:text-purple-300',
+      borderColor: 'border-purple-200 dark:border-purple-700',
+      topics: [
+        {
+          id: 'phev-menzil-hesaplama',
+          title: 'PHEV Range Calculation & WLTP Standards',
+          shortDescription: 'How PHEV range is calculated and what WLTP means',
+          slug: 'phev-menzil-hesaplama-nasil'
+        },
+        {
+          id: 'phev-sarj-sureleri',
+          title: 'Charging Times & Speed Comparison',
+          shortDescription: 'AC vs DC charging times and speed differences',
+          slug: 'phev-sarj-sureleri-ne-kadar'
+        },
+        {
+          id: 'phev-batarya-omru',
+          title: 'Battery Life & Degradation',
+          shortDescription: 'Understanding PHEV battery lifespan and maintenance',
+          slug: 'phev-batarya-omru-ne-kadar'
+        }
+      ]
+    },
+    {
+      id: 'charging',
+      title: t.categories.charging.title,
+      icon: '🔌',
+      description: t.categories.charging.description,
+      color: 'bg-orange-50 dark:bg-orange-900/20',
+      textColor: 'text-orange-700 dark:text-orange-300',
+      borderColor: 'border-orange-200 dark:border-orange-700',
+      topics: [
+        {
+          id: 'phev-sarj-tipleri',
+          title: 'Charging Types & Connectors',
+          shortDescription: 'Type 2, CCS, and home charging options explained',
+          slug: 'phev-sarj-tipleri-nelerdir'
+        },
+        {
+          id: 'ev-sarj-cihazi',
+          title: 'Home Charging Solutions',
+          shortDescription: 'Do you need a home charging station?',
+          slug: 'ev-phev-sarj-cihazi-gerekli-mi'
+        },
+        {
+          id: 'sarj-istasyonu-bulma',
+          title: 'Finding Charging Stations',
+          shortDescription: 'Apps and tools to locate charging stations',
+          slug: 'phev-sarj-istasyonu-nasil-bulunur'
+        }
+      ]
+    },
+    {
+      id: 'maintenance',
+      title: t.categories.maintenance.title,
+      icon: '🔧',
+      description: t.categories.maintenance.description,
+      color: 'bg-red-50 dark:bg-red-900/20',
+      textColor: 'text-red-700 dark:text-red-300',
+      borderColor: 'border-red-200 dark:border-red-700',
+      topics: [
+        {
+          id: 'phev-bakim-maliyeti',
+          title: 'Maintenance Costs & Savings',
+          shortDescription: 'Understanding PHEV maintenance costs vs traditional cars',
+          slug: 'phev-bakim-maliyeti-nedir'
+        },
+        {
+          id: 'phev-garanti-suresi',
+          title: 'Warranty Coverage & Terms',
+          shortDescription: 'PHEV warranty coverage and battery guarantees',
+          slug: 'phev-garanti-suresi-ne-kadar'
+        },
+        {
+          id: 'phev-servis-aglari',
+          title: 'Service Network & Support',
+          shortDescription: 'PHEV service network availability and support',
+          slug: 'phev-servis-aglari-yeterli-mi'
+        }
+      ]
+    }
+  ]
+  
   // Guide Structured Data
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Guide",
-    "name": "All You Need to Know About PHEV - Complete Guide",
-    "description": "Complete guide to Plug-in Hybrid Electric Vehicles (PHEV). Everything you need to know about PHEV technology, benefits, and buying guide.",
+    "name": t.title,
+    "description": t.subtitle,
     "author": {
       "@type": "Organization",
       "name": "PHEVs.eu"
@@ -203,11 +214,10 @@ export default function PHEVGuidePage() {
               </div>
             </div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              All You Need to Know About PHEV
+              {t.title}
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6">
-              Complete guide to Plug-in Hybrid Electric Vehicles. Everything you need to know about PHEV technology, 
-              benefits, buying guide, charging, and maintenance.
+              {t.subtitle}
             </p>
             <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 max-w-2xl mx-auto">
               <p className="text-blue-800 dark:text-blue-200 font-medium">

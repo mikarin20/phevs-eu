@@ -1,0 +1,42 @@
+{
+  "faq": {
+    "title": "All You Need to Know About PHEV",
+    "subtitle": "Complete guide to Plug-in Hybrid Electric Vehicles. Everything you need to know about PHEV technology, benefits, buying guide, charging, and maintenance.",
+    "categories": {
+      "basics": {
+        "title": "PHEV Basics & Technology",
+        "description": "Understanding PHEV technology and how it works"
+      },
+      "buying": {
+        "title": "Buying Guide",
+        "description": "Complete guide to buying your first PHEV"
+      },
+      "technical": {
+        "title": "Technical Specifications",
+        "description": "Detailed technical information about PHEV systems"
+      },
+      "charging": {
+        "title": "Charging & Infrastructure",
+        "description": "Everything about PHEV charging solutions"
+      },
+      "maintenance": {
+        "title": "Maintenance & Service",
+        "description": "PHEV maintenance and service information"
+      }
+    },
+    "topics": {
+      "phev-nedir": {
+        "title": "What is PHEV and How Does It Work?",
+        "description": "Complete explanation of Plug-in Hybrid Electric Vehicle technology"
+      },
+      "phev-bev-fark": {
+        "title": "PHEV vs BEV vs Hybrid: Key Differences",
+        "description": "Understanding different types of electric and hybrid vehicles"
+      },
+      "phev-avantajlari": {
+        "title": "Benefits and Advantages of PHEV",
+        "description": "Why choose PHEV over other vehicle types"
+      }
+    }
+  }
+}
