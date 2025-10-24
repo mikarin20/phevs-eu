@@ -54,6 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/faq`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
   ]
 
   // Marka bazında sayfalar oluştur
@@ -74,12 +80,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // FAQ sayfaları
+  const faqSlugs = [
+    'phev-nedir-nasil-calisir',
+    'phev-bev-farki-nedir',
+    'phev-avantajlari-nelerdir',
+    'phev-satin-alma-rehberi',
+    'phev-fiyat-araligi-nedir',
+    'phev-tesvikler-hangi-ulkelerde',
+    'phev-menzil-hesaplama-nasil',
+    'phev-sarj-sureleri-ne-kadar',
+    'phev-batarya-omru-ne-kadar',
+    'phev-sarj-tipleri-nelerdir',
+    'ev-phev-sarj-cihazi-gerekli-mi',
+    'phev-sarj-istasyonu-nasil-bulunur',
+    'phev-bakim-maliyeti-nedir',
+    'phev-garanti-suresi-ne-kadar',
+    'phev-servis-aglari-yeterli-mi'
+  ]
+  
+  const faqRoutes = faqSlugs.map((slug) => ({
+    url: `${baseUrl}/faq/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
   // Tüm araba model sayfaları - öncelik sıralaması
   const carRoutes = carsData.map((car) => {
     let priority = 0.6
     
     // Popüler markalar için yüksek öncelik
-    const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia']
+    const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia', 'Land Rover']
     if (popularBrands.includes(car.brand)) {
       priority = 0.8
     }
@@ -97,6 +129,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   })
 
-  return [...routes, ...brandRoutes, ...segmentRoutes, ...carRoutes]
+  return [...routes, ...brandRoutes, ...segmentRoutes, ...faqRoutes, ...carRoutes]
 }
 

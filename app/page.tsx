@@ -251,7 +251,7 @@ export default function Home() {
     {
       id: 'kia-mg',
       href: '/compare/kia-niro-phev-vs-mg-hs-phev',
-      leftCar: { name: 'Kia Niro', image: '/images/cars/brands/kia/niro-phev/main.jpg', alt: 'Kia Niro', specs: '58km • €38,500' },
+      leftCar: { name: 'Kia Niro', image: '/images/cars/brands/kia/niro-ii-2025/main.jpg', alt: 'Kia Niro', specs: '57km • €40,000' },
       rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
     },
     {
@@ -259,6 +259,18 @@ export default function Home() {
       href: '/compare/mg-hs-phev-vs-cupra-formentor-e-hybrid',
       leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
       rightCar: { name: 'Cupra Formentor', image: '/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '65km • €42,000' }
+    },
+    {
+      id: 'land-rover-evoque-velar',
+      href: '/compare/land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev',
+      leftCar: { name: 'Range Rover Evoque', image: '/images/cars/brands/land-rover/range-rover-evoque/main.jpg', alt: 'Range Rover Evoque', specs: '55km • €58,000' },
+      rightCar: { name: 'Range Rover Velar', image: '/images/cars/brands/land-rover/range-rover-velar/main.jpg', alt: 'Range Rover Velar', specs: '53km • €72,000' }
+    },
+    {
+      id: 'land-rover-defender-discovery',
+      href: '/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
+      leftCar: { name: 'Land Rover Defender', image: '/images/cars/brands/land-rover/defender-110/main.jpg', alt: 'Land Rover Defender', specs: '43km • €75,000' },
+      rightCar: { name: 'Discovery Sport', image: '/images/cars/brands/land-rover/discovery-sport/main.jpg', alt: 'Discovery Sport', specs: '55km • €52,000' }
     }
   ]
 
@@ -1209,6 +1221,14 @@ export default function Home() {
                   </button>
                 ))}
               </div>
+              {/* FAQ Button */}
+              <a
+                href="/faq"
+                className="hidden sm:inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
+              >
+                <span className="text-sm sm:text-base">FAQ</span>
+              </a>
+              
               <button
                 onClick={() => setIsSuggestFormOpen(true)}
                 className="hidden sm:inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -1265,6 +1285,19 @@ export default function Home() {
                 <CheckIcon className="h-5 w-5 text-green-500" />
                 <span>{t.rangeSimulator}</span>
               </div>
+            </div>
+            
+            {/* Mobil FAQ Button - Hero Section'da */}
+            <div className="mt-4 sm:hidden">
+              <a
+                href="/faq"
+                className="inline-flex items-center px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
+              >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Sık Sorulan Sorular
+              </a>
             </div>
           </div>
         </div>
