@@ -30,6 +30,7 @@ import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import carsData from '@/data/cars.json' assert { type: 'json' }
 const typedCarsData = carsData as Car[]
+import { getTranslations, type Locale } from '@/lib/i18n'
 import { CarCardSkeleton } from '@/components/LoadingSkeleton'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
 import dynamic from 'next/dynamic'
@@ -215,7 +216,7 @@ export default function Home() {
     {
       id: 'mg-3008',
       href: '/compare/mg-hs-phev-vs-peugeot-3008-phev',
-      leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
+      leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
       rightCar: { name: 'Peugeot 3008', image: '/images/cars/brands/peugeot/3008 Plug-in/main.jpeg', alt: 'Peugeot 3008', specs: '59km • €42,500' }
     },
     {
@@ -234,7 +235,7 @@ export default function Home() {
       id: 'renault-mg',
       href: '/compare/renault-rafale-phev-vs-mg-hs-phev',
       leftCar: { name: 'Renault Rafale', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
-      rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+      rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
     },
     {
       id: 'jeep-wrangler-compass',
@@ -252,7 +253,7 @@ export default function Home() {
       id: 'kia-mg',
       href: '/compare/kia-niro-phev-vs-mg-hs-phev',
       leftCar: { name: 'Kia Niro', image: '/images/cars/brands/kia/niro-ii-2025/main.jpg', alt: 'Kia Niro', specs: '57km • €40,000' },
-      rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+      rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
     },
     {
       id: 'mg-cupra',
@@ -766,7 +767,10 @@ export default function Home() {
       priceComparison: 'Price Comparison',
       technicalSpecifications: 'Technical Specifications',
       quickCompareTitle: 'Quick Compare Popular Models',
-      quickCompareDescription: 'Compare the most popular PHEV models side by side'
+      quickCompareDescription: 'Compare the most popular PHEV models side by side',
+      faq: {
+        title: 'All You Need to Know About PHEV'
+      }
     },
     de: {
       searchPlaceholder: 'Nach Marke oder Modell suchen...',
@@ -843,7 +847,10 @@ export default function Home() {
       priceComparison: 'Preisvergleich',
       technicalSpecifications: 'Technische Spezifikationen',
       quickCompareTitle: 'Schnellvergleich beliebter Modelle',
-      quickCompareDescription: 'Vergleichen Sie die beliebtesten PHEV-Modelle nebeneinander'
+      quickCompareDescription: 'Vergleichen Sie die beliebtesten PHEV-Modelle nebeneinander',
+      faq: {
+        title: 'Alles was Sie über PHEV wissen müssen'
+      }
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -920,7 +927,10 @@ export default function Home() {
       priceComparison: 'Fiyat Karşılaştırması',
       technicalSpecifications: 'Teknik Özellikler',
       quickCompareTitle: 'Popüler Modelleri Hızlı Karşılaştır',
-      quickCompareDescription: 'En popüler PHEV modellerini yan yana karşılaştırın'
+      quickCompareDescription: 'En popüler PHEV modellerini yan yana karşılaştırın',
+      faq: {
+        title: 'PHEV Hakkında Bilmeniz Gereken Her Şey'
+      }
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -997,7 +1007,10 @@ export default function Home() {
       priceComparison: 'Porównanie cen',
       technicalSpecifications: 'Specyfikacje techniczne',
       quickCompareTitle: 'Szybkie porównanie popularnych modeli',
-      quickCompareDescription: 'Porównaj najpopularniejsze modele PHEV obok siebie'
+      quickCompareDescription: 'Porównaj najpopularniejsze modele PHEV obok siebie',
+      faq: {
+        title: 'Wszystko co musisz wiedzieć o PHEV'
+      }
     }
   }
 
@@ -1308,7 +1321,7 @@ export default function Home() {
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
-                All You Need to Know About PHEV
+                {t.faq.title}
               </a>
             </div>
           </div>
