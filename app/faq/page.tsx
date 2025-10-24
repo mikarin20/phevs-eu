@@ -218,7 +218,7 @@ export default function PHEVGuidePage() {
 
           {/* FAQ Categories */}
           <div className="space-y-8">
-            {faqCategories.map((category) => (
+            {guideCategories.map((category) => (
               <div key={category.id} className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700">
                 <div className="p-6 border-b border-gray-200 dark:border-slate-700">
                   <h2 className="text-2xl font-semibold text-gray-900 dark:text-white flex items-center">
@@ -229,19 +229,19 @@ export default function PHEVGuidePage() {
                 
                 <div className="p-6">
                   <div className="grid gap-4">
-                    {category.questions.map((faq) => (
+                    {category.topics.map((topic) => (
                       <Link
-                        key={faq.id}
-                        href={`/faq/${faq.slug}`}
+                        key={topic.id}
+                        href={`/faq/${topic.slug}`}
                         className="group block p-4 rounded-lg border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200"
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                              {faq.question}
+                              {topic.title}
                             </h3>
                             <p className="mt-2 text-gray-600 dark:text-gray-300 text-sm">
-                              {faq.shortAnswer}
+                              {topic.shortDescription}
                             </p>
                           </div>
                           <ChevronRightIcon className="h-5 w-5 text-gray-400 group-hover:text-blue-500 transition-colors ml-4 flex-shrink-0" />
