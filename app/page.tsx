@@ -33,6 +33,7 @@ const typedCarsData = carsData as Car[]
 import { getTranslations, type Locale } from '@/lib/i18n'
 import { CarCardSkeleton } from '@/components/LoadingSkeleton'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
+import PHEVGuidePopup from '@/components/PHEVGuidePopup'
 import dynamic from 'next/dynamic'
 
 // Statik importlar
@@ -198,92 +199,194 @@ export default function Home() {
     {
       id: 'tiguan-3008',
       href: '/compare/volkswagen-tiguan-phev-vs-peugeot-3008-phev',
-      leftCar: { name: 'VW Tiguan', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '110km • €40,000' },
-      rightCar: { name: 'Peugeot 3008', image: '/images/cars/brands/peugeot/3008 Plug-in/main.jpeg', alt: 'Peugeot 3008', specs: '59km • €42,500' }
+      leftCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' },
+      rightCar: { name: 'Peugeot 3008 (2025)', image: '/images/cars/brands/peugeot/3008-plug-in-hybrid/main.jpg', alt: 'Peugeot 3008', specs: '59km • €35,000' }
     },
     {
       id: 'c5-kuga',
       href: '/compare/citroen-c5-aircross-phev-vs-ford-kuga-phev',
-      leftCar: { name: 'Citroën C5 Aircross', image: '/images/cars/brands/citroen/c5-aircross-ii-phev/main.jpg', alt: 'Citroën C5 Aircross', specs: '81km • €35,000' },
-      rightCar: { name: 'Ford Kuga', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '65km • €40,000' }
+      leftCar: { name: 'Citroën C5 Aircross (2025)', image: '/images/cars/brands/citroen/c5-aircross-ii-phev/main.jpg', alt: 'Citroën C5 Aircross', specs: '81km • €35,000' },
+      rightCar: { name: 'Ford Kuga (2025)', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '65km • €40,000' }
     },
     {
       id: 'kodiaq-tiguan',
       href: '/compare/skoda-kodiaq-iv-phev-vs-volkswagen-tiguan-phev',
-      leftCar: { name: 'Skoda Kodiaq iV', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq iV', specs: '60km • €44,900' },
-      rightCar: { name: 'VW Tiguan', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '110km • €40,000' }
+      leftCar: { name: 'Skoda Kodiaq iV (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq iV', specs: '60km • €38,000' },
+      rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
     },
     {
       id: 'mg-3008',
       href: '/compare/mg-hs-phev-vs-peugeot-3008-phev',
-      leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
-      rightCar: { name: 'Peugeot 3008', image: '/images/cars/brands/peugeot/3008 Plug-in/main.jpeg', alt: 'Peugeot 3008', specs: '59km • €42,500' }
+      leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
+      rightCar: { name: 'Peugeot 3008 (2025)', image: '/images/cars/brands/peugeot/3008-plug-in-hybrid/main.jpg', alt: 'Peugeot 3008', specs: '59km • €35,000' }
     },
     {
       id: 'golf-308',
       href: '/compare/volkswagen-golf-phev-vs-peugeot-308-phev',
-      leftCar: { name: 'VW Golf GTE', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '110km • €38,500' },
-      rightCar: { name: 'Peugeot 308', image: '/images/cars/brands/peugeot/308-hybrid/main.jpg', alt: 'Peugeot 308', specs: '68km • €37,400' }
+      leftCar: { name: 'VW Golf GTE (2025)', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '70km • €35,000' },
+      rightCar: { name: 'Peugeot 308 (2025)', image: '/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg', alt: 'Peugeot 308', specs: '85km • €37,400' }
     },
     {
       id: 'golf-a3',
       href: '/compare/volkswagen-golf-phev-vs-audi-a3-sportback-phev',
-      leftCar: { name: 'VW Golf GTE', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '110km • €38,500' },
-      rightCar: { name: 'Audi A3 Sportback', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '130km • €44,200' }
+      leftCar: { name: 'VW Golf GTE (2025)', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '70km • €35,000' },
+      rightCar: { name: 'Audi A3 Sportback (2025)', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '130km • €44,200' }
     },
     {
       id: 'renault-mg',
       href: '/compare/renault-rafale-phev-vs-mg-hs-phev',
-      leftCar: { name: 'Renault Rafale', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
-      rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
+      rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
     },
     {
       id: 'jeep-wrangler-compass',
       href: '/compare/jeep-wrangler-4xe-vs-jeep-compass-4xe',
-      leftCar: { name: 'Jeep Wrangler 4xe', image: '/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg', alt: 'Jeep Wrangler 4xe', specs: '45km • €65,000' },
-      rightCar: { name: 'Jeep Compass 4xe', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' }
+      leftCar: { name: 'Jeep Wrangler 4xe (2025)', image: '/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg', alt: 'Jeep Wrangler 4xe', specs: '45km • €65,000' },
+      rightCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' }
     },
     {
       id: 'jeep-compass-renegade',
       href: '/compare/jeep-compass-4xe-vs-jeep-renegade-4xe',
-      leftCar: { name: 'Jeep Compass 4xe', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' },
-      rightCar: { name: 'Jeep Renegade 4xe', image: '/images/cars/brands/jeep/renegade-4xe-240hp/main.jpeg', alt: 'Jeep Renegade 4xe', specs: '42km • €35,000' }
+      leftCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' },
+      rightCar: { name: 'Jeep Renegade 4xe (2025)', image: '/images/cars/brands/jeep/renegade-4xe-240hp/main.jpeg', alt: 'Jeep Renegade 4xe', specs: '42km • €35,000' }
     },
     {
       id: 'kia-mg',
       href: '/compare/kia-niro-phev-vs-mg-hs-phev',
-      leftCar: { name: 'Kia Niro', image: '/images/cars/brands/kia/niro-ii-2025/main.jpg', alt: 'Kia Niro', specs: '57km • €40,000' },
-      rightCar: { name: 'MG HS', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+      leftCar: { name: 'Kia Niro (2025)', image: '/images/cars/brands/kia/niro-ii-2025/main.jpg', alt: 'Kia Niro', specs: '57km • €40,000' },
+      rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
     },
     {
       id: 'mg-cupra',
       href: '/compare/mg-hs-phev-vs-cupra-formentor-e-hybrid',
-      leftCar: { name: 'MG HS', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
-      rightCar: { name: 'Cupra Formentor', image: '/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '65km • €42,000' }
+      leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
+      rightCar: { name: 'Cupra Formentor (2025)', image: '/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '65km • €42,000' }
     },
     {
       id: 'land-rover-evoque-velar',
       href: '/compare/land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev',
-      leftCar: { name: 'Range Rover Evoque', image: '/images/cars/brands/land-rover/range-rover-evoque/main.jpg', alt: 'Range Rover Evoque', specs: '55km • €58,000' },
-      rightCar: { name: 'Range Rover Velar', image: '/images/cars/brands/land-rover/range-rover-velar/main.jpg', alt: 'Range Rover Velar', specs: '53km • €72,000' }
+      leftCar: { name: 'Range Rover Evoque (2025)', image: '/images/cars/brands/land-rover/range-rover-evoque/main.jpg', alt: 'Range Rover Evoque', specs: '55km • €58,000' },
+      rightCar: { name: 'Range Rover Velar (2025)', image: '/images/cars/brands/land-rover/range-rover-velar/main.jpg', alt: 'Range Rover Velar', specs: '53km • €72,000' }
     },
     {
       id: 'land-rover-defender-discovery',
       href: '/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
-      leftCar: { name: 'Land Rover Defender', image: '/images/cars/brands/land-rover/defender-110/main.jpg', alt: 'Land Rover Defender', specs: '43km • €75,000' },
-      rightCar: { name: 'Discovery Sport', image: '/images/cars/brands/land-rover/discovery-sport/main.jpg', alt: 'Discovery Sport', specs: '55km • €52,000' }
+      leftCar: { name: 'Land Rover Defender (2025)', image: '/images/cars/brands/land-rover/defender-110/main.jpg', alt: 'Land Rover Defender', specs: '43km • €75,000' },
+      rightCar: { name: 'Discovery Sport (2025)', image: '/images/cars/brands/land-rover/discovery-sport/main.jpg', alt: 'Discovery Sport', specs: '55km • €52,000' }
     },
     {
       id: 'lexus-nx-rx',
       href: '/compare/lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev',
-      leftCar: { name: 'Lexus NX 450h+', image: '/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg', alt: 'Lexus NX 450h+', specs: '76km • €52,000' },
-      rightCar: { name: 'Lexus RX 450h+', image: '/images/cars/brands/lexus/rx-450h-plus-phev/main.jpg', alt: 'Lexus RX 450h+', specs: '65km • €68,000' }
+      leftCar: { name: 'Lexus NX 450h+ (2025)', image: '/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg', alt: 'Lexus NX 450h+', specs: '76km • €52,000' },
+      rightCar: { name: 'Lexus RX 450h+ (2025)', image: '/images/cars/brands/lexus/rx-450h-plus-phev/main.jpg', alt: 'Lexus RX 450h+', specs: '65km • €68,000' }
     },
     {
       id: 'lexus-es-ux',
       href: '/compare/lexus-es-300h-phev-vs-lexus-ux-300e-phev',
-      leftCar: { name: 'Lexus ES 300h', image: '/images/cars/brands/lexus/es-300h-phev/main.jpg', alt: 'Lexus ES 300h', specs: '70km • €55,000' },
-      rightCar: { name: 'Lexus UX 300e', image: '/images/cars/brands/lexus/ux-300e-phev/main.jpg', alt: 'Lexus UX 300e', specs: '55km • €45,000' }
+      leftCar: { name: 'Lexus ES 300h (2025)', image: '/images/cars/brands/lexus/es-300h-phev/main.jpg', alt: 'Lexus ES 300h', specs: '70km • €55,000' },
+      rightCar: { name: 'Lexus UX 300e (2025)', image: '/images/cars/brands/lexus/ux-300e-phev/main.jpg', alt: 'Lexus UX 300e', specs: '55km • €45,000' }
+    },
+    {
+      id: 'peugeot-508-308',
+      href: '/compare/peugeot-508-phev-vs-peugeot-308-phev',
+      leftCar: { name: 'Peugeot 508 (2025)', image: '/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg', alt: 'Peugeot 508', specs: '64km • €42,000' },
+      rightCar: { name: 'Peugeot 308 (2025)', image: '/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg', alt: 'Peugeot 308', specs: '85km • €37,400' }
+    },
+    {
+      id: 'peugeot-508-sw-308-sw',
+      href: '/compare/peugeot-508-sw-phev-vs-peugeot-308-sw-phev',
+      leftCar: { name: 'Peugeot 508 SW (2025)', image: '/images/cars/brands/peugeot/508-sw-plug-in-hybrid/main.jpg', alt: 'Peugeot 508 SW', specs: '64km • €44,000' },
+      rightCar: { name: 'Peugeot 308 SW (2025)', image: '/images/cars/brands/peugeot/308-sw-plug-in-hybrid/main.jpg', alt: 'Peugeot 308 SW', specs: '85km • €39,000' }
+    },
+    {
+      id: 'peugeot-508-audi-a3',
+      href: '/compare/peugeot-508-phev-vs-audi-a3-sportback-phev',
+      leftCar: { name: 'Peugeot 508 (2025)', image: '/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg', alt: 'Peugeot 508', specs: '64km • €42,000' },
+      rightCar: { name: 'Audi A3 Sportback (2025)', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '130km • €44,200' }
+    },
+    {
+      id: 'porsche-panamera-cayenne',
+      href: '/compare/porsche-panamera-phev-vs-porsche-cayenne-phev',
+      leftCar: { name: 'Porsche Panamera (2025)', image: '/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg', alt: 'Porsche Panamera', specs: '50km • €107,780' },
+      rightCar: { name: 'Porsche Cayenne (2025)', image: '/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg', alt: 'Porsche Cayenne', specs: '44km • €136,000' }
+    },
+    {
+      id: 'porsche-cayenne-macan',
+      href: '/compare/porsche-cayenne-phev-vs-porsche-macan-phev',
+      leftCar: { name: 'Porsche Cayenne (2025)', image: '/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg', alt: 'Porsche Cayenne', specs: '44km • €136,000' },
+      rightCar: { name: 'Porsche Macan (2024)', image: '/images/cars/brands/porsche/macan-macan-e-hybrid/main.jpg', alt: 'Porsche Macan', specs: '61km • €89,000' }
+    },
+    {
+      id: 'renault-rafale-captur',
+      href: '/compare/renault-rafale-phev-vs-renault-captur-phev',
+      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
+      rightCar: { name: 'Renault Captur E-TECH (2022)', image: '/images/cars/brands/renault/captur-e-tech-phev/main.jpg', alt: 'Renault Captur E-TECH', specs: '50km • €32,000' }
+    },
+    {
+      id: 'seat-leon-sportstourer-hatchback',
+      href: '/compare/seat-leon-sportstourer-phev-vs-seat-leon-hatchback-phev',
+      leftCar: { name: 'SEAT Leon Sportstourer (2025)', image: '/images/cars/brands/seat/leon-iv-sportstourer-15-tsi/main.jpg', alt: 'SEAT Leon Sportstourer', specs: '65km • €35,000' },
+      rightCar: { name: 'SEAT Leon Hatchback (2025)', image: '/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg', alt: 'SEAT Leon Hatchback', specs: '65km • €33,000' }
+    },
+    {
+      id: 'seat-leon-tarraco',
+      href: '/compare/seat-leon-phev-vs-seat-tarraco-phev',
+      leftCar: { name: 'SEAT Leon (2025)', image: '/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg', alt: 'SEAT Leon', specs: '65km • €33,000' },
+      rightCar: { name: 'SEAT Tarraco (2025)', image: '/images/cars/brands/seat/tarraco-14-tsi/main.jpg', alt: 'SEAT Tarraco', specs: '50km • €40,000' }
+    },
+    {
+      id: 'seat-tarraco-vw-tiguan',
+      href: '/compare/seat-tarraco-phev-vs-volkswagen-tiguan-phev',
+      leftCar: { name: 'SEAT Tarraco (2025)', image: '/images/cars/brands/seat/tarraco-14-tsi/main.jpg', alt: 'SEAT Tarraco', specs: '50km • €40,000' },
+      rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
+    },
+    {
+      id: 'skoda-kodiaq-superb',
+      href: '/compare/skoda-kodiaq-phev-vs-skoda-superb-phev',
+      leftCar: { name: 'Skoda Kodiaq (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq', specs: '60km • €38,000' },
+      rightCar: { name: 'Skoda Superb (2025)', image: '/images/cars/brands/skoda/superb-sedan-phev/main.jpg', alt: 'Skoda Superb', specs: '68km • €35,000' }
+    },
+    {
+      id: 'skoda-superb-combi-sedan',
+      href: '/compare/skoda-superb-combi-phev-vs-skoda-superb-sedan-phev',
+      leftCar: { name: 'Skoda Superb Combi (2025)', image: '/images/cars/brands/skoda/superb-combi-phev/main.png', alt: 'Skoda Superb Combi', specs: '65km • €36,000' },
+      rightCar: { name: 'Skoda Superb (2025)', image: '/images/cars/brands/skoda/superb-sedan-phev/main.jpg', alt: 'Skoda Superb', specs: '68km • €35,000' }
+    },
+    {
+      id: 'skoda-kodiaq-vw-tiguan',
+      href: '/compare/skoda-kodiaq-phev-vs-volkswagen-tiguan-phev',
+      leftCar: { name: 'Skoda Kodiaq (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq', specs: '60km • €38,000' },
+      rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
+    },
+    {
+      id: 'suzuki-across-toyota-rav4',
+      href: '/compare/suzuki-across-phev-vs-toyota-rav4-phev',
+      leftCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75km • €45,000' },
+      rightCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '65km • €42,000' }
+    },
+    {
+      id: 'suzuki-across-hyundai-tucson',
+      href: '/compare/suzuki-across-phev-vs-hyundai-tucson-phev',
+      leftCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75km • €45,000' },
+      rightCar: { name: 'Hyundai Tucson (2025)', image: '/images/cars/brands/hyundai/tucson-iv-facelift-2024-268hp-phev/main.jpg', alt: 'Hyundai Tucson', specs: '65km • €45,000' }
+    },
+    {
+      id: 'toyota-rav4-c-hr',
+      href: '/compare/toyota-rav4-phev-vs-toyota-c-hr-phev',
+      leftCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '75km • €42,000' },
+      rightCar: { name: 'Toyota C-HR (2025)', image: '/images/cars/brands/toyota/c-hr-plug-in-hybrid/main.jpg', alt: 'Toyota C-HR', specs: '66km • €32,000' }
+    },
+    {
+      id: 'toyota-prius-crown',
+      href: '/compare/toyota-prius-phev-vs-toyota-crown-phev',
+      leftCar: { name: 'Toyota Prius (2025)', image: '/images/cars/brands/toyota/prius-plug-in-hybrid/main.jpg', alt: 'Toyota Prius', specs: '65km • €35,000' },
+      rightCar: { name: 'Toyota Crown (2025)', image: '/images/cars/brands/toyota/crown-phev/main.jpg', alt: 'Toyota Crown', specs: '70km • €55,000' }
+    },
+    {
+      id: 'toyota-rav4-suzuki-across',
+      href: '/compare/toyota-rav4-phev-vs-suzuki-across-phev',
+      leftCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '75km • €42,000' },
+      rightCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75km • €45,000' }
     }
   ]
 
@@ -1160,155 +1263,173 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       {/* Header */}
-      <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
+      <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50 backdrop-blur-md bg-opacity-95`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo, Başlık ve Tema Seçici - Mobilde kompakt */}
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              <div className="flex items-center space-x-2">
-                <HybridLogo size="sm" className="text-slate-700 dark:text-slate-200" />
-                <div>
-                  <h1 className={`text-2xl sm:text-4xl font-bold ${currentTheme.headerText}`}>PHEVs.eu</h1>
-                  <span className={`text-xs sm:text-sm ${currentTheme.textSecondary} hidden sm:block`}>Compare the best PHEVs in Europe</span>
-            </div>
-              </div>
-              
-              {/* Tema Seçici - Mobilde gizli, tablet+ görünür */}
-              <div className="hidden sm:flex items-center space-x-2 ml-4">
-                <div className="flex space-x-1">
-                  {Object.entries(themes).map(([key, theme]) => (
-              <button
-                      key={key}
-                      onClick={() => setSelectedTheme(key)}
-                      className={`p-2 rounded-lg transition-all duration-300 ${
-                        selectedTheme === key
-                          ? selectedTheme === 'dark' 
-                            ? 'bg-slate-600 text-white shadow-lg'
-                            : 'bg-gray-800 text-white shadow-lg'
-                          : selectedTheme === 'dark'
-                            ? 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                      }`}
-                      title={theme.name}
-                    >
-                      <span className="text-base">{key === 'light' ? '☀️' : '🌙'}</span>
-              </button>
-                  ))}
+          <div className="flex items-center justify-between h-20">
+            {/* Logo ve Brand */}
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3">
+                <div className="relative">
+                  <HybridLogo size="md" className="text-slate-700 dark:text-slate-200" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                </div>
+                <div className="flex flex-col">
+                  <h1 className={`text-3xl font-bold ${currentTheme.headerText} tracking-tight`}>PHEVs.eu</h1>
+                  <span className={`text-sm ${currentTheme.textSecondary} font-medium`}>Europe's PHEV Comparison Platform</span>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              {/* Dil Seçici - Compare'in solunda */}
-              <div className="flex space-x-1">
+            {/* Center Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <a href="/compare" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+                Compare Vehicles
+              </a>
+              <a href="/brands" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+                Brands
+              </a>
+              <a href="/segments" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+                Segments
+              </a>
+              <a href="/faq" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+                FAQ
+              </a>
+            </div>
+
+            {/* Right Side Controls */}
+            <div className="flex items-center space-x-3">
+              {/* Language Selector */}
+              <div className="flex items-center space-x-1 bg-gray-100 dark:bg-slate-800 rounded-lg p-1">
                 {[
-                  { 
-                    code: 'en', 
-                    name: 'EN', 
-                    flag: 'gb'
-                  },
-                  { 
-                    code: 'de', 
-                    name: 'DE', 
-                    flag: 'de'
-                  },
-                  { 
-                    code: 'tr', 
-                    name: 'TR', 
-                    flag: 'tr'
-                  },
-                  { 
-                    code: 'pl', 
-                    name: 'PL', 
-                    flag: 'pl'
-                  }
+                  { code: 'en', name: 'EN', flag: 'gb' },
+                  { code: 'de', name: 'DE', flag: 'de' },
+                  { code: 'tr', name: 'TR', flag: 'tr' },
+                  { code: 'pl', name: 'PL', flag: 'pl' }
                 ].map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => {
                       setSelectedLanguage(lang.code)
                       localStorage.setItem('phevs-language', lang.code)
-                      // Custom event gönder
                       window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
                     }}
-                    className={`p-1.5 sm:p-2 rounded-lg transition-all duration-300 ${
+                    className={`p-2 rounded-md transition-all duration-200 ${
                       selectedLanguage === lang.code
-                        ? selectedTheme === 'dark' 
-                          ? 'bg-slate-600 shadow-lg'
-                          : 'bg-gray-800 shadow-lg'
-                        : selectedTheme === 'dark'
-                          ? 'bg-slate-700 hover:bg-slate-600'
-                          : 'bg-gray-200 hover:bg-gray-300'
+                        ? 'bg-white dark:bg-slate-700 shadow-sm'
+                        : 'hover:bg-white/50 dark:hover:bg-slate-700/50'
                     }`}
-                    title={lang.code.toUpperCase()}
+                    title={lang.name}
                   >
-                    <span className={`fi fi-${lang.flag} text-xs sm:text-sm`} title={lang.name}></span>
+                    <span className={`fi fi-${lang.flag} text-sm`}></span>
                   </button>
                 ))}
               </div>
-              {/* PHEV Guide Button */}
-              <a
-                href="/faq"
-                className="hidden sm:inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800"
-              >
-                <span className="text-sm sm:text-base">All You Need to Know About PHEV</span>
-              </a>
-              
-              <button
-                onClick={() => setIsSuggestFormOpen(true)}
-                className="hidden sm:inline-flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-              >
-                <span className="text-sm sm:text-base">Suggest Model</span>
+
+              {/* Theme Toggle */}
+              <div className="flex items-center bg-gray-100 dark:bg-slate-800 rounded-lg p-1">
+                {Object.entries(themes).map(([key, theme]) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedTheme(key)}
+                    className={`p-2 rounded-md transition-all duration-200 ${
+                      selectedTheme === key
+                        ? 'bg-white dark:bg-slate-700 shadow-sm'
+                        : 'hover:bg-white/50 dark:hover:bg-slate-700/50'
+                    }`}
+                    title={theme.name}
+                  >
+                    <span className="text-sm">{key === 'light' ? '☀️' : '🌙'}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="hidden sm:flex items-center space-x-2">
+                <button
+                  onClick={() => setIsSuggestFormOpen(true)}
+                  className="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  Suggest Model
+                </button>
+                <a
+                  href="/faq"
+                  className="px-6 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+                >
+                  PHEV Guide
+                </a>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button className="lg:hidden p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section - SEO Content */}
-      <section className={`py-4 pt-24 sm:pt-4 ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-gradient-to-r from-blue-50 to-indigo-50'}`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section - Modern Design */}
+      <section className={`py-12 ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className={`text-xl sm:text-2xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+            <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <span>Europe's Most Comprehensive PHEV Platform</span>
+            </div>
+            
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'} tracking-tight`}>
               {t.heroTitle}
             </h2>
-            <p className={`text-sm mb-4 max-w-2xl mx-auto ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`text-lg sm:text-xl mb-8 max-w-3xl mx-auto ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
               {t.heroDescription}
             </p>
             
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-3 mb-4">
-              <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
-                <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>85</div>
-                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.phevModels}</div>
+            {/* Modern Stats Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+              <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
+                <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>87</div>
+                <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.phevModels}</div>
+                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Plug-in Hybrid Models</div>
               </div>
-              <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
-                <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
-                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.premiumBrands}</div>
+              <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
+                <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
+                <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.premiumBrands}</div>
+                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Premium Brands</div>
               </div>
-              <div className={`text-center p-3 rounded-lg shadow-md ${selectedTheme === 'dark' ? 'bg-slate-700' : 'bg-white'}`}>
-                <div className={`text-xl font-bold mb-1 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
-                <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.vehicleSegments}</div>
+              <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
+                <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
+                <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.vehicleSegments}</div>
+                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Vehicle Segments</div>
               </div>
             </div>
             
-            {/* Key Features */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-              <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                <CheckIcon className="h-5 w-5 text-green-500" />
-                <span>{t.realWorldRangeData}</span>
+            {/* Modern Feature Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              <div className={`flex items-center justify-center space-x-3 p-4 rounded-xl ${selectedTheme === 'dark' ? 'bg-slate-800/30 border border-slate-700' : 'bg-white/50 border border-white/30'} backdrop-blur-sm`}>
+                <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                  <CheckIcon className="h-5 w-5 text-green-600 dark:text-green-400" />
+                </div>
+                <span className={`text-sm font-medium ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.realWorldRangeData}</span>
               </div>
-              <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                <CheckIcon className="h-5 w-5 text-green-500" />
-                <span>{t.priceComparison}</span>
+              <div className={`flex items-center justify-center space-x-3 p-4 rounded-xl ${selectedTheme === 'dark' ? 'bg-slate-800/30 border border-slate-700' : 'bg-white/50 border border-white/30'} backdrop-blur-sm`}>
+                <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                  <CheckIcon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                </div>
+                <span className={`text-sm font-medium ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.priceComparison}</span>
               </div>
-              <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                <CheckIcon className="h-5 w-5 text-green-500" />
-                <span>{t.technicalSpecifications}</span>
+              <div className={`flex items-center justify-center space-x-3 p-4 rounded-xl ${selectedTheme === 'dark' ? 'bg-slate-800/30 border border-slate-700' : 'bg-white/50 border border-white/30'} backdrop-blur-sm`}>
+                <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                  <CheckIcon className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                </div>
+                <span className={`text-sm font-medium ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.technicalSpecifications}</span>
               </div>
-              <div className={`flex items-center justify-center space-x-2 ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                <CheckIcon className="h-5 w-5 text-green-500" />
-                <span>{t.rangeSimulator}</span>
+              <div className={`flex items-center justify-center space-x-3 p-4 rounded-xl ${selectedTheme === 'dark' ? 'bg-slate-800/30 border border-slate-700' : 'bg-white/50 border border-white/30'} backdrop-blur-sm`}>
+                <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                  <CheckIcon className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                </div>
+                <span className={`text-sm font-medium ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.rangeSimulator}</span>
               </div>
             </div>
             
@@ -2163,7 +2284,7 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="text-lg font-semibold text-[#0B2E33] line-clamp-2 h-14 flex items-center">
-                          {car.brand} {car.model}
+                          {car.brand} {car.model} ({car.year})
                         </h3>
                         <div className="flex items-center justify-between mt-1">
                           <div className="flex items-center space-x-2">

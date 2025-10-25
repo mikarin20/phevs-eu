@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'PHEVs.eu - PHEV Comparison Platform',
+        alt: 'Compare 87 plug-in hybrid electric vehicles from 28 brands - PHEVs.eu',
       },
     ],
   },
@@ -69,6 +69,8 @@ export const metadata: Metadata = {
     title: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles',
     description: 'Compare 87 plug-in hybrid vehicles from 28 brands. Find the best PHEV for your needs.',
     images: ['/images/og-image.jpg'],
+    creator: '@phevs_eu',
+    site: '@phevs_eu',
   },
   robots: {
     index: true,
@@ -82,8 +84,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Google Search Console verification code eklenecek
-    google: 'your-google-verification-code',
+    google: 'google-site-verification-code-here',
   },
 }
 
