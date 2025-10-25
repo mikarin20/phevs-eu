@@ -193,6 +193,7 @@ export default function Home() {
   const [isSuggestFormOpen, setIsSuggestFormOpen] = useState(false)
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
   const [recentlyViewed, setRecentlyViewed] = useState<Car[]>([])
+  const [isPHEVGuidePopupOpen, setIsPHEVGuidePopupOpen] = useState(false)
 
   // Quick Compare karşılaştırmaları
   const comparisons = [
@@ -473,6 +474,18 @@ export default function Home() {
         : 'name-asc'
     }
   }
+
+  // PHEV Guide popup kontrolü
+  useEffect(() => {
+    const hasSeenPopup = localStorage.getItem('phevs-guide-popup-seen')
+    if (!hasSeenPopup) {
+      // 3 saniye sonra popup'ı göster
+      const timer = setTimeout(() => {
+        setIsPHEVGuidePopupOpen(true)
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [])
 
   // LocalStorage'dan verileri yükle
   useEffect(() => {
