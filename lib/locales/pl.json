@@ -1,4 +1,36 @@
 {
+  "phevGuidePopup": {
+    "title": "Przewodnik PHEV",
+    "subtitle": "Wszystko o pojazdach hybrydowych typu plug-in",
+    "whatWillYouLearn": "Czego się nauczysz?",
+    "features": {
+      "phevBasics": {
+        "title": "Czym jest PHEV?",
+        "description": "Dowiedz się, jak działają pojazdy hybrydowe typu plug-in"
+      },
+      "rangeSimulator": {
+        "title": "Symulator zasięgu",
+        "description": "Oblicz zasięg w rzeczywistych warunkach"
+      },
+      "technicalSpecs": {
+        "title": "Specyfikacje techniczne",
+        "description": "Szczegółowe informacje o baterii, silniku i czasie ładowania"
+      }
+    },
+    "benefits": {
+      "title": "Korzyści",
+      "items": [
+        "Niskie zużycie paliwa i emisje",
+        "Elektryczna jazda w mieście",
+        "Moc hybrydowa na długie dystanse",
+        "Zachęty rządowe i korzyści podatkowe"
+      ]
+    },
+    "buttons": {
+      "exploreGuide": "Przeglądaj przewodnik PHEV",
+      "later": "Później"
+    }
+  },
   "faq": {
     "title": "Wszystko co musisz wiedzieć o PHEV",
     "subtitle": "Kompleksowy przewodnik po pojazdach hybrydowych typu plug-in. Wszystko co musisz wiedzieć o technologii PHEV, korzyściach, przewodniku zakupowym, ładowaniu i konserwacji.",

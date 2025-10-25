@@ -2,15 +2,26 @@
 
 import { useState, useEffect } from 'react'
 import { XMarkIcon, BookOpenIcon, CheckIcon, LightBulbIcon, ChartBarIcon, CogIcon } from '@heroicons/react/24/outline'
+import { getTranslations, type Locale } from '@/lib/i18n'
 
 interface PHEVGuidePopupProps {
   isOpen: boolean
   onClose: () => void
   theme: string
+  language: string
 }
 
-export default function PHEVGuidePopup({ isOpen, onClose, theme }: PHEVGuidePopupProps) {
+export default function PHEVGuidePopup({ isOpen, onClose, theme, language }: PHEVGuidePopupProps) {
   const [isVisible, setIsVisible] = useState(false)
+  const [translations, setTranslations] = useState<any>(null)
+
+  useEffect(() => {
+    const loadTranslations = async () => {
+      const t = await getTranslations(language as Locale)
+      setTranslations(t)
+    }
+    loadTranslations()
+  }, [language])
 
   useEffect(() => {
     if (isOpen) {
@@ -21,23 +32,23 @@ export default function PHEVGuidePopup({ isOpen, onClose, theme }: PHEVGuidePopu
     }
   }, [isOpen])
 
-  if (!isOpen) return null
+  if (!isOpen || !translations) return null
 
   const features = [
     {
       icon: LightBulbIcon,
-      title: "PHEV Nedir?",
-      description: "Plug-in Hybrid Electric Vehicle'ların nasıl çalıştığını öğrenin"
+      title: translations.phevGuidePopup.features.phevBasics.title,
+      description: translations.phevGuidePopup.features.phevBasics.description
     },
     {
       icon: ChartBarIcon,
-      title: "Menzil Simülatörü",
-      description: "Gerçek dünya koşullarında menzil hesaplayın"
+      title: translations.phevGuidePopup.features.rangeSimulator.title,
+      description: translations.phevGuidePopup.features.rangeSimulator.description
     },
     {
       icon: CogIcon,
-      title: "Teknik Özellikler",
-      description: "Batarya, motor ve şarj süreleri hakkında detaylı bilgi"
+      title: translations.phevGuidePopup.features.technicalSpecs.title,
+      description: translations.phevGuidePopup.features.technicalSpecs.description
     }
   ]
 
@@ -73,12 +84,12 @@ export default function PHEVGuidePopup({ isOpen, onClose, theme }: PHEVGuidePopu
                   <h2 className={`text-2xl font-bold ${
                     theme === 'dark' ? 'text-white' : 'text-gray-900'
                   }`}>
-                    PHEV Rehberi
+                    {translations.phevGuidePopup.title}
                   </h2>
                   <p className={`text-sm ${
                     theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
                   }`}>
-                    Plug-in Hybrid araçlar hakkında her şey
+                    {translations.phevGuidePopup.subtitle}
                   </p>
                 </div>
               </div>
@@ -101,7 +112,7 @@ export default function PHEVGuidePopup({ isOpen, onClose, theme }: PHEVGuidePopu
               <h3 className={`text-lg font-semibold mb-3 ${
                 theme === 'dark' ? 'text-white' : 'text-gray-900'
               }`}>
-                Neler Öğreneceksiniz?
+                {translations.phevGuidePopup.whatWillYouLearn}
               </h3>
               <div className="grid gap-4">
                 {features.map((feature, index) => (
@@ -141,16 +152,15 @@ export default function PHEVGuidePopup({ isOpen, onClose, theme }: PHEVGuidePopu
                 <span className={`font-semibold ${
                   theme === 'dark' ? 'text-green-400' : 'text-green-800'
                 }`}>
-                  Avantajlar
+                  {translations.phevGuidePopup.benefits.title}
                 </span>
               </div>
               <ul className={`text-sm space-y-1 ${
                 theme === 'dark' ? 'text-green-300' : 'text-green-700'
               }`}>
-                <li>• Düşük yakıt tüketimi ve emisyon</li>
-                <li>• Şehir içi elektrikli sürüş</li>
-                <li>• Uzun mesafe için hibrit güç</li>
-                <li>• Devlet teşvikleri ve vergi avantajları</li>
+                {translations.phevGuidePopup.benefits.items.map((item: string, index: number) => (
+                  <li key={index}>• {item}</li>
+                ))}
               </ul>
             </div>
 
@@ -160,7 +170,7 @@ export default function PHEVGuidePopup({ isOpen, onClose, theme }: PHEVGuidePopu
                 href="/faq"
                 className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold text-center hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                PHEV Rehberini İncele
+                {translations.phevGuidePopup.buttons.exploreGuide}
               </a>
               <button
                 onClick={onClose}
@@ -170,7 +180,7 @@ export default function PHEVGuidePopup({ isOpen, onClose, theme }: PHEVGuidePopu
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                Daha Sonra
+                {translations.phevGuidePopup.buttons.later}
               </button>
             </div>
           </div>

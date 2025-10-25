@@ -1,4 +1,36 @@
 {
+  "phevGuidePopup": {
+    "title": "PHEV Rehberi",
+    "subtitle": "Plug-in Hibrit araçlar hakkında her şey",
+    "whatWillYouLearn": "Neler Öğreneceksiniz?",
+    "features": {
+      "phevBasics": {
+        "title": "PHEV Nedir?",
+        "description": "Plug-in Hybrid Electric Vehicle'ların nasıl çalıştığını öğrenin"
+      },
+      "rangeSimulator": {
+        "title": "Menzil Simülatörü",
+        "description": "Gerçek dünya koşullarında menzil hesaplayın"
+      },
+      "technicalSpecs": {
+        "title": "Teknik Özellikler",
+        "description": "Batarya, motor ve şarj süreleri hakkında detaylı bilgi"
+      }
+    },
+    "benefits": {
+      "title": "Avantajlar",
+      "items": [
+        "Düşük yakıt tüketimi ve emisyon",
+        "Şehir içi elektrikli sürüş",
+        "Uzun mesafe için hibrit güç",
+        "Devlet teşvikleri ve vergi avantajları"
+      ]
+    },
+    "buttons": {
+      "exploreGuide": "PHEV Rehberini İncele",
+      "later": "Daha Sonra"
+    }
+  },
   "faq": {
     "title": "PHEV Hakkında Bilmeniz Gereken Her Şey",
     "subtitle": "Plug-in Hibrit Elektrikli Araçlar için kapsamlı rehber. PHEV teknolojisi, faydaları, satın alma rehberi, şarj ve bakım hakkında bilmeniz gereken her şey.",

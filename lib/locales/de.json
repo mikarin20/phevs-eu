@@ -1,4 +1,36 @@
 {
+  "phevGuidePopup": {
+    "title": "PHEV-Leitfaden",
+    "subtitle": "Alles über Plug-in-Hybrid-Fahrzeuge",
+    "whatWillYouLearn": "Was werden Sie lernen?",
+    "features": {
+      "phevBasics": {
+        "title": "Was ist PHEV?",
+        "description": "Lernen Sie, wie Plug-in-Hybrid-Elektrofahrzeuge funktionieren"
+      },
+      "rangeSimulator": {
+        "title": "Reichweiten-Simulator",
+        "description": "Berechnen Sie die Reichweite unter realen Bedingungen"
+      },
+      "technicalSpecs": {
+        "title": "Technische Spezifikationen",
+        "description": "Detaillierte Informationen über Batterie, Motor und Ladezeiten"
+      }
+    },
+    "benefits": {
+      "title": "Vorteile",
+      "items": [
+        "Niedriger Kraftstoffverbrauch und Emissionen",
+        "Elektrisches Fahren in der Stadt",
+        "Hybrid-Antrieb für lange Strecken",
+        "Staatliche Anreize und Steuervorteile"
+      ]
+    },
+    "buttons": {
+      "exploreGuide": "PHEV-Leitfaden erkunden",
+      "later": "Später"
+    }
+  },
   "faq": {
     "title": "Alles was Sie über PHEV wissen müssen",
     "subtitle": "Umfassender Leitfaden für Plug-in-Hybrid-Elektrofahrzeuge. Alles was Sie über PHEV-Technologie, Vorteile, Kaufberatung, Laden und Wartung wissen müssen.",

@@ -2724,6 +2724,7 @@ export default function Home() {
         isOpen={isPHEVGuidePopupOpen}
         onClose={closePHEVGuidePopup}
         theme={selectedTheme}
+        language={selectedLanguage}
       />
 
     </div>

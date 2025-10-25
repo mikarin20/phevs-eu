@@ -1,4 +1,36 @@
 {
+  "phevGuidePopup": {
+    "title": "PHEV Guide",
+    "subtitle": "Everything about Plug-in Hybrid vehicles",
+    "whatWillYouLearn": "What Will You Learn?",
+    "features": {
+      "phevBasics": {
+        "title": "What is PHEV?",
+        "description": "Learn how Plug-in Hybrid Electric Vehicles work"
+      },
+      "rangeSimulator": {
+        "title": "Range Simulator",
+        "description": "Calculate range in real-world conditions"
+      },
+      "technicalSpecs": {
+        "title": "Technical Specifications",
+        "description": "Detailed information about battery, motor and charging times"
+      }
+    },
+    "benefits": {
+      "title": "Benefits",
+      "items": [
+        "Low fuel consumption and emissions",
+        "Electric driving in the city",
+        "Hybrid power for long distances",
+        "Government incentives and tax advantages"
+      ]
+    },
+    "buttons": {
+      "exploreGuide": "Explore PHEV Guide",
+      "later": "Later"
+    }
+  },
   "faq": {
     "title": "All You Need to Know About PHEV",
     "subtitle": "Complete guide to Plug-in Hybrid Electric Vehicles. Everything you need to know about PHEV technology, benefits, buying guide, charging, and maintenance.",
