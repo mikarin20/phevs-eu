@@ -730,6 +730,12 @@ export default function Home() {
     localStorage.setItem('phevs-recently-viewed', JSON.stringify(newViewed.map(c => c.id)))
   }
 
+  // PHEV Guide popup'ını kapat
+  const closePHEVGuidePopup = () => {
+    setIsPHEVGuidePopupOpen(false)
+    localStorage.setItem('phevs-guide-popup-seen', 'true')
+  }
+
   // Filtreleri temizle
   const clearFilters = () => {
     setSearchTerm('')
@@ -2711,6 +2717,13 @@ export default function Home() {
           localStorage.removeItem('phevs-selected-cars')
         }}
         isVisible={selectedCars.length > 0}
+      />
+
+      {/* PHEV Guide Popup */}
+      <PHEVGuidePopup
+        isOpen={isPHEVGuidePopupOpen}
+        onClose={closePHEVGuidePopup}
+        theme={selectedTheme}
       />
 
     </div>
