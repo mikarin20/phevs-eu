@@ -36,15 +36,6 @@ const ncapData = {
     overall_rating: 87,
     test_year: 2019
   },
-  'bmw-x1-30le-2022': {
-    stars: 5,
-    adult_occupant: 95,
-    child_occupant: 88,
-    pedestrian_protection: 83,
-    safety_assist: 70,
-    overall_rating: 84,
-    test_year: 2022
-  },
   'bmw-x1-25e-2024': {
     stars: 5,
     adult_occupant: 95,

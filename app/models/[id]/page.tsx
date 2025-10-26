@@ -29,6 +29,22 @@ interface Car {
   seats: number
   warranty_years: number
   country_availability: string
+  // New properties
+  weight_kg?: number
+  length_mm?: number
+  width_mm?: number
+  height_mm?: number
+  wheelbase_mm?: number
+  max_trunk_volume?: number
+  electric_motor_power_hp?: number
+  battery_chemistry?: string
+  battery_voltage?: number
+  battery_architecture?: string
+  emission_standard?: string
+  drivetrain?: string
+  transmission?: string
+  acceleration_0_100?: number
+  top_speed?: number
   battery_details?: {
     chemistry: string
     architecture: string
@@ -383,7 +399,14 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: t.electricRangeLabel, value: `${car.ev_range_km} km`, icon: BoltIcon, highlight: true, hasSimulator: true },
         { label: t.batteryCapacityLabel, value: `${car.battery_kwh} kWh`, icon: SparklesIcon, highlight: true },
         { label: t.acChargeTime, value: `${car.charge_time_ac} ${selectedLanguage === 'tr' ? 'saat' : selectedLanguage === 'de' ? 'Stunden' : selectedLanguage === 'pl' ? 'godziny' : 'hours'}` },
-        { label: t.dcChargeTime, value: `${car.charge_time_dc} ${selectedLanguage === 'tr' ? 'dakika' : selectedLanguage === 'de' ? 'Minuten' : selectedLanguage === 'pl' ? 'minuty' : 'minutes'}` },
+        { label: t.dcChargeTime, value: `${car.charge_time_dc || 'N/A'} ${selectedLanguage === 'tr' ? 'dakika' : selectedLanguage === 'de' ? 'Minuten' : selectedLanguage === 'pl' ? 'minuty' : 'minutes'}` },
+        // Battery chemistry and voltage if available
+        ...(car.battery_chemistry ? [
+          { label: selectedLanguage === 'tr' ? 'Batarya Kimyası' : selectedLanguage === 'de' ? 'Batteriechemie' : selectedLanguage === 'pl' ? 'Chemia baterii' : 'Battery Chemistry', value: car.battery_chemistry },
+        ] : [] as any),
+        ...(car.battery_voltage ? [
+          { label: selectedLanguage === 'tr' ? 'Batarya Voltajı' : selectedLanguage === 'de' ? 'Batteriespannung' : selectedLanguage === 'pl' ? 'Napięcie baterii' : 'Battery Voltage', value: `${car.battery_voltage}V` },
+        ] : [] as any),
         // Battery details if available
         ...(car.battery_details ? [
           { label: t.batteryType, value: `${car.battery_details.chemistry} • ${car.battery_details.architecture}` },
@@ -403,6 +426,22 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: t.fuelConsumption, value: `${car.fuel_consumption} L/100km` },
         { label: t.co2Emission, value: `${car.co2_emission} g/km` },
         { label: t.segment, value: car.segment },
+        // Electric motor power if available
+        ...(car.electric_motor_power_hp ? [
+          { label: selectedLanguage === 'tr' ? 'Elektrik Motor Gücü' : selectedLanguage === 'de' ? 'Elektromotor-Leistung' : selectedLanguage === 'pl' ? 'Moc silnika elektrycznego' : 'Electric Motor Power', value: `${car.electric_motor_power_hp} HP` },
+        ] : [] as any),
+        // Emission standard if available
+        ...(car.emission_standard ? [
+          { label: selectedLanguage === 'tr' ? 'Emisyon Standardı' : selectedLanguage === 'de' ? 'Abgasnorm' : selectedLanguage === 'pl' ? 'Norma emisji' : 'Emission Standard', value: car.emission_standard },
+        ] : [] as any),
+        // Drivetrain if available
+        ...(car.drivetrain ? [
+          { label: selectedLanguage === 'tr' ? 'Çekiş' : selectedLanguage === 'de' ? 'Antrieb' : selectedLanguage === 'pl' ? 'Napęd' : 'Drivetrain', value: car.drivetrain },
+        ] : [] as any),
+        // Transmission if available
+        ...(car.transmission ? [
+          { label: selectedLanguage === 'tr' ? 'Şanzıman' : selectedLanguage === 'de' ? 'Getriebe' : selectedLanguage === 'pl' ? 'Skrzynia biegów' : 'Transmission', value: car.transmission },
+        ] : [] as any),
       ]
     },
     {
@@ -412,6 +451,25 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: t.seats, value: car.seats },
         { label: t.warranty, value: `${car.warranty_years} ${selectedLanguage === 'tr' ? 'yıl' : selectedLanguage === 'de' ? 'Jahre' : selectedLanguage === 'pl' ? 'lata' : 'years'}` },
         { label: t.countryAvailability, value: car.country_availability },
+        // Additional dimensions if available
+        ...(car.weight_kg ? [
+          { label: selectedLanguage === 'tr' ? 'Ağırlık' : selectedLanguage === 'de' ? 'Gewicht' : selectedLanguage === 'pl' ? 'Waga' : 'Weight', value: `${car.weight_kg} kg` },
+        ] : [] as any),
+        ...(car.length_mm ? [
+          { label: selectedLanguage === 'tr' ? 'Uzunluk' : selectedLanguage === 'de' ? 'Länge' : selectedLanguage === 'pl' ? 'Długość' : 'Length', value: `${car.length_mm} mm` },
+        ] : [] as any),
+        ...(car.width_mm ? [
+          { label: selectedLanguage === 'tr' ? 'Genişlik' : selectedLanguage === 'de' ? 'Breite' : selectedLanguage === 'pl' ? 'Szerokość' : 'Width', value: `${car.width_mm} mm` },
+        ] : [] as any),
+        ...(car.height_mm ? [
+          { label: selectedLanguage === 'tr' ? 'Yükseklik' : selectedLanguage === 'de' ? 'Höhe' : selectedLanguage === 'pl' ? 'Wysokość' : 'Height', value: `${car.height_mm} mm` },
+        ] : [] as any),
+        ...(car.wheelbase_mm ? [
+          { label: selectedLanguage === 'tr' ? 'Aks Mesafesi' : selectedLanguage === 'de' ? 'Radstand' : selectedLanguage === 'pl' ? 'Rozstaw osi' : 'Wheelbase', value: `${car.wheelbase_mm} mm` },
+        ] : [] as any),
+        ...(car.max_trunk_volume ? [
+          { label: selectedLanguage === 'tr' ? 'Maks. Bagaj Hacmi' : selectedLanguage === 'de' ? 'Max. Kofferraumvolumen' : selectedLanguage === 'pl' ? 'Maks. objętość bagażnika' : 'Max Trunk Volume', value: `${car.max_trunk_volume} L` },
+        ] : [] as any),
       ]
     },
     {
@@ -421,6 +479,17 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: t.model, value: car.model },
         { label: t.year, value: car.year },
         { label: t.price, value: `€${car.price_eur.toLocaleString()} (${t.estimatedEU})` },
+        // Additional performance specs if available
+        ...(car.acceleration_0_100 ? [
+          { label: selectedLanguage === 'tr' ? '0-100 km/h' : selectedLanguage === 'de' ? '0-100 km/h' : selectedLanguage === 'pl' ? '0-100 km/h' : '0-100 km/h', value: `${car.acceleration_0_100} s` },
+        ] : [] as any),
+        ...(car.top_speed ? [
+          { label: selectedLanguage === 'tr' ? 'Maks. Hız' : selectedLanguage === 'de' ? 'Höchstgeschwindigkeit' : selectedLanguage === 'pl' ? 'Prędkość maksymalna' : 'Top Speed', value: `${car.top_speed} km/h` },
+        ] : [] as any),
+        // Battery architecture if available
+        ...(car.battery_architecture ? [
+          { label: selectedLanguage === 'tr' ? 'Batarya Mimarisi' : selectedLanguage === 'de' ? 'Batteriearchitektur' : selectedLanguage === 'pl' ? 'Architektura baterii' : 'Battery Architecture', value: car.battery_architecture },
+        ] : [] as any),
       ]
     }
   ]

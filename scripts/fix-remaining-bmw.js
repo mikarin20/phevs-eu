@@ -9,18 +9,6 @@ console.log(`Toplam araç sayısı: ${carsData.length}`);
 // Kalan BMW verilerini düzelt
 function fixRemainingBMW(cars) {
   const bmwFixes = {
-    // BMW X1 30Le 2022
-    'bmw-x1-30le-2022': {
-      engine_displacement: 1.5, // L
-      battery_chemistry: 'NCM',
-      battery_voltage: 400,
-      charging_port: {
-        ac_type: 'Type 2 AC (Mennekes)',
-        ac_location: 'Front left'
-      },
-      emission_standard: 'Euro 6d',
-      country_availability: 'DE,FR,UK,PL,IT,ES'
-    },
     
     // BMW XM 4.4 V8 2024
     'bmw-xm-44-v8-2024': {
