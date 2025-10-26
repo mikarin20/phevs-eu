@@ -36,7 +36,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
     }
   }
 
-  // Ana görsel - önce images array'inden, sonra loadedImages'dan, en son placeholder
+  // Ana görsel - önce images array'inden, sonra loadedImages'dan
   const getMainImageSrc = () => {
     // Önce images array'inden seçili index'i dene
     if (images?.[selectedImage] && !failedImages.has(images[selectedImage])) {
@@ -54,8 +54,8 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
     if (loadedImages[0] && !failedImages.has(loadedImages[0])) {
       return loadedImages[0]
     }
-    // En son placeholder
-    return '/images/placeholder-car.jpg'
+    // En son ilk görseli döndür
+    return images?.[0] || ''
   }
   
   const mainImageSrc = getMainImageSrc()
@@ -77,7 +77,8 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
             onLoad={() => handleImageLoad(mainImageSrc)}
             onError={(e) => {
               handleImageError(mainImageSrc)
-              e.currentTarget.src = '/images/placeholder-car.jpg'
+              // Görsel yüklenemezse gizle
+              e.currentTarget.style.display = 'none'
             }}
           />
         </div>

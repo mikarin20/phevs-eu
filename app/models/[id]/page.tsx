@@ -378,6 +378,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     
     // BMW XM 50e için özel görsel listesi
     if (car.slug === 'bmw-xm-50e-2024') {
+      console.log('BMW XM 50e için özel görsel listesi kullanılıyor')
       const bmwXmImages = [
         '002.jpg',
         'g05_carousel_columns_soundsystem.jpg',
@@ -390,6 +391,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       bmwXmImages.forEach(img => {
         images.push(`${basePath}/${img}`)
       })
+      console.log('BMW XM 50e görselleri:', images)
     } else {
       // Diğer araçlar için genel numaralı görselleri ekle
       const existingImages = [
