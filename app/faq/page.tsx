@@ -242,7 +242,7 @@ export default function PHEVGuidePage({
                     {category.topics.map((topic) => (
                       <Link
                         key={topic.id}
-                        href={`/faq/${topic.slug}`}
+                        href={`/faq/${topic.slug}${locale !== 'tr' ? `?lang=${locale}` : ''}`}
                         className="group block p-4 rounded-lg border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200"
                       >
                         <div className="flex items-start justify-between">
