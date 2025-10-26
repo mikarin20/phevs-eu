@@ -367,7 +367,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     const modelFromUrl = urlParts[5]
     
     if (!brandFromUrl || !modelFromUrl) {
-      return ['/images/placeholder-car.jpg']
+      return [car.image_url] // Placeholder yerine ana görseli döndür
     }
     
     const basePath = `/images/cars/brands/${brandFromUrl}/${modelFromUrl}`
@@ -376,16 +376,32 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     // Main görsel (doğru uzantıyla)
     images.push(car.image_url)
     
-    // Sadece mevcut numaralı görselleri ekle
-    const existingImages = [
-      '002.jpg', '004.jpg', '006.jpg', '009.jpg', '010.jpg', 
-      '011.jpg', '012.jpg', '013.jpg', '016.jpg', '017.jpg', 
-      '018.jpg', '019.jpg', '021.jpg'
-    ]
-    
-    existingImages.forEach(img => {
-      images.push(`${basePath}/${img}`)
-    })
+    // BMW XM 50e için özel görsel listesi
+    if (car.slug === 'bmw-xm-50e-2024') {
+      const bmwXmImages = [
+        '002.jpg',
+        'g05_carousel_columns_soundsystem.jpg',
+        'g05_exterior_video_fb.jpg',
+        'g05_interior_highlights_craftedclarity.jpg',
+        'g05_interior_highlights_curveddisplay.jpg',
+        'g05_plugin_hybrid_homecharging.jpg'
+      ]
+      
+      bmwXmImages.forEach(img => {
+        images.push(`${basePath}/${img}`)
+      })
+    } else {
+      // Diğer araçlar için genel numaralı görselleri ekle
+      const existingImages = [
+        '002.jpg', '004.jpg', '006.jpg', '009.jpg', '010.jpg', 
+        '011.jpg', '012.jpg', '013.jpg', '016.jpg', '017.jpg', 
+        '018.jpg', '019.jpg', '021.jpg'
+      ]
+      
+      existingImages.forEach(img => {
+        images.push(`${basePath}/${img}`)
+      })
+    }
     
     return images
   }

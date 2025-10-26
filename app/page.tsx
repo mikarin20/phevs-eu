@@ -205,19 +205,19 @@ export default function Home() {
     },
     {
       id: 'c5-kuga',
-      href: '/compare/citroen-c5-aircross-phev-vs-ford-kuga-phev',
+      href: '/compare/citroen-c5-aircross-ii-phev-vs-ford-kuga-phev',
       leftCar: { name: 'Citroën C5 Aircross (2025)', image: '/images/cars/brands/citroen/c5-aircross-ii-phev/main.jpg', alt: 'Citroën C5 Aircross', specs: '81km • €35,000' },
       rightCar: { name: 'Ford Kuga (2025)', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '65km • €40,000' }
     },
     {
       id: 'kodiaq-tiguan',
-      href: '/compare/skoda-kodiaq-iv-phev-vs-volkswagen-tiguan-phev',
+      href: '/compare/koda-kodiaq-phev-vs-volkswagen-tiguan-phev',
       leftCar: { name: 'Skoda Kodiaq iV (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq iV', specs: '60km • €38,000' },
       rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
     },
     {
       id: 'mg-3008',
-      href: '/compare/mg-hs-phev-vs-peugeot-3008-phev',
+      href: '/compare/mg-hs-ii-1-5t-vs-peugeot-3008-phev',
       leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
       rightCar: { name: 'Peugeot 3008 (2025)', image: '/images/cars/brands/peugeot/3008-plug-in-hybrid/main.jpg', alt: 'Peugeot 3008', specs: '59km • €35,000' }
     },
@@ -235,13 +235,13 @@ export default function Home() {
     },
     {
       id: 'renault-mg',
-      href: '/compare/renault-rafale-phev-vs-mg-hs-phev',
+      href: '/compare/renault-rafale-phev-vs-mg-hs-ii-1-5t',
       leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
       rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
     },
     {
       id: 'jeep-wrangler-compass',
-      href: '/compare/jeep-wrangler-4xe-vs-jeep-compass-4xe',
+      href: '/compare/jeep-wrangler-4xe-rubicon-phev-vs-jeep-compass-4xe-240hp-phev',
       leftCar: { name: 'Jeep Wrangler 4xe (2025)', image: '/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg', alt: 'Jeep Wrangler 4xe', specs: '45km • €65,000' },
       rightCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' }
     },
