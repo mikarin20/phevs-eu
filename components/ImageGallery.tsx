@@ -9,112 +9,94 @@ interface ImageGalleryProps {
 
 export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0)
-  const [loadedImages, setLoadedImages] = useState<string[]>([])
-  const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
+  const [invalidImageIndices, setInvalidImageIndices] = useState<Set<number>>(new Set())
 
-  // İlk 7 görseli otomatik yükle
-  useEffect(() => {
-    if (images && images.length > 0) {
-      const imagesToLoad = images.slice(0, 7) // İlk 7 görseli al
-      setLoadedImages(imagesToLoad)
-    }
-  }, [images])
-
-  // Görsel başarıyla yüklendiğinde
-  const handleImageLoad = (src: string) => {
-    if (!loadedImages.includes(src)) {
-      setLoadedImages(prev => [...prev, src])
-    }
-  }
-
-  // Görsel yüklenemediğinde
-  const handleImageError = (src: string) => {
-    setFailedImages(prev => new Set([...prev, src]))
-    // Eğer ana görsel yüklenemezse, ilk geçerli görseli kullan
-    if (src === mainImageSrc && loadedImages.length > 0) {
-      setSelectedImage(0)
-    }
-  }
-
-  // Ana görsel - önce images array'inden, sonra loadedImages'dan
-  const getMainImageSrc = () => {
-    // Önce images array'inden seçili index'i dene
-    if (images?.[selectedImage] && !failedImages.has(images[selectedImage])) {
-      return images[selectedImage]
-    }
-    // Sonra images array'inden ilk geçerli görseli dene
-    if (images?.[0] && !failedImages.has(images[0])) {
-      return images[0]
-    }
-    // Sonra loadedImages'dan seçili index'i dene
-    if (loadedImages[selectedImage] && !failedImages.has(loadedImages[selectedImage])) {
-      return loadedImages[selectedImage]
-    }
-    // Sonra loadedImages'dan ilk geçerli görseli dene
-    if (loadedImages[0] && !failedImages.has(loadedImages[0])) {
-      return loadedImages[0]
-    }
-    // En son ilk görseli döndür
-    return images?.[0] || ''
+  // Sadece mevcut görselleri filtrele
+  let validImages = images.filter(img => img && img.trim() !== '')
+  
+  // Hatalı görselleri filtrele
+  if (invalidImageIndices.size > 0) {
+    validImages = validImages.filter((_, index) => !invalidImageIndices.has(index))
   }
   
-  const mainImageSrc = getMainImageSrc()
+  // Eğer seçili görsel geçersizse, ilk geçerli görseli seç
+  useEffect(() => {
+    if (invalidImageIndices.size > 0 && selectedImage >= validImages.length && validImages.length > 0) {
+      setSelectedImage(0)
+    }
+  }, [invalidImageIndices.size, selectedImage, validImages.length])
 
-  // Thumbnail'lar için görseller - sadece yüklenenler
-  const thumbnailImages = loadedImages.slice(1, 21) // İlk görseli çıkar, max 20 thumbnail
+  if (validImages.length === 0) {
+    return (
+      <div className="space-y-4">
+        <div className="relative bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden shadow-md">
+          <div className="aspect-[4/3] w-full max-w-4xl mx-auto flex items-center justify-center">
+            <p className="text-gray-500">Görsel bulunamadı</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div className="space-y-4">
-      {/* Main Image */}
-      <div className="relative bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden shadow-md">
-        <div className="aspect-[4/3] w-full max-w-4xl mx-auto">
+    <div className="space-y-6">
+      {/* Main Image - Modern Hero Style */}
+      <div className="relative bg-gradient-to-br from-slate-100 via-white to-slate-50 rounded-2xl overflow-hidden shadow-xl border border-slate-200">
+        <div className="aspect-[16/9] w-full max-w-6xl mx-auto flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
           <img
-            src={mainImageSrc}
+            src={validImages[selectedImage]}
             alt={alt}
-            className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]"
             loading="eager"
             fetchPriority="high"
-            onLoad={() => handleImageLoad(mainImageSrc)}
+            onLoad={() => setLoadedImages(prev => new Set([...prev, selectedImage]))}
             onError={(e) => {
-              handleImageError(mainImageSrc)
-              // Görsel yüklenemezse gizle
+              console.log('Görsel yüklenemedi:', validImages[selectedImage])
+              setInvalidImageIndices(prev => new Set([...prev, selectedImage]))
               e.currentTarget.style.display = 'none'
             }}
           />
         </div>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none"></div>
       </div>
 
-      {/* Thumbnail Images */}
-      {thumbnailImages.length > 0 && (
-        <div className="grid grid-cols-5 gap-3">
-          {thumbnailImages.map((image, index) => (
+      {/* Thumbnail Images - Modern Grid */}
+      {validImages.length > 1 && (
+        <div className="grid grid-cols-6 gap-3 max-w-6xl mx-auto">
+          {validImages.map((image, index) => (
             <button
               key={index}
-              onClick={() => setSelectedImage(index + 1)} // +1 çünkü ilk görsel ana görsel
-              className={`bg-gradient-to-br from-[#F1F5F9] to-[#E2E8F0] rounded-lg overflow-hidden transition-all duration-300 ${
-                selectedImage === index + 1 
-                  ? 'ring-2 ring-[#4F7C82] shadow-lg scale-105' 
-                  : 'hover:ring-1 hover:ring-[#93B1B5] hover:scale-105'
+              onClick={() => setSelectedImage(index)}
+              className={`group relative bg-white rounded-xl overflow-hidden transition-all duration-300 border-2 ${
+                selectedImage === index 
+                  ? 'ring-4 ring-blue-500 shadow-xl scale-105 border-blue-400' 
+                  : 'border-slate-200 hover:border-blue-300 hover:shadow-lg hover:scale-105'
               }`}
             >
-              <div className="aspect-[4/3] w-full h-20">
+              <div className="aspect-[4/3] w-full h-24 relative">
                 <img
                   src={image}
-                  alt={`${alt} ${index + 2}`}
-                  className="w-full h-full object-cover"
+                  alt={`${alt} ${index + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
-                  onLoad={() => handleImageLoad(image)}
+                  onLoad={() => setLoadedImages(prev => new Set([...prev, index]))}
                   onError={(e) => {
-                    handleImageError(image)
+                    console.log('Thumbnail yüklenemedi:', image)
+                    setInvalidImageIndices(prev => new Set([...prev, index]))
                     e.currentTarget.style.display = 'none'
                   }}
                 />
               </div>
+              {/* Selected indicator */}
+              {selectedImage === index && (
+                <div className="absolute inset-0 bg-blue-500/10 pointer-events-none"></div>
+              )}
             </button>
           ))}
         </div>
       )}
-
     </div>
   )
 }

@@ -156,6 +156,27 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Dil bazlı redirects - ana sayfaya yönlendir
+      {
+        source: '/pl',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/de',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tr',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 }

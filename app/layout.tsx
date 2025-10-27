@@ -15,12 +15,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://phevs.eu'),
   alternates: {
     canonical: 'https://phevs.eu',
-    languages: {
-      'en-EU': 'https://phevs.eu',
-      'de-DE': 'https://phevs.eu/de',
-      'tr-TR': 'https://phevs.eu/tr',
-      'pl-PL': 'https://phevs.eu/pl'
-    }
   },
   // Open Graph configuration is defined below with full details
   title: {

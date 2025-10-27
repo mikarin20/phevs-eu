@@ -378,7 +378,6 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     
     // BMW XM 50e için özel görsel listesi
     if (car.slug === 'bmw-xm-50e-2024') {
-      console.log('BMW XM 50e için özel görsel listesi kullanılıyor')
       const bmwXmImages = [
         '002.jpg',
         'g05_carousel_columns_soundsystem.jpg',
@@ -391,7 +390,6 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       bmwXmImages.forEach(img => {
         images.push(`${basePath}/${img}`)
       })
-      console.log('BMW XM 50e görselleri:', images)
     } else {
       // Diğer araçlar için genel numaralı görselleri ekle
       const existingImages = [
@@ -411,6 +409,27 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   const catalogImages = getCatalogImages(car.id, car.brand)
 
   const specifications = [
+    {
+      category: t.general,
+      items: [
+        { label: t.brand, value: car.brand },
+        { label: t.model, value: car.model },
+        { label: t.year, value: car.year },
+        { label: t.segment, value: car.segment },
+        { label: t.price, value: `€${car.price_eur.toLocaleString()} (${t.estimatedEU})` },
+        // Additional performance specs if available
+        ...(car.acceleration_0_100 ? [
+          { label: selectedLanguage === 'tr' ? '0-100 km/h' : selectedLanguage === 'de' ? '0-100 km/h' : selectedLanguage === 'pl' ? '0-100 km/h' : '0-100 km/h', value: `${car.acceleration_0_100} s` },
+        ] : [] as any),
+        ...(car.top_speed ? [
+          { label: selectedLanguage === 'tr' ? 'Maks. Hız' : selectedLanguage === 'de' ? 'Höchstgeschwindigkeit' : selectedLanguage === 'pl' ? 'Prędkość maksymalna' : 'Top Speed', value: `${car.top_speed} km/h` },
+        ] : [] as any),
+        // Battery architecture if available
+        ...(car.battery_architecture ? [
+          { label: selectedLanguage === 'tr' ? 'Batarya Mimarisi' : selectedLanguage === 'de' ? 'Batteriearchitektur' : selectedLanguage === 'pl' ? 'Architektura baterii' : 'Battery Architecture', value: car.battery_architecture },
+        ] : [] as any),
+      ]
+    },
     { 
       category: t.electricPerformance,
       items: [
@@ -443,7 +462,6 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: t.engine, value: car.engine_displacement ? `${car.engine_displacement}L` : 'N/A' },
         { label: t.fuelConsumption, value: `${car.fuel_consumption} L/100km` },
         { label: t.co2Emission, value: `${car.co2_emission} g/km` },
-        { label: t.segment, value: car.segment },
         // Electric motor power if available
         ...(car.electric_motor_power_hp ? [
           { label: selectedLanguage === 'tr' ? 'Elektrik Motor Gücü' : selectedLanguage === 'de' ? 'Elektromotor-Leistung' : selectedLanguage === 'pl' ? 'Moc silnika elektrycznego' : 'Electric Motor Power', value: `${car.electric_motor_power_hp} HP` },
@@ -489,68 +507,44 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           { label: selectedLanguage === 'tr' ? 'Maks. Bagaj Hacmi' : selectedLanguage === 'de' ? 'Max. Kofferraumvolumen' : selectedLanguage === 'pl' ? 'Maks. objętość bagażnika' : 'Max Trunk Volume', value: `${car.max_trunk_volume} L` },
         ] : [] as any),
       ]
-    },
-    {
-      category: t.general,
-      items: [
-        { label: t.brand, value: car.brand },
-        { label: t.model, value: car.model },
-        { label: t.year, value: car.year },
-        { label: t.price, value: `€${car.price_eur.toLocaleString()} (${t.estimatedEU})` },
-        // Additional performance specs if available
-        ...(car.acceleration_0_100 ? [
-          { label: selectedLanguage === 'tr' ? '0-100 km/h' : selectedLanguage === 'de' ? '0-100 km/h' : selectedLanguage === 'pl' ? '0-100 km/h' : '0-100 km/h', value: `${car.acceleration_0_100} s` },
-        ] : [] as any),
-        ...(car.top_speed ? [
-          { label: selectedLanguage === 'tr' ? 'Maks. Hız' : selectedLanguage === 'de' ? 'Höchstgeschwindigkeit' : selectedLanguage === 'pl' ? 'Prędkość maksymalna' : 'Top Speed', value: `${car.top_speed} km/h` },
-        ] : [] as any),
-        // Battery architecture if available
-        ...(car.battery_architecture ? [
-          { label: selectedLanguage === 'tr' ? 'Batarya Mimarisi' : selectedLanguage === 'de' ? 'Batteriearchitektur' : selectedLanguage === 'pl' ? 'Architektura baterii' : 'Battery Architecture', value: car.battery_architecture },
-        ] : [] as any),
-      ]
     }
   ]
 
   return (
     <>
-      <div className={`min-h-screen ${currentTheme.background}`}>
-
-      {/* Header */}
-      <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50`}>
+      <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100`}>
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-slate-200/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className={`inline-flex items-center space-x-1 sm:space-x-2 ${currentTheme.linkText} ${currentTheme.linkHover} transition-colors`}>
-              <ArrowLeftIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span className="font-medium text-sm sm:text-base">{t.backToModels}</span>
+          <div className="flex items-center justify-between h-20">
+            <Link href="/" className="inline-flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition-colors group">
+              <ArrowLeftIcon className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
+              <span className="font-medium text-sm">{t.backToModels}</span>
             </Link>
             <div className="text-center flex-1 px-2">
-              <h1 className={`text-lg sm:text-xl font-bold ${currentTheme.headerText} truncate`}>{car.brand} {car.model}</h1>
-              <p className={`text-xs sm:text-sm ${currentTheme.headerSubtext}`}>{car.year} • {car.segment}</p>
+              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent truncate">{car.brand} {car.model}</h1>
+              <p className="text-sm text-slate-500">{car.year} • {car.segment}</p>
             </div>
             <div className="w-16 sm:w-24"></div>
           </div>
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Images Section */}
         <div className="mb-12">
           <ImageGallery images={catalogImages} alt={`${car.brand} ${car.model} gallery`} />
         </div>
 
-        {/* Price and Key Stats */}
-        <div className="mb-6">
-          <div className={`${currentTheme.priceBg} rounded-2xl p-4 md:p-6 text-center border ${currentTheme.priceBorder}`}>
-            <div className="flex items-center justify-center space-x-2 md:space-x-3 mb-2 md:mb-3">
-              <CurrencyEuroIcon className={`h-8 w-8 md:h-9 md:w-9 ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-blue-600'}`} />
-              <span className={`text-3xl md:text-4xl font-bold ${currentTheme.textPrimary}`}>€{car.price_eur.toLocaleString()}</span>
-            </div>
-            <div className="flex items-center justify-center space-x-2 mb-3 md:mb-4">
-              <p className={`${currentTheme.textSecondary} font-medium`}>{t.startingPrice}</p>
+        {/* Elegant Info Section */}
+        <div className="mb-16">
+          {/* Price - Center Elegant */}
+          <div className="text-center mb-12">
+            <p className="text-xs text-slate-500 uppercase tracking-[0.15em] mb-4 font-light">{t.startingPrice}</p>
+            <div className="flex items-baseline justify-center space-x-4">
+              <span className="text-6xl md:text-7xl font-extralight text-slate-900 tracking-tight">€{car.price_eur.toLocaleString()}</span>
               <div className="relative group">
-                <InformationCircleIcon className={`h-4 w-4 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-gray-400'} cursor-help`} />
-                <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 ${selectedTheme === 'dark' ? 'bg-[#555879] text-[#F4EBD3]' : 'bg-gray-800 text-white'} text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none`}>
+                <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help hover:text-slate-500 transition-colors" />
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-2 bg-slate-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                   {selectedLanguage === 'tr' ? 'Tahmini AB pazar değeri' : 
                    selectedLanguage === 'de' ? 'Geschätzter EU-Marktwert' :
                    selectedLanguage === 'pl' ? 'Szacowana wartość rynkowa UE' :
@@ -558,112 +552,106 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Stats - Elegant Split */}
+          <div className="flex flex-wrap justify-center gap-x-16 gap-y-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 font-light">{t.electricRange}</p>
+              <p className="text-5xl font-extralight text-slate-900">{car.ev_range_km}</p>
+              <span className="text-sm text-slate-400">km</span>
+            </div>
             
-            {/* Key Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 max-w-xl md:max-w-2xl mx-auto">
-              <div className={`${currentTheme.statBg} rounded-xl p-3 shadow-sm border ${currentTheme.cardBorder}`}>
-                <div className="flex items-center justify-center space-x-2 mb-1.5">
-                  <BoltIcon className={`h-5 w-5 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-green-600'}`} />
-                  <span className={`text-lg md:text-xl font-bold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
-                </div>
-                <p className={`text-sm ${currentTheme.textSecondary}`}>{t.electricRange}</p>
-              </div>
-              <div className={`${currentTheme.statBg} rounded-xl p-3 shadow-sm border ${currentTheme.cardBorder}`}>
-                <div className="flex items-center justify-center space-x-2 mb-1.5">
-                  <SparklesIcon className={`h-5 w-5 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-blue-600'}`} />
-                  <span className={`text-lg md:text-xl font-bold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
-                </div>
-                <p className={`text-sm ${currentTheme.textSecondary}`}>{t.batteryCapacity}</p>
-              </div>
-              <div className={`${currentTheme.statBg} rounded-xl p-3 shadow-sm border ${currentTheme.cardBorder}`}>
-                <div className="flex items-center justify-center space-x-2 mb-1.5">
-                  <div className={`w-5 h-5 ${selectedTheme === 'dark' ? 'bg-[#DED3C4]' : 'bg-orange-500'} rounded-full flex items-center justify-center`}>
-                    <span className={`text-[10px] font-bold ${selectedTheme === 'dark' ? 'text-[#555879]' : 'text-white'}`}>HP</span>
-                  </div>
-                  <span className={`text-lg md:text-xl font-bold ${currentTheme.textPrimary}`}>{car.power_hp}</span>
-                </div>
-                <p className={`text-sm ${currentTheme.textSecondary}`}>{t.powerOutput}</p>
-              </div>
+            <div className="text-center">
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 font-light">{t.batteryCapacity}</p>
+              <p className="text-5xl font-extralight text-slate-900">{car.battery_kwh}</p>
+              <span className="text-sm text-slate-400">kWh</span>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 font-light">{t.powerOutput}</p>
+              <p className="text-5xl font-extralight text-slate-900">{car.power_hp}</p>
+              <span className="text-sm text-slate-400">HP</span>
             </div>
           </div>
         </div>
 
-        {/* Range Simulator Section */}
-        <div className="mb-8">
-          <div className={`${currentTheme.cardBg} rounded-xl p-6 shadow-sm border ${currentTheme.cardBorder}`}>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className={`w-12 h-12 ${currentTheme.highlightBg} rounded-xl flex items-center justify-center`}>
-                  <SparklesIcon className={`h-6 w-6 ${currentTheme.textPrimary}`} />
-                </div>
-                <div>
-                  <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Range Simulator</h3>
-                  <p className={`text-sm ${currentTheme.textSecondary}`}>Test real-world range with different conditions</p>
-                </div>
+        {/* Range Simulator & Safety Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+          {/* Range Simulator */}
+          <div className="bg-gradient-to-br from-emerald-50 to-white border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-all">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center">
+                <SparklesIcon className="h-6 w-6 text-white" />
               </div>
-              <button
-                onClick={() => setIsRangeSimulatorOpen(true)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105`}
-              >
-                <SparklesIcon className="h-5 w-5 inline mr-2" />
-                Try Simulator
-              </button>
+              <h3 className="text-xl font-medium text-slate-900">Range Simulator</h3>
             </div>
+            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+              Test real-world range with different driving conditions and scenarios
+            </p>
+            <button
+              onClick={() => setIsRangeSimulatorOpen(true)}
+              className="w-full px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-all duration-200 text-sm font-medium flex items-center justify-center space-x-2"
+            >
+              <SparklesIcon className="h-4 w-4" />
+              <span>Open Simulator</span>
+            </button>
           </div>
-        </div>
 
-        {/* Euro NCAP Section */}
-        {car.euroncap_rating && (
-          <div className="mb-8">
-            <div className={`${currentTheme.cardBg} rounded-xl p-6 text-center max-w-md mx-auto shadow-sm border ${currentTheme.cardBorder}`}>
-              <h3 className={`text-lg font-bold ${currentTheme.textPrimary} mb-4`}>{t.safetyRating}</h3>
-              <div className="flex justify-center mb-3">
+          {/* Euro NCAP Section */}
+          {car.euroncap_rating && (
+            <div className="bg-gradient-to-br from-amber-50 to-white border border-slate-200 rounded-xl p-8 shadow-sm">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center">
+                  <span className="text-xl">⭐</span>
+                </div>
+                <h3 className="text-xl font-medium text-slate-900">{t.safetyRating}</h3>
+              </div>
+              <div className="flex justify-start mb-6">
                 <EuroNCAPStars rating={car.euroncap_rating} size="md" showDetails={false} />
               </div>
               <a 
                 href={`https://www.euroncap.com/en/results/${car.brand.toLowerCase().replace(/\s+/g, '-')}/${car.model.toLowerCase().replace(/\s+/g, '-')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-xs ${selectedTheme === 'dark' ? 'text-[#DED3C4] hover:text-[#F4EBD3]' : 'text-blue-600 hover:text-blue-800'} transition-colors underline`}
+                className="text-xs text-slate-500 hover:text-slate-700 transition-colors underline inline-block"
               >
                 {t.sourceEuroNCAP}
               </a>
             </div>
-          </div>
-        )}
+          )}
+        </div>
 
-        {/* Specifications Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        {/* Specifications Grid - Elegant */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-12">
           {specifications.map((spec, index) => (
-            <div key={index} className={`${currentTheme.cardBg} rounded-xl p-6 shadow-sm border ${currentTheme.cardBorder}`}>
-              <h3 className={`text-lg font-bold ${currentTheme.textPrimary} mb-4 pb-3 border-b ${currentTheme.cardBorder}`}>
+            <div key={index}>
+              <h3 className="text-xs text-slate-500 uppercase tracking-[0.2em] mb-8 font-light">
                 {spec.category}
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-6">
                 {spec.items.map((item, itemIndex) => (
                   <div 
                     key={itemIndex} 
-                    className={`flex justify-between items-center py-3 px-4 rounded-lg transition-all ${
-                      (item as any).highlight 
-                        ? `${currentTheme.highlightBg} border ${currentTheme.highlightBorder}` 
-                        : `${currentTheme.specBg} ${currentTheme.specHover}`
+                    className={`flex justify-between items-start py-2 ${
+                      (item as any).highlight ? 'border-b border-slate-900 pb-3' : ''
                     }`}
                   >
-                    <div className="flex items-center space-x-2">
-                      {(item as any).icon && React.createElement((item as any).icon, { className: `h-4 w-4 ${currentTheme.iconColor}` })}
-                      <span className={`${currentTheme.textPrimary} font-medium text-sm`}>{item.label}</span>
+                    <div className="flex items-start space-x-3">
+                      {(item as any).icon && React.createElement((item as any).icon, { className: `h-4 w-4 mt-0.5 ${(item as any).highlight ? 'text-slate-900' : 'text-slate-400'}` })}
+                      <span className={`text-sm ${(item as any).highlight ? 'font-medium text-slate-900' : 'font-light text-slate-600'}`}>{item.label}</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className={`font-bold text-sm ${currentTheme.textPrimary}`}>
+                      <span className={`text-sm ${(item as any).highlight ? 'font-medium text-slate-900' : 'font-light text-slate-900'}`}>
                         {item.value}
                       </span>
                       {(item as any).hasSimulator && (
                         <button
                           onClick={() => setIsRangeSimulatorOpen(true)}
-                          className={`p-1.5 ${selectedTheme === 'dark' ? 'hover:bg-[#DED3C4]' : 'hover:bg-blue-100'} rounded-lg transition-colors`}
+                          className="p-1 hover:text-slate-900 transition-colors"
                           title="Range Simulator"
                         >
-                          <SparklesIcon className={`h-3 w-3 ${selectedTheme === 'dark' ? 'text-[#DED3C4]' : 'text-blue-600'}`} />
+                          <SparklesIcon className="h-3 w-3 text-slate-400" />
                         </button>
                       )}
                     </div>

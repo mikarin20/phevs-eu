@@ -247,19 +247,19 @@ export default function Home() {
     },
     {
       id: 'jeep-compass-renegade',
-      href: '/compare/jeep-compass-4xe-vs-jeep-renegade-4xe',
+      href: '/compare/jeep-compass-4xe-240hp-phev-vs-jeep-renegade-4xe-240hp-phev',
       leftCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' },
       rightCar: { name: 'Jeep Renegade 4xe (2025)', image: '/images/cars/brands/jeep/renegade-4xe-240hp/main.jpeg', alt: 'Jeep Renegade 4xe', specs: '42km • €35,000' }
     },
     {
       id: 'kia-mg',
-      href: '/compare/kia-niro-phev-vs-mg-hs-phev',
+      href: '/compare/kia-niro-ii-2025-vs-mg-hs-ii-1-5t',
       leftCar: { name: 'Kia Niro (2025)', image: '/images/cars/brands/kia/niro-ii-2025/main.jpg', alt: 'Kia Niro', specs: '57km • €40,000' },
       rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
     },
     {
       id: 'mg-cupra',
-      href: '/compare/mg-hs-phev-vs-cupra-formentor-e-hybrid',
+      href: '/compare/mg-hs-ii-1-5t-vs-cupra-formentor-204hp-phev',
       leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
       rightCar: { name: 'Cupra Formentor (2025)', image: '/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '65km • €42,000' }
     },
@@ -307,7 +307,7 @@ export default function Home() {
     },
     {
       id: 'porsche-panamera-cayenne',
-      href: '/compare/porsche-panamera-phev-vs-porsche-cayenne-phev',
+      href: '/compare/porsche-panamera-4-phev-vs-porsche-cayenne-phev',
       leftCar: { name: 'Porsche Panamera (2025)', image: '/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg', alt: 'Porsche Panamera', specs: '50km • €107,780' },
       rightCar: { name: 'Porsche Cayenne (2025)', image: '/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg', alt: 'Porsche Cayenne', specs: '44km • €136,000' }
     },
@@ -319,43 +319,43 @@ export default function Home() {
     },
     {
       id: 'renault-rafale-captur',
-      href: '/compare/renault-rafale-phev-vs-renault-captur-phev',
+      href: '/compare/renault-rafale-phev-vs-renault-captur-e-tech-phev',
       leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
       rightCar: { name: 'Renault Captur E-TECH (2022)', image: '/images/cars/brands/renault/captur-e-tech-phev/main.jpg', alt: 'Renault Captur E-TECH', specs: '50km • €32,000' }
     },
     {
       id: 'seat-leon-sportstourer-hatchback',
-      href: '/compare/seat-leon-sportstourer-phev-vs-seat-leon-hatchback-phev',
+      href: '/compare/seat-leon-sportstourer-1-4-e-hybrid-vs-seat-leon-1-5-tsi',
       leftCar: { name: 'SEAT Leon Sportstourer (2025)', image: '/images/cars/brands/seat/leon-iv-sportstourer-15-tsi/main.jpg', alt: 'SEAT Leon Sportstourer', specs: '65km • €35,000' },
       rightCar: { name: 'SEAT Leon Hatchback (2025)', image: '/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg', alt: 'SEAT Leon Hatchback', specs: '65km • €33,000' }
     },
     {
       id: 'seat-leon-tarraco',
-      href: '/compare/seat-leon-phev-vs-seat-tarraco-phev',
+      href: '/compare/seat-leon-1-5-tsi-vs-seat-tarraco-1-4-tsi',
       leftCar: { name: 'SEAT Leon (2025)', image: '/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg', alt: 'SEAT Leon', specs: '65km • €33,000' },
       rightCar: { name: 'SEAT Tarraco (2025)', image: '/images/cars/brands/seat/tarraco-14-tsi/main.jpg', alt: 'SEAT Tarraco', specs: '50km • €40,000' }
     },
     {
       id: 'seat-tarraco-vw-tiguan',
-      href: '/compare/seat-tarraco-phev-vs-volkswagen-tiguan-phev',
+      href: '/compare/seat-tarraco-1-4-tsi-vs-volkswagen-tiguan-phev',
       leftCar: { name: 'SEAT Tarraco (2025)', image: '/images/cars/brands/seat/tarraco-14-tsi/main.jpg', alt: 'SEAT Tarraco', specs: '50km • €40,000' },
       rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
     },
     {
       id: 'skoda-kodiaq-superb',
-      href: '/compare/skoda-kodiaq-phev-vs-skoda-superb-phev',
+      href: '/compare/koda-kodiaq-phev-vs-koda-superb-combi-phev',
       leftCar: { name: 'Skoda Kodiaq (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq', specs: '60km • €38,000' },
       rightCar: { name: 'Skoda Superb (2025)', image: '/images/cars/brands/skoda/superb-sedan-phev/main.jpg', alt: 'Skoda Superb', specs: '68km • €35,000' }
     },
     {
       id: 'skoda-superb-combi-sedan',
-      href: '/compare/skoda-superb-combi-phev-vs-skoda-superb-sedan-phev',
+      href: '/compare/koda-superb-combi-phev-vs-koda-superb-sedan-phev',
       leftCar: { name: 'Skoda Superb Combi (2025)', image: '/images/cars/brands/skoda/superb-combi-phev/main.png', alt: 'Skoda Superb Combi', specs: '65km • €36,000' },
       rightCar: { name: 'Skoda Superb (2025)', image: '/images/cars/brands/skoda/superb-sedan-phev/main.jpg', alt: 'Skoda Superb', specs: '68km • €35,000' }
     },
     {
       id: 'skoda-kodiaq-vw-tiguan',
-      href: '/compare/skoda-kodiaq-phev-vs-volkswagen-tiguan-phev',
+      href: '/compare/koda-kodiaq-phev-vs-volkswagen-tiguan-phev',
       leftCar: { name: 'Skoda Kodiaq (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq', specs: '60km • €38,000' },
       rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
     },
@@ -367,7 +367,7 @@ export default function Home() {
     },
     {
       id: 'suzuki-across-hyundai-tucson',
-      href: '/compare/suzuki-across-phev-vs-hyundai-tucson-phev',
+      href: '/compare/suzuki-across-phev-vs-hyundai-tucson-iv-facelift-268hp-phev',
       leftCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75km • €45,000' },
       rightCar: { name: 'Hyundai Tucson (2025)', image: '/images/cars/brands/hyundai/tucson-iv-facelift-2024-268hp-phev/main.jpg', alt: 'Hyundai Tucson', specs: '65km • €45,000' }
     },
