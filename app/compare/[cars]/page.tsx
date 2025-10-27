@@ -383,6 +383,18 @@ export default function ComparePage({ params }: ComparePageProps) {
   // Client-side hydration kontrolü
   useEffect(() => {
     setIsClient(true)
+    
+    // Dropdown dışına tıklanınca kapat
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (target && !target.closest('#shareDropdown') && !target.closest('#shareDropdownMobile')) {
+        document.getElementById('shareDropdown')?.classList.add('hidden')
+        document.getElementById('shareDropdownMobile')?.classList.add('hidden')
+      }
+    }
+    
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
   }, [])
 
   // Dil algılama - client-side'da çalışır
@@ -443,7 +455,7 @@ export default function ComparePage({ params }: ComparePageProps) {
 
       // Canvas boyutlarını hesapla
       const headerHeight = 120
-      const footerHeight = 80
+      const footerHeight = 100
       const padding = 40
       const totalWidth = comparisonCanvas.width + (padding * 2)
       const totalHeight = headerHeight + comparisonCanvas.height + footerHeight + (padding * 2)
@@ -479,9 +491,17 @@ export default function ComparePage({ params }: ComparePageProps) {
       ctx.fillStyle = '#64748b'
       ctx.font = '12px Arial'
       ctx.textAlign = 'center'
+      
+      // URL'yi al ve kısalt
+      const currentUrl = window.location.href
+      const urlText = currentUrl.length > 70 ? currentUrl.substring(0, 67) + '...' : currentUrl
+      
       ctx.fillText(`Generated on ${new Date().toLocaleDateString('tr-TR')} at phevs.eu`, totalWidth / 2, footerY)
       ctx.fillText('Compare PHEV vehicles and find your perfect match', totalWidth / 2, footerY + 20)
-      ctx.fillText('Visit phevs.eu for more comparisons', totalWidth / 2, footerY + 40)
+      ctx.fillStyle = '#3b82f6'
+      ctx.fillText(urlText, totalWidth / 2, footerY + 40)
+      ctx.fillStyle = '#64748b'
+      ctx.fillText('Visit phevs.eu for more comparisons', totalWidth / 2, footerY + 60)
       
       return finalCanvas.toDataURL('image/png', 1.0)
     } catch (error) {
@@ -493,7 +513,13 @@ export default function ComparePage({ params }: ComparePageProps) {
   const shareAsImage = async () => {
     const dataUrl = await captureComparison()
     if (!dataUrl) {
-      alert('Görüntü oluşturulamadı. Lütfen tekrar deneyin.')
+      const errorMessages: Record<string, string> = {
+        en: 'Could not create image. Please try again.',
+        tr: 'Görüntü oluşturulamadı. Lütfen tekrar deneyin.',
+        de: 'Bild konnte nicht erstellt werden. Bitte versuchen Sie es erneut.',
+        pl: 'Nie można utworzyć obrazu. Spróbuj ponownie.'
+      }
+      alert(errorMessages[selectedLanguage] || errorMessages.en)
       return
     }
 
@@ -513,7 +539,7 @@ export default function ComparePage({ params }: ComparePageProps) {
           })
         } else {
           // Fallback: URL paylaşımı
-          const comparisonUrl = `${window.location.origin}/compare?cars=${selectedCars.map(c => c.id).join(',')}`
+          const comparisonUrl = `${window.location.origin}${window.location.pathname}`
           await navigator.share({
             title: 'Araç Karşılaştırması',
             text: `${selectedCars.map(c => `${c.brand} ${c.model}`).join(' vs ')} karşılaştırması`,
@@ -528,6 +554,44 @@ export default function ComparePage({ params }: ComparePageProps) {
       // Fallback: İndirme
       downloadImage(dataUrl)
     }
+  }
+
+  const shareToFacebook = () => {
+    const currentUrl = window.location.href
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`
+    console.log('Facebook Share URL:', shareUrl)
+    console.log('Original URL:', currentUrl)
+    window.open(shareUrl, '_blank', 'width=600,height=400')
+  }
+
+  const shareToTwitter = () => {
+    const comparisonText = encodeURIComponent(`${selectedCars.map(c => `${c.brand} ${c.model}`).join(' vs ')} PHEV Comparison`)
+    const currentUrl = encodeURIComponent(window.location.href)
+    const shareUrl = `https://twitter.com/intent/tweet?text=${comparisonText}&url=${currentUrl}`
+    window.open(shareUrl, '_blank', 'width=600,height=400')
+  }
+
+  const copyToClipboard = () => {
+    const currentUrl = window.location.href
+    const successMessages: Record<string, string> = {
+      en: 'URL copied to clipboard!',
+      tr: 'URL panoya kopyalandı!',
+      de: 'URL in die Zwischenablage kopiert!',
+      pl: 'URL skopiowano do schowka!'
+    }
+    const errorMessages: Record<string, string> = {
+      en: 'Could not copy URL',
+      tr: 'URL kopyalanamadı',
+      de: 'URL konnte nicht kopiert werden',
+      pl: 'Nie można skopiować URL'
+    }
+    
+    navigator.clipboard.writeText(currentUrl).then(() => {
+      alert(successMessages[selectedLanguage] || successMessages.en)
+    }).catch(err => {
+      console.error('Failed to copy:', err)
+      alert(errorMessages[selectedLanguage] || errorMessages.en)
+    })
   }
 
   const downloadImage = (dataUrl: string) => {
@@ -957,13 +1021,57 @@ export default function ComparePage({ params }: ComparePageProps) {
                   Save
                 </button>
                 
-                <button
-                  onClick={shareAsImage}
-                  className="btn-primary text-sm flex items-center space-x-1"
-                >
-                  <ShareIcon className="h-4 w-4" />
-                  <span>Share Image</span>
-                </button>
+                <div className="relative group">
+                  <button
+                    onClick={() => document.getElementById('shareDropdown')?.classList.toggle('hidden')}
+                    className="btn-primary text-sm flex items-center space-x-1"
+                  >
+                    <ShareIcon className="h-4 w-4" />
+                    <span>Share</span>
+                  </button>
+                  <div id="shareDropdown" className="absolute right-0 top-full mt-2 hidden group-hover:block hover:block bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-gray-200 dark:border-slate-700 min-w-[180px] z-50">
+                    <button
+                      onClick={() => {
+                        shareToFacebook()
+                        document.getElementById('shareDropdown')?.classList.add('hidden')
+                      }}
+                      className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-slate-700 rounded-t-lg flex items-center space-x-2"
+                    >
+                      <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                      <span>Facebook</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        shareToTwitter()
+                        document.getElementById('shareDropdown')?.classList.add('hidden')
+                      }}
+                      className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center space-x-2"
+                    >
+                      <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                      <span>Twitter</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        copyToClipboard()
+                        document.getElementById('shareDropdown')?.classList.add('hidden')
+                      }}
+                      className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center space-x-2"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                      <span>Copy Link</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        shareAsImage()
+                        document.getElementById('shareDropdown')?.classList.add('hidden')
+                      }}
+                      className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-slate-700 rounded-b-lg flex items-center space-x-2"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      <span>Share as Image</span>
+                    </button>
+                  </div>
+                </div>
 
                 <button
                   onClick={async () => {
@@ -971,7 +1079,13 @@ export default function ComparePage({ params }: ComparePageProps) {
                     if (dataUrl) {
                       downloadImage(dataUrl)
                     } else {
-                      alert('Görüntü oluşturulamadı. Lütfen tekrar deneyin.')
+                      const errorMessages: Record<string, string> = {
+                        en: 'Could not create image. Please try again.',
+                        tr: 'Görüntü oluşturulamadı. Lütfen tekrar deneyin.',
+                        de: 'Bild konnte nicht erstellt werden. Bitte versuchen Sie es erneut.',
+                        pl: 'Nie można utworzyć obrazu. Spróbuj ponownie.'
+                      }
+                      alert(errorMessages[selectedLanguage] || errorMessages.en)
                     }
                   }}
                   className="btn-secondary text-sm flex items-center space-x-1"
@@ -1023,13 +1137,57 @@ export default function ComparePage({ params }: ComparePageProps) {
                 Save
               </button>
               
-              <button
-                onClick={shareAsImage}
-                className="btn-primary text-xs px-3 py-2 flex items-center space-x-1"
-              >
-                <ShareIcon className="h-3 w-3" />
-                <span>Share</span>
-              </button>
+              <div className="relative">
+                <button
+                  onClick={() => document.getElementById('shareDropdownMobile')?.classList.toggle('hidden')}
+                  className="btn-primary text-xs px-3 py-2 flex items-center space-x-1"
+                >
+                  <ShareIcon className="h-3 w-3" />
+                  <span>Share</span>
+                </button>
+                <div id="shareDropdownMobile" className="absolute right-0 top-full mt-1 hidden bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-gray-200 dark:border-slate-700 min-w-[160px] z-50">
+                  <button
+                    onClick={() => {
+                      shareToFacebook()
+                      document.getElementById('shareDropdownMobile')?.classList.add('hidden')
+                    }}
+                    className="w-full text-left px-3 py-2 text-xs hover:bg-gray-100 dark:hover:bg-slate-700 rounded-t-lg flex items-center space-x-2"
+                  >
+                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span>Facebook</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      shareToTwitter()
+                      document.getElementById('shareDropdownMobile')?.classList.add('hidden')
+                    }}
+                    className="w-full text-left px-3 py-2 text-xs hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center space-x-2"
+                  >
+                    <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    <span>Twitter</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      copyToClipboard()
+                      document.getElementById('shareDropdownMobile')?.classList.add('hidden')
+                    }}
+                    className="w-full text-left px-3 py-2 text-xs hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center space-x-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    <span>Copy Link</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      shareAsImage()
+                      document.getElementById('shareDropdownMobile')?.classList.add('hidden')
+                    }}
+                    className="w-full text-left px-3 py-2 text-xs hover:bg-gray-100 dark:hover:bg-slate-700 rounded-b-lg flex items-center space-x-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Share as Image</span>
+                  </button>
+                </div>
+              </div>
 
               <button
                 onClick={async () => {
@@ -1037,7 +1195,13 @@ export default function ComparePage({ params }: ComparePageProps) {
                   if (dataUrl) {
                     downloadImage(dataUrl)
                   } else {
-                    alert('Görüntü oluşturulamadı. Lütfen tekrar deneyin.')
+                    const errorMessages: Record<string, string> = {
+                      en: 'Could not create image. Please try again.',
+                      tr: 'Görüntü oluşturulamadı. Lütfen tekrar deneyin.',
+                      de: 'Bild konnte nicht erstellt werden. Bitte versuchen Sie es erneut.',
+                      pl: 'Nie można utworzyć obrazu. Spróbuj ponownie.'
+                    }
+                    alert(errorMessages[selectedLanguage] || errorMessages.en)
                   }
                 }}
                 className="btn-secondary text-xs px-3 py-2 flex items-center space-x-1"
