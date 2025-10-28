@@ -12,19 +12,6 @@ import {
   HeartIcon,
   FunnelIcon,
   ChevronDownIcon,
-  SparklesIcon,
-  BoltIcon,
-  CurrencyEuroIcon,
-  CpuChipIcon,
-  WrenchScrewdriverIcon,
-  InformationCircleIcon,
-  EyeIcon,
-  PlusIcon,
-  CalculatorIcon,
-  Cog6ToothIcon,
-  UserGroupIcon,
-  ShieldCheckIcon,
-  ScaleIcon,
   AdjustmentsHorizontalIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
@@ -1488,7 +1475,9 @@ export default function Home() {
               onClick={() => {
                 const container = document.getElementById('compare-slider');
                 if (container) {
-                  container.scrollBy({ left: -320, behavior: 'smooth' });
+                  const cardWidth = 320; // w-80 = 320px
+                  const scrollAmount = Math.min(cardWidth, container.scrollLeft);
+                  container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
                 }
               }}
             >
@@ -1502,7 +1491,10 @@ export default function Home() {
               onClick={() => {
                 const container = document.getElementById('compare-slider');
                 if (container) {
-                  container.scrollBy({ left: 320, behavior: 'smooth' });
+                  const cardWidth = 320; // w-80 = 320px
+                  const maxScroll = container.scrollWidth - container.clientWidth;
+                  const scrollAmount = Math.min(cardWidth, maxScroll - container.scrollLeft);
+                  container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 }
               }}
             >
@@ -1511,11 +1503,11 @@ export default function Home() {
               </svg>
             </button>
             
-            <div id="compare-slider" className="overflow-x-auto scrollbar-hide">
+            <div id="compare-slider" className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory">
               <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
               {shuffledComparisons.map((comparison) => (
                 <Link key={comparison.id} href={comparison.href} className="group flex-shrink-0">
-                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80">
+                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80 snap-start">
                     <div className="grid grid-cols-2 gap-0">
                       <div className="relative h-32">
                         <Image
@@ -1523,6 +1515,11 @@ export default function Home() {
                           alt={comparison.leftCar.alt}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-200"
+                          sizes="(max-width: 640px) 50vw, 25vw"
+                          quality={80}
+                          loading="lazy"
+                          placeholder="blur"
+                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                           onError={(e) => {
                             e.currentTarget.src = '/images/placeholder-car.jpg'
                           }}
@@ -1534,6 +1531,11 @@ export default function Home() {
                           alt={comparison.rightCar.alt}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-200"
+                          sizes="(max-width: 640px) 50vw, 25vw"
+                          quality={80}
+                          loading="lazy"
+                          placeholder="blur"
+                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                           onError={(e) => {
                             e.currentTarget.src = '/images/placeholder-car.jpg'
                           }}
@@ -1693,8 +1695,21 @@ export default function Home() {
       {/* Filter Bar - EV Database Style */}
       <div className="filter-bar mb-16 sm:mb-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Mobile Filter Button */}
-          <div className="sm:hidden mb-4">
+          {/* Mobile Filter Section */}
+          <div className="sm:hidden mb-4 space-y-3">
+            {/* Mobile Search */}
+            <div className="relative">
+              <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+              <input
+                type="text"
+                placeholder={t.searchPlaceholder}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 rounded-xl border-0 bg-slate-50 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
+              />
+            </div>
+            
+            {/* Mobile Filter Button */}
             <button
               onClick={() => setIsFilterModalOpen(true)}
               className="w-full flex items-center justify-center space-x-2 py-4 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl"
@@ -1946,10 +1961,12 @@ export default function Home() {
                         alt={`${car.brand} ${car.model} - ${car.year} model PHEV`}
                         className="w-full h-full object-cover"
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={75}
-                        priority={false}
-                        loading="lazy"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        quality={85}
+                        priority={index < 8}
+                        loading={index < 8 ? "eager" : "lazy"}
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         onError={(e) => {
                           e.currentTarget.src = '/images/placeholder-car.jpg'
                         }}

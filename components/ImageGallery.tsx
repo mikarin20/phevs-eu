@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 interface ImageGalleryProps {
   images: string[]
@@ -91,16 +92,19 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
       {/* Main Image - Modern Hero Style */}
       <div className="relative bg-gradient-to-br from-slate-100 via-white to-slate-50 rounded-2xl overflow-hidden shadow-xl border border-slate-200">
         <div className="aspect-[16/9] w-full max-w-6xl mx-auto flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-          <img
+          <Image
             src={validImages[selectedImage]}
             alt={alt}
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]"
-            loading="eager"
-            fetchPriority="high"
+            fill
+            className="object-cover transition-transform duration-700 hover:scale-[1.02]"
+            priority={true}
+            quality={90}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             onLoad={() => setLoadedImages(prev => new Set([...prev, selectedImage]))}
-            onError={(e) => {
+            onError={() => {
               handleImageError(selectedImage, validImages[selectedImage])
-              e.currentTarget.style.display = 'none'
             }}
           />
         </div>
@@ -122,15 +126,19 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
               }`}
             >
               <div className="aspect-[4/3] w-full h-24 relative">
-                <img
+                <Image
                   src={image}
                   alt={`${alt} ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
+                  quality={75}
+                  sizes="(max-width: 768px) 20vw, 15vw"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   onLoad={() => setLoadedImages(prev => new Set([...prev, index]))}
-                  onError={(e) => {
+                  onError={() => {
                     handleImageError(index, image)
-                    e.currentTarget.style.display = 'none'
                   }}
                 />
               </div>
