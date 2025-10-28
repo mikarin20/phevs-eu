@@ -12,7 +12,16 @@ import {
   HeartIcon,
   FunnelIcon,
   ChevronDownIcon,
-  AdjustmentsHorizontalIcon
+  AdjustmentsHorizontalIcon,
+  PlusIcon,
+  SparklesIcon,
+  BoltIcon,
+  CpuChipIcon,
+  WrenchScrewdriverIcon,
+  ScaleIcon,
+  Cog6ToothIcon,
+  EyeIcon,
+  CalculatorIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
