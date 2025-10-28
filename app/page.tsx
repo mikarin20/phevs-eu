@@ -24,7 +24,8 @@ import {
   Cog6ToothIcon,
   UserGroupIcon,
   ShieldCheckIcon,
-  ScaleIcon
+  ScaleIcon,
+  AdjustmentsHorizontalIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -1696,59 +1697,62 @@ export default function Home() {
           <div className="sm:hidden mb-4">
             <button
               onClick={() => setIsFilterModalOpen(true)}
-              className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="w-full flex items-center justify-center space-x-2 py-4 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl"
             >
               <FunnelIcon className="h-5 w-5" />
-              <span>Filtrele</span>
+              <span className="font-medium">Filtrele</span>
             </button>
           </div>
           
-          <div className="hidden sm:flex flex-wrap items-center gap-4">
+          {/* Modern Filter Bar */}
+          <div className="hidden sm:flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-slate-200/50">
             {/* Search */}
             <div className="flex-1 min-w-64">
               <div className="relative">
-                <MagnifyingGlassIcon className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 ${currentTheme.textSecondary}`} />
+                <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
                 <input
                   type="text"
                   placeholder={t.searchPlaceholder}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className={`w-full pl-10 py-2 px-3 rounded-lg border ${currentTheme.inputBg} ${currentTheme.inputBorder} ${currentTheme.inputText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                  className="w-full pl-12 pr-4 py-3 rounded-xl border-0 bg-slate-50 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
                 />
               </div>
-                  </div>
+            </div>
                   
             {/* Brand Filter */}
             <div className="relative brand-dropdown">
-                          <button
+              <button
                 onClick={() => setIsBrandDropdownOpen(!isBrandDropdownOpen)}
-                className={`min-w-32 text-left flex items-center justify-between py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} hover:bg-opacity-80 transition-colors`}
-                          >
-                <span>{selectedBrands.length === 0 ? 'All Brands' : `${selectedBrands.length} selected`}</span>
-                <ChevronDownIcon className="h-4 w-4" />
-                          </button>
+                className="min-w-36 text-left flex items-center justify-between py-3 px-4 rounded-xl bg-slate-50 text-slate-700 hover:bg-slate-100 transition-all border-0 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <span className="font-medium">
+                  {selectedBrands.length === 0 ? 'All Brands' : `${selectedBrands.length} selected`}
+                </span>
+                <ChevronDownIcon className="h-4 w-4 text-slate-500" />
+              </button>
 
               {isBrandDropdownOpen && (
-                <div className={`absolute top-full left-0 mt-1 w-64 ${currentTheme.filterBg} border ${currentTheme.filterBorder} rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto`}>
-                  <div className="p-2">
+                <div className="absolute top-full left-0 mt-2 w-72 bg-white border border-slate-200 rounded-2xl shadow-xl z-50 max-h-80 overflow-y-auto">
+                  <div className="p-4">
                     <input
                       type="text"
                       placeholder="Search brands..."
                       value={brandSearchTerm}
                       onChange={(e) => setBrandSearchTerm(e.target.value)}
-                      className={`w-full mb-2 py-1 px-2 rounded border ${currentTheme.inputBg} ${currentTheme.inputBorder} ${currentTheme.inputText} focus:outline-none focus:ring-1 focus:ring-blue-500`}
+                      className="w-full mb-3 py-2 px-3 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
                       onClick={(e) => e.stopPropagation()}
                     />
-                    <div className="space-y-1">
+                    <div className="space-y-2">
                       {filteredBrands.map(brand => (
-                            <label
-                              key={brand}
-                          className="flex items-center space-x-2 p-2 hover:bg-[#F1F5F9] rounded cursor-pointer"
+                        <label
+                          key={brand}
+                          className="flex items-center space-x-3 p-3 hover:bg-slate-50 rounded-lg cursor-pointer transition-colors"
                           onClick={(e) => e.stopPropagation()}
-                            >
-                              <input
-                                type="checkbox"
-                                checked={selectedBrands.includes(brand)}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={selectedBrands.includes(brand)}
                             onChange={(e) => {
                               e.stopPropagation()
                               if (e.target.checked) {
@@ -1757,104 +1761,95 @@ export default function Home() {
                                 setSelectedBrands(selectedBrands.filter(b => b !== brand))
                               }
                             }}
-                            className="rounded border-[#E2E8F0] text-[#4F7C82] focus:ring-[#4F7C82]"
+                            className="rounded border-slate-300 text-blue-600 focus:ring-blue-500"
                           />
-                          <span className="text-sm text-[#0B2E33]">{brand}</span>
-                            </label>
+                          <span className="text-sm font-medium text-slate-700">{brand}</span>
+                        </label>
                       ))}
                     </div>
-                    <div className="mt-2 pt-2 border-t border-[#E2E8F0]">
+                    <div className="mt-4 pt-3 border-t border-slate-200">
                       <button
                         onClick={(e) => {
                           e.stopPropagation()
                           setSelectedBrands([])
                         }}
-                        className="text-xs text-[#4F7C82] hover:text-[#3A5D63]"
+                        className="text-sm text-slate-500 hover:text-slate-700 font-medium"
                       >
                         Clear all brands
                       </button>
-                          </div>
-                      </div>
+                    </div>
+                  </div>
                 </div>
-                  )}
-                </div>
+              )}
+            </div>
 
-                {/* Segment Filter */}
-                  <select
-                    value={filters.segment}
+            {/* Segment Filter */}
+            <select
+              value={filters.segment}
               onChange={(e) => setFilters({...filters, segment: e.target.value})}
-              className={`min-w-24 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                  >
-                    <option value="">{t.allSegments}</option>
+              className="min-w-28 py-3 px-4 rounded-xl bg-slate-50 text-slate-700 border-0 focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-slate-100 transition-all"
+            >
+              <option value="">{t.allSegments}</option>
               {segments.map(segment => (
                 <option key={segment} value={segment}>{segment}</option>
-                    ))}
-                  </select>
-
-            {/* Advanced Filters Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setIsFilterModalOpen(true)}
-                className={`flex items-center space-x-2 py-2 px-4 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} hover:bg-opacity-80 transition-colors`}
-              >
-                <FunnelIcon className="h-4 w-4" />
-                <span>{t.advancedFilters}</span>
-                {(filters.batteryArchitecture || filters.batteryChemistry || filters.chargingType || 
-                  filters.powerRange[0] !== 0 || filters.powerRange[1] !== 500 ||
-                  filters.yearRange[0] !== 2020 || filters.yearRange[1] !== 2025 ||
-                  filters.emissionRange[0] !== 0 || filters.emissionRange[1] !== 150) && (
-                  <span className="ml-2 px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">
-                    {t.active}
-                  </span>
-                )}
-              </button>
-            </div>
-
-            {/* Quick Filters */}
-            <div className="flex items-center space-x-2">
-            </div>
-
-            {/* Sort */}
-            <select
-              value={sortBy}
-              onChange={(e) => handleSortChange(e.target.value as SortOption)}
-              className={`min-w-32 py-2 px-3 rounded-lg border ${currentTheme.filterBg} ${currentTheme.filterBorder} ${currentTheme.filterText} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-            >
-              <option value="name-asc">{t.nameAsc}</option>
-              <option value="price-asc">{t.priceAsc}</option>
-              <option value="price-desc">{t.priceDesc}</option>
-              <option value="range-desc">{t.rangeDesc}</option>
-              <option value="range-asc">{t.rangeAsc}</option>
-              <option value="power-desc">{t.powerDesc}</option>
-              <option value="power-asc">{t.powerAsc}</option>
+              ))}
             </select>
 
-            {/* View Toggle - Hidden on mobile */}
-            <div className="hidden sm:flex border border-[#E2E8F0] rounded-lg overflow-hidden">
-              <button
-                onClick={() => toggleViewMode('list')}
-                className={`p-2 ${viewMode === 'list' ? 'bg-[#4F7C82] text-white' : 'bg-white text-[#4F7C82] hover:bg-[#F1F5F9]'}`}
-              >
-                <ListBulletIcon className="h-5 w-5" />
-              </button>
-              <button
-                onClick={() => toggleViewMode('grid')}
-                className={`p-2 ${viewMode === 'grid' ? 'bg-[#4F7C82] text-white' : 'bg-white text-[#4F7C82] hover:bg-[#F1F5F9]'}`}
-              >
-                <Squares2X2Icon className="h-5 w-5" />
-              </button>
-                </div>
-
-                {/* Clear Filters */}
-                <button
-              onClick={clearFilters}
-              className="btn-ghost text-sm"
+            {/* Advanced Filters Button */}
+            <button
+              onClick={() => setIsFilterModalOpen(true)}
+              className="flex items-center space-x-2 py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl"
             >
-              Clear Filters
+              <AdjustmentsHorizontalIcon className="h-5 w-5" />
+              <span className="font-medium">Advanced</span>
+            </button>
+          </div>
+
+          {/* Sort and View Controls */}
+          <div className="hidden sm:flex items-center justify-between mt-4">
+            <div className="flex items-center gap-3">
+              {/* Sort */}
+              <select
+                value={sortBy}
+                onChange={(e) => handleSortChange(e.target.value as SortOption)}
+                className="py-2 px-3 rounded-lg border border-slate-200 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="name-asc">{t.nameAsc}</option>
+                <option value="price-asc">{t.priceAsc}</option>
+                <option value="price-desc">{t.priceDesc}</option>
+                <option value="range-desc">{t.rangeDesc}</option>
+                <option value="range-asc">{t.rangeAsc}</option>
+                <option value="power-desc">{t.powerDesc}</option>
+                <option value="power-asc">{t.powerAsc}</option>
+              </select>
+
+              {/* View Toggle */}
+              <div className="flex border border-slate-200 rounded-lg overflow-hidden">
+                <button
+                  onClick={() => toggleViewMode('list')}
+                  className={`p-2 ${viewMode === 'list' ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'}`}
+                >
+                  <ListBulletIcon className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={() => toggleViewMode('grid')}
+                  className={`p-2 ${viewMode === 'grid' ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'}`}
+                >
+                  <Squares2X2Icon className="h-5 w-5" />
                 </button>
               </div>
             </div>
+
+            {/* Clear Filters */}
+            <button
+              onClick={clearFilters}
+              className="text-sm text-slate-500 hover:text-slate-700 font-medium"
+            >
+              Clear Filters
+            </button>
           </div>
+        </div>
+      </div>
 
 
       {/* Range Simulator Banner */}

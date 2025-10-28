@@ -361,52 +361,43 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   }
 
   // Model için lokal fotoğrafları al - sadece mevcut dosyaları
-  const getCatalogImages = (carId: string, brand: string) => {
+  const [catalogImages, setCatalogImages] = useState<string[]>([car.image_url])
+  
+  useEffect(() => {
     const urlParts = car.image_url.split('/')
     const brandFromUrl = urlParts[4]
     const modelFromUrl = urlParts[5]
     
     if (!brandFromUrl || !modelFromUrl) {
-      return [car.image_url] // Placeholder yerine ana görseli döndür
+      setCatalogImages([car.image_url])
+      return
     }
     
     const basePath = `/images/cars/brands/${brandFromUrl}/${modelFromUrl}`
-    const images: string[] = []
     
-    // Main görsel (doğru uzantıyla)
-    images.push(car.image_url)
+    // Mevcut resim dosyalarını kontrol et ve sadece var olanları ekle
+    const commonImageFiles = [
+      '002.jpg', '003.jpg', '004.jpg', '005.jpg', '006.jpg', '007.jpg', 
+      '008.jpg', '009.jpg', '010.jpg', '011.jpg', '012.jpg', '013.jpg', 
+      '014.jpg', '015.jpg', '016.jpg', '017.jpg', '018.jpg', '019.jpg', 
+      '020.jpg', '021.jpg', '1.jpg', 'main.jpg'
+    ]
     
-    // BMW XM 50e için özel görsel listesi
-    if (car.slug === 'bmw-xm-50e-2024') {
-      const bmwXmImages = [
-        '002.jpg',
-        'g05_carousel_columns_soundsystem.jpg',
-        'g05_exterior_video_fb.jpg',
-        'g05_interior_highlights_craftedclarity.jpg',
-        'g05_interior_highlights_curveddisplay.jpg',
-        'g05_plugin_hybrid_homecharging.jpg'
-      ]
-      
-      bmwXmImages.forEach(img => {
-        images.push(`${basePath}/${img}`)
-      })
-    } else {
-      // Diğer araçlar için genel numaralı görselleri ekle
-      const existingImages = [
-        '002.jpg', '004.jpg', '006.jpg', '009.jpg', '010.jpg', 
-        '011.jpg', '012.jpg', '013.jpg', '016.jpg', '017.jpg', 
-        '018.jpg', '019.jpg', '021.jpg'
-      ]
-      
-      existingImages.forEach(img => {
-        images.push(`${basePath}/${img}`)
-      })
-    }
+    // Ana resim dosyasının adını al
+    const mainImageFile = car.image_url.split('/').pop()
     
-    return images
-  }
-
-  const catalogImages = getCatalogImages(car.id, car.brand)
+    // Sadece mevcut olan resimler için URL listesi oluştur
+    const imageList: string[] = [car.image_url]
+    
+    // Diğer resim dosyalarını ekle (ana resim dosyasını tekrar ekleme)
+    commonImageFiles.forEach(file => {
+      if (file !== mainImageFile) {
+        imageList.push(`${basePath}/${file}`)
+      }
+    })
+    
+    setCatalogImages(imageList)
+  }, [car.image_url])
 
   const specifications = [
     {

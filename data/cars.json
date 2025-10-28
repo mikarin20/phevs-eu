@@ -42,7 +42,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "alfa-romeo-tonale-phev"
+    "slug": "alfa-romeo-tonale-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "audi-1",
@@ -87,7 +88,8 @@
       "test_year": 2020
     },
     "battery_architecture": "modular",
-    "slug": "audi-a3-sportback-phev"
+    "slug": "audi-a3-sportback-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "new-4",
@@ -132,7 +134,8 @@
       "test_year": 2020
     },
     "battery_architecture": "modular",
-    "slug": "audi-a5-limousine-phev"
+    "slug": "audi-a5-limousine-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "audi-5",
@@ -177,7 +180,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "audi-a6-limousine-phev"
+    "slug": "audi-a6-limousine-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-6",
@@ -222,7 +226,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "audi-a7-sportback-phev"
+    "slug": "audi-a7-sportback-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "audi-2",
@@ -267,7 +272,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "audi-q3-phev"
+    "slug": "audi-q3-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "audi-4",
@@ -312,7 +318,8 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "audi-q5-phev"
+    "slug": "audi-q5-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "audi-6",
@@ -357,7 +364,8 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "audi-q7-phev"
+    "slug": "audi-q7-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "audi-8",
@@ -402,7 +410,8 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "audi-q8-phev"
+    "slug": "audi-q8-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "bmw-m5touring",
@@ -447,7 +456,8 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "bmw-m5-touring-phev"
+    "slug": "bmw-m5-touring-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-14",
@@ -492,7 +502,8 @@
       "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "bmw-2-series-active-tourer-phev"
+    "slug": "bmw-2-series-active-tourer-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "bmw-serii3limuzyna",
@@ -537,7 +548,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "bmw-3-series-sedan-phev"
+    "slug": "bmw-3-series-sedan-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "byd-seal-5-dm-i",
@@ -572,18 +584,19 @@
     },
     "emission_standard": "China VI",
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "blade",
     "slug": "byd-seal-5-dm-i-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "byd-seal-6-dm-i",
@@ -618,18 +631,19 @@
     },
     "emission_standard": "China VI",
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "blade",
     "slug": "byd-seal-6-dm-i-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "byd-seal-u-dm-i",
@@ -664,18 +678,19 @@
     },
     "emission_standard": "China VI",
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "blade",
     "slug": "byd-seal-u-dm-i-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "citroen-c5-aircross-ii",
@@ -721,7 +736,8 @@
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-ii-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "citroen-c5-x-16",
@@ -767,7 +783,8 @@
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-x-16-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "citroen-c5-aircross-i-variant1",
@@ -813,7 +830,8 @@
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "citroen-c5-aircross-i-variant2",
@@ -859,7 +877,8 @@
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "citroen-c5-x-16-puretech",
@@ -905,7 +924,8 @@
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-x-16-puretech-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "citroen-c5-aircross-i-variant3",
@@ -951,7 +971,8 @@
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-115kwh-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-23",
@@ -972,22 +993,23 @@
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
     "battery_chemistry": "NCM",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "engine_displacement": 1.5,
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "chery-tiggo-7-phev"
+    "slug": "chery-tiggo-7-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "chery-tiggo8",
@@ -1007,15 +1029,15 @@
     "seats": 5,
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_architecture": "modular",
@@ -1023,7 +1045,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "chery-tiggo-8-phev"
+    "slug": "chery-tiggo-8-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "chery-tiggo9",
@@ -1043,15 +1066,15 @@
     "seats": 5,
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_architecture": "modular",
@@ -1059,7 +1082,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "chery-tiggo-9-phev"
+    "slug": "chery-tiggo-9-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "cupra-formentor-204hp",
@@ -1069,7 +1093,7 @@
     "segment": "SUV",
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg",
     "power_hp": 204,
@@ -1105,7 +1129,8 @@
     },
     "battery_architecture": "modular",
     "slug": "cupra-formentor-204hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "cupra-formentor-245hp",
@@ -1115,7 +1140,7 @@
     "segment": "SUV",
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 45000,
     "image_url": "/images/cars/brands/cupra/formentor-245hp-e-hybrid/main.jpg",
     "power_hp": 245,
@@ -1151,7 +1176,8 @@
     },
     "battery_architecture": "modular",
     "slug": "cupra-formentor-245hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "cupra-leon-1.4-tsi-204hp",
@@ -1161,7 +1187,7 @@
     "segment": "Hatchback",
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 38000,
     "image_url": "/images/cars/brands/cupra/leon-204hp-e-hybrid/main.jpg",
     "power_hp": 204,
@@ -1197,7 +1223,8 @@
     },
     "battery_architecture": "modular",
     "slug": "cupra-leon-204hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "cupra-leon-1.4-tsi-245hp",
@@ -1207,7 +1234,7 @@
     "segment": "Hatchback",
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13.0,
+    "battery_kwh": 13,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/cupra/leon-245hp-e-hybrid/main.jpg",
     "power_hp": 245,
@@ -1243,7 +1270,8 @@
     },
     "battery_architecture": "modular",
     "slug": "cupra-leon-245hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "new-31",
@@ -1279,7 +1307,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "ds-7-crossback-phev"
+    "slug": "ds-7-crossback-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "new-33",
@@ -1315,7 +1344,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "ds-n4-phev"
+    "slug": "ds-n4-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "ford-1",
@@ -1361,7 +1391,8 @@
     },
     "battery_architecture": "modular",
     "slug": "ford-kuga-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "new-34",
@@ -1398,7 +1429,8 @@
       "ac_location": "Front left"
     },
     "slug": "ford-ranger-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-35",
@@ -1435,7 +1467,8 @@
       "ac_location": "Front left"
     },
     "slug": "ford-tourneo-connect-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "ford-escape",
@@ -1481,7 +1514,8 @@
     },
     "battery_architecture": "modular",
     "slug": "ford-escape-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "ford-explorer",
@@ -1507,7 +1541,7 @@
     "wheelbase_mm": 3025,
     "max_trunk_volume": 600,
     "electric_motor_power_hp": 100,
-    "engine_displacement": 3.0,
+    "engine_displacement": 3,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -1527,7 +1561,8 @@
     },
     "battery_architecture": "modular",
     "slug": "ford-explorer-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "ford-fusion",
@@ -1536,13 +1571,13 @@
     "year": 2024,
     "segment": "Sedan",
     "ev_range_km": 35,
-    "fuel_consumption": 2.0,
+    "fuel_consumption": 2,
     "battery_kwh": 7.6,
     "price_eur": 32000,
     "image_url": "/images/cars/brands/ford/fusion/main.jpg",
     "power_hp": 188,
     "co2_emission": 45,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 400,
     "seats": 5,
     "warranty_years": 3,
@@ -1553,7 +1588,7 @@
     "wheelbase_mm": 2850,
     "max_trunk_volume": 400,
     "electric_motor_power_hp": 88,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_voltage": 300,
     "charging_port": {
@@ -1573,7 +1608,8 @@
     },
     "battery_architecture": "modular",
     "slug": "ford-fusion-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "ford-c-max",
@@ -1588,7 +1624,7 @@
     "image_url": "/images/cars/brands/ford/c-max/main.jpg",
     "power_hp": 188,
     "co2_emission": 42,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 432,
     "seats": 5,
     "warranty_years": 3,
@@ -1599,7 +1635,7 @@
     "wheelbase_mm": 2640,
     "max_trunk_volume": 432,
     "electric_motor_power_hp": 88,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_voltage": 300,
     "charging_port": {
@@ -1619,7 +1655,8 @@
     },
     "battery_architecture": "modular",
     "slug": "ford-c-max-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "hyundai-3",
@@ -1654,17 +1691,18 @@
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "hyundai-santa-fe-phev"
+    "slug": "hyundai-santa-fe-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "hyundai-tucson-iv-facelift-268hp",
@@ -1701,17 +1739,18 @@
     "country_availability": "DE,FR,UK,IT,ES",
     "drivetrain": "HTRAC AWD",
     "transmission": "Automatic",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "hyundai-tucson-iv-facelift-268hp-phev"
+    "slug": "hyundai-tucson-iv-facelift-268hp-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "hyundai-tucson-iv-facelift-253hp-4wd",
@@ -1748,17 +1787,18 @@
     "country_availability": "DE,FR,UK,IT,ES",
     "drivetrain": "4WD",
     "transmission": "Automatic",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "hyundai-tucson-iv-facelift-253hp-phev-4wd"
+    "slug": "hyundai-tucson-iv-facelift-253hp-phev-4wd",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "hyundai-tucson-iv-facelift-253hp-fwd",
@@ -1795,17 +1835,18 @@
     "country_availability": "DE,FR,UK,IT,ES",
     "drivetrain": "FWD",
     "transmission": "Automatic",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "hyundai-tucson-iv-facelift-253hp-phev-fwd"
+    "slug": "hyundai-tucson-iv-facelift-253hp-phev-fwd",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "hyundai-tucson-iv-265hp-4wd",
@@ -1842,17 +1883,18 @@
     "country_availability": "DE,FR,UK,IT,ES",
     "drivetrain": "4WD",
     "transmission": "Automatic",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "hyundai-tucson-iv-265hp-phev-4wd"
+    "slug": "hyundai-tucson-iv-265hp-phev-4wd",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "hyundai-tucson-iv-smartstream-261hp",
@@ -1889,17 +1931,18 @@
     "country_availability": "DE,FR,UK,IT,ES",
     "drivetrain": "HTRAC AWD",
     "transmission": "Automatic",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "hyundai-tucson-iv-smartstream-261hp-phev-htrac"
+    "slug": "hyundai-tucson-iv-smartstream-261hp-phev-htrac",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "jaecoo-j7-shs-2023",
@@ -1946,7 +1989,8 @@
     "emission_standard": "Euro 6e",
     "drivetrain": "AWD",
     "transmission": "DHT",
-    "slug": "jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht-2023"
+    "slug": "jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht-2023",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "jeep-compass-4xe-240hp",
@@ -1961,7 +2005,7 @@
     "image_url": "/images/cars/brands/jeep/compass-4xe/main.jpg",
     "power_hp": 240,
     "co2_emission": 50,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 420,
     "seats": 5,
     "warranty_years": 3,
@@ -1993,7 +2037,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "jeep-compass-4xe-240hp-phev"
+    "slug": "jeep-compass-4xe-240hp-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "jeep-wrangler-4xe-rubicon",
@@ -2008,7 +2053,7 @@
     "image_url": "/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg",
     "power_hp": 380,
     "co2_emission": 94,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 548,
     "seats": 5,
     "warranty_years": 3,
@@ -2019,7 +2064,7 @@
     "wheelbase_mm": 3008,
     "max_trunk_volume": 1275,
     "electric_motor_power_hp": 145,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
     "charging_port": {
@@ -2040,7 +2085,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "jeep-wrangler-4xe-rubicon-phev"
+    "slug": "jeep-wrangler-4xe-rubicon-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "jeep-wrangler-4xe-sahara",
@@ -2055,7 +2101,7 @@
     "image_url": "/images/cars/brands/jeep/wrangler-4xe-sahara/main.jpeg",
     "power_hp": 380,
     "co2_emission": 79,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 548,
     "seats": 5,
     "warranty_years": 3,
@@ -2066,7 +2112,7 @@
     "wheelbase_mm": 3008,
     "max_trunk_volume": 1275,
     "electric_motor_power_hp": 145,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
     "charging_port": {
@@ -2087,7 +2133,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "jeep-wrangler-4xe-sahara-phev"
+    "slug": "jeep-wrangler-4xe-sahara-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "jeep-compass-4xe-190hp",
@@ -2102,7 +2149,7 @@
     "image_url": "/images/cars/brands/jeep/compass-4xe-190hp/main.jpg",
     "power_hp": 190,
     "co2_emission": 50,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 420,
     "seats": 5,
     "warranty_years": 3,
@@ -2134,7 +2181,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "jeep-compass-4xe-190hp-phev"
+    "slug": "jeep-compass-4xe-190hp-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "jeep-renegade-4xe-240hp",
@@ -2149,7 +2197,7 @@
     "image_url": "/images/cars/brands/jeep/renegade-4xe-240hp/main.jpeg",
     "power_hp": 240,
     "co2_emission": 46,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 330,
     "seats": 5,
     "warranty_years": 3,
@@ -2181,7 +2229,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "jeep-renegade-4xe-240hp-phev"
+    "slug": "jeep-renegade-4xe-240hp-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "jeep-renegade-4xe-190hp",
@@ -2196,7 +2245,7 @@
     "image_url": "/images/cars/brands/jeep/renegade-4xe-190hp/main.jpeg",
     "power_hp": 190,
     "co2_emission": 44,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 330,
     "seats": 5,
     "warranty_years": 3,
@@ -2228,7 +2277,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "jeep-renegade-4xe-190hp-phev"
+    "slug": "jeep-renegade-4xe-190hp-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "kia-niro-ii-2025",
@@ -2243,7 +2293,7 @@
     "image_url": "/images/cars/brands/kia/niro-ii-2025/main.jpg",
     "power_hp": 180,
     "co2_emission": 29,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 348,
     "seats": 5,
     "warranty_years": 7,
@@ -2263,17 +2313,18 @@
     },
     "emission_standard": "Euro 6e bis",
     "country_availability": "DE,FR,UK,IT,ES",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "kia-niro-ii-2025"
+    "slug": "kia-niro-ii-2025",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "kia-niro-ii-2024",
@@ -2288,7 +2339,7 @@
     "image_url": "/images/cars/brands/kia/niro-ii-2024/main.jpg",
     "power_hp": 171,
     "co2_emission": 29,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 348,
     "seats": 5,
     "warranty_years": 7,
@@ -2308,19 +2359,20 @@
     },
     "emission_standard": "Euro 6e bis",
     "country_availability": "DE,FR,UK,IT,ES",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "drivetrain": "FWD",
     "transmission": "DCT",
     "battery_architecture": "modular",
-    "slug": "kia-niro-ii-2024"
+    "slug": "kia-niro-ii-2024",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "kia-sorento-iv-2024",
@@ -2355,17 +2407,18 @@
     },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "kia-sorento-iv-2024"
+    "slug": "kia-sorento-iv-2024",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "kia-sportage-v-252hp",
@@ -2400,19 +2453,20 @@
     },
     "emission_standard": "Euro 6",
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "drivetrain": "AWD",
     "transmission": "Automatic",
     "battery_architecture": "modular",
-    "slug": "kia-sportage-v-phev"
+    "slug": "kia-sportage-v-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "kia-sportage-v-265hp",
@@ -2447,19 +2501,20 @@
     },
     "emission_standard": "Euro 6",
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "drivetrain": "AWD",
     "transmission": "Automatic",
     "battery_architecture": "modular",
-    "slug": "kia-sportage-v-265hp-phev"
+    "slug": "kia-sportage-v-265hp-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "kia-niro-i-2019-facelift",
@@ -2497,7 +2552,8 @@
       "overall_rating": 78,
       "test_year": 2022
     },
-    "slug": "kia-niro-i-2019-facelift"
+    "slug": "kia-niro-i-2019-facelift",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "kia-niro-i-2019",
@@ -2535,7 +2591,8 @@
       "overall_rating": 78,
       "test_year": 2022
     },
-    "slug": "kia-niro-i-2019"
+    "slug": "kia-niro-i-2019",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "kia-optima-iv-2018-facelift",
@@ -2564,7 +2621,8 @@
     "top_speed": 200,
     "transmission": "Automatic",
     "battery_architecture": "modular",
-    "slug": "kia-optima-iv-2018-facelift"
+    "slug": "kia-optima-iv-2018-facelift",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "kia-optima-iv-2018",
@@ -2593,7 +2651,8 @@
     "top_speed": 200,
     "transmission": "Automatic",
     "battery_architecture": "modular",
-    "slug": "kia-optima-iv-2018"
+    "slug": "kia-optima-iv-2018",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "kia-optima-iv-sportswagon-2018-facelift",
@@ -2622,7 +2681,8 @@
     "top_speed": 200,
     "transmission": "Automatic",
     "battery_architecture": "modular",
-    "slug": "kia-optima-iv-sportswagon-2018-facelift"
+    "slug": "kia-optima-iv-sportswagon-2018-facelift",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "kia-optima-iv-sportswagon-2018",
@@ -2651,7 +2711,8 @@
     "top_speed": 200,
     "transmission": "Automatic",
     "battery_architecture": "modular",
-    "slug": "kia-optima-iv-sportswagon-2018"
+    "slug": "kia-optima-iv-sportswagon-2018",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "kia-k3-sedan-ii",
@@ -2680,7 +2741,8 @@
     "top_speed": 180,
     "transmission": "DCT",
     "battery_architecture": "modular",
-    "slug": "kia-k3-sedan-ii"
+    "slug": "kia-k3-sedan-ii",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "kia-xceed-2022-facelift",
@@ -2709,7 +2771,8 @@
     "top_speed": 175,
     "transmission": "DCT",
     "battery_architecture": "modular",
-    "slug": "kia-xceed-2022-facelift"
+    "slug": "kia-xceed-2022-facelift",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "kia-xceed-2022",
@@ -2738,7 +2801,8 @@
     "top_speed": 175,
     "transmission": "DCT",
     "battery_architecture": "modular",
-    "slug": "kia-xceed-2022"
+    "slug": "kia-xceed-2022",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021-facelift",
@@ -2767,7 +2831,8 @@
     "top_speed": 175,
     "transmission": "DCT",
     "battery_architecture": "modular",
-    "slug": "kia-ceed-iii-sportswagon-2021-facelift"
+    "slug": "kia-ceed-iii-sportswagon-2021-facelift",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021",
@@ -2796,7 +2861,8 @@
     "top_speed": 175,
     "transmission": "DCT",
     "battery_architecture": "modular",
-    "slug": "kia-ceed-iii-sportswagon-2021"
+    "slug": "kia-ceed-iii-sportswagon-2021",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "bmw-5-series-touring-550e",
@@ -2811,7 +2877,7 @@
     "image_url": "/images/cars/brands/bmw/bmw-5-series-touring-2024-2025/main.jpg",
     "power_hp": 489,
     "co2_emission": 18,
-    "charge_time_ac": 3.0,
+    "charge_time_ac": 3,
     "trunk_volume": 570,
     "seats": 5,
     "warranty_years": 3,
@@ -2822,7 +2888,7 @@
     "wheelbase_mm": 2995,
     "max_trunk_volume": 570,
     "electric_motor_power_hp": 197,
-    "engine_displacement": 3.0,
+    "engine_displacement": 3,
     "battery_chemistry": "Li-ion",
     "battery_voltage": 400,
     "charging_port": {
@@ -2843,7 +2909,8 @@
     "drivetrain": "AWD",
     "transmission": "Steptronic",
     "battery_architecture": "modular",
-    "slug": "bmw-5-series-touring-550e-phev"
+    "slug": "bmw-5-series-touring-550e-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "bmw-5-series-sedan-550e",
@@ -2858,7 +2925,7 @@
     "image_url": "/images/cars/brands/bmw/bmw-5-series-sedan-2024-2025/main.jpg",
     "power_hp": 489,
     "co2_emission": 18,
-    "charge_time_ac": 3.0,
+    "charge_time_ac": 3,
     "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
@@ -2869,7 +2936,7 @@
     "wheelbase_mm": 2995,
     "max_trunk_volume": 520,
     "electric_motor_power_hp": 197,
-    "engine_displacement": 3.0,
+    "engine_displacement": 3,
     "battery_chemistry": "Li-ion",
     "battery_voltage": 400,
     "charging_port": {
@@ -2890,7 +2957,8 @@
     "drivetrain": "AWD",
     "transmission": "Steptronic",
     "battery_architecture": "modular",
-    "slug": "bmw-5-series-sedan-550e-phev"
+    "slug": "bmw-5-series-sedan-550e-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "land-rover-defender-110-phev",
@@ -2917,7 +2985,7 @@
     "wheelbase_mm": 3022,
     "max_trunk_volume": 1073,
     "electric_motor_power_hp": 143,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -2942,7 +3010,8 @@
     "battery_architecture": "modular",
     "drivetrain": "AWD",
     "transmission": "8AT",
-    "slug": "land-rover-defender-110-phev"
+    "slug": "land-rover-defender-110-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "land-rover-discovery-sport-phev",
@@ -2994,7 +3063,8 @@
     "battery_architecture": "modular",
     "drivetrain": "AWD",
     "transmission": "8AT",
-    "slug": "land-rover-discovery-sport-phev"
+    "slug": "land-rover-discovery-sport-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "land-rover-range-rover-evoque-phev",
@@ -3046,7 +3116,8 @@
     "battery_architecture": "modular",
     "drivetrain": "AWD",
     "transmission": "8AT",
-    "slug": "land-rover-range-rover-evoque-phev"
+    "slug": "land-rover-range-rover-evoque-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "land-rover-range-rover-velar-phev",
@@ -3073,7 +3144,7 @@
     "wheelbase_mm": 2874,
     "max_trunk_volume": 550,
     "electric_motor_power_hp": 143,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -3098,7 +3169,8 @@
     "battery_architecture": "modular",
     "drivetrain": "AWD",
     "transmission": "8AT",
-    "slug": "land-rover-range-rover-velar-phev"
+    "slug": "land-rover-range-rover-velar-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "lexus-nx-450h-plus-phev",
@@ -3107,7 +3179,7 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 76,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 18.1,
     "price_eur": 52000,
     "image_url": "/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg",
@@ -3150,7 +3222,8 @@
     "battery_architecture": "modular",
     "drivetrain": "AWD",
     "transmission": "CVT",
-    "slug": "lexus-nx-450h-plus-phev"
+    "slug": "lexus-nx-450h-plus-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "lexus-rx-450h-plus-phev",
@@ -3202,7 +3275,8 @@
     "battery_architecture": "modular",
     "drivetrain": "AWD",
     "transmission": "CVT",
-    "slug": "lexus-rx-450h-plus-phev"
+    "slug": "lexus-rx-450h-plus-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "lexus-es-300h-phev",
@@ -3254,7 +3328,8 @@
     "battery_architecture": "modular",
     "drivetrain": "FWD",
     "transmission": "CVT",
-    "slug": "lexus-es-300h-phev"
+    "slug": "lexus-es-300h-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "lexus-ux-300e-phev",
@@ -3281,7 +3356,7 @@
     "wheelbase_mm": 2640,
     "max_trunk_volume": 320,
     "electric_motor_power_hp": 88,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -3306,7 +3381,8 @@
     "battery_architecture": "modular",
     "drivetrain": "FWD",
     "transmission": "CVT",
-    "slug": "lexus-ux-300e-phev"
+    "slug": "lexus-ux-300e-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "mazda-1",
@@ -3341,17 +3417,18 @@
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "mazda-cx-60-phev"
+    "slug": "mazda-cx-60-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mazda-cx80",
@@ -3386,17 +3463,18 @@
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "mazda-cx-80-phev"
+    "slug": "mazda-cx-80-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "mazda-mx30-rev",
@@ -3405,7 +3483,7 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 85,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 17.5,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/mazda/mx-30-rev/main.jpg",
@@ -3448,7 +3526,8 @@
     "battery_architecture": "modular",
     "drivetrain": "FWD",
     "transmission": "CVT",
-    "slug": "mazda-mx30-rev-phev"
+    "slug": "mazda-mx30-rev-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mercedes-1",
@@ -3514,7 +3593,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-a-class-phev"
+    "slug": "mercedes-benz-a-class-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "mercedesbenz-cclass",
@@ -3580,7 +3660,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-c-class-phev"
+    "slug": "mercedes-benz-c-class-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "mercedesbenz-cla",
@@ -3646,7 +3727,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-cla-phev"
+    "slug": "mercedes-benz-cla-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mercedes-6",
@@ -3712,7 +3794,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-e-class-phev"
+    "slug": "mercedes-benz-e-class-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "mercedes-3",
@@ -3778,7 +3861,8 @@
       "test_year": 2021
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-gla-phev"
+    "slug": "mercedes-benz-gla-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mercedes-5",
@@ -3835,7 +3919,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "mercedes-benz-glc-coup-phev"
+    "slug": "mercedes-benz-glc-coup-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "mercedes-7",
@@ -3892,7 +3977,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Rear left"
     },
-    "slug": "mercedes-benz-gle-coup-phev"
+    "slug": "mercedes-benz-gle-coup-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "mercedesbenz-sclass",
@@ -3958,7 +4044,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-s-class-phev"
+    "slug": "mercedes-benz-s-class-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "mg-3",
@@ -4003,7 +4090,8 @@
       "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mg-hs-ii-1-5t"
+    "slug": "mg-hs-ii-1-5t",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mg-5",
@@ -4048,7 +4136,8 @@
       "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mg-hs-i-ehs-1-5-t-gdi"
+    "slug": "mg-hs-i-ehs-1-5-t-gdi",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "mini-1",
@@ -4093,7 +4182,8 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "mini-countryman-cooper-s-e"
+    "slug": "mini-countryman-cooper-s-e",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mitsubishi-2",
@@ -4138,7 +4228,8 @@
       "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mitsubishi-eclipse-cross-phev"
+    "slug": "mitsubishi-eclipse-cross-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mitsubishi-1",
@@ -4148,7 +4239,7 @@
     "segment": "SUV",
     "ev_range_km": 103,
     "fuel_consumption": 0.8,
-    "battery_kwh": 20.0,
+    "battery_kwh": 20,
     "price_eur": 43639,
     "image_url": "/images/cars/brands/mitsubishi/outlander-phev/main.jpg",
     "power_hp": 306,
@@ -4183,7 +4274,8 @@
       "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mitsubishi-outlander-iv-24-mivec"
+    "slug": "mitsubishi-outlander-iv-24-mivec",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mitsubishi-3",
@@ -4192,8 +4284,8 @@
     "year": 2024,
     "segment": "SUV",
     "ev_range_km": 84,
-    "fuel_consumption": 6.0,
-    "battery_kwh": 20.0,
+    "fuel_consumption": 6,
+    "battery_kwh": 20,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/mitsubishi/outlander/main.jpg",
     "power_hp": 252,
@@ -4228,7 +4320,8 @@
       "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mitsubishi-outlander-iv-24-mivec-252hp"
+    "slug": "mitsubishi-outlander-iv-24-mivec-252hp",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "opel-2",
@@ -4273,7 +4366,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "opel-astra-phev-phev"
+    "slug": "opel-astra-phev-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "opel-3",
@@ -4282,7 +4376,7 @@
     "year": 2021,
     "segment": "SUV",
     "ev_range_km": 65,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 13.2,
     "price_eur": 40000,
     "image_url": "/images/cars/brands/opel/grandland-grandland-overview/main.jpg",
@@ -4318,7 +4412,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "opel-grandland-x-16-turbo"
+    "slug": "opel-grandland-x-16-turbo",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "opel-4",
@@ -4327,7 +4422,7 @@
     "year": 2021,
     "segment": "SUV",
     "ev_range_km": 69,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 13.2,
     "price_eur": 45000,
     "image_url": "/images/cars/brands/opel/grandland-x-16-turbo-4-awd/main.jpg",
@@ -4363,7 +4458,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "opel-grandland-x-16-turbo-4-awd"
+    "slug": "opel-grandland-x-16-turbo-4-awd",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "new-67",
@@ -4408,7 +4504,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-3008-phev"
+    "slug": "peugeot-3008-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "peugeot-2",
@@ -4453,7 +4550,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-308-phev"
+    "slug": "peugeot-308-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "new-69",
@@ -4498,7 +4596,54 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-408-phev"
+    "slug": "peugeot-408-phev",
+    "updated_at": "2024-10-25"
+  },
+  {
+    "id": "new-69.5",
+    "brand": "Peugeot",
+    "model": "5008",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 58,
+    "fuel_consumption": 1.6,
+    "battery_kwh": 17.2,
+    "price_eur": 39000,
+    "image_url": "/images/cars/brands/peugeot/5008-plug-in-hybrid/main.png",
+    "power_hp": 225,
+    "co2_emission": 36,
+    "charge_time_ac": 3,
+    "trunk_volume": 660,
+    "seats": 7,
+    "warranty_years": 3,
+    "weight_kg": 1950,
+    "length_mm": 4640,
+    "width_mm": 1844,
+    "height_mm": 1647,
+    "wheelbase_mm": 2840,
+    "max_trunk_volume": 2040,
+    "electric_motor_power_hp": 125,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6e",
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
+    },
+    "battery_architecture": "modular",
+    "slug": "peugeot-5008-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "new-70",
@@ -4533,17 +4678,18 @@
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "battery_architecture": "modular",
-    "slug": "porsche-cayenne-phev"
+    "slug": "porsche-cayenne-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "new-71",
@@ -4563,15 +4709,15 @@
     "seats": 5,
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
-        "euroncap_rating": {
-          "stars": 5,
-          "adult_occupant": 92,
-          "child_occupant": 83,
-          "pedestrian_protection": 74,
-          "safety_assist": 78,
-          "overall_rating": 82,
-          "test_year": 2022
-        },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
     "engine_displacement": 2.9,
     "battery_chemistry": "NCM",
     "battery_architecture": "modular",
@@ -4579,7 +4725,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "porsche-panamera-4-phev"
+    "slug": "porsche-panamera-4-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-72",
@@ -4624,7 +4771,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "renault-rafale-phev"
+    "slug": "renault-rafale-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "skoda-kodiaq",
@@ -4660,7 +4808,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "koda-kodiaq-phev"
+    "slug": "koda-kodiaq-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "skoda-superb-combi",
@@ -4696,7 +4845,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "koda-superb-combi-phev"
+    "slug": "koda-superb-combi-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "skoda-superb-sedan",
@@ -4732,7 +4882,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "koda-superb-sedan-phev"
+    "slug": "koda-superb-sedan-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "suzuki-across-phev",
@@ -4741,7 +4892,7 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 75,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 18.1,
     "price_eur": 45000,
     "image_url": "/images/cars/brands/suzuki/across-phev/main.jpg",
@@ -4768,7 +4919,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "suzuki-across-phev"
+    "slug": "suzuki-across-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-76",
@@ -4813,7 +4965,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "toyota-c-hr-phev"
+    "slug": "toyota-c-hr-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "toyota-1",
@@ -4822,13 +4975,13 @@
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 65,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 13.6,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/toyota/prius-plug-in-hybrid/main.jpg",
     "power_hp": 223,
     "co2_emission": 22,
-    "charge_time_ac": 2.0,
+    "charge_time_ac": 2,
     "trunk_volume": 343,
     "seats": 5,
     "warranty_years": 5,
@@ -4858,7 +5011,8 @@
       "test_year": 2016
     },
     "battery_architecture": "modular",
-    "slug": "toyota-prius-phev"
+    "slug": "toyota-prius-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "toyota-2",
@@ -4867,7 +5021,7 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 75,
-    "fuel_consumption": 1.0,
+    "fuel_consumption": 1,
     "battery_kwh": 18.1,
     "price_eur": 42000,
     "image_url": "/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg",
@@ -4903,7 +5057,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "toyota-rav4-phev"
+    "slug": "toyota-rav4-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "toyota-crown-phev",
@@ -4939,7 +5094,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "toyota-crown-phev"
+    "slug": "toyota-crown-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "vw-1",
@@ -4984,7 +5140,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-golf-phev"
+    "slug": "volkswagen-golf-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "vw-2",
@@ -5029,7 +5186,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-passat-phev"
+    "slug": "volkswagen-passat-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "new-81",
@@ -5074,7 +5232,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-tayron-phev"
+    "slug": "volkswagen-tayron-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "vw-3",
@@ -5119,7 +5278,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-tiguan-phev"
+    "slug": "volkswagen-tiguan-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-83",
@@ -5128,10 +5288,10 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 50,
-    "fuel_consumption": 2.0,
+    "fuel_consumption": 2,
     "battery_kwh": 17.9,
     "price_eur": 55000,
-    "image_url": "/images/cars/brands/volkswagen/tuareg/main.jpg",
+    "image_url": "/images/cars/brands/volkswagen/touareg/main.jpg",
     "power_hp": 381,
     "co2_emission": 35,
     "charge_time_ac": 3,
@@ -5164,7 +5324,8 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-touareg-phev"
+    "slug": "volkswagen-touareg-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "vw-multivan-phev",
@@ -5200,7 +5361,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volkswagen-multivan-phev"
+    "slug": "volkswagen-multivan-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "volvo-5",
@@ -5236,7 +5398,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volvo-v60-phev"
+    "slug": "volvo-v60-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "volvo-7",
@@ -5272,7 +5435,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volvo-v90-phev"
+    "slug": "volvo-v90-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "volvo-2",
@@ -5308,7 +5472,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volvo-xc60-phev"
+    "slug": "volvo-xc60-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "volvo-3",
@@ -5344,7 +5509,8 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volvo-xc90-phev"
+    "slug": "volvo-xc90-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "omoda-1",
@@ -5389,7 +5555,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "omoda-9-phev"
+    "slug": "omoda-9-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "jaecoo-1",
@@ -5399,7 +5566,7 @@
     "segment": "SUV",
     "ev_range_km": 91,
     "fuel_consumption": 2.2,
-    "battery_kwh": 20.0,
+    "battery_kwh": 20,
     "price_eur": 35000,
     "image_url": "/images/cars/brands/jaecoo/j7-shs-15-tgdi/main.jpg",
     "power_hp": 347,
@@ -5434,7 +5601,8 @@
       "test_year": 2023
     },
     "battery_architecture": "modular",
-    "slug": "jaecoo-j7-shs-15-tgdi"
+    "slug": "jaecoo-j7-shs-15-tgdi",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "seat-1",
@@ -5515,7 +5683,8 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2020
-    }
+    },
+    "updated_at": "2024-10-24"
   },
   {
     "id": "seat-2",
@@ -5527,7 +5696,7 @@
     "fuel_consumption": 1.2,
     "battery_kwh": 13,
     "price_eur": 33000,
-    "image_url": "/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg",
+    "image_url": "/images/cars/brands/seat/leon-iv-15-tsi/main.jpg",
     "power_hp": 204,
     "co2_emission": 27,
     "charge_time_ac": 4,
@@ -5596,7 +5765,8 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2020
-    }
+    },
+    "updated_at": "2024-10-24"
   },
   {
     "id": "seat-3",
@@ -5677,7 +5847,8 @@
       "safety_assist": 71,
       "overall_rating": 83,
       "test_year": 2018
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "id": "seat-4",
@@ -5758,7 +5929,8 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2020
-    }
+    },
+    "updated_at": "2024-10-24"
   },
   {
     "id": "seat-5",
@@ -5839,7 +6011,8 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2020
-    }
+    },
+    "updated_at": "2024-10-23"
   },
   {
     "brand": "BMW",
@@ -5880,7 +6053,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2019
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "brand": "BMW",
@@ -5921,7 +6095,8 @@
       "safety_assist": 70,
       "overall_rating": 84,
       "test_year": 2022
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "brand": "BMW",
@@ -5962,7 +6137,8 @@
       "safety_assist": 70,
       "overall_rating": 84,
       "test_year": 2022
-    }
+    },
+    "updated_at": "2024-10-23"
   },
   {
     "brand": "BMW",
@@ -6003,7 +6179,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2017
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "brand": "BMW",
@@ -6044,7 +6221,8 @@
       "safety_assist": 71,
       "overall_rating": 81,
       "test_year": 2018
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "brand": "BMW",
@@ -6085,7 +6263,8 @@
       "safety_assist": 71,
       "overall_rating": 81,
       "test_year": 2018
-    }
+    },
+    "updated_at": "2024-10-23"
   },
   {
     "brand": "BMW",
@@ -6127,7 +6306,7 @@
       "overall_rating": 81,
       "test_year": 2018
     },
-    "slug": "bmw-xm-50e-2024"
+    "updated_at": "2024-10-24"
   },
   {
     "brand": "BMW",
@@ -6168,7 +6347,8 @@
       "safety_assist": 71,
       "overall_rating": 81,
       "test_year": 2018
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "id": "peugeot-508",
@@ -6213,7 +6393,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-508-phev"
+    "slug": "peugeot-508-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "peugeot-508-sw",
@@ -6258,7 +6439,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-508-sw-phev"
+    "slug": "peugeot-508-sw-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "peugeot-308-sw",
@@ -6303,7 +6485,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-308-sw-phev"
+    "slug": "peugeot-308-sw-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "porsche-macan-phev",
@@ -6329,7 +6512,7 @@
     "wheelbase_mm": 2807,
     "max_trunk_volume": 1488,
     "electric_motor_power_hp": 134,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_voltage": 800,
     "charging_port": {
@@ -6348,7 +6531,8 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "porsche-macan-phev"
+    "slug": "porsche-macan-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "renault-captur-e-tech",
@@ -6393,6 +6577,7 @@
       "test_year": 2020
     },
     "battery_architecture": "modular",
-    "slug": "renault-captur-e-tech-phev"
+    "slug": "renault-captur-e-tech-phev",
+    "updated_at": "2024-10-24"
   }
 ]

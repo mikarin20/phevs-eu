@@ -310,6 +310,10 @@ function RangeSimulator({
                           src={selectedCar.image_url}
                           alt={`${selectedCar.brand} ${selectedCar.model}`}
                           className="w-full h-full object-cover"
+                          onError={(e) => {
+                            console.log('RangeSimulator resim yüklenemedi:', selectedCar.image_url)
+                            e.currentTarget.src = '/images/placeholder-car.jpg'
+                          }}
                         />
                       </div>
                     </div>

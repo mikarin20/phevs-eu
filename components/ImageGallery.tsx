@@ -11,6 +11,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0)
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
   const [invalidImageIndices, setInvalidImageIndices] = useState<Set<number>>(new Set())
+  const [checkedImages, setCheckedImages] = useState<Set<number>>(new Set())
 
   // Sadece mevcut görselleri filtrele
   let validImages = images.filter(img => img && img.trim() !== '')
@@ -26,6 +27,52 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
       setSelectedImage(0)
     }
   }, [invalidImageIndices.size, selectedImage, validImages.length])
+
+  // Resim dosyasının mevcut olup olmadığını kontrol et
+  const checkImageExists = async (imagePath: string): Promise<boolean> => {
+    try {
+      const response = await fetch(imagePath, { method: 'HEAD' })
+      return response.ok
+    } catch {
+      return false
+    }
+  }
+
+  // Resimleri önceden kontrol et
+  useEffect(() => {
+    const checkImages = async () => {
+      const promises = validImages.map(async (image, index) => {
+        if (!checkedImages.has(index)) {
+          const exists = await checkImageExists(image)
+          if (!exists) {
+            setInvalidImageIndices(prev => new Set([...prev, index]))
+          }
+          setCheckedImages(prev => new Set([...prev, index]))
+        }
+      })
+      await Promise.all(promises)
+    }
+    
+    if (validImages.length > 0) {
+      checkImages()
+    }
+  }, [validImages.length])
+
+  // Resim yükleme hatası durumunda daha hızlı filtreleme
+  const handleImageError = (index: number, imagePath: string) => {
+    // Console log yerine sadece hata indeksini kaydet - 404 hataları gereksiz yere tekrarlanmasın
+    if (!invalidImageIndices.has(index)) {
+      setInvalidImageIndices(prev => new Set([...prev, index]))
+      
+      // Eğer ana görsel hatalıysa ve başka görseller varsa, ilk geçerli görsele geç
+      if (index === selectedImage && validImages.length > 1) {
+        const nextValidIndex = validImages.findIndex((_, i) => !invalidImageIndices.has(i) && i !== index)
+        if (nextValidIndex !== -1) {
+          setSelectedImage(nextValidIndex)
+        }
+      }
+    }
+  }
 
   if (validImages.length === 0) {
     return (
@@ -52,8 +99,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
             fetchPriority="high"
             onLoad={() => setLoadedImages(prev => new Set([...prev, selectedImage]))}
             onError={(e) => {
-              console.log('Görsel yüklenemedi:', validImages[selectedImage])
-              setInvalidImageIndices(prev => new Set([...prev, selectedImage]))
+              handleImageError(selectedImage, validImages[selectedImage])
               e.currentTarget.style.display = 'none'
             }}
           />
@@ -83,8 +129,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
                   loading="lazy"
                   onLoad={() => setLoadedImages(prev => new Set([...prev, index]))}
                   onError={(e) => {
-                    console.log('Thumbnail yüklenemedi:', image)
-                    setInvalidImageIndices(prev => new Set([...prev, index]))
+                    handleImageError(index, image)
                     e.currentTarget.style.display = 'none'
                   }}
                 />
