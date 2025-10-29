@@ -285,6 +285,13 @@ export default function ComparePage({ params }: ComparePageProps) {
     const values = cars.map(car => car[key]).filter(val => val !== null && val !== undefined)
     if (values.length === 0) return null
     
+    // Handle special cases for non-numeric values
+    if (key === 'euroncap_rating') {
+      const ratings = values.filter(val => val && typeof val === 'object' && 'stars' in val) as any[]
+      if (ratings.length === 0) return null
+      return ratings.reduce((best, current) => current.stars > best.stars ? current : best)
+    }
+    
     if (key === 'price_eur' || key === 'fuel_consumption' || key === 'co2_emission' || key === 'charge_time_ac') {
       return Math.min(...values as number[])
     } else {
@@ -297,18 +304,18 @@ export default function ComparePage({ params }: ComparePageProps) {
   }
 
   const comparisonRows = [
-    { label: 'Starting Price', key: 'price_eur' as keyof Car, format: (val: number) => `€${val.toLocaleString()}`, highlight: true },
-    { label: 'Electric Range', key: 'ev_range_km' as keyof Car, format: (val: number) => `${val} km`, highlight: true },
-    { label: 'Fuel Consumption', key: 'fuel_consumption' as keyof Car, format: (val: number) => `${val} L/100km`, highlight: true },
-    { label: 'Battery Capacity', key: 'battery_kwh' as keyof Car, format: (val: number) => `${val} kWh`, highlight: true },
-    { label: 'Power', key: 'power_hp' as keyof Car, format: (val: number) => `${val} HP`, highlight: true },
-    { label: 'CO₂ Emissions', key: 'co2_emission' as keyof Car, format: (val: number) => `${val} g/km`, highlight: true },
-    { label: 'AC Charge Time', key: 'charge_time_ac' as keyof Car, format: (val: number) => `${val}h`, highlight: true },
-    { label: 'DC Charge Time', key: 'charge_time_dc' as keyof Car, format: (val: number) => val ? `${val}h` : 'N/A', highlight: true },
-    { label: 'Trunk Volume', key: 'trunk_volume' as keyof Car, format: (val: number) => `${val} L`, highlight: true },
-    { label: 'Seats', key: 'seats' as keyof Car, format: (val: number) => `${val}`, highlight: false },
-    { label: 'Warranty', key: 'warranty_years' as keyof Car, format: (val: number) => `${val} years`, highlight: true },
-    { label: 'Euro NCAP Rating', key: 'euroncap_rating' as keyof Car, format: (val: any) => val ? `${val.stars}/5` : 'N/A', highlight: true }
+    { label: 'Starting Price', key: 'price_eur' as keyof Car, format: (val: any) => typeof val === 'number' ? `€${val.toLocaleString()}` : 'N/A', highlight: true },
+    { label: 'Electric Range', key: 'ev_range_km' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} km` : 'N/A', highlight: true },
+    { label: 'Fuel Consumption', key: 'fuel_consumption' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L/100km` : 'N/A', highlight: true },
+    { label: 'Battery Capacity', key: 'battery_kwh' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} kWh` : 'N/A', highlight: true },
+    { label: 'Power', key: 'power_hp' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} HP` : 'N/A', highlight: true },
+    { label: 'CO₂ Emissions', key: 'co2_emission' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} g/km` : 'N/A', highlight: true },
+    { label: 'AC Charge Time', key: 'charge_time_ac' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}h` : 'N/A', highlight: true },
+    { label: 'DC Charge Time', key: 'charge_time_dc' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}h` : 'N/A', highlight: true },
+    { label: 'Trunk Volume', key: 'trunk_volume' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L` : 'N/A', highlight: true },
+    { label: 'Seats', key: 'seats' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}` : 'N/A', highlight: false },
+    { label: 'Warranty', key: 'warranty_years' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} years` : 'N/A', highlight: true },
+    { label: 'Euro NCAP Rating', key: 'euroncap_rating' as keyof Car, format: (val: any) => val && typeof val === 'object' && 'stars' in val ? `${val.stars}/5` : 'N/A', highlight: true }
   ]
 
   if (selectedCars.length < 2) {
@@ -704,7 +711,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                 </div>
                 <div className="space-y-3">
                   {selectedCars.map((car) => {
-                    const strengths = []
+                    const strengths: string[] = []
                     
                     // Find strengths for this car
                     comparisonRows.forEach(row => {
@@ -743,7 +750,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                 </div>
                 <div className="space-y-3">
                   {selectedCars.map((car) => {
-                    const weaknesses = []
+                    const weaknesses: string[] = []
                     
                     // Find weaknesses for this car
                     comparisonRows.forEach(row => {

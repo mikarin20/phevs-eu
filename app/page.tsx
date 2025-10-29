@@ -21,7 +21,11 @@ import {
   ScaleIcon,
   Cog6ToothIcon,
   EyeIcon,
-  CalculatorIcon
+  CalculatorIcon,
+  InformationCircleIcon,
+  CurrencyEuroIcon,
+  UserGroupIcon,
+  ShieldCheckIcon
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
