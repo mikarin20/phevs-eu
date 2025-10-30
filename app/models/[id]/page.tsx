@@ -503,6 +503,18 @@ export default function ModelDetail({ params }: ModelDetailProps) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://phevs.eu/" },
+            { "@type": "ListItem", "position": 2, "name": "Models", "item": "https://phevs.eu/models/" },
+            { "@type": "ListItem", "position": 3, "name": `${car.brand} ${car.model}`, "item": `https://phevs.eu/models/${car.id}` }
+          ]
+        }) }}
+      />
       <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100`}>
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-slate-200/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

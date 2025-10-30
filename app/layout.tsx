@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://phevs.eu'),
   alternates: {
     canonical: 'https://phevs.eu',
+    languages: {
+      'x-default': 'https://phevs.eu',
+      en: 'https://phevs.eu',
+      tr: 'https://phevs.eu/?lang=tr',
+      de: 'https://phevs.eu/?lang=de',
+      pl: 'https://phevs.eu/?lang=pl',
+    },
   },
   // Open Graph configuration is defined below with full details
   title: {
@@ -78,7 +85,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-code-here',
+    google: 'MiBl_KrtsZLX8SAjRd78wq5NBtC-WJOrHcIY1ptplcE',
   },
 }
 
@@ -90,6 +97,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <script
+          type="application/ld+json"
+          // Organization schema
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "PHEVs.eu",
+            "url": "https://phevs.eu",
+            "logo": "https://phevs.eu/favicon.svg",
+            "sameAs": [
+              "https://twitter.com/phevs_eu",
+              "https://www.linkedin.com/company/phevs-eu/"
+            ]
+          }) }}
+        />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     description: 'Land Rover Defender 110 P400e ve Discovery Sport P300e PHEV modellerini karşılaştırın.',
     type: 'website',
   },
+  alternates: {
+    canonical: 'https://phevs.eu/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
+  },
 }
 
 export default function ComparePage() {

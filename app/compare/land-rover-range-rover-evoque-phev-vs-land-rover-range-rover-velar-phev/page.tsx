@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     description: 'Range Rover Evoque P300e ve Range Rover Velar P400e PHEV modellerini karşılaştırın.',
     type: 'website',
   },
+  alternates: {
+    canonical: 'https://phevs.eu/compare/land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev',
+  },
 }
 
 export default function ComparePage() {

@@ -38,6 +38,16 @@ export async function generateMetadata({ params }: FAQDetailProps): Promise<Meta
       description: `PHEV hakkında detaylı bilgi: ${faq.title}`,
       type: 'article',
     },
+    alternates: {
+      canonical: `https://phevs.eu/faq/${params.slug}`,
+      languages: {
+        'x-default': `https://phevs.eu/faq/${params.slug}`,
+        en: `https://phevs.eu/faq/${params.slug}`,
+        tr: `https://phevs.eu/faq/${params.slug}?lang=tr`,
+        de: `https://phevs.eu/faq/${params.slug}?lang=de`,
+        pl: `https://phevs.eu/faq/${params.slug}?lang=pl`,
+      },
+    },
   }
 }
 

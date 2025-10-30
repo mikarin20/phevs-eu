@@ -327,21 +327,11 @@ export default function Home() {
     {
       id: 'seat-leon-sportstourer-hatchback',
       href: '/compare/seat-leon-sportstourer-1-4-e-hybrid-vs-seat-leon-1-5-tsi',
-      leftCar: { name: 'SEAT Leon Sportstourer (2025)', image: '/images/cars/brands/seat/leon-iv-sportstourer-15-tsi/main.jpg', alt: 'SEAT Leon Sportstourer', specs: '65km • €35,000' },
+      leftCar: { name: 'SEAT Leon Sportstourer (2025)', image: '/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/main.jpg', alt: 'SEAT Leon Sportstourer', specs: '65km • €35,000' },
       rightCar: { name: 'SEAT Leon Hatchback (2025)', image: '/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg', alt: 'SEAT Leon Hatchback', specs: '65km • €33,000' }
     },
-    {
-      id: 'seat-leon-tarraco',
-      href: '/compare/seat-leon-1-5-tsi-vs-seat-tarraco-1-4-tsi',
-      leftCar: { name: 'SEAT Leon (2025)', image: '/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg', alt: 'SEAT Leon', specs: '65km • €33,000' },
-      rightCar: { name: 'SEAT Tarraco (2025)', image: '/images/cars/brands/seat/tarraco-14-tsi/main.jpg', alt: 'SEAT Tarraco', specs: '50km • €40,000' }
-    },
-    {
-      id: 'seat-tarraco-vw-tiguan',
-      href: '/compare/seat-tarraco-1-4-tsi-vs-volkswagen-tiguan-phev',
-      leftCar: { name: 'SEAT Tarraco (2025)', image: '/images/cars/brands/seat/tarraco-14-tsi/main.jpg', alt: 'SEAT Tarraco', specs: '50km • €40,000' },
-      rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
-    },
+   
+  
     {
       id: 'skoda-kodiaq-superb',
       href: '/compare/koda-kodiaq-phev-vs-koda-superb-combi-phev',
@@ -573,8 +563,9 @@ export default function Home() {
   }, [isBrandDropdownOpen, isMobileLanguageDropdownOpen])
 
   // Özel karakterleri normalize eden fonksiyon
-  const normalizeText = (text: string) => {
-    return text
+  const normalizeText = (text: string | null | undefined) => {
+    const safe = (text ?? '').toString()
+    return safe
       .toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '') // Diacritics kaldır
@@ -1523,35 +1514,21 @@ export default function Home() {
                   <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80 snap-start">
                     <div className="grid grid-cols-2 gap-0">
                       <div className="relative h-32">
-                        <Image
+                        <img
                           src={comparison.leftCar.image}
                           alt={comparison.leftCar.alt}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-200"
-                          sizes="(max-width: 640px) 50vw, 25vw"
-                          quality={80}
+                          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
-                          placeholder="blur"
-                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                          onError={(e) => {
-                            e.currentTarget.src = '/images/placeholder-car.jpg'
-                          }}
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/placeholder-car.jpg' }}
                         />
                       </div>
                       <div className="relative h-32">
-                        <Image
+                        <img
                           src={comparison.rightCar.image}
                           alt={comparison.rightCar.alt}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-200"
-                          sizes="(max-width: 640px) 50vw, 25vw"
-                          quality={80}
+                          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
-                          placeholder="blur"
-                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                          onError={(e) => {
-                            e.currentTarget.src = '/images/placeholder-car.jpg'
-                          }}
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/placeholder-car.jpg' }}
                         />
                       </div>
                     </div>

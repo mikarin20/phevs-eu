@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     description: 'Lexus ES 300h ve UX 300e PHEV modellerini karşılaştırın.',
     type: 'website',
   },
+  alternates: {
+    canonical: 'https://phevs.eu/compare/lexus-es-300h-phev-vs-lexus-ux-300e-phev',
+  },
 }
 
 export default function ComparePage() {

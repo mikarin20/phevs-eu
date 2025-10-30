@@ -4,6 +4,21 @@ import carsData from '@/data/cars.json'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://phevs.eu'
   
+  // Yardımcı: güvenli slug üretimi ve boş değerleri filtreleme
+  const slugify = (value: unknown): string | null => {
+    if (value === null || value === undefined) return null
+    const str = String(value).trim()
+    if (!str) return null
+    return encodeURIComponent(
+      str
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9\-]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '')
+    )
+  }
+  
   // Ana sayfa ve önemli sayfalar
   const routes = [
     {
@@ -63,18 +78,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Marka bazında sayfalar oluştur
-  const brands = [...new Set(carsData.map(car => car.brand))]
-  const brandRoutes = brands.map((brand) => ({
-    url: `${baseUrl}/brands/${brand.toLowerCase().replace(/\s+/g, '-')}`,
+  const brands = [...new Set(carsData.map(car => car.brand).filter(Boolean))]
+  const brandRoutes = brands
+    .map((brand) => slugify(brand))
+    .filter(Boolean)
+    .map((brandSlug) => ({
+    url: `${baseUrl}/brands/${brandSlug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
 
   // Segment bazında sayfalar oluştur
-  const segments = [...new Set(carsData.map(car => car.segment))]
-  const segmentRoutes = segments.map((segment) => ({
-    url: `${baseUrl}/segments/${segment.toLowerCase().replace(/\s+/g, '-')}`,
+  const segments = [...new Set(carsData.map(car => car.segment).filter(Boolean))]
+  const segmentRoutes = segments
+    .map((segment) => slugify(segment))
+    .filter(Boolean)
+    .map((segmentSlug) => ({
+    url: `${baseUrl}/segments/${segmentSlug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,

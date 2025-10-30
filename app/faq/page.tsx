@@ -21,6 +21,16 @@ export const metadata: Metadata = {
     description: 'Complete guide to Plug-in Hybrid Electric Vehicles (PHEV). Everything you need to know about PHEV technology, benefits, and buying guide.',
     type: 'website',
   },
+  alternates: {
+    canonical: 'https://phevs.eu/faq',
+    languages: {
+      'x-default': 'https://phevs.eu/faq',
+      en: 'https://phevs.eu/faq',
+      tr: 'https://phevs.eu/faq?lang=tr',
+      de: 'https://phevs.eu/faq?lang=de',
+      pl: 'https://phevs.eu/faq?lang=pl',
+    },
+  },
 }
 
 // guideCategories will be generated dynamically based on locale

@@ -4132,7 +4132,7 @@
     "brand": "SEAT",
     "model": "Leon IV Sportstourer 1.5 TSI",
     "slug": "seat-leon-sportstourer-1-5-tsi",
-    "mainImage": "/images/cars/brands/seat/leon-iv-sportstourer-15-tsi/main.jpg",
+    "mainImage": "/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/main.jpg",
     "availableImages": [
       "main.jpg"
     ],
@@ -4196,14 +4196,8 @@
     "totalAvailable": 5,
     "totalMissing": 17
   },
-  "seat-3": {
-    "brand": "SEAT",
-    "model": "Tarraco 1.4 TSI",
-    "slug": "seat-tarraco-1-4-tsi",
-    "mainImage": "/images/cars/brands/seat/tarraco-14-tsi/main.jpg",
-    "availableImages": [
-      "main.jpg"
-    ],
+  
+  
     "missingImages": [
       "002.jpg",
       "003.jpg",
@@ -4230,6 +4224,7 @@
     "totalAvailable": 1,
     "totalMissing": 21
   },
+  
   "seat-4": {
     "brand": "SEAT",
     "model": "Leon IV Sportstourer 1.4 e-Hybrid",
