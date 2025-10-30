@@ -382,10 +382,24 @@ export default function Home() {
     }
   ]
 
-  // Random sıralama
-  const shuffledComparisons = useMemo(() => {
-    return [...comparisons].sort(() => Math.random() - 0.5)
+  // Quick Compare: aynı marka modelleri birbirleriyle karşılaştır
+  const getBrandFromImage = (imgPath: string) => {
+    const match = imgPath.match(/\/brands\/([^\/]+)/)
+    return match ? match[1] : ''
+  }
+
+  const crossBrandComparisons = useMemo(() => {
+    return comparisons.filter((c) => {
+      const leftBrand = getBrandFromImage(c.leftCar.image)
+      const rightBrand = getBrandFromImage(c.rightCar.image)
+      return leftBrand && rightBrand && leftBrand !== rightBrand
+    })
   }, [])
+
+  // Random sıralama (aynı marka filtrelendikten sonra)
+  const shuffledComparisons = useMemo(() => {
+    return [...crossBrandComparisons].sort(() => Math.random() - 0.5)
+  }, [crossBrandComparisons])
 
   // Dil algılama - localStorage'dan oku, yoksa browser dilini kullan
   useEffect(() => {
