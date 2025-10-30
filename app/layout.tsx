@@ -122,10 +122,13 @@ export default function RootLayout({
         
         {/* next/font already preloads fonts; explicit preload removed */}
         
-        {/* Flag Icons CDN - Load async */}
-        <link 
-          rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" 
+        {/* Flag Icons CSS - non-blocking load + preconnect */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="style"
+          href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+          onLoad={"this.onload=null;this.rel='stylesheet'" as any}
         />
         
         {/* AdSense Script - lazy load */}
