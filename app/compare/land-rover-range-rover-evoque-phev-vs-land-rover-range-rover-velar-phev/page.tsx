@@ -76,7 +76,7 @@ export default function ComparePage() {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-300">Fiyat:</span>
-                    <span className="font-semibold text-gray-900 dark:text-white">€{evoque.price_eur.toLocaleString()}</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">€{typeof evoque.price_eur === 'number' ? evoque.price_eur.toLocaleString() : 'N/A'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-300">Elektrik Menzili:</span>
@@ -114,7 +114,7 @@ export default function ComparePage() {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-300">Fiyat:</span>
-                    <span className="font-semibold text-gray-900 dark:text-white">€{velar.price_eur.toLocaleString()}</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">€{typeof velar.price_eur === 'number' ? velar.price_eur.toLocaleString() : 'N/A'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-300">Elektrik Menzili:</span>
@@ -155,8 +155,8 @@ export default function ComparePage() {
                   <tbody className="divide-y divide-gray-200 dark:divide-slate-600">
                     <tr>
                       <td className="py-3 px-4 text-gray-600 dark:text-gray-300">Fiyat</td>
-                      <td className="py-3 px-4 font-semibold text-gray-900 dark:text-white">€{evoque.price_eur.toLocaleString()}</td>
-                      <td className="py-3 px-4 font-semibold text-gray-900 dark:text-white">€{velar.price_eur.toLocaleString()}</td>
+                      <td className="py-3 px-4 font-semibold text-gray-900 dark:text-white">€{typeof evoque.price_eur === 'number' ? evoque.price_eur.toLocaleString() : 'N/A'}</td>
+                      <td className="py-3 px-4 font-semibold text-gray-900 dark:text-white">€{typeof velar.price_eur === 'number' ? velar.price_eur.toLocaleString() : 'N/A'}</td>
                     </tr>
                     <tr>
                       <td className="py-3 px-4 text-gray-600 dark:text-gray-300">Elektrik Menzili</td>

@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
       ? {
           title,
           description,
-          type: 'product',
+          type: 'website',
           url: `${baseUrl}/models/${id}`,
           siteName: 'PHEVs.eu',
         }
