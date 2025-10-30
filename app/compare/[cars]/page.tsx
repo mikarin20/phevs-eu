@@ -135,8 +135,7 @@ export default function ComparePage({ params }: ComparePageProps) {
       carIds = params.cars.split(',')
     }
     
-    console.log('Original URL:', params.cars)
-    console.log('Parsed car IDs:', carIds)
+    // removed noisy logs in production
     
     const cars = carIds.map(id => {
       // Try exact ID match first
@@ -151,11 +150,9 @@ export default function ComparePage({ params }: ComparePageProps) {
         )
       }
       
-      console.log(`Looking for ID: ${id}, Found:`, car?.brand, car?.model)
       return car
     }).filter(Boolean) as Car[]
     
-    console.log('Final cars:', cars)
     setSelectedCars(cars)
   }, [params.cars])
 

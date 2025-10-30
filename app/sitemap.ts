@@ -9,14 +9,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (value === null || value === undefined) return null
     const str = String(value).trim()
     if (!str) return null
-    return encodeURIComponent(
-      str
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9\-]/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, '')
-    )
+    const normalized = str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // diacritics kaldır
+      .replace(/[\s/]+/g, '-') // boşluk ve '/'
+      .replace(/[^a-z0-9-]/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '')
+    return normalized ? encodeURIComponent(normalized) : null
   }
   
   // Ana sayfa ve önemli sayfalar
@@ -128,27 +129,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Tüm araba model sayfaları - öncelik sıralaması
-  const carRoutes = carsData.map((car) => {
-    let priority = 0.6
-    
-    // Popüler markalar için yüksek öncelik
-    const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia', 'Land Rover', 'Lexus']
-    if (popularBrands.includes(car.brand)) {
-      priority = 0.8
-    }
-    
-    // Yeni modeller için yüksek öncelik
-    if (car.year >= 2024) {
-      priority = Math.max(priority, 0.7)
-    }
+  const carRoutes = (carsData as any[])
+    .map((car) => {
+      const rawId = car.id ?? car.slug
+      const safeId = slugify(rawId)
+      if (!safeId) return null
 
-    return {
-      url: `${baseUrl}/models/${car.id}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority,
-    }
-  })
+      let priority = 0.6
+      const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia', 'Land Rover', 'Lexus']
+      if (car.brand && popularBrands.includes(car.brand)) {
+        priority = 0.8
+      }
+      if (typeof car.year === 'number' && car.year >= 2024) {
+        priority = Math.max(priority, 0.7)
+      }
+
+      return {
+        url: `${baseUrl}/models/${safeId}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority,
+      }
+    })
+    .filter(Boolean)
+    .filter((item, idx, arr) => idx === arr.findIndex((x) => x!.url === item!.url)) as MetadataRoute.Sitemap
 
   return [...routes, ...brandRoutes, ...segmentRoutes, ...faqRoutes, ...carRoutes]
 }

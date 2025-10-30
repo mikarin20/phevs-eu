@@ -99,6 +99,7 @@ export default function CompareInfoBar({
                     </div>
                   </div>
                   <button
+                    aria-label="Seçili aracı kaldır"
                     onClick={() => onRemoveCar(car.id)}
                     className="p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full transition-colors"
                   >

@@ -1490,6 +1490,7 @@ export default function Home() {
           <div className="relative">
             <button 
               className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-slate-800 rounded-full p-2 shadow-lg border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+              aria-label="Quick Compare kaydırıcıyı sola kaydır"
               onClick={() => {
                 const container = document.getElementById('compare-slider');
                 if (container) {
@@ -1506,6 +1507,7 @@ export default function Home() {
             
             <button 
               className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-slate-800 rounded-full p-2 shadow-lg border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+              aria-label="Quick Compare kaydırıcıyı sağa kaydır"
               onClick={() => {
                 const container = document.getElementById('compare-slider');
                 if (container) {
