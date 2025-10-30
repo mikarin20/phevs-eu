@@ -306,6 +306,7 @@ export default function ComparePage({ params }: ComparePageProps) {
     { label: 'Fuel Consumption', key: 'fuel_consumption' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L/100km` : 'N/A', highlight: true },
     { label: 'Battery Capacity', key: 'battery_kwh' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} kWh` : 'N/A', highlight: true },
     { label: 'Power', key: 'power_hp' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} HP` : 'N/A', highlight: true },
+    { label: 'Engine Displacement', key: 'engine_displacement' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L` : 'N/A', highlight: false },
     { label: 'CO₂ Emissions', key: 'co2_emission' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} g/km` : 'N/A', highlight: true },
     { label: 'AC Charge Time', key: 'charge_time_ac' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}h` : 'N/A', highlight: true },
     { label: 'DC Charge Time', key: 'charge_time_dc' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}h` : 'N/A', highlight: true },
