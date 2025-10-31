@@ -896,6 +896,10 @@ export default function Home() {
       technicalSpecifications: 'Technical Specifications',
       quickCompareTitle: 'Quick Compare Popular Models',
       quickCompareDescription: 'Compare the most popular PHEV models side by side',
+      navCompare: 'Compare Vehicles',
+      navBrands: 'Brands',
+      navSegments: 'Segments',
+      navFaq: 'FAQ',
       faq: {
         title: 'All You Need to Know About PHEV'
       }
@@ -976,6 +980,10 @@ export default function Home() {
       technicalSpecifications: 'Technische Spezifikationen',
       quickCompareTitle: 'Schnellvergleich beliebter Modelle',
       quickCompareDescription: 'Vergleichen Sie die beliebtesten PHEV-Modelle nebeneinander',
+      navCompare: 'Fahrzeuge vergleichen',
+      navBrands: 'Marken',
+      navSegments: 'Segmente',
+      navFaq: 'FAQ',
       faq: {
         title: 'Alles was Sie über PHEV wissen müssen'
       }
@@ -1056,6 +1064,10 @@ export default function Home() {
       technicalSpecifications: 'Teknik Özellikler',
       quickCompareTitle: 'Popüler Modelleri Hızlı Karşılaştır',
       quickCompareDescription: 'En popüler PHEV modellerini yan yana karşılaştırın',
+      navCompare: 'Araç Karşılaştır',
+      navBrands: 'Markalar',
+      navSegments: 'Segmentler',
+      navFaq: 'SSS',
       faq: {
         title: 'PHEV Hakkında Bilmeniz Gereken Her Şey'
       }
@@ -1136,6 +1148,10 @@ export default function Home() {
       technicalSpecifications: 'Specyfikacje techniczne',
       quickCompareTitle: 'Szybkie porównanie popularnych modeli',
       quickCompareDescription: 'Porównaj najpopularniejsze modele PHEV obok siebie',
+      navCompare: 'Porównaj pojazdy',
+      navBrands: 'Marki',
+      navSegments: 'Segmenty',
+      navFaq: 'FAQ',
       faq: {
         title: 'Wszystko co musisz wiedzieć o PHEV'
       }
@@ -1307,17 +1323,17 @@ export default function Home() {
 
             {/* Center Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="/compare" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
-                Compare Vehicles
+              <a href="/" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+                {t.navCompare}
               </a>
               <a href="/brands" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
-                Brands
+                {t.navBrands}
               </a>
               <a href="/segments" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
-                Segments
+                {t.navSegments}
               </a>
-              <a href="/faq" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
-                FAQ
+              <a href={`/faq${selectedLanguage !== 'tr' ? `?lang=${selectedLanguage}` : ''}`} className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+                {t.navFaq}
               </a>
             </div>
 
@@ -1378,7 +1394,7 @@ export default function Home() {
                   Suggest Model
                 </button>
                 <a
-                  href="/faq"
+                  href={`/faq${selectedLanguage !== 'tr' ? `?lang=${selectedLanguage}` : ''}`}
                   className="px-6 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
                 >
                   PHEV Guide
@@ -1422,12 +1438,10 @@ export default function Home() {
               <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
                 <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
                 <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.premiumBrands}</div>
-                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Premium Brands</div>
               </div>
               <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
                 <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
                 <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.vehicleSegments}</div>
-                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Vehicle Segments</div>
               </div>
             </div>
             
@@ -1462,7 +1476,7 @@ export default function Home() {
             {/* Mobil PHEV Guide Button - Hero Section'da */}
             <div className="mt-4 sm:hidden">
               <a
-                href="/faq"
+                href={`/faq${selectedLanguage !== 'tr' ? `?lang=${selectedLanguage}` : ''}`}
                 className="inline-flex items-center px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800"
               >
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1751,7 +1765,7 @@ export default function Home() {
                 className="min-w-36 text-left flex items-center justify-between py-3 px-4 rounded-xl bg-slate-50 text-slate-700 hover:bg-slate-100 transition-all border-0 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <span className="font-medium">
-                  {selectedBrands.length === 0 ? 'All Brands' : `${selectedBrands.length} selected`}
+                  {selectedBrands.length === 0 ? t.allBrands : `${selectedBrands.length} ${selectedLanguage === 'tr' ? 'seçili' : selectedLanguage === 'de' ? 'ausgewählt' : selectedLanguage === 'pl' ? 'wybrano' : 'selected'}`}
                 </span>
                 <ChevronDownIcon className="h-4 w-4 text-slate-500" />
               </button>

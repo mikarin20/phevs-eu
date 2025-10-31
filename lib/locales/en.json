@@ -69,6 +69,30 @@
         "title": "Benefits and Advantages of PHEV",
         "description": "Why choose PHEV over other vehicle types"
       }
+    },
+    "cta": {
+      "notFound": "Couldn't find what you're looking for?",
+      "stillHaveQuestions": "Still Have Questions?",
+      "description": "Our expert team is ready to help you. Send us your questions.",
+      "contactUs": "Contact Us",
+      "compareVehicles": "Compare Vehicles"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "We're here to help! Send us your questions or feedback.",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "Something went wrong. Please try again.",
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "subjectRequired": "Subject is required",
+      "messageRequired": "Message is required"
     }
   }
 }

@@ -277,23 +277,23 @@ export default function PHEVGuidePage({
           {/* CTA Section */}
           <div className="mt-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              Aradığınızı Bulamadınız mı?
+              {t.cta.notFound}
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Uzman ekibimiz size yardımcı olmaya hazır. Sorularınızı bize iletin.
+              {t.cta.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href={`mailto:info@phevs.eu${locale !== 'en' ? `?subject=${encodeURIComponent(t.cta.contactUs)}` : ''}`}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
-                İletişime Geçin
+                {t.cta.contactUs}
               </Link>
               <Link
-                href="/compare"
+                href="/"
                 className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-slate-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
               >
-                Araç Karşılaştır
+                {t.cta.compareVehicles}
               </Link>
             </div>
           </div>

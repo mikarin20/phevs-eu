@@ -69,6 +69,30 @@
         "title": "Vorteile und Nutzen von PHEV",
         "description": "Warum PHEV anderen Fahrzeugtypen vorziehen"
       }
+    },
+    "cta": {
+      "notFound": "Haben Sie nicht gefunden, wonach Sie suchen?",
+      "stillHaveQuestions": "Haben Sie noch Fragen?",
+      "description": "Unser Expertenteam steht Ihnen gerne zur Verfügung. Senden Sie uns Ihre Fragen.",
+      "contactUs": "Kontakt aufnehmen",
+      "compareVehicles": "Fahrzeuge vergleichen"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "subtitle": "Wir sind hier, um zu helfen! Senden Sie uns Ihre Fragen oder Feedback.",
+      "name": "Name",
+      "email": "E-Mail",
+      "subject": "Betreff",
+      "message": "Nachricht",
+      "send": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.",
+      "error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.",
+      "nameRequired": "Name ist erforderlich",
+      "emailRequired": "E-Mail ist erforderlich",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "subjectRequired": "Betreff ist erforderlich",
+      "messageRequired": "Nachricht ist erforderlich"
     }
   }
 }
