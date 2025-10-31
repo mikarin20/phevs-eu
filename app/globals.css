@@ -150,10 +150,24 @@ small {
     font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
 
   /* Mobil dokunmatik hedef boyutları */
   @media (max-width: 640px) {
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      position: relative;
+    }
+
+    * {
+      max-width: 100%;
+    }
+
     button, a {
       min-height: 44px;
       min-width: 44px;
@@ -176,6 +190,13 @@ small {
       -webkit-overflow-scrolling: touch;
       scroll-behavior: smooth;
       overscroll-behavior-y: contain;
+      overscroll-behavior-x: none;
+    }
+
+    /* Yatay scroll'u tamamen engelle */
+    body > * {
+      max-width: 100vw;
+      overflow-x: hidden;
     }
   }
 
@@ -198,6 +219,10 @@ small {
     background: var(--background);
     min-height: 100vh;
     color: var(--text-primary);
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
   }
 }
 

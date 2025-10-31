@@ -1283,14 +1283,14 @@ export default function Home() {
   }
 
   return (
-    <div className={`min-h-screen ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gray-200'}`}>
+    <div className={`min-h-screen w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gray-200'}`}>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       {/* Header */}
-      <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50 backdrop-blur-md bg-opacity-95`}>
+      <header className={`${currentTheme.headerBg} border-b ${currentTheme.cardBorder} sticky top-0 z-50 backdrop-blur-md bg-opacity-95 w-full max-w-full overflow-x-hidden`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo ve Brand */}
@@ -1401,7 +1401,7 @@ export default function Home() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-20 z-50 bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 shadow-lg">
+        <div className="lg:hidden fixed inset-x-0 top-20 z-50 bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 shadow-lg w-full max-w-full overflow-x-hidden">
           <div className="px-4 py-4 space-y-1">
             <Link
               href="/blog"
@@ -1422,7 +1422,7 @@ export default function Home() {
       )}
 
       {/* Hero Section - Modern Design */}
-      <section className={`py-12 ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100'}`}>
+      <section className={`py-12 w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -1501,7 +1501,7 @@ export default function Home() {
       </section>
 
       {/* Quick Compare Section */}
-      <section className={`py-6 ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}>
+      <section className={`py-6 w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <h3 className={`text-lg font-semibold mb-2 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
@@ -1549,7 +1549,7 @@ export default function Home() {
               </svg>
             </button>
             
-            <div id="compare-slider" className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory">
+            <div id="compare-slider" className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory w-full max-w-full">
               <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
               {shuffledComparisons.map((comparison) => (
                 <Link key={comparison.id} href={comparison.href} className="group flex-shrink-0">
@@ -1600,7 +1600,7 @@ export default function Home() {
       </section>
 
       {/* Mobile Search and Actions */}
-      <div className="fixed top-0 left-0 right-0 z-50 sm:hidden bg-white border-b border-gray-200 shadow-lg">
+      <div className="fixed top-0 left-0 right-0 z-50 sm:hidden bg-white border-b border-gray-200 shadow-lg w-full max-w-full overflow-x-hidden">
         <div className="p-2">
           <div className="relative mb-2">
             <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -1666,13 +1666,15 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <button
-              onClick={() => setIsSuggestFormOpen(true)}
+            <Link
+              href="/blog"
               className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
             >
-              <PlusIcon className="h-4 w-4" />
-              <span className="text-xs">{t.suggestModel}</span>
-            </button>
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
+              <span className="text-xs">Blog</span>
+            </Link>
             <button
               onClick={() => {
                 if (selectedCars.length === 0) {
@@ -1695,7 +1697,7 @@ export default function Home() {
       </div>
       
       {/* Mobile Bottom Actions */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white border-t border-gray-200 shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white border-t border-gray-200 shadow-lg w-full max-w-full overflow-x-hidden">
         <div className="grid grid-cols-2 gap-1 p-2">
           <button
             onClick={() => setIsFilterModalOpen(true)}
@@ -2652,7 +2654,7 @@ export default function Home() {
       )}
 
       {/* Latest News Section */}
-      <section className={`${currentTheme.background} py-16`}>
+      <section className={`${currentTheme.background} py-16 w-full max-w-full overflow-x-hidden`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -2747,7 +2749,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section - SEO Content */}
-      <section className={`${currentTheme.background} py-16`}>
+      <section className={`${currentTheme.background} py-16 w-full max-w-full overflow-x-hidden`}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
