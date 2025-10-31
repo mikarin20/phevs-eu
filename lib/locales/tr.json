@@ -69,30 +69,23 @@
         "title": "PHEV'in Faydaları ve Avantajları",
         "description": "Neden diğer araç türleri yerine PHEV seçmelisiniz"
       }
-    },
-    "cta": {
-      "notFound": "Aradığınızı Bulamadınız mı?",
-      "stillHaveQuestions": "Hala Sorunuz mu Var?",
-      "description": "Uzman ekibimiz size yardımcı olmaya hazır. Sorularınızı bize iletin.",
-      "contactUs": "İletişime Geçin",
-      "compareVehicles": "Araç Karşılaştır"
-    },
-    "contact": {
-      "title": "İletişim",
-      "subtitle": "Yardımcı olmak için buradayız! Sorularınızı veya geri bildirimlerinizi gönderin.",
-      "name": "Ad",
-      "email": "E-posta",
-      "subject": "Konu",
-      "message": "Mesaj",
-      "send": "Mesaj Gönder",
-      "sending": "Gönderiliyor...",
-      "success": "Teşekkürler! Mesajınız başarıyla gönderildi.",
-      "error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin.",
-      "nameRequired": "Ad gereklidir",
-      "emailRequired": "E-posta gereklidir",
-      "emailInvalid": "Lütfen geçerli bir e-posta adresi girin",
-      "subjectRequired": "Konu gereklidir",
-      "messageRequired": "Mesaj gereklidir"
+    }
+  },
+  "blog": {
+    "title": "PHEV Haberleri & İncelemeler",
+    "subtitle": "Avrupa'daki en güncel plug-in hibrit araç haberleri, detaylı incelemeler ve pazar analizleri",
+    "featured": "Öne Çıkan",
+    "all": "Tümü",
+    "readTime": "dk okuma",
+    "readMore": "Devamını Oku",
+    "home": "Ana Sayfa",
+    "relatedModels": "İlgili Modeller",
+    "otherNews": "Diğer Haberler",
+    "range": "km menzil",
+    "compareCTA": {
+      "title": "PHEV Modellerini Karşılaştırın",
+      "description": "87 farklı plug-in hibrit araç modelini detaylı özellikler, fiyatlar ve performans verileri ile karşılaştırın.",
+      "button": "Karşılaştırma Aracını Aç"
     }
   }
 }

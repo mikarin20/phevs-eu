@@ -122,7 +122,7 @@ export default function RootLayout({
         
         {/* next/font already preloads fonts; explicit preload removed */}
         
-        {/* Flag Icons CSS - normal load with preconnect for better reliability */}
+        {/* Flag Icons CSS - preconnect + stylesheet */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link
           rel="stylesheet"

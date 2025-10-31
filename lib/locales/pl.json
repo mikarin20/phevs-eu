@@ -69,30 +69,23 @@
         "title": "Korzyści i zalety PHEV",
         "description": "Dlaczego wybrać PHEV zamiast innych typów pojazdów"
       }
-    },
-    "cta": {
-      "notFound": "Nie znaleziono tego, czego szukasz?",
-      "stillHaveQuestions": "Masz jeszcze pytania?",
-      "description": "Nasz zespół ekspertów jest gotowy Ci pomóc. Prześlij nam swoje pytania.",
-      "contactUs": "Skontaktuj się",
-      "compareVehicles": "Porównaj pojazdy"
-    },
-    "contact": {
-      "title": "Kontakt",
-      "subtitle": "Jesteśmy tutaj, aby pomóc! Prześlij nam swoje pytania lub opinie.",
-      "name": "Imię",
-      "email": "E-mail",
-      "subject": "Temat",
-      "message": "Wiadomość",
-      "send": "Wyślij wiadomość",
-      "sending": "Wysyłanie...",
-      "success": "Dziękujemy! Twoja wiadomość została wysłana pomyślnie.",
-      "error": "Coś poszło nie tak. Proszę spróbować ponownie.",
-      "nameRequired": "Imię jest wymagane",
-      "emailRequired": "E-mail jest wymagany",
-      "emailInvalid": "Proszę podać prawidłowy adres e-mail",
-      "subjectRequired": "Temat jest wymagany",
-      "messageRequired": "Wiadomość jest wymagana"
+    }
+  },
+  "blog": {
+    "title": "Wiadomości i recenzje PHEV",
+    "subtitle": "Najnowsze wiadomości o pojazdach hybrydowych typu plug-in, szczegółowe recenzje i analizy rynkowe z Europy",
+    "featured": "Polecane",
+    "all": "Wszystkie",
+    "readTime": "min czytania",
+    "readMore": "Czytaj więcej",
+    "home": "Strona główna",
+    "relatedModels": "Powiązane modele",
+    "otherNews": "Inne wiadomości",
+    "range": "km zasięg",
+    "compareCTA": {
+      "title": "Porównaj modele PHEV",
+      "description": "Porównaj 87 różnych modeli pojazdów hybrydowych typu plug-in ze szczegółowymi specyfikacjami, cenami i danymi dotyczącymi wydajności.",
+      "button": "Otwórz narzędzie porównawcze"
     }
   }
 }

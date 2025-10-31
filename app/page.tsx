@@ -31,6 +31,7 @@ import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import carsData from '@/data/cars.json' assert { type: 'json' }
 const typedCarsData = carsData as Car[]
+import blogData from '@/data/blog.json' assert { type: 'json' }
 import { getTranslations, type Locale } from '@/lib/i18n'
 import { CarCardSkeleton } from '@/components/LoadingSkeleton'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
@@ -195,6 +196,7 @@ export default function Home() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
   const [recentlyViewed, setRecentlyViewed] = useState<Car[]>([])
   const [isPHEVGuidePopupOpen, setIsPHEVGuidePopupOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // Quick Compare karşılaştırmaları
   const comparisons = [
@@ -872,15 +874,8 @@ export default function Home() {
       powerDesc: 'Power (High-Low)',
       powerAsc: 'Power (Low-High)',
       engine: 'Engine',
-      icePower: 'ICE Power',
-      weight: 'Weight',
       charging: 'Charging',
       suggestModel: 'Suggest Model',
-      brandsLabel: 'Brands',
-      countLabel: 'Count',
-      segmentLabel: 'Segment',
-      searchLabel: 'Search',
-      allLabel: 'All',
       advancedFilters: 'Advanced Filters',
       active: 'Active',
       filter: 'Filter',
@@ -893,10 +888,6 @@ export default function Home() {
       update: 'Update',
       dataNotFound: 'Data not found',
       selectToCompare: 'Please select a vehicle to compare',
-      verifiedPrice: 'Verified Price',
-      pending: 'Pending',
-      complete: 'Complete',
-      partial: 'Partial',
       heroTitle: "Europe's Most Comprehensive PHEV Comparison Platform",
       heroDescription: 'Compare 124 plug-in hybrid electric vehicles from 30 premium brands. Find the perfect PHEV for your lifestyle.',
       phevModels: 'PHEV Models',
@@ -907,10 +898,6 @@ export default function Home() {
       technicalSpecifications: 'Technical Specifications',
       quickCompareTitle: 'Quick Compare Popular Models',
       quickCompareDescription: 'Compare the most popular PHEV models side by side',
-      navCompare: 'Compare Vehicles',
-      navBrands: 'Brands',
-      navSegments: 'Segments',
-      navFaq: 'FAQ',
       faq: {
         title: 'All You Need to Know About PHEV'
       }
@@ -967,15 +954,8 @@ export default function Home() {
       powerDesc: 'Leistung (Hoch-Niedrig)',
       powerAsc: 'Leistung (Niedrig-Hoch)',
       engine: 'Motor',
-      icePower: 'Verbrennungsmotor-Leistung',
-      weight: 'Gewicht',
       charging: 'Laden',
       suggestModel: 'Modell vorschlagen',
-      brandsLabel: 'Marken',
-      countLabel: 'Anzahl',
-      segmentLabel: 'Segment',
-      searchLabel: 'Suchen',
-      allLabel: 'Alle',
       advancedFilters: 'Erweiterte Filter',
       active: 'Aktiv',
       filter: 'Filter',
@@ -988,10 +968,6 @@ export default function Home() {
       update: 'Aktualisierung',
       dataNotFound: 'Daten nicht gefunden',
       selectToCompare: 'Bitte wählen Sie ein Fahrzeug zum Vergleichen',
-      verifiedPrice: 'Verifizierter Preis',
-      pending: 'Ausstehend',
-      complete: 'Vollständig',
-      partial: 'Teilweise',
       heroTitle: 'Europas umfassendste PHEV-Vergleichsplattform',
       heroDescription: 'Vergleichen Sie 124 Plug-in-Hybrid-Elektrofahrzeuge von 30 Premium-Marken. Finden Sie das perfekte PHEV für Ihren Lebensstil.',
       phevModels: 'PHEV-Modelle',
@@ -1002,10 +978,6 @@ export default function Home() {
       technicalSpecifications: 'Technische Spezifikationen',
       quickCompareTitle: 'Schnellvergleich beliebter Modelle',
       quickCompareDescription: 'Vergleichen Sie die beliebtesten PHEV-Modelle nebeneinander',
-      navCompare: 'Fahrzeuge vergleichen',
-      navBrands: 'Marken',
-      navSegments: 'Segmente',
-      navFaq: 'FAQ',
       faq: {
         title: 'Alles was Sie über PHEV wissen müssen'
       }
@@ -1062,15 +1034,8 @@ export default function Home() {
       powerDesc: 'Güç (Yüksek-Düşük)',
       powerAsc: 'Güç (Düşük-Yüksek)',
       engine: 'Motor',
-      icePower: 'Yakıt Motoru Gücü',
-      weight: 'Ağırlık',
       charging: 'Şarj',
       suggestModel: 'Model Öner',
-      brandsLabel: 'Markalar',
-      countLabel: 'Adet',
-      segmentLabel: 'Segment',
-      searchLabel: 'Ara',
-      allLabel: 'Tümü',
       advancedFilters: 'Gelişmiş Filtreler',
       active: 'Aktif',
       filter: 'Filtrele',
@@ -1083,10 +1048,6 @@ export default function Home() {
       update: 'Güncelleme',
       dataNotFound: 'Veri bulunamadı',
       selectToCompare: 'Lütfen önce karşılaştırmak için araç seçin',
-      verifiedPrice: 'Doğrulanmış Fiyat',
-      pending: 'Bekleniyor',
-      complete: 'Tam Veri',
-      partial: 'Kısmi Veri',
       heroTitle: 'Avrupa\'nın En Kapsamlı PHEV Karşılaştırma Platformu',
       heroDescription: '30 premium markadan 124 plug-in hibrit elektrikli aracı karşılaştırın. Yaşam tarzınıza uygun mükemmel PHEV\'i bulun.',
       phevModels: 'PHEV Modelleri',
@@ -1097,10 +1058,6 @@ export default function Home() {
       technicalSpecifications: 'Teknik Özellikler',
       quickCompareTitle: 'Popüler Modelleri Hızlı Karşılaştır',
       quickCompareDescription: 'En popüler PHEV modellerini yan yana karşılaştırın',
-      navCompare: 'Araç Karşılaştır',
-      navBrands: 'Markalar',
-      navSegments: 'Segmentler',
-      navFaq: 'SSS',
       faq: {
         title: 'PHEV Hakkında Bilmeniz Gereken Her Şey'
       }
@@ -1157,15 +1114,8 @@ export default function Home() {
       powerDesc: 'Moc (Wysoka-Niska)',
       powerAsc: 'Moc (Niska-Wysoka)',
       engine: 'Silnik',
-      icePower: 'Moc silnika spalinowego',
-      weight: 'Waga',
       charging: 'Ładowanie',
       suggestModel: 'Zaproponuj Model',
-      brandsLabel: 'Marki',
-      countLabel: 'Liczba',
-      segmentLabel: 'Segment',
-      searchLabel: 'Szukaj',
-      allLabel: 'Wszystkie',
       advancedFilters: 'Zaawansowane Filtry',
       active: 'Aktywny',
       filter: 'Filtruj',
@@ -1178,10 +1128,6 @@ export default function Home() {
       update: 'Aktualizacja',
       dataNotFound: 'Nie znaleziono danych',
       selectToCompare: 'Wybierz pojazd do porównania',
-      verifiedPrice: 'Zweryfikowana Cena',
-      pending: 'Oczekiwanie',
-      complete: 'Kompletne',
-      partial: 'Częściowe',
       heroTitle: 'Najbardziej kompleksowa europejska platforma porównawcza PHEV',
       heroDescription: 'Porównaj 124 hybrydowych pojazdów elektrycznych plug-in od 30 premium marek. Znajdź idealny PHEV dla swojego stylu życia.',
       phevModels: 'Modele PHEV',
@@ -1192,10 +1138,6 @@ export default function Home() {
       technicalSpecifications: 'Specyfikacje techniczne',
       quickCompareTitle: 'Szybkie porównanie popularnych modeli',
       quickCompareDescription: 'Porównaj najpopularniejsze modele PHEV obok siebie',
-      navCompare: 'Porównaj pojazdy',
-      navBrands: 'Marki',
-      navSegments: 'Segmenty',
-      navFaq: 'FAQ',
       faq: {
         title: 'Wszystko co musisz wiedzieć o PHEV'
       }
@@ -1367,17 +1309,11 @@ export default function Home() {
 
             {/* Center Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="/" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
-                {t.navCompare}
+              <a href="/blog" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+                Blog
               </a>
-              <a href="/brands" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
-                {t.navBrands}
-              </a>
-              <a href="/segments" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
-                {t.navSegments}
-              </a>
-              <a href={`/faq${selectedLanguage !== 'tr' ? `?lang=${selectedLanguage}` : ''}`} className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
-                {t.navFaq}
+              <a href="/faq" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+                FAQ
               </a>
             </div>
 
@@ -1386,10 +1322,10 @@ export default function Home() {
               {/* Language Selector */}
               <div className="flex items-center space-x-1 bg-gray-100 dark:bg-slate-800 rounded-lg p-1">
                 {[
-                  { code: 'en', name: 'English', flag: 'gb' },
-                  { code: 'de', name: 'Deutsch', flag: 'de' },
-                  { code: 'tr', name: 'Türkçe', flag: 'tr' },
-                  { code: 'pl', name: 'Polski', flag: 'pl' }
+                  { code: 'en', name: 'EN', flag: 'gb' },
+                  { code: 'de', name: 'DE', flag: 'de' },
+                  { code: 'tr', name: 'TR', flag: 'tr' },
+                  { code: 'pl', name: 'PL', flag: 'pl' }
                 ].map((lang) => (
                   <button
                     key={lang.code}
@@ -1404,9 +1340,8 @@ export default function Home() {
                         : 'hover:bg-white/50 dark:hover:bg-slate-700/50'
                     }`}
                     title={lang.name}
-                    aria-label={lang.name}
                   >
-                    <span className={`fi fi-${lang.flag}`} style={{ fontSize: '0.875rem' }}></span>
+                    <span className={`fi fi-${lang.flag} text-sm`}></span>
                   </button>
                 ))}
               </div>
@@ -1438,7 +1373,7 @@ export default function Home() {
                   Suggest Model
                 </button>
                 <a
-                  href={`/faq${selectedLanguage !== 'tr' ? `?lang=${selectedLanguage}` : ''}`}
+                  href="/faq"
                   className="px-6 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
                 >
                   PHEV Guide
@@ -1446,15 +1381,45 @@ export default function Home() {
               </div>
 
               {/* Mobile Menu Button */}
-              <button className="lg:hidden p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                aria-label="Mobile menüyü aç/kapat"
+              >
+                {isMobileMenuOpen ? (
+                  <XMarkIcon className="w-6 h-6" />
+                ) : (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-x-0 top-20 z-50 bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 shadow-lg">
+          <div className="px-4 py-4 space-y-1">
+            <Link
+              href="/blog"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors font-medium"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/faq"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors font-medium"
+            >
+              FAQ
+            </Link>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section - Modern Design */}
       <section className={`py-12 ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100'}`}>
@@ -1482,10 +1447,12 @@ export default function Home() {
               <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
                 <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
                 <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.premiumBrands}</div>
+                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Premium Brands</div>
               </div>
               <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
                 <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
                 <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.vehicleSegments}</div>
+                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Vehicle Segments</div>
               </div>
             </div>
             
@@ -1520,7 +1487,7 @@ export default function Home() {
             {/* Mobil PHEV Guide Button - Hero Section'da */}
             <div className="mt-4 sm:hidden">
               <a
-                href={`/faq${selectedLanguage !== 'tr' ? `?lang=${selectedLanguage}` : ''}`}
+                href="/faq"
                 className="inline-flex items-center px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800"
               >
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1651,9 +1618,8 @@ export default function Home() {
               <button
                 onClick={() => setIsMobileLanguageDropdownOpen(!isMobileLanguageDropdownOpen)}
                 className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors w-full"
-                aria-label="Dil seçici"
               >
-                <span className={`fi fi-${selectedLanguage === 'en' ? 'gb' : selectedLanguage === 'de' ? 'de' : selectedLanguage === 'tr' ? 'tr' : 'pl'}`} style={{ fontSize: '0.875rem' }}></span>
+                <span className={`fi fi-${selectedLanguage === 'en' ? 'gb' : selectedLanguage === 'de' ? 'de' : selectedLanguage === 'tr' ? 'tr' : 'pl'} text-xs`}></span>
                 <ChevronDownIcon className="h-3 w-3" />
               </button>
               
@@ -1692,9 +1658,8 @@ export default function Home() {
                       className={`w-full flex items-center space-x-2 px-3 py-2 text-left hover:bg-gray-50 transition-colors ${
                         selectedLanguage === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
                       }`}
-                      aria-label={lang.name}
                     >
-                      <span className={`fi fi-${lang.flag}`} style={{ fontSize: '0.875rem' }}></span>
+                      <span className={`fi fi-${lang.flag} text-sm`}></span>
                       <span className="text-xs">{lang.name}</span>
                     </button>
                   ))}
@@ -1809,7 +1774,7 @@ export default function Home() {
                 className="min-w-36 text-left flex items-center justify-between py-3 px-4 rounded-xl bg-slate-50 text-slate-700 hover:bg-slate-100 transition-all border-0 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <span className="font-medium">
-                  {selectedBrands.length === 0 ? t.allBrands : `${selectedBrands.length} ${selectedLanguage === 'tr' ? 'seçili' : selectedLanguage === 'de' ? 'ausgewählt' : selectedLanguage === 'pl' ? 'wybrano' : 'selected'}`}
+                  {selectedBrands.length === 0 ? 'All Brands' : `${selectedBrands.length} selected`}
                 </span>
                 <ChevronDownIcon className="h-4 w-4 text-slate-500" />
               </button>
@@ -1943,14 +1908,14 @@ export default function Home() {
                 <SparklesIcon className={`h-6 w-6 ${currentTheme.textPrimary}`} />
               </div>
               <div>
-                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>{t.rangeSimulator}</h3>
-                <p className={`text-sm ${currentTheme.textSecondary}`}>{t.discoverRange}</p>
+                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Range Simulator</h3>
+                <p className={`text-sm ${currentTheme.textSecondary}`}>Discover your real-world electric range based on temperature, climate control, and driving conditions</p>
               </div>
             </div>
             <button
               onClick={() => {
                 if (selectedCars.length === 0) {
-                  alert(t.selectVehicleFirst)
+                  alert('Please select a vehicle first to use Range Simulator')
                   return
                 }
                 setSelectedCarForSimulator(selectedCars[0])
@@ -1964,7 +1929,7 @@ export default function Home() {
               disabled={selectedCars.length === 0}
             >
               <SparklesIcon className="h-5 w-5" />
-              <span>{t.trySimulator} {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : `(${t.selectVehicle})`}</span>
+              <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
             </button>
           </div>
               </div>
@@ -1989,7 +1954,7 @@ export default function Home() {
           </div>
           {/* Debug Info */}
           <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-            {t.brandsLabel}: [{selectedBrands.join(', ')}] ({t.countLabel}: {selectedBrands.length}), {t.segmentLabel}: {filters.segment || t.allLabel}, {t.searchLabel}: "{searchTerm}", Battery: {filters.batteryArchitecture || t.allLabel}/{filters.batteryChemistry || t.allLabel}, Filtered {t.countLabel}: {filteredAndSortedCars.length}, Total Cars: {cars.length}
+            Brands: [{selectedBrands.join(', ')}] (Count: {selectedBrands.length}), Segment: {filters.segment || 'All'}, Search: "{searchTerm}", Battery: {filters.batteryArchitecture || 'All'}/{filters.batteryChemistry || 'All'}, Filtered Count: {filteredAndSortedCars.length}, Total Cars: {cars.length}
               </div>
             </div>
 
@@ -2079,20 +2044,20 @@ export default function Home() {
                                 : 'bg-gray-100 text-gray-800'
                             }`}>
                               {car.data_status.technical_specs === 'complete'
-                                ? t.complete
+                                ? (selectedLanguage==='tr'?'Tam Veri':'Complete')
                                 : car.data_status.technical_specs === 'partial'
-                                ? t.partial
-                                : t.pending
+                                ? (selectedLanguage==='tr'?'Kısmi Veri':'Partial')
+                                : (selectedLanguage==='tr'?'Veri Bekleniyor':'Pending')
                               }
                             </span>
                             {car.data_status.price === 'verified' && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
-                                {t.verifiedPrice}
+                                {selectedLanguage==='tr'?'Doğrulanmış Fiyat':'Verified Price'}
                               </span>
                             )}
                             {car.data_status.range_data === 'real_world' && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
-                                {t.realWorldRange}
+                                {selectedLanguage==='tr'?'Gerçek Menzil':'Real Range'}
                               </span>
                             )}
                           </div>
@@ -2142,28 +2107,28 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <ScaleIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.weight}:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Weight:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.icePower}:</span>
+                        <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
                     </div>
@@ -2205,21 +2170,21 @@ export default function Home() {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
+                            <span className={`${currentTheme.textPrimary}`}>Engine:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>{t.icePower}:</span>
+                            <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
+                            <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
                         </div>
@@ -2325,7 +2290,7 @@ export default function Home() {
                         }}
                       >
                         <CalculatorIcon className="h-3 w-3 inline mr-1" aria-hidden="true" />
-                        {t.range}
+                        Range
                       </button>
                     </div>
                     {/* Update date at very bottom of the card */}
@@ -2428,7 +2393,7 @@ export default function Home() {
                             setIsRangeSimulatorOpen(true)
                           }}
                           className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
-                          title={t.rangeSimulator}
+                          title="Range Simulator"
                         >
                           <SparklesIcon className="h-3 w-3 text-[#4F7C82]" />
                       </button>
@@ -2465,22 +2430,22 @@ export default function Home() {
                       </div>
                       <div className="flex items-center space-x-2">
                         <ScaleIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.weight}:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Weight:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.icePower}:</span>
+                        <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
+                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
                       </div>
                     </div>
@@ -2622,7 +2587,7 @@ export default function Home() {
                         className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
                       >
                         <CalculatorIcon className="h-3 w-3 inline mr-1" />
-                        {t.range}
+                        Range
                     </button>
                     </div>
               </div>
@@ -2685,6 +2650,101 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Latest News Section */}
+      <section className={`${currentTheme.background} py-16`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                {selectedLanguage === 'tr' ? 'Son PHEV Haberleri' : selectedLanguage === 'de' ? 'Neueste PHEV-Nachrichten' : selectedLanguage === 'pl' ? 'Najnowsze wiadomości PHEV' : 'Latest PHEV News'}
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                {selectedLanguage === 'tr' ? 'Avrupa\'daki en güncel plug-in hibrit araç haberleri, incelemeler ve pazar analizleri' : selectedLanguage === 'de' ? 'Neueste Plug-in-Hybrid-Fahrzeugnachrichten, Testberichte und Marktanalysen aus Europa' : selectedLanguage === 'pl' ? 'Najnowsze wiadomości o pojazdach hybrydowych typu plug-in, recenzje i analizy rynkowe z Europy' : 'Latest plug-in hybrid vehicle news, reviews and market analysis from Europe'}
+              </p>
+            </div>
+            <Link
+              href={`/blog?lang=${selectedLanguage || 'en'}`}
+              className="hidden md:flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              {selectedLanguage === 'tr' ? 'Tüm Haberler' : selectedLanguage === 'de' ? 'Alle Nachrichten' : selectedLanguage === 'pl' ? 'Wszystkie wiadomości' : 'All News'}
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {(blogData as any[]).slice(0, 4).map((post) => {
+              const blogLocale = selectedLanguage || 'en'
+              const postTitle = blogLocale === 'en' ? post.title_en : blogLocale === 'de' ? (post.title_de || post.title_en || post.title) : blogLocale === 'pl' ? (post.title_pl || post.title_en || post.title) : post.title
+              const postExcerpt = blogLocale === 'en' ? post.excerpt_en : blogLocale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : blogLocale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt
+              const postCategory = blogLocale === 'en' ? post.category_en : blogLocale === 'de' ? (post.category_de || post.category_en || post.category) : blogLocale === 'pl' ? (post.category_pl || post.category_en || post.category) : post.category
+              const dateLocale = blogLocale === 'tr' ? 'tr-TR' : blogLocale === 'de' ? 'de-DE' : blogLocale === 'pl' ? 'pl-PL' : 'en-GB'
+              
+              return (
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}?lang=${blogLocale}`}
+                  className="group block bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all"
+                >
+                  <div className="relative h-48">
+                    <img
+                      src={post.featured_image}
+                      alt={postTitle}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        e.currentTarget.src = '/images/placeholder-car.jpg'
+                      }}
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                        {postCategory}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-3">
+                      <span>
+                        {new Date(post.published_at).toLocaleDateString(dateLocale, {
+                          month: 'short',
+                          day: 'numeric'
+                        })}
+                      </span>
+                      <span className="mx-2">•</span>
+                      <span>{post.read_time} {blogLocale === 'tr' ? 'dk' : blogLocale === 'de' ? 'Min' : blogLocale === 'pl' ? 'min' : 'min'} {blogLocale === 'tr' ? 'okuma' : blogLocale === 'de' ? 'Lesen' : blogLocale === 'pl' ? 'czytania' : 'read'}</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                      {postTitle}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3 mb-4">
+                      {postExcerpt}
+                    </p>
+                    <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm font-semibold">
+                      {blogLocale === 'tr' ? 'Devamını Oku' : blogLocale === 'de' ? 'Weiterlesen' : blogLocale === 'pl' ? 'Czytaj więcej' : 'Read More'}
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+
+          <div className="text-center mt-8 md:hidden">
+            <Link
+              href={`/blog?lang=${selectedLanguage || 'en'}`}
+              className="inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              {selectedLanguage === 'tr' ? 'Tüm Haberler' : selectedLanguage === 'de' ? 'Alle Nachrichten' : selectedLanguage === 'pl' ? 'Wszystkie wiadomości' : 'All News'}
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section - SEO Content */}
       <section className={`${currentTheme.background} py-16`}>

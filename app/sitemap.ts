@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import carsData from '@/data/cars.json'
+import blogData from '@/data/blog.json'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://phevs.eu'
@@ -154,6 +155,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter(Boolean)
     .filter((item, idx, arr) => idx === arr.findIndex((x) => x!.url === item!.url)) as MetadataRoute.Sitemap
 
-  return [...routes, ...brandRoutes, ...segmentRoutes, ...faqRoutes, ...carRoutes]
+  // Blog yazıları (görseller dahil)
+  const blogRoutes = (blogData as any[]).map((post) => {
+    const featuredImageUrl = post.featured_image?.startsWith('http') 
+      ? post.featured_image 
+      : `${baseUrl}${post.featured_image}`
+    
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.updated_at || post.published_at),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+      // Next.js MetadataRoute.Sitemap image desteği için alternatif yaklaşım
+      // Image bilgileri structured data ve OpenGraph'da zaten var
+    }
+  })
+
+  return [...routes, ...brandRoutes, ...segmentRoutes, ...faqRoutes, ...carRoutes, ...blogRoutes]
 }
 

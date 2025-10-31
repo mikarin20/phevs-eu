@@ -224,23 +224,35 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
           {/* CTA */}
           <div className="mt-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.cta.stillHaveQuestions}
+              {locale === 'tr' ? 'Hala Sorunuz mu Var?' : 
+               locale === 'en' ? 'Still Have Questions?' :
+               locale === 'de' ? 'Haben Sie noch Fragen?' :
+               locale === 'pl' ? 'Masz jeszcze pytania?' : 'Hala Sorunuz mu Var?'}
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {t.cta.description}
+              {locale === 'tr' ? 'Uzman ekibimiz size yardımcı olmaya hazır. Sorularınızı bize iletin.' : 
+               locale === 'en' ? 'Our expert team is ready to help you. Send us your questions.' :
+               locale === 'de' ? 'Unser Expertenteam ist bereit, Ihnen zu helfen. Senden Sie uns Ihre Fragen.' :
+               locale === 'pl' ? 'Nasz zespół ekspertów jest gotowy, aby Ci pomóc. Wyślij nam swoje pytania.' : 'Uzman ekibimiz size yardımcı olmaya hazır. Sorularınızı bize iletin.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href={`/contact${locale !== 'tr' ? `?lang=${locale}` : ''}`}
+                href="/contact"
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
-                {t.cta.contactUs}
+                {locale === 'tr' ? 'İletişime Geçin' : 
+                 locale === 'en' ? 'Contact Us' :
+                 locale === 'de' ? 'Kontakt aufnehmen' :
+                 locale === 'pl' ? 'Skontaktuj się' : 'İletişime Geçin'}
               </Link>
               <Link
-                href="/"
+                href="/compare"
                 className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-slate-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
               >
-                {t.cta.compareVehicles}
+                {locale === 'tr' ? 'Araç Karşılaştır' : 
+                 locale === 'en' ? 'Compare Vehicles' :
+                 locale === 'de' ? 'Fahrzeuge vergleichen' :
+                 locale === 'pl' ? 'Porównaj pojazdy' : 'Araç Karşılaştır'}
               </Link>
             </div>
           </div>
