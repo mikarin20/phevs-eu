@@ -1326,10 +1326,10 @@ export default function Home() {
               {/* Language Selector */}
               <div className="flex items-center space-x-1 bg-gray-100 dark:bg-slate-800 rounded-lg p-1">
                 {[
-                  { code: 'en', name: 'EN', flag: 'gb' },
-                  { code: 'de', name: 'DE', flag: 'de' },
-                  { code: 'tr', name: 'TR', flag: 'tr' },
-                  { code: 'pl', name: 'PL', flag: 'pl' }
+                  { code: 'en', name: 'English', flag: 'gb' },
+                  { code: 'de', name: 'Deutsch', flag: 'de' },
+                  { code: 'tr', name: 'Türkçe', flag: 'tr' },
+                  { code: 'pl', name: 'Polski', flag: 'pl' }
                 ].map((lang) => (
                   <button
                     key={lang.code}
@@ -1344,8 +1344,9 @@ export default function Home() {
                         : 'hover:bg-white/50 dark:hover:bg-slate-700/50'
                     }`}
                     title={lang.name}
+                    aria-label={lang.name}
                   >
-                    <span className={`fi fi-${lang.flag} text-sm`}></span>
+                    <span className={`fi fi-${lang.flag}`} style={{ fontSize: '0.875rem' }}></span>
                   </button>
                 ))}
               </div>
@@ -1592,8 +1593,9 @@ export default function Home() {
               <button
                 onClick={() => setIsMobileLanguageDropdownOpen(!isMobileLanguageDropdownOpen)}
                 className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors w-full"
+                aria-label="Dil seçici"
               >
-                <span className={`fi fi-${selectedLanguage === 'en' ? 'gb' : selectedLanguage === 'de' ? 'de' : selectedLanguage === 'tr' ? 'tr' : 'pl'} text-xs`}></span>
+                <span className={`fi fi-${selectedLanguage === 'en' ? 'gb' : selectedLanguage === 'de' ? 'de' : selectedLanguage === 'tr' ? 'tr' : 'pl'}`} style={{ fontSize: '0.875rem' }}></span>
                 <ChevronDownIcon className="h-3 w-3" />
               </button>
               
@@ -1632,8 +1634,9 @@ export default function Home() {
                       className={`w-full flex items-center space-x-2 px-3 py-2 text-left hover:bg-gray-50 transition-colors ${
                         selectedLanguage === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
                       }`}
+                      aria-label={lang.name}
                     >
-                      <span className={`fi fi-${lang.flag} text-sm`}></span>
+                      <span className={`fi fi-${lang.flag}`} style={{ fontSize: '0.875rem' }}></span>
                       <span className="text-xs">{lang.name}</span>
                     </button>
                   ))}
