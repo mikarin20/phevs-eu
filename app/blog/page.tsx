@@ -23,6 +23,22 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://phevs.eu/blog',
     siteName: 'PHEVs.eu',
+    images: [
+      {
+        url: 'https://phevs.eu/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'PHEVs.eu Blog - PHEV Haberleri ve İncelemeler',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PHEV Haberleri ve İncelemeler | PHEVs.eu Blog',
+    description: 'Avrupa\'daki en güncel plug-in hibrit araç haberleri, detaylı incelemeler ve pazar analizleri.',
+    images: ['https://phevs.eu/images/og-image.jpg'],
+    creator: '@phevs_eu',
+    site: '@phevs_eu',
   },
   alternates: {
     canonical: 'https://phevs.eu/blog',

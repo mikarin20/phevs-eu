@@ -87,6 +87,8 @@ export async function generateMetadata({ params, searchParams }: BlogDetailProps
       description,
       type: 'article',
       url: currentUrl,
+      siteName: 'PHEVs.eu',
+      locale: locale === 'tr' ? 'tr_TR' : locale === 'de' ? 'de_DE' : locale === 'pl' ? 'pl_PL' : 'en_US',
       publishedTime: post.published_at,
       modifiedTime: post.updated_at,
       authors: [post.author],
@@ -104,6 +106,8 @@ export async function generateMetadata({ params, searchParams }: BlogDetailProps
       title: `${title} | PHEVs.eu`,
       description,
       images: [featuredImageUrl],
+      creator: '@phevs_eu',
+      site: '@phevs_eu',
     },
     alternates: {
       canonical: currentUrl,
@@ -174,9 +178,10 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
             "publisher": {
               "@type": "Organization",
               "name": "PHEVs.eu",
+              "url": "https://phevs.eu",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://phevs.eu/images/logo.png"
+                "url": "https://phevs.eu/favicon.svg"
               }
             },
             "mainEntityOfPage": {
