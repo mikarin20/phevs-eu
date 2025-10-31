@@ -872,8 +872,15 @@ export default function Home() {
       powerDesc: 'Power (High-Low)',
       powerAsc: 'Power (Low-High)',
       engine: 'Engine',
+      icePower: 'ICE Power',
+      weight: 'Weight',
       charging: 'Charging',
       suggestModel: 'Suggest Model',
+      brandsLabel: 'Brands',
+      countLabel: 'Count',
+      segmentLabel: 'Segment',
+      searchLabel: 'Search',
+      allLabel: 'All',
       advancedFilters: 'Advanced Filters',
       active: 'Active',
       filter: 'Filter',
@@ -886,6 +893,10 @@ export default function Home() {
       update: 'Update',
       dataNotFound: 'Data not found',
       selectToCompare: 'Please select a vehicle to compare',
+      verifiedPrice: 'Verified Price',
+      pending: 'Pending',
+      complete: 'Complete',
+      partial: 'Partial',
       heroTitle: "Europe's Most Comprehensive PHEV Comparison Platform",
       heroDescription: 'Compare 124 plug-in hybrid electric vehicles from 30 premium brands. Find the perfect PHEV for your lifestyle.',
       phevModels: 'PHEV Models',
@@ -956,8 +967,15 @@ export default function Home() {
       powerDesc: 'Leistung (Hoch-Niedrig)',
       powerAsc: 'Leistung (Niedrig-Hoch)',
       engine: 'Motor',
+      icePower: 'Verbrennungsmotor-Leistung',
+      weight: 'Gewicht',
       charging: 'Laden',
       suggestModel: 'Modell vorschlagen',
+      brandsLabel: 'Marken',
+      countLabel: 'Anzahl',
+      segmentLabel: 'Segment',
+      searchLabel: 'Suchen',
+      allLabel: 'Alle',
       advancedFilters: 'Erweiterte Filter',
       active: 'Aktiv',
       filter: 'Filter',
@@ -970,6 +988,10 @@ export default function Home() {
       update: 'Aktualisierung',
       dataNotFound: 'Daten nicht gefunden',
       selectToCompare: 'Bitte wählen Sie ein Fahrzeug zum Vergleichen',
+      verifiedPrice: 'Verifizierter Preis',
+      pending: 'Ausstehend',
+      complete: 'Vollständig',
+      partial: 'Teilweise',
       heroTitle: 'Europas umfassendste PHEV-Vergleichsplattform',
       heroDescription: 'Vergleichen Sie 124 Plug-in-Hybrid-Elektrofahrzeuge von 30 Premium-Marken. Finden Sie das perfekte PHEV für Ihren Lebensstil.',
       phevModels: 'PHEV-Modelle',
@@ -1040,8 +1062,15 @@ export default function Home() {
       powerDesc: 'Güç (Yüksek-Düşük)',
       powerAsc: 'Güç (Düşük-Yüksek)',
       engine: 'Motor',
+      icePower: 'Yakıt Motoru Gücü',
+      weight: 'Ağırlık',
       charging: 'Şarj',
       suggestModel: 'Model Öner',
+      brandsLabel: 'Markalar',
+      countLabel: 'Adet',
+      segmentLabel: 'Segment',
+      searchLabel: 'Ara',
+      allLabel: 'Tümü',
       advancedFilters: 'Gelişmiş Filtreler',
       active: 'Aktif',
       filter: 'Filtrele',
@@ -1054,6 +1083,10 @@ export default function Home() {
       update: 'Güncelleme',
       dataNotFound: 'Veri bulunamadı',
       selectToCompare: 'Lütfen önce karşılaştırmak için araç seçin',
+      verifiedPrice: 'Doğrulanmış Fiyat',
+      pending: 'Bekleniyor',
+      complete: 'Tam Veri',
+      partial: 'Kısmi Veri',
       heroTitle: 'Avrupa\'nın En Kapsamlı PHEV Karşılaştırma Platformu',
       heroDescription: '30 premium markadan 124 plug-in hibrit elektrikli aracı karşılaştırın. Yaşam tarzınıza uygun mükemmel PHEV\'i bulun.',
       phevModels: 'PHEV Modelleri',
@@ -1124,8 +1157,15 @@ export default function Home() {
       powerDesc: 'Moc (Wysoka-Niska)',
       powerAsc: 'Moc (Niska-Wysoka)',
       engine: 'Silnik',
+      icePower: 'Moc silnika spalinowego',
+      weight: 'Waga',
       charging: 'Ładowanie',
       suggestModel: 'Zaproponuj Model',
+      brandsLabel: 'Marki',
+      countLabel: 'Liczba',
+      segmentLabel: 'Segment',
+      searchLabel: 'Szukaj',
+      allLabel: 'Wszystkie',
       advancedFilters: 'Zaawansowane Filtry',
       active: 'Aktywny',
       filter: 'Filtruj',
@@ -1138,6 +1178,10 @@ export default function Home() {
       update: 'Aktualizacja',
       dataNotFound: 'Nie znaleziono danych',
       selectToCompare: 'Wybierz pojazd do porównania',
+      verifiedPrice: 'Zweryfikowana Cena',
+      pending: 'Oczekiwanie',
+      complete: 'Kompletne',
+      partial: 'Częściowe',
       heroTitle: 'Najbardziej kompleksowa europejska platforma porównawcza PHEV',
       heroDescription: 'Porównaj 124 hybrydowych pojazdów elektrycznych plug-in od 30 premium marek. Znajdź idealny PHEV dla swojego stylu życia.',
       phevModels: 'Modele PHEV',
@@ -1899,14 +1943,14 @@ export default function Home() {
                 <SparklesIcon className={`h-6 w-6 ${currentTheme.textPrimary}`} />
               </div>
               <div>
-                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Range Simulator</h3>
-                <p className={`text-sm ${currentTheme.textSecondary}`}>Discover your real-world electric range based on temperature, climate control, and driving conditions</p>
+                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>{t.rangeSimulator}</h3>
+                <p className={`text-sm ${currentTheme.textSecondary}`}>{t.discoverRange}</p>
               </div>
             </div>
             <button
               onClick={() => {
                 if (selectedCars.length === 0) {
-                  alert('Please select a vehicle first to use Range Simulator')
+                  alert(t.selectVehicleFirst)
                   return
                 }
                 setSelectedCarForSimulator(selectedCars[0])
@@ -1920,7 +1964,7 @@ export default function Home() {
               disabled={selectedCars.length === 0}
             >
               <SparklesIcon className="h-5 w-5" />
-              <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
+              <span>{t.trySimulator} {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : `(${t.selectVehicle})`}</span>
             </button>
           </div>
               </div>
@@ -1945,7 +1989,7 @@ export default function Home() {
           </div>
           {/* Debug Info */}
           <div className={`text-xs ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-            Brands: [{selectedBrands.join(', ')}] (Count: {selectedBrands.length}), Segment: {filters.segment || 'All'}, Search: "{searchTerm}", Battery: {filters.batteryArchitecture || 'All'}/{filters.batteryChemistry || 'All'}, Filtered Count: {filteredAndSortedCars.length}, Total Cars: {cars.length}
+            {t.brandsLabel}: [{selectedBrands.join(', ')}] ({t.countLabel}: {selectedBrands.length}), {t.segmentLabel}: {filters.segment || t.allLabel}, {t.searchLabel}: "{searchTerm}", Battery: {filters.batteryArchitecture || t.allLabel}/{filters.batteryChemistry || t.allLabel}, Filtered {t.countLabel}: {filteredAndSortedCars.length}, Total Cars: {cars.length}
               </div>
             </div>
 
@@ -2035,20 +2079,20 @@ export default function Home() {
                                 : 'bg-gray-100 text-gray-800'
                             }`}>
                               {car.data_status.technical_specs === 'complete'
-                                ? (selectedLanguage==='tr'?'Tam Veri':'Complete')
+                                ? t.complete
                                 : car.data_status.technical_specs === 'partial'
-                                ? (selectedLanguage==='tr'?'Kısmi Veri':'Partial')
-                                : (selectedLanguage==='tr'?'Veri Bekleniyor':'Pending')
+                                ? t.partial
+                                : t.pending
                               }
                             </span>
                             {car.data_status.price === 'verified' && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
-                                {selectedLanguage==='tr'?'Doğrulanmış Fiyat':'Verified Price'}
+                                {t.verifiedPrice}
                               </span>
                             )}
                             {car.data_status.range_data === 'real_world' && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
-                                {selectedLanguage==='tr'?'Gerçek Menzil':'Real Range'}
+                                {t.realWorldRange}
                               </span>
                             )}
                           </div>
@@ -2098,28 +2142,28 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <ScaleIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>Weight:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.weight}:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.icePower}:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
                       </div>
                       <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
                     </div>
@@ -2161,21 +2205,21 @@ export default function Home() {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                            <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
+                            <span className={`${currentTheme.textPrimary}`}>{t.icePower}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
+                            <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
                           </div>
                           <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
                         </div>
@@ -2281,7 +2325,7 @@ export default function Home() {
                         }}
                       >
                         <CalculatorIcon className="h-3 w-3 inline mr-1" aria-hidden="true" />
-                        Range
+                        {t.range}
                       </button>
                     </div>
                     {/* Update date at very bottom of the card */}
@@ -2384,7 +2428,7 @@ export default function Home() {
                             setIsRangeSimulatorOpen(true)
                           }}
                           className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
-                          title="Range Simulator"
+                          title={t.rangeSimulator}
                         >
                           <SparklesIcon className="h-3 w-3 text-[#4F7C82]" />
                       </button>
@@ -2421,22 +2465,22 @@ export default function Home() {
                       </div>
                       <div className="flex items-center space-x-2">
                         <ScaleIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Weight:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.weight}:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.engine}:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.icePower}:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
+                        <span className={`${currentTheme.textPrimary}`}>{t.fuelConsumption}:</span>
                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
                       </div>
                     </div>
@@ -2578,7 +2622,7 @@ export default function Home() {
                         className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
                       >
                         <CalculatorIcon className="h-3 w-3 inline mr-1" />
-                        Range
+                        {t.range}
                     </button>
                     </div>
               </div>

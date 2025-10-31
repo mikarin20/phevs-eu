@@ -284,7 +284,7 @@ export default function PHEVGuidePage({
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href={`mailto:info@phevs.eu${locale !== 'en' ? `?subject=${encodeURIComponent(t.cta.contactUs)}` : ''}`}
+                href={`/contact${locale !== 'tr' ? `?lang=${locale}` : ''}`}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 {t.cta.contactUs}
