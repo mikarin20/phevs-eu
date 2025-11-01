@@ -177,6 +177,9 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -222,6 +225,9 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 7.2
     },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,PL",
@@ -269,6 +275,10 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.6,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -299,7 +309,7 @@
     "co2_emission": 68.5,
     "charge_time_ac": 3.5,
     "charging_capabilities": {
-      "ac_power": 11
+      "ac_power": 7.2
     },
     "trunk_volume": 438,
     "seats": 5,
@@ -364,6 +374,9 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.4
+    },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -409,6 +422,9 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 7.4
     },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -469,7 +485,12 @@
     },
     "battery_architecture": "modular",
     "slug": "bmw-m5-touring-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
     "id": "new-14",
@@ -515,7 +536,12 @@
     },
     "battery_architecture": "modular",
     "slug": "bmw-2-series-active-tourer-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
     "id": "bmw-serii3limuzyna",
@@ -561,7 +587,12 @@
     },
     "battery_architecture": "modular",
     "slug": "bmw-3-series-sedan-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
     "id": "byd-seal-5-dm-i",
@@ -608,7 +639,11 @@
     "battery_architecture": "blade",
     "slug": "byd-seal-5-dm-i-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
+    }
   },
   {
     "id": "byd-seal-6-dm-i",
@@ -655,7 +690,11 @@
     "battery_architecture": "blade",
     "slug": "byd-seal-6-dm-i-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
+    }
   },
   {
     "id": "byd-seal-u-dm-i",
@@ -702,7 +741,11 @@
     "battery_architecture": "blade",
     "slug": "byd-seal-u-dm-i-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
+    }
   },
   {
     "id": "citroen-c5-aircross-ii",
@@ -749,7 +792,12 @@
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-ii-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-x-16",
@@ -796,7 +844,12 @@
     "battery_architecture": "modular",
     "slug": "citroen-c5-x-16-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-aircross-i-variant1",
@@ -843,7 +896,12 @@
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-aircross-i-variant2",
@@ -890,7 +948,12 @@
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-hp-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-x-16-puretech",
@@ -937,7 +1000,12 @@
     "battery_architecture": "modular",
     "slug": "citroen-c5-x-16-puretech-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-aircross-i-variant3",
@@ -984,7 +1052,12 @@
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-115kwh-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-23",
@@ -1021,7 +1094,11 @@
       "ac_location": "Front left"
     },
     "slug": "chery-tiggo-7-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "6.6 kW AC on-board charger, 0-100% yaklaşık 3 saat"
+    }
   },
   {
     "id": "chery-tiggo8",
@@ -1058,7 +1135,11 @@
       "ac_location": "Front left"
     },
     "slug": "chery-tiggo-8-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "6.6 kW AC on-board charger"
+    }
   },
   {
     "id": "chery-tiggo9",
@@ -1095,7 +1176,10 @@
       "ac_location": "Front left"
     },
     "slug": "chery-tiggo-9-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "cupra-formentor-204hp",
@@ -1127,6 +1211,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1175,6 +1263,10 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -1222,6 +1314,10 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -1268,6 +1364,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1319,6 +1419,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    },
     "slug": "ds-7-crossback-phev",
     "updated_at": "2024-10-25"
   },
@@ -1357,7 +1462,12 @@
       "ac_location": "Front left"
     },
     "slug": "ds-n4-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "ford-1",
@@ -1389,6 +1499,9 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.6
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1442,7 +1555,10 @@
     },
     "slug": "ford-ranger-phev",
     "last_updated": "2025-01-22",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "new-35",
@@ -1480,7 +1596,10 @@
     },
     "slug": "ford-tourneo-connect-phev",
     "last_updated": "2025-01-22",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "ford-escape",
@@ -1512,6 +1631,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1559,6 +1682,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1621,7 +1748,10 @@
     "battery_architecture": "modular",
     "slug": "ford-fusion-phev",
     "last_updated": "2025-01-22",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "ford-c-max",
@@ -1668,7 +1798,10 @@
     "battery_architecture": "modular",
     "slug": "ford-c-max-phev",
     "last_updated": "2025-01-22",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "hyundai-3",
@@ -1700,6 +1833,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1762,7 +1899,10 @@
     },
     "battery_architecture": "modular",
     "slug": "hyundai-tucson-iv-facelift-268hp-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "hyundai-tucson-iv-facelift-253hp-4wd",
@@ -1810,7 +1950,10 @@
     },
     "battery_architecture": "modular",
     "slug": "hyundai-tucson-iv-facelift-253hp-phev-4wd",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "hyundai-tucson-iv-facelift-253hp-fwd",
@@ -1858,7 +2001,10 @@
     },
     "battery_architecture": "modular",
     "slug": "hyundai-tucson-iv-facelift-253hp-phev-fwd",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "hyundai-tucson-iv-265hp-4wd",
@@ -1906,7 +2052,10 @@
     },
     "battery_architecture": "modular",
     "slug": "hyundai-tucson-iv-265hp-phev-4wd",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "hyundai-tucson-iv-smartstream-261hp",
@@ -1954,7 +2103,10 @@
     },
     "battery_architecture": "modular",
     "slug": "hyundai-tucson-iv-smartstream-261hp-phev-htrac",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "jaecoo-j7-shs-2023",
@@ -2002,7 +2154,12 @@
     "drivetrain": "AWD",
     "transmission": "DHT",
     "slug": "jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht-2023",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "dc_power": 40,
+      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)"
+    }
   },
   {
     "id": "jeep-compass-4xe-240hp",
@@ -2050,7 +2207,10 @@
     },
     "battery_architecture": "modular",
     "slug": "jeep-compass-4xe-240hp-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "jeep-wrangler-4xe-rubicon",
@@ -2098,7 +2258,10 @@
     },
     "battery_architecture": "modular",
     "slug": "jeep-wrangler-4xe-rubicon-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "jeep-wrangler-4xe-sahara",
@@ -2146,7 +2309,10 @@
     },
     "battery_architecture": "modular",
     "slug": "jeep-wrangler-4xe-sahara-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "jeep-compass-4xe-190hp",
@@ -2194,7 +2360,10 @@
     },
     "battery_architecture": "modular",
     "slug": "jeep-compass-4xe-190hp-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "jeep-renegade-4xe-240hp",
@@ -2242,7 +2411,10 @@
     },
     "battery_architecture": "modular",
     "slug": "jeep-renegade-4xe-240hp-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "jeep-renegade-4xe-190hp",
@@ -2290,7 +2462,10 @@
     },
     "battery_architecture": "modular",
     "slug": "jeep-renegade-4xe-190hp-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "kia-niro-ii-2025",
@@ -2336,7 +2511,10 @@
     },
     "battery_architecture": "modular",
     "slug": "kia-niro-ii-2025",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-niro-ii-2024",
@@ -2384,7 +2562,10 @@
     "transmission": "DCT",
     "battery_architecture": "modular",
     "slug": "kia-niro-ii-2024",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-sorento-iv-2024",
@@ -2430,7 +2611,10 @@
     },
     "battery_architecture": "modular",
     "slug": "kia-sorento-iv-2024",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-sportage-v-252hp",
@@ -2478,7 +2662,10 @@
     "transmission": "Automatic",
     "battery_architecture": "modular",
     "slug": "kia-sportage-v-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-sportage-v-265hp",
@@ -2526,7 +2713,10 @@
     "transmission": "Automatic",
     "battery_architecture": "modular",
     "slug": "kia-sportage-v-265hp-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-niro-i-2019-facelift",
@@ -2565,7 +2755,10 @@
       "test_year": 2022
     },
     "slug": "kia-niro-i-2019-facelift",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
   },
   {
     "id": "kia-niro-i-2019",
@@ -2604,7 +2797,10 @@
       "test_year": 2022
     },
     "slug": "kia-niro-i-2019",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
   },
   {
     "id": "kia-optima-iv-2018-facelift",
@@ -2634,7 +2830,10 @@
     "transmission": "Automatic",
     "battery_architecture": "modular",
     "slug": "kia-optima-iv-2018-facelift",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
   },
   {
     "id": "kia-optima-iv-2018",
@@ -2664,7 +2863,10 @@
     "transmission": "Automatic",
     "battery_architecture": "modular",
     "slug": "kia-optima-iv-2018",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
   },
   {
     "id": "kia-optima-iv-sportswagon-2018-facelift",
@@ -2694,7 +2896,10 @@
     "transmission": "Automatic",
     "battery_architecture": "modular",
     "slug": "kia-optima-iv-sportswagon-2018-facelift",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
   },
   {
     "id": "kia-optima-iv-sportswagon-2018",
@@ -2724,7 +2929,10 @@
     "transmission": "Automatic",
     "battery_architecture": "modular",
     "slug": "kia-optima-iv-sportswagon-2018",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
   },
   {
     "id": "kia-k3-sedan-ii",
@@ -2754,7 +2962,10 @@
     "transmission": "DCT",
     "battery_architecture": "modular",
     "slug": "kia-k3-sedan-ii",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-xceed-2022-facelift",
@@ -2784,7 +2995,10 @@
     "transmission": "DCT",
     "battery_architecture": "modular",
     "slug": "kia-xceed-2022-facelift",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-xceed-2022",
@@ -2814,7 +3028,10 @@
     "transmission": "DCT",
     "battery_architecture": "modular",
     "slug": "kia-xceed-2022",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021-facelift",
@@ -2844,7 +3061,10 @@
     "transmission": "DCT",
     "battery_architecture": "modular",
     "slug": "kia-ceed-iii-sportswagon-2021-facelift",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021",
@@ -2874,7 +3094,10 @@
     "transmission": "DCT",
     "battery_architecture": "modular",
     "slug": "kia-ceed-iii-sportswagon-2021",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
     "id": "bmw-5-series-touring-550e",
@@ -2922,7 +3145,12 @@
     "transmission": "Steptronic",
     "battery_architecture": "modular",
     "slug": "bmw-5-series-touring-550e-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
     "id": "bmw-5-series-sedan-550e",
@@ -2970,7 +3198,12 @@
     "transmission": "Steptronic",
     "battery_architecture": "modular",
     "slug": "bmw-5-series-sedan-550e-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
     "id": "land-rover-defender-110-phev",
@@ -3023,7 +3256,10 @@
     "drivetrain": "AWD",
     "transmission": "8AT",
     "slug": "land-rover-defender-110-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "land-rover-discovery-sport-phev",
@@ -3053,6 +3289,9 @@
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
+    "charging_capabilities": {
+      "ac_power": 7.4
+    },
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
       "ac_location": "Front left",
@@ -3129,7 +3368,10 @@
     "drivetrain": "AWD",
     "transmission": "8AT",
     "slug": "land-rover-range-rover-evoque-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "land-rover-range-rover-velar-phev",
@@ -3182,7 +3424,10 @@
     "drivetrain": "AWD",
     "transmission": "8AT",
     "slug": "land-rover-range-rover-velar-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "lexus-nx-450h-plus-phev",
@@ -3235,7 +3480,11 @@
     "drivetrain": "AWD",
     "transmission": "CVT",
     "slug": "lexus-nx-450h-plus-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "6.6 kW onboard AC charger. Not: Tam elektrikli RZ 450e 11 kW kullanır"
+    }
   },
   {
     "id": "lexus-rx-450h-plus-phev",
@@ -3288,7 +3537,10 @@
     "drivetrain": "AWD",
     "transmission": "CVT",
     "slug": "lexus-rx-450h-plus-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "lexus-es-300h-phev",
@@ -3341,7 +3593,10 @@
     "drivetrain": "FWD",
     "transmission": "CVT",
     "slug": "lexus-es-300h-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "lexus-ux-300e-phev",
@@ -3394,7 +3649,10 @@
     "drivetrain": "FWD",
     "transmission": "CVT",
     "slug": "lexus-ux-300e-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "mazda-1",
@@ -3426,6 +3684,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -3472,6 +3734,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -3539,7 +3805,10 @@
     "drivetrain": "FWD",
     "transmission": "CVT",
     "slug": "mazda-mx30-rev-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "mercedes-1",
@@ -3571,6 +3840,9 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 7.2
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -3639,6 +3911,9 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -3705,6 +3980,9 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 7.2
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -3773,6 +4051,9 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -3839,6 +4120,9 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 7.2
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -3931,6 +4215,9 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "slug": "mercedes-benz-glc-coup-phev",
     "updated_at": "2024-10-24"
   },
@@ -3989,6 +4276,9 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Rear left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "slug": "mercedes-benz-gle-coup-phev",
     "updated_at": "2024-10-24"
   },
@@ -4022,6 +4312,9 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Rear left"
+    },
+    "charging_capabilities": {
+      "ac_power": 7.2
     },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -4103,7 +4396,11 @@
     },
     "battery_architecture": "modular",
     "slug": "mg-hs-ii-1-5t",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.6,
+      "ac_power_note": "3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor"
+    }
   },
   {
     "id": "mg-5",
@@ -4149,7 +4446,11 @@
     },
     "battery_architecture": "modular",
     "slug": "mg-hs-i-ehs-1-5-t-gdi",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.6,
+      "ac_power_note": "3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor"
+    }
   },
   {
     "id": "mini-1",
@@ -4195,7 +4496,10 @@
     },
     "battery_architecture": "modular",
     "slug": "mini-countryman-cooper-s-e",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7
+    }
   },
   {
     "id": "mitsubishi-2",
@@ -4241,7 +4545,10 @@
     },
     "battery_architecture": "modular",
     "slug": "mitsubishi-eclipse-cross-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7
+    }
   },
   {
     "id": "mitsubishi-1",
@@ -4287,7 +4594,10 @@
     },
     "battery_architecture": "modular",
     "slug": "mitsubishi-outlander-iv-24-mivec",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7
+    }
   },
   {
     "id": "mitsubishi-3",
@@ -4333,7 +4643,10 @@
     },
     "battery_architecture": "modular",
     "slug": "mitsubishi-outlander-iv-24-mivec-252hp",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7
+    }
   },
   {
     "id": "opel-2",
@@ -4365,6 +4678,11 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -4425,7 +4743,12 @@
     },
     "battery_architecture": "modular",
     "slug": "opel-grandland-x-16-turbo",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "opel-4",
@@ -4471,7 +4794,12 @@
     },
     "battery_architecture": "modular",
     "slug": "opel-grandland-x-16-turbo-4-awd",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-67",
@@ -4517,7 +4845,12 @@
     },
     "battery_architecture": "modular",
     "slug": "peugeot-3008-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "peugeot-2",
@@ -4563,7 +4896,12 @@
     },
     "battery_architecture": "modular",
     "slug": "peugeot-308-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-69",
@@ -4609,7 +4947,12 @@
     },
     "battery_architecture": "modular",
     "slug": "peugeot-408-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-69.5",
@@ -4655,7 +4998,12 @@
     },
     "battery_architecture": "modular",
     "slug": "peugeot-5008-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-70",
@@ -4701,7 +5049,10 @@
     },
     "battery_architecture": "modular",
     "slug": "porsche-cayenne-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "new-71",
@@ -4738,7 +5089,10 @@
       "ac_location": "Front left"
     },
     "slug": "porsche-panamera-4-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "new-72",
@@ -4784,7 +5138,10 @@
     },
     "battery_architecture": "modular",
     "slug": "renault-rafale-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "skoda-kodiaq",
@@ -4819,6 +5176,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "slug": "koda-kodiaq-phev",
     "updated_at": "2024-10-25"
@@ -4857,6 +5218,10 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "slug": "koda-superb-combi-phev",
     "updated_at": "2024-10-24"
   },
@@ -4893,6 +5258,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "slug": "koda-superb-sedan-phev",
     "updated_at": "2024-10-24"
@@ -4932,7 +5301,10 @@
       "ac_location": "Front left"
     },
     "slug": "suzuki-across-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "new-76",
@@ -4978,7 +5350,11 @@
     },
     "battery_architecture": "modular",
     "slug": "toyota-c-hr-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "C-HR Plug-in Hybrid: 6.6 kW AC onboard charger"
+    }
   },
   {
     "id": "toyota-1",
@@ -5024,7 +5400,10 @@
     },
     "battery_architecture": "modular",
     "slug": "toyota-prius-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "toyota-2",
@@ -5053,6 +5432,9 @@
     "engine_displacement": 1.8,
     "battery_chemistry": "NCM",
     "battery_voltage": 355,
+    "charging_capabilities": {
+      "ac_power": 6.6
+    },
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
@@ -5070,7 +5452,11 @@
     },
     "battery_architecture": "modular",
     "slug": "toyota-rav4-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Not: RAV4 Prime SE (2022) 3.3 kW kullanır"
+    }
   },
   {
     "id": "toyota-crown-phev",
@@ -5107,7 +5493,10 @@
       "ac_location": "Front left"
     },
     "slug": "toyota-crown-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "vw-1",
@@ -5139,6 +5528,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -5186,6 +5579,10 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -5231,6 +5628,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,PL",
@@ -5278,6 +5679,10 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -5323,6 +5728,10 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
     },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,PL",
@@ -5373,6 +5782,9 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.6
+    },
     "slug": "volkswagen-multivan-phev",
     "updated_at": "2024-10-25"
   },
@@ -5411,7 +5823,11 @@
       "ac_location": "Front left"
     },
     "slug": "volvo-v60-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.4,
+      "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
+    }
   },
   {
     "id": "volvo-7",
@@ -5448,7 +5864,11 @@
       "ac_location": "Front left"
     },
     "slug": "volvo-v90-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.4,
+      "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
+    }
   },
   {
     "id": "volvo-2",
@@ -5485,7 +5905,11 @@
       "ac_location": "Front left"
     },
     "slug": "volvo-xc60-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.4,
+      "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
+    }
   },
   {
     "id": "volvo-3",
@@ -5522,7 +5946,11 @@
       "ac_location": "Front left"
     },
     "slug": "volvo-xc90-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.4,
+      "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
+    }
   },
   {
     "id": "omoda-1",
@@ -5554,6 +5982,9 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 6.6
     },
     "emission_standard": "Euro 6e",
     "country_availability": "EU",
@@ -5614,7 +6045,12 @@
     },
     "battery_architecture": "modular",
     "slug": "jaecoo-j7-shs-15-tgdi",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "dc_power": 40,
+      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)"
+    }
   },
   {
     "id": "seat-1",
@@ -5647,26 +6083,7 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-leon-sportstourer-1-5-tsi",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
     "charging_capabilities": {
-      "ac_power": 7.4,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -5685,7 +6102,26 @@
           20,
           5
         ]
-      }
+      },
+      "ac_power": 11
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "slug": "seat-leon-sportstourer-1-5-tsi",
+    "last_updated": "2025-01-21",
+    "dominant_color": "white",
+    "data_status": {
+      "technical_specs": "complete",
+      "price": "estimated",
+      "range_data": "wltp"
+    },
+    "battery_details": {
+      "chemistry": "Lithium-ion (Li-Ion)",
+      "architecture": "modular",
+      "cycles": 2000,
+      "degradation_rate": 0.02,
+      "warranty_capacity": 70,
+      "thermal_management": "liquid"
     },
     "euroncap_rating": {
       "stars": 5,
@@ -5729,26 +6165,7 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-leon-1-5-tsi",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
     "charging_capabilities": {
-      "ac_power": 7.4,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -5767,7 +6184,26 @@
           20,
           5
         ]
-      }
+      },
+      "ac_power": 11
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "slug": "seat-leon-1-5-tsi",
+    "last_updated": "2025-01-21",
+    "dominant_color": "white",
+    "data_status": {
+      "technical_specs": "complete",
+      "price": "estimated",
+      "range_data": "wltp"
+    },
+    "battery_details": {
+      "chemistry": "Lithium-ion (Li-Ion)",
+      "architecture": "modular",
+      "cycles": 2000,
+      "degradation_rate": 0.02,
+      "warranty_capacity": 70,
+      "thermal_management": "liquid"
     },
     "euroncap_rating": {
       "stars": 5,
@@ -5791,7 +6227,6 @@
       "price": "estimated",
       "range_data": "wltp"
     },
-    
     "battery_details": {
       "chemistry": "Lithium-ion (Li-Ion)",
       "architecture": "modular",
@@ -5801,7 +6236,7 @@
       "thermal_management": "liquid"
     },
     "charging_capabilities": {
-      "ac_power": 3.6,
+      "ac_power": 11,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -5864,26 +6299,7 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-leon-sportstourer-1-4-e-hybrid",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
     "charging_capabilities": {
-      "ac_power": 3.6,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -5902,7 +6318,26 @@
           20,
           5
         ]
-      }
+      },
+      "ac_power": 11
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "slug": "seat-leon-sportstourer-1-4-e-hybrid",
+    "last_updated": "2025-01-21",
+    "dominant_color": "white",
+    "data_status": {
+      "technical_specs": "complete",
+      "price": "estimated",
+      "range_data": "wltp"
+    },
+    "battery_details": {
+      "chemistry": "Lithium-ion (Li-Ion)",
+      "architecture": "modular",
+      "cycles": 2000,
+      "degradation_rate": 0.02,
+      "warranty_capacity": 70,
+      "thermal_management": "liquid"
     },
     "euroncap_rating": {
       "stars": 5,
@@ -5946,26 +6381,7 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-leon-1-4-e-hybrid",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
     "charging_capabilities": {
-      "ac_power": 3.6,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -5984,7 +6400,26 @@
           20,
           5
         ]
-      }
+      },
+      "ac_power": 11
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "slug": "seat-leon-1-4-e-hybrid",
+    "last_updated": "2025-01-21",
+    "dominant_color": "white",
+    "data_status": {
+      "technical_specs": "complete",
+      "price": "estimated",
+      "range_data": "wltp"
+    },
+    "battery_details": {
+      "chemistry": "Lithium-ion (Li-Ion)",
+      "architecture": "modular",
+      "cycles": 2000,
+      "degradation_rate": 0.02,
+      "warranty_capacity": 70,
+      "thermal_management": "liquid"
     },
     "euroncap_rating": {
       "stars": 5,
@@ -6025,6 +6460,11 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -6068,6 +6508,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -6109,6 +6554,11 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -6152,6 +6602,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -6193,6 +6648,11 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -6236,6 +6696,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -6278,6 +6743,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
@@ -6319,6 +6789,11 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -6377,7 +6852,12 @@
     },
     "battery_architecture": "modular",
     "slug": "peugeot-508-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "peugeot-508-sw",
@@ -6423,7 +6903,12 @@
     },
     "battery_architecture": "modular",
     "slug": "peugeot-508-sw-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "peugeot-308-sw",
@@ -6469,7 +6954,12 @@
     },
     "battery_architecture": "modular",
     "slug": "peugeot-308-sw-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "porsche-macan-phev",
@@ -6515,7 +7005,10 @@
     },
     "battery_architecture": "modular",
     "slug": "porsche-macan-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "renault-captur-e-tech",
@@ -6544,6 +7037,9 @@
     "engine_displacement": 1.6,
     "battery_chemistry": "Li-Ion",
     "battery_voltage": 346,
+    "charging_capabilities": {
+      "ac_power": 3.6
+    },
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
       "ac_location": "Rear left"

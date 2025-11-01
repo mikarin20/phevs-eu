@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon, MapIcon, HomeIcon, SunIcon, ClockIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import ImageGallery from '@/components/ImageGallery'
@@ -55,6 +55,8 @@ interface Car {
   }
   charging_capabilities?: {
     ac_power?: number
+    ac_power_max?: number
+    ac_power_note?: string
     dc_power?: number
     charging_curve?: {
       soc: number[]
@@ -151,7 +153,22 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       model: 'Model',
       year: 'Year',
       price: 'Price',
-      estimatedEU: 'Est. EU'
+      estimatedEU: 'Est. EU',
+      // Charging specifications
+      battery: 'BATTERY',
+      batteryDescription: 'Battery size in kilowatt hours',
+      range: 'RANGE (KM)',
+      rangeDescription: 'Mileage in kilometers according to the WLTP/EPA standard',
+      onboardChargerAC: 'ON-BOARD CHARGER (AC)',
+      onboardChargerACDescription: 'Maximum charging power AC',
+      maxChargingPowerDC: 'MAX CHARGING POWER (DC)',
+      maxChargingPowerDCDescription: 'Maximum charging power with fast charging/lightning charging',
+      chargingSocketAC: 'CHARGING SOCKET (AC)',
+      chargingSocketACDescription: 'Charging socket in the car for normal charging',
+      fastChargingDC: 'FAST CHARGING (DC)',
+      fastChargingDCDescription: 'Charging socket in the car for fast charging',
+      notSupported: 'Not supported',
+      canBeUpgradedTo11kW: 'Can be upgraded to 11 kW'
     },
     de: {
       backToModels: 'Zurück zu Modellen',
@@ -187,7 +204,22 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       model: 'Modell',
       year: 'Jahr',
       price: 'Preis',
-      estimatedEU: 'Geschätzt EU'
+      estimatedEU: 'Geschätzt EU',
+      // Charging specifications
+      battery: 'BATTERIE',
+      batteryDescription: 'Batteriegröße in Kilowattstunden',
+      range: 'REICHWEITE (KM)',
+      rangeDescription: 'Reichweite in Kilometern nach WLTP/EPA-Standard',
+      onboardChargerAC: 'BORDBRECHER (AC)',
+      onboardChargerACDescription: 'Maximale Ladeleistung AC',
+      maxChargingPowerDC: 'MAX. LADELEISTUNG (DC)',
+      maxChargingPowerDCDescription: 'Maximale Ladeleistung beim Schnellladen/Blitzladen',
+      chargingSocketAC: 'LADESOCKEL (AC)',
+      chargingSocketACDescription: 'Ladesockel im Fahrzeug für normales Laden',
+      fastChargingDC: 'SCHNELLLADEN (DC)',
+      fastChargingDCDescription: 'Ladesockel im Fahrzeug für Schnellladen',
+      notSupported: 'Nicht unterstützt',
+      canBeUpgradedTo11kW: 'Bis zu 11 kW erhöhbar'
     },
     tr: {
       backToModels: 'Modellere Geri Dön',
@@ -223,7 +255,22 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       model: 'Model',
       year: 'Yıl',
       price: 'Fiyat',
-      estimatedEU: 'Tahmini AB'
+      estimatedEU: 'Tahmini AB',
+      // Charging specifications
+      battery: 'BATARYA',
+      batteryDescription: 'Kilovatsaat cinsinden batarya boyutu',
+      range: 'MENZİL (KM)',
+      rangeDescription: 'WLTP/EPA standardına göre kilometre cinsinden menzil',
+      onboardChargerAC: 'ARAÇ İÇİ ŞARJ CİHAZI (AC)',
+      onboardChargerACDescription: 'Maksimum AC şarj gücü',
+      maxChargingPowerDC: 'MAKSİMUM ŞARJ GÜCÜ (DC)',
+      maxChargingPowerDCDescription: 'Hızlı şarj/şimşek şarj ile maksimum şarj gücü',
+      chargingSocketAC: 'ŞARJ SOKETİ (AC)',
+      chargingSocketACDescription: 'Normal şarj için araçtaki şarj soketi',
+      fastChargingDC: 'HIZLI ŞARJ (DC)',
+      fastChargingDCDescription: 'Hızlı şarj için araçtaki şarj soketi',
+      notSupported: 'Desteklenmiyor',
+      canBeUpgradedTo11kW: '11 kW\'a kadar yükseltilebilir'
     },
     pl: {
       backToModels: 'Powrót do Modeli',
@@ -259,11 +306,97 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       model: 'Model',
       year: 'Rok',
       price: 'Cena',
-      estimatedEU: 'Szac. UE'
+      estimatedEU: 'Szac. UE',
+      // Charging specifications
+      battery: 'BATERIA',
+      batteryDescription: 'Pojemność baterii w kilowatogodzinach',
+      range: 'ZASIĘG (KM)',
+      rangeDescription: 'Zasięg w kilometrach według standardu WLTP/EPA',
+      onboardChargerAC: 'ŁADOWARKA POKŁADOWA (AC)',
+      onboardChargerACDescription: 'Maksymalna moc ładowania AC',
+      maxChargingPowerDC: 'MAKSYMALNA MOC ŁADOWANIA (DC)',
+      maxChargingPowerDCDescription: 'Maksymalna moc ładowania przy szybkim ładowaniu/błyskawicznym ładowaniu',
+      chargingSocketAC: 'GNIAZDO ŁADOWANIA (AC)',
+      chargingSocketACDescription: 'Gniazdo ładowania w samochodzie do normalnego ładowania',
+      fastChargingDC: 'SZYBKIE ŁADOWANIE (DC)',
+      fastChargingDCDescription: 'Gniazdo ładowania w samochodzie do szybkiego ładowania',
+      notSupported: 'Nieobsługiwane',
+      canBeUpgradedTo11kW: 'Można zwiększyć do 11 kW'
     }
   }
 
   const t = isClient ? translations[selectedLanguage as keyof typeof translations] : translations['en']
+
+  // Translate common AC power notes
+  const translateACPowerNote = (note: string | undefined): string => {
+    if (!note) return ''
+    
+    const noteTranslations: { [key: string]: { [lang: string]: string } } = {
+      '11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)': {
+        en: '11 kW three-phase AC charging (standard in European markets)',
+        de: '11 kW Dreiphasen-AC-Ladung (Standard auf europäischen Märkten)',
+        tr: '11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)',
+        pl: '11 kW ładowanie AC trójfazowe (standard na rynkach europejskich)'
+      },
+      '3.7 kW standart, 7.4 kW opsiyonel': {
+        en: '3.7 kW standard, 7.4 kW optional',
+        de: '3.7 kW Standard, 7.4 kW optional',
+        tr: '3.7 kW standart, 7.4 kW opsiyonel',
+        pl: '3.7 kW standardowe, 7.4 kW opcjonalne'
+      },
+      '2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW': {
+        en: '6.4 kW in 2024 and later models (two/three-phase charging), 3.6 kW in older models',
+        de: '6.4 kW in Modellen ab 2024 (Zwei-/Dreiphasenladung), 3.6 kW in älteren Modellen',
+        tr: '2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW',
+        pl: '6.4 kW w modelach 2024 i późniejszych (ładowanie dwu/trójfazowe), 3.6 kW w starszych modelach'
+      },
+      '6.6 kW AC on-board charger, 0-100% yaklaşık 3 saat': {
+        en: '6.6 kW AC on-board charger, approximately 3 hours for 0-100%',
+        de: '6.6 kW AC Bordlader, ca. 3 Stunden für 0-100%',
+        tr: '6.6 kW AC on-board charger, 0-100% yaklaşık 3 saat',
+        pl: '6.6 kW ładowarka pokładowa AC, około 3 godziny dla 0-100%'
+      },
+      '6.6 kW AC on-board charger': {
+        en: '6.6 kW AC on-board charger',
+        de: '6.6 kW AC Bordlader',
+        tr: '6.6 kW AC on-board charger',
+        pl: '6.6 kW ładowarka pokładowa AC'
+      },
+      '6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)': {
+        en: '6.6 kW AC charging (approximately 3 hours for 30-80%). Standard home charging: 3.3 kW (approximately 8.5 hours for 0-100%). DC fast charging: 40 kW (30-80% in 20 minutes)',
+        de: '6.6 kW AC-Ladung (ca. 3 Stunden für 30-80%). Standard-Hausladung: 3.3 kW (ca. 8.5 Stunden für 0-100%). DC-Schnellladung: 40 kW (30-80% in 20 Minuten)',
+        tr: '6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)',
+        pl: '6.6 kW ładowanie AC (około 3 godziny dla 30-80%). Standardowe ładowanie domowe: 3.3 kW (około 8.5 godziny dla 0-100%). Szybkie ładowanie DC: 40 kW (30-80% w 20 minutach)'
+      },
+      '3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor': {
+        en: '3.6 kW — 16A / 230V single-phase. Fast charging (DC) not supported',
+        de: '3.6 kW — 16A / 230V einphasig. Schnellladung (DC) nicht unterstützt',
+        tr: '3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor',
+        pl: '3.6 kW — 16A / 230V jednofazowe. Szybkie ładowanie (DC) nieobsługiwane'
+      },
+      'RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Not: RAV4 Prime SE (2022) 3.3 kW kullanır': {
+        en: 'RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Note: RAV4 Prime SE (2022) uses 3.3 kW',
+        de: 'RAV4 Plug-in Hybrid: 6.6 kW AC Bordlader. Hinweis: RAV4 Prime SE (2022) verwendet 3.3 kW',
+        tr: 'RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Not: RAV4 Prime SE (2022) 3.3 kW kullanır',
+        pl: 'RAV4 Plug-in Hybrid: 6.6 kW ładowarka pokładowa AC. Uwaga: RAV4 Prime SE (2022) używa 3.3 kW'
+      },
+      'C-HR Plug-in Hybrid: 6.6 kW AC onboard charger': {
+        en: 'C-HR Plug-in Hybrid: 6.6 kW AC onboard charger',
+        de: 'C-HR Plug-in Hybrid: 6.6 kW AC Bordlader',
+        tr: 'C-HR Plug-in Hybrid: 6.6 kW AC onboard charger',
+        pl: 'C-HR Plug-in Hybrid: 6.6 kW ładowarka pokładowa AC'
+      },
+      '6.6 kW onboard AC charger. Not: Tam elektrikli RZ 450e 11 kW kullanır': {
+        en: '6.6 kW onboard AC charger. Note: Full electric RZ 450e uses 11 kW',
+        de: '6.6 kW AC Bordlader. Hinweis: Voll-elektrisch RZ 450e verwendet 11 kW',
+        tr: '6.6 kW onboard AC charger. Not: Tam elektrikli RZ 450e 11 kW kullanır',
+        pl: '6.6 kW ładowarka pokładowa AC. Uwaga: W pełni elektryczny RZ 450e używa 11 kW'
+      }
+    }
+    
+    const translated = noteTranslations[note]?.[selectedLanguage]
+    return translated || note
+  }
 
   // Client-side hydration kontrolü
   useEffect(() => {
@@ -441,7 +574,12 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         ] : [] as any),
         // Charging port and capabilities
         ...(car.charging_port ? [
-          { label: t.acCharging, value: `${car.charging_port.ac_type} (${car.charging_port.ac_location})${car.charging_capabilities?.ac_power ? ` • ${car.charging_capabilities.ac_power}kW` : ''}${car.charging_port.ac_phases ? ` • ${car.charging_port.ac_phases}ph` : ''}` },
+          { 
+            label: t.acCharging, 
+            value: `${car.charging_port.ac_type} (${car.charging_port.ac_location})${car.charging_capabilities?.ac_power ? ` • ${car.charging_capabilities.ac_power}kW` : ''}${car.charging_port.ac_phases ? ` • ${car.charging_port.ac_phases}ph` : ''}`,
+            hasInfo: car.charging_capabilities?.ac_power_max !== undefined || car.charging_capabilities?.ac_power_note !== undefined,
+            infoText: translateACPowerNote(car.charging_capabilities?.ac_power_note) || (car.charging_capabilities?.ac_power_max ? t.canBeUpgradedTo11kW : undefined)
+          },
           ...(car.charging_port.dc_type ? [{ label: t.dcCharging, value: `${car.charging_port.dc_type} (${car.charging_port.dc_location})${car.charging_capabilities?.dc_power ? ` • ${car.charging_capabilities.dc_power}kW` : ''}` }] : [])
         ] : [] as any),
       ]
@@ -538,16 +676,16 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           <ImageGallery images={catalogImages} alt={`${car.brand} ${car.model} gallery`} />
         </div>
 
-        {/* Elegant Info Section */}
-        <div className="mb-16">
-          {/* Price - Center Elegant */}
-          <div className="text-center mb-12">
-            <p className="text-xs text-slate-500 uppercase tracking-[0.15em] mb-4 font-light">{t.startingPrice}</p>
-            <div className="flex items-baseline justify-center space-x-4">
-              <span className="text-6xl md:text-7xl font-extralight text-slate-900 tracking-tight">€{car.price_eur.toLocaleString()}</span>
+        {/* Price and Key Metrics - Clean Layout */}
+        <div className="mb-12 bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+          {/* Starting Price */}
+          <div className="text-center mb-10">
+            <p className="text-xs text-slate-500 uppercase tracking-[0.15em] mb-3 font-light">{t.startingPrice}</p>
+            <div className="flex items-baseline justify-center space-x-3">
+              <span className="text-5xl md:text-6xl font-semibold text-slate-900">€{car.price_eur.toLocaleString()}</span>
               <div className="relative group">
-                <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help hover:text-slate-500 transition-colors" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-2 bg-slate-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <InformationCircleIcon className="h-5 w-5 text-slate-400 cursor-help hover:text-slate-500 transition-colors" />
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-2 bg-slate-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                   {selectedLanguage === 'tr' ? 'Tahmini AB pazar değeri' : 
                    selectedLanguage === 'de' ? 'Geschätzter EU-Marktwert' :
                    selectedLanguage === 'pl' ? 'Szacowana wartość rynkowa UE' :
@@ -557,24 +695,24 @@ export default function ModelDetail({ params }: ModelDetailProps) {
             </div>
           </div>
 
-          {/* Stats - Elegant Split */}
-          <div className="flex flex-wrap justify-center gap-x-16 gap-y-8 max-w-4xl mx-auto">
+          {/* Key Metrics - Three Column */}
+          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 font-light">{t.electricRange}</p>
-              <p className="text-5xl font-extralight text-slate-900">{car.ev_range_km}</p>
-              <span className="text-sm text-slate-400">km</span>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-light">{t.electricRange}</p>
+              <p className="text-4xl font-semibold text-slate-900 mb-1">{car.ev_range_km}</p>
+              <span className="text-sm text-slate-500">km</span>
             </div>
             
             <div className="text-center">
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 font-light">{t.batteryCapacity}</p>
-              <p className="text-5xl font-extralight text-slate-900">{car.battery_kwh}</p>
-              <span className="text-sm text-slate-400">kWh</span>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-light">{t.batteryCapacity}</p>
+              <p className="text-4xl font-semibold text-slate-900 mb-1">{car.battery_kwh}</p>
+              <span className="text-sm text-slate-500">kWh</span>
             </div>
             
             <div className="text-center">
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 font-light">{t.powerOutput}</p>
-              <p className="text-5xl font-extralight text-slate-900">{car.power_hp}</p>
-              <span className="text-sm text-slate-400">HP</span>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-light">{t.powerOutput}</p>
+              <p className="text-4xl font-semibold text-slate-900 mb-1">{car.power_hp}</p>
+              <span className="text-sm text-slate-500">HP</span>
             </div>
           </div>
         </div>
@@ -625,44 +763,143 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           )}
         </div>
 
-        {/* Specifications Grid - Elegant */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-12">
-          {specifications.map((spec, index) => (
-            <div key={index}>
-              <h3 className="text-xs text-slate-500 uppercase tracking-[0.2em] mb-8 font-light">
-                {spec.category}
-              </h3>
-              <div className="space-y-6">
-                {spec.items.map((item, itemIndex) => (
-                  <div 
-                    key={itemIndex} 
-                    className={`flex justify-between items-start py-2 ${
-                      (item as any).highlight ? 'border-b border-slate-900 pb-3' : ''
-                    }`}
-                  >
-                    <div className="flex items-start space-x-3">
-                      {(item as any).icon && React.createElement((item as any).icon, { className: `h-4 w-4 mt-0.5 ${(item as any).highlight ? 'text-slate-900' : 'text-slate-400'}` })}
-                      <span className={`text-sm ${(item as any).highlight ? 'font-medium text-slate-900' : 'font-light text-slate-600'}`}>{item.label}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <span className={`text-sm ${(item as any).highlight ? 'font-medium text-slate-900' : 'font-light text-slate-900'}`}>
-                        {item.value}
-                      </span>
-                      {(item as any).hasSimulator && (
-                        <button
-                          onClick={() => setIsRangeSimulatorOpen(true)}
-                          className="p-1 hover:text-slate-900 transition-colors"
-                          title="Range Simulator"
-                        >
-                          <SparklesIcon className="h-3 w-3 text-slate-400" />
-                        </button>
-                      )}
+        {/* Charging Specifications - Elbilgrossisten Style */}
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Battery Capacity */}
+            <div className="border-b border-emerald-200 pb-6">
+              <div className="flex items-center mb-3">
+                <SparklesIcon className="h-6 w-6 text-emerald-600 mr-3" />
+                <h3 className="font-bold text-slate-900 uppercase text-xs tracking-wide">{t.battery}</h3>
+              </div>
+              <p className="text-2xl font-semibold text-slate-900 mb-1">{car.battery_kwh} kWh</p>
+              <p className="text-xs text-slate-500">{t.batteryDescription}</p>
+            </div>
+
+            {/* Electric Range */}
+            <div className="border-b border-emerald-200 pb-6">
+              <div className="flex items-center mb-3">
+                <MapIcon className="h-6 w-6 text-emerald-600 mr-3" />
+                <h3 className="font-bold text-slate-900 uppercase text-xs tracking-wide">{t.range}</h3>
+              </div>
+              <p className="text-2xl font-semibold text-slate-900 mb-1">{car.ev_range_km} km (WLTP)</p>
+              <p className="text-xs text-slate-500">{t.rangeDescription}</p>
+            </div>
+
+            {/* AC Charging */}
+            <div className="border-b border-emerald-200 pb-6">
+              <div className="flex items-center mb-3">
+                <BoltIcon className="h-6 w-6 text-emerald-600 mr-3" />
+                <h3 className="font-bold text-slate-900 uppercase text-xs tracking-wide">{t.onboardChargerAC}</h3>
+                {(car.charging_capabilities?.ac_power_max || car.charging_capabilities?.ac_power_note) && (
+                  <div className="relative group ml-2">
+                    <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help hover:text-slate-500 transition-colors" />
+                    <div className="absolute bottom-full right-0 mb-2 w-max max-w-xs px-3 py-2 bg-slate-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                      {translateACPowerNote(car.charging_capabilities?.ac_power_note) || (car.charging_capabilities?.ac_power_max ? t.canBeUpgradedTo11kW : '')}
                     </div>
                   </div>
-                ))}
+                )}
               </div>
+              <p className="text-2xl font-semibold text-slate-900 mb-1">
+                {car.charging_capabilities?.ac_power ? `${car.charging_capabilities.ac_power.toFixed(1).replace('.', ',')} kW${car.charging_port?.ac_current ? ` – ${car.charging_port.ac_current}A` : ''}${car.charging_port?.ac_phases === 1 ? (selectedLanguage === 'tr' ? ' / 230V 1-faz' : selectedLanguage === 'de' ? ' / 230V einphasig' : selectedLanguage === 'pl' ? ' / 230V jednofazowe' : ' / 230V single-phase') : car.charging_port?.ac_phases === 3 ? (selectedLanguage === 'tr' ? ' / 400V 3-faz' : selectedLanguage === 'de' ? ' / 400V dreiphasig' : selectedLanguage === 'pl' ? ' / 400V trójfazowe' : ' / 400V three-phase') : ''}` : '—'}
+              </p>
+              <p className="text-xs text-slate-500">{t.onboardChargerACDescription}</p>
             </div>
-          ))}
+
+            {/* DC Fast Charging */}
+            <div className="border-b border-emerald-200 pb-6">
+              <div className="flex items-center mb-3">
+                <BoltIcon className="h-6 w-6 text-emerald-600 mr-3" />
+                <h3 className="font-bold text-slate-900 uppercase text-xs tracking-wide">{t.maxChargingPowerDC}</h3>
+              </div>
+              <p className="text-2xl font-semibold text-slate-900 mb-1">{car.charging_capabilities?.dc_power ? `${car.charging_capabilities.dc_power} kW` : '—'}</p>
+              <p className="text-xs text-slate-500">{t.maxChargingPowerDCDescription}</p>
+            </div>
+
+            {/* Charging Socket (AC) */}
+            {car.charging_port?.ac_type && (
+              <div className="border-b border-emerald-200 pb-6">
+                <div className="flex items-center mb-3">
+                  <SparklesIcon className="h-6 w-6 text-emerald-600 mr-3" />
+                  <h3 className="font-bold text-slate-900 uppercase text-xs tracking-wide">{t.chargingSocketAC}</h3>
+                </div>
+                <p className="text-2xl font-semibold text-slate-900 mb-1">{car.charging_port.ac_type.replace('AC ', '').replace(' (', '').replace(')', '')}</p>
+                <p className="text-xs text-slate-500">{t.chargingSocketACDescription}</p>
+              </div>
+            )}
+
+            {/* Fast Charging (DC) */}
+            <div className="border-b border-emerald-200 pb-6">
+              <div className="flex items-center mb-3">
+                <BoltIcon className="h-6 w-6 text-emerald-600 mr-3" />
+                <h3 className="font-bold text-slate-900 uppercase text-xs tracking-wide">{t.fastChargingDC}</h3>
+              </div>
+              <p className="text-2xl font-semibold text-slate-900 mb-1">
+                {car.charging_port?.dc_type ? car.charging_port.dc_type : t.notSupported}
+              </p>
+              <p className="text-xs text-slate-500">{t.fastChargingDCDescription}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Other Specifications - Clean Table Layout */}
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
+            {specifications.map((spec, index) => {
+              const filteredItems = spec.items.filter(item => {
+                // Şarj bilgilerini zaten gösterdik, filtrele
+                const chargingLabels = [t.electricRangeLabel, t.batteryCapacityLabel, t.acCharging, t.dcCharging];
+                return !chargingLabels.includes(item.label);
+              });
+
+              if (filteredItems.length === 0) return null;
+
+              return (
+                <div key={index}>
+                  <h3 className="text-xs text-slate-500 uppercase tracking-[0.2em] mb-6 font-light border-b border-slate-200 pb-2">
+                    {spec.category}
+                  </h3>
+                  <div className="space-y-4">
+                    {filteredItems.map((item, itemIndex) => (
+                      <div 
+                        key={itemIndex} 
+                        className={`flex justify-between items-start py-2.5 ${
+                          (item as any).highlight ? 'border-b border-slate-900 pb-3 mb-1' : 'border-b border-slate-100'
+                        }`}
+                      >
+                        <div className="flex items-start space-x-2.5 flex-1 min-w-0">
+                          {(item as any).icon && React.createElement((item as any).icon, { className: `h-4 w-4 mt-0.5 flex-shrink-0 ${(item as any).highlight ? 'text-slate-900' : 'text-slate-400'}` })}
+                          <span className={`text-sm ${(item as any).highlight ? 'font-semibold text-slate-900' : 'font-normal text-slate-700'}`}>{item.label}</span>
+                        </div>
+                        <div className="flex items-center space-x-2 ml-4 flex-shrink-0">
+                          <span className={`text-sm text-right ${(item as any).highlight ? 'font-semibold text-slate-900' : 'font-normal text-slate-900'}`}>
+                            {item.value}
+                          </span>
+                          {(item as any).hasInfo && (item as any).infoText && (
+                            <div className="relative group flex-shrink-0">
+                              <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help hover:text-slate-500 transition-colors" />
+                              <div className="absolute bottom-full right-0 mb-2 w-max max-w-xs px-3 py-2 bg-slate-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                                {(item as any).infoText}
+                              </div>
+                            </div>
+                          )}
+                          {(item as any).hasSimulator && (
+                            <button
+                              onClick={() => setIsRangeSimulatorOpen(true)}
+                              className="p-1 hover:text-slate-900 transition-colors flex-shrink-0"
+                              title="Range Simulator"
+                            >
+                              <SparklesIcon className="h-3 w-3 text-slate-400" />
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
       </div>
