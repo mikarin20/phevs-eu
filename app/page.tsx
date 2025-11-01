@@ -1308,11 +1308,25 @@ export default function Home() {
             </div>
 
             {/* Center Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <a href="/blog" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+            <div className="hidden lg:flex items-center space-x-4">
+              <a 
+                href="/blog" 
+                className={`text-sm font-bold px-5 py-2.5 rounded-lg transition-all duration-200 ${
+                  selectedTheme === 'dark' 
+                    ? 'text-white bg-emerald-600/20 hover:bg-emerald-600/30 hover:text-emerald-300 border border-emerald-500/30 hover:border-emerald-400/50 shadow-sm' 
+                    : 'text-slate-800 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-700 border-2 border-emerald-200 hover:border-emerald-400 shadow-sm'
+                }`}
+              >
                 Blog
               </a>
-              <a href="/faq" className={`text-sm font-semibold ${currentTheme.textPrimary} hover:text-blue-600 transition-colors`}>
+              <a 
+                href="/faq" 
+                className={`text-sm font-bold px-5 py-2.5 rounded-lg transition-all duration-200 ${
+                  selectedTheme === 'dark' 
+                    ? 'text-white bg-emerald-600/20 hover:bg-emerald-600/30 hover:text-emerald-300 border border-emerald-500/30 hover:border-emerald-400/50 shadow-sm' 
+                    : 'text-slate-800 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-700 border-2 border-emerald-200 hover:border-emerald-400 shadow-sm'
+                }`}
+              >
                 FAQ
               </a>
             </div>
@@ -1402,18 +1416,26 @@ export default function Home() {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-x-0 top-20 z-50 bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 shadow-lg w-full max-w-full overflow-x-hidden">
-          <div className="px-4 py-4 space-y-1">
+          <div className="px-4 py-4 space-y-2">
             <Link
               href="/blog"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-3 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors font-medium"
+              className={`block px-4 py-3 rounded-lg transition-all duration-200 font-bold ${
+                selectedTheme === 'dark'
+                  ? 'text-white bg-emerald-600/20 hover:bg-emerald-600/30 hover:text-emerald-300 border border-emerald-500/30 hover:border-emerald-400/50 shadow-sm'
+                  : 'text-slate-800 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-700 border-2 border-emerald-200 hover:border-emerald-400 shadow-sm'
+              }`}
             >
               Blog
             </Link>
             <Link
               href="/faq"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-3 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors font-medium"
+              className={`block px-4 py-3 rounded-lg transition-all duration-200 font-bold ${
+                selectedTheme === 'dark'
+                  ? 'text-white bg-emerald-600/20 hover:bg-emerald-600/30 hover:text-emerald-300 border border-emerald-500/30 hover:border-emerald-400/50 shadow-sm'
+                  : 'text-slate-800 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-700 border-2 border-emerald-200 hover:border-emerald-400 shadow-sm'
+              }`}
             >
               FAQ
             </Link>
