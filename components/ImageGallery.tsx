@@ -11,66 +11,26 @@ interface ImageGalleryProps {
 export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0)
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
-  const [invalidImageIndices, setInvalidImageIndices] = useState<Set<number>>(new Set())
-  const [checkedImages, setCheckedImages] = useState<Set<number>>(new Set())
+  const [invalidImagePaths, setInvalidImagePaths] = useState<Set<string>>(new Set())
 
   // Sadece mevcut görselleri filtrele
-  let validImages = images.filter(img => img && img.trim() !== '')
-  
-  // Hatalı görselleri filtrele
-  if (invalidImageIndices.size > 0) {
-    validImages = validImages.filter((_, index) => !invalidImageIndices.has(index))
-  }
+  const validImages = images.filter(img => img && img.trim() !== '' && !invalidImagePaths.has(img))
   
   // Eğer seçili görsel geçersizse, ilk geçerli görseli seç
   useEffect(() => {
-    if (invalidImageIndices.size > 0 && selectedImage >= validImages.length && validImages.length > 0) {
+    if (invalidImagePaths.size > 0 && selectedImage >= validImages.length && validImages.length > 0) {
       setSelectedImage(0)
     }
-  }, [invalidImageIndices.size, selectedImage, validImages.length])
+  }, [invalidImagePaths.size, selectedImage, validImages.length])
 
-  // Resim dosyasının mevcut olup olmadığını kontrol et
-  const checkImageExists = async (imagePath: string): Promise<boolean> => {
-    try {
-      const response = await fetch(imagePath, { method: 'HEAD' })
-      return response.ok
-    } catch {
-      return false
-    }
-  }
-
-  // Resimleri önceden kontrol et
-  useEffect(() => {
-    const checkImages = async () => {
-      const promises = validImages.map(async (image, index) => {
-        if (!checkedImages.has(index)) {
-          const exists = await checkImageExists(image)
-          if (!exists) {
-            setInvalidImageIndices(prev => new Set([...prev, index]))
-          }
-          setCheckedImages(prev => new Set([...prev, index]))
-        }
-      })
-      await Promise.all(promises)
-    }
-    
-    if (validImages.length > 0) {
-      checkImages()
-    }
-  }, [validImages.length])
-
-  // Resim yükleme hatası durumunda daha hızlı filtreleme
-  const handleImageError = (index: number, imagePath: string) => {
-    // Console log yerine sadece hata indeksini kaydet - 404 hataları gereksiz yere tekrarlanmasın
-    if (!invalidImageIndices.has(index)) {
-      setInvalidImageIndices(prev => new Set([...prev, index]))
+  // Resim yükleme hatası durumunda
+  const handleImageError = (imagePath: string) => {
+    if (!invalidImagePaths.has(imagePath)) {
+      setInvalidImagePaths(prev => new Set([...prev, imagePath]))
       
       // Eğer ana görsel hatalıysa ve başka görseller varsa, ilk geçerli görsele geç
-      if (index === selectedImage && validImages.length > 1) {
-        const nextValidIndex = validImages.findIndex((_, i) => !invalidImageIndices.has(i) && i !== index)
-        if (nextValidIndex !== -1) {
-          setSelectedImage(nextValidIndex)
-        }
+      if (validImages[selectedImage] === imagePath && validImages.length > 1) {
+        setSelectedImage(0)
       }
     }
   }
@@ -104,7 +64,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             onLoad={() => setLoadedImages(prev => new Set([...prev, selectedImage]))}
             onError={() => {
-              handleImageError(selectedImage, validImages[selectedImage])
+              handleImageError(validImages[selectedImage])
             }}
           />
         </div>
@@ -138,7 +98,7 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   onLoad={() => setLoadedImages(prev => new Set([...prev, index]))}
                   onError={() => {
-                    handleImageError(index, image)
+                    handleImageError(image)
                   }}
                 />
               </div>
