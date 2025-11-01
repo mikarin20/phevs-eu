@@ -146,9 +146,9 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
                 className="block group"
               >
                 <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="md:flex">
-                    <div className="md:w-1/2">
-                      <div className="relative h-64 md:h-full aspect-video">
+                  <div className="md:flex md:min-h-[400px]">
+                    <div className="md:w-2/3 relative">
+                      <div className="relative h-64 md:h-full min-h-[300px]">
                         <BlogImage
                           src={sortedPosts[0].featured_image}
                           alt={sortedPosts[0].title}
@@ -161,7 +161,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
                         </div>
                       </div>
                     </div>
-                    <div className="md:w-1/2 p-8 flex flex-col justify-center">
+                    <div className="md:w-1/3 p-6 md:p-8 flex flex-col justify-center">
                       <div className="mb-4">
                         <span className="text-blue-600 dark:text-blue-400 text-sm font-semibold">
                           {getLocalizedCategory(sortedPosts[0])}
