@@ -146,6 +146,17 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Sitemap ve robots.txt trailing slash redirect'lerini önle
+      {
+        source: '/sitemap.xml/',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
+      {
+        source: '/robots.txt/',
+        destination: '/robots.txt',
+        permanent: true,
+      },
       {
         source: '/home',
         destination: '/',

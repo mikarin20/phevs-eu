@@ -114,9 +114,9 @@ export async function generateMetadata({ params, searchParams }: BlogDetailProps
       languages: {
         'x-default': `${baseUrl}/blog/${params.slug}`,
         en: `${baseUrl}/blog/${params.slug}`,
-        tr: `${baseUrl}/blog/${params.slug}?lang=tr`,
-        de: `${baseUrl}/blog/${params.slug}?lang=de`,
-        pl: `${baseUrl}/blog/${params.slug}?lang=pl`,
+        tr: `${baseUrl}/blog/${params.slug}`,
+        de: `${baseUrl}/blog/${params.slug}`,
+        pl: `${baseUrl}/blog/${params.slug}`,
       },
     },
   }

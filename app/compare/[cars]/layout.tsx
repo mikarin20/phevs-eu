@@ -30,9 +30,9 @@ export async function generateMetadata({ params }: { params: { cars: string } })
       languages: {
         'x-default': `${baseUrl}/compare/${slug}`,
         en: `${baseUrl}/compare/${slug}`,
-        tr: `${baseUrl}/compare/${slug}?lang=tr`,
-        de: `${baseUrl}/compare/${slug}?lang=de`,
-        pl: `${baseUrl}/compare/${slug}?lang=pl`,
+        tr: `${baseUrl}/compare/${slug}`,
+        de: `${baseUrl}/compare/${slug}`,
+        pl: `${baseUrl}/compare/${slug}`,
       },
     },
     openGraph: {

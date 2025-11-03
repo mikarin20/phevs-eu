@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     languages: {
       'x-default': 'https://phevs.eu/blog',
       en: 'https://phevs.eu/blog',
-      tr: 'https://phevs.eu/blog?lang=tr',
-      de: 'https://phevs.eu/blog?lang=de',
-      pl: 'https://phevs.eu/blog?lang=pl',
+      tr: 'https://phevs.eu/blog',
+      de: 'https://phevs.eu/blog',
+      pl: 'https://phevs.eu/blog',
     },
   },
 }
@@ -122,10 +122,11 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
       <section className="bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-slate-800 dark:to-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center relative">
-            <div className="absolute top-0 right-0">
+            {/* Language Selector - Mobilde üstte, desktop'ta sağ üstte */}
+            <div className="flex justify-center mb-4 sm:mb-0 sm:absolute sm:top-0 sm:right-0">
               <LanguageSelector currentLocale={locale} basePath="/blog" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 mt-4 sm:mt-0">
               {t.blog.title}
             </h1>
             <p className="text-xl text-blue-100 dark:text-slate-300 max-w-3xl mx-auto">

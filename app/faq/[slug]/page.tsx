@@ -43,9 +43,9 @@ export async function generateMetadata({ params }: FAQDetailProps): Promise<Meta
       languages: {
         'x-default': `https://phevs.eu/faq/${params.slug}`,
         en: `https://phevs.eu/faq/${params.slug}`,
-        tr: `https://phevs.eu/faq/${params.slug}?lang=tr`,
-        de: `https://phevs.eu/faq/${params.slug}?lang=de`,
-        pl: `https://phevs.eu/faq/${params.slug}?lang=pl`,
+        tr: `https://phevs.eu/faq/${params.slug}`,
+        de: `https://phevs.eu/faq/${params.slug}`,
+        pl: `https://phevs.eu/faq/${params.slug}`,
       },
     },
   }

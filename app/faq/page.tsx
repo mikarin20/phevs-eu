@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     languages: {
       'x-default': 'https://phevs.eu/faq',
       en: 'https://phevs.eu/faq',
-      tr: 'https://phevs.eu/faq?lang=tr',
-      de: 'https://phevs.eu/faq?lang=de',
-      pl: 'https://phevs.eu/faq?lang=pl',
+      tr: 'https://phevs.eu/faq',
+      de: 'https://phevs.eu/faq',
+      pl: 'https://phevs.eu/faq',
     },
   },
 }

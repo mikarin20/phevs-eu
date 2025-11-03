@@ -1168,7 +1168,10 @@ export default function Home() {
     "description": "Europe's most comprehensive plug-in hybrid vehicle comparison platform. Compare 124 PHEV models from 30 brands.",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://phevs.eu?search={search_term_string}",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://phevs.eu/?search={search_term_string}"
+      },
       "query-input": "required name=search_term_string"
     },
     "publisher": {

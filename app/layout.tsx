@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     languages: {
       'x-default': 'https://phevs.eu',
       en: 'https://phevs.eu',
-      tr: 'https://phevs.eu/?lang=tr',
-      de: 'https://phevs.eu/?lang=de',
-      pl: 'https://phevs.eu/?lang=pl',
+      tr: 'https://phevs.eu',
+      de: 'https://phevs.eu',
+      pl: 'https://phevs.eu',
     },
   },
   // Open Graph configuration is defined below with full details
@@ -205,8 +205,8 @@ export default function RootLayout({
                     <h4 className="text-sm font-semibold text-white mb-3">About</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
                       <li><a href="/about" className="hover:text-white transition-colors" title="About Us">About Us</a></li>
-                      <li><a href="/contact" className="hover:text-white transition-colors" title="Contact">Contact</a></li>
                       <li><a href="/blog" className="hover:text-white transition-colors" title="Blog">Blog</a></li>
+                      <li><a href="/demo" className="hover:text-white transition-colors" title="Demo">Demo</a></li>
                     </ul>
                   </div>
                   
@@ -224,8 +224,6 @@ export default function RootLayout({
                     <ul className="space-y-2 text-xs text-slate-400">
                       <li><a href="/compare" className="hover:text-white transition-colors" title="Compare Vehicles">Compare Vehicles</a></li>
                       <li><a href="/faq" className="hover:text-white transition-colors" title="All You Need to Know About PHEV">All You Need to Know About PHEV</a></li>
-                      <li><a href="/guides" className="hover:text-white transition-colors" title="PHEV Guides">PHEV Guides</a></li>
-                      <li><a href="/calculator" className="hover:text-white transition-colors" title="Range Calculator">Range Calculator</a></li>
                     </ul>
                   </div>
                   

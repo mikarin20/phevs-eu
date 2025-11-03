@@ -355,21 +355,24 @@ export default function ComparePage({ params }: ComparePageProps) {
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-slate-200/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Desktop Header */}
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="inline-flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition-colors group">
-              <ArrowLeftIcon className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
-              <span className="font-medium text-sm">{t.backToHome}</span>
+          {/* Mobile Header */}
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            {/* Back Button - Mobilde sadece ikon, desktop'ta ikon + metin */}
+            <Link href="/" className="inline-flex items-center space-x-1 sm:space-x-2 text-slate-600 hover:text-slate-900 transition-colors group min-w-0 flex-shrink-0">
+              <ArrowLeftIcon className="h-5 w-5 group-hover:-translate-x-1 transition-transform flex-shrink-0" />
+              <span className="font-medium text-xs sm:text-sm hidden sm:inline whitespace-nowrap">{t.backToHome}</span>
             </Link>
             
-            <div className="text-center flex-1 px-2">
-              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            {/* Center Title - Mobilde daha kompakt */}
+            <div className="text-center flex-1 px-2 min-w-0">
+              <h1 className="text-base sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent truncate">
                 {t.vehicleComparison}
               </h1>
-              <p className="text-sm text-slate-500">{t.comparingVehicles.replace('{count}', selectedCars.length.toString())}</p>
+              <p className="text-xs sm:text-sm text-slate-500 truncate">{t.comparingVehicles.replace('{count}', selectedCars.length.toString())}</p>
             </div>
             
-            <div className="flex items-center space-x-3">
+            {/* Action Buttons - Mobilde daha kompakt */}
+            <div className="flex items-center space-x-1.5 sm:space-x-3 min-w-0 flex-shrink-0">
               <button
                 onClick={() => {
                   const comparisonData = {
@@ -384,18 +387,19 @@ export default function ComparePage({ params }: ComparePageProps) {
                   localStorage.setItem('phevs-saved-comparison', JSON.stringify(comparisonData))
                   alert('Comparison saved successfully!')
                 }}
-                className="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors"
+                className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-slate-600 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors whitespace-nowrap"
               >
-                Save
+                <span className="hidden sm:inline">Save</span>
+                <ArrowDownTrayIcon className="h-4 w-4 sm:hidden" />
               </button>
               
               <div className="relative group">
                 <button
                   onClick={() => document.getElementById('shareDropdown')?.classList.toggle('hidden')}
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-1"
+                  className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-1 whitespace-nowrap"
                 >
-                  <ShareIcon className="h-4 w-4" />
-                  <span>Share</span>
+                  <ShareIcon className="h-4 w-4 flex-shrink-0" />
+                  <span className="hidden sm:inline">Share</span>
                 </button>
                 <div id="shareDropdown" className="absolute right-0 top-full mt-2 hidden bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-gray-200 dark:border-slate-700 min-w-[180px] z-50">
                   <button
@@ -645,11 +649,12 @@ export default function ComparePage({ params }: ComparePageProps) {
 
           {/* Comparison Table */}
           <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
-            <div className="px-6 py-4 bg-slate-50 border-b border-slate-200">
+            <div className="px-4 sm:px-6 py-4 bg-slate-50 border-b border-slate-200">
               <h2 className="text-lg font-semibold text-slate-900">Detailed Comparison</h2>
             </div>
             
-            <div className="overflow-x-auto">
+            {/* Desktop: Table View */}
+            <div className="hidden md:block overflow-x-auto">
               <div className="min-w-full">
                 {/* Header Row */}
                 <div className="flex bg-slate-50 border-b border-slate-200">
@@ -677,11 +682,11 @@ export default function ComparePage({ params }: ComparePageProps) {
                         const isBest = row.highlight && isBestValue(car, row.key, bestValue)
                         return (
                           <div key={car.id} className="flex-1 px-6 py-4 text-center border-r border-slate-200 last:border-r-0">
-                            <div className={`font-bold text-xs sm:text-sm ${isBest ? 'text-green-700' : 'text-slate-800'}`}>
+                            <div className={`font-bold text-sm ${isBest ? 'text-green-700' : 'text-slate-800'}`}>
                               {row.format(value)}
                             </div>
                             {isBest && (
-                              <div className="flex items-center justify-center mt-1 bg-green-50 border border-green-200 rounded-lg px-2 py-1 text-green-700 text-xs font-medium">
+                              <div className="flex items-center justify-center mt-2 bg-green-50 border border-green-200 rounded-lg px-2 py-1 text-green-700 text-xs font-medium">
                                 <CheckIcon className="h-3 w-3 mr-1" />
                                 {t.bestValue}
                               </div>
@@ -693,6 +698,54 @@ export default function ComparePage({ params }: ComparePageProps) {
                   )
                 })}
               </div>
+            </div>
+
+            {/* Mobile: Card View */}
+            <div className="md:hidden divide-y divide-slate-200">
+              {comparisonRows.map((row) => {
+                const bestValue = getBestValue(selectedCars, row.key)
+                return (
+                  <div key={row.label} className="p-4 hover:bg-slate-50/50">
+                    {/* Specification Label */}
+                    <div className="mb-3">
+                      <h3 className="text-sm font-semibold text-slate-700">{row.label}</h3>
+                    </div>
+                    
+                    {/* Car Values - Stacked */}
+                    <div className="space-y-3">
+                      {selectedCars.map((car) => {
+                        const value = car[row.key]
+                        const isBest = row.highlight && isBestValue(car, row.key, bestValue)
+                        return (
+                          <div 
+                            key={car.id} 
+                            className={`flex items-center justify-between p-3 rounded-lg border-2 ${
+                              isBest 
+                                ? 'bg-green-50 border-green-300' 
+                                : 'bg-slate-50 border-slate-200'
+                            }`}
+                          >
+                            <div className="flex-1 min-w-0">
+                              <div className="text-xs text-slate-600 mb-1 truncate">
+                                {car.brand} {car.model}
+                              </div>
+                              <div className={`text-lg font-bold ${isBest ? 'text-green-700' : 'text-slate-800'}`}>
+                                {row.format(value)}
+                              </div>
+                            </div>
+                            {isBest && (
+                              <div className="ml-2 flex-shrink-0 flex items-center bg-green-100 border border-green-300 rounded-full px-2.5 py-1 text-green-700 text-xs font-semibold">
+                                <CheckIcon className="h-3.5 w-3.5 mr-1" />
+                                {t.bestValue}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
 
