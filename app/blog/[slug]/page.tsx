@@ -5,7 +5,6 @@ import blogData from '@/data/blog.json'
 import carsData from '@/data/cars.json'
 import BlogImage from '@/components/BlogImage'
 import { getTranslations, type Locale } from '@/lib/i18n'
-import LanguageSelector from '@/components/LanguageSelector'
 
 interface BlogPost {
   id: string
@@ -196,19 +195,48 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
         {/* Breadcrumb */}
         <div className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 py-4">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between">
-              <nav className="flex items-center space-x-2 text-sm">
-                <Link href={`/?lang=${locale}`} className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+            {/* Mobilde: Bayraklar üstte, breadcrumb altta */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
+              {/* Language Selector - Mobilde üstte */}
+              <div className="flex justify-center sm:justify-end sm:order-2">
+                <div className="flex items-center space-x-1 bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+                  {[
+                    { code: 'en' as Locale, flag: 'gb' },
+                    { code: 'de' as Locale, flag: 'de' },
+                    { code: 'tr' as Locale, flag: 'tr' },
+                    { code: 'pl' as Locale, flag: 'pl' }
+                  ].map((lang) => {
+                    const isActive = locale === lang.code
+                    return (
+                      <Link
+                        key={lang.code}
+                        href={`/blog/${params.slug}?lang=${lang.code}`}
+                        className={`p-2 rounded-md transition-all duration-200 ${
+                          isActive
+                            ? 'bg-white dark:bg-slate-600 shadow-sm'
+                            : 'hover:bg-white/50 dark:hover:bg-slate-600/50'
+                        }`}
+                        title={lang.code.toUpperCase()}
+                      >
+                        <span className={`fi fi-${lang.flag} text-sm`}></span>
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+              
+              {/* Breadcrumb - Mobilde altta */}
+              <nav className="flex items-center space-x-2 text-sm flex-wrap sm:order-1 min-w-0">
+                <Link href={`/?lang=${locale}`} className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap">
                   {t.blog.home}
                 </Link>
                 <span className="text-gray-400">/</span>
-                <Link href={`/blog?lang=${locale}`} className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                <Link href={`/blog?lang=${locale}`} className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap">
                   Blog
                 </Link>
                 <span className="text-gray-400">/</span>
-                <span className="text-gray-900 dark:text-white">{title}</span>
+                <span className="text-gray-900 dark:text-white truncate">{title}</span>
               </nav>
-              <LanguageSelector currentLocale={locale} basePath={`/blog/${params.slug}`} />
             </div>
           </div>
         </div>
