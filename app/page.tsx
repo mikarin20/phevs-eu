@@ -1715,7 +1715,7 @@ export default function Home() {
               }`}
             >
               <ArrowsUpDownIcon className="h-4 w-4" />
-              <span className="text-xs">Karşılaştır ({selectedCars.length})</span>
+              <span className="text-xs">{t.compare} ({selectedCars.length})</span>
             </button>
           </div>
         </div>
@@ -1729,12 +1729,12 @@ export default function Home() {
             className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
           >
             <FunnelIcon className="h-4 w-4" />
-            <span className="text-sm">Filtrele</span>
+            <span className="text-sm">{t.filter}</span>
           </button>
           <button
             onClick={() => {
               if (selectedCars.length === 0) {
-                alert('Lütfen önce karşılaştırmak için araç seçin')
+                alert(t.selectToCompare)
                 return
               }
               window.location.href = '/compare/' + selectedCars.map(car => car.id).join('-')
@@ -1746,7 +1746,7 @@ export default function Home() {
             }`}
           >
             <ArrowsUpDownIcon className="h-4 w-4" />
-            <span className="text-sm">Karşılaştır ({selectedCars.length})</span>
+            <span className="text-sm">{t.compare} ({selectedCars.length})</span>
           </button>
         </div>
       </div>
@@ -1774,7 +1774,7 @@ export default function Home() {
               className="w-full flex items-center justify-center space-x-2 py-4 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl"
             >
               <FunnelIcon className="h-5 w-5" />
-              <span className="font-medium">Filtrele</span>
+              <span className="font-medium">{t.filter}</span>
             </button>
           </div>
           
@@ -2883,6 +2883,7 @@ export default function Home() {
           localStorage.removeItem('phevs-selected-cars')
         }}
         isVisible={selectedCars.length > 0}
+        language={selectedLanguage as 'en' | 'tr' | 'de' | 'pl'}
       />
 
       {/* PHEV Guide Popup */}

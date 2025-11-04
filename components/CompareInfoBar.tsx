@@ -18,15 +18,57 @@ interface CompareInfoBarProps {
   onRemoveCar: (carId: string) => void
   onClearAll: () => void
   isVisible: boolean
+  language?: 'en' | 'tr' | 'de' | 'pl'
+}
+
+const translations = {
+  en: {
+    vehiclesSelected: 'vehicles selected',
+    vehiclesComparing: 'vehicles comparing',
+    showVehicles: 'Show Vehicles',
+    hideVehicles: 'Hide Vehicles',
+    compare: 'Compare',
+    clear: 'Clear',
+    selectOneMore: 'Select 1 more vehicle'
+  },
+  tr: {
+    vehiclesSelected: 'araç seçildi',
+    vehiclesComparing: 'araç karşılaştırılıyor',
+    showVehicles: 'Araçları Göster',
+    hideVehicles: 'Araçları Gizle',
+    compare: 'Karşılaştır',
+    clear: 'Temizle',
+    selectOneMore: '1 araç daha seç'
+  },
+  de: {
+    vehiclesSelected: 'Fahrzeuge ausgewählt',
+    vehiclesComparing: 'Fahrzeuge werden verglichen',
+    showVehicles: 'Fahrzeuge anzeigen',
+    hideVehicles: 'Fahrzeuge ausblenden',
+    compare: 'Vergleichen',
+    clear: 'Löschen',
+    selectOneMore: 'Noch 1 Fahrzeug auswählen'
+  },
+  pl: {
+    vehiclesSelected: 'pojazdy wybrane',
+    vehiclesComparing: 'pojazdy porównywane',
+    showVehicles: 'Pokaż pojazdy',
+    hideVehicles: 'Ukryj pojazdy',
+    compare: 'Porównaj',
+    clear: 'Wyczyść',
+    selectOneMore: 'Wybierz jeszcze 1 pojazd'
+  }
 }
 
 export default function CompareInfoBar({ 
   selectedCars, 
   onRemoveCar, 
   onClearAll, 
-  isVisible 
+  isVisible,
+  language = 'en'
 }: CompareInfoBarProps) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const t = translations[language] || translations.en
 
   if (!isVisible || selectedCars.length === 0) return null
 
@@ -39,14 +81,14 @@ export default function CompareInfoBar({
             <div className="flex items-center space-x-2">
               <ArrowsUpDownIcon className="h-5 w-5 text-blue-600" />
               <span className="font-medium text-gray-900 dark:text-white">
-                {selectedCars.length} araç seçildi
+                {selectedCars.length} {t.vehiclesSelected}
               </span>
             </div>
             <button
               onClick={onClearAll}
               className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             >
-              Temizle
+              {t.clear}
             </button>
           </div>
           
@@ -54,7 +96,7 @@ export default function CompareInfoBar({
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
           >
-            <span className="text-sm">{isExpanded ? 'Araçları Gizle' : 'Araçları Göster'}</span>
+            <span className="text-sm">{isExpanded ? t.hideVehicles : t.showVehicles}</span>
           </button>
           
           {selectedCars.length >= 2 ? (
@@ -63,12 +105,12 @@ export default function CompareInfoBar({
               className="flex items-center justify-center space-x-1 py-2 px-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <ArrowsUpDownIcon className="h-4 w-4" />
-              <span className="text-sm">Karşılaştır</span>
+              <span className="text-sm">{t.compare}</span>
             </Link>
           ) : (
             <div className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed">
               <ArrowsUpDownIcon className="h-4 w-4" />
-              <span className="text-sm">1 araç daha seç</span>
+              <span className="text-sm">{t.selectOneMore}</span>
             </div>
           )}
         </div>
@@ -119,7 +161,7 @@ export default function CompareInfoBar({
             <div className="flex items-center space-x-2">
               <ArrowsUpDownIcon className="h-5 w-5 text-blue-600" />
               <span className="font-medium text-gray-900 dark:text-white">
-                {selectedCars.length} araç karşılaştırılıyor
+                {selectedCars.length} {t.vehiclesComparing}
               </span>
             </div>
             
@@ -127,7 +169,7 @@ export default function CompareInfoBar({
               onClick={() => setIsExpanded(!isExpanded)}
               className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
             >
-              {isExpanded ? 'Araçları Gizle' : 'Araçları Göster'}
+              {isExpanded ? t.hideVehicles : t.showVehicles}
             </button>
           </div>
 
@@ -138,7 +180,7 @@ export default function CompareInfoBar({
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
                 <ArrowsUpDownIcon className="h-4 w-4" />
-                <span>Karşılaştır</span>
+                <span>{t.compare}</span>
               </Link>
             )}
             
@@ -146,7 +188,7 @@ export default function CompareInfoBar({
               onClick={onClearAll}
               className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             >
-              Temizle
+              {t.clear}
             </button>
           </div>
         </div>
