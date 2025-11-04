@@ -87,5 +87,9 @@
       "description": "Compare 87 different plug-in hybrid vehicle models with detailed specifications, prices and performance data.",
       "button": "Open Comparison Tool"
     }
+  },
+  "navigation": {
+    "phevNews": "PHEV News",
+    "faq": "FAQ"
   }
 }

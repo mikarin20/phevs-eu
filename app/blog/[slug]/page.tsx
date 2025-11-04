@@ -232,7 +232,7 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
                 </Link>
                 <span className="text-gray-400">/</span>
                 <Link href={`/blog?lang=${locale}`} className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap">
-                  Blog
+                  {t.blog.title}
                 </Link>
                 <span className="text-gray-400">/</span>
                 <span className="text-gray-900 dark:text-white truncate">{title}</span>

@@ -205,7 +205,7 @@ export default function RootLayout({
                     <h4 className="text-sm font-semibold text-white mb-3">About</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
                       <li><a href="/about" className="hover:text-white transition-colors" title="About Us">About Us</a></li>
-                      <li><a href="/blog" className="hover:text-white transition-colors" title="Blog">Blog</a></li>
+                      <li><a href="/blog" className="hover:text-white transition-colors" title="PHEV News">PHEV News</a></li>
                       <li><a href="/demo" className="hover:text-white transition-colors" title="Demo">Demo</a></li>
                     </ul>
                   </div>

@@ -87,5 +87,9 @@
       "description": "87 farklı plug-in hibrit araç modelini detaylı özellikler, fiyatlar ve performans verileri ile karşılaştırın.",
       "button": "Karşılaştırma Aracını Aç"
     }
+  },
+  "navigation": {
+    "phevNews": "PHEV News",
+    "faq": "FAQ"
   }
 }
