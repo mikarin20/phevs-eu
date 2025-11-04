@@ -900,6 +900,10 @@ export default function Home() {
       quickCompareDescription: 'Compare the most popular PHEV models side by side',
       faq: {
         title: 'All You Need to Know About PHEV'
+      },
+      navigation: {
+        phevNews: 'PHEV News',
+        faq: 'FAQ'
       }
     },
     de: {
@@ -980,6 +984,10 @@ export default function Home() {
       quickCompareDescription: 'Vergleichen Sie die beliebtesten PHEV-Modelle nebeneinander',
       faq: {
         title: 'Alles was Sie über PHEV wissen müssen'
+      },
+      navigation: {
+        phevNews: 'PHEV News',
+        faq: 'FAQ'
       }
     },
     tr: {
@@ -1060,6 +1068,10 @@ export default function Home() {
       quickCompareDescription: 'En popüler PHEV modellerini yan yana karşılaştırın',
       faq: {
         title: 'PHEV Hakkında Bilmeniz Gereken Her Şey'
+      },
+      navigation: {
+        phevNews: 'PHEV News',
+        faq: 'FAQ'
       }
     },
     pl: {
@@ -1140,6 +1152,10 @@ export default function Home() {
       quickCompareDescription: 'Porównaj najpopularniejsze modele PHEV obok siebie',
       faq: {
         title: 'Wszystko co musisz wiedzieć o PHEV'
+      },
+      navigation: {
+        phevNews: 'PHEV News',
+        faq: 'FAQ'
       }
     }
   }
