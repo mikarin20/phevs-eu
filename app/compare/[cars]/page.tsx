@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { ArrowLeftIcon, XMarkIcon, CheckIcon, ShareIcon, ArrowDownTrayIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
@@ -54,6 +55,7 @@ interface ComparePageProps {
 }
 
 export default function ComparePage({ params }: ComparePageProps) {
+  const searchParams = useSearchParams()
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
   const [selectedLanguage, setSelectedLanguage] = useState('en')
   const comparisonRef = useRef<HTMLDivElement>(null)
@@ -72,7 +74,23 @@ export default function ComparePage({ params }: ComparePageProps) {
       strengths: 'Strengths',
       weaknesses: 'Weaknesses',
       bestValue: 'Best Value',
-      legendDescription: 'Highlighted cells indicate the best value in each category. Lower values are better for price, consumption, and emissions. Higher values are better for range, power, and capacity.'
+      legendDescription: 'Highlighted cells indicate the best value in each category. Lower values are better for price, consumption, and emissions. Higher values are better for range, power, and capacity.',
+      startingPrice: 'Starting Price',
+      electricRange: 'Electric Range',
+      fuelConsumption: 'Fuel Consumption',
+      batteryCapacity: 'Battery Capacity',
+      power: 'Power',
+      engineDisplacement: 'Engine Displacement',
+      co2Emissions: 'CO₂ Emissions',
+      acChargeTime: 'AC Charge Time',
+      dcChargeTime: 'DC Charge Time',
+      trunkVolume: 'Trunk Volume',
+      seats: 'Seats',
+      warranty: 'Warranty',
+      euroNCAPRating: 'Euro NCAP Rating',
+      years: 'years',
+      detailedComparison: 'Detailed Comparison',
+      specification: 'Specification'
     },
     tr: {
       backToHome: 'Ana Sayfaya Dön',
@@ -87,7 +105,23 @@ export default function ComparePage({ params }: ComparePageProps) {
       strengths: 'Güçlü Yönler',
       weaknesses: 'Zayıf Yönler',
       bestValue: 'En İyi Değer',
-      legendDescription: 'Vurgulanan hücreler her kategorideki en iyi değeri gösterir. Fiyat, tüketim ve emisyon için düşük değerler daha iyidir. Menzil, güç ve kapasite için yüksek değerler daha iyidir.'
+      legendDescription: 'Vurgulanan hücreler her kategorideki en iyi değeri gösterir. Fiyat, tüketim ve emisyon için düşük değerler daha iyidir. Menzil, güç ve kapasite için yüksek değerler daha iyidir.',
+      startingPrice: 'Başlangıç Fiyatı',
+      electricRange: 'Elektrik Menzili',
+      fuelConsumption: 'Yakıt Tüketimi',
+      batteryCapacity: 'Batarya Kapasitesi',
+      power: 'Güç',
+      engineDisplacement: 'Motor Hacmi',
+      co2Emissions: 'CO₂ Emisyonu',
+      acChargeTime: 'AC Şarj Süresi',
+      dcChargeTime: 'DC Şarj Süresi',
+      trunkVolume: 'Bagaj Hacmi',
+      seats: 'Koltuk',
+      warranty: 'Garanti',
+      euroNCAPRating: 'Euro NCAP Değerlendirmesi',
+      years: 'yıl',
+      detailedComparison: 'Detaylı Karşılaştırma',
+      specification: 'Özellik'
     },
     de: {
       backToHome: 'Zurück zur Startseite',
@@ -102,7 +136,23 @@ export default function ComparePage({ params }: ComparePageProps) {
       strengths: 'Stärken',
       weaknesses: 'Schwächen',
       bestValue: 'Bester Wert',
-      legendDescription: 'Hervorgehobene Zellen zeigen den besten Wert in jeder Kategorie. Niedrigere Werte sind besser für Preis, Verbrauch und Emissionen. Höhere Werte sind besser für Reichweite, Leistung und Kapazität.'
+      legendDescription: 'Hervorgehobene Zellen zeigen den besten Wert in jeder Kategorie. Niedrigere Werte sind besser für Preis, Verbrauch und Emissionen. Höhere Werte sind besser für Reichweite, Leistung und Kapazität.',
+      startingPrice: 'Grundpreis',
+      electricRange: 'Elektrische Reichweite',
+      fuelConsumption: 'Kraftstoffverbrauch',
+      batteryCapacity: 'Batteriekapazität',
+      power: 'Leistung',
+      engineDisplacement: 'Motorgröße',
+      co2Emissions: 'CO₂-Emissionen',
+      acChargeTime: 'AC-Ladezeit',
+      dcChargeTime: 'DC-Ladezeit',
+      trunkVolume: 'Kofferraumvolumen',
+      seats: 'Sitze',
+      warranty: 'Garantie',
+      euroNCAPRating: 'Euro NCAP Bewertung',
+      years: 'Jahre',
+      detailedComparison: 'Detaillierter Vergleich',
+      specification: 'Spezifikation'
     },
     pl: {
       backToHome: 'Powrót do strony głównej',
@@ -117,15 +167,39 @@ export default function ComparePage({ params }: ComparePageProps) {
       strengths: 'Mocne strony',
       weaknesses: 'Słabe strony',
       bestValue: 'Najlepsza wartość',
-      legendDescription: 'Podświetlone komórki wskazują najlepszą wartość w każdej kategorii. Niższe wartości są lepsze dla ceny, zużycia i emisji. Wyższe wartości są lepsze dla zasięgu, mocy i pojemności.'
+      legendDescription: 'Podświetlone komórki wskazują najlepszą wartość w każdej kategorii. Niższe wartości są lepsze dla ceny, zużycia i emisji. Wyższe wartości są lepsze dla zasięgu, mocy i pojemności.',
+      startingPrice: 'Cena początkowa',
+      electricRange: 'Zasięg elektryczny',
+      fuelConsumption: 'Zużycie paliwa',
+      batteryCapacity: 'Pojemność baterii',
+      power: 'Moc',
+      engineDisplacement: 'Pojemność silnika',
+      co2Emissions: 'Emisje CO₂',
+      acChargeTime: 'Czas ładowania AC',
+      dcChargeTime: 'Czas ładowania DC',
+      trunkVolume: 'Pojemność bagażnika',
+      seats: 'Miejsca',
+      warranty: 'Gwarancja',
+      euroNCAPRating: 'Ocena Euro NCAP',
+      years: 'lata',
+      detailedComparison: 'Szczegółowe porównanie',
+      specification: 'Specyfikacja'
     }
   }
 
   const t = translations[selectedLanguage as keyof typeof translations] || translations.en
 
   useEffect(() => {
+    // URL parametresinden dil al, yoksa localStorage'dan, yoksa varsayılan 'en'
+    const urlLang = searchParams?.get('lang')
     const savedLanguage = localStorage.getItem('phevs-language') || 'en'
-    setSelectedLanguage(savedLanguage)
+    const language = (urlLang || savedLanguage) as 'en' | 'tr' | 'de' | 'pl'
+    setSelectedLanguage(language)
+    
+    // URL'de dil varsa localStorage'a da kaydet
+    if (urlLang) {
+      localStorage.setItem('phevs-language', urlLang)
+    }
 
     // Parse URL - handle both comma and -vs- formats
     let carIds: string[]
@@ -154,7 +228,7 @@ export default function ComparePage({ params }: ComparePageProps) {
     }).filter(Boolean) as Car[]
     
     setSelectedCars(cars)
-  }, [params.cars])
+  }, [params.cars, searchParams])
 
   const removeCar = (carId: string) => {
     const updatedCars = selectedCars.filter(car => car.id !== carId)
@@ -300,20 +374,21 @@ export default function ComparePage({ params }: ComparePageProps) {
     return car[key] === bestValue
   }
 
+  // Comparison rows with translated labels
   const comparisonRows = [
-    { label: 'Starting Price', key: 'price_eur' as keyof Car, format: (val: any) => typeof val === 'number' ? `€${val.toLocaleString()}` : 'N/A', highlight: true },
-    { label: 'Electric Range', key: 'ev_range_km' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} km` : 'N/A', highlight: true },
-    { label: 'Fuel Consumption', key: 'fuel_consumption' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L/100km` : 'N/A', highlight: true },
-    { label: 'Battery Capacity', key: 'battery_kwh' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} kWh` : 'N/A', highlight: true },
-    { label: 'Power', key: 'power_hp' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} HP` : 'N/A', highlight: true },
-    { label: 'Engine Displacement', key: 'engine_displacement' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L` : 'N/A', highlight: false },
-    { label: 'CO₂ Emissions', key: 'co2_emission' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} g/km` : 'N/A', highlight: true },
-    { label: 'AC Charge Time', key: 'charge_time_ac' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}h` : 'N/A', highlight: true },
-    { label: 'DC Charge Time', key: 'charge_time_dc' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}h` : 'N/A', highlight: true },
-    { label: 'Trunk Volume', key: 'trunk_volume' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L` : 'N/A', highlight: true },
-    { label: 'Seats', key: 'seats' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}` : 'N/A', highlight: false },
-    { label: 'Warranty', key: 'warranty_years' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} years` : 'N/A', highlight: true },
-    { label: 'Euro NCAP Rating', key: 'euroncap_rating' as keyof Car, format: (val: any) => val && typeof val === 'object' && 'stars' in val ? `${val.stars}/5` : 'N/A', highlight: true }
+    { labelKey: 'startingPrice', key: 'price_eur' as keyof Car, format: (val: any) => typeof val === 'number' ? `€${val.toLocaleString()}` : 'N/A', highlight: true },
+    { labelKey: 'electricRange', key: 'ev_range_km' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} km` : 'N/A', highlight: true },
+    { labelKey: 'fuelConsumption', key: 'fuel_consumption' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L/100km` : 'N/A', highlight: true },
+    { labelKey: 'batteryCapacity', key: 'battery_kwh' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} kWh` : 'N/A', highlight: true },
+    { labelKey: 'power', key: 'power_hp' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} HP` : 'N/A', highlight: true },
+    { labelKey: 'engineDisplacement', key: 'engine_displacement' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L` : 'N/A', highlight: false },
+    { labelKey: 'co2Emissions', key: 'co2_emission' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} g/km` : 'N/A', highlight: true },
+    { labelKey: 'acChargeTime', key: 'charge_time_ac' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}h` : 'N/A', highlight: true },
+    { labelKey: 'dcChargeTime', key: 'charge_time_dc' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}h` : 'N/A', highlight: true },
+    { labelKey: 'trunkVolume', key: 'trunk_volume' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L` : 'N/A', highlight: true },
+    { labelKey: 'seats', key: 'seats' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val}` : 'N/A', highlight: false },
+    { labelKey: 'warranty', key: 'warranty_years' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} ${t.years}` : 'N/A', highlight: true },
+    { labelKey: 'euroNCAPRating', key: 'euroncap_rating' as keyof Car, format: (val: any) => val && typeof val === 'object' && 'stars' in val ? `${val.stars}/5` : 'N/A', highlight: true }
   ]
 
   if (selectedCars.length < 2) {
@@ -373,6 +448,34 @@ export default function ComparePage({ params }: ComparePageProps) {
             
             {/* Action Buttons - Mobilde daha kompakt */}
             <div className="flex items-center space-x-1.5 sm:space-x-3 min-w-0 flex-shrink-0">
+              {/* Language Selector */}
+              <div className="flex items-center space-x-1 bg-slate-100 rounded-lg p-1 mr-1 sm:mr-0">
+                {[
+                  { code: 'en', flag: 'gb' },
+                  { code: 'de', flag: 'de' },
+                  { code: 'tr', flag: 'tr' },
+                  { code: 'pl', flag: 'pl' }
+                ].map((lang) => {
+                  const isActive = selectedLanguage === lang.code
+                  const currentUrl = new URL(window.location.href)
+                  currentUrl.searchParams.set('lang', lang.code)
+                  return (
+                    <Link
+                      key={lang.code}
+                      href={currentUrl.toString()}
+                      className={`p-1.5 sm:p-2 rounded-md transition-all duration-200 ${
+                        isActive
+                          ? 'bg-white shadow-sm'
+                          : 'hover:bg-white/50'
+                      }`}
+                      title={lang.code.toUpperCase()}
+                    >
+                      <span className={`fi fi-${lang.flag} text-xs sm:text-sm`}></span>
+                    </Link>
+                  )
+                })}
+              </div>
+              
               <button
                 onClick={() => {
                   const comparisonData = {
@@ -650,7 +753,7 @@ export default function ComparePage({ params }: ComparePageProps) {
           {/* Comparison Table */}
           <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
             <div className="px-4 sm:px-6 py-4 bg-slate-50 border-b border-slate-200">
-              <h2 className="text-lg font-semibold text-slate-900">Detailed Comparison</h2>
+              <h2 className="text-lg font-semibold text-slate-900">{t.detailedComparison}</h2>
             </div>
             
             {/* Desktop: Table View */}
@@ -659,7 +762,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                 {/* Header Row */}
                 <div className="flex bg-slate-50 border-b border-slate-200">
                   <div className="w-48 px-6 py-4 text-sm font-medium text-slate-700 border-r border-slate-200">
-                    Specification
+                    {t.specification}
                   </div>
                   {selectedCars.map((car) => (
                     <div key={car.id} className="flex-1 px-6 py-4 text-center">
@@ -673,9 +776,9 @@ export default function ComparePage({ params }: ComparePageProps) {
                 {comparisonRows.map((row) => {
                   const bestValue = getBestValue(selectedCars, row.key)
                   return (
-                    <div key={row.label} className="flex border-b border-slate-200 hover:bg-slate-50/50">
+                    <div key={row.labelKey} className="flex border-b border-slate-200 hover:bg-slate-50/50">
                       <div className="w-48 px-6 py-4 text-sm font-medium text-slate-700 border-r border-slate-200 flex items-center">
-                        {row.label}
+                        {t[row.labelKey as keyof typeof t] as string}
                       </div>
                       {selectedCars.map((car) => {
                         const value = car[row.key]
@@ -705,10 +808,10 @@ export default function ComparePage({ params }: ComparePageProps) {
               {comparisonRows.map((row) => {
                 const bestValue = getBestValue(selectedCars, row.key)
                 return (
-                  <div key={row.label} className="p-4 hover:bg-slate-50/50">
+                  <div key={row.labelKey} className="p-4 hover:bg-slate-50/50">
                     {/* Specification Label */}
                     <div className="mb-3">
-                      <h3 className="text-sm font-semibold text-slate-700">{row.label}</h3>
+                      <h3 className="text-sm font-semibold text-slate-700">{t[row.labelKey as keyof typeof t] as string}</h3>
                     </div>
                     
                     {/* Car Values - Stacked */}
@@ -769,7 +872,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                       if (row.highlight) {
                         const bestValue = getBestValue(selectedCars, row.key)
                         if (isBestValue(car, row.key, bestValue)) {
-                          strengths.push(row.label)
+                          strengths.push(t[row.labelKey as keyof typeof t] as string)
                         }
                       }
                     })
@@ -808,7 +911,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                       if (row.highlight) {
                         const bestValue = getBestValue(selectedCars, row.key)
                         if (!isBestValue(car, row.key, bestValue)) {
-                          weaknesses.push(row.label)
+                          weaknesses.push(t[row.labelKey as keyof typeof t] as string)
                         }
                       }
                     })
