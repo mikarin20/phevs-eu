@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   },
   // Open Graph configuration is defined below with full details
   title: {
-    default: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles from 28 Brands',
+    default: 'PHEVs.eu - PHEV News & Vehicle Comparison Platform',
     template: '%s | PHEVs.eu'
   },
-  description: 'Compare 87 plug-in hybrid electric vehicles (PHEVs) from 28 premium brands. Find the best PHEV for your needs with detailed specifications, pricing, electric range, and real-world performance data across Europe.',
+  description: 'Latest PHEV news, reviews, and compare 87 plug-in hybrid electric vehicles (PHEVs) from 28 premium brands. Find the best PHEV for your needs with detailed specifications, pricing, electric range, and real-world performance data across Europe.',
   keywords: [
     'PHEV comparison',
     'plug-in hybrid',
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_EU',
     url: 'https://phevs.eu',
-    title: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles',
-    description: 'Europe\'s most comprehensive PHEV comparison platform. Compare 87 plug-in hybrid vehicles from 28 brands with detailed specs, pricing, and performance data.',
+    title: 'PHEVs.eu - PHEV News & Vehicle Comparison Platform',
+    description: 'Europe\'s most comprehensive PHEV news and comparison platform. Latest PHEV news, reviews, and compare 87 plug-in hybrid vehicles from 28 brands with detailed specs, pricing, and performance data.',
     siteName: 'PHEVs.eu',
     images: [
       {
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PHEVs.eu - Compare 87 Plug-in Hybrid Vehicles',
-    description: 'Compare 87 plug-in hybrid vehicles from 28 brands. Find the best PHEV for your needs.',
+    title: 'PHEVs.eu - PHEV News & Vehicle Comparison Platform',
+    description: 'Latest PHEV news and reviews. Compare 87 plug-in hybrid vehicles from 28 brands. Find the best PHEV for your needs.',
     images: ['/images/og-image.jpg'],
     creator: '@phevs_eu',
     site: '@phevs_eu',
