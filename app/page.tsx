@@ -890,9 +890,13 @@ export default function Home() {
       selectToCompare: 'Please select a vehicle to compare',
       heroTitle: "Europe's Most Comprehensive PHEV Comparison Platform",
       heroDescription: 'Compare 124 plug-in hybrid electric vehicles from 30 premium brands. Find the perfect PHEV for your lifestyle.',
+      heroBadge: "Europe's Most Comprehensive PHEV Platform",
       phevModels: 'PHEV Models',
+      phevModelsSubtitle: 'Plug-in Hybrid Models',
       premiumBrands: 'Premium Brands',
+      premiumBrandsSubtitle: 'Premium Brands',
       vehicleSegments: 'Vehicle Segments',
+      vehicleSegmentsSubtitle: 'Vehicle Segments',
       realWorldRangeData: 'Real-world Range Data',
       priceComparison: 'Price Comparison',
       technicalSpecifications: 'Technical Specifications',
@@ -974,9 +978,13 @@ export default function Home() {
       selectToCompare: 'Bitte wählen Sie ein Fahrzeug zum Vergleichen',
       heroTitle: 'Europas umfassendste PHEV-Vergleichsplattform',
       heroDescription: 'Vergleichen Sie 124 Plug-in-Hybrid-Elektrofahrzeuge von 30 Premium-Marken. Finden Sie das perfekte PHEV für Ihren Lebensstil.',
+      heroBadge: 'Europas umfassendste PHEV-Plattform',
       phevModels: 'PHEV-Modelle',
+      phevModelsSubtitle: 'Plug-in Hybrid Modelle',
       premiumBrands: 'Premium-Marken',
+      premiumBrandsSubtitle: 'Premium-Marken',
       vehicleSegments: 'Fahrzeugsegmente',
+      vehicleSegmentsSubtitle: 'Fahrzeugsegmente',
       realWorldRangeData: 'Realistische Reichweitendaten',
       priceComparison: 'Preisvergleich',
       technicalSpecifications: 'Technische Spezifikationen',
@@ -1058,9 +1066,13 @@ export default function Home() {
       selectToCompare: 'Lütfen önce karşılaştırmak için araç seçin',
       heroTitle: 'Avrupa\'nın En Kapsamlı PHEV Karşılaştırma Platformu',
       heroDescription: '30 premium markadan 124 plug-in hibrit elektrikli aracı karşılaştırın. Yaşam tarzınıza uygun mükemmel PHEV\'i bulun.',
+      heroBadge: 'Avrupa\'nın En Kapsamlı PHEV Platformu',
       phevModels: 'PHEV Modelleri',
+      phevModelsSubtitle: 'Plug-in Hibrit Modeller',
       premiumBrands: 'Premium Markalar',
+      premiumBrandsSubtitle: 'Premium Markalar',
       vehicleSegments: 'Araç Segmentleri',
+      vehicleSegmentsSubtitle: 'Araç Segmentleri',
       realWorldRangeData: 'Gerçek Dünya Menzil Verileri',
       priceComparison: 'Fiyat Karşılaştırması',
       technicalSpecifications: 'Teknik Özellikler',
@@ -1142,9 +1154,13 @@ export default function Home() {
       selectToCompare: 'Wybierz pojazd do porównania',
       heroTitle: 'Najbardziej kompleksowa europejska platforma porównawcza PHEV',
       heroDescription: 'Porównaj 124 hybrydowych pojazdów elektrycznych plug-in od 30 premium marek. Znajdź idealny PHEV dla swojego stylu życia.',
+      heroBadge: 'Najbardziej kompleksowa europejska platforma PHEV',
       phevModels: 'Modele PHEV',
+      phevModelsSubtitle: 'Modele Plug-in Hybrid',
       premiumBrands: 'Marki Premium',
+      premiumBrandsSubtitle: 'Marki Premium',
       vehicleSegments: 'Segmenty Pojazdów',
+      vehicleSegmentsSubtitle: 'Segmenty Pojazdów',
       realWorldRangeData: 'Dane rzeczywistego zasięgu',
       priceComparison: 'Porównanie cen',
       technicalSpecifications: 'Specyfikacje techniczne',
@@ -1468,7 +1484,7 @@ export default function Home() {
           <div className="text-center">
             <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              <span>Europe's Most Comprehensive PHEV Platform</span>
+              <span>{t.heroBadge}</span>
             </div>
             
             <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'} tracking-tight`}>
@@ -1483,17 +1499,17 @@ export default function Home() {
               <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
                 <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>87</div>
                 <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.phevModels}</div>
-                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Plug-in Hybrid Models</div>
+                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{t.phevModelsSubtitle}</div>
               </div>
               <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
                 <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
                 <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.premiumBrands}</div>
-                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Premium Brands</div>
+                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{t.premiumBrandsSubtitle}</div>
               </div>
               <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
                 <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
                 <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.vehicleSegments}</div>
-                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Vehicle Segments</div>
+                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{t.vehicleSegmentsSubtitle}</div>
               </div>
             </div>
             
@@ -1657,7 +1673,11 @@ export default function Home() {
             {/* Mobil Dil Seçici - Dropdown */}
             <div className="relative mobile-language-dropdown">
               <button
-                onClick={() => setIsMobileLanguageDropdownOpen(!isMobileLanguageDropdownOpen)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  setIsMobileLanguageDropdownOpen(!isMobileLanguageDropdownOpen)
+                }}
                 className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors w-full"
               >
                 <span className={`fi fi-${selectedLanguage === 'en' ? 'gb' : selectedLanguage === 'de' ? 'de' : selectedLanguage === 'tr' ? 'tr' : 'pl'} text-xs`}></span>
@@ -1665,7 +1685,10 @@ export default function Home() {
               </button>
               
               {isMobileLanguageDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-32">
+                <div 
+                  className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-[9999] min-w-32"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   {[
                     { 
                       code: 'en', 
@@ -1690,7 +1713,9 @@ export default function Home() {
                   ].map((lang) => (
                     <button
                       key={lang.code}
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
                         setSelectedLanguage(lang.code)
                         localStorage.setItem('phevs-language', lang.code)
                         window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
