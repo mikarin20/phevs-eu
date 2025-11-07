@@ -2743,7 +2743,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {(blogData as any[]).slice(0, 4).map((post) => {
+            {[...(blogData as any[])].sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()).slice(0, 4).map((post) => {
               const blogLocale = selectedLanguage || 'en'
               const postTitle = blogLocale === 'en' ? post.title_en : blogLocale === 'de' ? (post.title_de || post.title_en || post.title) : blogLocale === 'pl' ? (post.title_pl || post.title_en || post.title) : post.title
               const postExcerpt = blogLocale === 'en' ? post.excerpt_en : blogLocale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : blogLocale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt
