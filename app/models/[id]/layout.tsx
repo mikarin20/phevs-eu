@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     notFound()
   }
 
-  const title = `${car.brand} ${car.model} ${car.year} Teknik Özellikler ve Fiyat | PHEVs.eu`
-  const description = `${car.brand} ${car.model} (${car.year}) — ${car.ev_range_km} km elektrik menzili, ${car.battery_kwh} kWh batarya, ${car.power_hp} HP güç, ${car.fuel_consumption} L/100km tüketim, CO₂ ${car.co2_emission} g/km. Avrupa piyasasında tahmini başlangıç fiyatı €${Number(car.price_eur).toLocaleString('en-US')}.`
+  const title = `${car.brand} ${car.model} ${car.year} Teknik Özellikler | PHEVs.eu`
+  const description = `${car.brand} ${car.model} (${car.year}) — ${car.ev_range_km} km elektrik menzili, ${car.battery_kwh} kWh batarya, ${car.power_hp} HP güç, ${car.fuel_consumption} L/100km tüketim, CO₂ ${car.co2_emission} g/km.`
 
   return {
     title,

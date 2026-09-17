@@ -79,33 +79,6 @@ export default function FilterModal({
               </select>
             </div>
 
-            {/* Price Range Slider */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Price Range: €{filters.priceRange[0].toLocaleString()} - €{filters.priceRange[1].toLocaleString()}
-              </label>
-              <div className="px-3">
-                <input
-                  type="range"
-                  min="0"
-                  max="150000"
-                  step="5000"
-                  value={filters.priceRange[0]}
-                  onChange={(e) => setFilters({...filters, priceRange: [parseInt(e.target.value), filters.priceRange[1]]})}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                />
-                <input
-                  type="range"
-                  min="0"
-                  max="150000"
-                  step="5000"
-                  value={filters.priceRange[1]}
-                  onChange={(e) => setFilters({...filters, priceRange: [filters.priceRange[0], parseInt(e.target.value)]})}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider mt-2"
-                />
-              </div>
-            </div>
-
             {/* Electric Range Slider */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">

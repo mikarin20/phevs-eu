@@ -72,7 +72,7 @@ export default function ComparePage() {
                   {nx.model}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {nx.ev_range_km}km elektrik menzili • €{nx.price_eur?.toLocaleString()}
+                  {nx.ev_range_km}km elektrik menzili
                 </p>
                 <div className="space-y-2">
                   <div className="flex justify-between">
@@ -109,7 +109,7 @@ export default function ComparePage() {
                   {rx.model}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {rx.ev_range_km}km elektrik menzili • €{rx.price_eur?.toLocaleString()}
+                  {rx.ev_range_km}km elektrik menzili
                 </p>
                 <div className="space-y-2">
                   <div className="flex justify-between">
@@ -156,17 +156,6 @@ export default function ComparePage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                      Fiyat
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                      €{nx.price_eur?.toLocaleString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                      €{rx.price_eur?.toLocaleString()}
-                    </td>
-                  </tr>
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                       Elektrik Menzili

@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: { params: { cars: string } })
     : 'PHEV Araç Karşılaştırması | PHEVs.eu'
 
   const description = selected.length >= 2
-    ? `${selected[0].brand} ${selected[0].model} ile ${selected[1].brand} ${selected[1].model} karşılaştırması: menzil (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), batarya (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), güç (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP), tüketim (${selected[0].fuel_consumption} vs ${selected[1].fuel_consumption} L/100km), CO₂ (${selected[0].co2_emission} vs ${selected[1].co2_emission} g/km), fiyat (≈ €${Number(selected[0].price_eur).toLocaleString('en-US')} vs €${Number(selected[1].price_eur).toLocaleString('en-US')}).`
-    : 'PHEV araçları menzil, batarya, güç, tüketim, emisyon ve fiyat parametreleriyle karşılaştırın.'
+    ? `${selected[0].brand} ${selected[0].model} ile ${selected[1].brand} ${selected[1].model} karşılaştırması: menzil (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), batarya (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), güç (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP), tüketim (${selected[0].fuel_consumption} vs ${selected[1].fuel_consumption} L/100km), CO₂ (${selected[0].co2_emission} vs ${selected[1].co2_emission} g/km).`
+    : 'PHEV araçları menzil, batarya, güç, tüketim ve emisyon parametreleriyle karşılaştırın.'
 
   return {
     title,

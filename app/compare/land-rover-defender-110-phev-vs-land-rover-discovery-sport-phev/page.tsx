@@ -76,10 +76,6 @@ export default function ComparePage() {
                 </div>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-300">Fiyat:</span>
-                    <span className="font-semibold text-gray-900 dark:text-white">€{typeof defender.price_eur === 'number' ? defender.price_eur.toLocaleString() : 'N/A'}</span>
-                  </div>
-                  <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-300">Elektrik Menzili:</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{defender.ev_range_km} km</span>
                   </div>
@@ -113,10 +109,6 @@ export default function ComparePage() {
                   />
                 </div>
                 <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-300">Fiyat:</span>
-                    <span className="font-semibold text-gray-900 dark:text-white">€{typeof discovery.price_eur === 'number' ? discovery.price_eur.toLocaleString() : 'N/A'}</span>
-                  </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-300">Elektrik Menzili:</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{discovery.ev_range_km} km</span>
@@ -154,11 +146,6 @@ export default function ComparePage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 dark:divide-slate-600">
-                    <tr>
-                      <td className="py-3 px-4 text-gray-600 dark:text-gray-300">Fiyat</td>
-                      <td className="py-3 px-4 font-semibold text-gray-900 dark:text-white">€{typeof defender.price_eur === 'number' ? defender.price_eur.toLocaleString() : 'N/A'}</td>
-                      <td className="py-3 px-4 font-semibold text-gray-900 dark:text-white">€{typeof discovery.price_eur === 'number' ? discovery.price_eur.toLocaleString() : 'N/A'}</td>
-                    </tr>
                     <tr>
                       <td className="py-3 px-4 text-gray-600 dark:text-gray-300">Elektrik Menzili</td>
                       <td className="py-3 px-4 text-gray-900 dark:text-white">{defender.ev_range_km} km</td>

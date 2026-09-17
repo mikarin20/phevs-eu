@@ -540,7 +540,6 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: t.model, value: car.model },
         { label: t.year, value: car.year },
         { label: t.segment, value: car.segment },
-        { label: t.price, value: `€${car.price_eur.toLocaleString()} (${t.estimatedEU})` },
         // Additional performance specs if available
         ...(car.acceleration_0_100 ? [
           { label: selectedLanguage === 'tr' ? '0-100 km/h' : selectedLanguage === 'de' ? '0-100 km/h' : selectedLanguage === 'pl' ? '0-100 km/h' : '0-100 km/h', value: `${car.acceleration_0_100} s` },
@@ -676,26 +675,8 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           <ImageGallery images={catalogImages} alt={`${car.brand} ${car.model} gallery`} />
         </div>
 
-        {/* Price and Key Metrics - Clean Layout */}
+        {/* Key Metrics - Three Column */}
         <div className="mb-12 bg-white rounded-xl border border-slate-200 shadow-sm p-8">
-          {/* Starting Price */}
-          <div className="text-center mb-10">
-            <p className="text-xs text-slate-500 uppercase tracking-[0.15em] mb-3 font-light">{t.startingPrice}</p>
-            <div className="flex items-baseline justify-center space-x-3">
-              <span className="text-5xl md:text-6xl font-semibold text-slate-900">€{car.price_eur.toLocaleString()}</span>
-              <div className="relative group">
-                <InformationCircleIcon className="h-5 w-5 text-slate-400 cursor-help hover:text-slate-500 transition-colors" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-2 bg-slate-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                  {selectedLanguage === 'tr' ? 'Tahmini AB pazar değeri' : 
-                   selectedLanguage === 'de' ? 'Geschätzter EU-Marktwert' :
-                   selectedLanguage === 'pl' ? 'Szacowana wartość rynkowa UE' :
-                   'Estimated EU market value'}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Key Metrics - Three Column */}
           <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
               <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-light">{t.electricRange}</p>

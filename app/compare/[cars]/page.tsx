@@ -364,7 +364,7 @@ export default function ComparePage({ params }: ComparePageProps) {
       return ratings.reduce((best, current) => current.stars > best.stars ? current : best)
     }
     
-    if (key === 'price_eur' || key === 'fuel_consumption' || key === 'co2_emission' || key === 'charge_time_ac') {
+    if (key === 'fuel_consumption' || key === 'co2_emission' || key === 'charge_time_ac') {
       return Math.min(...values as number[])
     } else {
       return Math.max(...values as number[])
@@ -377,7 +377,6 @@ export default function ComparePage({ params }: ComparePageProps) {
 
   // Comparison rows with translated labels
   const comparisonRows = [
-    { labelKey: 'startingPrice', key: 'price_eur' as keyof Car, format: (val: any) => typeof val === 'number' ? `€${val.toLocaleString()}` : 'N/A', highlight: true },
     { labelKey: 'electricRange', key: 'ev_range_km' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} km` : 'N/A', highlight: true },
     { labelKey: 'fuelConsumption', key: 'fuel_consumption' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} L/100km` : 'N/A', highlight: true },
     { labelKey: 'batteryCapacity', key: 'battery_kwh' as keyof Car, format: (val: any) => typeof val === 'number' ? `${val} kWh` : 'N/A', highlight: true },
@@ -731,20 +730,6 @@ export default function ComparePage({ params }: ComparePageProps) {
                         <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
                       </div>
                     )}
-                  </div>
-                  
-                  {/* Price */}
-                  <div className="text-center">
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Starting Price</p>
-                    <div className="flex items-baseline justify-center space-x-2">
-                      <span className="text-2xl font-light text-slate-900">€{car.price_eur.toLocaleString()}</span>
-                      <div className="relative group">
-                        <InformationCircleIcon className="h-3 w-3 text-slate-400 cursor-help" />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 bg-slate-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                          Estimated EU market value
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

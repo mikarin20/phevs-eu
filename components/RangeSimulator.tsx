@@ -338,10 +338,6 @@ function RangeSimulator({
                           <div className="font-semibold text-slate-800">{selectedCar.battery_kwh} kWh</div>
                         </div>
                         <div className="bg-slate-50 rounded-lg p-3">
-                          <div className="text-slate-600">Price</div>
-                          <div className="font-semibold text-slate-800">€{selectedCar.price_eur.toLocaleString()}</div>
-                        </div>
-                        <div className="bg-slate-50 rounded-lg p-3">
                           <div className="text-slate-600">Simulated</div>
                           <div className="font-semibold text-emerald-600">{Math.round(calculatedRange)} km</div>
                         </div>
