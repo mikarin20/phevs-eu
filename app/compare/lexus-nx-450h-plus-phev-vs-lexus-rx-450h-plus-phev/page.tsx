@@ -30,11 +30,9 @@ export default function ComparePage() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "WebPage",
     "name": "Lexus NX vs RX PHEV Comparison",
-    "description": "Detailed comparison between Lexus NX 450h+ and RX 450h+ PHEV models",
-    "brand": "Lexus",
-    "category": "PHEV SUV Comparison"
+    "description": "Detailed comparison between Lexus NX 450h+ and RX 450h+ PHEV models"
   }
 
   return (

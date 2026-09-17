@@ -33,11 +33,9 @@ export default function ComparePage() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "WebPage",
     "name": "Lexus ES vs UX PHEV Comparison",
-    "description": "Detailed comparison between Lexus ES 300h and UX 300e PHEV models",
-    "brand": "Lexus",
-    "category": "PHEV Comparison"
+    "description": "Detailed comparison between Lexus ES 300h and UX 300e PHEV models"
   }
 
   return (

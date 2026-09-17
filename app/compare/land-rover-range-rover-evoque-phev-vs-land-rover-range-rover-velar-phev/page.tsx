@@ -33,11 +33,9 @@ export default function ComparePage() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "WebPage",
     "name": "Range Rover Evoque vs Velar PHEV Comparison",
-    "description": "Detailed comparison between Range Rover Evoque P300e and Range Rover Velar P400e PHEV models",
-    "brand": "Land Rover",
-    "category": "PHEV SUV Comparison"
+    "description": "Detailed comparison between Range Rover Evoque P300e and Range Rover Velar P400e PHEV models"
   }
 
   return (

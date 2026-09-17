@@ -1221,6 +1221,11 @@ export default function Home() {
         "item": {
           "@type": "Vehicle",
           "name": `${car.brand} ${car.model}`,
+          "description": `${car.brand} ${car.model} (${car.year}) plug-in hybrid: ${car.ev_range_km} km electric range, ${car.battery_kwh} kWh battery, ${car.power_hp} HP.`,
+          "brand": {
+            "@type": "Brand",
+            "name": car.brand
+          },
           "manufacturer": {
             "@type": "Organization",
             "name": car.brand

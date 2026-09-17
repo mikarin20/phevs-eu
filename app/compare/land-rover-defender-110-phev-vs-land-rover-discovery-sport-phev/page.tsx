@@ -33,11 +33,9 @@ export default function ComparePage() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "WebPage",
     "name": "Land Rover Defender vs Discovery Sport PHEV Comparison",
-    "description": "Detailed comparison between Land Rover Defender 110 P400e and Discovery Sport P300e PHEV models",
-    "brand": "Land Rover",
-    "category": "PHEV SUV Comparison"
+    "description": "Detailed comparison between Land Rover Defender 110 P400e and Discovery Sport P300e PHEV models"
   }
 
   return (
