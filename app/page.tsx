@@ -2087,11 +2087,6 @@ export default function Home() {
                                 : (selectedLanguage==='tr'?'Veri Bekleniyor':'Pending')
                               }
                             </span>
-                            {car.data_status.price === 'verified' && (
-                              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
-                                {selectedLanguage==='tr'?'Doğrulanmış Fiyat':'Verified Price'}
-                              </span>
-                            )}
                             {car.data_status.range_data === 'real_world' && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
                                 {selectedLanguage==='tr'?'Gerçek Menzil':'Real Range'}

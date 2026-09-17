@@ -242,9 +242,6 @@ export default function RootLayout({
                   <p className="text-slate-400 text-xs">
                     Data sources: EV-Database, Euro NCAP, manufacturer specifications, WLTP testing
                   </p>
-                  <p className="text-slate-500 text-xs mt-1">
-                    Prices are estimated EU market values. Actual prices may vary by country and configuration.
-                  </p>
                   <p className="text-slate-500 text-xs mt-2">
                     © 2025 PHEVs.eu. All rights reserved.
                   </p>
