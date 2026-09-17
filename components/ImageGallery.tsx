@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { getImageUrl } from '@/lib/image-url'
 
 interface ImageGalleryProps {
   images: string[]
@@ -13,8 +14,11 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
   const [invalidImagePaths, setInvalidImagePaths] = useState<Set<string>>(new Set())
 
+  // R2'de barınan mutlak URL'lere çevir
+  const resolvedImages = images.map((img) => getImageUrl(img))
+
   // Sadece mevcut görselleri filtrele
-  const validImages = images.filter(img => img && img.trim() !== '' && !invalidImagePaths.has(img))
+  const validImages = resolvedImages.filter(img => img && img.trim() !== '' && !invalidImagePaths.has(img))
   
   // Eğer seçili görsel geçersizse, ilk geçerli görseli seç
   useEffect(() => {

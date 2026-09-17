@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import carsData from '@/data/cars.json'
+import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
   title: 'Land Rover Defender 110 vs Discovery Sport PHEV Karşılaştırması | PHEVs.eu',
@@ -68,7 +69,7 @@ export default function ComparePage() {
                 </h2>
                 <div className="aspect-w-16 aspect-h-9 mb-6">
                   <img
-                    src={defender.image_url}
+                    src={getImageUrl(defender.image_url)}
                     alt={defender.model}
                     className="w-full h-64 object-cover rounded-lg"
                   />
@@ -106,7 +107,7 @@ export default function ComparePage() {
                 </h2>
                 <div className="aspect-w-16 aspect-h-9 mb-6">
                   <img
-                    src={discovery.image_url}
+                    src={getImageUrl(discovery.image_url)}
                     alt={discovery.model}
                     className="w-full h-64 object-cover rounded-lg"
                   />

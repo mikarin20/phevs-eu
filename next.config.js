@@ -79,8 +79,15 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'pub-698245a4878b4d6596cd62322fdc9c75.r2.dev',
+        port: '',
+        pathname: '/**',
+      },
     ],
-    unoptimized: false,
+    // Disabled to avoid Vercel's image optimization quota now that assets are served from R2
+    unoptimized: true,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     formats: ['image/avif', 'image/webp'],

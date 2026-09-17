@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { XMarkIcon, ArrowsUpDownIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import { getImageUrl } from '@/lib/image-url'
 
 interface Car {
   id: string
@@ -126,7 +127,7 @@ export default function CompareInfoBar({
                   <div className="flex items-center space-x-2">
                     <div className="w-12 h-12 rounded overflow-hidden">
                       <img
-                        src={car.image_url}
+                        src={getImageUrl(car.image_url)}
                         alt={`${car.brand} ${car.model}`}
                         className="w-full h-full object-cover"
                       />
@@ -204,7 +205,7 @@ export default function CompareInfoBar({
                   <div className="flex items-center space-x-3">
                     <div className="w-16 h-16 rounded overflow-hidden">
                       <img
-                        src={car.image_url}
+                        src={getImageUrl(car.image_url)}
                         alt={`${car.brand} ${car.model}`}
                         className="w-full h-full object-cover"
                       />

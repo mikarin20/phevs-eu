@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { getImageUrl } from '@/lib/image-url'
 
 interface BlogImageProps {
   src: string
@@ -11,13 +12,13 @@ interface BlogImageProps {
 }
 
 export default function BlogImage({ src, alt, className = '', width, height }: BlogImageProps) {
-  const [imgSrc, setImgSrc] = useState(src)
+  const [imgSrc, setImgSrc] = useState(getImageUrl(src))
   const [hasError, setHasError] = useState(false)
 
   const handleError = () => {
     if (!hasError) {
       setHasError(true)
-      setImgSrc('/images/placeholder-car.jpg')
+      setImgSrc(getImageUrl(null))
     }
   }
 

@@ -9,6 +9,7 @@ import {
   BoltIcon,
   Cog6ToothIcon
 } from '@heroicons/react/24/outline'
+import { getImageUrl } from '@/lib/image-url'
 
 interface Car {
   id: string
@@ -307,12 +308,12 @@ function RangeSimulator({
                     <div className="mb-4">
                       <div className="aspect-[16/9] w-full rounded-lg overflow-hidden">
                         <img
-                          src={selectedCar.image_url}
+                          src={getImageUrl(selectedCar.image_url)}
                           alt={`${selectedCar.brand} ${selectedCar.model}`}
                           className="w-full h-full object-cover"
                           onError={(e) => {
                             console.log('RangeSimulator resim yüklenemedi:', selectedCar.image_url)
-                            e.currentTarget.src = '/images/placeholder-car.jpg'
+                            e.currentTarget.src = getImageUrl(null)
                           }}
                         />
                       </div>

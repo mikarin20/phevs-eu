@@ -29,6 +29,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import { getImageUrl } from '@/lib/image-url'
 import carsData from '@/data/cars.json' assert { type: 'json' }
 const typedCarsData = carsData as Car[]
 import blogData from '@/data/blog.json' assert { type: 'json' }
@@ -1297,7 +1298,7 @@ export default function Home() {
             "priceValidUntil": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split('T')[0]
           },
           "url": `https://phevs.eu/models/${car.slug || car.id}`,
-          "image": car.image_url,
+          "image": getImageUrl(car.image_url),
           "review": car.euroncap_rating ? {
             "@type": "Review",
             "reviewRating": {
@@ -1614,20 +1615,20 @@ export default function Home() {
                     <div className="grid grid-cols-2 gap-0">
                       <div className="relative h-32">
                         <img
-                          src={comparison.leftCar.image}
+                          src={getImageUrl(comparison.leftCar.image)}
                           alt={comparison.leftCar.alt}
                           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
-                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/placeholder-car.jpg' }}
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = getImageUrl(null) }}
                         />
                       </div>
                       <div className="relative h-32">
                         <img
-                          src={comparison.rightCar.image}
+                          src={getImageUrl(comparison.rightCar.image)}
                           alt={comparison.rightCar.alt}
                           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
-                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/placeholder-car.jpg' }}
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = getImageUrl(null) }}
                         />
                       </div>
                     </div>
@@ -2057,7 +2058,7 @@ export default function Home() {
                       
                       {/* Main Image */}
                       <Image
-                        src={car.image_url}
+                        src={getImageUrl(car.image_url)}
                         alt={`${car.brand} ${car.model} - ${car.year} model PHEV`}
                         className="w-full h-full object-cover"
                         fill
@@ -2068,7 +2069,7 @@ export default function Home() {
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         onError={(e) => {
-                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                          e.currentTarget.src = getImageUrl(null)
                         }}
                       />
                     </div>
@@ -2397,13 +2398,13 @@ export default function Home() {
                   <div className="flex-shrink-0">
                     <div className="aspect-[16/9] w-32 h-20 rounded-lg overflow-hidden">
                       <img
-                        src={car.image_url}
+                        src={getImageUrl(car.image_url)}
                         alt={`${car.brand} ${car.model} - ${car.year} model PHEV with ${car.ev_range_km}km electric range and ${car.power_hp}HP total power`}
                         className="w-full h-full object-cover"
                         loading="lazy"
                         fetchPriority="low"
                         onError={(e) => {
-                          e.currentTarget.src = '/images/placeholder-car.jpg'
+                          e.currentTarget.src = getImageUrl(null)
                           e.currentTarget.alt = 'Placeholder image for vehicle'
                         }}
                       />
@@ -2698,7 +2699,7 @@ export default function Home() {
                 >
                   <div className="aspect-[16/9] w-full rounded-lg overflow-hidden mb-2">
                     <img
-                      src={car.image_url}
+                      src={getImageUrl(car.image_url)}
                       alt={`${car.brand} ${car.model}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                       loading="lazy"
@@ -2758,11 +2759,11 @@ export default function Home() {
                 >
                   <div className="relative h-48">
                     <img
-                      src={post.featured_image}
+                      src={getImageUrl(post.featured_image)}
                       alt={postTitle}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
-                        e.currentTarget.src = '/images/placeholder-car.jpg'
+                        e.currentTarget.src = getImageUrl(null)
                       }}
                     />
                     <div className="absolute top-3 left-3">

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import carsData from '@/data/cars.json'
+import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
   title: 'Range Rover Evoque P300e vs Range Rover Velar P400e Karşılaştırması | PHEVs.eu',
@@ -68,7 +69,7 @@ export default function ComparePage() {
                 </h2>
                 <div className="aspect-w-16 aspect-h-9 mb-6">
                   <img
-                    src={evoque.image_url}
+                    src={getImageUrl(evoque.image_url)}
                     alt={evoque.model}
                     className="w-full h-64 object-cover rounded-lg"
                   />
@@ -106,7 +107,7 @@ export default function ComparePage() {
                 </h2>
                 <div className="aspect-w-16 aspect-h-9 mb-6">
                   <img
-                    src={velar.image_url}
+                    src={getImageUrl(velar.image_url)}
                     alt={velar.model}
                     className="w-full h-64 object-cover rounded-lg"
                   />

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import carsData from '@/data/cars.json'
+import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
   title: 'Lexus NX 450h+ vs RX 450h+ Karşılaştırması | PHEVs.eu',
@@ -61,7 +62,7 @@ export default function ComparePage() {
             <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden">
               <div className="aspect-w-16 aspect-h-9">
                 <img
-                  src={nx.image_url}
+                  src={getImageUrl(nx.image_url)}
                   alt={nx.model}
                   className="w-full h-64 object-cover"
                 />
@@ -98,7 +99,7 @@ export default function ComparePage() {
             <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden">
               <div className="aspect-w-16 aspect-h-9">
                 <img
-                  src={rx.image_url}
+                  src={getImageUrl(rx.image_url)}
                   alt={rx.model}
                   className="w-full h-64 object-cover"
                 />

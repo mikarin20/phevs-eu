@@ -7,6 +7,7 @@ import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
 import html2canvas from 'html2canvas'
+import { getImageUrl } from '@/lib/image-url'
 
 interface Car {
   id: string
@@ -708,12 +709,12 @@ export default function ComparePage({ params }: ComparePageProps) {
                 {/* Car Image */}
                 <div className="aspect-[16/9] w-full bg-gradient-to-br from-slate-100 to-slate-200">
                   <img
-                    src={car.image_url}
+                    src={getImageUrl(car.image_url)}
                     alt={`${car.brand} ${car.model}`}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       console.log('Karşılaştırma sayfası resim yüklenemedi:', car.image_url)
-                      e.currentTarget.src = '/images/placeholder-car.jpg'
+                      e.currentTarget.src = getImageUrl(null)
                     }}
                   />
                 </div>

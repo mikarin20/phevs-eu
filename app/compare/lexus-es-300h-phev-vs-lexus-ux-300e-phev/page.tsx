@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import carsData from '@/data/cars.json'
+import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
   title: 'Lexus ES 300h vs UX 300e Karşılaştırması | PHEVs.eu',
@@ -64,7 +65,7 @@ export default function ComparePage() {
             <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden">
               <div className="aspect-w-16 aspect-h-9">
                 <img
-                  src={es.image_url}
+                  src={getImageUrl(es.image_url)}
                   alt={es.model}
                   className="w-full h-64 object-cover"
                 />
@@ -101,7 +102,7 @@ export default function ComparePage() {
             <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden">
               <div className="aspect-w-16 aspect-h-9">
                 <img
-                  src={ux.image_url}
+                  src={getImageUrl(ux.image_url)}
                   alt={ux.model}
                   className="w-full h-64 object-cover"
                 />
