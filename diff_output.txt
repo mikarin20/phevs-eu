@@ -1,0 +1,190 @@
+﻿diff --git a/app/page.tsx b/app/page.tsx
+index a2f4164..2dcb4b7 100644
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -23,7 +23,6 @@ import {
+   EyeIcon,
+   CalculatorIcon,
+   InformationCircleIcon,
+-  CurrencyEuroIcon,
+   UserGroupIcon,
+   ShieldCheckIcon
+ } from '@heroicons/react/24/outline'
+@@ -161,7 +160,7 @@ interface Car {
+ }
+ 
+ type ViewMode = 'grid' | 'list'
+-type SortOption = 'price-asc' | 'price-desc' | 'range-asc' | 'range-desc' | 'power-asc' | 'power-desc' | 'name-asc'
++type SortOption = 'range-asc' | 'range-desc' | 'power-asc' | 'power-desc' | 'name-asc'
+ type FiltersState = {
+   segment: string
+   priceRange: [number, number]
+@@ -477,7 +476,7 @@ export default function Home() {
+       powerRange: normalizePair(raw.powerRange, defaultFilters.powerRange),
+       yearRange: normalizePair(raw.yearRange, defaultFilters.yearRange),
+       emissionRange: normalizePair(raw.emissionRange, defaultFilters.emissionRange),
+-      sortBy: (['price-asc','price-desc','range-asc','range-desc','power-asc','power-desc','name-asc'] as SortOption[]).includes(raw.sortBy)
++      sortBy: (['range-asc','range-desc','power-asc','power-desc','name-asc'] as SortOption[]).includes(raw.sortBy)
+         ? raw.sortBy
+         : 'name-asc'
+     }
+@@ -612,7 +611,6 @@ export default function Home() {
+       return def
+     }
+ 
+-    const [minPrice, maxPrice] = getPair(filters?.priceRange as number[], [0, 150000])
+     const [minRange, maxRange] = getPair(filters?.rangeRange as number[], [0, 200])
+     const [minFuel, maxFuel] = getPair(filters?.fuelConsumption as number[], [0, 10])
+     const [minPower, maxPower] = getPair(filters?.powerRange as number[], [0, 500])
+@@ -632,8 +630,6 @@ export default function Home() {
+       
+       const matchesSegment = !filters.segment || car.segment === filters.segment
+       
+-      const matchesPrice = car.price_eur >= minPrice && car.price_eur <= maxPrice
+-      
+       const matchesRange = car.ev_range_km >= minRange && car.ev_range_km <= maxRange
+       
+       const matchesFuel = car.fuel_consumption >= minFuel && car.fuel_consumption <= maxFuel
+@@ -657,7 +653,7 @@ export default function Home() {
+       
+ 
+ 
+-      return matchesSearch && matchesBrand && matchesSegment && matchesPrice && matchesRange && 
++      return matchesSearch && matchesBrand && matchesSegment && matchesRange && 
+         matchesFuel && matchesBatteryArchitecture && matchesBatteryChemistry && matchesChargingType && 
+         matchesPowerRange && matchesYearRange && matchesEmissionRange
+     })
+@@ -665,10 +661,6 @@ export default function Home() {
+     // S─▒ralama
+     filtered.sort((a, b) => {
+       switch (sortBy) {
+-        case 'price-asc':
+-          return a.price_eur - b.price_eur
+-        case 'price-desc':
+-          return b.price_eur - a.price_eur
+         case 'range-asc':
+           return a.ev_range_km - b.ev_range_km
+         case 'range-desc':
+@@ -1229,6 +1221,11 @@ export default function Home() {
+         "item": {
+           "@type": "Vehicle",
+           "name": `${car.brand} ${car.model}`,
++          "description": `${car.brand} ${car.model} (${car.year}) plug-in hybrid: ${car.ev_range_km} km electric range, ${car.battery_kwh} kWh battery, ${car.power_hp} HP.`,
++          "brand": {
++            "@type": "Brand",
++            "name": car.brand
++          },
+           "manufacturer": {
+             "@type": "Organization",
+             "name": car.brand
+@@ -1285,18 +1282,6 @@ export default function Home() {
+             "unitCode": "HUR",
+             "description": "AC charging time"
+           },
+-          "offers": {
+-            "@type": "Offer",
+-            "price": car.price_eur,
+-            "priceCurrency": "EUR",
+-            "availability": "https://schema.org/InStock",
+-            "seller": {
+-              "@type": "Organization",
+-              "name": car.brand
+-            },
+-            "validFrom": new Date().toISOString().split('T')[0],
+-            "priceValidUntil": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split('T')[0]
+-          },
+           "url": `https://phevs.eu/models/${car.slug || car.id}`,
+           "image": getImageUrl(car.image_url),
+           "review": car.euroncap_rating ? {
+@@ -1931,8 +1916,6 @@ export default function Home() {
+                 className="py-2 px-3 rounded-lg border border-slate-200 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+               >
+                 <option value="name-asc">{t.nameAsc}</option>
+-                <option value="price-asc">{t.priceAsc}</option>
+-                <option value="price-desc">{t.priceDesc}</option>
+                 <option value="range-desc">{t.rangeDesc}</option>
+                 <option value="range-asc">{t.rangeAsc}</option>
+                 <option value="power-desc">{t.powerDesc}</option>
+@@ -2082,21 +2065,6 @@ export default function Home() {
+                     <h3 className={`text-base font-semibold ${currentTheme.textPrimary} line-clamp-2 h-12 flex items-center`}>
+                       {car.brand} {car.model}
+                     </h3>
+-                    <div className="flex items-center space-x-2">
+-                      {car.data_status?.price === 'verified' && car.price_eur ? (
+-                        <div className={`text-xl font-bold ${currentTheme.textPrimary}`}>
+-                          From Γé¼{car.price_eur.toLocaleString()}
+-                        </div>
+-                      ) : null}
+-                      {car.data_status?.price === 'verified' && (
+-                        <div className="relative group">
+-                          <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+-                            Verified price
+-                          </div>
+-                        </div>
+-                      )}
+-                    </div>
+                   </div>
+ 
+                   <div className="flex items-center justify-between mb-2">
+@@ -2431,22 +2399,6 @@ export default function Home() {
+                           )}
+                         </div>
+                       </div>
+-                      <div className="text-right">
+-                        <div className="flex items-center justify-end space-x-2">
+-                          {car.data_status?.price === 'verified' && car.price_eur ? (
+-                            <div className={`text-xl font-bold ${currentTheme.textPrimary}`}>
+-                              From Γé¼{car.price_eur.toLocaleString()}
+-                            </div>
+-                          ) : null}
+-                          {car.data_status?.price === 'verified' && (
+-                            <div className="relative group">
+-                              <InformationCircleIcon className="h-4 w-4 text-slate-400 cursor-help" />
+-                              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+-                                Verified price
+-                              </div>
+-                            </div>
+-                          )}
+-                        </div>
+                       </div>
+                     </div>
+ 
+@@ -2482,11 +2434,6 @@ export default function Home() {
+                         <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
+                         <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
+                       </div>
+-                      <div className="flex items-center space-x-2">
+-                        <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+-                        <span className={`${currentTheme.textPrimary}`}>{t.price}:</span>
+-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>Γé¼{car.price_eur?.toLocaleString()}</span>
+-                      </div>
+                       <div className="flex items-center space-x-2">
+                         <UserGroupIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                         <span className={`${currentTheme.textPrimary}`}>Seats:</span>
+@@ -2551,13 +2498,6 @@ export default function Home() {
+                             </div>
+                             <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
+                           </div>
+-                          <div className="flex items-center justify-between">
+-                            <div className="flex items-center space-x-2">
+-                              <CurrencyEuroIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+-                              <span className={`${currentTheme.textPrimary}`}>{t.price}:</span>
+-                            </div>
+-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>Γé¼{car.price_eur?.toLocaleString()}</span>
+-                          </div>
+                           <div className="flex items-center justify-between">
+                             <div className="flex items-center space-x-2">
+                               <UserGroupIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+@@ -2708,11 +2648,6 @@ export default function Home() {
+                   <div className={`text-xs font-medium ${currentTheme.textPrimary} truncate`}>
+                     {car.brand} {car.model}
+                   </div>
+-                  {car.data_status?.price === 'verified' && car.price_eur ? (
+-                    <div className={`text-xs ${currentTheme.textSecondary}`}>
+-                      From Γé¼{car.price_eur.toLocaleString()}
+-                    </div>
+-                  ) : null}
+                 </Link>
+               ))}
+             </div>

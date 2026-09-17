@@ -2066,7 +2066,6 @@ export default function Home() {
                       {car.brand} {car.model}
                     </h3>
                   </div>
-                  </div>
 
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-2">
@@ -2399,7 +2398,6 @@ export default function Home() {
                             <EuroNCAPStars rating={car.euroncap_rating} size="sm" />
                           )}
                         </div>
-                      </div>
                       </div>
                     </div>
 
