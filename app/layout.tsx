@@ -26,19 +26,20 @@ export const metadata: Metadata = {
   },
   // Open Graph configuration is defined below with full details
   title: {
-    default: 'PHEVs.eu - PHEV News & Vehicle Comparison Platform',
+    default: 'PHEVs.eu - PHEV Database & Comparison Platform',
     template: '%s | PHEVs.eu'
   },
-  description: 'Latest PHEV news, reviews, and compare 87 plug-in hybrid electric vehicles (PHEVs) from 28 premium brands. Find the best PHEV for your needs with detailed specifications, pricing, electric range, and real-world performance data across Europe.',
+  description: 'The largest PHEV database in Europe: browse and compare plug-in hybrid electric vehicles from premium brands with detailed specifications, electric range, battery capacity, and real-world performance data.',
   keywords: [
+    'PHEV database',
     'PHEV comparison',
+    'plug-in hybrid database',
     'plug-in hybrid',
     'electric vehicle',
     'hybrid car comparison',
     'EV range',
     'Europe PHEV',
     'best PHEV 2025',
-    'PHEV price comparison',
     'plug-in hybrid cars',
     'hybrid vehicle specs'
   ],
@@ -54,22 +55,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_EU',
     url: 'https://phevs.eu',
-    title: 'PHEVs.eu - PHEV News & Vehicle Comparison Platform',
-    description: 'Europe\'s most comprehensive PHEV news and comparison platform. Latest PHEV news, reviews, and compare 87 plug-in hybrid vehicles from 28 brands with detailed specs, pricing, and performance data.',
+    title: 'PHEVs.eu - PHEV Database & Comparison Platform',
+    description: 'Europe\'s most comprehensive PHEV database. Browse and compare plug-in hybrid vehicles from premium brands with detailed specs, electric range, and performance data.',
     siteName: 'PHEVs.eu',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Compare 87 plug-in hybrid electric vehicles from 28 brands - PHEVs.eu',
+        alt: 'PHEV database - compare plug-in hybrid electric vehicles - PHEVs.eu',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PHEVs.eu - PHEV News & Vehicle Comparison Platform',
-    description: 'Latest PHEV news and reviews. Compare 87 plug-in hybrid vehicles from 28 brands. Find the best PHEV for your needs.',
+    title: 'PHEVs.eu - PHEV Database & Comparison Platform',
+    description: 'The largest PHEV database in Europe. Compare plug-in hybrid vehicles from premium brands and find the best PHEV for your needs.',
     images: ['/images/og-image.jpg'],
     creator: '@phevs_eu',
     site: '@phevs_eu',

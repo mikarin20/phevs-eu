@@ -15,12 +15,12 @@ export async function generateMetadata({ params }: { params: { cars: string } })
     .filter(Boolean) as any[]
 
   const title = selected.length >= 2
-    ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} Karşılaştırması | PHEVs.eu`
-    : 'PHEV Araç Karşılaştırması | PHEVs.eu'
+    ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} PHEV Comparison | PHEVs.eu`
+    : 'PHEV Comparison | PHEVs.eu'
 
   const description = selected.length >= 2
-    ? `${selected[0].brand} ${selected[0].model} ile ${selected[1].brand} ${selected[1].model} karşılaştırması: menzil (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), batarya (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), güç (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP), tüketim (${selected[0].fuel_consumption} vs ${selected[1].fuel_consumption} L/100km), CO₂ (${selected[0].co2_emission} vs ${selected[1].co2_emission} g/km).`
-    : 'PHEV araçları menzil, batarya, güç, tüketim ve emisyon parametreleriyle karşılaştırın.'
+    ? `Compare ${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} in our PHEV database: range (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), battery (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), power (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP), consumption (${selected[0].fuel_consumption} vs ${selected[1].fuel_consumption} L/100km), CO₂ (${selected[0].co2_emission} vs ${selected[1].co2_emission} g/km).`
+    : 'Compare PHEVs by range, battery, power, consumption, and emissions using our plug-in hybrid database.'
 
   return {
     title,
