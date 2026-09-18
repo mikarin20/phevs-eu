@@ -23,8 +23,21 @@ const formSchema = z.object({
   power_hp: z.coerce.number().min(0),
   acceleration_0_100: z.coerce.number().min(0).optional(),
   price_eur: z.coerce.number().min(0).optional(),
+  dc_charging_supported: z.boolean().default(false),
+  dc_max_power_kw: z.preprocess(
+    (value) => value === '' || value === undefined ? null : value,
+    z.coerce.number().positive().nullable()
+  ),
   featuresText: z.string().optional(),
   image_url: z.string().min(1, 'Image is required'),
+}).superRefine((data, ctx) => {
+  if (data.dc_charging_supported && !data.dc_max_power_kw) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['dc_max_power_kw'],
+      message: 'Required when DC fast charging is enabled',
+    })
+  }
 })
 
 export type VehicleFormValues = z.infer<typeof formSchema>
@@ -54,6 +67,8 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       battery_kwh: 0,
       ev_range_km: 0,
       power_hp: 0,
+      dc_charging_supported: false,
+      dc_max_power_kw: null,
       image_url: '',
       ...defaultValues,
     },
@@ -62,6 +77,7 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
   const brand = watch('brand')
   const model = watch('model')
   const imageUrl = watch('image_url')
+  const dcChargingSupported = watch('dc_charging_supported')
 
   function handleAutoSlug() {
     if (brand && model && mode === 'create') setValue('slug', slugify(`${brand}-${model}-phev`))
@@ -72,7 +88,11 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       .split('\n')
       .map((f) => f.trim())
       .filter(Boolean)
-    const payload = { ...values, features }
+    const payload = {
+      ...values,
+      dc_max_power_kw: values.dc_charging_supported ? values.dc_max_power_kw : null,
+      features,
+    }
 
     try {
       const url = mode === 'create' ? '/api/admin/vehicles' : `/api/admin/vehicles/${vehicleId}`
@@ -147,6 +167,26 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
             <div>
               <Label>Price (€)</Label>
               <Input type="number" {...register('price_eur')} />
+            </div>
+          </div>
+
+          <div className="rounded-md border border-slate-200 p-4 space-y-3">
+            <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
+              <input type="checkbox" {...register('dc_charging_supported')} className="h-4 w-4" />
+              DC Fast Charge Supported
+            </label>
+            <div>
+              <Label>DC Fast Charge Support (kW)</Label>
+              <Input
+                type="number"
+                step="0.1"
+                min="0"
+                disabled={!dcChargingSupported}
+                {...register('dc_max_power_kw')}
+              />
+              {errors.dc_max_power_kw && (
+                <p className="text-xs text-red-600 mt-1">{errors.dc_max_power_kw.message}</p>
+              )}
             </div>
           </div>
 

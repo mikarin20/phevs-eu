@@ -38,6 +38,11 @@ export async function POST(request: NextRequest) {
       power_hp: data.power_hp,
       acceleration_0_100: data.acceleration_0_100,
       price_eur: data.price_eur,
+      dc_charging_supported: data.dc_charging_supported,
+      dc_max_power_kw: data.dc_charging_supported ? data.dc_max_power_kw : null,
+      charging_capabilities: {
+        dc_power: data.dc_charging_supported ? data.dc_max_power_kw : undefined,
+      },
       features: data.features,
       image_url: data.image_url,
       segment: data.segment || 'SUV',

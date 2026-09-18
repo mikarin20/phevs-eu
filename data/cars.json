@@ -3909,10 +3909,15 @@
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 60,
     "charging_capabilities": {
-      "ac_power": 7.2
+      "ac_power": 7.2,
+      "dc_power": 60
     },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -4213,10 +4218,15 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 60,
     "charging_capabilities": {
-      "ac_power": 7.2
+      "ac_power": 7.2,
+      "dc_power": 60
     },
     "slug": "mercedes-benz-glc-coup-phev",
     "updated_at": "2024-10-24"
@@ -4274,10 +4284,15 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Rear left"
+      "ac_location": "Rear left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Rear left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 60,
     "charging_capabilities": {
-      "ac_power": 7.2
+      "ac_power": 7.2,
+      "dc_power": 60
     },
     "slug": "mercedes-benz-gle-coup-phev",
     "updated_at": "2024-10-24"
@@ -4498,7 +4513,8 @@
     "slug": "mini-countryman-cooper-s-e",
     "updated_at": "2024-10-25",
     "charging_capabilities": {
-      "ac_power": 3.7
+      "ac_power": 3.7,
+      "dc_power": 22
     }
   },
   {
@@ -4579,8 +4595,12 @@
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CHAdeMO",
+      "dc_location": "Front left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 22,
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "euroncap_rating": {
@@ -4596,7 +4616,8 @@
     "slug": "mitsubishi-outlander-iv-24-mivec",
     "updated_at": "2024-10-25",
     "charging_capabilities": {
-      "ac_power": 3.7
+      "ac_power": 3.7,
+      "dc_power": 22
     }
   },
   {
@@ -4628,8 +4649,12 @@
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CHAdeMO",
+      "dc_location": "Front left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 22,
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "euroncap_rating": {
@@ -4645,7 +4670,8 @@
     "slug": "mitsubishi-outlander-iv-24-mivec-252hp",
     "updated_at": "2024-10-23",
     "charging_capabilities": {
-      "ac_power": 3.7
+      "ac_power": 3.7,
+      "dc_power": 22
     }
   },
   {
@@ -5175,11 +5201,15 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "slug": "koda-kodiaq-phev",
     "updated_at": "2024-10-25"
@@ -5577,11 +5607,15 @@
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -5677,11 +5711,15 @@
     "battery_voltage": 353,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,IT,ES",

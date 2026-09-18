@@ -15,7 +15,13 @@ export default function EditVehiclePage({ params }: { params: { id: string } }) 
         return
       }
       const data = await res.json()
-      setDefaultValues({ ...data.item, featuresText: (data.item.features || []).join('\n') })
+      const legacyDcPower = data.item.charging_capabilities?.dc_power ?? null
+      setDefaultValues({
+        ...data.item,
+        dc_charging_supported: data.item.dc_charging_supported ?? Boolean(legacyDcPower),
+        dc_max_power_kw: data.item.dc_max_power_kw ?? legacyDcPower,
+        featuresText: (data.item.features || []).join('\n'),
+      })
     }
     load()
   }, [params.id])

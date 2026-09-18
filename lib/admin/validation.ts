@@ -13,6 +13,11 @@ export const vehicleSchema = z.object({
   power_hp: z.coerce.number().min(0),
   acceleration_0_100: z.coerce.number().min(0).optional(),
   price_eur: z.coerce.number().min(0).optional(),
+  dc_charging_supported: z.boolean().default(false),
+  dc_max_power_kw: z.preprocess(
+    (value) => value === '' || value === undefined ? null : value,
+    z.coerce.number().positive().nullable()
+  ),
   features: z.array(z.string().min(1)).default([]),
   image_url: z.string().min(1, 'Image is required'),
   // Legacy/site-compat fields not exposed in the simplified admin form; server fills sensible defaults.
@@ -24,6 +29,14 @@ export const vehicleSchema = z.object({
   seats: z.coerce.number().optional(),
   warranty_years: z.coerce.number().optional(),
   country_availability: z.string().optional(),
+}).superRefine((data, ctx) => {
+  if (data.dc_charging_supported && !data.dc_max_power_kw) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['dc_max_power_kw'],
+      message: 'DC max power is required when fast charging is enabled',
+    })
+  }
 })
 export type VehicleInput = z.infer<typeof vehicleSchema>
 

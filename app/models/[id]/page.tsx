@@ -63,6 +63,8 @@ interface Car {
       power: number[]
     }
   }
+  dc_charging_supported?: boolean
+  dc_max_power_kw?: number | null
   charging_port?: {
     ac_type: string
     ac_location: string
@@ -113,6 +115,12 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   const typedCarsData = carsData as Car[]
   // Accept both numeric/string id and SEO slug in the same dynamic route
   const car = typedCarsData.find(c => c.id === params.id || c.slug === (params.id as any)) as Car
+  const dcMaxPowerKw = car.dc_max_power_kw ?? car.charging_capabilities?.dc_power ?? null
+  const dcChargingSupported = car.dc_charging_supported ?? Boolean(dcMaxPowerKw || car.charging_port?.dc_type)
+  const dcConnector = car.charging_port?.dc_type
+  const dcChargingLabel = dcChargingSupported
+    ? `${dcMaxPowerKw ? `${dcMaxPowerKw} kW DC` : 'DC'}${dcConnector ? ` (${dcConnector})` : ''}`
+    : null
   const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState('light')
   const [selectedLanguage, setSelectedLanguage] = useState('en')
@@ -560,6 +568,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         { label: t.batteryCapacityLabel, value: `${car.battery_kwh} kWh`, icon: SparklesIcon, highlight: true },
         { label: t.acChargeTime, value: `${car.charge_time_ac} ${selectedLanguage === 'tr' ? 'saat' : selectedLanguage === 'de' ? 'Stunden' : selectedLanguage === 'pl' ? 'godziny' : 'hours'}` },
         { label: t.dcChargeTime, value: `${car.charge_time_dc || 'N/A'} ${selectedLanguage === 'tr' ? 'dakika' : selectedLanguage === 'de' ? 'Minuten' : selectedLanguage === 'pl' ? 'minuty' : 'minutes'}` },
+        { label: t.dcCharging, value: dcChargingLabel || t.notSupported },
         // Battery chemistry and voltage if available
         ...(car.battery_chemistry ? [
           { label: selectedLanguage === 'tr' ? 'Batarya Kimyası' : selectedLanguage === 'de' ? 'Batteriechemie' : selectedLanguage === 'pl' ? 'Chemia baterii' : 'Battery Chemistry', value: car.battery_chemistry },
@@ -578,8 +587,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
             value: `${car.charging_port.ac_type} (${car.charging_port.ac_location})${car.charging_capabilities?.ac_power ? ` • ${car.charging_capabilities.ac_power}kW` : ''}${car.charging_port.ac_phases ? ` • ${car.charging_port.ac_phases}ph` : ''}`,
             hasInfo: car.charging_capabilities?.ac_power_max !== undefined || car.charging_capabilities?.ac_power_note !== undefined,
             infoText: translateACPowerNote(car.charging_capabilities?.ac_power_note) || (car.charging_capabilities?.ac_power_max ? t.canBeUpgradedTo11kW : undefined)
-          },
-          ...(car.charging_port.dc_type ? [{ label: t.dcCharging, value: `${car.charging_port.dc_type} (${car.charging_port.dc_location})${car.charging_capabilities?.dc_power ? ` • ${car.charging_capabilities.dc_power}kW` : ''}` }] : [])
+          }
         ] : [] as any),
       ]
     },
@@ -793,7 +801,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                 <BoltIcon className="h-6 w-6 text-emerald-600 mr-3" />
                 <h3 className="font-bold text-slate-900 uppercase text-xs tracking-wide">{t.maxChargingPowerDC}</h3>
               </div>
-              <p className="text-2xl font-semibold text-slate-900 mb-1">{car.charging_capabilities?.dc_power ? `${car.charging_capabilities.dc_power} kW` : '—'}</p>
+              <p className="text-2xl font-semibold text-slate-900 mb-1">{dcChargingLabel || t.notSupported}</p>
               <p className="text-xs text-slate-500">{t.maxChargingPowerDCDescription}</p>
             </div>
 
@@ -816,7 +824,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                 <h3 className="font-bold text-slate-900 uppercase text-xs tracking-wide">{t.fastChargingDC}</h3>
               </div>
               <p className="text-2xl font-semibold text-slate-900 mb-1">
-                {car.charging_port?.dc_type ? car.charging_port.dc_type : t.notSupported}
+                {dcChargingLabel || t.notSupported}
               </p>
               <p className="text-xs text-slate-500">{t.fastChargingDCDescription}</p>
             </div>
