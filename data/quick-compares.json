@@ -1,1 +1,263 @@
-[]
+[
+  {
+    "slug": "volkswagen-tiguan-phev-vs-peugeot-3008-phev",
+    "vehicle1Id": "vw-3",
+    "vehicle2Id": "new-67",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Volkswagen Tiguan vs Peugeot 3008 PHEV Comparison",
+    "metaDescription": "Compare Volkswagen Tiguan and Peugeot 3008 by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "citroen-c5-aircross-ii-phev-vs-ford-kuga-phev",
+    "vehicle1Id": "citroen-c5-aircross-ii",
+    "vehicle2Id": "ford-1",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Citroen C5 Aircross II vs Ford Kuga PHEV Comparison",
+    "metaDescription": "Compare Citroen C5 Aircross II and Ford Kuga by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "koda-kodiaq-phev-vs-volkswagen-tiguan-phev",
+    "vehicle1Id": "skoda-kodiaq",
+    "vehicle2Id": "vw-3",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Škoda Kodiaq vs Volkswagen Tiguan PHEV Comparison",
+    "metaDescription": "Compare Škoda Kodiaq and Volkswagen Tiguan by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "mg-hs-ii-1-5t-vs-peugeot-3008-phev",
+    "vehicle1Id": "mg-3",
+    "vehicle2Id": "new-67",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "MG HS II 1.5T vs Peugeot 3008 PHEV Comparison",
+    "metaDescription": "Compare MG HS II 1.5T and Peugeot 3008 by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "volkswagen-golf-phev-vs-peugeot-308-phev",
+    "vehicle1Id": "vw-1",
+    "vehicle2Id": "peugeot-2",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Volkswagen Golf vs Peugeot 308 PHEV Comparison",
+    "metaDescription": "Compare Volkswagen Golf and Peugeot 308 by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "volkswagen-golf-phev-vs-audi-a3-sportback-phev",
+    "vehicle1Id": "vw-1",
+    "vehicle2Id": "audi-1",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Volkswagen Golf vs Audi A3 Sportback PHEV Comparison",
+    "metaDescription": "Compare Volkswagen Golf and Audi A3 Sportback by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "renault-rafale-phev-vs-mg-hs-ii-1-5t",
+    "vehicle1Id": "new-72",
+    "vehicle2Id": "mg-3",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Renault Rafale vs MG HS II 1.5T PHEV Comparison",
+    "metaDescription": "Compare Renault Rafale and MG HS II 1.5T by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "jeep-wrangler-4xe-rubicon-phev-vs-jeep-compass-4xe-240hp-phev",
+    "vehicle1Id": "jeep-wrangler-4xe-rubicon",
+    "vehicle2Id": "jeep-compass-4xe-240hp",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Jeep Wrangler 4xe Rubicon vs Jeep Compass 4xe PHEV Comparison",
+    "metaDescription": "Compare Jeep Wrangler 4xe Rubicon and Jeep Compass 4xe by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "jeep-compass-4xe-240hp-phev-vs-jeep-renegade-4xe-240hp-phev",
+    "vehicle1Id": "jeep-compass-4xe-240hp",
+    "vehicle2Id": "jeep-renegade-4xe-240hp",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Jeep Compass 4xe vs Jeep Renegade 4xe 240HP PHEV Comparison",
+    "metaDescription": "Compare Jeep Compass 4xe and Jeep Renegade 4xe 240HP by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "kia-niro-ii-2025-vs-mg-hs-ii-1-5t",
+    "vehicle1Id": "kia-niro-ii-2025",
+    "vehicle2Id": "mg-3",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Kia Niro II vs MG HS II 1.5T PHEV Comparison",
+    "metaDescription": "Compare Kia Niro II and MG HS II 1.5T by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "mg-hs-ii-1-5t-vs-cupra-formentor-204hp-phev",
+    "vehicle1Id": "mg-3",
+    "vehicle2Id": "cupra-formentor-204hp",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "MG HS II 1.5T vs CUPRA Formentor 1.4 TSI 204hp e-Hybrid PHEV Comparison",
+    "metaDescription": "Compare MG HS II 1.5T and CUPRA Formentor 1.4 TSI 204hp e-Hybrid by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev",
+    "vehicle1Id": "land-rover-range-rover-evoque-phev",
+    "vehicle2Id": "land-rover-range-rover-velar-phev",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Land Rover Range Rover Evoque P300e vs Land Rover Range Rover Velar P400e PHEV Comparison",
+    "metaDescription": "Compare Land Rover Range Rover Evoque P300e and Land Rover Range Rover Velar P400e by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev",
+    "vehicle1Id": "land-rover-defender-110-phev",
+    "vehicle2Id": "land-rover-discovery-sport-phev",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Land Rover Defender 110 P400e vs Land Rover Discovery Sport P300e PHEV Comparison",
+    "metaDescription": "Compare Land Rover Defender 110 P400e and Land Rover Discovery Sport P300e by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev",
+    "vehicle1Id": "lexus-nx-450h-plus-phev",
+    "vehicle2Id": "lexus-rx-450h-plus-phev",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Lexus NX 450h+ vs Lexus RX 450h+ PHEV Comparison",
+    "metaDescription": "Compare Lexus NX 450h+ and Lexus RX 450h+ by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "lexus-es-300h-phev-vs-lexus-ux-300e-phev",
+    "vehicle1Id": "lexus-es-300h-phev",
+    "vehicle2Id": "lexus-ux-300e-phev",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Lexus ES 300h PHEV vs Lexus UX 300e PHEV PHEV Comparison",
+    "metaDescription": "Compare Lexus ES 300h PHEV and Lexus UX 300e PHEV by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "peugeot-508-phev-vs-peugeot-308-phev",
+    "vehicle1Id": "peugeot-508",
+    "vehicle2Id": "peugeot-2",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Peugeot 508 vs Peugeot 308 PHEV Comparison",
+    "metaDescription": "Compare Peugeot 508 and Peugeot 308 by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "peugeot-508-sw-phev-vs-peugeot-308-sw-phev",
+    "vehicle1Id": "peugeot-508-sw",
+    "vehicle2Id": "peugeot-308-sw",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Peugeot 508 SW vs Peugeot 308 SW PHEV Comparison",
+    "metaDescription": "Compare Peugeot 508 SW and Peugeot 308 SW by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "peugeot-508-phev-vs-audi-a3-sportback-phev",
+    "vehicle1Id": "peugeot-508",
+    "vehicle2Id": "audi-1",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Peugeot 508 vs Audi A3 Sportback PHEV Comparison",
+    "metaDescription": "Compare Peugeot 508 and Audi A3 Sportback by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "porsche-panamera-4-phev-vs-porsche-cayenne-phev",
+    "vehicle1Id": "new-71",
+    "vehicle2Id": "new-70",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Porsche Panamera 4 vs Porsche Cayenne PHEV Comparison",
+    "metaDescription": "Compare Porsche Panamera 4 and Porsche Cayenne by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "porsche-cayenne-phev-vs-porsche-macan-phev",
+    "vehicle1Id": "new-70",
+    "vehicle2Id": "porsche-macan-phev",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Porsche Cayenne vs Porsche Macan PHEV Comparison",
+    "metaDescription": "Compare Porsche Cayenne and Porsche Macan by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "renault-rafale-phev-vs-renault-captur-e-tech-phev",
+    "vehicle1Id": "new-72",
+    "vehicle2Id": "renault-captur-e-tech",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Renault Rafale vs Renault Captur E-TECH PHEV Comparison",
+    "metaDescription": "Compare Renault Rafale and Renault Captur E-TECH by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "seat-leon-sportstourer-1-4-e-hybrid-vs-seat-leon-1-5-tsi",
+    "vehicle1Id": "seat-4",
+    "vehicle2Id": "seat-2",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "SEAT Leon IV Sportstourer 1.4 e-Hybrid vs SEAT Leon IV 1.5 TSI PHEV Comparison",
+    "metaDescription": "Compare SEAT Leon IV Sportstourer 1.4 e-Hybrid and SEAT Leon IV 1.5 TSI by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "koda-kodiaq-phev-vs-koda-superb-combi-phev",
+    "vehicle1Id": "skoda-kodiaq",
+    "vehicle2Id": "skoda-superb-combi",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Škoda Kodiaq vs Škoda Superb Combi PHEV Comparison",
+    "metaDescription": "Compare Škoda Kodiaq and Škoda Superb Combi by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "koda-superb-combi-phev-vs-koda-superb-sedan-phev",
+    "vehicle1Id": "skoda-superb-combi",
+    "vehicle2Id": "skoda-superb-sedan",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Škoda Superb Combi vs Škoda Superb PHEV Comparison",
+    "metaDescription": "Compare Škoda Superb Combi and Škoda Superb by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "suzuki-across-phev-vs-toyota-rav4-phev",
+    "vehicle1Id": "suzuki-across-phev",
+    "vehicle2Id": "toyota-2",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Suzuki Across vs Toyota RAV4 PHEV Comparison",
+    "metaDescription": "Compare Suzuki Across and Toyota RAV4 by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "suzuki-across-phev-vs-hyundai-tucson-iv-facelift-268hp-phev",
+    "vehicle1Id": "suzuki-across-phev",
+    "vehicle2Id": "hyundai-tucson-iv-facelift-268hp",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Suzuki Across vs Hyundai Tucson IV (facelift 2024) PHEV Comparison",
+    "metaDescription": "Compare Suzuki Across and Hyundai Tucson IV (facelift 2024) by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "toyota-rav4-phev-vs-toyota-c-hr-phev",
+    "vehicle1Id": "toyota-2",
+    "vehicle2Id": "new-76",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Toyota RAV4 vs Toyota C-HR PHEV Comparison",
+    "metaDescription": "Compare Toyota RAV4 and Toyota C-HR by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "toyota-prius-phev-vs-toyota-crown-phev",
+    "vehicle1Id": "toyota-1",
+    "vehicle2Id": "toyota-crown-phev",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Toyota Prius vs Toyota Crown PHEV Comparison",
+    "metaDescription": "Compare Toyota Prius and Toyota Crown by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "toyota-rav4-phev-vs-suzuki-across-phev",
+    "vehicle1Id": "toyota-2",
+    "vehicle2Id": "suzuki-across-phev",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Toyota RAV4 vs Suzuki Across PHEV Comparison",
+    "metaDescription": "Compare Toyota RAV4 and Suzuki Across by electric range, battery, power, consumption and emissions."
+  }
+]

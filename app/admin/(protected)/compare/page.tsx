@@ -11,17 +11,36 @@ interface QuickCompare {
   vehicle2Id: string
 }
 
+interface Vehicle {
+  id: string
+  brand: string
+  model: string
+}
+
 export default function CompareListPage() {
   const [items, setItems] = useState<QuickCompare[]>([])
+  const [vehicles, setVehicles] = useState<Vehicle[]>([])
   const [loading, setLoading] = useState(true)
   const { toast } = useToast()
 
   async function load() {
     setLoading(true)
-    const res = await fetch('/api/admin/compare')
-    const data = await res.json()
-    setItems(data.items || [])
+    const [compareRes, vehiclesRes] = await Promise.all([
+      fetch('/api/admin/compare'),
+      fetch('/api/admin/vehicles'),
+    ])
+    const [compareData, vehiclesData] = await Promise.all([
+      compareRes.json(),
+      vehiclesRes.json(),
+    ])
+    setItems(compareData.items || [])
+    setVehicles(vehiclesData.items || [])
     setLoading(false)
+  }
+
+  function vehicleName(id: string) {
+    const vehicle = vehicles.find((item) => item.id === id)
+    return vehicle ? `${vehicle.brand} ${vehicle.model}` : id
   }
 
   useEffect(() => {
@@ -77,8 +96,8 @@ export default function CompareListPage() {
             {items.map((c) => (
               <tr key={c.slug}>
                 <td className="px-4 py-3 font-medium text-slate-900">{c.slug}</td>
-                <td className="px-4 py-3">{c.vehicle1Id}</td>
-                <td className="px-4 py-3">{c.vehicle2Id}</td>
+                <td className="px-4 py-3">{vehicleName(c.vehicle1Id)}</td>
+                <td className="px-4 py-3">{vehicleName(c.vehicle2Id)}</td>
                 <td className="px-4 py-3 text-right space-x-3">
                   <Link href={`/admin/compare/${c.slug}`} className="text-slate-600 hover:text-slate-900 underline">
                     Edit
