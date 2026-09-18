@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { blogStore } from '@/lib/admin/data-store'
 import { blogPostSchema } from '@/lib/admin/validation'
+import { buildLocalizedBlogFields } from '@/lib/admin/translate'
 
 export async function GET(_request: NextRequest, { params }: { params: { slug: string } }) {
   const { items } = await blogStore.list()
@@ -22,18 +23,23 @@ export async function PUT(request: NextRequest, { params }: { params: { slug: st
 
     const existing = items[index]
     const wordCount = data.content.trim().split(/\s+/).filter(Boolean).length
+    const localizedFields = await buildLocalizedBlogFields(
+      {
+        title: data.title,
+        excerpt: data.excerpt,
+        content: data.content,
+        metaTitle: data.meta_title,
+        metaDescription: data.meta_description,
+      },
+      data.source_locale,
+      data.auto_translate,
+      existing
+    )
     const updated = {
       ...existing,
       slug: data.slug,
-      title: data.title,
-      title_en: data.title,
-      excerpt: data.excerpt,
-      excerpt_en: data.excerpt,
-      content: data.content,
-      content_en: data.content,
+      ...localizedFields,
       featured_image: data.featured_image,
-      meta_title: data.meta_title,
-      meta_description: data.meta_description,
       status: data.status,
       read_time: Math.max(1, Math.round(wordCount / 200)),
       updated_at: new Date().toISOString().split('T')[0],

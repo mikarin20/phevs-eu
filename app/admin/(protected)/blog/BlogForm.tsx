@@ -22,6 +22,8 @@ const formSchema = z.object({
   featured_image: z.string().min(1, 'Required'),
   meta_title: z.string().optional(),
   meta_description: z.string().optional(),
+  source_locale: z.enum(['tr', 'en', 'de', 'pl']),
+  auto_translate: z.boolean(),
   status: z.enum(['draft', 'published']),
 })
 
@@ -50,6 +52,8 @@ export default function BlogForm({ mode, postSlug, defaultValues }: BlogFormProp
       excerpt: '',
       content: '',
       featured_image: '',
+      source_locale: 'tr',
+      auto_translate: true,
       status: 'draft',
       ...defaultValues,
     },
@@ -90,6 +94,23 @@ export default function BlogForm({ mode, postSlug, defaultValues }: BlogFormProp
           <CardTitle>Post Content</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <Label>Source Language</Label>
+              <Select {...register('source_locale')}>
+                <option value="tr">Turkish</option>
+                <option value="en">English</option>
+                <option value="de">German</option>
+                <option value="pl">Polish</option>
+              </Select>
+            </div>
+            <div className="flex items-end pb-2">
+              <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
+                <input type="checkbox" {...register('auto_translate')} className="h-4 w-4" />
+                Automatically translate to the other 3 languages on save
+              </label>
+            </div>
+          </div>
           <div>
             <Label>Title</Label>
             <Input {...register('title')} onBlur={handleAutoSlug} />
@@ -147,7 +168,7 @@ export default function BlogForm({ mode, postSlug, defaultValues }: BlogFormProp
 
       <div className="flex gap-3">
         <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Saving…' : mode === 'create' ? 'Create Post' : 'Save Changes'}
+          {isSubmitting ? 'Saving and translating…' : mode === 'create' ? 'Create Post' : 'Save Changes'}
         </Button>
         <Button type="button" variant="outline" onClick={() => router.push('/admin/blog')}>
           Cancel

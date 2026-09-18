@@ -48,6 +48,8 @@ export const blogPostSchema = z.object({
   featured_image: z.string().min(1, 'Cover image is required'),
   meta_title: z.string().optional(),
   meta_description: z.string().optional(),
+  source_locale: z.enum(['tr', 'en', 'de', 'pl']).default('tr'),
+  auto_translate: z.boolean().default(true),
   status: z.enum(['draft', 'published']).default('draft'),
 })
 export type BlogPostInput = z.infer<typeof blogPostSchema>

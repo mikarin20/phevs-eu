@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { blogStore } from '@/lib/admin/data-store'
 import { blogPostSchema } from '@/lib/admin/validation'
+import { buildLocalizedBlogFields } from '@/lib/admin/translate'
 
 export async function GET() {
   try {
@@ -25,15 +26,21 @@ export async function POST(request: NextRequest) {
 
     const now = new Date().toISOString().split('T')[0]
     const wordCount = data.content.trim().split(/\s+/).filter(Boolean).length
+    const localizedFields = await buildLocalizedBlogFields(
+      {
+        title: data.title,
+        excerpt: data.excerpt,
+        content: data.content,
+        metaTitle: data.meta_title,
+        metaDescription: data.meta_description,
+      },
+      data.source_locale,
+      data.auto_translate
+    )
     const newPost = {
       id: data.slug,
       slug: data.slug,
-      title: data.title,
-      title_en: data.title,
-      excerpt: data.excerpt,
-      excerpt_en: data.excerpt,
-      content: data.content,
-      content_en: data.content,
+      ...localizedFields,
       author: 'PHEVs.eu Team',
       author_en: 'PHEVs.eu Team',
       published_at: now,
@@ -44,8 +51,6 @@ export async function POST(request: NextRequest) {
       featured_image: data.featured_image,
       read_time: Math.max(1, Math.round(wordCount / 200)),
       related_cars: [] as string[],
-      meta_title: data.meta_title,
-      meta_description: data.meta_description,
       status: data.status,
     }
 

@@ -21,6 +21,14 @@ interface BlogPost {
   content_en: string
   content_de?: string
   content_pl?: string
+  meta_title?: string
+  meta_title_en?: string
+  meta_title_de?: string
+  meta_title_pl?: string
+  meta_description?: string
+  meta_description_en?: string
+  meta_description_de?: string
+  meta_description_pl?: string
   author: string
   author_en: string
   author_de?: string
@@ -62,8 +70,10 @@ export async function generateMetadata({ params, searchParams }: BlogDetailProps
 
   const baseUrl = 'https://phevs.eu'
   const currentUrl = `${baseUrl}/blog/${params.slug}`
-  const title = locale === 'en' ? post.title_en : locale === 'de' ? (post.title_de || post.title_en || post.title) : locale === 'pl' ? (post.title_pl || post.title_en || post.title) : post.title
-  const description = locale === 'en' ? post.excerpt_en : locale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : locale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt
+  const localizedTitle = locale === 'en' ? post.title_en : locale === 'de' ? (post.title_de || post.title_en || post.title) : locale === 'pl' ? (post.title_pl || post.title_en || post.title) : post.title
+  const localizedExcerpt = locale === 'en' ? post.excerpt_en : locale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : locale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt
+  const title = locale === 'en' ? (post.meta_title_en || localizedTitle) : locale === 'de' ? (post.meta_title_de || localizedTitle) : locale === 'pl' ? (post.meta_title_pl || localizedTitle) : (post.meta_title || localizedTitle)
+  const description = locale === 'en' ? (post.meta_description_en || localizedExcerpt) : locale === 'de' ? (post.meta_description_de || localizedExcerpt) : locale === 'pl' ? (post.meta_description_pl || localizedExcerpt) : (post.meta_description || localizedExcerpt)
   
   // Görsel URL'ini mutlak URL'e çevir (SEO için önemli)
   const featuredImageUrl = post.featured_image.startsWith('http') 
