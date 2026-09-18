@@ -5463,7 +5463,8 @@
     "battery_chemistry": "NCM",
     "battery_voltage": 355,
     "charging_capabilities": {
-      "ac_power": 6.6
+      "ac_power": 6.6,
+      "ac_power_note": "RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Not: RAV4 Prime SE (2022) 3.3 kW kullanır"
     },
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
@@ -5482,11 +5483,7 @@
     },
     "battery_architecture": "modular",
     "slug": "toyota-rav4-phev",
-    "updated_at": "2024-10-24",
-    "charging_capabilities": {
-      "ac_power": 6.6,
-      "ac_power_note": "RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Not: RAV4 Prime SE (2022) 3.3 kW kullanır"
-    }
+    "updated_at": "2024-10-24"
   },
   {
     "id": "toyota-crown-phev",
@@ -7096,5 +7093,31 @@
     "battery_architecture": "modular",
     "slug": "renault-captur-e-tech-phev",
     "updated_at": "2024-10-24"
+  },
+  {
+    "id": "mg-s9-2026",
+    "slug": "mg-s9-phev",
+    "brand": "MG",
+    "model": "S9",
+    "year": 2026,
+    "battery_kwh": 24.7,
+    "ev_range_km": 100,
+    "power_hp": 299,
+    "acceleration_0_100": 0,
+    "price_eur": 0,
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "charging_capabilities": {},
+    "features": [],
+    "image_url": "https://mgmotor.imgix.net/images/model/MGS9-PHEV/section-mgs9-full-image-new.jpg?auto=compress,format&crop=focalpoint&fit=crop&fm=auto&fp-x=0.5&fp-y=0.5&h=740&q=75&ratio=1.3333333333333&w=1360",
+    "segment": "SUV",
+    "fuel_consumption": 0,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "last_updated": "2026-09-18"
   }
 ]
