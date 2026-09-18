@@ -7121,8 +7121,17 @@
     "weight_kg": 1863,
     "trunk_volume": 450,
     "seats": 5,
-    "warranty_years": 7,
+    "warranty_years": 3,
     "country_availability": "EU",
-    "last_updated": "2026-09-18"
+    "last_updated": "2026-09-18",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 84,
+      "child_occupant": 85,
+      "pedestrian_protection": 74,
+      "safety_assist": 77,
+      "overall_rating": 76,
+      "test_year": 2026
+    }
   }
 ]
