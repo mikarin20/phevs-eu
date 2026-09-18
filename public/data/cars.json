@@ -2702,7 +2702,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.4
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "kia-niro-i-2019",
@@ -2743,7 +2744,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.4
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "kia-optima-iv-2018-facelift",
@@ -2775,7 +2777,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.4
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "kia-optima-iv-2018",
@@ -2807,7 +2810,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.4
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "kia-optima-iv-sportswagon-2018-facelift",
@@ -2839,7 +2843,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.4
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "kia-optima-iv-sportswagon-2018",
@@ -2871,7 +2876,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 7.4
-    }
+    },
+    "engine_displacement": 2
   },
   {
     "id": "kia-k3-sedan-ii",
@@ -2903,7 +2909,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "kia-xceed-2022-facelift",
@@ -2935,7 +2942,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "kia-xceed-2022",
@@ -2967,7 +2975,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021-facelift",
@@ -2999,7 +3008,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021",
@@ -3031,7 +3041,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "engine_displacement": 1.6
   },
   {
     "id": "bmw-5-series-touring-550e",
@@ -3464,116 +3475,6 @@
     "transmission": "CVT",
     "slug": "lexus-rx-450h-plus-phev",
     "updated_at": "2024-10-24",
-    "charging_capabilities": {
-      "ac_power": 6.6
-    }
-  },
-  {
-    "id": "lexus-es-300h-phev",
-    "brand": "Lexus",
-    "model": "ES 300h PHEV",
-    "year": 2025,
-    "segment": "Sedan",
-    "ev_range_km": 70,
-    "fuel_consumption": 1.2,
-    "battery_kwh": 18.1,
-    "image_url": "/images/cars/brands/lexus/es-300h-phev/main.jpg",
-    "power_hp": 215,
-    "co2_emission": 27,
-    "charge_time_ac": 2.5,
-    "charge_time_dc": 0.5,
-    "trunk_volume": 454,
-    "seats": 5,
-    "warranty_years": 5,
-    "weight_kg": 1850,
-    "length_mm": 4975,
-    "width_mm": 1865,
-    "height_mm": 1445,
-    "wheelbase_mm": 2870,
-    "max_trunk_volume": 454,
-    "electric_motor_power_hp": 88,
-    "engine_displacement": 2.5,
-    "battery_chemistry": "NCM",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left",
-      "ac_phases": 3,
-      "ac_current": 32
-    },
-    "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 73,
-      "safety_assist": 95,
-      "overall_rating": 87,
-      "test_year": 2021
-    },
-    "battery_architecture": "modular",
-    "drivetrain": "FWD",
-    "transmission": "CVT",
-    "slug": "lexus-es-300h-phev",
-    "updated_at": "2024-10-23",
-    "charging_capabilities": {
-      "ac_power": 6.6
-    }
-  },
-  {
-    "id": "lexus-ux-300e-phev",
-    "brand": "Lexus",
-    "model": "UX 300e PHEV",
-    "year": 2025,
-    "segment": "SUV",
-    "ev_range_km": 55,
-    "fuel_consumption": 1.3,
-    "battery_kwh": 18.1,
-    "image_url": "/images/cars/brands/lexus/ux-300e-phev/main.jpg",
-    "power_hp": 215,
-    "co2_emission": 29,
-    "charge_time_ac": 2.5,
-    "charge_time_dc": 0.5,
-    "trunk_volume": 320,
-    "seats": 5,
-    "warranty_years": 5,
-    "weight_kg": 1750,
-    "length_mm": 4495,
-    "width_mm": 1840,
-    "height_mm": 1520,
-    "wheelbase_mm": 2640,
-    "max_trunk_volume": 320,
-    "electric_motor_power_hp": 88,
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
-      "ac_location": "Front left",
-      "dc_type": "CCS Combo 2",
-      "dc_location": "Front left",
-      "ac_phases": 3,
-      "ac_current": 32
-    },
-    "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 73,
-      "safety_assist": 95,
-      "overall_rating": 87,
-      "test_year": 2021
-    },
-    "battery_architecture": "modular",
-    "drivetrain": "FWD",
-    "transmission": "CVT",
-    "slug": "lexus-ux-300e-phev",
-    "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 6.6
     }
@@ -4087,9 +3988,9 @@
     "model": "GLC Coupé",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 100,
+    "ev_range_km": 125,
     "fuel_consumption": 1.8,
-    "battery_kwh": 25.4,
+    "battery_kwh": 31.2,
     "image_url": "/images/cars/brands/mercedes-benz/glc-coupe-phev/main.jpg",
     "power_hp": 313,
     "co2_emission": 41,
@@ -4140,11 +4041,12 @@
     "dc_charging_supported": true,
     "dc_max_power_kw": 60,
     "charging_capabilities": {
-      "ac_power": 7.2,
+      "ac_power": 11,
       "dc_power": 60
     },
     "slug": "mercedes-benz-glc-coup-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "weight_kg": 2360
   },
   {
     "id": "mercedes-7",
@@ -4152,9 +4054,9 @@
     "model": "GLE Coupé",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 90,
+    "ev_range_km": 105,
     "fuel_consumption": 1.8,
-    "battery_kwh": 25.4,
+    "battery_kwh": 31.2,
     "image_url": "/images/cars/brands/mercedes-benz/gle-coupe-phev/main.jpg",
     "power_hp": 381,
     "co2_emission": 41,
@@ -4205,11 +4107,12 @@
     "dc_charging_supported": true,
     "dc_max_power_kw": 60,
     "charging_capabilities": {
-      "ac_power": 7.2,
+      "ac_power": 11,
       "dc_power": 60
     },
     "slug": "mercedes-benz-gle-coup-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "weight_kg": 2690
   },
   {
     "id": "mercedesbenz-sclass",
@@ -4985,11 +4888,11 @@
     "model": "Panamera 4",
     "year": 2025,
     "segment": "Sedan",
-    "ev_range_km": 50,
+    "ev_range_km": 91,
     "fuel_consumption": 1.1,
-    "battery_kwh": 17.9,
+    "battery_kwh": 25.9,
     "image_url": "/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg",
-    "power_hp": 340,
+    "power_hp": 470,
     "co2_emission": 25,
     "charge_time_ac": 2.3,
     "trunk_volume": 500,
@@ -5015,8 +4918,9 @@
     "slug": "porsche-panamera-4-phev",
     "updated_at": "2024-10-23",
     "charging_capabilities": {
-      "ac_power": 7.2
-    }
+      "ac_power": 11
+    },
+    "weight_kg": 2235
   },
   {
     "id": "new-72",
@@ -5024,7 +4928,7 @@
     "model": "Rafale",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 65,
+    "ev_range_km": 100,
     "fuel_consumption": 1.2,
     "battery_kwh": 22,
     "image_url": "/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp",
@@ -5268,7 +5172,7 @@
     "segment": "SUV",
     "ev_range_km": 66,
     "fuel_consumption": 0.9,
-    "battery_kwh": 18.1,
+    "battery_kwh": 13.6,
     "image_url": "/images/cars/brands/toyota/c-hr-plug-in-hybrid/main.jpg",
     "power_hp": 223,
     "co2_emission": 20,
@@ -5451,12 +5355,12 @@
     "model": "Golf",
     "year": 2025,
     "segment": "Hatchback",
-    "ev_range_km": 70,
-    "fuel_consumption": 1.2,
-    "battery_kwh": 13,
+    "ev_range_km": 143,
+    "fuel_consumption": 0.3,
+    "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/volkswagen/golf/main.jpg",
     "power_hp": 204,
-    "co2_emission": 25,
+    "co2_emission": 6,
     "charge_time_ac": 3.5,
     "trunk_volume": 273,
     "seats": 5,
@@ -5468,7 +5372,7 @@
     "wheelbase_mm": 2636,
     "max_trunk_volume": 1129,
     "electric_motor_power_hp": 116,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -5477,7 +5381,7 @@
     },
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -5492,7 +5396,9 @@
     },
     "battery_architecture": "modular",
     "slug": "volkswagen-golf-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50
   },
   {
     "id": "vw-2",
@@ -5500,12 +5406,12 @@
     "model": "Passat",
     "year": 2025,
     "segment": "Estate",
-    "ev_range_km": 70,
-    "fuel_consumption": 1.2,
-    "battery_kwh": 13,
+    "ev_range_km": 133,
+    "fuel_consumption": 0.4,
+    "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/volkswagen/passat/main.jpg",
-    "power_hp": 218,
-    "co2_emission": 25,
+    "power_hp": 204,
+    "co2_emission": 9,
     "charge_time_ac": 3.5,
     "trunk_volume": 650,
     "seats": 5,
@@ -5517,7 +5423,7 @@
     "wheelbase_mm": 2841,
     "max_trunk_volume": 650,
     "electric_motor_power_hp": 115,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -5553,7 +5459,7 @@
     "model": "Tayron",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 110,
+    "ev_range_km": 116,
     "fuel_consumption": 1.5,
     "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/volkswagen/tayron/main.jpg",
@@ -5570,7 +5476,7 @@
     "wheelbase_mm": 2731,
     "max_trunk_volume": 500,
     "electric_motor_power_hp": 116,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -5579,7 +5485,7 @@
     },
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,PL",
@@ -5594,7 +5500,9 @@
     },
     "battery_architecture": "modular",
     "slug": "volkswagen-tayron-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50
   },
   {
     "id": "vw-3",
@@ -5602,12 +5510,12 @@
     "model": "Tiguan",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "ev_range_km": 125,
+    "fuel_consumption": 0.5,
+    "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/volkswagen/tiguan/main.jpg",
     "power_hp": 204,
-    "co2_emission": 30,
+    "co2_emission": 10,
     "charge_time_ac": 3.5,
     "trunk_volume": 490,
     "seats": 5,
@@ -5619,7 +5527,7 @@
     "wheelbase_mm": 2681,
     "max_trunk_volume": 1486,
     "electric_motor_power_hp": 115,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 353,
     "charging_port": {
@@ -5704,11 +5612,11 @@
     "model": "Multivan",
     "year": 2025,
     "segment": "Van",
-    "ev_range_km": 60,
+    "ev_range_km": 95,
     "fuel_consumption": 1.5,
-    "battery_kwh": 13,
+    "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/volkswagen/multivan-phev/main.jpg",
-    "power_hp": 218,
+    "power_hp": 245,
     "co2_emission": 30,
     "charge_time_ac": 3.5,
     "trunk_volume": 1000,
@@ -5724,7 +5632,7 @@
       "overall_rating": 81,
       "test_year": 2021
     },
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "Li-Ion",
     "battery_architecture": "modular",
     "charging_port": {
@@ -5732,10 +5640,13 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 3.6
+      "ac_power": 11,
+      "dc_power": 50
     },
     "slug": "volkswagen-multivan-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50
   },
   {
     "id": "volvo-5",
@@ -5743,7 +5654,7 @@
     "model": "V60",
     "year": 2025,
     "segment": "Station/Estate",
-    "ev_range_km": 64,
+    "ev_range_km": 88,
     "fuel_consumption": 1.9,
     "battery_kwh": 18.8,
     "image_url": "/images/cars/brands/volvo/v60-recharge/main.jpg",
@@ -5775,7 +5686,8 @@
     "charging_capabilities": {
       "ac_power": 6.4,
       "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
-    }
+    },
+    "weight_kg": 2060
   },
   {
     "id": "volvo-7",
@@ -5783,7 +5695,7 @@
     "model": "V90",
     "year": 2025,
     "segment": "Station/Estate",
-    "ev_range_km": 64,
+    "ev_range_km": 84,
     "fuel_consumption": 2.1,
     "battery_kwh": 18.8,
     "image_url": "/images/cars/brands/volvo/v90-recharge/main.jpg",
@@ -5815,7 +5727,8 @@
     "charging_capabilities": {
       "ac_power": 6.4,
       "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
-    }
+    },
+    "weight_kg": 2100
   },
   {
     "id": "volvo-2",
@@ -5823,7 +5736,7 @@
     "model": "XC60",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 64,
+    "ev_range_km": 80,
     "fuel_consumption": 1.9,
     "battery_kwh": 18.8,
     "image_url": "/images/cars/brands/volvo/xc60-recharge/main.jpg",
@@ -5855,7 +5768,8 @@
     "charging_capabilities": {
       "ac_power": 6.4,
       "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
-    }
+    },
+    "weight_kg": 2150
   },
   {
     "id": "volvo-3",
@@ -5863,11 +5777,11 @@
     "model": "XC90",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 64,
+    "ev_range_km": 71,
     "fuel_consumption": 2.1,
     "battery_kwh": 18.8,
     "image_url": "/images/cars/brands/volvo/xc90-recharge/main.jpg",
-    "power_hp": 192,
+    "power_hp": 455,
     "co2_emission": 47,
     "charge_time_ac": 4,
     "trunk_volume": 314,
@@ -5895,7 +5809,8 @@
     "charging_capabilities": {
       "ac_power": 6.4,
       "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
-    }
+    },
+    "weight_kg": 2297
   },
   {
     "id": "omoda-1",
@@ -6158,58 +6073,6 @@
     "updated_at": "2024-10-24"
   },
   {
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-tarraco-1-4-tsi",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
-    "charging_capabilities": {
-      "ac_power": 11,
-      "dc_power": 50,
-      "charging_curve": {
-        "soc": [
-          0,
-          20,
-          40,
-          60,
-          80,
-          100
-        ],
-        "power": [
-          50,
-          50,
-          45,
-          35,
-          20,
-          5
-        ]
-      }
-    },
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 97,
-      "child_occupant": 84,
-      "pedestrian_protection": 79,
-      "safety_assist": 71,
-      "overall_rating": 83,
-      "test_year": 2018
-    },
-    "updated_at": "2024-10-25"
-  },
-  {
     "id": "seat-4",
     "brand": "SEAT",
     "model": "Leon IV Sportstourer 1.4 e-Hybrid",
@@ -6414,7 +6277,8 @@
       "overall_rating": 87,
       "test_year": 2019
     },
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "id": "bmw-3-series-touring-2024"
   },
   {
     "brand": "BMW",
@@ -6445,7 +6309,7 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 3.7,
+      "ac_power": 7.4,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
@@ -6460,7 +6324,8 @@
       "overall_rating": 84,
       "test_year": 2022
     },
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "id": "bmw-x1-25e-2024"
   },
   {
     "brand": "BMW",
@@ -6491,7 +6356,7 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 3.7,
+      "ac_power": 7.4,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
@@ -6506,7 +6371,8 @@
       "overall_rating": 84,
       "test_year": 2022
     },
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "id": "bmw-x1-30e-2024"
   },
   {
     "brand": "BMW",
@@ -6537,7 +6403,7 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 3.7,
+      "ac_power": 11,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
@@ -6552,14 +6418,15 @@
       "overall_rating": 87,
       "test_year": 2017
     },
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "id": "bmw-x3-30e-2024"
   },
   {
     "brand": "BMW",
     "model": "X5 50e",
     "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 80,
+    "ev_range_km": 100,
     "fuel_consumption": 2.1,
     "battery_kwh": 29.5,
     "image_url": "/images/cars/brands/bmw/bmw-x5-50e-2024/main.jpg",
@@ -6583,7 +6450,7 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 3.7,
+      "ac_power": 7.4,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
@@ -6598,19 +6465,20 @@
       "overall_rating": 81,
       "test_year": 2018
     },
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "id": "bmw-x5-50e-2024"
   },
   {
     "brand": "BMW",
     "model": "XM 4.4 V8",
     "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.5,
+    "ev_range_km": 85,
+    "fuel_consumption": 1.6,
     "battery_kwh": 29.5,
     "image_url": "/images/cars/brands/bmw/bmw-xm-44-v8-2024/main.jpg",
     "power_hp": 653,
-    "co2_emission": 30,
+    "co2_emission": 36,
     "charge_time_ac": 3.5,
     "trunk_volume": 527,
     "seats": 5,
@@ -6629,7 +6497,7 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 3.7,
+      "ac_power": 7.4,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
@@ -6644,19 +6512,20 @@
       "overall_rating": 81,
       "test_year": 2018
     },
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "id": "bmw-xm-44-v8-2024"
   },
   {
     "brand": "BMW",
     "model": "XM 50e",
     "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.5,
+    "ev_range_km": 85,
+    "fuel_consumption": 1.6,
     "battery_kwh": 29.5,
     "image_url": "/images/cars/brands/bmw/bmw-xm-50e-2024/main.jpg",
     "power_hp": 476,
-    "co2_emission": 30,
+    "co2_emission": 36,
     "charge_time_ac": 3.5,
     "trunk_volume": 527,
     "seats": 5,
@@ -6675,7 +6544,7 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 3.7,
+      "ac_power": 7.4,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
@@ -6690,19 +6559,20 @@
       "overall_rating": 81,
       "test_year": 2018
     },
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "id": "bmw-xm-50e-2024"
   },
   {
     "brand": "BMW",
     "model": "XM Label Red 4.4 V8",
     "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.5,
+    "ev_range_km": 85,
+    "fuel_consumption": 1.6,
     "battery_kwh": 29.5,
     "image_url": "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/main.jpg",
     "power_hp": 748,
-    "co2_emission": 30,
+    "co2_emission": 36,
     "charge_time_ac": 3.5,
     "trunk_volume": 527,
     "seats": 5,
@@ -6721,7 +6591,7 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 3.7,
+      "ac_power": 7.4,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
@@ -6736,7 +6606,8 @@
       "overall_rating": 81,
       "test_year": 2018
     },
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "id": "bmw-xm-label-red-44-v8-2024"
   },
   {
     "id": "peugeot-508",

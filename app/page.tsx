@@ -203,184 +203,164 @@ export default function Home() {
     {
       id: 'tiguan-3008',
       href: '/compare/volkswagen-tiguan-phev-vs-peugeot-3008-phev',
-      leftCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' },
-      rightCar: { name: 'Peugeot 3008 (2025)', image: '/images/cars/brands/peugeot/3008-plug-in-hybrid/main.jpg', alt: 'Peugeot 3008', specs: '59km • €35,000' }
+      leftCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '125 km' },
+      rightCar: { name: 'Peugeot 3008 (2025)', image: '/images/cars/brands/peugeot/3008-plug-in-hybrid/main.jpg', alt: 'Peugeot 3008', specs: '59 km' }
     },
     {
       id: 'c5-kuga',
       href: '/compare/citroen-c5-aircross-ii-phev-vs-ford-kuga-phev',
-      leftCar: { name: 'Citroën C5 Aircross (2025)', image: '/images/cars/brands/citroen/c5-aircross-ii-phev/main.jpg', alt: 'Citroën C5 Aircross', specs: '81km • €35,000' },
-      rightCar: { name: 'Ford Kuga (2025)', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '65km • €40,000' }
+      leftCar: { name: 'Citroën C5 Aircross (2025)', image: '/images/cars/brands/citroen/c5-aircross-ii-phev/main.jpg', alt: 'Citroën C5 Aircross', specs: '81 km' },
+      rightCar: { name: 'Ford Kuga (2025)', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '65 km' }
     },
     {
       id: 'kodiaq-tiguan',
       href: '/compare/koda-kodiaq-phev-vs-volkswagen-tiguan-phev',
-      leftCar: { name: 'Skoda Kodiaq iV (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq iV', specs: '60km • €38,000' },
-      rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
+      leftCar: { name: 'Skoda Kodiaq iV (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq iV', specs: '120 km' },
+      rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '125 km' }
     },
     {
       id: 'mg-3008',
       href: '/compare/mg-hs-ii-1-5t-vs-peugeot-3008-phev',
-      leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
-      rightCar: { name: 'Peugeot 3008 (2025)', image: '/images/cars/brands/peugeot/3008-plug-in-hybrid/main.jpg', alt: 'Peugeot 3008', specs: '59km • €35,000' }
+      leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75 km' },
+      rightCar: { name: 'Peugeot 3008 (2025)', image: '/images/cars/brands/peugeot/3008-plug-in-hybrid/main.jpg', alt: 'Peugeot 3008', specs: '59 km' }
     },
     {
       id: 'golf-308',
       href: '/compare/volkswagen-golf-phev-vs-peugeot-308-phev',
-      leftCar: { name: 'VW Golf GTE (2025)', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '70km • €35,000' },
-      rightCar: { name: 'Peugeot 308 (2025)', image: '/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg', alt: 'Peugeot 308', specs: '85km • €37,400' }
+      leftCar: { name: 'VW Golf GTE (2025)', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '143 km' },
+      rightCar: { name: 'Peugeot 308 (2025)', image: '/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg', alt: 'Peugeot 308', specs: '85 km' }
     },
     {
       id: 'golf-a3',
       href: '/compare/volkswagen-golf-phev-vs-audi-a3-sportback-phev',
-      leftCar: { name: 'VW Golf GTE (2025)', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '70km • €35,000' },
-      rightCar: { name: 'Audi A3 Sportback (2025)', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '130km • €44,200' }
+      leftCar: { name: 'VW Golf GTE (2025)', image: '/images/cars/brands/volkswagen/golf/main.jpg', alt: 'Volkswagen Golf GTE', specs: '143 km' },
+      rightCar: { name: 'Audi A3 Sportback (2025)', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '133 km' }
     },
     {
       id: 'renault-mg',
       href: '/compare/renault-rafale-phev-vs-mg-hs-ii-1-5t',
-      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp', alt: 'Renault Rafale', specs: '65km • €35,000' },
-      rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp', alt: 'Renault Rafale', specs: '100 km' },
+      rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75 km' }
     },
     {
       id: 'jeep-wrangler-compass',
       href: '/compare/jeep-wrangler-4xe-rubicon-phev-vs-jeep-compass-4xe-240hp-phev',
-      leftCar: { name: 'Jeep Wrangler 4xe (2025)', image: '/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg', alt: 'Jeep Wrangler 4xe', specs: '45km • €65,000' },
-      rightCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' }
+      leftCar: { name: 'Jeep Wrangler 4xe (2025)', image: '/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg', alt: 'Jeep Wrangler 4xe', specs: '45 km' },
+      rightCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56 km' }
     },
     {
       id: 'jeep-compass-renegade',
       href: '/compare/jeep-compass-4xe-240hp-phev-vs-jeep-renegade-4xe-240hp-phev',
-      leftCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56km • €42,000' },
-      rightCar: { name: 'Jeep Renegade 4xe (2025)', image: '/images/cars/brands/jeep/renegade-4xe-240hp/main.jpeg', alt: 'Jeep Renegade 4xe', specs: '42km • €35,000' }
+      leftCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56 km' },
+      rightCar: { name: 'Jeep Renegade 4xe (2025)', image: '/images/cars/brands/jeep/renegade-4xe-240hp/main.jpeg', alt: 'Jeep Renegade 4xe', specs: '42 km' }
     },
     {
       id: 'kia-mg',
       href: '/compare/kia-niro-ii-2025-vs-mg-hs-ii-1-5t',
-      leftCar: { name: 'Kia Niro (2025)', image: '/images/cars/brands/kia/niro-ii-2025/main.jpg', alt: 'Kia Niro', specs: '57km • €40,000' },
-      rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
+      leftCar: { name: 'Kia Niro (2025)', image: '/images/cars/brands/kia/niro-ii-2025/main.jpg', alt: 'Kia Niro', specs: '57 km' },
+      rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75 km' }
     },
     {
       id: 'mg-cupra',
       href: '/compare/mg-hs-ii-1-5t-vs-cupra-formentor-204hp-phev',
-      leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75km • €32,000' },
-      rightCar: { name: 'Cupra Formentor (2025)', image: '/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '65km • €42,000' }
+      leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75 km' },
+      rightCar: { name: 'Cupra Formentor (2025)', image: '/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '65 km' }
     },
     {
       id: 'land-rover-evoque-velar',
       href: '/compare/land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev',
-      leftCar: { name: 'Range Rover Evoque (2025)', image: '/images/cars/brands/land-rover/range-rover-evoque/main.jpg', alt: 'Range Rover Evoque', specs: '55km • €58,000' },
-      rightCar: { name: 'Range Rover Velar (2025)', image: '/images/cars/brands/land-rover/range-rover-velar/main.jpg', alt: 'Range Rover Velar', specs: '53km • €72,000' }
+      leftCar: { name: 'Range Rover Evoque (2025)', image: '/images/cars/brands/land-rover/range-rover-evoque/main.jpg', alt: 'Range Rover Evoque', specs: '55 km' },
+      rightCar: { name: 'Range Rover Velar (2025)', image: '/images/cars/brands/land-rover/range-rover-velar/main.jpg', alt: 'Range Rover Velar', specs: '53 km' }
     },
     {
       id: 'land-rover-defender-discovery',
       href: '/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
-      leftCar: { name: 'Land Rover Defender (2025)', image: '/images/cars/brands/land-rover/defender-110/main.jpg', alt: 'Land Rover Defender', specs: '43km • €75,000' },
-      rightCar: { name: 'Discovery Sport (2025)', image: '/images/cars/brands/land-rover/discovery-sport/main.jpg', alt: 'Discovery Sport', specs: '55km • €52,000' }
+      leftCar: { name: 'Land Rover Defender (2025)', image: '/images/cars/brands/land-rover/defender-110/main.jpg', alt: 'Land Rover Defender', specs: '43 km' },
+      rightCar: { name: 'Discovery Sport (2025)', image: '/images/cars/brands/land-rover/discovery-sport/main.jpg', alt: 'Discovery Sport', specs: '55 km' }
     },
     {
       id: 'lexus-nx-rx',
       href: '/compare/lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev',
-      leftCar: { name: 'Lexus NX 450h+ (2025)', image: '/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg', alt: 'Lexus NX 450h+', specs: '76km • €52,000' },
-      rightCar: { name: 'Lexus RX 450h+ (2025)', image: '/images/cars/brands/lexus/rx-450h-plus-phev/main.jpg', alt: 'Lexus RX 450h+', specs: '65km • €68,000' }
-    },
-    {
-      id: 'lexus-es-ux',
-      href: '/compare/lexus-es-300h-phev-vs-lexus-ux-300e-phev',
-      leftCar: { name: 'Lexus ES 300h (2025)', image: '/images/cars/brands/lexus/es-300h-phev/main.jpg', alt: 'Lexus ES 300h', specs: '70km • €55,000' },
-      rightCar: { name: 'Lexus UX 300e (2025)', image: '/images/cars/brands/lexus/ux-300e-phev/main.jpg', alt: 'Lexus UX 300e', specs: '55km • €45,000' }
+      leftCar: { name: 'Lexus NX 450h+ (2025)', image: '/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg', alt: 'Lexus NX 450h+', specs: '76 km' },
+      rightCar: { name: 'Lexus RX 450h+ (2025)', image: '/images/cars/brands/lexus/rx-450h-plus-phev/main.jpg', alt: 'Lexus RX 450h+', specs: '65 km' }
     },
     {
       id: 'peugeot-508-308',
       href: '/compare/peugeot-508-phev-vs-peugeot-308-phev',
-      leftCar: { name: 'Peugeot 508 (2025)', image: '/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg', alt: 'Peugeot 508', specs: '64km • €42,000' },
-      rightCar: { name: 'Peugeot 308 (2025)', image: '/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg', alt: 'Peugeot 308', specs: '85km • €37,400' }
+      leftCar: { name: 'Peugeot 508 (2025)', image: '/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg', alt: 'Peugeot 508', specs: '64 km' },
+      rightCar: { name: 'Peugeot 308 (2025)', image: '/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg', alt: 'Peugeot 308', specs: '85 km' }
     },
     {
       id: 'peugeot-508-sw-308-sw',
       href: '/compare/peugeot-508-sw-phev-vs-peugeot-308-sw-phev',
-      leftCar: { name: 'Peugeot 508 SW (2025)', image: '/images/cars/brands/peugeot/508-sw-plug-in-hybrid/main.jpg', alt: 'Peugeot 508 SW', specs: '64km • €44,000' },
-      rightCar: { name: 'Peugeot 308 SW (2025)', image: '/images/cars/brands/peugeot/308-sw-plug-in-hybrid/main.jpg', alt: 'Peugeot 308 SW', specs: '85km • €39,000' }
+      leftCar: { name: 'Peugeot 508 SW (2025)', image: '/images/cars/brands/peugeot/508-sw-plug-in-hybrid/main.jpg', alt: 'Peugeot 508 SW', specs: '64 km' },
+      rightCar: { name: 'Peugeot 308 SW (2025)', image: '/images/cars/brands/peugeot/308-sw-plug-in-hybrid/main.jpg', alt: 'Peugeot 308 SW', specs: '85 km' }
     },
     {
       id: 'peugeot-508-audi-a3',
       href: '/compare/peugeot-508-phev-vs-audi-a3-sportback-phev',
-      leftCar: { name: 'Peugeot 508 (2025)', image: '/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg', alt: 'Peugeot 508', specs: '64km • €42,000' },
-      rightCar: { name: 'Audi A3 Sportback (2025)', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '130km • €44,200' }
+      leftCar: { name: 'Peugeot 508 (2025)', image: '/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg', alt: 'Peugeot 508', specs: '64 km' },
+      rightCar: { name: 'Audi A3 Sportback (2025)', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '133 km' }
     },
     {
       id: 'porsche-panamera-cayenne',
       href: '/compare/porsche-panamera-4-phev-vs-porsche-cayenne-phev',
-      leftCar: { name: 'Porsche Panamera (2025)', image: '/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg', alt: 'Porsche Panamera', specs: '50km • €107,780' },
-      rightCar: { name: 'Porsche Cayenne (2025)', image: '/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg', alt: 'Porsche Cayenne', specs: '44km • €136,000' }
-    },
-    {
-      id: 'porsche-cayenne-macan',
-      href: '/compare/porsche-cayenne-phev-vs-porsche-macan-phev',
-      leftCar: { name: 'Porsche Cayenne (2025)', image: '/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg', alt: 'Porsche Cayenne', specs: '44km • €136,000' },
-      rightCar: { name: 'Porsche Macan (2024)', image: '/images/cars/brands/porsche/macan-macan-e-hybrid/main.jpg', alt: 'Porsche Macan', specs: '61km • €89,000' }
+      leftCar: { name: 'Porsche Panamera (2025)', image: '/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg', alt: 'Porsche Panamera', specs: '91 km' },
+      rightCar: { name: 'Porsche Cayenne (2025)', image: '/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg', alt: 'Porsche Cayenne', specs: '74 km' }
     },
     {
       id: 'renault-rafale-captur',
       href: '/compare/renault-rafale-phev-vs-renault-captur-e-tech-phev',
-      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp', alt: 'Renault Rafale', specs: '65km • €35,000' },
-      rightCar: { name: 'Renault Captur E-TECH (2022)', image: '/images/cars/brands/renault/captur-e-tech-phev/main.jpg', alt: 'Renault Captur E-TECH', specs: '50km • €32,000' }
+      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp', alt: 'Renault Rafale', specs: '100 km' },
+      rightCar: { name: 'Renault Captur E-TECH (2022)', image: '/images/cars/brands/renault/captur-e-tech-phev/main.jpg', alt: 'Renault Captur E-TECH', specs: '50 km' }
     },
     {
       id: 'seat-leon-sportstourer-hatchback',
       href: '/compare/seat-leon-sportstourer-1-4-e-hybrid-vs-seat-leon-1-5-tsi',
-      leftCar: { name: 'SEAT Leon Sportstourer (2025)', image: '/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/main.jpg', alt: 'SEAT Leon Sportstourer', specs: '65km • €35,000' },
-      rightCar: { name: 'SEAT Leon Hatchback (2025)', image: '/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg', alt: 'SEAT Leon Hatchback', specs: '65km • €33,000' }
+      leftCar: { name: 'SEAT Leon Sportstourer (2025)', image: '/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/main.jpg', alt: 'SEAT Leon Sportstourer', specs: '65 km' },
+      rightCar: { name: 'SEAT Leon Hatchback (2025)', image: '/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg', alt: 'SEAT Leon Hatchback', specs: '65 km' }
     },
-   
-  
     {
       id: 'skoda-kodiaq-superb',
       href: '/compare/koda-kodiaq-phev-vs-koda-superb-combi-phev',
-      leftCar: { name: 'Skoda Kodiaq (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq', specs: '60km • €38,000' },
-      rightCar: { name: 'Skoda Superb (2025)', image: '/images/cars/brands/skoda/superb-sedan-phev/main.jpg', alt: 'Skoda Superb', specs: '68km • €35,000' }
+      leftCar: { name: 'Skoda Kodiaq (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq', specs: '120 km' },
+      rightCar: { name: 'Skoda Superb (2025)', image: '/images/cars/brands/skoda/superb-sedan-phev/main.jpg', alt: 'Skoda Superb', specs: '120 km' }
     },
     {
       id: 'skoda-superb-combi-sedan',
       href: '/compare/koda-superb-combi-phev-vs-koda-superb-sedan-phev',
-      leftCar: { name: 'Skoda Superb Combi (2025)', image: '/images/cars/brands/skoda/superb-combi-phev/main.png', alt: 'Skoda Superb Combi', specs: '65km • €36,000' },
-      rightCar: { name: 'Skoda Superb (2025)', image: '/images/cars/brands/skoda/superb-sedan-phev/main.jpg', alt: 'Skoda Superb', specs: '68km • €35,000' }
-    },
-    {
-      id: 'skoda-kodiaq-vw-tiguan',
-      href: '/compare/koda-kodiaq-phev-vs-volkswagen-tiguan-phev',
-      leftCar: { name: 'Skoda Kodiaq (2025)', image: '/images/cars/brands/skoda/kodiaq-phev/main.jpg', alt: 'Skoda Kodiaq', specs: '60km • €38,000' },
-      rightCar: { name: 'VW Tiguan (2025)', image: '/images/cars/brands/volkswagen/tiguan/main.jpg', alt: 'Volkswagen Tiguan', specs: '60km • €40,000' }
+      leftCar: { name: 'Skoda Superb Combi (2025)', image: '/images/cars/brands/skoda/superb-combi-phev/main.jpg', alt: 'Skoda Superb Combi', specs: '120 km' },
+      rightCar: { name: 'Skoda Superb (2025)', image: '/images/cars/brands/skoda/superb-sedan-phev/main.jpg', alt: 'Skoda Superb', specs: '120 km' }
     },
     {
       id: 'suzuki-across-toyota-rav4',
       href: '/compare/suzuki-across-phev-vs-toyota-rav4-phev',
-      leftCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75km • €45,000' },
-      rightCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '65km • €42,000' }
+      leftCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75 km' },
+      rightCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '75 km' }
     },
     {
       id: 'suzuki-across-hyundai-tucson',
       href: '/compare/suzuki-across-phev-vs-hyundai-tucson-iv-facelift-268hp-phev',
-      leftCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75km • €45,000' },
-      rightCar: { name: 'Hyundai Tucson (2025)', image: '/images/cars/brands/hyundai/tucson-iv-facelift-2024-268hp-phev/main.jpg', alt: 'Hyundai Tucson', specs: '65km • €45,000' }
+      leftCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75 km' },
+      rightCar: { name: 'Hyundai Tucson (2025)', image: '/images/cars/brands/hyundai/tucson-iv-facelift-2024-268hp-phev/main.jpg', alt: 'Hyundai Tucson', specs: '65 km' }
     },
     {
       id: 'toyota-rav4-c-hr',
       href: '/compare/toyota-rav4-phev-vs-toyota-c-hr-phev',
-      leftCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '75km • €42,000' },
-      rightCar: { name: 'Toyota C-HR (2025)', image: '/images/cars/brands/toyota/c-hr-plug-in-hybrid/main.jpg', alt: 'Toyota C-HR', specs: '66km • €32,000' }
+      leftCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '75 km' },
+      rightCar: { name: 'Toyota C-HR (2025)', image: '/images/cars/brands/toyota/c-hr-plug-in-hybrid/main.jpg', alt: 'Toyota C-HR', specs: '66 km' }
     },
     {
       id: 'toyota-prius-crown',
       href: '/compare/toyota-prius-phev-vs-toyota-crown-phev',
-      leftCar: { name: 'Toyota Prius (2025)', image: '/images/cars/brands/toyota/prius-plug-in-hybrid/main.jpg', alt: 'Toyota Prius', specs: '65km • €35,000' },
-      rightCar: { name: 'Toyota Crown (2025)', image: '/images/cars/brands/toyota/crown-phev/main.jpg', alt: 'Toyota Crown', specs: '70km • €55,000' }
+      leftCar: { name: 'Toyota Prius (2025)', image: '/images/cars/brands/toyota/prius-plug-in-hybrid/main.jpg', alt: 'Toyota Prius', specs: '86 km' },
+      rightCar: { name: 'Toyota Crown (2025)', image: '/images/cars/brands/toyota/crown-phev/main.jpg', alt: 'Toyota Crown', specs: '70 km' }
     },
     {
       id: 'toyota-rav4-suzuki-across',
       href: '/compare/toyota-rav4-phev-vs-suzuki-across-phev',
-      leftCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '75km • €42,000' },
-      rightCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75km • €45,000' }
+      leftCar: { name: 'Toyota RAV4 (2025)', image: '/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg', alt: 'Toyota RAV4', specs: '75 km' },
+      rightCar: { name: 'Suzuki Across (2025)', image: '/images/cars/brands/suzuki/across-phev/main.jpg', alt: 'Suzuki Across', specs: '75 km' }
     }
   ]
 
