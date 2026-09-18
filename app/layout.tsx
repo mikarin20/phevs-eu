@@ -228,6 +228,9 @@ export default function RootLayout({
                   <div>
                     <h4 className="text-sm font-semibold text-white mb-3">Resources</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
+                      <li><a href="/longest-range-phev" className="hover:text-white transition-colors" title="Longest Range PHEVs (100+ km)">Longest Range PHEVs (100+ km)</a></li>
+                      <li><a href="/phev-with-dc-charging" className="hover:text-white transition-colors" title="PHEVs with DC Fast Charging">DC Fast Charging PHEVs</a></li>
+                      <li><a href="/7-seater-phev" className="hover:text-white transition-colors" title="7-Seater Family PHEVs">7-Seater Family PHEVs</a></li>
                       <li><a href="/compare" className="hover:text-white transition-colors" title="Compare Vehicles">Compare Vehicles</a></li>
                       <li><a href="/faq" className="hover:text-white transition-colors" title="All You Need to Know About PHEV">All You Need to Know About PHEV</a></li>
                     </ul>

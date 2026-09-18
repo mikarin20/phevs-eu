@@ -891,6 +891,146 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           </div>
         </div>
 
+        {/* GEO & AI Optimized Semantic Key Specs Table */}
+        <section id="key-specs" className="mt-12 bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8">
+          <div className="mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              Key Technical Specifications — {car.brand} {car.model} ({car.year})
+            </h2>
+            <p className="text-sm text-slate-500 mt-1">
+              Official manufacturer and WLTP homologated technical data sheet for {car.brand} {car.model} plug-in hybrid.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-lg border border-slate-200">
+            <table className="w-full text-left text-sm divide-y divide-slate-200">
+              <caption className="sr-only">
+                Technical specifications sheet for {car.brand} {car.model} ({car.year}) Plug-in Hybrid
+              </caption>
+              <thead className="bg-slate-50 text-slate-700 text-xs uppercase font-semibold tracking-wider">
+                <tr>
+                  <th scope="col" className="px-4 py-3 sm:px-6">Specification Parameter</th>
+                  <th scope="col" className="px-4 py-3 sm:px-6">Official Value</th>
+                  <th scope="col" className="px-4 py-3 sm:px-6 hidden sm:table-cell">Standard / Details</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 bg-white text-slate-800">
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Vehicle Model</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.brand} {car.model}</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">{car.year} Model Year • {car.segment}</td>
+                </tr>
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">WLTP Electric Range</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold text-emerald-600">{car.ev_range_km} km</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">WLTP EAER (Combined pure electric)</td>
+                </tr>
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Battery Capacity</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.battery_kwh} kWh</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">{car.battery_chemistry || 'Lithium-ion (Li-ion)'}</td>
+                </tr>
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">WLTP Fuel Consumption</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.fuel_consumption} L / 100 km</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">WLTP Weighted Combined</td>
+                </tr>
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">CO₂ Emissions</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.co2_emission} g / km</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">{car.emission_standard || 'Euro 6'} homologation</td>
+                </tr>
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">System Power Output</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.power_hp} HP ({Math.round(car.power_hp * 0.7457)} kW)</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">ICE + Electric Combined</td>
+                </tr>
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Combustion Engine</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.engine_displacement ? `${car.engine_displacement} L` : 'Turbo Petrol'}</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Internal Combustion Engine (ICE)</td>
+                </tr>
+                {car.electric_motor_power_hp && (
+                  <tr className="hover:bg-slate-50/50">
+                    <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Electric Motor Output</th>
+                    <td className="px-4 py-3 sm:px-6 font-semibold">{car.electric_motor_power_hp} HP ({Math.round(car.electric_motor_power_hp * 0.7457)} kW)</td>
+                    <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Synchronous electric motor</td>
+                  </tr>
+                )}
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">AC Charging</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">
+                    {car.charging_capabilities?.ac_power ? `${car.charging_capabilities.ac_power} kW` : (car.charge_time_ac ? `~${car.charge_time_ac} h` : 'Type 2')}
+                  </td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Type 2 (Mennekes) AC socket</td>
+                </tr>
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">DC Fast Charging</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">
+                    {car.dc_charging_supported || car.charging_capabilities?.dc_power ? (
+                      <span className="text-emerald-600 font-semibold">Yes ({car.charging_capabilities?.dc_power || car.dc_max_power_kw || 'Supported'} kW)</span>
+                    ) : (
+                      <span className="text-slate-400">Not supported</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">
+                    {car.dc_charging_supported || car.charging_capabilities?.dc_power ? 'CCS / CHAdeMO DC rapid charge' : 'AC Charging only'}
+                  </td>
+                </tr>
+                {car.acceleration_0_100 && (
+                  <tr className="hover:bg-slate-50/50">
+                    <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Acceleration (0–100 km/h)</th>
+                    <td className="px-4 py-3 sm:px-6 font-semibold">{car.acceleration_0_100} s</td>
+                    <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Official sprint time</td>
+                  </tr>
+                )}
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Seating Capacity</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.seats} Seats</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">{car.seats >= 7 ? '3-Row Family Vehicle' : 'Standard 2-Row Layout'}</td>
+                </tr>
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Luggage / Boot Capacity</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">
+                    {car.trunk_volume} L {car.max_trunk_volume ? `(Max: ${car.max_trunk_volume} L)` : ''}
+                  </td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">VDA measurement method</td>
+                </tr>
+                {(car.length_mm && car.width_mm && car.height_mm) && (
+                  <tr className="hover:bg-slate-50/50">
+                    <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Dimensions (L × W × H)</th>
+                    <td className="px-4 py-3 sm:px-6 font-semibold">{car.length_mm} × {car.width_mm} × {car.height_mm} mm</td>
+                    <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Wheelbase: {car.wheelbase_mm || '-'} mm</td>
+                  </tr>
+                )}
+                {car.weight_kg && (
+                  <tr className="hover:bg-slate-50/50">
+                    <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Curb Weight</th>
+                    <td className="px-4 py-3 sm:px-6 font-semibold">{car.weight_kg} kg</td>
+                    <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Unladen weight EU</td>
+                  </tr>
+                )}
+                {car.euroncap_rating && (
+                  <tr className="hover:bg-slate-50/50">
+                    <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Euro NCAP Safety</th>
+                    <td className="px-4 py-3 sm:px-6 font-semibold text-amber-600">
+                      {'★'.repeat(car.euroncap_rating.stars || 5)} ({car.euroncap_rating.stars || 5} Stars)
+                    </td>
+                    <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">
+                      Adult: {car.euroncap_rating.adult_occupant}% • Child: {car.euroncap_rating.child_occupant}%
+                    </td>
+                  </tr>
+                )}
+                <tr className="hover:bg-slate-50/50">
+                  <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Manufacturer Warranty</th>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.warranty_years} Years</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Official European warranty coverage</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
       </div>
 
       {/* Range Simulator Modal */}

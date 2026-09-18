@@ -3,7 +3,7 @@ import carsData from '@/data/cars.json'
 import blogData from '@/data/blog.json'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.phevs.eu'
+  const baseUrl = 'https://phevs.eu'
   
   // Yardımcı: güvenli slug üretimi ve boş değerleri filtreleme
   const slugify = (value: unknown): string | null => {
@@ -28,6 +28,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/longest-range-phev`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/phev-with-dc-charging`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/7-seater-phev`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/compare`,

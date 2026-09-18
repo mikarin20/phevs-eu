@@ -1533,6 +1533,116 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Curated PHEV Collections - Programmatic SEO Guides */}
+      <section className={`py-8 w-full max-w-full overflow-x-hidden border-y ${selectedTheme === 'dark' ? 'bg-slate-950/60 border-slate-800/80' : 'bg-gradient-to-r from-blue-50/50 via-indigo-50/30 to-emerald-50/50 border-slate-200'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-500">Popular Guides & Filters</span>
+              <h3 className={`text-xl sm:text-2xl font-bold mt-1 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                Explore Specific PHEV Categories
+              </h3>
+            </div>
+            <span className="text-xs text-slate-400">Curated rankings based on official WLTP specifications</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* Collection 1: Longest Range */}
+            <Link
+              href="/longest-range-phev"
+              className={`group relative flex flex-col justify-between p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-xl ${
+                selectedTheme === 'dark'
+                  ? 'bg-slate-900/80 border-slate-800 hover:border-emerald-500/60 hover:shadow-emerald-500/10'
+                  : 'bg-white border-slate-200 hover:border-emerald-500 hover:shadow-emerald-500/15'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                    ⚡
+                  </div>
+                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                    100+ km Range
+                  </span>
+                </div>
+                <h4 className={`text-lg font-bold group-hover:text-emerald-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  Longest Range PHEVs
+                </h4>
+                <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+                  Discover plug-in hybrids that can easily cover all weekly commutes without ever touching the petrol engine.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-emerald-400">
+                <span>View 20+ Models</span>
+                <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+              </div>
+            </Link>
+
+            {/* Collection 2: DC Fast Charging */}
+            <Link
+              href="/phev-with-dc-charging"
+              className={`group relative flex flex-col justify-between p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-xl ${
+                selectedTheme === 'dark'
+                  ? 'bg-slate-900/80 border-slate-800 hover:border-amber-500/60 hover:shadow-amber-500/10'
+                  : 'bg-white border-slate-200 hover:border-amber-500 hover:shadow-amber-500/15'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-bold text-lg">
+                    🔌
+                  </div>
+                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                    CCS &amp; Fast Charge
+                  </span>
+                </div>
+                <h4 className={`text-lg font-bold group-hover:text-amber-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  DC Fast Charging PHEVs
+                </h4>
+                <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+                  Charge from 10% to 80% in 20-30 minutes at motorway DC rapid stations. Rare models with high demand.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-amber-400">
+                <span>View 35+ Models</span>
+                <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+              </div>
+            </Link>
+
+            {/* Collection 3: 7-Seater Family */}
+            <Link
+              href="/7-seater-phev"
+              className={`group relative flex flex-col justify-between p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-xl ${
+                selectedTheme === 'dark'
+                  ? 'bg-slate-900/80 border-slate-800 hover:border-teal-500/60 hover:shadow-teal-500/10'
+                  : 'bg-white border-slate-200 hover:border-teal-500 hover:shadow-teal-500/15'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-teal-500/15 text-teal-400 flex items-center justify-center font-bold text-lg">
+                    👨‍👩‍👧‍👦
+                  </div>
+                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/30">
+                    3-Row Seating
+                  </span>
+                </div>
+                <h4 className={`text-lg font-bold group-hover:text-teal-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  7-Seater Family PHEVs
+                </h4>
+                <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+                  Spacious 3-row SUVs and MPVs with 7 seats, zero range anxiety, and cavernous cargo capacity for family trips.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-teal-400">
+                <span>View Family Models</span>
+                <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Quick Compare Section */}
       <section className={`py-6 w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
