@@ -19,15 +19,15 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://phevs.eu'),
+  metadataBase: new URL('https://www.phevs.eu'),
   alternates: {
-    canonical: 'https://phevs.eu',
+    canonical: 'https://www.phevs.eu',
     languages: {
-      'x-default': 'https://phevs.eu',
-      en: 'https://phevs.eu',
-      tr: 'https://phevs.eu',
-      de: 'https://phevs.eu',
-      pl: 'https://phevs.eu',
+      'x-default': 'https://www.phevs.eu',
+      en: 'https://www.phevs.eu',
+      tr: 'https://www.phevs.eu',
+      de: 'https://www.phevs.eu',
+      pl: 'https://www.phevs.eu',
     },
   },
   // Open Graph configuration is defined below with full details
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_EU',
-    url: 'https://phevs.eu',
+    url: 'https://www.phevs.eu',
     title: 'PHEV Database & Comparison Platform 2026 | PHEVs.eu',
     description: 'Europe\'s largest PHEV database. Browse and compare plug-in hybrid electric vehicles with real-world specs, battery capacity, and electric range.',
     siteName: 'PHEVs.eu',
@@ -113,8 +113,8 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "PHEVs.eu",
-            "url": "https://phevs.eu",
-            "logo": "https://phevs.eu/favicon.svg",
+            "url": "https://www.phevs.eu",
+            "logo": "https://www.phevs.eu/favicon.svg",
             "sameAs": [
               "https://twitter.com/phevs_eu",
               "https://www.linkedin.com/company/phevs-eu/"

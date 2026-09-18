@@ -1199,23 +1199,23 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "PHEVs.eu",
-    "url": "https://phevs.eu",
+    "url": "https://www.phevs.eu",
     "description": "Europe's most comprehensive plug-in hybrid vehicle comparison platform. Compare 124 PHEV models from 30 brands.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://phevs.eu/?search={search_term_string}"
+        "urlTemplate": "https://www.phevs.eu/?search={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     },
     "publisher": {
       "@type": "Organization",
       "name": "PHEVs.eu",
-      "url": "https://phevs.eu",
+      "url": "https://www.phevs.eu",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://phevs.eu/images/logo.png",
+        "url": "https://www.phevs.eu/images/logo.png",
         "width": "180",
         "height": "60"
       }
@@ -1292,7 +1292,7 @@ export default function Home() {
             "unitCode": "HUR",
             "description": "AC charging time"
           },
-          "url": `https://phevs.eu/models/${car.slug || car.id}`,
+          "url": `https://www.phevs.eu/models/${car.slug || car.id}`,
           "image": getImageUrl(car.image_url),
           "review": car.euroncap_rating ? {
             "@type": "Review",

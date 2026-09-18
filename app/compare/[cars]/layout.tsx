@@ -7,7 +7,7 @@ export default function CompareLayout({ children }: { children: React.ReactNode 
 }
 
 export async function generateMetadata({ params }: { params: { cars: string } }): Promise<Metadata> {
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
   const slug = params.cars
 
   const ids = slug.includes('-vs-') ? slug.split('-vs-') : slug.split(',')

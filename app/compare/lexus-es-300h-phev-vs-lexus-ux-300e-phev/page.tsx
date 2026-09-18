@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://phevs.eu/compare/lexus-es-300h-phev-vs-lexus-ux-300e-phev',
+    canonical: 'https://www.phevs.eu/compare/lexus-es-300h-phev-vs-lexus-ux-300e-phev',
   },
 }
 

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://phevs.eu/compare/land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev',
+    canonical: 'https://www.phevs.eu/compare/land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev',
   },
 }
 

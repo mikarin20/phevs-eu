@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://phevs.eu/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
+    canonical: 'https://www.phevs.eu/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
   },
 }
 

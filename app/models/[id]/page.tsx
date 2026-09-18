@@ -654,9 +654,9 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://phevs.eu/" },
-            { "@type": "ListItem", "position": 2, "name": "Models", "item": "https://phevs.eu/models/" },
-            { "@type": "ListItem", "position": 3, "name": `${car.brand} ${car.model}`, "item": `https://phevs.eu/models/${car.id}` }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.phevs.eu/" },
+            { "@type": "ListItem", "position": 2, "name": "Models", "item": "https://www.phevs.eu/models/" },
+            { "@type": "ListItem", "position": 3, "name": `${car.brand} ${car.model}`, "item": `https://www.phevs.eu/models/${car.id}` }
           ]
         }) }}
       />

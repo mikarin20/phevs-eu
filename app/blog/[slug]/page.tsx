@@ -68,7 +68,7 @@ export async function generateMetadata({ params, searchParams }: BlogDetailProps
     }
   }
 
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
   const currentUrl = `${baseUrl}/blog/${params.slug}`
   const localizedTitle = locale === 'en' ? post.title_en : locale === 'de' ? (post.title_de || post.title_en || post.title) : locale === 'pl' ? (post.title_pl || post.title_en || post.title) : post.title
   const localizedExcerpt = locale === 'en' ? post.excerpt_en : locale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : locale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt
@@ -177,7 +177,7 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
             "@type": "Article",
             "headline": title,
             "description": locale === 'en' ? post.excerpt_en : locale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : locale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt,
-            "image": post.featured_image.startsWith('http') ? post.featured_image : `https://phevs.eu${post.featured_image}`,
+            "image": post.featured_image.startsWith('http') ? post.featured_image : `https://www.phevs.eu${post.featured_image}`,
             "datePublished": post.published_at,
             "dateModified": post.updated_at,
             "author": {
@@ -187,15 +187,15 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
             "publisher": {
               "@type": "Organization",
               "name": "PHEVs.eu",
-              "url": "https://phevs.eu",
+              "url": "https://www.phevs.eu",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://phevs.eu/favicon.svg"
+                "url": "https://www.phevs.eu/favicon.svg"
               }
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `https://phevs.eu/blog/${params.slug}`
+              "@id": `https://www.phevs.eu/blog/${params.slug}`
             }
           })
         }}

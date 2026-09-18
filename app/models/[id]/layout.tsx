@@ -20,7 +20,7 @@ export default function ModelLayout({
 // Dinamik kanonik URL ve temel meta
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const id = params.id
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
 
   const car = (carsData as any[]).find((c) => c.id === id || c.slug === id)
 

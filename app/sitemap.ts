@@ -3,7 +3,7 @@ import carsData from '@/data/cars.json'
 import blogData from '@/data/blog.json'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
   
   // Yardımcı: güvenli slug üretimi ve boş değerleri filtreleme
   const slugify = (value: unknown): string | null => {

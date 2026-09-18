@@ -41,13 +41,13 @@ export async function generateMetadata({ params, searchParams }: FAQDetailProps)
       type: 'article',
     },
     alternates: {
-      canonical: `https://phevs.eu/faq/${params.slug}`,
+      canonical: `https://www.phevs.eu/faq/${params.slug}`,
       languages: {
-        'x-default': `https://phevs.eu/faq/${params.slug}`,
-        en: `https://phevs.eu/faq/${params.slug}`,
-        tr: `https://phevs.eu/faq/${params.slug}?lang=tr`,
-        de: `https://phevs.eu/faq/${params.slug}?lang=de`,
-        pl: `https://phevs.eu/faq/${params.slug}?lang=pl`,
+        'x-default': `https://www.phevs.eu/faq/${params.slug}`,
+        en: `https://www.phevs.eu/faq/${params.slug}`,
+        tr: `https://www.phevs.eu/faq/${params.slug}?lang=tr`,
+        de: `https://www.phevs.eu/faq/${params.slug}?lang=de`,
+        pl: `https://www.phevs.eu/faq/${params.slug}?lang=pl`,
       },
     },
   }

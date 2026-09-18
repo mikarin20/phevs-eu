@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://phevs.eu/faq',
+    canonical: 'https://www.phevs.eu/faq',
     languages: {
-      'x-default': 'https://phevs.eu/faq',
-      en: 'https://phevs.eu/faq',
-      tr: 'https://phevs.eu/faq',
-      de: 'https://phevs.eu/faq',
-      pl: 'https://phevs.eu/faq',
+      'x-default': 'https://www.phevs.eu/faq',
+      en: 'https://www.phevs.eu/faq',
+      tr: 'https://www.phevs.eu/faq',
+      de: 'https://www.phevs.eu/faq',
+      pl: 'https://www.phevs.eu/faq',
     },
   },
 }
