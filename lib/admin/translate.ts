@@ -82,7 +82,15 @@ export async function buildLocalizedBlogFields(
     await Promise.all(
       locales
         .filter((locale) => locale !== sourceLocale)
-        .map(async (locale) => translated.set(locale, await translateBlogFields(fields, sourceLocale, locale)))
+        .map(async (locale) => {
+          try {
+            const res = await translateBlogFields(fields, sourceLocale, locale)
+            translated.set(locale, res)
+          } catch (err: any) {
+            console.warn(`[Translate] Skipping ${locale} translation: ${err.message}`)
+            translated.set(locale, fields)
+          }
+        })
     )
   }
 

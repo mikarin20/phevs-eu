@@ -71,6 +71,22 @@ export default function CompareForm({ mode, compareSlug, defaultValues }: Compar
     if (v1 && v2) setValue('slug', slugify(`${v1.brand}-${v1.model}-vs-${v2.brand}-${v2.model}`))
   }
 
+function extractErrorMessage(data: any, defaultMsg = 'Save failed'): string {
+  if (!data) return defaultMsg
+  if (typeof data.error === 'string') return data.error
+  if (typeof data.message === 'string') return data.message
+  if (data.error && typeof data.error === 'object') {
+    const fieldErrors = data.error.fieldErrors
+    if (fieldErrors && typeof fieldErrors === 'object') {
+      const messages = Object.entries(fieldErrors)
+        .map(([field, errs]) => `${field}: ${(errs as string[]).join(', ')}`)
+        .filter(Boolean)
+      if (messages.length > 0) return messages.join(' | ')
+    }
+  }
+  return defaultMsg
+}
+
   async function onSubmit(values: CompareFormValues) {
     try {
       const url = mode === 'create' ? '/api/admin/compare' : `/api/admin/compare/${compareSlug}`
@@ -82,7 +98,7 @@ export default function CompareForm({ mode, compareSlug, defaultValues }: Compar
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
-        throw new Error(typeof data.error === 'string' ? data.error : 'Save failed')
+        throw new Error(extractErrorMessage(data))
       }
       toast({ title: mode === 'create' ? 'Comparison created' : 'Comparison updated' })
       router.push('/admin/compare')

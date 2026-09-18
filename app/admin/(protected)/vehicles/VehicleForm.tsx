@@ -40,6 +40,30 @@ const formSchema = z.object({
   }
 })
 
+const STANDARD_BRANDS = [
+  'Alfa Romeo', 'Audi', 'BMW', 'BYD', 'Citroën', 'Cupra', 'DS Automobiles',
+  'Ford', 'Geely', 'Hyundai', 'Jaecoo', 'Jaguar', 'Jeep', 'Kia', 'Land Rover',
+  'Lexus', 'Lynk & Co', 'Mazda', 'Mercedes-Benz', 'MG', 'MINI', 'Mitsubishi',
+  'Nissan', 'Opel', 'Peugeot', 'Porsche', 'Range Rover', 'Renault', 'SEAT',
+  'Škoda', 'Subaru', 'Suzuki', 'Toyota', 'Volkswagen', 'Volvo'
+]
+
+function extractErrorMessage(data: any, defaultMsg = 'Save failed'): string {
+  if (!data) return defaultMsg
+  if (typeof data.error === 'string') return data.error
+  if (typeof data.message === 'string') return data.message
+  if (data.error && typeof data.error === 'object') {
+    const fieldErrors = data.error.fieldErrors
+    if (fieldErrors && typeof fieldErrors === 'object') {
+      const messages = Object.entries(fieldErrors)
+        .map(([field, errs]) => `${field}: ${(errs as string[]).join(', ')}`)
+        .filter(Boolean)
+      if (messages.length > 0) return messages.join(' | ')
+    }
+  }
+  return defaultMsg
+}
+
 export type VehicleFormValues = z.infer<typeof formSchema>
 
 interface VehicleFormProps {
@@ -90,6 +114,8 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       .filter(Boolean)
     const payload = {
       ...values,
+      brand: values.brand.trim(),
+      model: values.model.trim(),
       dc_max_power_kw: values.dc_charging_supported ? values.dc_max_power_kw : null,
       features,
     }
@@ -104,7 +130,7 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
-        throw new Error(typeof data.error === 'string' ? data.error : 'Save failed')
+        throw new Error(extractErrorMessage(data))
       }
       toast({ title: mode === 'create' ? 'Vehicle created' : 'Vehicle updated' })
       router.push('/admin/vehicles')
@@ -124,7 +150,12 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
           <div className="grid grid-cols-2 gap-4">
             <div>
               <Label>Brand</Label>
-              <Input {...register('brand')} onBlur={handleAutoSlug} />
+              <Input {...register('brand')} list="brand-list" placeholder="e.g. MG, Audi, BMW" onBlur={handleAutoSlug} />
+              <datalist id="brand-list">
+                {STANDARD_BRANDS.map((b) => (
+                  <option key={b} value={b} />
+                ))}
+              </datalist>
               {errors.brand && <p className="text-xs text-red-600 mt-1">{errors.brand.message}</p>}
             </div>
             <div>

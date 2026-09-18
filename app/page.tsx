@@ -626,8 +626,10 @@ export default function Home() {
         normalizedBrand.includes(normalizedSearchTerm) || 
         normalizedModel.includes(normalizedSearchTerm)
       
-      const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(car.brand)
-      
+      const matchesBrand = selectedBrands.length === 0 || selectedBrands.some(
+        (b) => b.trim().toLowerCase() === (car.brand || '').trim().toLowerCase()
+      )
+
       const matchesSegment = !filters.segment || car.segment === filters.segment
       
       const matchesRange = car.ev_range_km >= minRange && car.ev_range_km <= maxRange
@@ -679,10 +681,18 @@ export default function Home() {
     return filtered
   }, [cars, searchTerm, selectedBrands, filters, sortBy])
 
-  // Markaları al
+  // Markaları al (Case-insensitive & trimmed unique map)
   const brands = useMemo(() => {
-    const uniqueBrands = [...new Set(cars.map(car => car.brand))].sort()
-    return uniqueBrands
+    const brandMap = new Map<string, string>()
+    cars.forEach((car) => {
+      if (car.brand && car.brand.trim()) {
+        const key = car.brand.trim().toLowerCase()
+        if (!brandMap.has(key)) {
+          brandMap.set(key, car.brand.trim())
+        }
+      }
+    })
+    return Array.from(brandMap.values()).sort((a, b) => a.localeCompare(b))
   }, [cars])
 
   // Filtrelenmiş markalar
@@ -1946,6 +1956,63 @@ export default function Home() {
             >
               Clear Filters
             </button>
+          </div>
+
+          {/* Brand Metadata Tag Chips */}
+          <div className="mt-4 pt-3 border-t border-slate-200/60 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 mr-1">
+              Popular Brands:
+            </span>
+            <button
+              onClick={() => setSelectedBrands([])}
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                selectedBrands.length === 0
+                  ? 'bg-blue-600 text-white shadow-sm font-semibold'
+                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              All ({cars.length})
+            </button>
+            {brands.map((brand) => {
+              const isSelected = selectedBrands.some(
+                (b) => b.trim().toLowerCase() === brand.trim().toLowerCase()
+              )
+              const brandCarCount = cars.filter(
+                (c) => (c.brand || '').trim().toLowerCase() === brand.trim().toLowerCase()
+              ).length
+              return (
+                <button
+                  key={brand}
+                  onClick={() => {
+                    if (isSelected) {
+                      setSelectedBrands(
+                        selectedBrands.filter(
+                          (b) => b.trim().toLowerCase() !== brand.trim().toLowerCase()
+                        )
+                      )
+                    } else {
+                      setSelectedBrands([...selectedBrands, brand])
+                    }
+                  }}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all flex items-center space-x-1.5 ${
+                    isSelected
+                      ? 'bg-blue-600 text-white shadow-sm ring-2 ring-blue-400'
+                      : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  <span>{brand}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                      isSelected
+                        ? 'bg-blue-700 text-blue-100'
+                        : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                    }`}
+                  >
+                    {brandCarCount}
+                  </span>
+                </button>
+              )
+            })}
           </div>
         </div>
       </div>

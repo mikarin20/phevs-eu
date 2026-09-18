@@ -66,6 +66,22 @@ export default function BlogForm({ mode, postSlug, defaultValues }: BlogFormProp
     if (title && mode === 'create') setValue('slug', slugify(title))
   }
 
+function extractErrorMessage(data: any, defaultMsg = 'Save failed'): string {
+  if (!data) return defaultMsg
+  if (typeof data.error === 'string') return data.error
+  if (typeof data.message === 'string') return data.message
+  if (data.error && typeof data.error === 'object') {
+    const fieldErrors = data.error.fieldErrors
+    if (fieldErrors && typeof fieldErrors === 'object') {
+      const messages = Object.entries(fieldErrors)
+        .map(([field, errs]) => `${field}: ${(errs as string[]).join(', ')}`)
+        .filter(Boolean)
+      if (messages.length > 0) return messages.join(' | ')
+    }
+  }
+  return defaultMsg
+}
+
   async function onSubmit(values: BlogFormValues) {
     try {
       const url = mode === 'create' ? '/api/admin/blog' : `/api/admin/blog/${postSlug}`
@@ -77,7 +93,7 @@ export default function BlogForm({ mode, postSlug, defaultValues }: BlogFormProp
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
-        throw new Error(typeof data.error === 'string' ? data.error : 'Save failed')
+        throw new Error(extractErrorMessage(data))
       }
       toast({ title: mode === 'create' ? 'Post created' : 'Post updated' })
       router.push('/admin/blog')
