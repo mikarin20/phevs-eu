@@ -5180,7 +5180,7 @@
     "battery_kwh": 25.7,
     "price_eur": 38000,
     "image_url": "/images/cars/brands/skoda/kodiaq-phev/main.jpg",
-    "power_hp": 245,
+    "power_hp": 204,
     "co2_emission": 35,
     "charge_time_ac": 3.5,
     "trunk_volume": 630,
@@ -5214,7 +5214,7 @@
     "slug": "koda-kodiaq-phev",
     "updated_at": "2024-10-25",
     "electric_motor_power_hp": 0,
-    "acceleration_0_100": 0,
+    "acceleration_0_100": 1.8,
     "features": [],
     "weight_kg": 0,
     "last_updated": "2026-09-18"
