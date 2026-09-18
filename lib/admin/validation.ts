@@ -20,15 +20,17 @@ export const vehicleSchema = z.object({
   ),
   features: z.array(z.string().min(1)).default([]),
   image_url: z.string().min(1, 'Image is required'),
-  // Legacy/site-compat fields not exposed in the simplified admin form; server fills sensible defaults.
-  segment: z.string().optional(),
-  fuel_consumption: z.coerce.number().optional(),
-  co2_emission: z.coerce.number().optional(),
-  charge_time_ac: z.coerce.number().optional(),
-  trunk_volume: z.coerce.number().optional(),
-  seats: z.coerce.number().optional(),
-  warranty_years: z.coerce.number().optional(),
-  country_availability: z.string().optional(),
+  segment: z.string().default('SUV'),
+  charge_time_ac: z.coerce.number().min(0).default(0),
+  weight_kg: z.coerce.number().min(0).default(0),
+  engine_displacement: z.coerce.number().min(0).default(0),
+  electric_motor_power_hp: z.coerce.number().min(0).default(0),
+  fuel_consumption: z.coerce.number().min(0).default(0),
+  co2_emission: z.coerce.number().min(0).default(0),
+  trunk_volume: z.coerce.number().min(0).default(0),
+  seats: z.coerce.number().default(5),
+  warranty_years: z.coerce.number().default(3),
+  country_availability: z.string().default('EU'),
 }).superRefine((data, ctx) => {
   if (data.dc_charging_supported && !data.dc_max_power_kw) {
     ctx.addIssue({

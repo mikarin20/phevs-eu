@@ -21,6 +21,14 @@ const formSchema = z.object({
   battery_kwh: z.coerce.number().min(0),
   ev_range_km: z.coerce.number().min(0),
   power_hp: z.coerce.number().min(0),
+  electric_motor_power_hp: z.coerce.number().min(0).optional(),
+  engine_displacement: z.coerce.number().min(0).optional(),
+  charge_time_ac: z.coerce.number().min(0).optional(),
+  weight_kg: z.coerce.number().min(0).optional(),
+  fuel_consumption: z.coerce.number().min(0).optional(),
+  co2_emission: z.coerce.number().min(0).optional(),
+  trunk_volume: z.coerce.number().min(0).optional(),
+  segment: z.string().default('SUV'),
   acceleration_0_100: z.coerce.number().min(0).optional(),
   price_eur: z.coerce.number().min(0).optional(),
   dc_charging_supported: z.boolean().default(false),
@@ -91,6 +99,14 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       battery_kwh: 0,
       ev_range_km: 0,
       power_hp: 0,
+      electric_motor_power_hp: 0,
+      engine_displacement: 0,
+      charge_time_ac: 0,
+      weight_kg: 0,
+      fuel_consumption: 0,
+      co2_emission: 0,
+      trunk_volume: 0,
+      segment: 'SUV',
       dc_charging_supported: false,
       dc_max_power_kw: null,
       image_url: '',
@@ -165,10 +181,26 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
             </div>
           </div>
 
-          <div>
-            <Label>Slug</Label>
-            <Input {...register('slug')} placeholder="brand-model-phev" />
-            {errors.slug && <p className="text-xs text-red-600 mt-1">{errors.slug.message}</p>}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label>Slug</Label>
+              <Input {...register('slug')} placeholder="brand-model-phev" />
+              {errors.slug && <p className="text-xs text-red-600 mt-1">{errors.slug.message}</p>}
+            </div>
+            <div>
+              <Label>Segment</Label>
+              <select
+                {...register('segment')}
+                className="w-full px-3 py-2 border border-slate-300 rounded-md bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="SUV">SUV</option>
+                <option value="Sedan">Sedan</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="Station/Estate">Station/Estate</option>
+                <option value="Crossover">Crossover</option>
+                <option value="Coupe">Coupe</option>
+              </select>
+            </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
@@ -188,16 +220,46 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
 
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <Label>Power (hp)</Label>
+              <Label>Total Power (hp)</Label>
               <Input type="number" {...register('power_hp')} />
+            </div>
+            <div>
+              <Label>ICE Power (hp)</Label>
+              <Input type="number" {...register('electric_motor_power_hp')} placeholder="e.g. 90" />
+            </div>
+            <div>
+              <Label>Engine Displacement (L)</Label>
+              <Input type="number" step="0.1" {...register('engine_displacement')} placeholder="e.g. 1.5" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <Label>AC Charge Time (hours)</Label>
+              <Input type="number" step="0.1" {...register('charge_time_ac')} placeholder="e.g. 4.0" />
+            </div>
+            <div>
+              <Label>Weight (kg)</Label>
+              <Input type="number" {...register('weight_kg')} placeholder="e.g. 1863" />
+            </div>
+            <div>
+              <Label>Fuel Consumption (L/100km)</Label>
+              <Input type="number" step="0.1" {...register('fuel_consumption')} placeholder="e.g. 0.5" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <Label>CO2 Emission (g/km)</Label>
+              <Input type="number" step="0.1" {...register('co2_emission')} placeholder="e.g. 15" />
+            </div>
+            <div>
+              <Label>Trunk Volume (L)</Label>
+              <Input type="number" {...register('trunk_volume')} placeholder="e.g. 385" />
             </div>
             <div>
               <Label>0-100 km/h (s)</Label>
               <Input type="number" step="0.1" {...register('acceleration_0_100')} />
-            </div>
-            <div>
-              <Label>Price (€)</Label>
-              <Input type="number" {...register('price_eur')} />
             </div>
           </div>
 
@@ -224,7 +286,7 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
           <div>
             <Label>Features (one per line)</Label>
             <Textarea
-              rows={4}
+              rows={3}
               {...register('featuresText')}
               placeholder={'Adaptive Cruise Control\nHeated Seats\n360° Camera'}
             />

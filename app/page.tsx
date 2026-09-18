@@ -438,7 +438,7 @@ export default function Home() {
     batteryChemistry: '',
     chargingType: '',
     powerRange: [0, 500],
-    yearRange: [2020, 2025],
+    yearRange: [2020, 2030],
     emissionRange: [0, 150],
     sortBy: 'name-asc'
   })
@@ -452,7 +452,7 @@ export default function Home() {
     batteryChemistry: '',
     chargingType: '',
     powerRange: [0, 500],
-    yearRange: [2020, 2025],
+    yearRange: [2020, 2030],
     emissionRange: [0, 150],
     sortBy: 'name-asc'
   }
@@ -614,7 +614,7 @@ export default function Home() {
     const [minRange, maxRange] = getPair(filters?.rangeRange as number[], [0, 200])
     const [minFuel, maxFuel] = getPair(filters?.fuelConsumption as number[], [0, 10])
     const [minPower, maxPower] = getPair(filters?.powerRange as number[], [0, 500])
-    const [minYear, maxYear] = getPair(filters?.yearRange as number[], [2020, 2025])
+    const [minYear, maxYear] = getPair(filters?.yearRange as number[], [2020, 2030])
     const [minEmission, maxEmission] = getPair(filters?.emissionRange as number[], [0, 150])
 
     let filtered = cars.filter(car => {
@@ -760,7 +760,7 @@ export default function Home() {
       batteryChemistry: '',
       chargingType: '',
       powerRange: [0, 500],
-      yearRange: [2020, 2025],
+      yearRange: [2020, 2030],
       emissionRange: [0, 150],
       sortBy: 'name-asc'
     })

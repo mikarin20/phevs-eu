@@ -142,7 +142,7 @@ export default function FilterModal({
                 <input
                   type="range"
                   min="2020"
-                  max="2025"
+                  max="2030"
                   step="1"
                   value={filters.yearRange[0]}
                   onChange={(e) => setFilters({...filters, yearRange: [parseInt(e.target.value), filters.yearRange[1]]})}
@@ -151,7 +151,7 @@ export default function FilterModal({
                 <input
                   type="range"
                   min="2020"
-                  max="2025"
+                  max="2030"
                   step="1"
                   value={filters.yearRange[1]}
                   onChange={(e) => setFilters({...filters, yearRange: [filters.yearRange[0], parseInt(e.target.value)]})}
