@@ -7,8 +7,9 @@ export const config = {
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const normalizedPathname = pathname.replace(/\/+$/, '') || '/'
 
-  const isPublicRoute = pathname === '/admin/login' || pathname === '/api/admin/auth/login'
+  const isPublicRoute = normalizedPathname === '/admin/login' || normalizedPathname === '/api/admin/auth/login'
   if (isPublicRoute) {
     return NextResponse.next()
   }
