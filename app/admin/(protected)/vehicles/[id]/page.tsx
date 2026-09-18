@@ -20,6 +20,13 @@ export default function EditVehiclePage({ params }: { params: { id: string } }) 
         ...data.item,
         dc_charging_supported: data.item.dc_charging_supported ?? Boolean(legacyDcPower),
         dc_max_power_kw: data.item.dc_max_power_kw ?? legacyDcPower,
+        ncap_stars: data.item.euroncap_rating?.stars ?? 0,
+        ncap_adult_occupant: data.item.euroncap_rating?.adult_occupant ?? 0,
+        ncap_child_occupant: data.item.euroncap_rating?.child_occupant ?? 0,
+        ncap_pedestrian_protection: data.item.euroncap_rating?.pedestrian_protection ?? 0,
+        ncap_safety_assist: data.item.euroncap_rating?.safety_assist ?? 0,
+        ncap_overall_rating: data.item.euroncap_rating?.overall_rating ?? 0,
+        ncap_test_year: data.item.euroncap_rating?.test_year ?? data.item.year ?? new Date().getFullYear(),
         featuresText: (data.item.features || []).join('\n'),
       })
     }

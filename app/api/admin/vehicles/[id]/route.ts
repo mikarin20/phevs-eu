@@ -51,6 +51,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
       seats: data.seats ?? existing.seats ?? 5,
       warranty_years: data.warranty_years ?? existing.warranty_years ?? 3,
       country_availability: data.country_availability || existing.country_availability || 'EU',
+      euroncap_rating: data.euroncap_rating !== undefined ? data.euroncap_rating : (existing.euroncap_rating || null),
       last_updated: new Date().toISOString().split('T')[0],
     }
     items[index] = updated

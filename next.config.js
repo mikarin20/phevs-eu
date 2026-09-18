@@ -153,6 +153,18 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // 301 Canonical Redirect: www.phevs.eu -> https://phevs.eu (prevent duplicate content)
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.phevs.eu',
+          },
+        ],
+        destination: 'https://phevs.eu/:path*',
+        permanent: true,
+      },
       // Sitemap ve robots.txt trailing slash redirect'lerini önle
       {
         source: '/sitemap.xml/',
@@ -193,6 +205,158 @@ const nextConfig = {
       {
         source: '/en',
         destination: '/',
+        permanent: true,
+      },
+      // FAQ: Old Turkish slugs → New English slugs (301 permanent)
+      {
+        source: '/faq/phev-nedir-nasil-calisir',
+        destination: '/faq/what-is-phev-how-it-works',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-nedir-nasil-calisir/',
+        destination: '/faq/what-is-phev-how-it-works/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-bev-farki-nedir',
+        destination: '/faq/phev-vs-bev-differences',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-bev-farki-nedir/',
+        destination: '/faq/phev-vs-bev-differences/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-avantajlari-nelerdir',
+        destination: '/faq/phev-benefits-and-advantages',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-avantajlari-nelerdir/',
+        destination: '/faq/phev-benefits-and-advantages/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-satin-alma-rehberi',
+        destination: '/faq/phev-buying-guide',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-satin-alma-rehberi/',
+        destination: '/faq/phev-buying-guide/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-fiyat-araligi-nedir',
+        destination: '/faq/phev-price-ranges',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-fiyat-araligi-nedir/',
+        destination: '/faq/phev-price-ranges/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-menzil-hesaplama-nasil',
+        destination: '/faq/phev-range-wltp-calculation',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-menzil-hesaplama-nasil/',
+        destination: '/faq/phev-range-wltp-calculation/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-sarj-sureleri-ne-kadar',
+        destination: '/faq/phev-charging-times-ac-vs-dc',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-sarj-sureleri-ne-kadar/',
+        destination: '/faq/phev-charging-times-ac-vs-dc/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-batarya-omru-ne-kadar',
+        destination: '/faq/phev-battery-life-degradation',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-batarya-omru-ne-kadar/',
+        destination: '/faq/phev-battery-life-degradation/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-sarj-tipleri-nelerdir',
+        destination: '/faq/phev-charging-types-connectors',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-sarj-tipleri-nelerdir/',
+        destination: '/faq/phev-charging-types-connectors/',
+        permanent: true,
+      },
+      {
+        source: '/faq/ev-phev-sarj-cihazi-gerekli-mi',
+        destination: '/faq/phev-home-charging-wallbox-vs-outlet',
+        permanent: true,
+      },
+      {
+        source: '/faq/ev-phev-sarj-cihazi-gerekli-mi/',
+        destination: '/faq/phev-home-charging-wallbox-vs-outlet/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-sarj-istasyonu-nasil-bulunur',
+        destination: '/faq/phev-find-charging-stations',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-sarj-istasyonu-nasil-bulunur/',
+        destination: '/faq/phev-find-charging-stations/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-bakim-maliyeti-nedir',
+        destination: '/faq/phev-maintenance-costs',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-bakim-maliyeti-nedir/',
+        destination: '/faq/phev-maintenance-costs/',
+        permanent: true,
+      },
+      // FAQ: Deleted pages → /faq (301 permanent)
+      {
+        source: '/faq/phev-tesvikler-hangi-ulkelerde',
+        destination: '/faq',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-tesvikler-hangi-ulkelerde/',
+        destination: '/faq/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-garanti-suresi-ne-kadar',
+        destination: '/faq',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-garanti-suresi-ne-kadar/',
+        destination: '/faq/',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-servis-aglari-yeterli-mi',
+        destination: '/faq',
+        permanent: true,
+      },
+      {
+        source: '/faq/phev-servis-aglari-yeterli-mi/',
+        destination: '/faq/',
         permanent: true,
       },
     ]

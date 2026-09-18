@@ -56,6 +56,7 @@ export async function POST(request: NextRequest) {
       seats: data.seats ?? 5,
       warranty_years: data.warranty_years ?? 3,
       country_availability: data.country_availability || 'EU',
+      euroncap_rating: data.euroncap_rating || null,
       last_updated: new Date().toISOString().split('T')[0],
     }
 

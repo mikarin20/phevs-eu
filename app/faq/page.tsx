@@ -4,7 +4,7 @@ import { ChevronRightIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/ou
 import { getFaqTranslations } from '@/lib/i18n'
 
 export const metadata: Metadata = {
-  title: 'All You Need to Know About PHEV - Complete Guide | PHEVs.eu',
+  title: 'PHEV Guide — Everything You Need to Know | PHEVs.eu',
   description: 'Complete guide to Plug-in Hybrid Electric Vehicles (PHEV). Everything you need to know about PHEV technology, buying guide, charging, range, benefits, and more.',
   keywords: [
     'PHEV guide',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'hybrid vehicle guide'
   ],
   openGraph: {
-    title: 'All You Need to Know About PHEV - Complete Guide',
+    title: 'PHEV Guide — Everything You Need to Know',
     description: 'Complete guide to Plug-in Hybrid Electric Vehicles (PHEV). Everything you need to know about PHEV technology, benefits, and buying guide.',
     type: 'website',
   },
@@ -33,8 +33,6 @@ export const metadata: Metadata = {
   },
 }
 
-// guideCategories will be generated dynamically based on locale
-
 export default function PHEVGuidePage({ 
   searchParams 
 }: { 
@@ -43,7 +41,6 @@ export default function PHEVGuidePage({
   const locale = (searchParams?.lang as 'en' | 'tr' | 'de' | 'pl') || 'en'
   const t = getFaqTranslations(locale)
   
-  // Generate guide categories dynamically based on locale
   const guideCategories = [
     {
       id: 'basics',
@@ -55,22 +52,22 @@ export default function PHEVGuidePage({
       borderColor: 'border-blue-200 dark:border-blue-700',
       topics: [
         {
-          id: 'phev-nedir',
-          title: t.topics['phev-nedir'].title,
-          shortDescription: t.topics['phev-nedir'].description,
-          slug: 'phev-nedir-nasil-calisir'
+          id: 'what-is-phev',
+          title: locale === 'tr' ? 'PHEV nedir ve nasıl çalışır?' : locale === 'de' ? 'Was ist PHEV und wie funktioniert er?' : locale === 'pl' ? 'Czym jest PHEV i jak działa?' : 'What is PHEV and How Does It Work?',
+          shortDescription: locale === 'tr' ? 'Elektrik ve benzin motorlarının birlikte çalışma prensipleri' : locale === 'de' ? 'Elektromotor, Benzinmotor und drei Fahrmodi erklärt' : locale === 'pl' ? 'Jak współpracują silnik elektryczny i benzynowy?' : 'Electric motor, petrol engine, and three driving modes explained',
+          slug: 'what-is-phev-how-it-works'
         },
         {
-          id: 'phev-bev-fark',
-          title: t.topics['phev-bev-fark'].title,
-          shortDescription: t.topics['phev-bev-fark'].description,
-          slug: 'phev-bev-farki-nedir'
+          id: 'phev-vs-bev',
+          title: locale === 'tr' ? 'PHEV ile BEV arasındaki fark nedir?' : locale === 'de' ? 'PHEV vs. BEV: Was ist der Unterschied?' : locale === 'pl' ? 'PHEV vs BEV: jaka jest różnica?' : 'PHEV vs BEV: What is the Difference?',
+          shortDescription: locale === 'tr' ? 'Menzil, şarj süresi ve yakıt esnekliği farkları' : locale === 'de' ? 'Reichweite, Ladezeiten und Kraftstoffflexibilität im Vergleich' : locale === 'pl' ? 'Zasięg, czas ładowania i elastyczność paliwa' : 'Range, charging time, and fuel flexibility differences',
+          slug: 'phev-vs-bev-differences'
         },
         {
-          id: 'phev-avantajlari',
-          title: t.topics['phev-avantajlari'].title,
-          shortDescription: t.topics['phev-avantajlari'].description,
-          slug: 'phev-avantajlari-nelerdir'
+          id: 'phev-benefits',
+          title: locale === 'tr' ? 'PHEV avantajları nelerdir?' : locale === 'de' ? 'PHEV-Vorteile und Nachteile' : locale === 'pl' ? 'Zalety i wady PHEV' : 'PHEV Benefits & Advantages Explained',
+          shortDescription: locale === 'tr' ? 'Şehir içi sıfır emisyon, yakıt tasarrufu ve menzil esnekliği' : locale === 'de' ? 'Emissionsfreies Pendeln, Kraftstoffeinsparung und Reichweite' : locale === 'pl' ? 'Zeroemisyjne dojazdy, oszczędność paliwa i zasięg' : 'Zero-emission commuting, fuel savings, and range flexibility',
+          slug: 'phev-benefits-and-advantages'
         }
       ]
     },
@@ -84,16 +81,16 @@ export default function PHEVGuidePage({
       borderColor: 'border-green-200 dark:border-green-700',
       topics: [
         {
-          id: 'phev-satin-alma-rehberi',
-          title: 'Complete PHEV Buying Guide',
-          shortDescription: 'Everything to consider when buying a PHEV',
-          slug: 'phev-satin-alma-rehberi'
+          id: 'buying-guide',
+          title: locale === 'tr' ? 'Kapsamlı PHEV Satın Alma Rehberi' : locale === 'de' ? 'Der vollständige PHEV-Kaufberater' : locale === 'pl' ? 'Kompleksowy przewodnik zakupu PHEV' : 'Complete PHEV Buying Guide',
+          shortDescription: locale === 'tr' ? 'Günlük mesafe, şarj erişimi ve gerçek menzil beklentileri' : locale === 'de' ? 'Pendelstrecke, Lademöglichkeiten und Reichweiteerwartungen' : locale === 'pl' ? 'Dojazdy, dostęp do ładowania i rzeczywisty zasięg' : 'Daily commute, charging access, and real-world range expectations',
+          slug: 'phev-buying-guide'
         },
         {
-          id: 'phev-fiyat-araligi',
-          title: 'PHEV Price Ranges & Budget Planning',
-          shortDescription: 'Understanding PHEV pricing and TCO planning',
-          slug: 'phev-fiyat-araligi-nedir'
+          id: 'price-ranges',
+          title: locale === 'tr' ? 'PHEV Fiyat Aralıkları ve Bütçe Planlaması' : locale === 'de' ? 'PHEV-Preissegmente und Budgetplanung' : locale === 'pl' ? 'Przedziały cenowe PHEV i planowanie budżetu' : 'PHEV Price Ranges & Budget Planning',
+          shortDescription: locale === 'tr' ? 'Kompaktten lükse Avrupa PHEV fiyat kategorileri' : locale === 'de' ? 'Von Kompakt bis Luxus — Preiskategorien in Europa' : locale === 'pl' ? 'Od aut kompaktowych po luksusowe — kategorie cenowe w Europie' : 'Compact to luxury PHEV pricing categories across Europe',
+          slug: 'phev-price-ranges'
         }
       ]
     },
@@ -107,22 +104,22 @@ export default function PHEVGuidePage({
       borderColor: 'border-purple-200 dark:border-purple-700',
       topics: [
         {
-          id: 'phev-menzil-hesaplama',
-          title: 'PHEV Range Calculation & WLTP Standards',
-          shortDescription: 'How PHEV range is calculated and what WLTP means',
-          slug: 'phev-menzil-hesaplama-nasil'
+          id: 'range-wltp',
+          title: locale === 'tr' ? 'PHEV Menzil ve WLTP Standartları' : locale === 'de' ? 'PHEV-Reichweite, WLTP und Realverbrauch' : locale === 'pl' ? 'Zasięg PHEV i standardy WLTP' : 'PHEV Range, WLTP & Real-World Calculation',
+          shortDescription: locale === 'tr' ? 'WLTP değerleri ve gerçek dünya menzil farkları' : locale === 'de' ? 'WLTP-Werte und reale Reichweite im Vergleich' : locale === 'pl' ? 'Wartości WLTP a rzeczywisty zasięg' : 'WLTP figures versus real-world range and influencing factors',
+          slug: 'phev-range-wltp-calculation'
         },
         {
-          id: 'phev-sarj-sureleri',
-          title: 'Charging Times & Speed Comparison',
-          shortDescription: 'AC vs DC charging times and speed differences',
-          slug: 'phev-sarj-sureleri-ne-kadar'
+          id: 'charging-times',
+          title: locale === 'tr' ? 'Şarj Süreleri ve Hız Karşılaştırması' : locale === 'de' ? 'PHEV-Ladezeiten: AC vs. DC Vergleich' : locale === 'pl' ? 'Czas ładowania PHEV: AC vs DC' : 'Charging Times: AC vs DC Speed Comparison',
+          shortDescription: locale === 'tr' ? 'Ev prizi, Wallbox ve DC hızlı şarj süreleri' : locale === 'de' ? 'Haushaltssteckdose, Wallbox und DC-Schnelllader im Vergleich' : locale === 'pl' ? 'Gniazdko domowe, Wallbox i szybka ładowarka DC' : 'Home socket, Wallbox, and DC fast charger durations compared',
+          slug: 'phev-charging-times-ac-vs-dc'
         },
         {
-          id: 'phev-batarya-omru',
-          title: 'Battery Life & Degradation',
-          shortDescription: 'Understanding PHEV battery lifespan and maintenance',
-          slug: 'phev-batarya-omru-ne-kadar'
+          id: 'battery-life',
+          title: locale === 'tr' ? 'Batarya Ömrü ve Degradasyon' : locale === 'de' ? 'Batterie-Lebensdauer und Degradation' : locale === 'pl' ? 'Żywotność baterii i degradacja' : 'Battery Life & Degradation',
+          shortDescription: locale === 'tr' ? 'PHEV batarya ömrü ve uzun ömür için bakım tavsiyeleri' : locale === 'de' ? 'Lebensdauer, Garantie und Pflege von PHEV-Akkus' : locale === 'pl' ? 'Żywotność, gwarancja i pielęgnacja akumulatorów PHEV' : 'Lifespan expectations, warranty coverage, and care tips',
+          slug: 'phev-battery-life-degradation'
         }
       ]
     },
@@ -136,45 +133,44 @@ export default function PHEVGuidePage({
       borderColor: 'border-orange-200 dark:border-orange-700',
       topics: [
         {
-          id: 'phev-sarj-tipleri',
-          title: 'Charging Types & Connectors',
-          shortDescription: 'Type 2, CCS, and home charging options explained',
-          slug: 'phev-sarj-tipleri-nelerdir'
+          id: 'charging-types',
+          title: locale === 'tr' ? 'Şarj Tipleri ve Konnektör Standartları' : locale === 'de' ? 'Ladetypen und Steckersysteme' : locale === 'pl' ? 'Typy ładowania i złącza' : 'Charging Types & Connector Standards',
+          shortDescription: locale === 'tr' ? 'Type 2, CCS ve ev şarjı seçenekleri' : locale === 'de' ? 'Typ 2, CCS Combo 2 und Haushaltsstecker erklärt' : locale === 'pl' ? 'Type 2, CCS Combo 2 i gniazdka domowe' : 'Type 2, CCS Combo 2, and home socket options explained',
+          slug: 'phev-charging-types-connectors'
         },
         {
-          id: 'ev-sarj-cihazi',
-          title: 'Home Charging Solutions',
-          shortDescription: 'Do you need a home charging station?',
-          slug: 'ev-phev-sarj-cihazi-gerekli-mi'
+          id: 'home-charging',
+          title: locale === 'tr' ? 'Ev Şarj Çözümleri: Wallbox vs Priz' : locale === 'de' ? 'Heimladen: Wallbox vs. Haushaltssteckdose' : locale === 'pl' ? 'Ładowanie domowe: Wallbox vs gniazdko' : 'Home Charging: Wallbox vs Domestic Outlet',
+          shortDescription: locale === 'tr' ? 'Ev tipi şarj için priz yeterli mi yoksa Wallbox şart mı?' : locale === 'de' ? 'Reicht eine Steckdose oder lohnt sich eine Wallbox?' : locale === 'pl' ? 'Czy gniazdko wystarczy, czy warto kupić Wallbox?' : 'Do you need a Wallbox or is a standard outlet enough?',
+          slug: 'phev-home-charging-wallbox-vs-outlet'
         },
         {
-          id: 'sarj-istasyonu-bulma',
-          title: 'Finding Charging Stations',
-          shortDescription: 'Apps and tools to locate charging stations',
-          slug: 'phev-sarj-istasyonu-nasil-bulunur'
+          id: 'find-stations',
+          title: locale === 'tr' ? 'Şarj İstasyonu Bulma Rehberi' : locale === 'de' ? 'Ladestationen finden: Apps und Tipps' : locale === 'pl' ? 'Wyszukiwanie stacji ładowania' : 'Finding Charging Stations: Apps & Tips',
+          shortDescription: locale === 'tr' ? 'Avrupa\'da şarj noktası bulmak için uygulamalar ve ipuçları' : locale === 'de' ? 'Apps und Strategien für das Finden von Ladestationen in Europa' : locale === 'pl' ? 'Aplikacje i porady do znajdowania stacji ładowania w Europie' : 'Apps and strategies for locating public charging across Europe',
+          slug: 'phev-find-charging-stations'
         }
       ]
     },
     {
       id: 'maintenance',
       title: t.categories.maintenance.title,
-      icon: '🔧',
+      icon: '🛠️',
       description: t.categories.maintenance.description,
       color: 'bg-red-50 dark:bg-red-900/20',
       textColor: 'text-red-700 dark:text-red-300',
       borderColor: 'border-red-200 dark:border-red-700',
       topics: [
         {
-          id: 'phev-bakim-maliyeti',
-          title: 'Maintenance Costs & Savings',
-          shortDescription: 'Understanding PHEV maintenance costs vs traditional cars',
-          slug: 'phev-bakim-maliyeti-nedir'
+          id: 'maintenance-costs',
+          title: locale === 'tr' ? 'PHEV Bakım Maliyeti ve Tasarruf' : locale === 'de' ? 'PHEV-Wartungskosten und Einsparungen' : locale === 'pl' ? 'Koszty utrzymania PHEV i oszczędności' : 'PHEV Maintenance Costs & Long-Term Savings',
+          shortDescription: locale === 'tr' ? 'Azalan fren aşınması, motor bakımı ve yıllık tasarruf' : locale === 'de' ? 'Geringerer Bremsverschleiß, Motorwartung und jährliche Einsparungen' : locale === 'pl' ? 'Mniejsze zużycie hamulców, serwis silnika i roczne oszczędności' : 'Reduced brake wear, engine servicing, and annual savings breakdown',
+          slug: 'phev-maintenance-costs'
         }
       ]
     }
   ]
   
-  // Guide Structured Data
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Guide",
@@ -234,7 +230,7 @@ export default function PHEVGuidePage({
                     {category.topics.map((topic) => (
                       <Link
                         key={topic.id}
-                        href={`/faq/${topic.slug}${locale !== 'tr' ? `?lang=${locale}` : ''}`}
+                        href={`/faq/${topic.slug}${locale !== 'en' ? `?lang=${locale}` : ''}`}
                         className="group block p-4 rounded-lg border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200"
                       >
                         <div className="flex items-start justify-between">
@@ -259,23 +255,23 @@ export default function PHEVGuidePage({
           {/* CTA Section */}
           <div className="mt-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              Aradığınızı Bulamadınız mı?
+              {locale === 'de' ? 'Nicht gefunden, was Sie suchen?' : locale === 'pl' ? 'Nie znalazłeś tego, czego szukasz?' : locale === 'tr' ? 'Aradığınızı Bulamadınız mı?' : "Can't Find What You're Looking For?"}
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Uzman ekibimiz size yardımcı olmaya hazır. Sorularınızı bize iletin.
+              {locale === 'de' ? 'Unser Expertenteam hilft Ihnen gerne weiter.' : locale === 'pl' ? 'Nasz zespół ekspertów chętnie pomoże.' : locale === 'tr' ? 'Uzman ekibimiz size yardımcı olmaya hazır.' : 'Our expert team is ready to help you with any PHEV questions.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
-                İletişime Geçin
+                {locale === 'de' ? 'Kontakt aufnehmen' : locale === 'pl' ? 'Skontaktuj się' : locale === 'tr' ? 'İletişime Geçin' : 'Contact Us'}
               </Link>
               <Link
                 href="/compare"
                 className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-slate-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
               >
-                Araç Karşılaştır
+                {locale === 'de' ? 'Fahrzeuge vergleichen' : locale === 'pl' ? 'Porównaj pojazdy' : locale === 'tr' ? 'Araç Karşılaştır' : 'Compare Vehicles'}
               </Link>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -11,6 +11,12 @@ const inter = Inter({
   adjustFontFallback: true,
   variable: '--font-inter'
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#1e40af',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://phevs.eu'),
@@ -26,10 +32,10 @@ export const metadata: Metadata = {
   },
   // Open Graph configuration is defined below with full details
   title: {
-    default: 'PHEVs.eu - PHEV Database & Comparison Platform',
+    default: 'PHEV Database & Comparison Platform 2026 | PHEVs.eu',
     template: '%s | PHEVs.eu'
   },
-  description: 'The largest PHEV database in Europe: browse and compare plug-in hybrid electric vehicles from premium brands with detailed specifications, electric range, battery capacity, and real-world performance data.',
+  description: 'Europe\'s largest PHEV database. Browse and compare plug-in hybrid electric vehicles with real-world specs, battery capacity, and electric range.',
   keywords: [
     'PHEV database',
     'PHEV comparison',
@@ -39,6 +45,7 @@ export const metadata: Metadata = {
     'hybrid car comparison',
     'EV range',
     'Europe PHEV',
+    'best PHEV 2026',
     'best PHEV 2025',
     'plug-in hybrid cars',
     'hybrid vehicle specs'
@@ -55,8 +62,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_EU',
     url: 'https://phevs.eu',
-    title: 'PHEVs.eu - PHEV Database & Comparison Platform',
-    description: 'Europe\'s most comprehensive PHEV database. Browse and compare plug-in hybrid vehicles from premium brands with detailed specs, electric range, and performance data.',
+    title: 'PHEV Database & Comparison Platform 2026 | PHEVs.eu',
+    description: 'Europe\'s largest PHEV database. Browse and compare plug-in hybrid electric vehicles with real-world specs, battery capacity, and electric range.',
     siteName: 'PHEVs.eu',
     images: [
       {
@@ -69,8 +76,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PHEVs.eu - PHEV Database & Comparison Platform',
-    description: 'The largest PHEV database in Europe. Compare plug-in hybrid vehicles from premium brands and find the best PHEV for your needs.',
+    title: 'PHEV Database & Comparison Platform 2026 | PHEVs.eu',
+    description: 'Europe\'s largest PHEV database. Browse and compare plug-in hybrid electric vehicles with real-world specs, battery capacity, and electric range.',
     images: ['/images/og-image.jpg'],
     creator: '@phevs_eu',
     site: '@phevs_eu',
@@ -118,8 +125,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#1e40af" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* next/font already preloads fonts; explicit preload removed */}
         

@@ -38,6 +38,13 @@ const formSchema = z.object({
   ),
   featuresText: z.string().optional(),
   image_url: z.string().min(1, 'Image is required'),
+  ncap_stars: z.coerce.number().int().min(0).max(5).default(0),
+  ncap_adult_occupant: z.coerce.number().min(0).max(100).default(0),
+  ncap_child_occupant: z.coerce.number().min(0).max(100).default(0),
+  ncap_pedestrian_protection: z.coerce.number().min(0).max(100).default(0),
+  ncap_safety_assist: z.coerce.number().min(0).max(100).default(0),
+  ncap_overall_rating: z.coerce.number().min(0).max(100).default(0),
+  ncap_test_year: z.coerce.number().int().min(2000).max(2100).optional(),
 }).superRefine((data, ctx) => {
   if (data.dc_charging_supported && !data.dc_max_power_kw) {
     ctx.addIssue({
@@ -110,6 +117,13 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       dc_charging_supported: false,
       dc_max_power_kw: null,
       image_url: '',
+      ncap_stars: 0,
+      ncap_adult_occupant: 0,
+      ncap_child_occupant: 0,
+      ncap_pedestrian_protection: 0,
+      ncap_safety_assist: 0,
+      ncap_overall_rating: 0,
+      ncap_test_year: new Date().getFullYear(),
       ...defaultValues,
     },
   })
@@ -128,11 +142,23 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       .split('\n')
       .map((f) => f.trim())
       .filter(Boolean)
+    const hasNcap = (values.ncap_stars && values.ncap_stars > 0) || (values.ncap_overall_rating && values.ncap_overall_rating > 0)
+    const euroncap_rating = hasNcap ? {
+      stars: values.ncap_stars || 0,
+      adult_occupant: values.ncap_adult_occupant || 0,
+      child_occupant: values.ncap_child_occupant || 0,
+      pedestrian_protection: values.ncap_pedestrian_protection || 0,
+      safety_assist: values.ncap_safety_assist || 0,
+      overall_rating: values.ncap_overall_rating || 0,
+      test_year: values.ncap_test_year || values.year || new Date().getFullYear(),
+    } : null
+
     const payload = {
       ...values,
       brand: values.brand.trim(),
       model: values.model.trim(),
       dc_max_power_kw: values.dc_charging_supported ? values.dc_max_power_kw : null,
+      euroncap_rating,
       features,
     }
 
@@ -300,6 +326,60 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
               folder="vehicles"
             />
             {errors.image_url && <p className="text-xs text-red-600 mt-1">{errors.image_url.message}</p>}
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Euro NCAP Safety Rating (Optional)</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label>Stars (0 - 5)</Label>
+              <select
+                {...register('ncap_stars')}
+                className="w-full px-3 py-2 border border-slate-300 rounded-md bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value={0}>No Rating (0 Stars)</option>
+                <option value={1}>★☆☆☆☆ (1 Star)</option>
+                <option value={2}>★★☆☆☆ (2 Stars)</option>
+                <option value={3}>★★★☆☆ (3 Stars)</option>
+                <option value={4}>★★★★☆ (4 Stars)</option>
+                <option value={5}>★★★★★ (5 Stars)</option>
+              </select>
+            </div>
+            <div>
+              <Label>Test Year</Label>
+              <Input type="number" {...register('ncap_test_year')} placeholder="e.g. 2024" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <Label>Adult Occupant (%)</Label>
+              <Input type="number" min="0" max="100" {...register('ncap_adult_occupant')} placeholder="e.g. 89" />
+            </div>
+            <div>
+              <Label>Child Occupant (%)</Label>
+              <Input type="number" min="0" max="100" {...register('ncap_child_occupant')} placeholder="e.g. 88" />
+            </div>
+            <div>
+              <Label>Pedestrian Protection (%)</Label>
+              <Input type="number" min="0" max="100" {...register('ncap_pedestrian_protection')} placeholder="e.g. 72" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label>Safety Assist (%)</Label>
+              <Input type="number" min="0" max="100" {...register('ncap_safety_assist')} placeholder="e.g. 75" />
+            </div>
+            <div>
+              <Label>Overall Rating (%)</Label>
+              <Input type="number" min="0" max="100" {...register('ncap_overall_rating')} placeholder="e.g. 81" />
+            </div>
           </div>
         </CardContent>
       </Card>

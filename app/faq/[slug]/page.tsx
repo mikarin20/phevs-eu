@@ -15,28 +15,29 @@ interface FAQDetailProps {
   }
 }
 
-export async function generateMetadata({ params }: FAQDetailProps): Promise<Metadata> {
-  const faq = getFaqData(params.slug, 'tr') // Varsayılan olarak Türkçe metadata
+export async function generateMetadata({ params, searchParams }: FAQDetailProps): Promise<Metadata> {
+  const locale = (searchParams?.lang as 'en' | 'tr' | 'de' | 'pl') || 'en'
+  const faq = getFaqData(params.slug, locale)
   
   if (!faq) {
     return {
-      title: 'Sayfa Bulunamadı | PHEVs.eu',
+      title: 'Page Not Found | PHEVs.eu',
     }
   }
 
   return {
     title: `${faq.title} | PHEVs.eu`,
-    description: `PHEV hakkında detaylı bilgi: ${faq.title}. Uzman ekibimiz tarafından hazırlanan kapsamlı rehber.`,
+    description: `Detailed PHEV guide: ${faq.title}. Expert-written comprehensive reference for plug-in hybrid electric vehicle owners and buyers.`,
     keywords: [
       'PHEV',
-      'plug-in hibrit',
+      'plug-in hybrid',
       faq.title.toLowerCase(),
-      'hibrit araç',
-      'elektrikli araç'
+      'hybrid car guide',
+      'electric vehicle'
     ],
     openGraph: {
       title: `${faq.title} | PHEVs.eu`,
-      description: `PHEV hakkında detaylı bilgi: ${faq.title}`,
+      description: `Detailed PHEV guide: ${faq.title}`,
       type: 'article',
     },
     alternates: {
@@ -44,20 +45,18 @@ export async function generateMetadata({ params }: FAQDetailProps): Promise<Meta
       languages: {
         'x-default': `https://phevs.eu/faq/${params.slug}`,
         en: `https://phevs.eu/faq/${params.slug}`,
-        tr: `https://phevs.eu/faq/${params.slug}`,
-        de: `https://phevs.eu/faq/${params.slug}`,
-        pl: `https://phevs.eu/faq/${params.slug}`,
+        tr: `https://phevs.eu/faq/${params.slug}?lang=tr`,
+        de: `https://phevs.eu/faq/${params.slug}?lang=de`,
+        pl: `https://phevs.eu/faq/${params.slug}?lang=pl`,
       },
     },
   }
 }
 
 export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
-  // Dil algılama ve varsayılan dil ayarı
-  const locale = (searchParams?.lang as 'en' | 'tr' | 'de' | 'pl') || 'tr'
+  const locale = (searchParams?.lang as 'en' | 'tr' | 'de' | 'pl') || 'en'
   const t = getFaqTranslations(locale)
   
-  // FAQ verisini dil desteği ile al
   const faq = getFaqData(params.slug, locale)
 
   if (!faq) {
@@ -90,16 +89,12 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
           <nav className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
             <Link href="/" className="hover:text-gray-700 dark:hover:text-gray-300">
               {locale === 'tr' ? 'Ana Sayfa' : 
-               locale === 'en' ? 'Home' :
                locale === 'de' ? 'Startseite' :
-               locale === 'pl' ? 'Strona główna' : 'Ana Sayfa'}
+               locale === 'pl' ? 'Strona główna' : 'Home'}
             </Link>
             <ChevronRightIcon className="h-4 w-4" />
-            <Link href={`/faq${locale !== 'tr' ? `?lang=${locale}` : ''}`} className="hover:text-gray-700 dark:hover:text-gray-300">
-              {locale === 'tr' ? 'SSS' : 
-               locale === 'en' ? 'FAQ' :
-               locale === 'de' ? 'FAQ' :
-               locale === 'pl' ? 'FAQ' : 'SSS'}
+            <Link href={`/faq${locale !== 'en' ? `?lang=${locale}` : ''}`} className="hover:text-gray-700 dark:hover:text-gray-300">
+              FAQ
             </Link>
             <ChevronRightIcon className="h-4 w-4" />
             <span className="text-gray-900 dark:text-white">{faq.category}</span>
@@ -112,14 +107,13 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
 
           {/* Back Button */}
           <Link
-            href={`/faq${locale !== 'tr' ? `?lang=${locale}` : ''}`}
+            href={`/faq${locale !== 'en' ? `?lang=${locale}` : ''}`}
             className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-8"
           >
             <ArrowLeftIcon className="h-4 w-4 mr-2" />
             {locale === 'tr' ? 'Tüm Sorulara Dön' : 
-             locale === 'en' ? 'Back to All Questions' :
              locale === 'de' ? 'Zurück zu allen Fragen' :
-             locale === 'pl' ? 'Powrót do wszystkich pytań' : 'Tüm Sorulara Dön'}
+             locale === 'pl' ? 'Powrót do wszystkich pytań' : 'Back to All Questions'}
           </Link>
 
           {/* Header */}
@@ -138,9 +132,8 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
               {locale === 'tr' ? 'Son güncelleme:' : 
-               locale === 'en' ? 'Last updated:' :
                locale === 'de' ? 'Letzte Aktualisierung:' :
-               locale === 'pl' ? 'Ostatnia aktualizacja:' : 'Son güncelleme:'} {new Date(faq.lastUpdated).toLocaleDateString(locale === 'tr' ? 'tr-TR' : locale === 'de' ? 'de-DE' : locale === 'pl' ? 'pl-PL' : 'en-US')}
+               locale === 'pl' ? 'Ostatnia aktualizacja:' : 'Last updated:'} {new Date(faq.lastUpdated).toLocaleDateString(locale === 'tr' ? 'tr-TR' : locale === 'de' ? 'de-DE' : locale === 'pl' ? 'pl-PL' : 'en-GB')}
             </p>
           </div>
 
@@ -168,9 +161,8 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
             <div className="mt-12 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-8">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
                 {locale === 'tr' ? 'İlgili Sorular' : 
-                 locale === 'en' ? 'Related Questions' :
-                 locale === 'de' ? 'Verwandte Fragen' :
-                 locale === 'pl' ? 'Powiązane pytania' : 'İlgili Sorular'}
+                 locale === 'de' ? 'Verwandte Themen' :
+                 locale === 'pl' ? 'Powiązane tematy' : 'Related Topics'}
               </h3>
               <div className="space-y-3">
                 {faq.relatedQuestions.map((relatedSlug) => {
@@ -180,7 +172,7 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
                   return (
                     <Link
                       key={relatedSlug}
-                      href={`/faq/${relatedSlug}${locale !== 'tr' ? `?lang=${locale}` : ''}`}
+                      href={`/faq/${relatedSlug}${locale !== 'en' ? `?lang=${locale}` : ''}`}
                       className="block p-4 rounded-lg border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200"
                     >
                       <div className="flex items-center justify-between">
@@ -200,15 +192,13 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
           <div className="mt-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
               {locale === 'tr' ? 'Hala Sorunuz mu Var?' : 
-               locale === 'en' ? 'Still Have Questions?' :
                locale === 'de' ? 'Haben Sie noch Fragen?' :
-               locale === 'pl' ? 'Masz jeszcze pytania?' : 'Hala Sorunuz mu Var?'}
+               locale === 'pl' ? 'Masz jeszcze pytania?' : 'Still Have Questions?'}
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               {locale === 'tr' ? 'Uzman ekibimiz size yardımcı olmaya hazır. Sorularınızı bize iletin.' : 
-               locale === 'en' ? 'Our expert team is ready to help you. Send us your questions.' :
-               locale === 'de' ? 'Unser Expertenteam ist bereit, Ihnen zu helfen. Senden Sie uns Ihre Fragen.' :
-               locale === 'pl' ? 'Nasz zespół ekspertów jest gotowy, aby Ci pomóc. Wyślij nam swoje pytania.' : 'Uzman ekibimiz size yardımcı olmaya hazır. Sorularınızı bize iletin.'}
+               locale === 'de' ? 'Unser Expertenteam ist bereit, Ihnen zu helfen.' :
+               locale === 'pl' ? 'Nasz zespół ekspertów jest gotowy, aby Ci pomóc.' : 'Our expert team is ready to help you. Send us your questions.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -216,18 +206,16 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 {locale === 'tr' ? 'İletişime Geçin' : 
-                 locale === 'en' ? 'Contact Us' :
                  locale === 'de' ? 'Kontakt aufnehmen' :
-                 locale === 'pl' ? 'Skontaktuj się' : 'İletişime Geçin'}
+                 locale === 'pl' ? 'Skontaktuj się' : 'Contact Us'}
               </Link>
               <Link
                 href="/compare"
                 className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-slate-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
               >
                 {locale === 'tr' ? 'Araç Karşılaştır' : 
-                 locale === 'en' ? 'Compare Vehicles' :
                  locale === 'de' ? 'Fahrzeuge vergleichen' :
-                 locale === 'pl' ? 'Porównaj pojazdy' : 'Araç Karşılaştır'}
+                 locale === 'pl' ? 'Porównaj pojazdy' : 'Compare Vehicles'}
               </Link>
             </div>
           </div>
@@ -237,23 +225,19 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
   )
 }
 
-// Static generation için gerekli
 export async function generateStaticParams() {
   return [
-    { slug: 'phev-nedir-nasil-calisir' },
-    { slug: 'phev-bev-farki-nedir' },
-    { slug: 'phev-avantajlari-nelerdir' },
-    { slug: 'phev-satin-alma-rehberi' },
-    { slug: 'phev-fiyat-araligi-nedir' },
-    { slug: 'phev-tesvikler-hangi-ulkelerde' },
-    { slug: 'phev-menzil-hesaplama-nasil' },
-    { slug: 'phev-sarj-sureleri-ne-kadar' },
-    { slug: 'phev-batarya-omru-ne-kadar' },
-    { slug: 'phev-sarj-tipleri-nelerdir' },
-    { slug: 'ev-phev-sarj-cihazi-gerekli-mi' },
-    { slug: 'phev-sarj-istasyonu-nasil-bulunur' },
-    { slug: 'phev-bakim-maliyeti-nedir' },
-    { slug: 'phev-garanti-suresi-ne-kadar' },
-    { slug: 'phev-servis-aglari-yeterli-mi' }
+    { slug: 'what-is-phev-how-it-works' },
+    { slug: 'phev-vs-bev-differences' },
+    { slug: 'phev-benefits-and-advantages' },
+    { slug: 'phev-buying-guide' },
+    { slug: 'phev-price-ranges' },
+    { slug: 'phev-range-wltp-calculation' },
+    { slug: 'phev-charging-times-ac-vs-dc' },
+    { slug: 'phev-battery-life-degradation' },
+    { slug: 'phev-charging-types-connectors' },
+    { slug: 'phev-home-charging-wallbox-vs-outlet' },
+    { slug: 'phev-find-charging-stations' },
+    { slug: 'phev-maintenance-costs' },
   ]
 }

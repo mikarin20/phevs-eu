@@ -239,7 +239,7 @@ export default function Home() {
     {
       id: 'renault-mg',
       href: '/compare/renault-rafale-phev-vs-mg-hs-ii-1-5t',
-      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
+      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp', alt: 'Renault Rafale', specs: '65km • €35,000' },
       rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75km • €32,000' }
     },
     {
@@ -323,7 +323,7 @@ export default function Home() {
     {
       id: 'renault-rafale-captur',
       href: '/compare/renault-rafale-phev-vs-renault-captur-e-tech-phev',
-      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.png', alt: 'Renault Rafale', specs: '65km • €35,000' },
+      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp', alt: 'Renault Rafale', specs: '65km • €35,000' },
       rightCar: { name: 'Renault Captur E-TECH (2022)', image: '/images/cars/brands/renault/captur-e-tech-phev/main.jpg', alt: 'Renault Captur E-TECH', specs: '50km • €32,000' }
     },
     {
@@ -1629,16 +1629,17 @@ export default function Home() {
                     </div>
                     <div className="p-4">
                       <div className="flex justify-between items-center mb-2">
-                        <h4 className="font-semibold text-sm text-gray-900 dark:text-white">{comparison.leftCar.name}</h4>
-                        <h4 className="font-semibold text-sm text-gray-900 dark:text-white">{comparison.rightCar.name}</h4>
+                        <h4 className="font-semibold text-sm text-gray-900 dark:text-white truncate">{comparison.leftCar.name}</h4>
+                        <span className="text-[11px] font-bold text-gray-400 uppercase mx-1">vs</span>
+                        <h4 className="font-semibold text-sm text-gray-900 dark:text-white truncate text-right">{comparison.rightCar.name}</h4>
                       </div>
-                      <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3">
-                        <span>{comparison.leftCar.specs}</span>
-                        <span>{comparison.rightCar.specs}</span>
+                      <div className="flex justify-between items-center text-xs text-gray-600 dark:text-gray-300 mb-3 border-y border-gray-100 dark:border-slate-700/60 py-1.5">
+                        <span className="font-medium">{comparison.leftCar.specs}</span>
+                        <span className="font-medium">{comparison.rightCar.specs}</span>
                       </div>
-                      <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400">
-                        <span>Compare These Models</span>
-                        <ArrowsUpDownIcon className="h-3 w-3 ml-1" />
+                      <div className="flex items-center justify-center text-xs font-semibold text-blue-600 dark:text-blue-400 pt-0.5" aria-label={`Compare ${comparison.leftCar.name} and ${comparison.rightCar.name}`}>
+                        <span>View Comparison</span>
+                        <ArrowsUpDownIcon className="h-3.5 w-3.5 ml-1.5" aria-hidden="true" />
                       </div>
                     </div>
                   </div>
@@ -2170,124 +2171,120 @@ export default function Home() {
                     </div>
 
                   {/* Specifications - Desktop */}
-                  <div className="hidden sm:block space-y-1 text-xs mb-3">
+                  <dl className="hidden sm:block space-y-1 text-xs mb-3">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                      <dt className="flex items-center space-x-2">
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                         <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
-                      </div>
+                      </dt>
+                      <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</dd>
                     </div>
 
-                    {/* Update date moved to very bottom under action buttons */}
-                      <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
+                    <div className="flex items-center justify-between">
+                      <dt className="flex items-center space-x-2">
+                        <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                         <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
-                        </div>
+                      </dt>
+                      <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</dd>
+                    </div>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
+                      <dt className="flex items-center space-x-2">
+                        <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                         <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
+                      </dt>
+                      <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</dd>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                      <dt className="flex items-center space-x-2">
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                         <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
+                      </dt>
+                      <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</dd>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <ScaleIcon className="h-3 w-3 text-[#4F7C82]" />
+                      <dt className="flex items-center space-x-2">
+                        <ScaleIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                         <span className={`${currentTheme.textPrimary}`}>Weight:</span>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</span>
+                      </dt>
+                      <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</dd>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
+                      <dt className="flex items-center space-x-2">
+                        <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                         <span className={`${currentTheme.textPrimary}`}>Engine:</span>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
+                      </dt>
+                      <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</dd>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
+                      <dt className="flex items-center space-x-2">
+                        <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                         <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
+                      </dt>
+                      <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</dd>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
-                      </div>
-                      <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
+                      <dt className="flex items-center space-x-2">
+                        <BoltIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
+                        <span className={`${currentTheme.textPrimary}`}>Consumption:</span>
+                      </dt>
+                      <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</dd>
                     </div>
-
-                    </div>
+                  </dl>
 
                   {/* Mobile Accordions */}
                   <div className="sm:hidden mb-4 space-y-2">
                     <MobileAccordion title="Key Features" defaultOpen={true} textColor={currentTheme.textPrimary} iconColor={currentTheme.iconColor}>
-                      <div className="space-y-3 text-sm">
+                      <dl className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                          <dt className="flex items-center space-x-2">
+                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                             <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
+                          </dt>
+                          <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</dd>
                         </div>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" />
+                          <dt className="flex items-center space-x-2">
+                            <CpuChipIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                             <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
+                          </dt>
+                          <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</dd>
                         </div>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
+                          <dt className="flex items-center space-x-2">
+                            <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                             <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
+                          </dt>
+                          <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</dd>
                         </div>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
+                          <dt className="flex items-center space-x-2">
+                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                             <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
+                          </dt>
+                          <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</dd>
                         </div>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" />
+                          <dt className="flex items-center space-x-2">
+                            <Cog6ToothIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                             <span className={`${currentTheme.textPrimary}`}>Engine:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
+                          </dt>
+                          <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</dd>
                         </div>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" />
+                          <dt className="flex items-center space-x-2">
+                            <WrenchScrewdriverIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
                             <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
+                          </dt>
+                          <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</dd>
                         </div>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" />
-                            <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
-                          </div>
-                          <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
+                          <dt className="flex items-center space-x-2">
+                            <BoltIcon className="h-3 w-3 text-[#4F7C82]" aria-hidden="true" />
+                            <span className={`${currentTheme.textPrimary}`}>Consumption:</span>
+                          </dt>
+                          <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</dd>
                         </div>
-                      </div>
+                      </dl>
                     </MobileAccordion>
 
                     <MobileAccordion title="Performance & Efficiency" textColor={currentTheme.textPrimary} iconColor={currentTheme.iconColor}>
@@ -2464,12 +2461,14 @@ export default function Home() {
                     </div>
 
                     {/* Specifications - Desktop */}
-                    <div className="hidden sm:block mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <dl className="hidden sm:block mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
-                      <button
+                        <dt className="flex items-center space-x-2">
+                          <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</dd>
+                        <button
                           onClick={() => {
                             setSelectedCarForSimulator(car)
                             setIsRangeSimulatorOpen(true)
@@ -2478,116 +2477,134 @@ export default function Home() {
                           title="Range Simulator"
                         >
                           <SparklesIcon className="h-3 w-3 text-[#4F7C82]" />
-                      </button>
+                        </button>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CpuChipIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
+                        <dt className="flex items-center space-x-2">
+                          <CpuChipIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</dd>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
+                        <dt className="flex items-center space-x-2">
+                          <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</dd>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
+                        <dt className="flex items-center space-x-2">
+                          <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</dd>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <UserGroupIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Seats:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.seats}</span>
+                        <dt className="flex items-center space-x-2">
+                          <UserGroupIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>Seats:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.seats}</dd>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <ShieldCheckIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Warranty:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.warranty_years} years</span>
+                        <dt className="flex items-center space-x-2">
+                          <ShieldCheckIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>Warranty:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.warranty_years} years</dd>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <ScaleIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Weight:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</span>
+                        <dt className="flex items-center space-x-2">
+                          <ScaleIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>Weight:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.weight_kg} kg</dd>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Engine:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
+                        <dt className="flex items-center space-x-2">
+                          <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>Engine:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</dd>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
+                        <dt className="flex items-center space-x-2">
+                          <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</dd>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                        <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
-                        <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
+                        <dt className="flex items-center space-x-2">
+                          <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                          <span className={`${currentTheme.textPrimary}`}>Consumption:</span>
+                        </dt>
+                        <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</dd>
                       </div>
-                    </div>
+                    </dl>
 
                     {/* Mobile Accordions */}
                     <div className="sm:hidden mt-4 space-y-2">
                       <MobileAccordion title="Key Features" defaultOpen={true} textColor={currentTheme.textPrimary} iconColor={currentTheme.iconColor}>
-                        <div className="space-y-3 text-sm">
+                        <dl className="space-y-3 text-sm">
                           <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                            <dt className="flex items-center space-x-2">
+                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
                               <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
-                      </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</span>
-                    </div>
+                            </dt>
+                            <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</dd>
+                          </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <CpuChipIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                            <dt className="flex items-center space-x-2">
+                              <CpuChipIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
                               <span className={`${currentTheme.textPrimary}`}>{t.battery}:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</span>
+                            </dt>
+                            <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.battery_kwh} kWh</dd>
                           </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                            <dt className="flex items-center space-x-2">
+                              <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
                               <span className={`${currentTheme.textPrimary}`}>{t.totalPower}:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</span>
+                            </dt>
+                            <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp} HP</dd>
                           </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                            <dt className="flex items-center space-x-2">
+                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
                               <span className={`${currentTheme.textPrimary}`}>{t.chargeTime}:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</span>
+                            </dt>
+                            <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.charge_time_ac}h AC</dd>
                           </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <UserGroupIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                            <dt className="flex items-center space-x-2">
+                              <UserGroupIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
                               <span className={`${currentTheme.textPrimary}`}>Seats:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.seats}</span>
+                            </dt>
+                            <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.seats}</dd>
                           </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                            <dt className="flex items-center space-x-2">
+                              <Cog6ToothIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
                               <span className={`${currentTheme.textPrimary}`}>Engine:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</span>
+                            </dt>
+                            <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.engine_displacement}L</dd>
                           </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
+                            <dt className="flex items-center space-x-2">
+                              <WrenchScrewdriverIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
                               <span className={`${currentTheme.textPrimary}`}>ICE Power:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</span>
+                            </dt>
+                            <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.power_hp - (car.electric_motor_power_hp || 0)} HP</dd>
                           </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} />
-                              <span className={`${currentTheme.textPrimary}`}>Fuel Consumption:</span>
-                            </div>
-                            <span className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption}L/100km</span>
+                            <dt className="flex items-center space-x-2">
+                              <BoltIcon className={`h-4 w-4 ${currentTheme.iconColor}`} aria-hidden="true" />
+                              <span className={`${currentTheme.textPrimary}`}>Consumption:</span>
+                            </dt>
+                            <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.fuel_consumption} L/100km</dd>
                           </div>
-                        </div>
+                        </dl>
                       </MobileAccordion>
 
                       <MobileAccordion title="Performance & Efficiency" textColor={currentTheme.textPrimary} iconColor={currentTheme.iconColor}>

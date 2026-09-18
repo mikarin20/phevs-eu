@@ -31,6 +31,15 @@ export const vehicleSchema = z.object({
   seats: z.coerce.number().default(5),
   warranty_years: z.coerce.number().default(3),
   country_availability: z.string().default('EU'),
+  euroncap_rating: z.object({
+    stars: z.coerce.number().int().min(0).max(5).default(0),
+    adult_occupant: z.coerce.number().min(0).max(100).default(0),
+    child_occupant: z.coerce.number().min(0).max(100).default(0),
+    pedestrian_protection: z.coerce.number().min(0).max(100).default(0),
+    safety_assist: z.coerce.number().min(0).max(100).default(0),
+    overall_rating: z.coerce.number().min(0).max(100).default(0),
+    test_year: z.coerce.number().int().min(2000).max(2100).default(2024),
+  }).nullable().optional(),
 }).superRefine((data, ctx) => {
   if (data.dc_charging_supported && !data.dc_max_power_kw) {
     ctx.addIssue({
