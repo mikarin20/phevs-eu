@@ -1,11 +1,15 @@
-﻿import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import fs from 'fs';
 import path from 'path';
 
-const ACCOUNT_ID = '679619e96cf1307ddd452b6a63a91dde';
-const ACCESS_KEY_ID = '0a3f0adaad9cead312b8a56770e80cb4';
-const SECRET_ACCESS_KEY = '4a60e60cd455d08106a223a28947d5cc672c5b20133d2019aadc0433bdbc42ba';
-const BUCKET_NAME = 'phevs-assets';
+const ACCOUNT_ID = process.env.R2_ACCOUNT_ID;
+const ACCESS_KEY_ID = process.env.R2_ACCESS_KEY_ID;
+const SECRET_ACCESS_KEY = process.env.R2_SECRET_ACCESS_KEY;
+const BUCKET_NAME = process.env.R2_BUCKET_NAME || 'phevs-assets';
+
+if (!ACCOUNT_ID || !ACCESS_KEY_ID || !SECRET_ACCESS_KEY) {
+  throw new Error('R2_ACCOUNT_ID, R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY must be set');
+}
 
 const s3 = new S3Client({
   region: 'auto',
