@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { ArrowLeftIcon, XMarkIcon, CheckIcon, ShareIcon, ArrowDownTrayIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
+import quickCompareData from '@/data/quick-compares.json'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
 import html2canvas from 'html2canvas'
 import { getImageUrl } from '@/lib/image-url'
@@ -689,6 +690,28 @@ export default function ComparePage({ params }: ComparePageProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div ref={comparisonRef}>
+          {/* Custom Quick Compare Summary (managed via /admin/compare) */}
+          {(() => {
+            const customCompare = (quickCompareData as any[]).find((c) => c.slug === params.cars)
+            if (!customCompare || (!customCompare.summary && !customCompare.verdict)) return null
+            return (
+              <div className="mb-8 bg-blue-50 border border-blue-200 rounded-2xl p-6 space-y-4">
+                {customCompare.summary && (
+                  <div>
+                    <h2 className="text-sm font-semibold text-blue-900 uppercase tracking-wide mb-1">Summary</h2>
+                    <p className="text-blue-900 whitespace-pre-line">{customCompare.summary}</p>
+                  </div>
+                )}
+                {customCompare.verdict && (
+                  <div>
+                    <h2 className="text-sm font-semibold text-blue-900 uppercase tracking-wide mb-1">Verdict</h2>
+                    <p className="text-blue-900 whitespace-pre-line">{customCompare.verdict}</p>
+                  </div>
+                )}
+              </div>
+            )
+          })()}
+
           {/* Vehicle Cards */}
           <div className={`grid gap-6 sm:gap-8 mb-12 ${
             selectedCars.length === 2 
