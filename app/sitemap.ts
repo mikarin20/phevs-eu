@@ -110,16 +110,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'phev-avantajlari-nelerdir',
     'phev-satin-alma-rehberi',
     'phev-fiyat-araligi-nedir',
-    'phev-tesvikler-hangi-ulkelerde',
     'phev-menzil-hesaplama-nasil',
     'phev-sarj-sureleri-ne-kadar',
     'phev-batarya-omru-ne-kadar',
     'phev-sarj-tipleri-nelerdir',
     'ev-phev-sarj-cihazi-gerekli-mi',
     'phev-sarj-istasyonu-nasil-bulunur',
-    'phev-bakim-maliyeti-nedir',
-    'phev-garanti-suresi-ne-kadar',
-    'phev-servis-aglari-yeterli-mi'
+    'phev-bakim-maliyeti-nedir'
   ]
   
   const faqRoutes = faqSlugs.map((slug) => ({

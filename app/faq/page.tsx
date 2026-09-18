@@ -92,14 +92,8 @@ export default function PHEVGuidePage({
         {
           id: 'phev-fiyat-araligi',
           title: 'PHEV Price Ranges & Budget Planning',
-          shortDescription: 'Understanding PHEV pricing and financing options',
+          shortDescription: 'Understanding PHEV pricing and TCO planning',
           slug: 'phev-fiyat-araligi-nedir'
-        },
-        {
-          id: 'phev-teşvikler',
-          title: 'Government Incentives & Tax Benefits',
-          shortDescription: 'Available incentives and tax benefits for PHEV buyers',
-          slug: 'phev-tesvikler-hangi-ulkelerde'
         }
       ]
     },
@@ -175,18 +169,6 @@ export default function PHEVGuidePage({
           title: 'Maintenance Costs & Savings',
           shortDescription: 'Understanding PHEV maintenance costs vs traditional cars',
           slug: 'phev-bakim-maliyeti-nedir'
-        },
-        {
-          id: 'phev-garanti-suresi',
-          title: 'Warranty Coverage & Terms',
-          shortDescription: 'PHEV warranty coverage and battery guarantees',
-          slug: 'phev-garanti-suresi-ne-kadar'
-        },
-        {
-          id: 'phev-servis-aglari',
-          title: 'Service Network & Support',
-          shortDescription: 'PHEV service network availability and support',
-          slug: 'phev-servis-aglari-yeterli-mi'
         }
       ]
     }
