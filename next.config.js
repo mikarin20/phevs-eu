@@ -153,18 +153,6 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // 301 Canonical Redirect: www.phevs.eu -> https://phevs.eu (prevent duplicate content)
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.phevs.eu',
-          },
-        ],
-        destination: 'https://phevs.eu/:path*',
-        permanent: true,
-      },
       // Sitemap ve robots.txt trailing slash redirect'lerini önle
       {
         source: '/sitemap.xml/',
