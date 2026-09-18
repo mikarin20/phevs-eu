@@ -19,7 +19,7 @@ interface Car {
   ev_range_km: number
   fuel_consumption: number
   battery_kwh: number
-  price_eur: number
+  price_eur?: number
   image_url: string
   power_hp: number
   co2_emission: number

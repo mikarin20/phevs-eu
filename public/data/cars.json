@@ -8,7 +8,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
     "battery_kwh": 15.5,
-    "price_eur": 51000,
     "image_url": "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/main.jpg",
     "power_hp": 269,
     "co2_emission": 30,
@@ -37,15 +36,16 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "alfa-romeo-tonale-phev"
+    "slug": "alfa-romeo-tonale-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "audi-1",
@@ -56,7 +56,6 @@
     "ev_range_km": 133,
     "fuel_consumption": 0.35,
     "battery_kwh": 25.7,
-    "price_eur": 44200,
     "image_url": "/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg",
     "power_hp": 204,
     "co2_emission": 7.5,
@@ -64,7 +63,7 @@
     "trunk_volume": 280,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "weight_kg": 1610,
     "length_mm": 4353,
     "width_mm": 1816,
@@ -93,7 +92,8 @@
       "test_year": 2020
     },
     "battery_architecture": "modular",
-    "slug": "audi-a3-sportback-phev"
+    "slug": "audi-a3-sportback-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "new-4",
@@ -101,13 +101,12 @@
     "model": "A5 Limousine",
     "year": 2025,
     "segment": "Sedan",
-    "ev_range_km": 104,
-    "fuel_consumption": 4.8,
+    "ev_range_km": 108,
+    "fuel_consumption": 1.9,
     "battery_kwh": 25.9,
-    "price_eur": 62500,
     "image_url": "/images/cars/brands/audi/a5-limousine-e-hybrid/main.jpg",
     "power_hp": 367,
-    "co2_emission": 55.5,
+    "co2_emission": 43,
     "charge_time_ac": 3,
     "charging_capabilities": {
       "ac_power": 11
@@ -141,7 +140,8 @@
       "test_year": 2020
     },
     "battery_architecture": "modular",
-    "slug": "audi-a5-limousine-phev"
+    "slug": "audi-a5-limousine-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "audi-5",
@@ -149,13 +149,12 @@
     "model": "A6 Limousine",
     "year": 2025,
     "segment": "Station/Estate",
-    "ev_range_km": 92.5,
-    "fuel_consumption": 5.05,
+    "ev_range_km": 106,
+    "fuel_consumption": 2.2,
     "battery_kwh": 25.9,
-    "price_eur": 65800,
     "image_url": "/images/cars/brands/audi/a6-limousine-e-hybrid/main.jpg",
     "power_hp": 367,
-    "co2_emission": 59.5,
+    "co2_emission": 50,
     "charge_time_ac": 3.5,
     "trunk_volume": 404,
     "seats": 5,
@@ -174,8 +173,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 93,
@@ -186,7 +188,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "audi-a6-limousine-phev"
+    "slug": "audi-a6-limousine-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-6",
@@ -194,10 +197,9 @@
     "model": "A7 Sportback",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 90,
+    "ev_range_km": 66,
     "fuel_consumption": 1.6,
     "battery_kwh": 17.9,
-    "price_eur": 65000,
     "image_url": "/images/cars/brands/audi/a7-sportback-tfsi-e/main.jpg",
     "power_hp": 367,
     "co2_emission": 36,
@@ -219,6 +221,9 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
@@ -231,7 +236,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "audi-a7-sportback-phev"
+    "slug": "audi-a7-sportback-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "audi-2",
@@ -239,13 +245,12 @@
     "model": "Q3",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 111,
-    "fuel_consumption": 4.2,
+    "ev_range_km": 119,
+    "fuel_consumption": 1.7,
     "battery_kwh": 25.7,
-    "price_eur": 46900,
     "image_url": "/images/cars/brands/audi/q3-tfsi-e/main.jpg",
     "power_hp": 272,
-    "co2_emission": 45,
+    "co2_emission": 39,
     "charge_time_ac": 3.5,
     "trunk_volume": 375,
     "seats": 5,
@@ -257,15 +262,19 @@
     "wheelbase_mm": 2680,
     "max_trunk_volume": 1196,
     "electric_motor_power_hp": 116,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 50
+    },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
@@ -276,7 +285,8 @@
       "test_year": 2018
     },
     "battery_architecture": "modular",
-    "slug": "audi-q3-phev"
+    "slug": "audi-q3-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "audi-4",
@@ -284,16 +294,15 @@
     "model": "Q5",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 86.5,
-    "fuel_consumption": 5.5,
+    "ev_range_km": 107,
+    "fuel_consumption": 2.6,
     "battery_kwh": 25.9,
-    "price_eur": 64900,
     "image_url": "/images/cars/brands/audi/q5-tfsi-e/main.jpg",
     "power_hp": 367,
-    "co2_emission": 68.5,
+    "co2_emission": 61,
     "charge_time_ac": 3.5,
     "charging_capabilities": {
-      "ac_power": 11
+      "ac_power": 7.2
     },
     "trunk_volume": 438,
     "seats": 5,
@@ -313,7 +322,7 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 93,
@@ -324,7 +333,8 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "audi-q5-phev"
+    "slug": "audi-q5-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "audi-6",
@@ -332,10 +342,9 @@
     "model": "Q7",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 75,
-    "fuel_consumption": 2.5,
+    "ev_range_km": 84,
+    "fuel_consumption": 3.8,
     "battery_kwh": 25.9,
-    "price_eur": 78900,
     "image_url": "/images/cars/brands/audi/q7-tfsi-e/main.jpg",
     "power_hp": 490,
     "co2_emission": 57,
@@ -357,8 +366,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.4
+    },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 93,
@@ -369,7 +381,8 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "audi-q7-phev"
+    "slug": "audi-q7-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "audi-8",
@@ -377,10 +390,9 @@
     "model": "Q8",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 70,
-    "fuel_consumption": 2.7,
+    "ev_range_km": 80,
+    "fuel_consumption": 3.9,
     "battery_kwh": 25.9,
-    "price_eur": 89900,
     "image_url": "/images/cars/brands/audi/q8-tfsi-e/main.jpg",
     "power_hp": 490,
     "co2_emission": 61,
@@ -402,8 +414,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.4
+    },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 93,
@@ -414,7 +429,8 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "audi-q8-phev"
+    "slug": "audi-q8-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "bmw-m5touring",
@@ -425,7 +441,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 2.1,
     "battery_kwh": 22.1,
-    "price_eur": 120000,
     "image_url": "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/main.jpg",
     "power_hp": 727,
     "co2_emission": 48,
@@ -448,7 +463,7 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 91,
@@ -459,7 +474,13 @@
       "test_year": 2017
     },
     "battery_architecture": "modular",
-    "slug": "bmw-m5-touring-phev"
+    "slug": "bmw-m5-touring-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
     "id": "new-14",
@@ -470,7 +491,6 @@
     "ev_range_km": 95,
     "fuel_consumption": 1.8,
     "battery_kwh": 16.3,
-    "price_eur": 40000,
     "image_url": "/images/cars/brands/bmw/bmw-2-series-active-tourer-2024-2025/main.jpg",
     "power_hp": 326,
     "co2_emission": 41,
@@ -504,7 +524,13 @@
       "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "bmw-2-series-active-tourer-phev"
+    "slug": "bmw-2-series-active-tourer-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
     "id": "bmw-serii3limuzyna",
@@ -515,7 +541,6 @@
     "ev_range_km": 80,
     "fuel_consumption": 1.7,
     "battery_kwh": 19.5,
-    "price_eur": 55000,
     "image_url": "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/main.jpg",
     "power_hp": 292,
     "co2_emission": 38,
@@ -549,7 +574,13 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "bmw-3-series-sedan-phev"
+    "slug": "bmw-3-series-sedan-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
     "id": "byd-seal-5-dm-i",
@@ -560,7 +591,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 0.9,
     "battery_kwh": 18.3,
-    "price_eur": 35000,
     "image_url": "/images/cars/brands/byd/seal-5-dm-i/main.jpg",
     "power_hp": 218,
     "co2_emission": 30,
@@ -586,16 +616,21 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "blade",
     "slug": "byd-seal-5-dm-i-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
+    }
   },
   {
     "id": "byd-seal-6-dm-i",
@@ -606,7 +641,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
     "battery_kwh": 10.08,
-    "price_eur": 35000,
     "image_url": "/images/cars/brands/byd/seal-6-dm-i/main.jpg",
     "power_hp": 200,
     "co2_emission": 30,
@@ -632,16 +666,21 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "blade",
     "slug": "byd-seal-6-dm-i-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
+    }
   },
   {
     "id": "byd-seal-u-dm-i",
@@ -652,7 +691,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 0.9,
     "battery_kwh": 18.3,
-    "price_eur": 38000,
     "image_url": "/images/cars/brands/byd/seal-u-dm-i/main.jpg",
     "power_hp": 218,
     "co2_emission": 30,
@@ -678,16 +716,21 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "blade",
     "slug": "byd-seal-u-dm-i-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
+    }
   },
   {
     "id": "citroen-c5-aircross-ii",
@@ -698,7 +741,6 @@
     "ev_range_km": 81,
     "fuel_consumption": 2.55,
     "battery_kwh": 17.8,
-    "price_eur": 35000,
     "image_url": "/images/cars/brands/citroen/c5-aircross-ii-phev/main.jpg",
     "power_hp": 150,
     "co2_emission": 56,
@@ -724,16 +766,22 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-ii-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-x-16",
@@ -744,7 +792,6 @@
     "ev_range_km": 54,
     "fuel_consumption": 1.85,
     "battery_kwh": 12.4,
-    "price_eur": 32000,
     "image_url": "/images/cars/brands/citroen/c5-x-16-phev/main.jpg",
     "power_hp": 150,
     "co2_emission": 32,
@@ -770,16 +817,22 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-x-16-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-aircross-i-variant1",
@@ -790,7 +843,6 @@
     "ev_range_km": 49,
     "fuel_consumption": 1.75,
     "battery_kwh": 12.4,
-    "price_eur": 30000,
     "image_url": "/images/cars/brands/citroen/c5-aircross-i-phev/main.jpg",
     "power_hp": 150,
     "co2_emission": 40,
@@ -816,16 +868,22 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-aircross-i-variant2",
@@ -836,7 +894,6 @@
     "ev_range_km": 55,
     "fuel_consumption": 1.45,
     "battery_kwh": 13.2,
-    "price_eur": 33000,
     "image_url": "/images/cars/brands/citroen/c5-aircross-i-hp-phev/main.jpg",
     "power_hp": 181,
     "co2_emission": 32,
@@ -862,16 +919,22 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-x-16-puretech",
@@ -882,7 +945,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.35,
     "battery_kwh": 12.4,
-    "price_eur": 34000,
     "image_url": "/images/cars/brands/citroen/c5-x-16-puretech-phev/main.jpg",
     "power_hp": 180,
     "co2_emission": 29,
@@ -908,16 +970,22 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-x-16-puretech-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "citroen-c5-aircross-i-variant3",
@@ -928,7 +996,6 @@
     "ev_range_km": 50,
     "fuel_consumption": 1.45,
     "battery_kwh": 11.5,
-    "price_eur": 31000,
     "image_url": "/images/cars/brands/citroen/c5-aircross-i-115kwh-phev/main.jpg",
     "power_hp": 181,
     "co2_emission": 32,
@@ -954,16 +1021,22 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-i-115kwh-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-23",
@@ -974,7 +1047,6 @@
     "ev_range_km": 82,
     "fuel_consumption": 1.5,
     "battery_kwh": 19.2,
-    "price_eur": 28000,
     "image_url": "/images/cars/brands/chery/tiggo-7-phev/main.jpg",
     "power_hp": 200,
     "co2_emission": 30,
@@ -986,12 +1058,12 @@
     "battery_chemistry": "NCM",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "engine_displacement": 1.5,
     "battery_architecture": "modular",
@@ -999,7 +1071,12 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "chery-tiggo-7-phev"
+    "slug": "chery-tiggo-7-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "6.6 kW AC on-board charger, 0-100% yaklaşık 3 saat"
+    }
   },
   {
     "id": "chery-tiggo8",
@@ -1010,7 +1087,6 @@
     "ev_range_km": 80,
     "fuel_consumption": 1.5,
     "battery_kwh": 19.2,
-    "price_eur": 32000,
     "image_url": "/images/cars/brands/chery/tiggo-8-phev/main.jpg",
     "power_hp": 200,
     "co2_emission": 30,
@@ -1021,12 +1097,12 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
@@ -1035,7 +1111,12 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "chery-tiggo-8-phev"
+    "slug": "chery-tiggo-8-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "6.6 kW AC on-board charger"
+    }
   },
   {
     "id": "chery-tiggo9",
@@ -1046,7 +1127,6 @@
     "ev_range_km": 82,
     "fuel_consumption": 1.5,
     "battery_kwh": 19.2,
-    "price_eur": 35000,
     "image_url": "/images/cars/brands/chery/tiggo-9-phev/main.jpg",
     "power_hp": 200,
     "co2_emission": 30,
@@ -1057,12 +1137,12 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
@@ -1071,7 +1151,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "chery-tiggo-9-phev"
+    "slug": "chery-tiggo-9-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "cupra-formentor-204hp",
@@ -1081,8 +1165,7 @@
     "segment": "SUV",
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13.0,
-    "price_eur": 42000,
+    "battery_kwh": 13,
     "image_url": "/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg",
     "power_hp": 204,
     "co2_emission": 36,
@@ -1104,20 +1187,25 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
     "slug": "cupra-formentor-204hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "cupra-formentor-245hp",
@@ -1127,8 +1215,7 @@
     "segment": "SUV",
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13.0,
-    "price_eur": 45000,
+    "battery_kwh": 13,
     "image_url": "/images/cars/brands/cupra/formentor-245hp-e-hybrid/main.jpg",
     "power_hp": 245,
     "co2_emission": 36,
@@ -1150,20 +1237,25 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
     "slug": "cupra-formentor-245hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "cupra-leon-1.4-tsi-204hp",
@@ -1173,8 +1265,7 @@
     "segment": "Hatchback",
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13.0,
-    "price_eur": 38000,
+    "battery_kwh": 13,
     "image_url": "/images/cars/brands/cupra/leon-204hp-e-hybrid/main.jpg",
     "power_hp": 204,
     "co2_emission": 36,
@@ -1196,20 +1287,25 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
     "slug": "cupra-leon-204hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "cupra-leon-1.4-tsi-245hp",
@@ -1219,8 +1315,7 @@
     "segment": "Hatchback",
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13.0,
-    "price_eur": 42000,
+    "battery_kwh": 13,
     "image_url": "/images/cars/brands/cupra/leon-245hp-e-hybrid/main.jpg",
     "power_hp": 245,
     "co2_emission": 36,
@@ -1242,20 +1337,25 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
     "slug": "cupra-leon-245hp-phev",
-    "last_updated": "2025-10-22"
+    "last_updated": "2025-10-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "new-31",
@@ -1266,7 +1366,6 @@
     "ev_range_km": 65,
     "fuel_consumption": 1.5,
     "battery_kwh": 13.2,
-    "price_eur": 42000,
     "image_url": "/images/cars/brands/ds-automobiles/ds-7/main.jpg",
     "power_hp": 225,
     "co2_emission": 30,
@@ -1277,12 +1376,12 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
@@ -1291,7 +1390,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "ds-7-crossback-phev"
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    },
+    "slug": "ds-7-crossback-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "new-33",
@@ -1302,7 +1407,6 @@
     "ev_range_km": 77,
     "fuel_consumption": 3,
     "battery_kwh": 17.2,
-    "price_eur": 43000,
     "image_url": "/images/cars/brands/ds-automobiles/n4/main.png",
     "power_hp": 225,
     "co2_emission": 60,
@@ -1313,12 +1417,12 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
@@ -1327,7 +1431,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "ds-n4-phev"
+    "slug": "ds-n4-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "ford-1",
@@ -1338,7 +1448,6 @@
     "ev_range_km": 65,
     "fuel_consumption": 1.05,
     "battery_kwh": 14.4,
-    "price_eur": 40000,
     "image_url": "/images/cars/brands/ford/kuga/main.jpg",
     "power_hp": 243,
     "co2_emission": 24,
@@ -1360,20 +1469,24 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.6
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "ford-kuga-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "new-34",
@@ -1384,7 +1497,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
     "battery_kwh": 13,
-    "price_eur": 73610,
     "image_url": "/images/cars/brands/ford/ranger-phev/main.jpg",
     "power_hp": 270,
     "co2_emission": 30,
@@ -1395,12 +1507,12 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "engine_displacement": 2.3,
     "battery_chemistry": "NCM",
@@ -1410,7 +1522,11 @@
       "ac_location": "Front left"
     },
     "slug": "ford-ranger-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "new-35",
@@ -1421,7 +1537,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
     "battery_kwh": 13,
-    "price_eur": 35000,
     "image_url": "/images/cars/brands/ford/tourneo-connect/main.jpg",
     "power_hp": 200,
     "co2_emission": 30,
@@ -1432,12 +1547,12 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
@@ -1447,7 +1562,11 @@
       "ac_location": "Front left"
     },
     "slug": "ford-tourneo-connect-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "ford-escape",
@@ -1458,7 +1577,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.2,
     "battery_kwh": 14.4,
-    "price_eur": 38000,
     "image_url": "/images/cars/brands/ford/escape/main.jpg",
     "power_hp": 210,
     "co2_emission": 27,
@@ -1480,20 +1598,25 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "ford-escape-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "ford-explorer",
@@ -1504,7 +1627,6 @@
     "ev_range_km": 50,
     "fuel_consumption": 2.8,
     "battery_kwh": 13.6,
-    "price_eur": 65000,
     "image_url": "/images/cars/brands/ford/explorer/main.jpg",
     "power_hp": 457,
     "co2_emission": 64,
@@ -1519,27 +1641,32 @@
     "wheelbase_mm": 3025,
     "max_trunk_volume": 600,
     "electric_motor_power_hp": 100,
-    "engine_displacement": 3.0,
+    "engine_displacement": 3,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
     "slug": "ford-explorer-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "ford-fusion",
@@ -1548,13 +1675,12 @@
     "year": 2024,
     "segment": "Sedan",
     "ev_range_km": 35,
-    "fuel_consumption": 2.0,
+    "fuel_consumption": 2,
     "battery_kwh": 7.6,
-    "price_eur": 32000,
     "image_url": "/images/cars/brands/ford/fusion/main.jpg",
     "power_hp": 188,
     "co2_emission": 45,
-    "charge_time_ac": 2.5,
+    "charge_time_ac": 2,
     "trunk_volume": 400,
     "seats": 5,
     "warranty_years": 3,
@@ -1565,7 +1691,7 @@
     "wheelbase_mm": 2850,
     "max_trunk_volume": 400,
     "electric_motor_power_hp": 88,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_voltage": 300,
     "charging_port": {
@@ -1573,7 +1699,7 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
@@ -1585,22 +1711,25 @@
     },
     "battery_architecture": "modular",
     "slug": "ford-fusion-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "ford-c-max",
     "brand": "Ford",
     "model": "C-Max",
-    "year": 2024,
+    "year": 2015,
     "segment": "MPV",
     "ev_range_km": 30,
     "fuel_consumption": 1.9,
     "battery_kwh": 7.6,
-    "price_eur": 28000,
     "image_url": "/images/cars/brands/ford/c-max/main.jpg",
     "power_hp": 188,
     "co2_emission": 42,
-    "charge_time_ac": 2.5,
+    "charge_time_ac": 2,
     "trunk_volume": 432,
     "seats": 5,
     "warranty_years": 3,
@@ -1611,7 +1740,7 @@
     "wheelbase_mm": 2640,
     "max_trunk_volume": 432,
     "electric_motor_power_hp": 88,
-    "engine_displacement": 2.0,
+    "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_voltage": 300,
     "charging_port": {
@@ -1619,7 +1748,7 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
@@ -1631,7 +1760,11 @@
     },
     "battery_architecture": "modular",
     "slug": "ford-c-max-phev",
-    "last_updated": "2025-01-22"
+    "last_updated": "2025-01-22",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "hyundai-3",
@@ -1642,8 +1775,7 @@
     "ev_range_km": 65,
     "fuel_consumption": 1.6,
     "battery_kwh": 13.8,
-    "price_eur": 50000,
-    "image_url": "/images/cars/brands/hyundai/nowy-santa-fe-plug-in-hybrid/main.jpg",
+    "image_url": "/images/cars/brands/hyundai/santa-fe-plug-in-hybrid/main.jpg",
     "power_hp": 265,
     "co2_emission": 36,
     "charge_time_ac": 3.2,
@@ -1664,32 +1796,186 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "hyundai-santa-fe-phev"
+    "slug": "hyundai-santa-fe-phev",
+    "updated_at": "2024-10-23"
   },
   {
-    "id": "hyundai-2",
+    "id": "hyundai-tucson-iv-facelift-268hp",
     "brand": "Hyundai",
-    "model": "Tucson",
-    "year": 2025,
+    "model": "Tucson IV (facelift 2024)",
+    "year": 2024,
     "segment": "SUV",
     "ev_range_km": 65,
     "fuel_consumption": 1.4,
     "battery_kwh": 13.8,
-    "price_eur": 45000,
-    "image_url": "/images/cars/brands/hyundai/nowy-tucson-plug-in-hybrid/main.jpg",
-    "power_hp": 230,
+    "image_url": "/images/cars/brands/hyundai/tucson-iv-facelift-2024-268hp-phev/main.jpg",
+    "power_hp": 268,
+    "co2_emission": 32,
+    "charge_time_ac": 3.2,
+    "trunk_volume": 513,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1850,
+    "length_mm": 4630,
+    "width_mm": 1865,
+    "height_mm": 1665,
+    "wheelbase_mm": 2755,
+    "max_trunk_volume": 513,
+    "electric_motor_power_hp": 90,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6E",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "drivetrain": "HTRAC AWD",
+    "transmission": "Automatic",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "battery_architecture": "modular",
+    "slug": "hyundai-tucson-iv-facelift-268hp-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "hyundai-tucson-iv-facelift-253hp-4wd",
+    "brand": "Hyundai",
+    "model": "Tucson IV (facelift 2024)",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 65,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 13.8,
+    "image_url": "/images/cars/brands/hyundai/tucson-iv-facelift-2024-253hp-phev-4wd/main.jpg",
+    "power_hp": 253,
+    "co2_emission": 32,
+    "charge_time_ac": 3.2,
+    "trunk_volume": 513,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1850,
+    "length_mm": 4630,
+    "width_mm": 1865,
+    "height_mm": 1665,
+    "wheelbase_mm": 2755,
+    "max_trunk_volume": 513,
+    "electric_motor_power_hp": 90,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6E",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "drivetrain": "4WD",
+    "transmission": "Automatic",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "battery_architecture": "modular",
+    "slug": "hyundai-tucson-iv-facelift-253hp-phev-4wd",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "hyundai-tucson-iv-facelift-253hp-fwd",
+    "brand": "Hyundai",
+    "model": "Tucson IV (facelift 2024)",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 65,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 13.8,
+    "image_url": "/images/cars/brands/hyundai/tucson-iv-facelift-2024-253hp-phev-fwd/main.jpg",
+    "power_hp": 253,
+    "co2_emission": 32,
+    "charge_time_ac": 3.2,
+    "trunk_volume": 513,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1800,
+    "length_mm": 4630,
+    "width_mm": 1865,
+    "height_mm": 1665,
+    "wheelbase_mm": 2755,
+    "max_trunk_volume": 513,
+    "electric_motor_power_hp": 90,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6E",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "drivetrain": "FWD",
+    "transmission": "Automatic",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "battery_architecture": "modular",
+    "slug": "hyundai-tucson-iv-facelift-253hp-phev-fwd",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "hyundai-tucson-iv-265hp-4wd",
+    "brand": "Hyundai",
+    "model": "Tucson IV",
+    "year": 2023,
+    "segment": "SUV",
+    "ev_range_km": 65,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 13.8,
+    "image_url": "/images/cars/brands/hyundai/tucson-iv-265hp-phev-4wd/main.jpg",
+    "power_hp": 265,
     "co2_emission": 32,
     "charge_time_ac": 3.2,
     "trunk_volume": 513,
@@ -1710,37 +1996,99 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "drivetrain": "4WD",
+    "transmission": "Automatic",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "hyundai-tucson-phev"
+    "slug": "hyundai-tucson-iv-265hp-phev-4wd",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
-    "id": "new-38",
-    "brand": "Jaecoo",
-    "model": "J7 Super Hybrid",
-    "year": 2025,
+    "id": "hyundai-tucson-iv-smartstream-261hp",
+    "brand": "Hyundai",
+    "model": "Tucson IV Smartstream",
+    "year": 2023,
     "segment": "SUV",
-    "ev_range_km": 100,
-    "fuel_consumption": 1.5,
-    "battery_kwh": 13,
-    "price_eur": 40000,
-    "image_url": "/images/cars/brands/jaecoo/j7-super-hybrid/main.jpg",
-    "power_hp": 200,
-    "co2_emission": 30,
-    "charge_time_ac": 3,
-    "trunk_volume": 500,
+    "ev_range_km": 65,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 13.8,
+    "image_url": "/images/cars/brands/hyundai/tucson-iv-smartstream-261hp-phev-htrac/main.jpg",
+    "power_hp": 261,
+    "co2_emission": 32,
+    "charge_time_ac": 3.2,
+    "trunk_volume": 513,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1850,
+    "length_mm": 4630,
+    "width_mm": 1865,
+    "height_mm": 1665,
+    "wheelbase_mm": 2755,
+    "max_trunk_volume": 513,
+    "electric_motor_power_hp": 90,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "drivetrain": "HTRAC AWD",
+    "transmission": "Automatic",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "battery_architecture": "modular",
+    "slug": "hyundai-tucson-iv-smartstream-261hp-phev-htrac",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "jaecoo-j7-shs-2023",
+    "brand": "Jaecoo",
+    "model": "J7 SHS 1.5 TGDI",
+    "year": 2023,
+    "segment": "SUV",
+    "ev_range_km": 90,
+    "fuel_consumption": 0.7,
+    "battery_kwh": 18.316,
+    "image_url": "/images/cars/brands/jaecoo/jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht--2023/main.jpg",
+    "power_hp": 347,
+    "co2_emission": 9,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 405,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL",
+    "weight_kg": 1660,
+    "length_mm": 4700,
+    "width_mm": 1900,
+    "height_mm": 1700,
+    "wheelbase_mm": 2800,
+    "max_trunk_volume": 1275,
+    "electric_motor_power_hp": 204,
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 91,
@@ -1748,157 +2096,340 @@
       "pedestrian_protection": 87,
       "safety_assist": 76,
       "overall_rating": 85,
-      "test_year": 2021
+      "test_year": 2023
     },
     "engine_displacement": 1.5,
-    "battery_chemistry": "NCM",
+    "battery_chemistry": "LiFePO4",
     "battery_architecture": "modular",
+    "battery_voltage": 339.2,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front right"
     },
-    "slug": "jaecoo-j7-super-hybrid-phev"
+    "emission_standard": "Euro 6e",
+    "drivetrain": "AWD",
+    "transmission": "DHT",
+    "slug": "jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht-2023",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "dc_power": 40,
+      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)"
+    }
   },
   {
-    "id": "new-39",
-    "brand": "Jaecoo",
-    "model": "Omoda 9 Super Hybrid",
-    "year": 2025,
-    "segment": "SUV",
-    "ev_range_km": 100,
-    "fuel_consumption": 1.5,
-    "battery_kwh": 13,
-    "price_eur": 40000,
-    "image_url": "/images/cars/brands/jaecoo/omoda-9-super-hybrid/main.jpg",
-    "power_hp": 200,
-    "co2_emission": 30,
-    "charge_time_ac": 3,
-    "trunk_volume": 500,
-    "seats": 5,
-    "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
-    },
-    "engine_displacement": 1.5,
-    "battery_chemistry": "NCM",
-    "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right"
-    },
-    "slug": "jaecoo-omoda-9-super-hybrid-phev"
-  },
-  {
-    "id": "jeep-2",
+    "id": "jeep-compass-4xe-240hp",
     "brand": "Jeep",
     "model": "Compass 4xe",
-    "year": 2025,
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 55,
+    "ev_range_km": 56,
     "fuel_consumption": 1.8,
     "battery_kwh": 11.4,
-    "price_eur": 40000,
     "image_url": "/images/cars/brands/jeep/compass-4xe/main.jpg",
     "power_hp": 240,
-    "co2_emission": 41,
-    "charge_time_ac": 3,
-    "trunk_volume": 438,
+    "co2_emission": 50,
+    "charge_time_ac": 2,
+    "trunk_volume": 420,
     "seats": 5,
     "warranty_years": 3,
-    "weight_kg": 1850,
+    "weight_kg": 1860,
     "length_mm": 4415,
     "width_mm": 1819,
     "height_mm": 1635,
     "wheelbase_mm": 2636,
-    "max_trunk_volume": 438,
+    "max_trunk_volume": 1230,
     "electric_motor_power_hp": 60,
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
+    "engine_displacement": 1.3,
+    "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "emission_standard": "Euro 6d-Final",
+    "drivetrain": "AWD",
+    "transmission": "Automatic",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "jeep-compass-4xe-phev"
+    "slug": "jeep-compass-4xe-240hp-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
-    "id": "jeep-3",
+    "id": "jeep-wrangler-4xe-rubicon",
     "brand": "Jeep",
-    "model": "Grand Cherokee",
-    "year": 2025,
+    "model": "Wrangler 4xe Rubicon",
+    "year": 2024,
     "segment": "SUV",
     "ev_range_km": 45,
-    "fuel_consumption": 2.1,
+    "fuel_consumption": 4.1,
     "battery_kwh": 17.3,
-    "price_eur": 55000,
-    "image_url": "/images/cars/brands/jeep/grand-cherokee/main.jpg",
-    "power_hp": 375,
-    "co2_emission": 47,
-    "charge_time_ac": 4,
-    "trunk_volume": 239,
+    "image_url": "/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg",
+    "power_hp": 380,
+    "co2_emission": 94,
+    "charge_time_ac": 2,
+    "trunk_volume": 548,
     "seats": 5,
     "warranty_years": 3,
-    "weight_kg": 2200,
-    "length_mm": 4918,
-    "width_mm": 1979,
-    "height_mm": 1798,
-    "wheelbase_mm": 2915,
-    "max_trunk_volume": 239,
-    "electric_motor_power_hp": 134,
+    "weight_kg": 2334,
+    "length_mm": 4882,
+    "width_mm": 1931,
+    "height_mm": 1848,
+    "wheelbase_mm": 3008,
+    "max_trunk_volume": 1275,
+    "electric_motor_power_hp": 145,
     "engine_displacement": 2,
-    "battery_chemistry": "NCM",
+    "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "emission_standard": "Euro 6d Final",
+    "drivetrain": "4WD",
+    "transmission": "Automatic",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "jeep-grand-cherokee-phev"
+    "slug": "jeep-wrangler-4xe-rubicon-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
-    "id": "kia-1",
+    "id": "jeep-wrangler-4xe-sahara",
+    "brand": "Jeep",
+    "model": "Wrangler 4xe Sahara",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 44,
+    "fuel_consumption": 3.5,
+    "battery_kwh": 17.3,
+    "image_url": "/images/cars/brands/jeep/wrangler-4xe-sahara/main.jpeg",
+    "power_hp": 380,
+    "co2_emission": 79,
+    "charge_time_ac": 2,
+    "trunk_volume": 548,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2273,
+    "length_mm": 4882,
+    "width_mm": 1931,
+    "height_mm": 1848,
+    "wheelbase_mm": 3008,
+    "max_trunk_volume": 1275,
+    "electric_motor_power_hp": 145,
+    "engine_displacement": 2,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6d Final",
+    "drivetrain": "4WD",
+    "transmission": "Automatic",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
+    },
+    "battery_architecture": "modular",
+    "slug": "jeep-wrangler-4xe-sahara-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "jeep-compass-4xe-190hp",
+    "brand": "Jeep",
+    "model": "Compass 4xe 190HP",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 56,
+    "fuel_consumption": 1.8,
+    "battery_kwh": 11.4,
+    "image_url": "/images/cars/brands/jeep/compass-4xe-190hp/main.jpg",
+    "power_hp": 190,
+    "co2_emission": 50,
+    "charge_time_ac": 2,
+    "trunk_volume": 420,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1860,
+    "length_mm": 4415,
+    "width_mm": 1819,
+    "height_mm": 1635,
+    "wheelbase_mm": 2636,
+    "max_trunk_volume": 1230,
+    "electric_motor_power_hp": 60,
+    "engine_displacement": 1.3,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6d-Final",
+    "drivetrain": "AWD",
+    "transmission": "Automatic",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
+    },
+    "battery_architecture": "modular",
+    "slug": "jeep-compass-4xe-190hp-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "jeep-renegade-4xe-240hp",
+    "brand": "Jeep",
+    "model": "Renegade 4xe 240HP",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 42,
+    "fuel_consumption": 2.1,
+    "battery_kwh": 11.4,
+    "image_url": "/images/cars/brands/jeep/renegade-4xe-240hp/main.jpeg",
+    "power_hp": 240,
+    "co2_emission": 46,
+    "charge_time_ac": 2,
+    "trunk_volume": 330,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1770,
+    "length_mm": 4240,
+    "width_mm": 1805,
+    "height_mm": 1690,
+    "wheelbase_mm": 2570,
+    "max_trunk_volume": 1275,
+    "electric_motor_power_hp": 60,
+    "engine_displacement": 1.3,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6d Final",
+    "drivetrain": "AWD",
+    "transmission": "Automatic",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
+    },
+    "battery_architecture": "modular",
+    "slug": "jeep-renegade-4xe-240hp-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "jeep-renegade-4xe-190hp",
+    "brand": "Jeep",
+    "model": "Renegade 4xe 190HP",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 50,
+    "fuel_consumption": 2.1,
+    "battery_kwh": 11.4,
+    "image_url": "/images/cars/brands/jeep/renegade-4xe-190hp/main.jpeg",
+    "power_hp": 190,
+    "co2_emission": 44,
+    "charge_time_ac": 2,
+    "trunk_volume": 330,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1770,
+    "length_mm": 4240,
+    "width_mm": 1805,
+    "height_mm": 1690,
+    "wheelbase_mm": 2570,
+    "max_trunk_volume": 1275,
+    "electric_motor_power_hp": 60,
+    "engine_displacement": 1.3,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6d Final",
+    "drivetrain": "AWD",
+    "transmission": "Automatic",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
+    },
+    "battery_architecture": "modular",
+    "slug": "jeep-renegade-4xe-190hp-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "kia-niro-ii-2025",
     "brand": "Kia",
-    "model": "Niro",
+    "model": "Niro II",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 59.5,
-    "fuel_consumption": 2.55,
+    "ev_range_km": 57,
+    "fuel_consumption": 1.3,
     "battery_kwh": 11.1,
-    "price_eur": 40000,
-    "image_url": "/images/cars/brands/kia/niro-phev/main.jpg",
+    "image_url": "/images/cars/brands/kia/niro-ii-2025/main.jpg",
     "power_hp": 180,
-    "co2_emission": 57,
-    "charge_time_ac": 2.5,
+    "co2_emission": 29,
+    "charge_time_ac": 2,
     "trunk_volume": 348,
     "seats": 5,
     "warranty_years": 7,
@@ -1908,7 +2439,7 @@
     "height_mm": 1560,
     "wheelbase_mm": 2720,
     "max_trunk_volume": 1342,
-    "electric_motor_power_hp": 84,
+    "electric_motor_power_hp": 43,
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
     "battery_voltage": 360,
@@ -1917,43 +2448,46 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6e bis",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "kia-niro-phev"
+    "slug": "kia-niro-ii-2025",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
-    "id": "2",
+    "id": "kia-niro-ii-2024",
     "brand": "Kia",
-    "model": "Sportage",
-    "year": 2025,
+    "model": "Niro II",
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 78,
-    "fuel_consumption": 1.4,
-    "battery_kwh": 13.8,
-    "price_eur": 37477,
-    "image_url": "/images/cars/brands/kia/nowy-sportage-phev/main.jpg",
-    "power_hp": 252,
-    "co2_emission": 26,
-    "charge_time_ac": 3.2,
-    "trunk_volume": 540,
+    "ev_range_km": 65,
+    "fuel_consumption": 1.3,
+    "battery_kwh": 11.1,
+    "image_url": "/images/cars/brands/kia/niro-ii-2024/main.jpg",
+    "power_hp": 171,
+    "co2_emission": 29,
+    "charge_time_ac": 2,
+    "trunk_volume": 348,
     "seats": 5,
     "warranty_years": 7,
-    "weight_kg": 1800,
-    "length_mm": 4660,
-    "width_mm": 1865,
-    "height_mm": 1665,
-    "wheelbase_mm": 2755,
-    "max_trunk_volume": 540,
-    "electric_motor_power_hp": 90,
+    "weight_kg": 1565,
+    "length_mm": 4420,
+    "width_mm": 1825,
+    "height_mm": 1560,
+    "wheelbase_mm": 2720,
+    "max_trunk_volume": 1342,
+    "electric_motor_power_hp": 43,
     "engine_displacement": 1.6,
     "battery_chemistry": "NCM",
     "battery_voltage": 360,
@@ -1961,31 +2495,36 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL",
+    "emission_standard": "Euro 6e bis",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
+    "drivetrain": "FWD",
+    "transmission": "DCT",
     "battery_architecture": "modular",
-    "slug": "kia-sportage-phev"
+    "slug": "kia-niro-ii-2024",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
   },
   {
-    "id": "kia-2",
+    "id": "kia-sorento-iv-2024",
     "brand": "Kia",
-    "model": "Sorento",
-    "year": 2025,
+    "model": "Sorento IV",
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 57,
+    "ev_range_km": 55,
     "fuel_consumption": 1.6,
     "battery_kwh": 13.8,
-    "price_eur": 36542,
-    "image_url": "/images/cars/brands/kia/sorento-phev/main.jpg",
+    "image_url": "/images/cars/brands/kia/sorento-iv-2024/main.jpg",
     "power_hp": 252,
     "co2_emission": 36,
     "charge_time_ac": 3.2,
@@ -2007,7 +2546,525 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "battery_architecture": "modular",
+    "slug": "kia-sorento-iv-2024",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
+  },
+  {
+    "id": "kia-sportage-v-252hp",
+    "brand": "Kia",
+    "model": "Sportage V",
+    "year": 2021,
+    "segment": "SUV",
+    "ev_range_km": 68,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 13.8,
+    "image_url": "/images/cars/brands/kia/sportage-v-2021/main.jpg",
+    "power_hp": 252,
+    "co2_emission": 36,
+    "charge_time_ac": 3.2,
+    "trunk_volume": 540,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1800,
+    "length_mm": 4660,
+    "width_mm": 1865,
+    "height_mm": 1665,
+    "wheelbase_mm": 2755,
+    "max_trunk_volume": 540,
+    "electric_motor_power_hp": 90,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "LiPo",
+    "battery_voltage": 360,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6",
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "drivetrain": "AWD",
+    "transmission": "Automatic",
+    "battery_architecture": "modular",
+    "slug": "kia-sportage-v-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
+  },
+  {
+    "id": "kia-sportage-v-265hp",
+    "brand": "Kia",
+    "model": "Sportage V",
+    "year": 2021,
+    "segment": "SUV",
+    "ev_range_km": 68,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 13.8,
+    "image_url": "/images/cars/brands/kia/sportage-v-2021/main.jpg",
+    "power_hp": 265,
+    "co2_emission": 36,
+    "charge_time_ac": 3.2,
+    "trunk_volume": 540,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1800,
+    "length_mm": 4660,
+    "width_mm": 1865,
+    "height_mm": 1665,
+    "wheelbase_mm": 2755,
+    "max_trunk_volume": 540,
+    "electric_motor_power_hp": 90,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "LiPo",
+    "battery_voltage": 360,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6",
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "drivetrain": "AWD",
+    "transmission": "Automatic",
+    "battery_architecture": "modular",
+    "slug": "kia-sportage-v-265hp-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
+  },
+  {
+    "id": "kia-niro-i-2019-facelift",
+    "brand": "Kia",
+    "model": "Niro I",
+    "year": 2019,
+    "segment": "SUV",
+    "ev_range_km": 49,
+    "fuel_consumption": 1.3,
+    "battery_kwh": 8.9,
+    "image_url": "/images/cars/brands/kia/niro-i-2019-facelift/main.jpg",
+    "power_hp": 141,
+    "co2_emission": 31,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 323,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1579,
+    "length_mm": 4356,
+    "width_mm": 1806,
+    "height_mm": 1534,
+    "wheelbase_mm": 2700,
+    "max_trunk_volume": 323,
+    "acceleration_0_100": 10.8,
+    "top_speed": 172,
+    "transmission": "DCT",
+    "battery_architecture": "modular",
+    "euroncap_rating": {
+      "stars": 4,
+      "adult_occupant": 91,
+      "child_occupant": 84,
+      "pedestrian_protection": 75,
+      "safety_assist": 60,
+      "overall_rating": 78,
+      "test_year": 2022
+    },
+    "slug": "kia-niro-i-2019-facelift",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
+  },
+  {
+    "id": "kia-niro-i-2019",
+    "brand": "Kia",
+    "model": "Niro I",
+    "year": 2019,
+    "segment": "SUV",
+    "ev_range_km": 49,
+    "fuel_consumption": 1.3,
+    "battery_kwh": 8.9,
+    "image_url": "/images/cars/brands/kia/niro-i-2019/main.jpg",
+    "power_hp": 141,
+    "co2_emission": 31,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 323,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1579,
+    "length_mm": 4356,
+    "width_mm": 1806,
+    "height_mm": 1534,
+    "wheelbase_mm": 2700,
+    "max_trunk_volume": 323,
+    "acceleration_0_100": 10.8,
+    "top_speed": 172,
+    "transmission": "DCT",
+    "battery_architecture": "modular",
+    "euroncap_rating": {
+      "stars": 4,
+      "adult_occupant": 91,
+      "child_occupant": 84,
+      "pedestrian_protection": 75,
+      "safety_assist": 60,
+      "overall_rating": 78,
+      "test_year": 2022
+    },
+    "slug": "kia-niro-i-2019",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
+  },
+  {
+    "id": "kia-optima-iv-2018-facelift",
+    "brand": "Kia",
+    "model": "Optima IV",
+    "year": 2018,
+    "segment": "Sedan",
+    "ev_range_km": 53,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 11.2,
+    "image_url": "/images/cars/brands/kia/optima-iv-2018-facelift/main.jpg",
+    "power_hp": 205,
+    "co2_emission": 33,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 307,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1680,
+    "length_mm": 4855,
+    "width_mm": 1860,
+    "height_mm": 1465,
+    "wheelbase_mm": 2805,
+    "max_trunk_volume": 307,
+    "acceleration_0_100": 8.9,
+    "top_speed": 200,
+    "transmission": "Automatic",
+    "battery_architecture": "modular",
+    "slug": "kia-optima-iv-2018-facelift",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
+  },
+  {
+    "id": "kia-optima-iv-2018",
+    "brand": "Kia",
+    "model": "Optima IV",
+    "year": 2018,
+    "segment": "Sedan",
+    "ev_range_km": 53,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 11.2,
+    "image_url": "/images/cars/brands/kia/optima-iv-2018/main.jpg",
+    "power_hp": 205,
+    "co2_emission": 33,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 307,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1680,
+    "length_mm": 4855,
+    "width_mm": 1860,
+    "height_mm": 1465,
+    "wheelbase_mm": 2805,
+    "max_trunk_volume": 307,
+    "acceleration_0_100": 8.9,
+    "top_speed": 200,
+    "transmission": "Automatic",
+    "battery_architecture": "modular",
+    "slug": "kia-optima-iv-2018",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
+  },
+  {
+    "id": "kia-optima-iv-sportswagon-2018-facelift",
+    "brand": "Kia",
+    "model": "Optima IV Sportswagon",
+    "year": 2018,
+    "segment": "Estate",
+    "ev_range_km": 53,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 11.2,
+    "image_url": "/images/cars/brands/kia/optima-iv-sportswagon-2018-facelift/main.jpg",
+    "power_hp": 205,
+    "co2_emission": 33,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 552,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1720,
+    "length_mm": 4855,
+    "width_mm": 1860,
+    "height_mm": 1465,
+    "wheelbase_mm": 2805,
+    "max_trunk_volume": 552,
+    "acceleration_0_100": 8.9,
+    "top_speed": 200,
+    "transmission": "Automatic",
+    "battery_architecture": "modular",
+    "slug": "kia-optima-iv-sportswagon-2018-facelift",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
+  },
+  {
+    "id": "kia-optima-iv-sportswagon-2018",
+    "brand": "Kia",
+    "model": "Optima IV Sportswagon",
+    "year": 2018,
+    "segment": "Estate",
+    "ev_range_km": 53,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 11.2,
+    "image_url": "/images/cars/brands/kia/optima-iv-sportswagon-2018/main.jpg",
+    "power_hp": 205,
+    "co2_emission": 33,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 552,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1720,
+    "length_mm": 4855,
+    "width_mm": 1860,
+    "height_mm": 1465,
+    "wheelbase_mm": 2805,
+    "max_trunk_volume": 552,
+    "acceleration_0_100": 8.9,
+    "top_speed": 200,
+    "transmission": "Automatic",
+    "battery_architecture": "modular",
+    "slug": "kia-optima-iv-sportswagon-2018",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.4
+    }
+  },
+  {
+    "id": "kia-k3-sedan-ii",
+    "brand": "Kia",
+    "model": "K3 Sedan II",
+    "year": 2022,
+    "segment": "Sedan",
+    "ev_range_km": 50,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 8.9,
+    "image_url": "/images/cars/brands/kia/k3-sedan-ii/main.jpg",
+    "power_hp": 139,
+    "co2_emission": 34,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 502,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1520,
+    "length_mm": 4640,
+    "width_mm": 1800,
+    "height_mm": 1445,
+    "wheelbase_mm": 2700,
+    "max_trunk_volume": 502,
+    "acceleration_0_100": 9.8,
+    "top_speed": 180,
+    "transmission": "DCT",
+    "battery_architecture": "modular",
+    "slug": "kia-k3-sedan-ii",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
+  },
+  {
+    "id": "kia-xceed-2022-facelift",
+    "brand": "Kia",
+    "model": "XCeed",
+    "year": 2022,
+    "segment": "SUV",
+    "ev_range_km": 48,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 8.9,
+    "image_url": "/images/cars/brands/kia/xceed-2022-facelift/main.jpg",
+    "power_hp": 141,
+    "co2_emission": 32,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 426,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1580,
+    "length_mm": 4395,
+    "width_mm": 1826,
+    "height_mm": 1490,
+    "wheelbase_mm": 2650,
+    "max_trunk_volume": 426,
+    "acceleration_0_100": 10.2,
+    "top_speed": 175,
+    "transmission": "DCT",
+    "battery_architecture": "modular",
+    "slug": "kia-xceed-2022-facelift",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
+  },
+  {
+    "id": "kia-xceed-2022",
+    "brand": "Kia",
+    "model": "XCeed",
+    "year": 2022,
+    "segment": "SUV",
+    "ev_range_km": 48,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 8.9,
+    "image_url": "/images/cars/brands/kia/xceed-2022/main.jpg",
+    "power_hp": 141,
+    "co2_emission": 32,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 426,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1580,
+    "length_mm": 4395,
+    "width_mm": 1826,
+    "height_mm": 1490,
+    "wheelbase_mm": 2650,
+    "max_trunk_volume": 426,
+    "acceleration_0_100": 10.2,
+    "top_speed": 175,
+    "transmission": "DCT",
+    "battery_architecture": "modular",
+    "slug": "kia-xceed-2022",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
+  },
+  {
+    "id": "kia-ceed-iii-sportswagon-2021-facelift",
+    "brand": "Kia",
+    "model": "Ceed III Sportswagon",
+    "year": 2021,
+    "segment": "Estate",
+    "ev_range_km": 50,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 8.9,
+    "image_url": "/images/cars/brands/kia/ceed-iii-sportswagon-2021-facelift/main.jpg",
+    "power_hp": 141,
+    "co2_emission": 33,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 625,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1580,
+    "length_mm": 4600,
+    "width_mm": 1800,
+    "height_mm": 1450,
+    "wheelbase_mm": 2650,
+    "max_trunk_volume": 625,
+    "acceleration_0_100": 10.5,
+    "top_speed": 175,
+    "transmission": "DCT",
+    "battery_architecture": "modular",
+    "slug": "kia-ceed-iii-sportswagon-2021-facelift",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
+  },
+  {
+    "id": "kia-ceed-iii-sportswagon-2021",
+    "brand": "Kia",
+    "model": "Ceed III Sportswagon",
+    "year": 2021,
+    "segment": "Estate",
+    "ev_range_km": 50,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 8.9,
+    "image_url": "/images/cars/brands/kia/ceed-iii-sportswagon-2021/main.jpg",
+    "power_hp": 141,
+    "co2_emission": 33,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 625,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1580,
+    "length_mm": 4600,
+    "width_mm": 1800,
+    "height_mm": 1450,
+    "wheelbase_mm": 2650,
+    "max_trunk_volume": 625,
+    "acceleration_0_100": 10.5,
+    "top_speed": 175,
+    "transmission": "DCT",
+    "battery_architecture": "modular",
+    "slug": "kia-ceed-iii-sportswagon-2021",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 11
+    }
+  },
+  {
+    "id": "bmw-5-series-touring-550e",
+    "brand": "BMW",
+    "model": "5 Series Touring",
+    "year": 2024,
+    "segment": "Estate",
+    "ev_range_km": 86,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 19.4,
+    "image_url": "/images/cars/brands/bmw/bmw-5-series-touring-2024-2025/main.jpg",
+    "power_hp": 489,
+    "co2_emission": 18,
+    "charge_time_ac": 3,
+    "trunk_volume": 570,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2100,
+    "length_mm": 5060,
+    "width_mm": 1900,
+    "height_mm": 1515,
+    "wheelbase_mm": 2995,
+    "max_trunk_volume": 570,
+    "electric_motor_power_hp": 197,
+    "engine_displacement": 3,
+    "battery_chemistry": "Li-ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6e",
+    "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 91,
@@ -2015,44 +3072,108 @@
       "pedestrian_protection": 87,
       "safety_assist": 76,
       "overall_rating": 85,
-      "test_year": 2021
+      "test_year": 2023
     },
+    "drivetrain": "AWD",
+    "transmission": "Steptronic",
     "battery_architecture": "modular",
-    "slug": "kia-sorento-phev"
+    "slug": "bmw-5-series-touring-550e-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
   },
   {
-    "id": "new-45",
-    "brand": "Land Rover",
-    "model": "Defender 110",
-    "year": 2025,
-    "segment": "SUV",
-    "ev_range_km": 55,
-    "fuel_consumption": 1.5,
-    "battery_kwh": 19.2,
-    "price_eur": 70000,
-    "image_url": "/images/cars/brands/land-rover/defender-110/main.jpg",
-    "power_hp": 200,
-    "co2_emission": 30,
+    "id": "bmw-5-series-sedan-550e",
+    "brand": "BMW",
+    "model": "5 Series Sedan",
+    "year": 2024,
+    "segment": "Sedan",
+    "ev_range_km": 88,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 19.4,
+    "image_url": "/images/cars/brands/bmw/bmw-5-series-sedan-2024-2025/main.jpg",
+    "power_hp": 489,
+    "co2_emission": 18,
     "charge_time_ac": 3,
-    "trunk_volume": 500,
+    "trunk_volume": 520,
     "seats": 5,
     "warranty_years": 3,
-    "weight_kg": 2500,
-    "length_mm": 5018,
-    "width_mm": 2008,
-    "height_mm": 1967,
-    "wheelbase_mm": 3022,
-    "max_trunk_volume": 500,
-    "electric_motor_power_hp": 80,
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
+    "weight_kg": 2050,
+    "length_mm": 5060,
+    "width_mm": 1900,
+    "height_mm": 1515,
+    "wheelbase_mm": 2995,
+    "max_trunk_volume": 520,
+    "electric_motor_power_hp": 197,
+    "engine_displacement": 3,
+    "battery_chemistry": "Li-ion",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
+    "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 87,
+      "safety_assist": 76,
+      "overall_rating": 85,
+      "test_year": 2023
+    },
+    "drivetrain": "AWD",
+    "transmission": "Steptronic",
+    "battery_architecture": "modular",
+    "slug": "bmw-5-series-sedan-550e-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    }
+  },
+  {
+    "id": "land-rover-defender-110-phev",
+    "brand": "Land Rover",
+    "model": "Defender 110 P400e",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 43,
+    "fuel_consumption": 2.8,
+    "battery_kwh": 19.2,
+    "image_url": "/images/cars/brands/land-rover/defender-110/main.jpg",
+    "power_hp": 404,
+    "co2_emission": 64,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 1073,
+    "seats": 7,
+    "warranty_years": 3,
+    "weight_kg": 2540,
+    "length_mm": 5018,
+    "width_mm": 2008,
+    "height_mm": 1967,
+    "wheelbase_mm": 3022,
+    "max_trunk_volume": 1073,
+    "electric_motor_power_hp": 143,
+    "engine_displacement": 2,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
@@ -2060,44 +3181,57 @@
       "pedestrian_protection": 71,
       "safety_assist": 69,
       "overall_rating": 76,
-      "test_year": 2019
+      "test_year": 2020
     },
     "battery_architecture": "modular",
-    "slug": "land-rover-defender-110-phev"
+    "drivetrain": "AWD",
+    "transmission": "8AT",
+    "slug": "land-rover-defender-110-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
-    "id": "new-46",
+    "id": "land-rover-discovery-sport-phev",
     "brand": "Land Rover",
-    "model": "Discovery Sport",
+    "model": "Discovery Sport P300e",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 55,
-    "fuel_consumption": 1.5,
+    "fuel_consumption": 1.4,
     "battery_kwh": 15,
-    "price_eur": 50000,
     "image_url": "/images/cars/brands/land-rover/discovery-sport/main.jpg",
-    "power_hp": 200,
-    "co2_emission": 30,
-    "charge_time_ac": 3,
-    "trunk_volume": 500,
-    "seats": 5,
+    "power_hp": 309,
+    "co2_emission": 32,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 780,
+    "seats": 7,
     "warranty_years": 3,
     "weight_kg": 2100,
     "length_mm": 4597,
     "width_mm": 1904,
     "height_mm": 1727,
     "wheelbase_mm": 2741,
-    "max_trunk_volume": 500,
-    "electric_motor_power_hp": 80,
+    "max_trunk_volume": 780,
+    "electric_motor_power_hp": 109,
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
+    "charging_capabilities": {
+      "ac_power": 7.4
+    },
     "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
     },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
@@ -2105,100 +3239,344 @@
       "pedestrian_protection": 71,
       "safety_assist": 69,
       "overall_rating": 76,
-      "test_year": 2019
+      "test_year": 2020
     },
     "battery_architecture": "modular",
-    "slug": "land-rover-discovery-sport-phev"
+    "drivetrain": "AWD",
+    "transmission": "8AT",
+    "slug": "land-rover-discovery-sport-phev",
+    "updated_at": "2024-10-25"
   },
   {
-    "id": "new-47",
+    "id": "land-rover-range-rover-evoque-phev",
+    "brand": "Land Rover",
+    "model": "Range Rover Evoque P300e",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 55,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 15,
+    "image_url": "/images/cars/brands/land-rover/range-rover-evoque/main.jpg",
+    "power_hp": 309,
+    "co2_emission": 32,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 472,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1950,
+    "length_mm": 4371,
+    "width_mm": 1904,
+    "height_mm": 1649,
+    "wheelbase_mm": 2681,
+    "max_trunk_volume": 472,
+    "electric_motor_power_hp": 109,
+    "engine_displacement": 1.5,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 79,
+      "pedestrian_protection": 71,
+      "safety_assist": 69,
+      "overall_rating": 76,
+      "test_year": 2020
+    },
+    "battery_architecture": "modular",
+    "drivetrain": "AWD",
+    "transmission": "8AT",
+    "slug": "land-rover-range-rover-evoque-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "land-rover-range-rover-velar-phev",
+    "brand": "Land Rover",
+    "model": "Range Rover Velar P400e",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 53,
+    "fuel_consumption": 1.4,
+    "battery_kwh": 17.1,
+    "image_url": "/images/cars/brands/land-rover/range-rover-velar/main.jpg",
+    "power_hp": 404,
+    "co2_emission": 32,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 550,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2100,
+    "length_mm": 4803,
+    "width_mm": 1904,
+    "height_mm": 1665,
+    "wheelbase_mm": 2874,
+    "max_trunk_volume": 550,
+    "electric_motor_power_hp": 143,
+    "engine_displacement": 2,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 79,
+      "pedestrian_protection": 71,
+      "safety_assist": 69,
+      "overall_rating": 76,
+      "test_year": 2020
+    },
+    "battery_architecture": "modular",
+    "drivetrain": "AWD",
+    "transmission": "8AT",
+    "slug": "land-rover-range-rover-velar-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "lexus-nx-450h-plus-phev",
     "brand": "Lexus",
     "model": "NX 450h+",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.5,
-    "battery_kwh": 13,
-    "price_eur": 48000,
+    "ev_range_km": 76,
+    "fuel_consumption": 1,
+    "battery_kwh": 18.1,
     "image_url": "/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg",
-    "power_hp": 200,
-    "co2_emission": 30,
-    "charge_time_ac": 3,
-    "trunk_volume": 500,
+    "power_hp": 304,
+    "co2_emission": 22,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 520,
     "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 1950,
+    "warranty_years": 5,
+    "weight_kg": 1990,
     "length_mm": 4660,
     "width_mm": 1865,
     "height_mm": 1640,
     "wheelbase_mm": 2690,
-    "max_trunk_volume": 500,
-    "electric_motor_power_hp": 80,
+    "max_trunk_volume": 520,
+    "electric_motor_power_hp": 134,
     "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
     },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 91,
       "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
+      "pedestrian_protection": 73,
+      "safety_assist": 95,
+      "overall_rating": 87,
       "test_year": 2021
     },
     "battery_architecture": "modular",
-    "slug": "lexus-nx-450h-phev"
+    "drivetrain": "AWD",
+    "transmission": "CVT",
+    "slug": "lexus-nx-450h-plus-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "6.6 kW onboard AC charger. Not: Tam elektrikli RZ 450e 11 kW kullanır"
+    }
   },
   {
-    "id": "new-48",
+    "id": "lexus-rx-450h-plus-phev",
     "brand": "Lexus",
     "model": "RX 450h+",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.5,
-    "battery_kwh": 13,
-    "price_eur": 65000,
+    "ev_range_km": 65,
+    "fuel_consumption": 1.1,
+    "battery_kwh": 18.1,
     "image_url": "/images/cars/brands/lexus/rx-450h-plus-phev/main.jpg",
-    "power_hp": 200,
-    "co2_emission": 30,
-    "charge_time_ac": 3,
-    "trunk_volume": 500,
+    "power_hp": 304,
+    "co2_emission": 25,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 612,
     "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 2100,
+    "warranty_years": 5,
+    "weight_kg": 2140,
     "length_mm": 4890,
     "width_mm": 1920,
     "height_mm": 1695,
     "wheelbase_mm": 2850,
-    "max_trunk_volume": 500,
-    "electric_motor_power_hp": 80,
+    "max_trunk_volume": 612,
+    "electric_motor_power_hp": 134,
     "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
     },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 91,
       "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
+      "pedestrian_protection": 73,
+      "safety_assist": 95,
+      "overall_rating": 87,
       "test_year": 2021
     },
     "battery_architecture": "modular",
-    "slug": "lexus-rx-450h-phev"
+    "drivetrain": "AWD",
+    "transmission": "CVT",
+    "slug": "lexus-rx-450h-plus-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
+  },
+  {
+    "id": "lexus-es-300h-phev",
+    "brand": "Lexus",
+    "model": "ES 300h PHEV",
+    "year": 2025,
+    "segment": "Sedan",
+    "ev_range_km": 70,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 18.1,
+    "image_url": "/images/cars/brands/lexus/es-300h-phev/main.jpg",
+    "power_hp": 215,
+    "co2_emission": 27,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 454,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1850,
+    "length_mm": 4975,
+    "width_mm": 1865,
+    "height_mm": 1445,
+    "wheelbase_mm": 2870,
+    "max_trunk_volume": 454,
+    "electric_motor_power_hp": 88,
+    "engine_displacement": 2.5,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 73,
+      "safety_assist": 95,
+      "overall_rating": 87,
+      "test_year": 2021
+    },
+    "battery_architecture": "modular",
+    "drivetrain": "FWD",
+    "transmission": "CVT",
+    "slug": "lexus-es-300h-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
+  },
+  {
+    "id": "lexus-ux-300e-phev",
+    "brand": "Lexus",
+    "model": "UX 300e PHEV",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 55,
+    "fuel_consumption": 1.3,
+    "battery_kwh": 18.1,
+    "image_url": "/images/cars/brands/lexus/ux-300e-phev/main.jpg",
+    "power_hp": 215,
+    "co2_emission": 29,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 320,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1750,
+    "length_mm": 4495,
+    "width_mm": 1840,
+    "height_mm": 1520,
+    "wheelbase_mm": 2640,
+    "max_trunk_volume": 320,
+    "electric_motor_power_hp": 88,
+    "engine_displacement": 2,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 91,
+      "child_occupant": 87,
+      "pedestrian_protection": 73,
+      "safety_assist": 95,
+      "overall_rating": 87,
+      "test_year": 2021
+    },
+    "battery_architecture": "modular",
+    "drivetrain": "FWD",
+    "transmission": "CVT",
+    "slug": "lexus-ux-300e-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "mazda-1",
@@ -2209,7 +3587,6 @@
     "ev_range_km": 63,
     "fuel_consumption": 1.5,
     "battery_kwh": 17.8,
-    "price_eur": 45000,
     "image_url": "/images/cars/brands/mazda/cx-60/main.jpg",
     "power_hp": 328,
     "co2_emission": 33,
@@ -2231,19 +3608,24 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mazda-cx-60-phev"
+    "slug": "mazda-cx-60-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mazda-cx80",
@@ -2254,7 +3636,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
     "battery_kwh": 17.8,
-    "price_eur": 50000,
     "image_url": "/images/cars/brands/mazda/cx-80/main.jpg",
     "power_hp": 327,
     "co2_emission": 33,
@@ -2276,19 +3657,79 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "battery_architecture": "modular",
+    "slug": "mazda-cx-80-phev",
+    "updated_at": "2024-10-24"
+  },
+  {
+    "id": "mazda-mx30-rev",
+    "brand": "Mazda",
+    "model": "MX-30 R-EV",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 85,
+    "fuel_consumption": 1,
+    "battery_kwh": 17.5,
+    "image_url": "/images/cars/brands/mazda/mx-30-rev/main.jpg",
+    "power_hp": 170,
+    "co2_emission": 22,
+    "charge_time_ac": 3.5,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 366,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1718,
+    "length_mm": 4395,
+    "width_mm": 1795,
+    "height_mm": 1545,
+    "wheelbase_mm": 2655,
+    "max_trunk_volume": 366,
+    "electric_motor_power_hp": 170,
+    "engine_displacement": 0.8,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left",
+      "ac_phases": 3,
+      "ac_current": 32
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES,NL,BE,AT,CH",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 91,
       "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "pedestrian_protection": 73,
+      "safety_assist": 95,
+      "overall_rating": 87,
+      "test_year": 2020
     },
     "battery_architecture": "modular",
-    "slug": "mazda-cx-80-phev"
+    "drivetrain": "FWD",
+    "transmission": "CVT",
+    "slug": "mazda-mx30-rev-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "mercedes-1",
@@ -2299,7 +3740,6 @@
     "ev_range_km": 77,
     "fuel_consumption": 0.9,
     "battery_kwh": 15.6,
-    "price_eur": 38000,
     "image_url": "/images/cars/brands/mercedes-benz/a-class-phev/main.jpg",
     "power_hp": 218,
     "co2_emission": 20.5,
@@ -2321,8 +3761,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 96,
@@ -2330,7 +3773,7 @@
       "pedestrian_protection": 92,
       "safety_assist": 75,
       "overall_rating": 89,
-      "test_year": 2018
+      "test_year": 2021
     },
     "simulator_data": {
       "base_range_km": 75,
@@ -2354,7 +3797,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-a-class-phev"
+    "slug": "mercedes-benz-a-class-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "mercedesbenz-cclass",
@@ -2365,7 +3809,6 @@
     "ev_range_km": 102,
     "fuel_consumption": 0.75,
     "battery_kwh": 25.4,
-    "price_eur": 48000,
     "image_url": "/images/cars/brands/mercedes-benz/c-class-phev/main.jpg",
     "power_hp": 381,
     "co2_emission": 17,
@@ -2385,10 +3828,18 @@
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 60,
+    "charging_capabilities": {
+      "ac_power": 7.2,
+      "dc_power": 60
     },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 96,
@@ -2396,7 +3847,7 @@
       "pedestrian_protection": 92,
       "safety_assist": 75,
       "overall_rating": 89,
-      "test_year": 2018
+      "test_year": 2021
     },
     "simulator_data": {
       "base_range_km": 100,
@@ -2420,7 +3871,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-c-class-phev"
+    "slug": "mercedes-benz-c-class-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "mercedesbenz-cla",
@@ -2431,7 +3883,6 @@
     "ev_range_km": 70,
     "fuel_consumption": 1.4,
     "battery_kwh": 15.6,
-    "price_eur": 40000,
     "image_url": "/images/cars/brands/mercedes-benz/cla-phev/main.jpg",
     "power_hp": 218,
     "co2_emission": 32,
@@ -2453,8 +3904,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 96,
@@ -2462,7 +3916,7 @@
       "pedestrian_protection": 92,
       "safety_assist": 75,
       "overall_rating": 89,
-      "test_year": 2018
+      "test_year": 2021
     },
     "simulator_data": {
       "base_range_km": 75,
@@ -2486,7 +3940,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-cla-phev"
+    "slug": "mercedes-benz-cla-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mercedes-6",
@@ -2497,7 +3952,6 @@
     "ev_range_km": 100,
     "fuel_consumption": 1.8,
     "battery_kwh": 28.6,
-    "price_eur": 55000,
     "image_url": "/images/cars/brands/mercedes-benz/e-class-phev/main.jpg",
     "power_hp": 585,
     "co2_emission": 41,
@@ -2519,8 +3973,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 96,
@@ -2528,7 +3985,7 @@
       "pedestrian_protection": 92,
       "safety_assist": 75,
       "overall_rating": 89,
-      "test_year": 2018
+      "test_year": 2021
     },
     "simulator_data": {
       "base_range_km": 103,
@@ -2552,7 +4009,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-e-class-phev"
+    "slug": "mercedes-benz-e-class-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "mercedes-3",
@@ -2563,7 +4021,6 @@
     "ev_range_km": 70,
     "fuel_consumption": 1.5,
     "battery_kwh": 15.6,
-    "price_eur": 42000,
     "image_url": "/images/cars/brands/mercedes-benz/gla-phev/main.jpg",
     "power_hp": 218,
     "co2_emission": 34,
@@ -2585,8 +4042,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "simulator_data": {
       "base_range_km": 70,
       "temperature_efficiency": {
@@ -2615,10 +4075,11 @@
       "pedestrian_protection": 92,
       "safety_assist": 75,
       "overall_rating": 89,
-      "test_year": 2018
+      "test_year": 2021
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-gla-phev"
+    "slug": "mercedes-benz-gla-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "mercedes-5",
@@ -2629,7 +4090,6 @@
     "ev_range_km": 100,
     "fuel_consumption": 1.8,
     "battery_kwh": 25.4,
-    "price_eur": 52000,
     "image_url": "/images/cars/brands/mercedes-benz/glc-coupe-phev/main.jpg",
     "power_hp": 313,
     "co2_emission": 41,
@@ -2637,7 +4097,7 @@
     "trunk_volume": 550,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "simulator_data": {
       "base_range_km": 103,
       "temperature_efficiency": {
@@ -2666,16 +4126,25 @@
       "pedestrian_protection": 92,
       "safety_assist": 75,
       "overall_rating": 89,
-      "test_year": 2018
+      "test_year": 2021
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
-    "slug": "mercedes-benz-glc-coup-phev"
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 60,
+    "charging_capabilities": {
+      "ac_power": 7.2,
+      "dc_power": 60
+    },
+    "slug": "mercedes-benz-glc-coup-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "mercedes-7",
@@ -2686,7 +4155,6 @@
     "ev_range_km": 90,
     "fuel_consumption": 1.8,
     "battery_kwh": 25.4,
-    "price_eur": 68000,
     "image_url": "/images/cars/brands/mercedes-benz/gle-coupe-phev/main.jpg",
     "power_hp": 381,
     "co2_emission": 41,
@@ -2694,7 +4162,7 @@
     "trunk_volume": 630,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "simulator_data": {
       "base_range_km": 103,
       "temperature_efficiency": {
@@ -2723,16 +4191,25 @@
       "pedestrian_protection": 92,
       "safety_assist": 75,
       "overall_rating": 89,
-      "test_year": 2018
+      "test_year": 2021
     },
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Rear left"
+      "ac_location": "Rear left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Rear left"
     },
-    "slug": "mercedes-benz-gle-coup-phev"
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 60,
+    "charging_capabilities": {
+      "ac_power": 7.2,
+      "dc_power": 60
+    },
+    "slug": "mercedes-benz-gle-coup-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "mercedesbenz-sclass",
@@ -2743,7 +4220,6 @@
     "ev_range_km": 77,
     "fuel_consumption": 1.8,
     "battery_kwh": 28.6,
-    "price_eur": 95000,
     "image_url": "/images/cars/brands/mercedes-benz/s-class-phev/main.jpg",
     "power_hp": 510,
     "co2_emission": 41,
@@ -2765,8 +4241,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Rear left"
     },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 96,
@@ -2774,7 +4253,7 @@
       "pedestrian_protection": 92,
       "safety_assist": 75,
       "overall_rating": 89,
-      "test_year": 2018
+      "test_year": 2021
     },
     "simulator_data": {
       "base_range_km": 100,
@@ -2798,7 +4277,8 @@
       }
     },
     "battery_architecture": "modular",
-    "slug": "mercedes-benz-s-class-phev"
+    "slug": "mercedes-benz-s-class-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "mg-3",
@@ -2809,8 +4289,7 @@
     "ev_range_km": 120,
     "fuel_consumption": 0.5,
     "battery_kwh": 23.2,
-    "price_eur": 35000,
-    "image_url": "/images/cars/brands/mg/hs-ii-phev/main.jpg",
+    "image_url": "/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg",
     "power_hp": 299,
     "co2_emission": 12,
     "charge_time_ac": 4,
@@ -2825,7 +4304,7 @@
     "max_trunk_volume": 1484,
     "electric_motor_power_hp": 209,
     "engine_displacement": 1.496,
-    "battery_chemistry": "LiFePO4",
+    "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
@@ -2835,28 +4314,32 @@
     "country_availability": "EU",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mg-hs-ii-1-5t"
+    "slug": "mg-hs-ii-1-5t",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.6,
+      "ac_power_note": "3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor"
+    }
   },
   {
     "id": "mg-5",
     "brand": "MG",
     "model": "HS I EHS 1.5 T-GDI",
-    "year": 2025,
+    "year": 2024,
     "segment": "SUV",
     "ev_range_km": 52,
     "fuel_consumption": 1.8,
     "battery_kwh": 14.9,
-    "price_eur": 29000,
-    "image_url": "/images/cars/brands/mg/hs-i-ehs-phev/main.jpg",
-    "power_hp": 162,
+    "image_url": "/images/cars/brands/mg/hs-i-ehs-15-t-gdi/main.jpg",
+    "power_hp": 258,
     "co2_emission": 43,
     "charge_time_ac": 3.5,
     "trunk_volume": 463,
@@ -2880,34 +4363,53 @@
     "country_availability": "EU",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mg-hs-i-ehs-1-5-t-gdi"
+    "slug": "mg-hs-i-ehs-1-5-t-gdi",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.6,
+      "ac_power_note": "3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor"
+    }
   },
   {
     "id": "mini-1",
     "brand": "MINI",
-    "model": "Countryman",
-    "year": 2025,
+    "model": "Countryman Cooper S E",
+    "year": 2020,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.8,
+    "ev_range_km": 42,
+    "fuel_consumption": 2.4,
     "battery_kwh": 10.7,
-    "price_eur": 42900,
     "image_url": "/images/cars/brands/mini/countryman/main.jpg",
-    "power_hp": 220,
+    "power_hp": 224,
     "co2_emission": 41,
     "charge_time_ac": 3.2,
-    "trunk_volume": 450,
+    "trunk_volume": 405,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "weight_kg": 1660,
+    "length_mm": 4299,
+    "width_mm": 1822,
+    "height_mm": 1557,
+    "wheelbase_mm": 2670,
+    "max_trunk_volume": 1275,
+    "electric_motor_power_hp": 88,
+    "engine_displacement": 1.5,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 88,
@@ -2915,66 +4417,76 @@
       "pedestrian_protection": 75,
       "safety_assist": 70,
       "overall_rating": 80,
-      "test_year": 2022
+      "test_year": 2017
     },
-    "engine_displacement": 1.5,
-    "battery_chemistry": "NCM",
     "battery_architecture": "modular",
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "slug": "mini-countryman-phev"
+    "slug": "mini-countryman-cooper-s-e",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "dc_power": 22
+    }
   },
   {
     "id": "mitsubishi-2",
     "brand": "Mitsubishi",
-    "model": "Eclipse Cross",
-    "year": 2025,
+    "model": "Eclipse Cross PHEV",
+    "year": 2024,
     "segment": "SUV",
     "ev_range_km": 50,
-    "fuel_consumption": 1.5,
+    "fuel_consumption": 1.9,
     "battery_kwh": 13.8,
-    "price_eur": 38922,
     "image_url": "/images/cars/brands/mitsubishi/eclipse-cross/main.jpg",
     "power_hp": 141,
     "co2_emission": 34,
     "charge_time_ac": 3.5,
-    "trunk_volume": 405,
+    "trunk_volume": 626,
     "seats": 5,
     "warranty_years": 5,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
-    },
+    "weight_kg": 1800,
+    "length_mm": 4405,
+    "width_mm": 1805,
+    "height_mm": 1685,
+    "wheelbase_mm": 2670,
+    "max_trunk_volume": 1000,
+    "electric_motor_power_hp": 80,
     "engine_displacement": 2.4,
-    "battery_chemistry": "NCM",
-    "battery_architecture": "modular",
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "mitsubishi-eclipse-cross-phev"
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "battery_architecture": "modular",
+    "slug": "mitsubishi-eclipse-cross-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7
+    }
   },
   {
     "id": "mitsubishi-1",
     "brand": "Mitsubishi",
-    "model": "Outlander",
-    "year": 2025,
+    "model": "Outlander IV (facelift 2024) 2.4 MIVEC",
+    "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.7,
-    "battery_kwh": 22.7,
-    "price_eur": 43639,
+    "ev_range_km": 103,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 20,
     "image_url": "/images/cars/brands/mitsubishi/outlander-phev/main.jpg",
     "power_hp": 306,
-    "co2_emission": 38,
+    "co2_emission": 18,
     "charge_time_ac": 4,
     "trunk_volume": 495,
     "seats": 7,
@@ -2987,25 +4499,87 @@
     "max_trunk_volume": 1404,
     "electric_motor_power_hp": 120,
     "engine_displacement": 2.4,
-    "battery_chemistry": "NCM",
+    "battery_chemistry": "Li-Ion",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CHAdeMO",
+      "dc_location": "Front left"
     },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 22,
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "EU",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "mitsubishi-outlander-phev"
+    "slug": "mitsubishi-outlander-iv-24-mivec",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "dc_power": 22
+    }
+  },
+  {
+    "id": "mitsubishi-3",
+    "brand": "Mitsubishi",
+    "model": "Outlander IV 2.4 MIVEC",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 103,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 20,
+    "image_url": "/images/cars/brands/mitsubishi/outlander/main.jpg",
+    "power_hp": 252,
+    "co2_emission": 18,
+    "charge_time_ac": 4,
+    "trunk_volume": 495,
+    "seats": 7,
+    "warranty_years": 5,
+    "weight_kg": 2020,
+    "length_mm": 4705,
+    "width_mm": 1862,
+    "height_mm": 1748,
+    "wheelbase_mm": 2670,
+    "max_trunk_volume": 1404,
+    "electric_motor_power_hp": 120,
+    "engine_displacement": 2.4,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CHAdeMO",
+      "dc_location": "Front left"
+    },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 22,
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
+    },
+    "battery_architecture": "modular",
+    "slug": "mitsubishi-outlander-iv-24-mivec-252hp",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "dc_power": 22
+    }
   },
   {
     "id": "opel-2",
@@ -3016,7 +4590,6 @@
     "ev_range_km": 65,
     "fuel_consumption": 1.4,
     "battery_kwh": 17.2,
-    "price_eur": 35000,
     "image_url": "/images/cars/brands/opel/astra-Phev/main.jpg",
     "power_hp": 196,
     "co2_emission": 32,
@@ -3038,55 +4611,125 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "opel-astra-phev-phev"
+    "slug": "opel-astra-phev-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "opel-3",
     "brand": "Opel",
-    "model": "Grandland",
-    "year": 2025,
+    "model": "Grandland X 1.6 Turbo",
+    "year": 2021,
     "segment": "SUV",
-    "ev_range_km": 59,
-    "fuel_consumption": 1.6,
+    "ev_range_km": 65,
+    "fuel_consumption": 1,
     "battery_kwh": 13.2,
-    "price_eur": 40000,
     "image_url": "/images/cars/brands/opel/grandland-grandland-overview/main.jpg",
-    "power_hp": 225,
-    "co2_emission": 36,
+    "power_hp": 224,
+    "co2_emission": 23,
     "charge_time_ac": 3,
-    "trunk_volume": 514,
+    "trunk_volume": 390,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
-    },
+    "weight_kg": 1800,
+    "length_mm": 4477,
+    "width_mm": 1906,
+    "height_mm": 1609,
+    "wheelbase_mm": 2675,
+    "max_trunk_volume": 1528,
+    "electric_motor_power_hp": 110,
     "engine_displacement": 1.6,
-    "battery_chemistry": "NCM",
-    "battery_architecture": "modular",
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "opel-grandland-phev"
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2019
+    },
+    "battery_architecture": "modular",
+    "slug": "opel-grandland-x-16-turbo",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
+  },
+  {
+    "id": "opel-4",
+    "brand": "Opel",
+    "model": "Grandland X 1.6 Turbo 4 AWD",
+    "year": 2021,
+    "segment": "SUV",
+    "ev_range_km": 69,
+    "fuel_consumption": 1,
+    "battery_kwh": 13.2,
+    "image_url": "/images/cars/brands/opel/grandland-x-16-turbo-4-awd/main.jpg",
+    "power_hp": 300,
+    "co2_emission": 23,
+    "charge_time_ac": 3,
+    "trunk_volume": 390,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1800,
+    "length_mm": 4477,
+    "width_mm": 1906,
+    "height_mm": 1609,
+    "wheelbase_mm": 2675,
+    "max_trunk_volume": 1528,
+    "electric_motor_power_hp": 110,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2019
+    },
+    "battery_architecture": "modular",
+    "slug": "opel-grandland-x-16-turbo-4-awd",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-67",
@@ -3094,13 +4737,12 @@
     "model": "3008",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 86,
-    "fuel_consumption": 0.9,
-    "battery_kwh": 17.9,
-    "price_eur": 35000,
-    "image_url": "/images/cars/brands/peugeot/3008 Plug-in/main.jpeg",
-    "power_hp": 195,
-    "co2_emission": 20,
+    "ev_range_km": 59,
+    "fuel_consumption": 1.5,
+    "battery_kwh": 17.2,
+    "image_url": "/images/cars/brands/peugeot/3008-plug-in-hybrid/main.jpg",
+    "power_hp": 180,
+    "co2_emission": 35,
     "charge_time_ac": 3,
     "trunk_volume": 520,
     "seats": 5,
@@ -3123,15 +4765,21 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-3008-phev"
+    "slug": "peugeot-3008-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "peugeot-2",
@@ -3140,12 +4788,11 @@
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 85,
-    "fuel_consumption": 2.5,
+    "fuel_consumption": 2.4,
     "battery_kwh": 17.2,
-    "price_eur": 37400,
-    "image_url": "/images/cars/brands/peugeot/308-hybrid/main.jpg",
+    "image_url": "/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg",
     "power_hp": 195,
-    "co2_emission": 57,
+    "co2_emission": 54,
     "charge_time_ac": 3,
     "trunk_volume": 467,
     "seats": 5,
@@ -3165,18 +4812,24 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-308-phev"
+    "slug": "peugeot-308-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-69",
@@ -3187,8 +4840,7 @@
     "ev_range_km": 65,
     "fuel_consumption": 1.5,
     "battery_kwh": 17.2,
-    "price_eur": 32000,
-    "image_url": "/images/cars/brands/peugeot/408-hybrid/main.jpeg",
+    "image_url": "/images/cars/brands/peugeot/408-plug-in-hybrid/main.jpg",
     "power_hp": 225,
     "co2_emission": 30,
     "charge_time_ac": 3,
@@ -3213,15 +4865,71 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "peugeot-408-phev"
+    "slug": "peugeot-408-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
+  },
+  {
+    "id": "new-69.5",
+    "brand": "Peugeot",
+    "model": "5008",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 58,
+    "fuel_consumption": 1.6,
+    "battery_kwh": 17.2,
+    "image_url": "/images/cars/brands/peugeot/5008-plug-in-hybrid/main.png",
+    "power_hp": 225,
+    "co2_emission": 36,
+    "charge_time_ac": 3,
+    "trunk_volume": 660,
+    "seats": 7,
+    "warranty_years": 3,
+    "weight_kg": 1950,
+    "length_mm": 4640,
+    "width_mm": 1844,
+    "height_mm": 1647,
+    "wheelbase_mm": 2840,
+    "max_trunk_volume": 2040,
+    "electric_motor_power_hp": 125,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "emission_standard": "Euro 6e",
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
+    },
+    "battery_architecture": "modular",
+    "slug": "peugeot-5008-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
   },
   {
     "id": "new-70",
@@ -3229,14 +4937,13 @@
     "model": "Cayenne",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 50,
-    "fuel_consumption": 1.5,
+    "ev_range_km": 44,
+    "fuel_consumption": 1.2,
     "battery_kwh": 17.9,
-    "price_eur": 136000,
     "image_url": "/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg",
-    "power_hp": 739,
-    "co2_emission": 30,
-    "charge_time_ac": 3,
+    "power_hp": 340,
+    "co2_emission": 27,
+    "charge_time_ac": 2.3,
     "trunk_volume": 404,
     "seats": 5,
     "warranty_years": 3,
@@ -3258,42 +4965,45 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "battery_architecture": "modular",
-    "slug": "porsche-cayenne-phev"
+    "slug": "porsche-cayenne-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "new-71",
     "brand": "Porsche",
     "model": "Panamera 4",
     "year": 2025,
-    "segment": "SUV",
-    "ev_range_km": 55,
-    "fuel_consumption": 1.5,
+    "segment": "Sedan",
+    "ev_range_km": 50,
+    "fuel_consumption": 1.1,
     "battery_kwh": 17.9,
-    "price_eur": 107780,
     "image_url": "/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg",
     "power_hp": 340,
-    "co2_emission": 30,
-    "charge_time_ac": 3,
+    "co2_emission": 25,
+    "charge_time_ac": 2.3,
     "trunk_volume": 500,
     "seats": 5,
     "warranty_years": 3,
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2021
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 78,
+      "overall_rating": 82,
+      "test_year": 2022
     },
     "engine_displacement": 2.9,
     "battery_chemistry": "NCM",
@@ -3302,7 +5012,11 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "porsche-panamera-4-phev"
+    "slug": "porsche-panamera-4-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
   },
   {
     "id": "new-72",
@@ -3311,14 +5025,13 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 65,
-    "fuel_consumption": 1.5,
+    "fuel_consumption": 1.2,
     "battery_kwh": 22,
-    "price_eur": 35000,
     "image_url": "/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp",
     "power_hp": 300,
-    "co2_emission": 30,
-    "charge_time_ac": 3,
-    "trunk_volume": 539,
+    "co2_emission": 27,
+    "charge_time_ac": 2.5,
+    "trunk_volume": 530,
     "seats": 5,
     "warranty_years": 3,
     "weight_kg": 1934,
@@ -3339,15 +5052,19 @@
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
-      "adult_occupant": 85,
-      "child_occupant": 86,
-      "pedestrian_protection": 67,
-      "safety_assist": 65,
-      "overall_rating": 76,
-      "test_year": 2022
+      "adult_occupant": 89,
+      "child_occupant": 88,
+      "pedestrian_protection": 72,
+      "safety_assist": 75,
+      "overall_rating": 81,
+      "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "renault-rafale-phev"
+    "slug": "renault-rafale-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.6
+    }
   },
   {
     "id": "skoda-kodiaq",
@@ -3355,18 +5072,17 @@
     "model": "Kodiaq",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 60,
-    "fuel_consumption": 1.8,
-    "battery_kwh": 13,
-    "price_eur": 38000,
+    "ev_range_km": 120,
+    "fuel_consumption": 1.5,
+    "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/skoda/kodiaq-phev/main.jpg",
-    "power_hp": 245,
-    "co2_emission": 41,
+    "power_hp": 204,
+    "co2_emission": 35,
     "charge_time_ac": 3.5,
     "trunk_volume": 630,
-    "seats": 7,
+    "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "EU",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 93,
@@ -3381,28 +5097,41 @@
     "battery_architecture": "modular",
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
-    "slug": "koda-kodiaq-phev"
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 50
+    },
+    "slug": "koda-kodiaq-phev",
+    "updated_at": "2024-10-25",
+    "electric_motor_power_hp": 0,
+    "acceleration_0_100": 1.8,
+    "features": [],
+    "weight_kg": 0,
+    "last_updated": "2026-09-18"
   },
   {
     "id": "skoda-superb-combi",
     "brand": "Škoda",
     "model": "Superb Combi",
     "year": 2025,
-    "segment": "Sedan",
+    "segment": "Estate",
     "ev_range_km": 65,
-    "fuel_consumption": 1.4,
+    "fuel_consumption": 1.2,
     "battery_kwh": 13,
-    "price_eur": 36000,
     "image_url": "/images/cars/brands/skoda/superb-combi-phev/main.jpg",
-    "power_hp": 245,
-    "co2_emission": 32,
+    "power_hp": 218,
+    "co2_emission": 30,
     "charge_time_ac": 3.5,
     "trunk_volume": 625,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 93,
@@ -3419,7 +5148,91 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "koda-superb-combi-phev"
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
+    "slug": "koda-superb-combi-phev",
+    "updated_at": "2024-10-24"
+  },
+  {
+    "id": "skoda-superb-sedan",
+    "brand": "Škoda",
+    "model": "Superb",
+    "year": 2025,
+    "segment": "Sedan",
+    "ev_range_km": 68,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 13,
+    "image_url": "/images/cars/brands/skoda/superb-sedan-phev/main.jpg",
+    "power_hp": 218,
+    "co2_emission": 30,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 93,
+      "child_occupant": 84,
+      "pedestrian_protection": 70,
+      "safety_assist": 58,
+      "overall_rating": 76,
+      "test_year": 2017
+    },
+    "engine_displacement": 1.4,
+    "battery_chemistry": "NCM",
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
+    "slug": "koda-superb-sedan-phev",
+    "updated_at": "2024-10-24"
+  },
+  {
+    "id": "suzuki-across-phev",
+    "brand": "Suzuki",
+    "model": "Across",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 75,
+    "fuel_consumption": 1,
+    "battery_kwh": 18.1,
+    "image_url": "/images/cars/brands/suzuki/across-phev/main.jpg",
+    "power_hp": 306,
+    "co2_emission": 22,
+    "charge_time_ac": 3,
+    "trunk_volume": 500,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 88,
+      "pedestrian_protection": 75,
+      "safety_assist": 85,
+      "overall_rating": 86,
+      "test_year": 2020
+    },
+    "engine_displacement": 2.5,
+    "battery_chemistry": "Li-Ion",
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "slug": "suzuki-across-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "new-76",
@@ -3427,13 +5240,12 @@
     "model": "C-HR",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 65,
-    "fuel_consumption": 1.5,
+    "ev_range_km": 66,
+    "fuel_consumption": 0.9,
     "battery_kwh": 18.1,
-    "price_eur": 32000,
     "image_url": "/images/cars/brands/toyota/c-hr-plug-in-hybrid/main.jpg",
     "power_hp": 223,
-    "co2_emission": 30,
+    "co2_emission": 20,
     "charge_time_ac": 3,
     "trunk_volume": 500,
     "seats": 5,
@@ -3457,14 +5269,19 @@
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
-      "child_occupant": 78,
+      "child_occupant": 84,
       "pedestrian_protection": 76,
-      "safety_assist": 78,
-      "overall_rating": 82,
-      "test_year": 2016
+      "safety_assist": 86,
+      "overall_rating": 85,
+      "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "toyota-c-hr-phev"
+    "slug": "toyota-c-hr-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "C-HR Plug-in Hybrid: 6.6 kW AC onboard charger"
+    }
   },
   {
     "id": "toyota-1",
@@ -3473,13 +5290,12 @@
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 65,
-    "fuel_consumption": 1.2,
-    "battery_kwh": 8.8,
-    "price_eur": 35000,
+    "fuel_consumption": 1,
+    "battery_kwh": 13.6,
     "image_url": "/images/cars/brands/toyota/prius-plug-in-hybrid/main.jpg",
     "power_hp": 223,
-    "co2_emission": 27,
-    "charge_time_ac": 2.5,
+    "co2_emission": 22,
+    "charge_time_ac": 2,
     "trunk_volume": 343,
     "seats": 5,
     "warranty_years": 5,
@@ -3498,7 +5314,7 @@
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 92,
@@ -3509,7 +5325,11 @@
       "test_year": 2016
     },
     "battery_architecture": "modular",
-    "slug": "toyota-prius-phev"
+    "slug": "toyota-prius-phev",
+    "updated_at": "2024-10-25",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "toyota-2",
@@ -3520,7 +5340,6 @@
     "ev_range_km": 75,
     "fuel_consumption": 1,
     "battery_kwh": 18.1,
-    "price_eur": 42000,
     "image_url": "/images/cars/brands/toyota/rav4-plug-in-hybrid/main.jpg",
     "power_hp": 306,
     "co2_emission": 22,
@@ -3538,12 +5357,16 @@
     "engine_displacement": 1.8,
     "battery_chemistry": "NCM",
     "battery_voltage": 355,
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_note": "RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Not: RAV4 Prime SE (2022) 3.3 kW kullanır"
+    },
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
     "emission_standard": "Euro 6d-ISC-FCM",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 97,
@@ -3554,7 +5377,47 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "toyota-rav4-phev"
+    "slug": "toyota-rav4-phev",
+    "updated_at": "2024-10-24"
+  },
+  {
+    "id": "toyota-crown-phev",
+    "brand": "Toyota",
+    "model": "Crown",
+    "year": 2025,
+    "segment": "Sedan",
+    "ev_range_km": 70,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 18.1,
+    "image_url": "/images/cars/brands/toyota/crown-phev/main.jpg",
+    "power_hp": 306,
+    "co2_emission": 25,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 400,
+    "seats": 5,
+    "warranty_years": 5,
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 88,
+      "pedestrian_protection": 75,
+      "safety_assist": 85,
+      "overall_rating": 86,
+      "test_year": 2023
+    },
+    "engine_displacement": 2.5,
+    "battery_chemistry": "Li-Ion",
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "slug": "toyota-crown-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 6.6
+    }
   },
   {
     "id": "vw-1",
@@ -3562,13 +5425,12 @@
     "model": "Golf",
     "year": 2025,
     "segment": "Hatchback",
-    "ev_range_km": 131,
-    "fuel_consumption": 0.4,
-    "battery_kwh": 25.7,
-    "price_eur": 35000,
+    "ev_range_km": 70,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 13,
     "image_url": "/images/cars/brands/volkswagen/golf/main.jpg",
-    "power_hp": 272,
-    "co2_emission": 8,
+    "power_hp": 204,
+    "co2_emission": 25,
     "charge_time_ac": 3.5,
     "trunk_volume": 273,
     "seats": 5,
@@ -3587,33 +5449,37 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6 EA",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-golf-phev"
+    "slug": "volkswagen-golf-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "vw-2",
     "brand": "Volkswagen",
     "model": "Passat",
     "year": 2025,
-    "segment": "Station/Estate",
-    "ev_range_km": 127.5,
-    "fuel_consumption": 0.4,
-    "battery_kwh": 25.7,
-    "price_eur": 38000,
+    "segment": "Estate",
+    "ev_range_km": 70,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 13,
     "image_url": "/images/cars/brands/volkswagen/passat/main.jpg",
-    "power_hp": 272,
-    "co2_emission": 9,
+    "power_hp": 218,
+    "co2_emission": 25,
     "charge_time_ac": 3.5,
     "trunk_volume": 650,
     "seats": 5,
@@ -3630,21 +5496,30 @@
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 50
     },
     "emission_standard": "Euro 6 EA",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-passat-phev"
+    "slug": "volkswagen-passat-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "new-81",
@@ -3655,7 +5530,6 @@
     "ev_range_km": 110,
     "fuel_consumption": 1.5,
     "battery_kwh": 25.7,
-    "price_eur": 45000,
     "image_url": "/images/cars/brands/volkswagen/tayron/main.jpg",
     "power_hp": 272,
     "co2_emission": 30,
@@ -3677,19 +5551,24 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-tayron-phev"
+    "slug": "volkswagen-tayron-phev",
+    "updated_at": "2024-10-24"
   },
   {
     "id": "vw-3",
@@ -3697,13 +5576,12 @@
     "model": "Tiguan",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 123,
-    "fuel_consumption": 0.45,
-    "battery_kwh": 25.7,
-    "price_eur": 40000,
+    "ev_range_km": 60,
+    "fuel_consumption": 1.5,
+    "battery_kwh": 13,
     "image_url": "/images/cars/brands/volkswagen/tiguan/main.jpg",
     "power_hp": 204,
-    "co2_emission": 9,
+    "co2_emission": 30,
     "charge_time_ac": 3.5,
     "trunk_volume": 490,
     "seats": 5,
@@ -3720,21 +5598,30 @@
     "battery_voltage": 353,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 50
     },
     "emission_standard": "Euro 6 EA",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-tiguan-phev"
+    "slug": "volkswagen-tiguan-phev",
+    "updated_at": "2024-10-23"
   },
   {
     "id": "new-83",
@@ -3743,12 +5630,11 @@
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 50,
-    "fuel_consumption": 1.5,
+    "fuel_consumption": 2,
     "battery_kwh": 17.9,
-    "price_eur": 55000,
-    "image_url": "/images/cars/brands/volkswagen/tuareg/main.jpg",
-    "power_hp": 340,
-    "co2_emission": 30,
+    "image_url": "/images/cars/brands/volkswagen/touareg/main.jpg",
+    "power_hp": 381,
+    "co2_emission": 35,
     "charge_time_ac": 3,
     "trunk_volume": 500,
     "seats": 5,
@@ -3767,19 +5653,63 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 40
+    },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,PL",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
       "child_occupant": 89,
-      "pedestrian_protection": 71,
+      "pedestrian_protection": 76,
       "safety_assist": 78,
-      "overall_rating": 83,
+      "overall_rating": 85,
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "volkswagen-touareg-phev"
+    "slug": "volkswagen-touareg-phev",
+    "updated_at": "2024-10-25"
+  },
+  {
+    "id": "vw-multivan-phev",
+    "brand": "Volkswagen",
+    "model": "Multivan",
+    "year": 2025,
+    "segment": "Van",
+    "ev_range_km": 60,
+    "fuel_consumption": 1.5,
+    "battery_kwh": 13,
+    "image_url": "/images/cars/brands/volkswagen/multivan-phev/main.jpg",
+    "power_hp": 218,
+    "co2_emission": 30,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 1000,
+    "seats": 7,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 90,
+      "child_occupant": 85,
+      "pedestrian_protection": 70,
+      "safety_assist": 80,
+      "overall_rating": 81,
+      "test_year": 2021
+    },
+    "engine_displacement": 1.4,
+    "battery_chemistry": "Li-Ion",
+    "battery_architecture": "modular",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.6
+    },
+    "slug": "volkswagen-multivan-phev",
+    "updated_at": "2024-10-25"
   },
   {
     "id": "volvo-5",
@@ -3790,7 +5720,6 @@
     "ev_range_km": 64,
     "fuel_consumption": 1.9,
     "battery_kwh": 18.8,
-    "price_eur": 50000,
     "image_url": "/images/cars/brands/volvo/v60-recharge/main.jpg",
     "power_hp": 340,
     "co2_emission": 43,
@@ -3798,7 +5727,7 @@
     "trunk_volume": 529,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 98,
@@ -3815,7 +5744,12 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volvo-v60-phev"
+    "slug": "volvo-v60-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.4,
+      "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
+    }
   },
   {
     "id": "volvo-7",
@@ -3826,7 +5760,6 @@
     "ev_range_km": 64,
     "fuel_consumption": 2.1,
     "battery_kwh": 18.8,
-    "price_eur": 65000,
     "image_url": "/images/cars/brands/volvo/v90-recharge/main.jpg",
     "power_hp": 340,
     "co2_emission": 47,
@@ -3834,7 +5767,7 @@
     "trunk_volume": 560,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 98,
@@ -3851,7 +5784,12 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volvo-v90-phev"
+    "slug": "volvo-v90-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.4,
+      "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
+    }
   },
   {
     "id": "volvo-2",
@@ -3862,7 +5800,6 @@
     "ev_range_km": 64,
     "fuel_consumption": 1.9,
     "battery_kwh": 18.8,
-    "price_eur": 55000,
     "image_url": "/images/cars/brands/volvo/xc60-recharge/main.jpg",
     "power_hp": 455,
     "co2_emission": 43,
@@ -3870,7 +5807,7 @@
     "trunk_volume": 505,
     "seats": 5,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 98,
@@ -3887,7 +5824,12 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volvo-xc60-phev"
+    "slug": "volvo-xc60-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.4,
+      "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
+    }
   },
   {
     "id": "volvo-3",
@@ -3898,7 +5840,6 @@
     "ev_range_km": 64,
     "fuel_consumption": 2.1,
     "battery_kwh": 18.8,
-    "price_eur": 65000,
     "image_url": "/images/cars/brands/volvo/xc90-recharge/main.jpg",
     "power_hp": 192,
     "co2_emission": 47,
@@ -3906,7 +5847,7 @@
     "trunk_volume": 314,
     "seats": 7,
     "warranty_years": 3,
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 98,
@@ -3923,7 +5864,12 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "volvo-xc90-phev"
+    "slug": "volvo-xc90-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.4,
+      "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
+    }
   },
   {
     "id": "omoda-1",
@@ -3934,7 +5880,6 @@
     "ev_range_km": 145,
     "fuel_consumption": 1.7,
     "battery_kwh": 34.46,
-    "price_eur": 35000,
     "image_url": "/images/cars/brands/omoda/omoda-9-super-hybrid/main.jpg",
     "power_hp": 143,
     "co2_emission": 38,
@@ -3952,21 +5897,77 @@
     "engine_displacement": 1.5,
     "battery_chemistry": "Li-NMC",
     "battery_voltage": 400,
-    "charging_port": "Type 2",
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 6.6
+    },
     "emission_standard": "Euro 6e",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "EU",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 85,
       "child_occupant": 86,
       "vulnerable_road_users": 70,
-      "safety_assist": 80
+      "safety_assist": 80,
+      "overall_rating": 80,
+      "test_year": 2024
     },
-    "charging": {
+    "battery_architecture": "modular",
+    "slug": "omoda-9-phev",
+    "updated_at": "2024-10-23"
+  },
+  {
+    "id": "jaecoo-1",
+    "brand": "Jaecoo",
+    "model": "J7 SHS 1.5 TGDI",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 91,
+    "fuel_consumption": 2.2,
+    "battery_kwh": 20,
+    "image_url": "/images/cars/brands/jaecoo/j7-shs-15-tgdi/main.jpg",
+    "power_hp": 347,
+    "co2_emission": 50,
+    "charge_time_ac": 3,
+    "trunk_volume": 405,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1660,
+    "length_mm": 4775,
+    "width_mm": 1920,
+    "height_mm": 1671,
+    "wheelbase_mm": 2820,
+    "max_trunk_volume": 1275,
+    "electric_motor_power_hp": 100,
+    "engine_displacement": 1.5,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "slug": "omoda-9-phev"
+    "emission_standard": "Euro 6e",
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 85,
+      "child_occupant": 86,
+      "vulnerable_road_users": 70,
+      "safety_assist": 80,
+      "overall_rating": 80,
+      "test_year": 2023
+    },
+    "battery_architecture": "modular",
+    "slug": "jaecoo-j7-shs-15-tgdi",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "dc_power": 40,
+      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)"
+    }
   },
   {
     "id": "seat-1",
@@ -3974,13 +5975,12 @@
     "model": "Leon IV Sportstourer 1.5 TSI",
     "year": 2025,
     "segment": "Estate",
-    "ev_range_km": 131,
-    "fuel_consumption": 0.4,
-    "battery_kwh": 19.7,
-    "price_eur": 35000,
-    "image_url": "/images/cars/brands/seat/leon-sportstourer-1-5-tsi/main.jpg",
+    "ev_range_km": 65,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 13,
+    "image_url": "/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/main.jpg",
     "power_hp": 204,
-    "co2_emission": 9,
+    "co2_emission": 27,
     "charge_time_ac": 4,
     "trunk_volume": 470,
     "seats": 5,
@@ -3998,6 +5998,28 @@
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "dc_power": 50,
+      "charging_curve": {
+        "soc": [
+          0,
+          20,
+          40,
+          60,
+          80,
+          100
+        ],
+        "power": [
+          50,
+          50,
+          45,
+          35,
+          20,
+          5
+        ]
+      },
+      "ac_power": 11
     },
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
@@ -4017,8 +6039,48 @@
       "warranty_capacity": 70,
       "thermal_management": "liquid"
     },
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 96,
+      "child_occupant": 85,
+      "pedestrian_protection": 71,
+      "safety_assist": 80,
+      "overall_rating": 83,
+      "test_year": 2020
+    },
+    "updated_at": "2024-10-24"
+  },
+  {
+    "id": "seat-2",
+    "brand": "SEAT",
+    "model": "Leon IV 1.5 TSI",
+    "year": 2025,
+    "segment": "Hatchback",
+    "ev_range_km": 65,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 13,
+    "image_url": "/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg",
+    "power_hp": 204,
+    "co2_emission": 27,
+    "charge_time_ac": 4,
+    "trunk_volume": 380,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1595,
+    "length_mm": 4368,
+    "width_mm": 1799,
+    "height_mm": 1460,
+    "wheelbase_mm": 2680,
+    "max_trunk_volume": 1200,
+    "electric_motor_power_hp": 116,
+    "engine_displacement": 1.498,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
     "charging_capabilities": {
-      "ac_power": 7.4,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -4037,48 +6099,8 @@
           20,
           5
         ]
-      }
-    },
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 96,
-      "child_occupant": 85,
-      "pedestrian_protection": 71,
-      "safety_assist": 80,
-      "overall_rating": 83,
-      "test_year": 2020
-    }
-  },
-  {
-    "id": "seat-2",
-    "brand": "SEAT",
-    "model": "Leon IV 1.5 TSI",
-    "year": 2025,
-    "segment": "Hatchback",
-    "ev_range_km": 133,
-    "fuel_consumption": 0.4,
-    "battery_kwh": 19.7,
-    "price_eur": 33000,
-    "image_url": "/images/cars/brands/seat/leon-1-5-tsi/main.jpg",
-    "power_hp": 204,
-    "co2_emission": 8,
-    "charge_time_ac": 4,
-    "trunk_volume": 380,
-    "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 1595,
-    "length_mm": 4368,
-    "width_mm": 1799,
-    "height_mm": 1460,
-    "wheelbase_mm": 2680,
-    "max_trunk_volume": 1200,
-    "electric_motor_power_hp": 116,
-    "engine_displacement": 1.498,
-    "battery_chemistry": "Li-Ion",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      },
+      "ac_power": 11
     },
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
@@ -4098,28 +6120,6 @@
       "warranty_capacity": 70,
       "thermal_management": "liquid"
     },
-    "charging_capabilities": {
-      "ac_power": 7.4,
-      "dc_power": 50,
-      "charging_curve": {
-        "soc": [
-          0,
-          20,
-          40,
-          60,
-          80,
-          100
-        ],
-        "power": [
-          50,
-          50,
-          45,
-          35,
-          20,
-          5
-        ]
-      }
-    },
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 96,
@@ -4128,39 +6128,10 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2020
-    }
+    },
+    "updated_at": "2024-10-24"
   },
   {
-    "id": "seat-3",
-    "brand": "SEAT",
-    "model": "Tarraco 1.4 TSI",
-    "year": 2025,
-    "segment": "SUV",
-    "ev_range_km": 49,
-    "fuel_consumption": 1.8,
-    "battery_kwh": 10.4,
-    "price_eur": 40000,
-    "image_url": "/images/cars/brands/seat/tarraco-1-4-tsi/main.jpg",
-    "power_hp": 150,
-    "co2_emission": 42,
-    "charge_time_ac": 3.5,
-    "trunk_volume": 700,
-    "seats": 7,
-    "warranty_years": 3,
-    "weight_kg": 1793,
-    "length_mm": 4735,
-    "width_mm": 1839,
-    "height_mm": 1658,
-    "wheelbase_mm": 2790,
-    "max_trunk_volume": 1775,
-    "electric_motor_power_hp": 117,
-    "engine_displacement": 1.395,
-    "battery_chemistry": "Li-Ion",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "slug": "seat-tarraco-1-4-tsi",
@@ -4180,7 +6151,7 @@
       "thermal_management": "liquid"
     },
     "charging_capabilities": {
-      "ac_power": 3.6,
+      "ac_power": 11,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -4209,7 +6180,8 @@
       "safety_assist": 71,
       "overall_rating": 83,
       "test_year": 2018
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "id": "seat-4",
@@ -4220,8 +6192,7 @@
     "ev_range_km": 63,
     "fuel_consumption": 1.15,
     "battery_kwh": 10.4,
-    "price_eur": 32000,
-    "image_url": "/images/cars/brands/seat/leon-sportstourer-1-4-e-hybrid/main.jpg",
+    "image_url": "/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/main.jpg",
     "power_hp": 150,
     "co2_emission": 27,
     "charge_time_ac": 3.5,
@@ -4242,26 +6213,7 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-leon-sportstourer-1-4-e-hybrid",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
     "charging_capabilities": {
-      "ac_power": 3.6,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -4280,7 +6232,26 @@
           20,
           5
         ]
-      }
+      },
+      "ac_power": 11
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "slug": "seat-leon-sportstourer-1-4-e-hybrid",
+    "last_updated": "2025-01-21",
+    "dominant_color": "white",
+    "data_status": {
+      "technical_specs": "complete",
+      "price": "estimated",
+      "range_data": "wltp"
+    },
+    "battery_details": {
+      "chemistry": "Lithium-ion (Li-Ion)",
+      "architecture": "modular",
+      "cycles": 2000,
+      "degradation_rate": 0.02,
+      "warranty_capacity": 70,
+      "thermal_management": "liquid"
     },
     "euroncap_rating": {
       "stars": 5,
@@ -4290,7 +6261,8 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2020
-    }
+    },
+    "updated_at": "2024-10-24"
   },
   {
     "id": "seat-5",
@@ -4301,8 +6273,7 @@
     "ev_range_km": 64,
     "fuel_consumption": 1.1,
     "battery_kwh": 10.4,
-    "price_eur": 30000,
-    "image_url": "/images/cars/brands/seat/leon-1-4-e-hybrid/main.jpg",
+    "image_url": "/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg",
     "power_hp": 150,
     "co2_emission": 26,
     "charge_time_ac": 3.5,
@@ -4323,26 +6294,7 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-leon-1-4-e-hybrid",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
     "charging_capabilities": {
-      "ac_power": 3.6,
       "dc_power": 50,
       "charging_curve": {
         "soc": [
@@ -4361,7 +6313,26 @@
           20,
           5
         ]
-      }
+      },
+      "ac_power": 11
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "EU",
+    "slug": "seat-leon-1-4-e-hybrid",
+    "last_updated": "2025-01-21",
+    "dominant_color": "white",
+    "data_status": {
+      "technical_specs": "complete",
+      "price": "estimated",
+      "range_data": "wltp"
+    },
+    "battery_details": {
+      "chemistry": "Lithium-ion (Li-Ion)",
+      "architecture": "modular",
+      "cycles": 2000,
+      "degradation_rate": 0.02,
+      "warranty_capacity": 70,
+      "thermal_management": "liquid"
     },
     "euroncap_rating": {
       "stars": 5,
@@ -4371,89 +6342,8 @@
       "safety_assist": 80,
       "overall_rating": 83,
       "test_year": 2020
-    }
-  },
-  {
-    "brand": "BMW",
-    "model": "5 Series Touring",
-    "year": 2024,
-    "segment": "Estate",
-    "ev_range_km": 98,
-    "fuel_consumption": 0.8,
-    "battery_kwh": 19.4,
-    "price_eur": 66900,
-    "image_url": "/images/cars/brands/bmw/bmw-5-series-touring-2024-2025/main.jpg",
-    "power_hp": 190,
-    "co2_emission": 18,
-    "charge_time_ac": 3.5,
-    "trunk_volume": 520,
-    "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 1980,
-    "length_mm": 4963,
-    "width_mm": 1868,
-    "height_mm": 1479,
-    "engine_displacement_l": 0,
-    "slug": "bmw-5-series-touring-2024",
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 85,
-      "pedestrian_protection": 81,
-      "safety_assist": 59,
-      "overall_rating": 79,
-      "test_year": 2017
-    }
-  },
-  {
-    "brand": "BMW",
-    "model": "5 Series Sedan",
-    "year": 2024,
-    "segment": "Sedan",
-    "ev_range_km": 95,
-    "fuel_consumption": 0.8,
-    "battery_kwh": 19.4,
-    "price_eur": 64900,
-    "image_url": "/images/cars/brands/bmw/bmw-5-series-sedan-2024-2025/main.jpg",
-    "power_hp": 190,
-    "co2_emission": 18,
-    "charge_time_ac": 3.5,
-    "trunk_volume": 480,
-    "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 1950,
-    "length_mm": 4963,
-    "width_mm": 1868,
-    "height_mm": 1479,
-    "engine_displacement_l": 0,
-    "slug": "bmw-5-series-sedan-2024",
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 85,
-      "pedestrian_protection": 81,
-      "safety_assist": 59,
-      "overall_rating": 79,
-      "test_year": 2017
-    }
+    "updated_at": "2024-10-23"
   },
   {
     "brand": "BMW",
@@ -4463,7 +6353,6 @@
     "ev_range_km": 91,
     "fuel_consumption": 1.1,
     "battery_kwh": 19.5,
-    "price_eur": 54900,
     "image_url": "/images/cars/brands/bmw/bmw-3-series-touring-2024-2025/main.jpg",
     "power_hp": 184,
     "co2_emission": 25,
@@ -4475,7 +6364,6 @@
     "length_mm": 4709,
     "width_mm": 1827,
     "height_mm": 1440,
-    "engine_displacement_l": 0,
     "slug": "bmw-3-series-touring-2024",
     "engine_displacement": 2,
     "battery_chemistry": "NCM",
@@ -4484,8 +6372,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 97,
@@ -4494,7 +6387,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2019
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "brand": "BMW",
@@ -4504,7 +6398,6 @@
     "ev_range_km": 78,
     "fuel_consumption": 0.9,
     "battery_kwh": 16.3,
-    "price_eur": 45000,
     "image_url": "/images/cars/brands/bmw/bmw-x1-25e-2024/main.jpg",
     "power_hp": 245,
     "co2_emission": 20,
@@ -4525,8 +6418,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
@@ -4535,7 +6433,8 @@
       "safety_assist": 70,
       "overall_rating": 84,
       "test_year": 2022
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "brand": "BMW",
@@ -4545,7 +6444,6 @@
     "ev_range_km": 78,
     "fuel_consumption": 0.9,
     "battery_kwh": 16.3,
-    "price_eur": 48000,
     "image_url": "/images/cars/brands/bmw/bmw-x1-30e-2024/main.jpg",
     "power_hp": 326,
     "co2_emission": 20,
@@ -4566,8 +6464,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 95,
@@ -4576,7 +6479,8 @@
       "safety_assist": 70,
       "overall_rating": 84,
       "test_year": 2022
-    }
+    },
+    "updated_at": "2024-10-23"
   },
   {
     "brand": "BMW",
@@ -4586,7 +6490,6 @@
     "ev_range_km": 90,
     "fuel_consumption": 1,
     "battery_kwh": 19.7,
-    "price_eur": 52000,
     "image_url": "/images/cars/brands/bmw/bmw-x3-30e-2024/main.jpg",
     "power_hp": 299,
     "co2_emission": 23,
@@ -4607,8 +6510,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 97,
@@ -4617,7 +6525,8 @@
       "safety_assist": 76,
       "overall_rating": 87,
       "test_year": 2017
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "brand": "BMW",
@@ -4627,7 +6536,6 @@
     "ev_range_km": 80,
     "fuel_consumption": 2.1,
     "battery_kwh": 29.5,
-    "price_eur": 70000,
     "image_url": "/images/cars/brands/bmw/bmw-x5-50e-2024/main.jpg",
     "power_hp": 490,
     "co2_emission": 48,
@@ -4648,8 +6556,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 89,
@@ -4658,7 +6571,8 @@
       "safety_assist": 71,
       "overall_rating": 81,
       "test_year": 2018
-    }
+    },
+    "updated_at": "2024-10-25"
   },
   {
     "brand": "BMW",
@@ -4668,7 +6582,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
     "battery_kwh": 29.5,
-    "price_eur": 160000,
     "image_url": "/images/cars/brands/bmw/bmw-xm-44-v8-2024/main.jpg",
     "power_hp": 653,
     "co2_emission": 30,
@@ -4689,8 +6602,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 89,
@@ -4699,7 +6617,8 @@
       "safety_assist": 71,
       "overall_rating": 81,
       "test_year": 2018
-    }
+    },
+    "updated_at": "2024-10-23"
   },
   {
     "brand": "BMW",
@@ -4709,7 +6628,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
     "battery_kwh": 29.5,
-    "price_eur": 150000,
     "image_url": "/images/cars/brands/bmw/bmw-xm-50e-2024/main.jpg",
     "power_hp": 476,
     "co2_emission": 30,
@@ -4730,8 +6648,13 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
     "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "country_availability": "DE,FR,UK,IT,ES",
     "euroncap_rating": {
       "stars": 5,
       "adult_occupant": 89,
@@ -4741,7 +6664,7 @@
       "overall_rating": 81,
       "test_year": 2018
     },
-    "slug": "bmw-xm-50e-2024"
+    "updated_at": "2024-10-24"
   },
   {
     "brand": "BMW",
@@ -4751,7 +6674,6 @@
     "ev_range_km": 60,
     "fuel_consumption": 1.5,
     "battery_kwh": 29.5,
-    "price_eur": 200000,
     "image_url": "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/main.jpg",
     "power_hp": 748,
     "co2_emission": 30,
@@ -4772,6 +6694,54 @@
       "ac_type": "Type 2 AC (Mennekes)",
       "ac_location": "Front left"
     },
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 11,
+      "ac_power_note": "Można zwiększyć do 11 kW"
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 86,
+      "pedestrian_protection": 76,
+      "safety_assist": 71,
+      "overall_rating": 81,
+      "test_year": 2018
+    },
+    "updated_at": "2024-10-25"
+  },
+  {
+    "id": "peugeot-508",
+    "brand": "Peugeot",
+    "model": "508",
+    "year": 2025,
+    "segment": "Sedan",
+    "ev_range_km": 64,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 17.2,
+    "image_url": "/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg",
+    "power_hp": 225,
+    "co2_emission": 28,
+    "charge_time_ac": 3,
+    "trunk_volume": 487,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1750,
+    "length_mm": 4750,
+    "width_mm": 1850,
+    "height_mm": 1420,
+    "wheelbase_mm": 2790,
+    "max_trunk_volume": 487,
+    "electric_motor_power_hp": 110,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Rear left"
+    },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,PL,IT,ES",
     "euroncap_rating": {
@@ -4782,6 +6752,249 @@
       "safety_assist": 71,
       "overall_rating": 81,
       "test_year": 2018
+    },
+    "battery_architecture": "modular",
+    "slug": "peugeot-508-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
+  },
+  {
+    "id": "peugeot-508-sw",
+    "brand": "Peugeot",
+    "model": "508 SW",
+    "year": 2025,
+    "segment": "Station Wagon",
+    "ev_range_km": 64,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 17.2,
+    "image_url": "/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg",
+    "power_hp": 225,
+    "co2_emission": 28,
+    "charge_time_ac": 3,
+    "trunk_volume": 530,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1780,
+    "length_mm": 4750,
+    "width_mm": 1850,
+    "height_mm": 1420,
+    "wheelbase_mm": 2790,
+    "max_trunk_volume": 1630,
+    "electric_motor_power_hp": 110,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Rear left"
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 86,
+      "pedestrian_protection": 76,
+      "safety_assist": 71,
+      "overall_rating": 81,
+      "test_year": 2018
+    },
+    "battery_architecture": "modular",
+    "slug": "peugeot-508-sw-phev",
+    "updated_at": "2024-10-23",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
+  },
+  {
+    "id": "peugeot-308-sw",
+    "brand": "Peugeot",
+    "model": "308 SW",
+    "year": 2025,
+    "segment": "Station Wagon",
+    "ev_range_km": 85,
+    "fuel_consumption": 2.5,
+    "battery_kwh": 17.2,
+    "image_url": "/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg",
+    "power_hp": 195,
+    "co2_emission": 57,
+    "charge_time_ac": 3,
+    "trunk_volume": 608,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1700,
+    "length_mm": 4640,
+    "width_mm": 1850,
+    "height_mm": 1480,
+    "wheelbase_mm": 2675,
+    "max_trunk_volume": 1634,
+    "electric_motor_power_hp": 110,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Rear left"
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 86,
+      "pedestrian_protection": 76,
+      "safety_assist": 71,
+      "overall_rating": 81,
+      "test_year": 2018
+    },
+    "battery_architecture": "modular",
+    "slug": "peugeot-308-sw-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 3.7,
+      "ac_power_max": 7.4,
+      "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
+    }
+  },
+  {
+    "id": "porsche-macan-phev",
+    "brand": "Porsche",
+    "model": "Macan",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 61,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 17.9,
+    "image_url": "/images/cars/brands/porsche/macan-macan-e-hybrid/main.jpg",
+    "power_hp": 400,
+    "co2_emission": 18,
+    "charge_time_ac": 2.3,
+    "trunk_volume": 540,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2150,
+    "length_mm": 4784,
+    "width_mm": 1938,
+    "height_mm": 1622,
+    "wheelbase_mm": 2807,
+    "max_trunk_volume": 1488,
+    "electric_motor_power_hp": 134,
+    "engine_displacement": 2,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 800,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Rear left"
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 92,
+      "child_occupant": 83,
+      "pedestrian_protection": 74,
+      "safety_assist": 71,
+      "overall_rating": 80,
+      "test_year": 2024
+    },
+    "battery_architecture": "modular",
+    "slug": "porsche-macan-phev",
+    "updated_at": "2024-10-24",
+    "charging_capabilities": {
+      "ac_power": 7.2
+    }
+  },
+  {
+    "id": "renault-captur-e-tech",
+    "brand": "Renault",
+    "model": "Captur E-TECH",
+    "year": 2022,
+    "segment": "SUV",
+    "ev_range_km": 50,
+    "fuel_consumption": 1.5,
+    "battery_kwh": 9.8,
+    "image_url": "/images/cars/brands/renault/captur-e-tech-phev/main.jpg",
+    "power_hp": 158,
+    "co2_emission": 33,
+    "charge_time_ac": 3,
+    "trunk_volume": 265,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1564,
+    "length_mm": 4227,
+    "width_mm": 1797,
+    "height_mm": 1576,
+    "wheelbase_mm": 2639,
+    "max_trunk_volume": 1118,
+    "electric_motor_power_hp": 67,
+    "engine_displacement": 1.6,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 346,
+    "charging_capabilities": {
+      "ac_power": 3.6
+    },
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
+      "ac_location": "Rear left"
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 89,
+      "child_occupant": 86,
+      "pedestrian_protection": 76,
+      "safety_assist": 71,
+      "overall_rating": 81,
+      "test_year": 2020
+    },
+    "battery_architecture": "modular",
+    "slug": "renault-captur-e-tech-phev",
+    "updated_at": "2024-10-24"
+  },
+  {
+    "id": "mg-s9-2026",
+    "slug": "mg-s9-phev",
+    "brand": "MG",
+    "model": "S9 1.5T Phev",
+    "year": 2026,
+    "battery_kwh": 24.7,
+    "ev_range_km": 100,
+    "power_hp": 299,
+    "engine_displacement": 1.5,
+    "electric_motor_power_hp": 90,
+    "acceleration_0_100": 6.8,
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "charging_capabilities": {
+      "ac_power": 6.6
+    },
+    "features": [],
+    "image_url": "https://mgmotor.imgix.net/images/model/MGS9-PHEV/section-mgs9-full-image-new.jpg?auto=compress,format&crop=focalpoint&fit=crop&fm=auto&fp-x=0.5&fp-y=0.5&h=740&q=75&ratio=1.3333333333333&w=1360",
+    "segment": "SUV",
+    "fuel_consumption": 0.5,
+    "co2_emission": 12,
+    "charge_time_ac": 3.5,
+    "weight_kg": 1863,
+    "trunk_volume": 450,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "last_updated": "2026-09-18",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 84,
+      "child_occupant": 85,
+      "pedestrian_protection": 74,
+      "safety_assist": 77,
+      "overall_rating": 76,
+      "test_year": 2026
     }
   }
 ]

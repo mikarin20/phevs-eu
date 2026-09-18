@@ -19,7 +19,7 @@ interface Car {
   image_url: string
   ev_range_km: number
   battery_kwh: number
-  price_eur: number
+  price_eur?: number
 }
 
 interface RangeSimulatorProps {
