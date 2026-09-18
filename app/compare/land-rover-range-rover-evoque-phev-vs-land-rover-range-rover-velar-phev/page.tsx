@@ -5,7 +5,7 @@ import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
   title: 'Range Rover Evoque P300e vs Range Rover Velar P400e Karşılaştırması | PHEVs.eu',
-  description: 'Range Rover Evoque P300e ve Range Rover Velar P400e PHEV modellerini detaylı karşılaştırın. Fiyat, menzil, performans ve özellikler.',
+  description: 'Range Rover Evoque P300e ve Range Rover Velar P400e PHEV modellerini detaylı karşılaştırın. Menzil, batarya, performans ve teknik özellikler.',
   keywords: [
     'Range Rover Evoque P300e',
     'Range Rover Velar P400e',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.phevs.eu/compare/land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev',
+    canonical: 'https://phevs.eu/compare/land-rover-range-rover-evoque-phev-vs-land-rover-range-rover-velar-phev',
   },
 }
 

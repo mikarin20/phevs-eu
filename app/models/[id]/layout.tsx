@@ -2,11 +2,36 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import carsData from '@/data/cars.json'
 
-// Static generation için gerekli
+function findCar(id: string) {
+  if (!id) return null
+  const normalized = decodeURIComponent(id).toLowerCase().trim()
+  return (carsData as any[]).find((c) => {
+    if (c.id?.toLowerCase() === normalized) return true
+    if (c.slug?.toLowerCase() === normalized) return true
+    const slugNoPhev = (c.slug || '').toLowerCase().replace(/-phev$/, '')
+    const idNoPhev = normalized.replace(/-phev$/, '')
+    if (slugNoPhev && slugNoPhev === idNoPhev) return true
+    return false
+  })
+}
+
+// Static generation için gerekli (tüm id ve slug'lar için önceden derle)
 export async function generateStaticParams() {
-  return carsData.map((car) => ({
-    id: car.id,
-  }))
+  const params: { id: string }[] = []
+  const seen = new Set<string>()
+
+  for (const car of carsData as any[]) {
+    if (car.id && !seen.has(car.id)) {
+      seen.add(car.id)
+      params.push({ id: car.id })
+    }
+    if (car.slug && !seen.has(car.slug)) {
+      seen.add(car.slug)
+      params.push({ id: car.slug })
+    }
+  }
+
+  return params
 }
 
 export default function ModelLayout({
@@ -17,8 +42,8 @@ export default function ModelLayout({
   params: { id: string }
 }) {
   const id = params.id
-  const baseUrl = 'https://www.phevs.eu'
-  const car = (carsData as any[]).find((c) => c.id === id || c.slug === id)
+  const baseUrl = 'https://phevs.eu'
+  const car = findCar(id)
 
   if (!car) {
     return <>{children}</>
@@ -149,37 +174,45 @@ export default function ModelLayout({
 // Dinamik kanonik URL ve temel meta
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const id = params.id
-  const baseUrl = 'https://www.phevs.eu'
+  const baseUrl = 'https://phevs.eu'
 
-  const car = (carsData as any[]).find((c) => c.id === id || c.slug === id)
+  const car = findCar(id)
 
   // Eğer araç bulunamazsa 404 döndür
   if (!car) {
     notFound()
   }
 
-  const title = `${car.brand} ${car.model} ${car.year} Specs | PHEV Database | PHEVs.eu`
-  const description = `${car.brand} ${car.model} (${car.year}) PHEV database entry — ${car.ev_range_km} km electric range, ${car.battery_kwh} kWh battery, ${car.power_hp} HP, ${car.fuel_consumption} L/100km consumption, CO₂ ${car.co2_emission} g/km.`
+  const title = `${car.brand} ${car.model} ${car.year} PHEV Teknik Özellikleri | PHEVs.eu`
+  const description = `${car.brand} ${car.model} (${car.year}) PHEV teknik özellikleri — ${car.ev_range_km} km elektrik menzili, ${car.battery_kwh} kWh batarya kapasitesi, ${car.power_hp} HP sistem gücü ve ${car.fuel_consumption} L/100km tüketim.`
+  const canonicalUrl = `${baseUrl}/models/${car.slug || car.id}`
 
   return {
-    title,
+    title: {
+      absolute: title,
+    },
     description,
     alternates: {
-      canonical: `${baseUrl}/models/${id}`,
+      canonical: canonicalUrl,
       languages: {
-        'x-default': `${baseUrl}/models/${id}`,
-        en: `${baseUrl}/models/${id}`,
-        tr: `${baseUrl}/models/${id}`,
-        de: `${baseUrl}/models/${id}`,
-        pl: `${baseUrl}/models/${id}`,
+        'x-default': canonicalUrl,
+        en: canonicalUrl,
+        tr: canonicalUrl,
+        de: canonicalUrl,
+        pl: canonicalUrl,
       },
     },
     openGraph: {
       title,
       description,
       type: 'website',
-      url: `${baseUrl}/models/${id}`,
+      url: canonicalUrl,
       siteName: 'PHEVs.eu',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
     },
   }
 }

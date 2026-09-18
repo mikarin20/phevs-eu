@@ -5,7 +5,7 @@ import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
   title: 'Lexus NX 450h+ vs RX 450h+ Karşılaştırması | PHEVs.eu',
-  description: 'Lexus NX 450h+ ve RX 450h+ PHEV modellerini detaylı karşılaştırın. Fiyat, menzil, performans ve özellikler.',
+  description: 'Lexus NX 450h+ ve RX 450h+ PHEV modellerini detaylı karşılaştırın. Menzil, batarya, performans ve teknik özellikler.',
   keywords: [
     'Lexus NX 450h+',
     'Lexus RX 450h+',
@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     title: 'Lexus NX vs RX PHEV Karşılaştırması',
     description: 'Lexus NX 450h+ ve RX 450h+ PHEV modellerini karşılaştırın.',
     type: 'website',
+  },
+  alternates: {
+    canonical: 'https://phevs.eu/compare/lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev',
   },
 }
 

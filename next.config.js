@@ -153,6 +153,49 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // www to non-www permanent 301 redirect
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.phevs.eu',
+          },
+        ],
+        destination: 'https://phevs.eu/:path*',
+        permanent: true,
+      },
+      // Silinen/Eski model slug'ları için 301 yönlendirmeleri (404 önleyici)
+      {
+        source: '/models/lexus-es-300h',
+        destination: '/models/lexus-nx-450h-plus-phev',
+        permanent: true,
+      },
+      {
+        source: '/models/lexus-es-300h/',
+        destination: '/models/lexus-nx-450h-plus-phev',
+        permanent: true,
+      },
+      {
+        source: '/models/lexus-ux-300e',
+        destination: '/models/lexus-nx-450h-plus-phev',
+        permanent: true,
+      },
+      {
+        source: '/models/lexus-ux-300e/',
+        destination: '/models/lexus-nx-450h-plus-phev',
+        permanent: true,
+      },
+      {
+        source: '/models/seat-1',
+        destination: '/models/seat-leon-sportstourer-1-4-e-hybrid',
+        permanent: true,
+      },
+      {
+        source: '/models/seat-1/',
+        destination: '/models/seat-leon-sportstourer-1-4-e-hybrid',
+        permanent: true,
+      },
       // Sitemap ve robots.txt trailing slash redirect'lerini önle
       {
         source: '/sitemap.xml/',

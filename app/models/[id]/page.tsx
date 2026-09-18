@@ -113,8 +113,16 @@ interface ModelDetailProps {
 
 export default function ModelDetail({ params }: ModelDetailProps) {
   const typedCarsData = carsData as Car[]
-  // Accept both numeric/string id and SEO slug in the same dynamic route
-  const car = typedCarsData.find(c => c.id === params.id || c.slug === (params.id as any)) as Car
+  // Accept numeric/string id, SEO slug, or slug without -phev
+  const normalizedId = decodeURIComponent(params.id || '').toLowerCase().trim()
+  const car = typedCarsData.find(c => {
+    if (c.id?.toLowerCase() === normalizedId) return true
+    if (c.slug?.toLowerCase() === normalizedId) return true
+    const slugNoPhev = (c.slug || '').toLowerCase().replace(/-phev$/, '')
+    const idNoPhev = normalizedId.replace(/-phev$/, '')
+    if (slugNoPhev && slugNoPhev === idNoPhev) return true
+    return false
+  }) as Car
   const dcMaxPowerKw = car.dc_max_power_kw ?? car.charging_capabilities?.dc_power ?? null
   const dcChargingSupported = car.dc_charging_supported ?? Boolean(dcMaxPowerKw || car.charging_port?.dc_type)
   const dcConnector = car.charging_port?.dc_type

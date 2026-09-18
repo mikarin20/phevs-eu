@@ -6,22 +6,36 @@ export default function CompareLayout({ children }: { children: React.ReactNode 
   return children
 }
 
+function findCarForCompare(id: string) {
+  if (!id) return null
+  const normalized = decodeURIComponent(id).toLowerCase().trim()
+  return (carsData as any[]).find((c) => {
+    if (c.id?.toLowerCase() === normalized) return true
+    if (c.slug?.toLowerCase() === normalized) return true
+    const slugNoPhev = (c.slug || '').toLowerCase().replace(/-phev$/, '')
+    const idNoPhev = normalized.replace(/-phev$/, '')
+    if (slugNoPhev && slugNoPhev === idNoPhev) return true
+    if (c.slug && (c.slug.includes(normalized) || normalized.includes(c.slug))) return true
+    return false
+  })
+}
+
 export async function generateMetadata({ params }: { params: { cars: string } }): Promise<Metadata> {
-  const baseUrl = 'https://www.phevs.eu'
+  const baseUrl = 'https://phevs.eu'
   const slug = params.cars
 
   const ids = slug.includes('-vs-') ? slug.split('-vs-') : slug.split(',')
   const selected = ids
-    .map((id) => (carsData as any[]).find((c) => c.id === id || c.slug === id))
+    .map((id) => findCarForCompare(id))
     .filter(Boolean) as any[]
 
   const title = selected.length >= 2
-    ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} PHEV Comparison | PHEVs.eu`
-    : 'PHEV Comparison | PHEVs.eu'
+    ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} PHEV Karşılaştırması | PHEVs.eu`
+    : 'PHEV Karşılaştırması | PHEVs.eu'
 
   const description = selected.length >= 2
-    ? `Compare ${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} in our PHEV database: range (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), battery (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), power (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP), consumption (${selected[0].fuel_consumption} vs ${selected[1].fuel_consumption} L/100km), CO₂ (${selected[0].co2_emission} vs ${selected[1].co2_emission} g/km).`
-    : 'Compare PHEVs by range, battery, power, consumption, and emissions using our plug-in hybrid database.'
+    ? `${selected[0].brand} ${selected[0].model} ve ${selected[1].brand} ${selected[1].model} modellerini teknik özellikler, elektrik menzili (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), batarya kapasitesi (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), güç (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP) ve yakıt tüketimi açısından karşılaştırın.`
+    : 'PHEV modellerini elektrik menzili, batarya kapasitesi, güç, yakıt tüketimi ve teknik özelliklerine göre karşılaştırın.'
 
   const customCompare = (quickCompareData as any[]).find((c) => c.slug === slug)
   const finalTitle = customCompare?.metaTitle || title

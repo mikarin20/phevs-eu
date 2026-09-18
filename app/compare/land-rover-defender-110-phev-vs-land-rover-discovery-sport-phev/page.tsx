@@ -5,7 +5,7 @@ import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
   title: 'Land Rover Defender 110 vs Discovery Sport PHEV Karşılaştırması | PHEVs.eu',
-  description: 'Land Rover Defender 110 P400e ve Discovery Sport P300e PHEV modellerini detaylı karşılaştırın. Fiyat, menzil, performans ve özellikler.',
+  description: 'Land Rover Defender 110 P400e ve Discovery Sport P300e PHEV modellerini detaylı karşılaştırın. Menzil, batarya, performans ve teknik özellikler.',
   keywords: [
     'Land Rover Defender 110 P400e',
     'Discovery Sport P300e',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.phevs.eu/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
+    canonical: 'https://phevs.eu/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
   },
 }
 
