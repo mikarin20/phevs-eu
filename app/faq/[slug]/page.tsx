@@ -1,9 +1,10 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeftIcon, ChevronRightIcon, QuestionMarkCircleIcon, GlobeAltIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, ChevronRightIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 import { notFound } from 'next/navigation'
 import { getFaqTranslations } from '@/lib/i18n'
 import { getFaqData } from '@/lib/faq-data'
+import LanguageSelector from '@/components/LanguageSelector'
 
 interface FAQDetailProps {
   params: {
@@ -63,14 +64,6 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
     notFound()
   }
 
-  // Dil seçenekleri
-  const languageOptions = [
-    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'pl', name: 'Polski', flag: '🇵🇱' }
-  ]
-
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -114,25 +107,7 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
 
           {/* Language Selector */}
           <div className="flex justify-end mb-6">
-            <div className="relative">
-              <select 
-                value={locale}
-                onChange={(e) => {
-                  const newLang = e.target.value
-                  const currentUrl = new URL(window.location.href)
-                  currentUrl.searchParams.set('lang', newLang)
-                  window.location.href = currentUrl.toString()
-                }}
-                className="appearance-none bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              >
-                {languageOptions.map((option) => (
-                  <option key={option.code} value={option.code}>
-                    {option.flag} {option.name}
-                  </option>
-                ))}
-              </select>
-              <GlobeAltIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
-            </div>
+            <LanguageSelector currentLocale={locale} basePath={`/faq/${params.slug}`} />
           </div>
 
           {/* Back Button */}
