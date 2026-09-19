@@ -237,16 +237,34 @@ export default function Home() {
       rightCar: { name: 'Audi A3 Sportback (2025)', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '133 km' }
     },
     {
-      id: 'renault-mg',
-      href: '/compare/renault-rafale-phev-vs-mg-hs-ii-1-5t',
-      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp', alt: 'Renault Rafale', specs: '100 km' },
-      rightCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS', specs: '75 km' }
+      id: 'passat-superb',
+      href: '/compare/volkswagen-passat-phev-vs-skoda-superb-combi-phev',
+      leftCar: { name: 'VW Passat (2025)', image: '/images/cars/brands/volkswagen/passat/main.jpg', alt: 'Volkswagen Passat', specs: '133 km' },
+      rightCar: { name: 'Skoda Superb Combi (2025)', image: '/images/cars/brands/skoda/superb-combi-phev/main.jpg', alt: 'Skoda Superb Combi', specs: '120 km' }
     },
     {
-      id: 'jeep-wrangler-compass',
-      href: '/compare/jeep-wrangler-4xe-rubicon-phev-vs-jeep-compass-4xe-240hp-phev',
-      leftCar: { name: 'Jeep Wrangler 4xe (2025)', image: '/images/cars/brands/jeep/wrangler-4xe-rubicon/main.jpeg', alt: 'Jeep Wrangler 4xe', specs: '45 km' },
-      rightCar: { name: 'Jeep Compass 4xe (2025)', image: '/images/cars/brands/jeep/compass-4xe/main.jpg', alt: 'Jeep Compass 4xe', specs: '56 km' }
+      id: 'kuga-tucson',
+      href: '/compare/ford-kuga-phev-vs-hyundai-tucson-phev',
+      leftCar: { name: 'Ford Kuga (2025)', image: '/images/cars/brands/ford/kuga/main.jpg', alt: 'Ford Kuga', specs: '65 km' },
+      rightCar: { name: 'Hyundai Tucson (2025)', image: '/images/cars/brands/hyundai/tucson-iv-facelift-2024-268hp-phev/main.jpg', alt: 'Hyundai Tucson', specs: '65 km' }
+    },
+    {
+      id: 'mg-byd',
+      href: '/compare/mg-hs-ii-vs-byd-seal-u-dm-i',
+      leftCar: { name: 'MG HS II (2025)', image: '/images/cars/brands/mg/hs-plug-in-hybrid-2025/main.jpg', alt: 'MG HS II', specs: '120 km' },
+      rightCar: { name: 'BYD Seal U DM-i (2025)', image: '/images/cars/brands/byd/seal-u-dm-i/main.jpg', alt: 'BYD Seal U DM-i', specs: '60 km' }
+    },
+    {
+      id: 'bmw-mercedes',
+      href: '/compare/bmw-3-series-sedan-phev-vs-mercedes-benz-c-class-phev',
+      leftCar: { name: 'BMW 3 Series (2025)', image: '/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/main.jpg', alt: 'BMW 3 Series', specs: '80 km' },
+      rightCar: { name: 'Mercedes-Benz C-Class (2025)', image: '/images/cars/brands/mercedes-benz/c-class-phev/main.jpg', alt: 'Mercedes-Benz C-Class', specs: '102 km' }
+    },
+    {
+      id: 'audi-bmw',
+      href: '/compare/audi-q5-phev-vs-bmw-x3-30e',
+      leftCar: { name: 'Audi Q5 (2025)', image: '/images/cars/brands/audi/q5-tfsi-e/main.jpg', alt: 'Audi Q5', specs: '107 km' },
+      rightCar: { name: 'BMW X3 30e (2025)', image: '/images/cars/brands/bmw/bmw-x3-30e-2024/main.jpg', alt: 'BMW X3 30e', specs: '90 km' }
     },
     {
       id: 'jeep-compass-renegade',
@@ -273,22 +291,10 @@ export default function Home() {
       rightCar: { name: 'Range Rover Velar (2025)', image: '/images/cars/brands/land-rover/range-rover-velar/main.jpg', alt: 'Range Rover Velar', specs: '53 km' }
     },
     {
-      id: 'land-rover-defender-discovery',
-      href: '/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
-      leftCar: { name: 'Land Rover Defender (2025)', image: '/images/cars/brands/land-rover/defender-110/main.jpg', alt: 'Land Rover Defender', specs: '43 km' },
-      rightCar: { name: 'Discovery Sport (2025)', image: '/images/cars/brands/land-rover/discovery-sport/main.jpg', alt: 'Discovery Sport', specs: '55 km' }
-    },
-    {
       id: 'lexus-nx-rx',
       href: '/compare/lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev',
       leftCar: { name: 'Lexus NX 450h+ (2025)', image: '/images/cars/brands/lexus/nx-450h-plus-phev/main.jpg', alt: 'Lexus NX 450h+', specs: '76 km' },
       rightCar: { name: 'Lexus RX 450h+ (2025)', image: '/images/cars/brands/lexus/rx-450h-plus-phev/main.jpg', alt: 'Lexus RX 450h+', specs: '65 km' }
-    },
-    {
-      id: 'peugeot-508-308',
-      href: '/compare/peugeot-508-phev-vs-peugeot-308-phev',
-      leftCar: { name: 'Peugeot 508 (2025)', image: '/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg', alt: 'Peugeot 508', specs: '64 km' },
-      rightCar: { name: 'Peugeot 308 (2025)', image: '/images/cars/brands/peugeot/308-plug-in-hybrid/main.jpg', alt: 'Peugeot 308', specs: '85 km' }
     },
     {
       id: 'peugeot-508-sw-308-sw',
@@ -297,22 +303,10 @@ export default function Home() {
       rightCar: { name: 'Peugeot 308 SW (2025)', image: '/images/cars/brands/peugeot/308-sw-plug-in-hybrid/main.jpg', alt: 'Peugeot 308 SW', specs: '85 km' }
     },
     {
-      id: 'peugeot-508-audi-a3',
-      href: '/compare/peugeot-508-phev-vs-audi-a3-sportback-phev',
-      leftCar: { name: 'Peugeot 508 (2025)', image: '/images/cars/brands/peugeot/508-plug-in-hybrid/main.jpg', alt: 'Peugeot 508', specs: '64 km' },
-      rightCar: { name: 'Audi A3 Sportback (2025)', image: '/images/cars/brands/audi/a3-sportback-tfsi-e/main.jpg', alt: 'Audi A3 Sportback', specs: '133 km' }
-    },
-    {
       id: 'porsche-panamera-cayenne',
       href: '/compare/porsche-panamera-4-phev-vs-porsche-cayenne-phev',
       leftCar: { name: 'Porsche Panamera (2025)', image: '/images/cars/brands/porsche/panamera-panamera-4-e-hybrid/main.jpg', alt: 'Porsche Panamera', specs: '91 km' },
       rightCar: { name: 'Porsche Cayenne (2025)', image: '/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg', alt: 'Porsche Cayenne', specs: '74 km' }
-    },
-    {
-      id: 'renault-rafale-captur',
-      href: '/compare/renault-rafale-phev-vs-renault-captur-e-tech-phev',
-      leftCar: { name: 'Renault Rafale (2025)', image: '/images/cars/brands/renault/rafale-plug-in-hybrid/main.webp', alt: 'Renault Rafale', specs: '100 km' },
-      rightCar: { name: 'Renault Captur E-TECH (2022)', image: '/images/cars/brands/renault/captur-e-tech-phev/main.jpg', alt: 'Renault Captur E-TECH', specs: '50 km' }
     },
     {
       id: 'seat-leon-sportstourer-hatchback',

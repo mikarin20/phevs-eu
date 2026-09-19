@@ -190,6 +190,67 @@ const nextConfig = {
         destination: '/models/seat-leon-sportstourer-1-4-e-hybrid',
         permanent: true,
       },
+      // Silinen uyumsuz karşılaştırma slug'ları için 301 yönlendirmeleri (SEO 404 koruması)
+      {
+        source: '/compare/peugeot-508-phev-vs-audi-a3-sportback-phev',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/peugeot-508-phev-vs-audi-a3-sportback-phev/',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/renault-rafale-phev-vs-renault-captur-e-tech-phev',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/renault-rafale-phev-vs-renault-captur-e-tech-phev/',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/jeep-wrangler-4xe-rubicon-phev-vs-jeep-compass-4xe-240hp-phev',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/jeep-wrangler-4xe-rubicon-phev-vs-jeep-compass-4xe-240hp-phev/',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev/',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/peugeot-508-phev-vs-peugeot-308-phev',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/peugeot-508-phev-vs-peugeot-308-phev/',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/renault-rafale-phev-vs-mg-hs-ii-1-5t',
+        destination: '/compare/',
+        permanent: true,
+      },
+      {
+        source: '/compare/renault-rafale-phev-vs-mg-hs-ii-1-5t/',
+        destination: '/compare/',
+        permanent: true,
+      },
       // Sitemap ve robots.txt trailing slash redirect'lerini önle
       {
         source: '/sitemap.xml/',

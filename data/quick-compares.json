@@ -54,22 +54,49 @@
     "metaDescription": "Compare Volkswagen Golf and Audi A3 Sportback by electric range, battery, power, consumption and emissions."
   },
   {
-    "slug": "renault-rafale-phev-vs-mg-hs-ii-1-5t",
-    "vehicle1Id": "new-72",
-    "vehicle2Id": "mg-3",
+    "slug": "volkswagen-passat-phev-vs-skoda-superb-combi-phev",
+    "vehicle1Id": "vw-2",
+    "vehicle2Id": "skoda-superb-combi",
     "summary": "",
     "verdict": "",
-    "metaTitle": "Renault Rafale vs MG HS II 1.5T PHEV Comparison",
-    "metaDescription": "Compare Renault Rafale and MG HS II 1.5T by electric range, battery, power, consumption and emissions."
+    "metaTitle": "Volkswagen Passat vs Škoda Superb Combi PHEV Comparison",
+    "metaDescription": "Compare Volkswagen Passat and Škoda Superb Combi by electric range, battery, power, consumption and emissions."
   },
   {
-    "slug": "jeep-wrangler-4xe-rubicon-phev-vs-jeep-compass-4xe-240hp-phev",
-    "vehicle1Id": "jeep-wrangler-4xe-rubicon",
-    "vehicle2Id": "jeep-compass-4xe-240hp",
+    "slug": "ford-kuga-phev-vs-hyundai-tucson-phev",
+    "vehicle1Id": "ford-1",
+    "vehicle2Id": "hyundai-tucson-iv-facelift-268hp",
     "summary": "",
     "verdict": "",
-    "metaTitle": "Jeep Wrangler 4xe Rubicon vs Jeep Compass 4xe PHEV Comparison",
-    "metaDescription": "Compare Jeep Wrangler 4xe Rubicon and Jeep Compass 4xe by electric range, battery, power, consumption and emissions."
+    "metaTitle": "Ford Kuga vs Hyundai Tucson PHEV Comparison",
+    "metaDescription": "Compare Ford Kuga and Hyundai Tucson by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "mg-hs-ii-vs-byd-seal-u-dm-i",
+    "vehicle1Id": "mg-3",
+    "vehicle2Id": "byd-seal-u-dm-i",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "MG HS II vs BYD Seal U DM-i PHEV Comparison",
+    "metaDescription": "Compare MG HS II and BYD Seal U DM-i by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "bmw-3-series-sedan-phev-vs-mercedes-benz-c-class-phev",
+    "vehicle1Id": "bmw-serii3limuzyna",
+    "vehicle2Id": "mercedesbenz-cclass",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "BMW 3 Series Sedan vs Mercedes-Benz C-Class PHEV Comparison",
+    "metaDescription": "Compare BMW 3 Series Sedan and Mercedes-Benz C-Class by electric range, battery, power, consumption and emissions."
+  },
+  {
+    "slug": "audi-q5-phev-vs-bmw-x3-30e",
+    "vehicle1Id": "audi-4",
+    "vehicle2Id": "bmw-x3-30e-2024",
+    "summary": "",
+    "verdict": "",
+    "metaTitle": "Audi Q5 vs BMW X3 30e PHEV Comparison",
+    "metaDescription": "Compare Audi Q5 and BMW X3 30e by electric range, battery, power, consumption and emissions."
   },
   {
     "slug": "jeep-compass-4xe-240hp-phev-vs-jeep-renegade-4xe-240hp-phev",
@@ -108,15 +135,6 @@
     "metaDescription": "Compare Land Rover Range Rover Evoque P300e and Land Rover Range Rover Velar P400e by electric range, battery, power, consumption and emissions."
   },
   {
-    "slug": "land-rover-defender-110-phev-vs-land-rover-discovery-sport-phev",
-    "vehicle1Id": "land-rover-defender-110-phev",
-    "vehicle2Id": "land-rover-discovery-sport-phev",
-    "summary": "",
-    "verdict": "",
-    "metaTitle": "Land Rover Defender 110 P400e vs Land Rover Discovery Sport P300e PHEV Comparison",
-    "metaDescription": "Compare Land Rover Defender 110 P400e and Land Rover Discovery Sport P300e by electric range, battery, power, consumption and emissions."
-  },
-  {
     "slug": "lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev",
     "vehicle1Id": "lexus-nx-450h-plus-phev",
     "vehicle2Id": "lexus-rx-450h-plus-phev",
@@ -126,15 +144,6 @@
     "metaDescription": "Compare Lexus NX 450h+ and Lexus RX 450h+ by electric range, battery, power, consumption and emissions."
   },
   {
-    "slug": "peugeot-508-phev-vs-peugeot-308-phev",
-    "vehicle1Id": "peugeot-508",
-    "vehicle2Id": "peugeot-2",
-    "summary": "",
-    "verdict": "",
-    "metaTitle": "Peugeot 508 vs Peugeot 308 PHEV Comparison",
-    "metaDescription": "Compare Peugeot 508 and Peugeot 308 by electric range, battery, power, consumption and emissions."
-  },
-  {
     "slug": "peugeot-508-sw-phev-vs-peugeot-308-sw-phev",
     "vehicle1Id": "peugeot-508-sw",
     "vehicle2Id": "peugeot-308-sw",
@@ -142,15 +151,6 @@
     "verdict": "",
     "metaTitle": "Peugeot 508 SW vs Peugeot 308 SW PHEV Comparison",
     "metaDescription": "Compare Peugeot 508 SW and Peugeot 308 SW by electric range, battery, power, consumption and emissions."
-  },
-  {
-    "slug": "peugeot-508-phev-vs-audi-a3-sportback-phev",
-    "vehicle1Id": "peugeot-508",
-    "vehicle2Id": "audi-1",
-    "summary": "",
-    "verdict": "",
-    "metaTitle": "Peugeot 508 vs Audi A3 Sportback PHEV Comparison",
-    "metaDescription": "Compare Peugeot 508 and Audi A3 Sportback by electric range, battery, power, consumption and emissions."
   },
   {
     "slug": "porsche-panamera-4-phev-vs-porsche-cayenne-phev",
@@ -169,15 +169,6 @@
     "verdict": "",
     "metaTitle": "Porsche Cayenne vs Porsche Macan PHEV Comparison",
     "metaDescription": "Compare Porsche Cayenne and Porsche Macan by electric range, battery, power, consumption and emissions."
-  },
-  {
-    "slug": "renault-rafale-phev-vs-renault-captur-e-tech-phev",
-    "vehicle1Id": "new-72",
-    "vehicle2Id": "renault-captur-e-tech",
-    "summary": "",
-    "verdict": "",
-    "metaTitle": "Renault Rafale vs Renault Captur E-TECH PHEV Comparison",
-    "metaDescription": "Compare Renault Rafale and Renault Captur E-TECH by electric range, battery, power, consumption and emissions."
   },
   {
     "slug": "seat-leon-sportstourer-1-4-e-hybrid-vs-seat-leon-1-5-tsi",

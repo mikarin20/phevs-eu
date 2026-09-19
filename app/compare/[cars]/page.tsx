@@ -203,32 +203,47 @@ export default function ComparePage({ params }: ComparePageProps) {
       localStorage.setItem('phevs-language', urlLang)
     }
 
-    // Parse URL - handle both comma and -vs- formats
-    let carIds: string[]
-    if (params.cars.includes('-vs-')) {
-      carIds = params.cars.split('-vs-')
-    } else {
-      carIds = params.cars.split(',')
-    }
-    
-    // removed noisy logs in production
-    
-    const cars = carIds.map(id => {
-      // Try exact ID match first
-      let car = carsData.find(car => car.id === id)
-      
-      // If not found, try to find by slug or partial match
-      if (!car) {
-        car = carsData.find(car => 
-          car.slug === id || 
-          car.slug?.includes(id) ||
-          id.includes(car.slug || '')
-        )
+    // Check if matching quick compare first
+    let cars: Car[] = []
+    const customCompare = (quickCompareData as any[]).find((c) => c.slug === params.cars)
+    if (customCompare) {
+      const car1 = (carsData as any[]).find(c => c.id === customCompare.vehicle1Id)
+      const car2 = (carsData as any[]).find(c => c.id === customCompare.vehicle2Id)
+      if (car1 && car2) {
+        cars = [car1, car2]
       }
-      
-      return car
-    }).filter(Boolean) as Car[]
-    
+    }
+
+    if (cars.length === 0) {
+      // Parse URL - handle both comma and -vs- formats
+      let carIds: string[]
+      if (params.cars.includes('-vs-')) {
+        carIds = params.cars.split('-vs-')
+      } else {
+        carIds = params.cars.split(',')
+      }
+
+      cars = carIds.map(id => {
+        // Try exact ID match first
+        let car = carsData.find(car => car.id === id)
+
+        // If not found, try to find by slug or partial match
+        if (!car) {
+          const normalized = decodeURIComponent(id).toLowerCase().trim()
+          const idNoPhev = normalized.replace(/-phev$/, '')
+          car = carsData.find(car => {
+            if (car.slug === id || car.slug === normalized) return true
+            const slugNoPhev = (car.slug || '').toLowerCase().replace(/-phev$/, '')
+            if (slugNoPhev && slugNoPhev === idNoPhev) return true
+            if (car.slug?.includes(id) || id.includes(car.slug || '')) return true
+            return false
+          })
+        }
+
+        return car
+      }).filter(Boolean) as Car[]
+    }
+
     setSelectedCars(cars)
   }, [params.cars, searchParams])
 

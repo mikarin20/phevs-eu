@@ -24,10 +24,23 @@ export async function generateMetadata({ params }: { params: { cars: string } })
   const baseUrl = 'https://phevs.eu'
   const slug = params.cars
 
-  const ids = slug.includes('-vs-') ? slug.split('-vs-') : slug.split(',')
-  const selected = ids
-    .map((id) => findCarForCompare(id))
-    .filter(Boolean) as any[]
+  const customCompare = (quickCompareData as any[]).find((c) => c.slug === slug)
+
+  let selected: any[] = []
+  if (customCompare) {
+    const car1 = (carsData as any[]).find((c) => c.id === customCompare.vehicle1Id)
+    const car2 = (carsData as any[]).find((c) => c.id === customCompare.vehicle2Id)
+    if (car1 && car2) {
+      selected = [car1, car2]
+    }
+  }
+
+  if (selected.length < 2) {
+    const ids = slug.includes('-vs-') ? slug.split('-vs-') : slug.split(',')
+    selected = ids
+      .map((id) => findCarForCompare(id))
+      .filter(Boolean) as any[]
+  }
 
   const title = selected.length >= 2
     ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} PHEV Karşılaştırması | PHEVs.eu`
@@ -37,7 +50,6 @@ export async function generateMetadata({ params }: { params: { cars: string } })
     ? `${selected[0].brand} ${selected[0].model} ve ${selected[1].brand} ${selected[1].model} modellerini teknik özellikler, elektrik menzili (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), batarya kapasitesi (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), güç (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP) ve yakıt tüketimi açısından karşılaştırın.`
     : 'PHEV modellerini elektrik menzili, batarya kapasitesi, güç, yakıt tüketimi ve teknik özelliklerine göre karşılaştırın.'
 
-  const customCompare = (quickCompareData as any[]).find((c) => c.slug === slug)
   const finalTitle = customCompare?.metaTitle || title
   const finalDescription = customCompare?.metaDescription || description
 
