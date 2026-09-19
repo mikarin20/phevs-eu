@@ -166,6 +166,26 @@ const nextConfig = {
       },
       // Silinen/Eski model slug'ları için 301 yönlendirmeleri (404 önleyici)
       {
+        source: '/models/omoda-7-phev',
+        destination: '/models/omoda-7-super-hybrid-phev',
+        permanent: true,
+      },
+      {
+        source: '/models/omoda-7-phev/',
+        destination: '/models/omoda-7-super-hybrid-phev/',
+        permanent: true,
+      },
+      {
+        source: '/models/omoda-9-phev',
+        destination: '/models/omoda-9-super-hybrid-phev',
+        permanent: true,
+      },
+      {
+        source: '/models/omoda-9-phev/',
+        destination: '/models/omoda-9-super-hybrid-phev/',
+        permanent: true,
+      },
+      {
         source: '/models/lexus-es-300h',
         destination: '/models/lexus-nx-450h-plus-phev',
         permanent: true,
