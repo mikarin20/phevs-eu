@@ -2068,58 +2068,6 @@
     }
   },
   {
-    "id": "jaecoo-j7-shs-2023",
-    "brand": "Jaecoo",
-    "model": "J7 SHS 1.5 TGDI",
-    "year": 2023,
-    "segment": "SUV",
-    "ev_range_km": 90,
-    "fuel_consumption": 0.7,
-    "battery_kwh": 18.316,
-    "image_url": "/images/cars/brands/jaecoo/jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht--2023/main.jpg",
-    "power_hp": 347,
-    "co2_emission": 9,
-    "charge_time_ac": 3.5,
-    "trunk_volume": 405,
-    "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 1660,
-    "length_mm": 4700,
-    "width_mm": 1900,
-    "height_mm": 1700,
-    "wheelbase_mm": 2800,
-    "max_trunk_volume": 1275,
-    "electric_motor_power_hp": 204,
-    "country_availability": "DE,FR,UK,IT,ES",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2023
-    },
-    "engine_displacement": 1.5,
-    "battery_chemistry": "LiFePO4",
-    "battery_architecture": "modular",
-    "battery_voltage": 339.2,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right"
-    },
-    "emission_standard": "Euro 6e",
-    "drivetrain": "AWD",
-    "transmission": "DHT",
-    "slug": "jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht-2023",
-    "updated_at": "2024-10-24",
-    "charging_capabilities": {
-      "ac_power": 6.6,
-      "dc_power": 40,
-      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)"
-    }
-  },
-  {
     "id": "jeep-compass-4xe-240hp",
     "brand": "Jeep",
     "model": "Compass 4xe",
