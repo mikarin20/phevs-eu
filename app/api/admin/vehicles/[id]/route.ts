@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { carsStore } from '@/lib/admin/data-store'
 import { vehicleSchema } from '@/lib/admin/validation'
+import { submitToIndexNow } from '@/lib/indexnow'
 
 export async function GET(_request: NextRequest, { params }: { params: { id: string } }) {
   const { items } = await carsStore.list()
@@ -62,6 +63,15 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     }
     items[index] = updated
     await carsStore.save(items, sha, `admin: update vehicle ${params.id}`)
+
+    // Ping Bing & Yandex via IndexNow immediately
+    submitToIndexNow([
+      `https://www.phevs.eu/models/${updated.slug || updated.id}/`,
+      'https://www.phevs.eu/',
+      'https://www.phevs.eu/compare/',
+      'https://www.phevs.eu/sitemap.xml',
+    ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+
     return NextResponse.json({ item: updated })
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })

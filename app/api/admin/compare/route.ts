@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { compareStore } from '@/lib/admin/data-store'
 import { quickCompareSchema } from '@/lib/admin/validation'
+import { submitToIndexNow } from '@/lib/indexnow'
 
 export async function GET() {
   try {
@@ -25,6 +26,15 @@ export async function POST(request: NextRequest) {
 
     const newCompare = { ...data, created_at: new Date().toISOString() }
     await compareStore.save([...items, newCompare], sha, `admin: add quick compare ${data.slug}`)
+
+    // Ping Bing & Yandex via IndexNow immediately
+    submitToIndexNow([
+      `https://www.phevs.eu/compare/${data.slug}/`,
+      'https://www.phevs.eu/compare/',
+      'https://www.phevs.eu/',
+      'https://www.phevs.eu/sitemap.xml',
+    ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+
     return NextResponse.json({ item: newCompare }, { status: 201 })
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })

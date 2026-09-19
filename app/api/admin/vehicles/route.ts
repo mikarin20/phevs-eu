@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { carsStore } from '@/lib/admin/data-store'
 import { vehicleSchema } from '@/lib/admin/validation'
 import { slugify } from '@/lib/admin/slug'
+import { submitToIndexNow } from '@/lib/indexnow'
 
 export async function GET() {
   try {
@@ -67,6 +68,15 @@ export async function POST(request: NextRequest) {
     }
 
     await carsStore.save([...items, newVehicle], sha, `admin: add vehicle ${id}`)
+
+    // Ping Bing & Yandex via IndexNow immediately
+    submitToIndexNow([
+      `https://www.phevs.eu/models/${newVehicle.slug || newVehicle.id}/`,
+      'https://www.phevs.eu/',
+      'https://www.phevs.eu/compare/',
+      'https://www.phevs.eu/sitemap.xml',
+    ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+
     return NextResponse.json({ item: newVehicle }, { status: 201 })
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })

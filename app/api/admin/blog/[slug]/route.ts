@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { blogStore } from '@/lib/admin/data-store'
 import { blogPostSchema } from '@/lib/admin/validation'
 import { buildLocalizedBlogFields } from '@/lib/admin/translate'
+import { submitToIndexNow } from '@/lib/indexnow'
 
 export async function GET(_request: NextRequest, { params }: { params: { slug: string } }) {
   const { items } = await blogStore.list()
@@ -46,6 +47,15 @@ export async function PUT(request: NextRequest, { params }: { params: { slug: st
     }
     items[index] = updated
     await blogStore.save(items, sha, `admin: update blog post ${params.slug}`)
+
+    // Ping Bing & Yandex via IndexNow immediately
+    submitToIndexNow([
+      `https://www.phevs.eu/blog/${updated.slug || params.slug}/`,
+      'https://www.phevs.eu/blog/',
+      'https://www.phevs.eu/',
+      'https://www.phevs.eu/sitemap.xml',
+    ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+
     return NextResponse.json({ item: updated })
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })
