@@ -750,7 +750,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                     alt={`${car.brand} ${car.model}`}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
-                      console.log('Karşılaştırma sayfası resim yüklenemedi:', car.image_url)
+                      e.currentTarget.onerror = null
                       e.currentTarget.src = getImageUrl(null)
                     }}
                   />

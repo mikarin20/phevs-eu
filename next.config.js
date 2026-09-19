@@ -159,6 +159,11 @@ const nextConfig = {
         destination: 'https://pub-698245a4878b4d6596cd62322fdc9c75.r2.dev/cars/brands/:path*',
         permanent: true,
       },
+      {
+        source: '/images/placeholder-car.jpg',
+        destination: 'https://pub-698245a4878b4d6596cd62322fdc9c75.r2.dev/placeholder-car.jpg',
+        permanent: true,
+      },
       // Silinen/Eski model slug'ları için 301 yönlendirmeleri (404 önleyici)
       {
         source: '/models/lexus-es-300h',

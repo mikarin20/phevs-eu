@@ -1698,7 +1698,7 @@ export default function Home() {
                           alt={comparison.leftCar.alt}
                           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
-                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = getImageUrl(null) }}
+                          onError={(e) => { const el = e.currentTarget as HTMLImageElement; el.onerror = null; el.src = getImageUrl(null) }}
                         />
                       </div>
                       <div className="relative h-32">
@@ -1707,7 +1707,7 @@ export default function Home() {
                           alt={comparison.rightCar.alt}
                           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
-                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = getImageUrl(null) }}
+                          onError={(e) => { const el = e.currentTarget as HTMLImageElement; el.onerror = null; el.src = getImageUrl(null) }}
                         />
                       </div>
                     </div>
@@ -2204,6 +2204,7 @@ export default function Home() {
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         onError={(e) => {
+                          e.currentTarget.onerror = null
                           e.currentTarget.src = getImageUrl(null)
                         }}
                       />
@@ -2515,6 +2516,7 @@ export default function Home() {
                         loading="lazy"
                         fetchPriority="low"
                         onError={(e) => {
+                          e.currentTarget.onerror = null
                           e.currentTarget.src = getImageUrl(null)
                           e.currentTarget.alt = 'Placeholder image for vehicle'
                         }}
@@ -2860,6 +2862,7 @@ export default function Home() {
                       alt={postTitle}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
+                        e.currentTarget.onerror = null
                         e.currentTarget.src = getImageUrl(null)
                       }}
                     />
