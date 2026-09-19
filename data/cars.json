@@ -5867,7 +5867,7 @@
   {
     "id": "jaecoo-1",
     "brand": "Jaecoo",
-    "model": "J7 SHS 1.5 TGDI",
+    "model": "7 Super Hybrid",
     "year": 2024,
     "segment": "SUV",
     "ev_range_km": 91,
@@ -5900,19 +5900,29 @@
       "stars": 5,
       "adult_occupant": 85,
       "child_occupant": 86,
-      "vulnerable_road_users": 70,
+      "pedestrian_protection": 0,
       "safety_assist": 80,
       "overall_rating": 80,
       "test_year": 2023
     },
     "battery_architecture": "modular",
-    "slug": "jaecoo-j7-shs-15-tgdi",
+    "slug": "jaecoo-j7-super-hybrid",
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 6.6,
       "dc_power": 40,
-      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)"
-    }
+      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)",
+      "ac_power_max": 6.6
+    },
+    "usable_battery_kwh": null,
+    "acceleration_0_100": 0,
+    "ac_max_power_kw": 6.6,
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 40,
+    "charge_time_dc": null,
+    "features": [],
+    "gallery_images": [],
+    "last_updated": "2026-09-19"
   },
   {
     "id": "seat-1",
