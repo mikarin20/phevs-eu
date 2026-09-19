@@ -884,7 +884,8 @@ export default function Home() {
       },
       navigation: {
         phevNews: 'PHEV News',
-        faq: 'FAQ'
+        faq: 'FAQ',
+        videos: 'Videos'
       }
     },
     de: {
@@ -972,7 +973,8 @@ export default function Home() {
       },
       navigation: {
         phevNews: 'PHEV News',
-        faq: 'FAQ'
+        faq: 'FAQ',
+        videos: 'Videos'
       }
     },
     tr: {
@@ -1060,7 +1062,8 @@ export default function Home() {
       },
       navigation: {
         phevNews: 'PHEV News',
-        faq: 'FAQ'
+        faq: 'FAQ',
+        videos: 'Kıyaslama Videoları'
       }
     },
     pl: {
@@ -1148,7 +1151,8 @@ export default function Home() {
       },
       navigation: {
         phevNews: 'PHEV News',
-        faq: 'FAQ'
+        faq: 'FAQ',
+        videos: 'Wideo'
       }
     }
   }
@@ -1314,6 +1318,19 @@ export default function Home() {
 
             {/* Center Navigation */}
             <div className="hidden lg:flex items-center space-x-4">
+              <a 
+                href="/videos" 
+                className={`text-sm font-bold px-5 py-2.5 rounded-lg transition-all duration-200 flex items-center space-x-1.5 ${
+                  selectedTheme === 'dark' 
+                    ? 'text-white bg-emerald-600/20 hover:bg-emerald-600/30 hover:text-emerald-300 border border-emerald-500/30 hover:border-emerald-400/50 shadow-sm' 
+                    : 'text-slate-800 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-700 border-2 border-emerald-200 hover:border-emerald-400 shadow-sm'
+                }`}
+              >
+                <svg className="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <span>{t.navigation.videos}</span>
+              </a>
               <a 
                 href="/blog" 
                 className={`text-sm font-bold px-5 py-2.5 rounded-lg transition-all duration-200 ${

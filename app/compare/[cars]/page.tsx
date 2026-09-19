@@ -1,14 +1,16 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { ArrowLeftIcon, XMarkIcon, CheckIcon, ShareIcon, ArrowDownTrayIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import quickCompareData from '@/data/quick-compares.json'
+import comparisonVideosData from '@/data/comparison-videos.json'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
 import html2canvas from 'html2canvas'
 import { getImageUrl } from '@/lib/image-url'
+import YouTubeLiteEmbed from '@/components/YouTubeLiteEmbed'
 
 interface Car {
   id: string
@@ -92,7 +94,9 @@ export default function ComparePage({ params }: ComparePageProps) {
       euroNCAPRating: 'Euro NCAP Rating',
       years: 'years',
       detailedComparison: 'Detailed Comparison',
-      specification: 'Specification'
+      specification: 'Specification',
+      videoComparison: 'Video Comparison & Test Drive',
+      byChannel: 'Channel'
     },
     tr: {
       backToHome: 'Ana Sayfaya Dön',
@@ -123,7 +127,9 @@ export default function ComparePage({ params }: ComparePageProps) {
       euroNCAPRating: 'Euro NCAP Değerlendirmesi',
       years: 'yıl',
       detailedComparison: 'Detaylı Karşılaştırma',
-      specification: 'Özellik'
+      specification: 'Özellik',
+      videoComparison: 'Video Kıyaslama ve Test Sürüşü',
+      byChannel: 'Kanal'
     },
     de: {
       backToHome: 'Zurück zur Startseite',
@@ -154,7 +160,9 @@ export default function ComparePage({ params }: ComparePageProps) {
       euroNCAPRating: 'Euro NCAP Bewertung',
       years: 'Jahre',
       detailedComparison: 'Detaillierter Vergleich',
-      specification: 'Spezifikation'
+      specification: 'Spezifikation',
+      videoComparison: 'Video-Vergleich & Testbericht',
+      byChannel: 'Kanal'
     },
     pl: {
       backToHome: 'Powrót do strony głównej',
@@ -185,11 +193,35 @@ export default function ComparePage({ params }: ComparePageProps) {
       euroNCAPRating: 'Ocena Euro NCAP',
       years: 'lata',
       detailedComparison: 'Szczegółowe porównanie',
-      specification: 'Specyfikacja'
+      specification: 'Specyfikacja',
+      videoComparison: 'Wideo-porównanie i test',
+      byChannel: 'Kanał'
     }
   }
 
   const t = translations[selectedLanguage as keyof typeof translations] || translations.en
+
+  // Find matching comparison video for selected cars
+  const matchingVideo = useMemo(() => {
+    if (selectedCars.length < 2) return null
+    const car1Ids = [
+      selectedCars[0].id?.toLowerCase(),
+      selectedCars[0].slug?.toLowerCase(),
+      (selectedCars[0].slug || '').toLowerCase().replace(/-phev$/, '')
+    ].filter(Boolean)
+    const car2Ids = [
+      selectedCars[1].id?.toLowerCase(),
+      selectedCars[1].slug?.toLowerCase(),
+      (selectedCars[1].slug || '').toLowerCase().replace(/-phev$/, '')
+    ].filter(Boolean)
+
+    return (comparisonVideosData as any[]).find((video) => {
+      const relatedLower = (video.relatedCars || []).map((rc: string) => rc.toLowerCase())
+      const hasCar1 = car1Ids.some((id) => relatedLower.includes(id))
+      const hasCar2 = car2Ids.some((id) => relatedLower.includes(id))
+      return hasCar1 && hasCar2
+    })
+  }, [selectedCars])
 
   useEffect(() => {
     // URL parametresinden dil al, yoksa localStorage'dan, yoksa varsayılan 'en'
@@ -957,6 +989,62 @@ export default function ComparePage({ params }: ComparePageProps) {
                 </div>
               </div>
             </div>
+          )}
+
+          {/* Video Comparison Section (Only rendered if matching video exists) */}
+          {matchingVideo && (
+            <section className="mt-12 bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 overflow-hidden">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+                <div>
+                  <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded-full mb-2">
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <span>{t.videoComparison}</span>
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+                    {matchingVideo.title}
+                  </h2>
+                  <p className="text-sm text-slate-500 mt-1">
+                    {t.byChannel}: <span className="font-semibold text-slate-700">{matchingVideo.channel}</span>
+                  </p>
+                </div>
+
+                <Link
+                  href="/videos"
+                  className="inline-flex items-center space-x-1 text-xs font-bold text-blue-600 hover:text-blue-800 self-start sm:self-center px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors"
+                >
+                  <span>All Videos</span>
+                  <span>→</span>
+                </Link>
+              </div>
+
+              <div className="max-w-4xl mx-auto">
+                <YouTubeLiteEmbed youtubeId={matchingVideo.youtubeId} title={matchingVideo.title} />
+              </div>
+
+              {matchingVideo.description && (
+                <p className="text-sm text-slate-600 mt-4 max-w-4xl mx-auto leading-relaxed">
+                  {matchingVideo.description}
+                </p>
+              )}
+
+              {/* VideoObject Schema for SEO */}
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'VideoObject',
+                    name: matchingVideo.title,
+                    description: matchingVideo.description || `${selectedCars[0].brand} ${selectedCars[0].model} vs ${selectedCars[1].brand} ${selectedCars[1].model} comparison.`,
+                    thumbnailUrl: `https://i.ytimg.com/vi/${matchingVideo.youtubeId}/hqdefault.jpg`,
+                    embedUrl: `https://www.youtube-nocookie.com/embed/${matchingVideo.youtubeId}`,
+                    uploadDate: matchingVideo.publishedAt || '2026-09-15'
+                  })
+                }}
+              />
+            </section>
           )}
 
           {/* Legend */}

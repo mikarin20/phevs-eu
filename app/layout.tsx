@@ -212,6 +212,7 @@ export default function RootLayout({
                     <ul className="space-y-2 text-xs text-slate-400">
                       <li><a href="/about" className="hover:text-white transition-colors" title="About Us">About Us</a></li>
                       <li><a href="/blog" className="hover:text-white transition-colors" title="PHEV News">PHEV News</a></li>
+                      <li><a href="/videos" className="hover:text-white transition-colors" title="PHEV Videos">Videos</a></li>
                       <li><a href="/demo" className="hover:text-white transition-colors" title="Demo">Demo</a></li>
                     </ul>
                   </div>
@@ -232,6 +233,7 @@ export default function RootLayout({
                       <li><a href="/phev-with-dc-charging" className="hover:text-white transition-colors" title="PHEVs with DC Fast Charging">DC Fast Charging PHEVs</a></li>
                       <li><a href="/7-seater-phev" className="hover:text-white transition-colors" title="7-Seater Family PHEVs">7-Seater Family PHEVs</a></li>
                       <li><a href="/compare" className="hover:text-white transition-colors" title="Compare Vehicles">Compare Vehicles</a></li>
+                      <li><a href="/videos" className="hover:text-white transition-colors" title="Comparison & Review Videos">Comparison Videos</a></li>
                       <li><a href="/faq" className="hover:text-white transition-colors" title="All You Need to Know About PHEV">All You Need to Know About PHEV</a></li>
                     </ul>
                   </div>

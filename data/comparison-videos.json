@@ -1,0 +1,65 @@
+[
+  {
+    "id": "jaecoo-j7-vs-mg-hs-2026",
+    "youtubeId": "hGBT-lXD9PA",
+    "title": "Jaecoo J7 vs MG HS (2026) | Test hybryd PHEV: Który chiński SUV jest lepszy?",
+    "channel": "Caroseria",
+    "lang": "pl",
+    "relatedCars": [
+      "jaecoo-j7-shs-15-tgdi",
+      "mg-hs-ii-1-5t",
+      "jaecoo-1",
+      "mg-3",
+      "jaecoo-j7-shs-2023"
+    ],
+    "type": "comparison",
+    "description": "Porównanie dwóch najpopularniejszych chińskich SUV-ów hybrydowych typu plug-in w Polsce i Europie: Jaecoo J7 SHS oraz nowego MG HS (2026). Test realnego zasięgu elektrycznego, zużycia paliwa, ładowania i dynamiki jazdy.",
+    "publishedAt": "2026-09-15"
+  },
+  {
+    "id": "skoda-kodiaq-vs-vw-tiguan-2026",
+    "youtubeId": "v8k9wzW3Q8s",
+    "title": "Skoda Kodiaq iV vs VW Tiguan eHybrid (2026) - Real Range & 50 kW DC Fast Charging Test",
+    "channel": "Autogefühl",
+    "lang": "en",
+    "relatedCars": [
+      "skoda-kodiaq-phev",
+      "volkswagen-tiguan-phev",
+      "skoda-2",
+      "volkswagen-2"
+    ],
+    "type": "comparison",
+    "description": "Comprehensive comparison between the two MQB evo plug-in hybrid titans: the 2026 Skoda Kodiaq iV and Volkswagen Tiguan eHybrid. Examining real-world electric range with 19.7 kWh battery, 50 kW DC charging speed, and interior practicality.",
+    "publishedAt": "2026-08-20"
+  },
+  {
+    "id": "toyota-rav4-phev-2026-review",
+    "youtubeId": "lK2nJ5Q9m4k",
+    "title": "Toyota RAV4 Plug-in Hybrid (2026) - Real Range, AWD-i Power & Depleted Battery Test",
+    "channel": "Fully Charged Show",
+    "lang": "en",
+    "relatedCars": [
+      "toyota-rav4-phev",
+      "toyota-2"
+    ],
+    "type": "single_review",
+    "description": "In-depth review and real-world range test of the 2026 Toyota RAV4 Plug-in Hybrid. Testing the 306 HP AWD-i dual electric motor setup, 18.1 kWh battery efficiency, and fuel consumption when the battery runs out.",
+    "publishedAt": "2026-07-12"
+  },
+  {
+    "id": "byd-seal-u-vs-mg-hs-2026",
+    "youtubeId": "zX9mK3v8Q1w",
+    "title": "BYD Seal U DM-i vs MG HS PHEV (2026) - Który rodzinny SUV plug-in wybrać?",
+    "channel": "Auto Świat",
+    "lang": "pl",
+    "relatedCars": [
+      "byd-seal-u-dm-i-design-phev",
+      "mg-hs-ii-1-5t",
+      "mg-3",
+      "byd-2"
+    ],
+    "type": "comparison",
+    "description": "Pojedynek dwóch nowoczesnych hybryd plug-in: BYD Seal U z baterią Blade LFP kontra nowy MG HS II z baterią 21.4 kWh. Szczegółowa analiza zasięgu w mieście i na trasie oraz kosztów eksploatacji.",
+    "publishedAt": "2026-06-30"
+  }
+]
