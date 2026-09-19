@@ -6,11 +6,12 @@
     "channel": "Caroseria",
     "lang": "pl",
     "relatedCars": [
-      "jaecoo-j7-shs-15-tgdi",
+      "jaecoo-j7-super-hybrid",
       "mg-hs-ii-1-5t",
       "jaecoo-1",
       "mg-3",
-      "jaecoo-j7-shs-2023"
+      "jaecoo-j7-shs-15-tgdi",
+      "mg-hs-i-ehs-1-5-t-gdi"
     ],
     "type": "comparison",
     "description": "Porównanie dwóch najpopularniejszych chińskich SUV-ów hybrydowych typu plug-in w Polsce i Europie: Jaecoo J7 SHS oraz nowego MG HS (2026). Test realnego zasięgu elektrycznego, zużycia paliwa, ładowania i dynamiki jazdy.",
