@@ -52,6 +52,35 @@ interface Car {
   }
 }
 
+function resolveCarsFromParam(paramCars: string): Car[] {
+  if (!paramCars) return []
+  const customCompare = (quickCompareData as any[]).find((c) => c.slug === paramCars)
+  if (customCompare) {
+    const car1 = (carsData as any[]).find((c) => c.id === customCompare.vehicle1Id)
+    const car2 = (carsData as any[]).find((c) => c.id === customCompare.vehicle2Id)
+    if (car1 && car2) return [car1, car2] as Car[]
+  }
+
+  const carIds = paramCars.includes('-vs-') ? paramCars.split('-vs-') : paramCars.split(',')
+  return carIds
+    .map((id) => {
+      let car = (carsData as any[]).find((c) => c.id === id)
+      if (!car) {
+        const normalized = decodeURIComponent(id).toLowerCase().trim()
+        const idNoPhev = normalized.replace(/-phev$/, '')
+        car = (carsData as any[]).find((c) => {
+          if (c.slug === id || c.slug === normalized) return true
+          const slugNoPhev = (c.slug || '').toLowerCase().replace(/-phev$/, '')
+          if (slugNoPhev && slugNoPhev === idNoPhev) return true
+          if (c.slug?.includes(id) || id.includes(c.slug || '')) return true
+          return false
+        })
+      }
+      return car
+    })
+    .filter(Boolean) as Car[]
+}
+
 interface ComparePageProps {
   params: {
     cars: string
@@ -60,7 +89,7 @@ interface ComparePageProps {
 
 export default function ComparePage({ params }: ComparePageProps) {
   const searchParams = useSearchParams()
-  const [selectedCars, setSelectedCars] = useState<Car[]>([])
+  const [selectedCars, setSelectedCars] = useState<Car[]>(() => resolveCarsFromParam(params.cars))
   const [selectedLanguage, setSelectedLanguage] = useState('en')
   const comparisonRef = useRef<HTMLDivElement>(null)
 
