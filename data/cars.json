@@ -1817,56 +1817,6 @@
     "updated_at": "2024-10-23"
   },
   {
-    "id": "hyundai-tucson-iv-facelift-268hp",
-    "brand": "Hyundai",
-    "model": "Tucson IV (facelift 2024)",
-    "year": 2024,
-    "segment": "SUV",
-    "ev_range_km": 65,
-    "fuel_consumption": 1.4,
-    "battery_kwh": 13.8,
-    "image_url": "/images/cars/brands/hyundai/tucson-iv-facelift-2024-268hp-phev/main.jpg",
-    "power_hp": 268,
-    "co2_emission": 32,
-    "charge_time_ac": 3.2,
-    "trunk_volume": 513,
-    "seats": 5,
-    "warranty_years": 5,
-    "weight_kg": 1850,
-    "length_mm": 4630,
-    "width_mm": 1865,
-    "height_mm": 1665,
-    "wheelbase_mm": 2755,
-    "max_trunk_volume": 513,
-    "electric_motor_power_hp": 90,
-    "engine_displacement": 1.6,
-    "battery_chemistry": "NCM",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "emission_standard": "Euro 6E",
-    "country_availability": "DE,FR,UK,IT,ES",
-    "drivetrain": "HTRAC AWD",
-    "transmission": "Automatic",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 92,
-      "child_occupant": 83,
-      "pedestrian_protection": 74,
-      "safety_assist": 78,
-      "overall_rating": 82,
-      "test_year": 2022
-    },
-    "battery_architecture": "modular",
-    "slug": "hyundai-tucson-iv-facelift-268hp-phev",
-    "updated_at": "2024-10-23",
-    "charging_capabilities": {
-      "ac_power": 7.2
-    }
-  },
-  {
     "id": "hyundai-tucson-iv-facelift-253hp-4wd",
     "brand": "Hyundai",
     "model": "Tucson 1.6 T-GDI PHEV (2026 Facelift)",
