@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon, MapIcon, HomeIcon, SunIcon, ClockIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
@@ -512,50 +512,12 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     )
   }
 
-  // Model için lokal fotoğrafları al - sadece mevcut dosyaları
-  const [catalogImages, setCatalogImages] = useState<string[]>([car.image_url])
-  
-  useEffect(() => {
-    // If explicitly defined gallery images exist, use them directly
+  // Model için galeri fotoğrafları: Sadece doğrulanmış mevcut görselleri kullan
+  const catalogImages = useMemo(() => {
     if (Array.isArray(car.gallery_images) && car.gallery_images.length > 0) {
-      const allImages = [car.image_url, ...car.gallery_images].filter(Boolean)
-      setCatalogImages(Array.from(new Set(allImages)))
-      return
+      return Array.from(new Set([car.image_url, ...car.gallery_images].filter(Boolean)))
     }
-
-    const urlParts = car.image_url.split('/')
-    const brandFromUrl = urlParts[4]
-    const modelFromUrl = urlParts[5]
-    
-    if (!brandFromUrl || !modelFromUrl) {
-      setCatalogImages([car.image_url])
-      return
-    }
-    
-    const basePath = `/images/cars/brands/${brandFromUrl}/${modelFromUrl}`
-    
-    // Mevcut resim dosyalarını kontrol et ve sadece var olanları ekle
-    const commonImageFiles = [
-      '002.jpg', '003.jpg', '004.jpg', '005.jpg', '006.jpg', '007.jpg', 
-      '008.jpg', '009.jpg', '010.jpg', '011.jpg', '012.jpg', '013.jpg', 
-      '014.jpg', '015.jpg', '016.jpg', '017.jpg', '018.jpg', '019.jpg', 
-      '020.jpg', '021.jpg', '1.jpg', 'main.jpg'
-    ]
-    
-    // Ana resim dosyasının adını al
-    const mainImageFile = car.image_url.split('/').pop()
-    
-    // Sadece mevcut olan resimler için URL listesi oluştur
-    const imageList: string[] = [car.image_url]
-    
-    // Diğer resim dosyalarını ekle (ana resim dosyasını tekrar ekleme)
-    commonImageFiles.forEach(file => {
-      if (file !== mainImageFile) {
-        imageList.push(`${basePath}/${file}`)
-      }
-    })
-    
-    setCatalogImages(imageList)
+    return [car.image_url]
   }, [car.image_url, car.gallery_images])
 
   const specifications = [

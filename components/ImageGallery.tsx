@@ -20,6 +20,13 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
   // Sadece mevcut görselleri filtrele
   const validImages = resolvedImages.filter(img => img && img.trim() !== '' && !invalidImagePaths.has(img))
   
+  // Reset state when images prop changes
+  useEffect(() => {
+    setSelectedImage(0)
+    setLoadedImages(new Set())
+    setInvalidImagePaths(new Set())
+  }, [images])
+
   // Eğer seçili görsel geçersizse, ilk geçerli görseli seç
   useEffect(() => {
     if (invalidImagePaths.size > 0 && selectedImage >= validImages.length && validImages.length > 0) {
