@@ -1,191 +1,149 @@
 import { MetadataRoute } from 'next'
 import carsData from '@/data/cars.json'
 import blogData from '@/data/blog.json'
+import quickComparesData from '@/data/quick-compares.json'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://phevs.eu'
-  
-  // Yardımcı: güvenli slug üretimi ve boş değerleri filtreleme
-  const slugify = (value: unknown): string | null => {
-    if (value === null || value === undefined) return null
-    const str = String(value).trim()
-    if (!str) return null
-    const normalized = str
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '') // diacritics kaldır
-      .replace(/[\s/]+/g, '-') // boşluk ve '/'
-      .replace(/[^a-z0-9-]/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '')
-    return normalized ? encodeURIComponent(normalized) : null
-  }
-  
-  // Ana sayfa ve önemli sayfalar
-  const routes = [
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://www.phevs.eu'
+  const now = new Date()
+
+  // 1. Ana sayfa ve statik kurumsal / rehber sayfaları (trailingSlash: true)
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
+      url: `${baseUrl}/`,
+      lastModified: now,
+      changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/longest-range-phev`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      url: `${baseUrl}/longest-range-phev/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/phev-with-dc-charging`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      url: `${baseUrl}/phev-with-dc-charging/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/7-seater-phev`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      url: `${baseUrl}/7-seater-phev/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/compare`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      url: `${baseUrl}/compare/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/cookies`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/demo`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      url: `${baseUrl}/faq/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/about/`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/privacy/`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms/`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/cookies/`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ]
 
-  // Marka bazında sayfalar oluştur
-  const brands = [...new Set(carsData.map(car => car.brand).filter(Boolean))]
-  const brandRoutes = brands
-    .map((brand) => slugify(brand))
-    .filter(Boolean)
-    .map((brandSlug) => ({
-    url: `${baseUrl}/brands/${brandSlug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
+  // 2. Aktif FAQ Detay Sayfaları (İngilizce canonical slug'lar)
+  const faqSlugs = [
+    'what-is-phev-how-it-works',
+    'phev-vs-bev-differences',
+    'phev-benefits-and-advantages',
+    'phev-buying-guide',
+    'phev-price-ranges',
+    'phev-range-wltp-calculation',
+    'phev-charging-times-ac-vs-dc',
+    'phev-battery-life-degradation',
+    'phev-charging-types-connectors',
+    'phev-home-charging-wallbox-vs-outlet',
+    'phev-find-charging-stations',
+    'phev-maintenance-costs',
+  ]
+
+  const faqRoutes: MetadataRoute.Sitemap = faqSlugs.map((slug) => ({
+    url: `${baseUrl}/faq/${slug}/`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  // 3. Popüler Quick Compare Sayfaları
+  const compareRoutes: MetadataRoute.Sitemap = (quickComparesData as any[]).map((compare) => ({
+    url: `${baseUrl}/compare/${compare.slug}/`,
+    lastModified: now,
+    changeFrequency: 'weekly',
     priority: 0.8,
   }))
 
-  // Segment bazında sayfalar oluştur
-  const segments = [...new Set(carsData.map(car => car.segment).filter(Boolean))]
-  const segmentRoutes = segments
-    .map((segment) => slugify(segment))
-    .filter(Boolean)
-    .map((segmentSlug) => ({
-    url: `${baseUrl}/segments/${segmentSlug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }))
+  // 4. Tüm Araç Model Sayfaları (slug veya id ile benzersiz, trailingSlash ile)
+  const seenCarUrls = new Set<string>()
+  const carRoutes: MetadataRoute.Sitemap = []
 
-  // FAQ sayfaları
-  const faqSlugs = [
-    'phev-nedir-nasil-calisir',
-    'phev-bev-farki-nedir',
-    'phev-avantajlari-nelerdir',
-    'phev-satin-alma-rehberi',
-    'phev-fiyat-araligi-nedir',
-    'phev-menzil-hesaplama-nasil',
-    'phev-sarj-sureleri-ne-kadar',
-    'phev-batarya-omru-ne-kadar',
-    'phev-sarj-tipleri-nelerdir',
-    'ev-phev-sarj-cihazi-gerekli-mi',
-    'phev-sarj-istasyonu-nasil-bulunur',
-    'phev-bakim-maliyeti-nedir'
-  ]
-  
-  const faqRoutes = faqSlugs.map((slug) => ({
-    url: `${baseUrl}/faq/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  for (const car of carsData as any[]) {
+    const slugOrId = car.slug || car.id
+    if (!slugOrId) continue
 
-  // Tüm araba model sayfaları - öncelik sıralaması
-  const carRoutes = (carsData as any[])
-    .map((car) => {
-      const rawId = car.id ?? car.slug
-      const safeId = slugify(rawId)
-      if (!safeId) return null
+    const url = `${baseUrl}/models/${slugOrId}/`
+    if (seenCarUrls.has(url)) continue
+    seenCarUrls.add(url)
 
-      let priority = 0.6
-      const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia', 'Land Rover', 'Lexus']
-      if (car.brand && popularBrands.includes(car.brand)) {
-        priority = 0.8
-      }
-      if (typeof car.year === 'number' && car.year >= 2024) {
-        priority = Math.max(priority, 0.7)
-      }
-
-      return {
-        url: `${baseUrl}/models/${safeId}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority,
-      }
-    })
-    .filter(Boolean)
-    .filter((item, idx, arr) => idx === arr.findIndex((x) => x!.url === item!.url)) as MetadataRoute.Sitemap
-
-  // Blog yazıları (görseller dahil)
-  const blogRoutes = (blogData as any[]).map((post) => {
-    const featuredImageUrl = post.featured_image?.startsWith('http') 
-      ? post.featured_image 
-      : `${baseUrl}${post.featured_image}`
-    
-    return {
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.updated_at || post.published_at),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-      // Next.js MetadataRoute.Sitemap image desteği için alternatif yaklaşım
-      // Image bilgileri structured data ve OpenGraph'da zaten var
+    let priority = 0.6
+    const popularBrands = ['BMW', 'Audi', 'Mercedes-Benz', 'Volkswagen', 'Toyota', 'Hyundai', 'Kia', 'Land Rover', 'Lexus', 'Volvo']
+    if (car.brand && popularBrands.includes(car.brand)) {
+      priority = 0.8
     }
-  })
+    if (typeof car.year === 'number' && car.year >= 2025) {
+      priority = Math.max(priority, 0.7)
+    }
 
-  return [...routes, ...brandRoutes, ...segmentRoutes, ...faqRoutes, ...carRoutes, ...blogRoutes]
+    carRoutes.push({
+      url,
+      lastModified: car.last_updated ? new Date(car.last_updated) : now,
+      changeFrequency: 'weekly',
+      priority,
+    })
+  }
+
+  // 5. Blog Makaleleri
+  const blogRoutes: MetadataRoute.Sitemap = (blogData as any[]).map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}/`,
+    lastModified: new Date(post.updated_at || post.published_at || now),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  return [...staticRoutes, ...faqRoutes, ...compareRoutes, ...carRoutes, ...blogRoutes]
 }
-
