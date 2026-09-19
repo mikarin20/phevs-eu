@@ -18,10 +18,13 @@ interface Car {
   ev_range_km: number
   fuel_consumption: number
   battery_kwh: number
+  usable_battery_kwh?: number
   price_eur?: number
   image_url: string
+  gallery_images?: string[]
   power_hp: number
   engine_displacement?: number
+  ac_max_power_kw?: number
   co2_emission: number
   charge_time_ac: number
   charge_time_dc?: number
@@ -513,6 +516,13 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   const [catalogImages, setCatalogImages] = useState<string[]>([car.image_url])
   
   useEffect(() => {
+    // If explicitly defined gallery images exist, use them directly
+    if (Array.isArray(car.gallery_images) && car.gallery_images.length > 0) {
+      const allImages = [car.image_url, ...car.gallery_images].filter(Boolean)
+      setCatalogImages(Array.from(new Set(allImages)))
+      return
+    }
+
     const urlParts = car.image_url.split('/')
     const brandFromUrl = urlParts[4]
     const modelFromUrl = urlParts[5]
@@ -546,7 +556,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     })
     
     setCatalogImages(imageList)
-  }, [car.image_url])
+  }, [car.image_url, car.gallery_images])
 
   const specifications = [
     {
@@ -573,7 +583,20 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       category: t.electricPerformance,
       items: [
         { label: t.electricRangeLabel, value: `${car.ev_range_km} km`, icon: BoltIcon, highlight: true, hasSimulator: true },
-        { label: t.batteryCapacityLabel, value: `${car.battery_kwh} kWh`, icon: SparklesIcon, highlight: true },
+        { 
+          label: t.batteryCapacityLabel, 
+          value: car.usable_battery_kwh 
+            ? `${car.battery_kwh} kWh (${selectedLanguage === 'tr' ? 'Net' : selectedLanguage === 'de' ? 'Netto' : selectedLanguage === 'pl' ? 'Netto' : 'Net'}: ${car.usable_battery_kwh} kWh)` 
+            : `${car.battery_kwh} kWh`, 
+          icon: SparklesIcon, 
+          highlight: true 
+        },
+        ...((car.ac_max_power_kw || car.charging_capabilities?.ac_power_max || car.charging_capabilities?.ac_power) ? [
+          {
+            label: selectedLanguage === 'tr' ? 'Maks. AC Şarj Gücü' : selectedLanguage === 'de' ? 'Max. AC-Ladeleistung' : selectedLanguage === 'pl' ? 'Maks. moc ładowania AC' : 'Max AC Charge Power',
+            value: `${car.ac_max_power_kw || car.charging_capabilities?.ac_power_max || car.charging_capabilities?.ac_power} kW`
+          }
+        ] : [] as any),
         { label: t.acChargeTime, value: `${car.charge_time_ac} ${selectedLanguage === 'tr' ? 'saat' : selectedLanguage === 'de' ? 'Stunden' : selectedLanguage === 'pl' ? 'godziny' : 'hours'}` },
         { label: t.dcChargeTime, value: `${car.charge_time_dc || 'N/A'} ${selectedLanguage === 'tr' ? 'dakika' : selectedLanguage === 'de' ? 'Minuten' : selectedLanguage === 'pl' ? 'minuty' : 'minutes'}` },
         { label: t.dcCharging, value: dcChargingLabel || t.notSupported },
@@ -935,7 +958,9 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">Battery Capacity</th>
-                  <td className="px-4 py-3 sm:px-6 font-semibold">{car.battery_kwh} kWh</td>
+                  <td className="px-4 py-3 sm:px-6 font-semibold">
+                    {car.usable_battery_kwh ? `${car.battery_kwh} kWh (Net: ${car.usable_battery_kwh} kWh)` : `${car.battery_kwh} kWh`}
+                  </td>
                   <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">{car.battery_chemistry || 'Lithium-ion (Li-ion)'}</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
@@ -968,15 +993,19 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                 <tr className="hover:bg-slate-50/50">
                   <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">AC Charging</th>
                   <td className="px-4 py-3 sm:px-6 font-semibold">
-                    {car.charging_capabilities?.ac_power ? `${car.charging_capabilities.ac_power} kW` : (car.charge_time_ac ? `~${car.charge_time_ac} h` : 'Type 2')}
+                    {car.ac_max_power_kw || car.charging_capabilities?.ac_power_max || car.charging_capabilities?.ac_power
+                      ? `${car.ac_max_power_kw || car.charging_capabilities?.ac_power_max || car.charging_capabilities?.ac_power} kW${car.charge_time_ac ? ` (~${car.charge_time_ac} h)` : ''}`
+                      : (car.charge_time_ac ? `~${car.charge_time_ac} h` : 'Type 2')}
                   </td>
-                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Type 2 (Mennekes) AC socket</td>
+                  <td className="px-4 py-3 sm:px-6 text-slate-500 hidden sm:table-cell">Type 2 (Mennekes) AC onboard charger</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <th scope="row" className="px-4 py-3 sm:px-6 font-medium text-slate-900">DC Fast Charging</th>
                   <td className="px-4 py-3 sm:px-6 font-semibold">
                     {car.dc_charging_supported || car.charging_capabilities?.dc_power ? (
-                      <span className="text-emerald-600 font-semibold">Yes ({car.charging_capabilities?.dc_power || car.dc_max_power_kw || 'Supported'} kW)</span>
+                      <span className="text-emerald-600 font-semibold">
+                        Yes ({car.charging_capabilities?.dc_power || car.dc_max_power_kw || 'Supported'} kW{car.charge_time_dc ? `, ~${car.charge_time_dc} min` : ''})
+                      </span>
                     ) : (
                       <span className="text-slate-400">Not supported</span>
                     )}

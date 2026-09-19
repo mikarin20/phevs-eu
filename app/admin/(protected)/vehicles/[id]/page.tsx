@@ -16,10 +16,15 @@ export default function EditVehiclePage({ params }: { params: { id: string } }) 
       }
       const data = await res.json()
       const legacyDcPower = data.item.charging_capabilities?.dc_power ?? null
+      const legacyAcPower = data.item.charging_capabilities?.ac_power_max ?? data.item.charging_capabilities?.ac_power ?? null
       setDefaultValues({
         ...data.item,
+        usable_battery_kwh: data.item.usable_battery_kwh ?? null,
+        ac_max_power_kw: data.item.ac_max_power_kw ?? legacyAcPower,
         dc_charging_supported: data.item.dc_charging_supported ?? Boolean(legacyDcPower),
         dc_max_power_kw: data.item.dc_max_power_kw ?? legacyDcPower,
+        charge_time_dc: data.item.charge_time_dc ?? null,
+        gallery_images: Array.isArray(data.item.gallery_images) ? data.item.gallery_images : [],
         ncap_stars: data.item.euroncap_rating?.stars ?? 0,
         ncap_adult_occupant: data.item.euroncap_rating?.adult_occupant ?? 0,
         ncap_child_occupant: data.item.euroncap_rating?.child_occupant ?? 0,

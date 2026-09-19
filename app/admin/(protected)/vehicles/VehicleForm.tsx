@@ -10,6 +10,7 @@ import { Label } from '@/components/admin/ui/label'
 import { Textarea } from '@/components/admin/ui/textarea'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/admin/ui/card'
 import ImageUploader from '@/components/admin/ImageUploader'
+import GalleryUploader from '@/components/admin/GalleryUploader'
 import { useToast } from '@/components/admin/ui/toast-provider'
 import { slugify } from '@/lib/admin/slug'
 
@@ -19,10 +20,18 @@ const formSchema = z.object({
   slug: z.string().min(1, 'Required').regex(/^[a-z0-9-]+$/, 'Lowercase letters, numbers, hyphens only'),
   year: z.coerce.number().int().min(2000).max(2100),
   battery_kwh: z.coerce.number().min(0),
+  usable_battery_kwh: z.preprocess(
+    (value) => value === '' || value === undefined ? null : value,
+    z.coerce.number().positive().nullable()
+  ).optional(),
   ev_range_km: z.coerce.number().min(0),
   power_hp: z.coerce.number().min(0),
   electric_motor_power_hp: z.coerce.number().min(0).optional(),
   engine_displacement: z.coerce.number().min(0).optional(),
+  ac_max_power_kw: z.preprocess(
+    (value) => value === '' || value === undefined ? null : value,
+    z.coerce.number().positive().nullable()
+  ).optional(),
   charge_time_ac: z.coerce.number().min(0).optional(),
   weight_kg: z.coerce.number().min(0).optional(),
   fuel_consumption: z.coerce.number().min(0).optional(),
@@ -36,8 +45,13 @@ const formSchema = z.object({
     (value) => value === '' || value === undefined ? null : value,
     z.coerce.number().positive().nullable()
   ),
+  charge_time_dc: z.preprocess(
+    (value) => value === '' || value === undefined ? null : value,
+    z.coerce.number().positive().nullable()
+  ).optional(),
   featuresText: z.string().optional(),
   image_url: z.string().min(1, 'Image is required'),
+  gallery_images: z.array(z.string()).default([]),
   ncap_stars: z.coerce.number().int().min(0).max(5).default(0),
   ncap_adult_occupant: z.coerce.number().min(0).max(100).default(0),
   ncap_child_occupant: z.coerce.number().min(0).max(100).default(0),
@@ -104,10 +118,12 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       slug: '',
       year: new Date().getFullYear(),
       battery_kwh: 0,
+      usable_battery_kwh: null,
       ev_range_km: 0,
       power_hp: 0,
       electric_motor_power_hp: 0,
       engine_displacement: 0,
+      ac_max_power_kw: null,
       charge_time_ac: 0,
       weight_kg: 0,
       fuel_consumption: 0,
@@ -116,7 +132,9 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       segment: 'SUV',
       dc_charging_supported: false,
       dc_max_power_kw: null,
+      charge_time_dc: null,
       image_url: '',
+      gallery_images: [],
       ncap_stars: 0,
       ncap_adult_occupant: 0,
       ncap_child_occupant: 0,
@@ -131,6 +149,7 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
   const brand = watch('brand')
   const model = watch('model')
   const imageUrl = watch('image_url')
+  const galleryImages = watch('gallery_images') || []
   const dcChargingSupported = watch('dc_charging_supported')
 
   function handleAutoSlug() {
@@ -157,7 +176,11 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
       ...values,
       brand: values.brand.trim(),
       model: values.model.trim(),
+      usable_battery_kwh: values.usable_battery_kwh || null,
+      ac_max_power_kw: values.ac_max_power_kw || null,
       dc_max_power_kw: values.dc_charging_supported ? values.dc_max_power_kw : null,
+      charge_time_dc: values.dc_charging_supported ? values.charge_time_dc : null,
+      gallery_images: values.gallery_images || [],
       euroncap_rating,
       features,
     }
@@ -183,17 +206,22 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-2xl">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-4xl">
       <Card>
         <CardHeader>
-          <CardTitle>Vehicle Details</CardTitle>
+          <CardTitle>Basic Information</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <Label>Brand</Label>
-              <Input {...register('brand')} list="brand-list" placeholder="e.g. MG, Audi, BMW" onBlur={handleAutoSlug} />
-              <datalist id="brand-list">
+              <Input
+                {...register('brand')}
+                list="brands-list"
+                placeholder="e.g. Audi"
+                onBlur={handleAutoSlug}
+              />
+              <datalist id="brands-list">
                 {STANDARD_BRANDS.map((b) => (
                   <option key={b} value={b} />
                 ))}
@@ -229,14 +257,18 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-4 gap-4">
             <div>
               <Label>Model Year</Label>
               <Input type="number" {...register('year')} />
             </div>
             <div>
-              <Label>Battery (kWh)</Label>
-              <Input type="number" step="0.1" {...register('battery_kwh')} />
+              <Label>Gross Battery (kWh)</Label>
+              <Input type="number" step="0.1" {...register('battery_kwh')} placeholder="e.g. 25.9" />
+            </div>
+            <div>
+              <Label>Net Battery (kWh)</Label>
+              <Input type="number" step="0.1" {...register('usable_battery_kwh')} placeholder="Optional (e.g. 20.7)" />
             </div>
             <div>
               <Label>Electric Range (km)</Label>
@@ -261,10 +293,6 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
 
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <Label>AC Charge Time (hours)</Label>
-              <Input type="number" step="0.1" {...register('charge_time_ac')} placeholder="e.g. 4.0" />
-            </div>
-            <div>
               <Label>Weight (kg)</Label>
               <Input type="number" {...register('weight_kg')} placeholder="e.g. 1863" />
             </div>
@@ -272,13 +300,13 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
               <Label>Fuel Consumption (L/100km)</Label>
               <Input type="number" step="0.1" {...register('fuel_consumption')} placeholder="e.g. 0.5" />
             </div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4">
             <div>
               <Label>CO2 Emission (g/km)</Label>
               <Input type="number" step="0.1" {...register('co2_emission')} placeholder="e.g. 15" />
             </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
             <div>
               <Label>Trunk Volume (L)</Label>
               <Input type="number" {...register('trunk_volume')} placeholder="e.g. 385" />
@@ -289,23 +317,59 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
             </div>
           </div>
 
-          <div className="rounded-md border border-slate-200 p-4 space-y-3">
-            <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
-              <input type="checkbox" {...register('dc_charging_supported')} className="h-4 w-4" />
-              DC Fast Charge Supported
-            </label>
-            <div>
-              <Label>DC Fast Charge Support (kW)</Label>
-              <Input
-                type="number"
-                step="0.1"
-                min="0"
-                disabled={!dcChargingSupported}
-                {...register('dc_max_power_kw')}
-              />
-              {errors.dc_max_power_kw && (
-                <p className="text-xs text-red-600 mt-1">{errors.dc_max_power_kw.message}</p>
-              )}
+          {/* Charging Capabilities (AC & DC) */}
+          <div className="rounded-lg border border-slate-200 bg-slate-50/50 p-4 space-y-4">
+            <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+              ⚡ Charging Capabilities (AC & DC)
+            </h3>
+
+            {/* AC Charging */}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label>Max AC Charging Power (kW)</Label>
+                <Input type="number" step="0.1" {...register('ac_max_power_kw')} placeholder="e.g. 11 or 7.4" />
+                <p className="text-[11px] text-slate-500 mt-1">E.g., 11 kW for Audi/VW, 7.4 kW or 3.7 kW</p>
+              </div>
+              <div>
+                <Label>AC Charge Time (hours 0-100%)</Label>
+                <Input type="number" step="0.1" {...register('charge_time_ac')} placeholder="e.g. 2.75" />
+              </div>
+            </div>
+
+            {/* DC Fast Charging */}
+            <div className="pt-3 border-t border-slate-200 space-y-3">
+              <label className="flex items-center gap-2 text-sm font-medium text-slate-700 cursor-pointer">
+                <input type="checkbox" {...register('dc_charging_supported')} className="h-4 w-4 text-blue-600 rounded" />
+                DC Fast Charging Supported
+              </label>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label>Max DC Fast Charge Power (kW)</Label>
+                  <Input
+                    type="number"
+                    step="0.1"
+                    min="0"
+                    disabled={!dcChargingSupported}
+                    {...register('dc_max_power_kw')}
+                    placeholder="e.g. 50"
+                  />
+                  {errors.dc_max_power_kw && (
+                    <p className="text-xs text-red-600 mt-1">{errors.dc_max_power_kw.message}</p>
+                  )}
+                </div>
+                <div>
+                  <Label>DC Charge Time (minutes 10-80%)</Label>
+                  <Input
+                    type="number"
+                    step="1"
+                    min="0"
+                    disabled={!dcChargingSupported}
+                    {...register('charge_time_dc')}
+                    placeholder="e.g. 25"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -318,14 +382,25 @@ export default function VehicleForm({ mode, vehicleId, defaultValues }: VehicleF
             />
           </div>
 
-          <div>
-            <Label>Main Image</Label>
-            <ImageUploader
-              value={imageUrl}
-              onChange={(url) => setValue('image_url', url, { shouldValidate: true })}
-              folder="vehicles"
-            />
-            {errors.image_url && <p className="text-xs text-red-600 mt-1">{errors.image_url.message}</p>}
+          <div className="space-y-4">
+            <div>
+              <Label>Main Image (Cover Photo)</Label>
+              <ImageUploader
+                value={imageUrl}
+                onChange={(url) => setValue('image_url', url, { shouldValidate: true })}
+                folder="vehicles"
+              />
+              {errors.image_url && <p className="text-xs text-red-600 mt-1">{errors.image_url.message}</p>}
+            </div>
+
+            <div className="pt-4 border-t border-slate-200">
+              <Label className="mb-2 block">Gallery Images (Interior, Rear, Cockpit, Seats)</Label>
+              <GalleryUploader
+                value={galleryImages}
+                onChange={(urls) => setValue('gallery_images', urls, { shouldValidate: true })}
+                folder="vehicles"
+              />
+            </div>
           </div>
         </CardContent>
       </Card>

@@ -9,17 +9,30 @@ export const vehicleSchema = z.object({
   slug: z.string().min(1, 'Slug is required').regex(slugPattern, 'Lowercase letters, numbers, and hyphens only'),
   year: z.coerce.number().int().min(2000).max(2100),
   battery_kwh: z.coerce.number().min(0),
+  usable_battery_kwh: z.preprocess(
+    (value) => value === '' || value === undefined ? null : value,
+    z.coerce.number().positive().nullable()
+  ).optional(),
   ev_range_km: z.coerce.number().min(0),
   power_hp: z.coerce.number().min(0),
   acceleration_0_100: z.coerce.number().min(0).optional(),
   price_eur: z.coerce.number().min(0).optional(),
+  ac_max_power_kw: z.preprocess(
+    (value) => value === '' || value === undefined ? null : value,
+    z.coerce.number().positive().nullable()
+  ).optional(),
   dc_charging_supported: z.boolean().default(false),
   dc_max_power_kw: z.preprocess(
     (value) => value === '' || value === undefined ? null : value,
     z.coerce.number().positive().nullable()
   ),
+  charge_time_dc: z.preprocess(
+    (value) => value === '' || value === undefined ? null : value,
+    z.coerce.number().positive().nullable()
+  ).optional(),
   features: z.array(z.string().min(1)).default([]),
   image_url: z.string().min(1, 'Image is required'),
+  gallery_images: z.array(z.string().min(1)).default([]),
   segment: z.string().default('SUV'),
   charge_time_ac: z.coerce.number().min(0).default(0),
   weight_kg: z.coerce.number().min(0).default(0),
