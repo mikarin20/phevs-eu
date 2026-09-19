@@ -185,7 +185,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 
   const title = `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid (PHEV) Specs & Range | PHEVs.eu`
-  const description = `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid (Fişli Hibrit / PHEV) technical specs: ${car.ev_range_km} km electric range, ${car.battery_kwh} kWh battery${car.usable_battery_kwh ? ` (${car.usable_battery_kwh} kWh net)` : ''}, ${car.power_hp} HP system output and ${car.fuel_consumption} L/100km fuel consumption.`
+  const description = `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid (PHEV) technical specs: ${car.ev_range_km} km electric range, ${car.battery_kwh} kWh battery${car.usable_battery_kwh ? ` (${car.usable_battery_kwh} kWh net)` : ''}, ${car.power_hp} HP system output and ${car.fuel_consumption} L/100km fuel consumption.`
   const canonicalUrl = `${baseUrl}/models/${car.slug || car.id}`
 
   return {
