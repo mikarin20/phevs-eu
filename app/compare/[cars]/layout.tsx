@@ -43,15 +43,19 @@ export async function generateMetadata({ params }: { params: { cars: string } })
   }
 
   const title = selected.length >= 2
-    ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} PHEV Karşılaştırması | PHEVs.eu`
-    : 'PHEV Karşılaştırması | PHEVs.eu'
+    ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} Plug-in Hybrid (Fişli Hibrit / PHEV) Karşılaştırması | PHEVs.eu`
+    : 'Plug-in Hybrid (Fişli Hibrit / PHEV) Karşılaştırması | PHEVs.eu'
 
   const description = selected.length >= 2
-    ? `${selected[0].brand} ${selected[0].model} ve ${selected[1].brand} ${selected[1].model} modellerini teknik özellikler, elektrik menzili (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), batarya kapasitesi (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), güç (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP) ve yakıt tüketimi açısından karşılaştırın.`
-    : 'PHEV modellerini elektrik menzili, batarya kapasitesi, güç, yakıt tüketimi ve teknik özelliklerine göre karşılaştırın.'
+    ? `${selected[0].brand} ${selected[0].model} ve ${selected[1].brand} ${selected[1].model} Plug-in Hybrid (Fişli Hibrit) modellerini teknik özellikler, elektrik menzili (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), batarya kapasitesi (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), güç (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP) ve yakıt tüketimi açısından karşılaştırın.`
+    : 'Plug-in Hybrid (Fişli Hibrit) ve PHEV modellerini elektrik menzili, batarya kapasitesi, şarj süreleri, güç, yakıt tüketimi ve teknik özelliklerine göre karşılaştırın.'
 
-  const finalTitle = customCompare?.metaTitle || title
-  const finalDescription = customCompare?.metaDescription || description
+  const finalTitle = customCompare?.metaTitle
+    ? `${customCompare.metaTitle.replace(' PHEV Comparison', '')} Plug-in Hybrid (Fişli Hibrit / PHEV) Karşılaştırması | PHEVs.eu`
+    : title
+  const finalDescription = customCompare?.metaDescription
+    ? `${customCompare.metaDescription} Plug-in Hybrid (Fişli Hibrit / PHEV) teknik özellikleri ve karşılaştırma analizi.`
+    : description
 
   return {
     title: finalTitle,

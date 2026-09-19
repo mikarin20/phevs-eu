@@ -6935,5 +6935,55 @@
     "last_updated": "2026-09-19",
     "usable_battery_kwh": 20.7,
     "ac_max_power_kw": 11
+  },
+  {
+    "id": "audi-a6-avant-e-hybrid-2026",
+    "slug": "audi-a6-avant-e-hybrid-phev",
+    "brand": "Audi",
+    "model": "A6 Avant e-hybrid",
+    "year": 2026,
+    "battery_kwh": 25.9,
+    "usable_battery_kwh": 20.7,
+    "ev_range_km": 106,
+    "power_hp": 299,
+    "electric_motor_power_hp": 143,
+    "engine_displacement": 2,
+    "acceleration_0_100": 6.2,
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_max": 11
+    },
+    "ac_max_power_kw": 11,
+    "features": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Audi_A6_Avant_50_TFSI_e_Quattro_%282024%29_%2854863055907%29.jpg",
+    "gallery_images": [
+      "https://upload.wikimedia.org/wikipedia/commons/5/52/Audi_A6_Avant_50_TFSI_E_%282024%29_%2854826352570%29.jpg"
+    ],
+    "segment": "Station/Estate",
+    "fuel_consumption": 2.1,
+    "co2_emission": 48,
+    "charge_time_ac": 2.75,
+    "weight_kg": 2250,
+    "trunk_volume": 405,
+    "max_trunk_volume": 1535,
+    "length_mm": 4939,
+    "width_mm": 1886,
+    "height_mm": 1467,
+    "wheelbase_mm": 2924,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 87,
+      "child_occupant": 88,
+      "pedestrian_protection": 79,
+      "safety_assist": 77,
+      "overall_rating": 81,
+      "test_year": 2026
+    },
+    "last_updated": "2026-09-19"
   }
 ]
