@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import carsData from '@/data/cars.json'
+import { getImageUrl } from '@/lib/image-url'
 
 function findCar(id: string) {
   if (!id) return null
@@ -50,7 +51,7 @@ export default function ModelLayout({
   }
 
   const modelUrl = `${baseUrl}/models/${car.slug || car.id}`
-  const imageUrl = car.image_url?.startsWith('http') ? car.image_url : `${baseUrl}${car.image_url || ''}`
+  const imageUrl = getImageUrl(car.image_url)
 
   const carSchema = {
     "@context": "https://schema.org",

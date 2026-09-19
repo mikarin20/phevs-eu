@@ -1,25 +1,26 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
+import { getImageUrl } from '@/lib/image-url'
 import { ArrowLeftIcon, BoltIcon, SparklesIcon, CheckCircleIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 
 export const metadata: Metadata = {
   title: 'PHEVs with DC Fast Charging (CCS & CHAdeMO) | PHEVs.eu',
   description: 'Complete database of all plug-in hybrid electric vehicles (PHEVs) supporting DC fast charging in Europe. Compare 22 kW, 40 kW, 50 kW, and 60 kW DC rapid charging times and specs.',
   alternates: {
-    canonical: 'https://www.phevs.eu/phev-with-dc-charging',
+    canonical: 'https://phevs.eu/phev-with-dc-charging',
     languages: {
-      'x-default': 'https://www.phevs.eu/phev-with-dc-charging',
-      en: 'https://www.phevs.eu/phev-with-dc-charging',
-      de: 'https://www.phevs.eu/phev-with-dc-charging',
-      tr: 'https://www.phevs.eu/phev-with-dc-charging',
-      pl: 'https://www.phevs.eu/phev-with-dc-charging',
+      'x-default': 'https://phevs.eu/phev-with-dc-charging',
+      en: 'https://phevs.eu/phev-with-dc-charging',
+      de: 'https://phevs.eu/phev-with-dc-charging',
+      tr: 'https://phevs.eu/phev-with-dc-charging',
+      pl: 'https://phevs.eu/phev-with-dc-charging',
     }
   },
   openGraph: {
     title: 'PHEVs with DC Fast Charging | PHEVs.eu',
     description: 'Find every plug-in hybrid car that can fast charge at public highway DC rapid chargers (10–80% in ~25 min).',
-    url: 'https://www.phevs.eu/phev-with-dc-charging',
+    url: 'https://phevs.eu/phev-with-dc-charging',
     type: 'website',
     siteName: 'PHEVs.eu',
     images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'PHEVs with DC Fast Charging' }]
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 }
 
 export default function PhevWithDcChargingPage() {
-  const baseUrl = 'https://www.phevs.eu'
+  const baseUrl = 'https://phevs.eu'
 
   // Filter models supporting DC fast charging, sorted by DC power (descending) then brand
   const models = (carsData as any[])
@@ -185,7 +186,7 @@ export default function PhevWithDcChargingPage() {
                   <div className="relative aspect-[16/10] bg-slate-100 dark:bg-slate-800 overflow-hidden">
                     {car.image_url ? (
                       <img
-                        src={car.image_url}
+                        src={getImageUrl(car.image_url)}
                         alt={`${car.brand} ${car.model}`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"

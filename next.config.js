@@ -153,9 +153,9 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // www to non-www permanent 301 redirect
+      // www to non-www permanent 301 redirect (statik Next.js dosyalarını ve API'yi hariç tut)
       {
-        source: '/:path*',
+        source: '/:path((?!_next|api|favicon).*)',
         has: [
           {
             type: 'host',
@@ -163,6 +163,12 @@ const nextConfig = {
           },
         ],
         destination: 'https://phevs.eu/:path*',
+        permanent: true,
+      },
+      // Yerel araç görseli isteklerini Cloudflare R2'ye yönlendir (404 koruması)
+      {
+        source: '/images/cars/brands/:path*',
+        destination: 'https://pub-698245a4878b4d6596cd62322fdc9c75.r2.dev/cars/brands/:path*',
         permanent: true,
       },
       // Silinen/Eski model slug'ları için 301 yönlendirmeleri (404 önleyici)

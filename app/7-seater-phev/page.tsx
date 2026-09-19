@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import carsData from '@/data/cars.json';
+import { getImageUrl } from '@/lib/image-url';
 
 export const metadata: Metadata = {
   title: '7-Seater PHEVs — Large Family Plug-in Hybrids | PHEVs.eu',
@@ -153,13 +154,12 @@ export default function SevenSeaterPhevPage() {
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-800/60 mb-4">
-                  {car.image ? (
-                    <Image
-                      src={car.image}
+                  {car.image_url ? (
+                    <img
+                      src={getImageUrl(car.image_url)}
                       alt={`${car.brand} ${car.model}`}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="flex h-full items-center justify-center text-slate-500 text-sm">

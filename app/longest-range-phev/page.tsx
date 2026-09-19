@@ -2,25 +2,26 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import carsData from '@/data/cars.json'
+import { getImageUrl } from '@/lib/image-url'
 import { ArrowLeftIcon, BoltIcon, Battery100Icon, SparklesIcon, CheckCircleIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 
 export const metadata: Metadata = {
   title: 'Longest Range PHEVs (100+ km) — Best Electric Range 2026 | PHEVs.eu',
   description: 'Explore all plug-in hybrid electric vehicles (PHEVs) offering over 100 km of official WLTP electric range. Compare battery size, charging speeds, and real-world efficiency.',
   alternates: {
-    canonical: 'https://www.phevs.eu/longest-range-phev',
+    canonical: 'https://phevs.eu/longest-range-phev',
     languages: {
-      'x-default': 'https://www.phevs.eu/longest-range-phev',
-      en: 'https://www.phevs.eu/longest-range-phev',
-      de: 'https://www.phevs.eu/longest-range-phev',
-      tr: 'https://www.phevs.eu/longest-range-phev',
-      pl: 'https://www.phevs.eu/longest-range-phev',
+      'x-default': 'https://phevs.eu/longest-range-phev',
+      en: 'https://phevs.eu/longest-range-phev',
+      de: 'https://phevs.eu/longest-range-phev',
+      tr: 'https://phevs.eu/longest-range-phev',
+      pl: 'https://phevs.eu/longest-range-phev',
     }
   },
   openGraph: {
     title: 'Longest Range PHEVs (100+ km) | PHEVs.eu',
     description: 'Compare all plug-in hybrid models with 100+ km pure electric range in Europe. Full specs, battery capacities, and charging performance.',
-    url: 'https://www.phevs.eu/longest-range-phev',
+    url: 'https://phevs.eu/longest-range-phev',
     type: 'website',
     siteName: 'PHEVs.eu',
     images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'Longest Range PHEVs' }]
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
 }
 
 export default function LongestRangePhevPage() {
-  const baseUrl = 'https://www.phevs.eu'
+  const baseUrl = 'https://phevs.eu'
   
   // Filter models with >= 100 km electric range, sorted descending by range
   const models = (carsData as any[])
@@ -182,7 +183,7 @@ export default function LongestRangePhevPage() {
                   <div className="relative aspect-[16/10] bg-slate-100 dark:bg-slate-800 overflow-hidden">
                     {car.image_url ? (
                       <img
-                        src={car.image_url}
+                        src={getImageUrl(car.image_url)}
                         alt={`${car.brand} ${car.model}`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
