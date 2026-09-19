@@ -7197,5 +7197,42 @@
     "price_eur": 39500,
     "meta_title": "Omoda 7 Super Hybrid (2026) Specs, Battery & Electric Range",
     "updated_at": "2026-09-19"
+  },
+  {
+    "id": "jaecoo-8-super-hybrid-2026",
+    "slug": "jaecoo-8-super-hybrid-phev",
+    "brand": "Jaecoo",
+    "model": "8 SUPER HYBRID",
+    "year": 2026,
+    "battery_kwh": 34.5,
+    "usable_battery_kwh": null,
+    "ev_range_km": 134,
+    "power_hp": 0,
+    "electric_motor_power_hp": 143,
+    "engine_displacement": 1499,
+    "acceleration_0_100": 5.8,
+    "ac_max_power_kw": 6.6,
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 70,
+    "charge_time_dc": 25,
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_max": 6.6,
+      "dc_power": 70
+    },
+    "features": [],
+    "image_url": "https://pub-698245a4878b4d6596cd62322fdc9c75.r2.dev/admin-uploads/vehicles/1789843079380-ee3bnn.png",
+    "gallery_images": [],
+    "segment": "SUV",
+    "fuel_consumption": 2.1,
+    "co2_emission": 47,
+    "charge_time_ac": 5.5,
+    "weight_kg": 2893,
+    "trunk_volume": 488,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "euroncap_rating": null,
+    "last_updated": "2026-09-19"
   }
 ]
