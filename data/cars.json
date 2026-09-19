@@ -6893,5 +6893,42 @@
       "overall_rating": 76,
       "test_year": 2026
     }
+  },
+  {
+    "id": "audi-a6-limousine-e-hybrid-2026",
+    "slug": "audi-a6-limousine-e-hybrid-phev",
+    "brand": "Audi",
+    "model": "A6 Limousine e-hybrid",
+    "year": 2026,
+    "battery_kwh": 25.9,
+    "ev_range_km": 115,
+    "power_hp": 299,
+    "electric_motor_power_hp": 252,
+    "engine_displacement": 2000,
+    "acceleration_0_100": 0,
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "charging_capabilities": {},
+    "features": [],
+    "image_url": "https://mediaservice.audi.com/media/fast/v3_xWTXWhbdRjG__vVtpqeJD2n9jTJjonmnMRSyZZkaWI3I7ZI9UJcpVu9EM3-TU7Ts-aLk9PYUS92MxRBERTxC1Y2vdHplMFwKvNjQybDXbgLxQ90d4oVL5TVIYKnd-8Lz_O87wPPc-oP0b_qCh6bOfXX2D8DNx_4BSHWOkL0vSv6vVV3sb1DCDFHwGnKur37cMeuj1mymLHXvIzsdXbns_lSRhYbTrOdmT44OZXLFOayGdlohMWgTxR9QgweFaJ_Y1tGhEZW3UZHurK5y7W7nXar6_RsdbyYW8rVqrUpuSQLebtUmMouTRbvLmWLtapdkLk9xVJuarFYymq-xCXR56uLkVa9WnVt6e4p1OzuitfurDXEwFIrL3NHxE3bX3HH49x2jdEX0OfR30c_QxSi9xCbIDZN7CVibxP7kESGxFskLpK4SvJ7kn9j7sA8jPknaUjfT7qLuI9AkMAxAudRXMJpIutETrPzS4wWxiLGc0w4JPZhvYh1hdQWYhfqJ2gqo6fRS-j-xTqGhjGO8SBWH9YE1k-kPiAwSOBNlDtR7iVUQF1HewLtMnqc6ArRy0SvE9vEHMQKYyWxFrGOk9rH0AxD11HOoUXQZtFPEnyP4DmCZwneQN2LWkGVqBdQr6Cl0SbR9qOtEv0Y42GMpzAuMH4X8R-IbxH_l_h_JPpJDJO8RPJ3zBjmy5ge5nmsg1hbpDRSUVL7Sf2McoLgBsEzBH8j3CL8OsMHGXYwp4h0ibzGxCGiJ4g9SuwssY8wasQ_I_4F5qcoKuHvuLXO6DL6M-ifM9YjcoxUhdQbpL7yM4gYRKxxyyaBBwjME2gS-JGhQwytM3QRRUHxzT5P8CqhICGD0FHC04QPEH6a8HH0WaIbxK6x81mMdzC-IbGXxAKJHskbmOOos2hBoo8QPYKhYH6N-SvKAMrthDYJb6L2o76Cvo7-rZ-7V-1Wz3Hbrabd8spzrtOTnl1ZcBoNWZmR1ZVOw9-76Sedmrdczk3ls-ll26kve-VcoZBNy0ZnWZaXZKNrp6uyabuyPO_5fapMVwqVbNYHtPx-eY5fiPJcu-tsTw9t09Ndz7Zdp1WXrXrDLmdyk-mm7cma9GTPdrs-rJwf6ZtemPsfbu4ie8gDAAA?wid=1920",
+    "segment": "Station/Estate",
+    "fuel_consumption": 0,
+    "co2_emission": 0,
+    "charge_time_ac": 0,
+    "weight_kg": 0,
+    "trunk_volume": 0,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 87,
+      "child_occupant": 88,
+      "pedestrian_protection": 79,
+      "safety_assist": 77,
+      "overall_rating": 81,
+      "test_year": 2026
+    },
+    "last_updated": "2026-09-19"
   }
 ]
