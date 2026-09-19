@@ -735,8 +735,8 @@
   {
     "id": "citroen-c5-aircross-ii",
     "brand": "Citroen",
-    "model": "C5 Aircross II",
-    "year": 2024,
+    "model": "C5 Aircross Plug-in Hybrid (2026)",
+    "year": 2026,
     "segment": "SUV",
     "ev_range_km": 81,
     "fuel_consumption": 2.55,
@@ -776,12 +776,13 @@
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-ii-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-23",
+    "updated_at": "2026-09-19",
     "charging_capabilities": {
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "meta_title": "Citroën C5 Aircross Plug-in Hybrid (2026) Specs, Battery & Electric Range"
   },
   {
     "id": "citroen-c5-x-16",
@@ -1868,8 +1869,8 @@
   {
     "id": "hyundai-tucson-iv-facelift-253hp-4wd",
     "brand": "Hyundai",
-    "model": "Tucson IV (facelift 2024)",
-    "year": 2024,
+    "model": "Tucson 1.6 T-GDI PHEV (2026 Facelift)",
+    "year": 2026,
     "segment": "SUV",
     "ev_range_km": 65,
     "fuel_consumption": 1.4,
@@ -1910,10 +1911,11 @@
     },
     "battery_architecture": "modular",
     "slug": "hyundai-tucson-iv-facelift-253hp-phev-4wd",
-    "updated_at": "2024-10-25",
+    "updated_at": "2026-09-19",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "meta_title": "Hyundai Tucson Plug-in Hybrid (2026) Specs, Battery & Electric Range"
   },
   {
     "id": "hyundai-tucson-iv-facelift-253hp-fwd",
@@ -5264,8 +5266,8 @@
   {
     "id": "toyota-2",
     "brand": "Toyota",
-    "model": "RAV4",
-    "year": 2025,
+    "model": "RAV4 Plug-in Hybrid",
+    "year": 2026,
     "segment": "SUV",
     "ev_range_km": 75,
     "fuel_consumption": 1,
@@ -5283,13 +5285,13 @@
     "height_mm": 1685,
     "wheelbase_mm": 2690,
     "max_trunk_volume": 1604,
-    "electric_motor_power_hp": 54,
-    "engine_displacement": 1.8,
+    "electric_motor_power_hp": 182,
+    "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 355,
     "charging_capabilities": {
       "ac_power": 6.6,
-      "ac_power_note": "RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Not: RAV4 Prime SE (2022) 3.3 kW kullanır"
+      "ac_power_note": "RAV4 Plug-in Hybrid: 6.6 kW AC On-board Charger (Type 2)"
     },
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
@@ -5308,7 +5310,8 @@
     },
     "battery_architecture": "modular",
     "slug": "toyota-rav4-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2026-09-19",
+    "meta_title": "Toyota RAV4 Plug-in Hybrid (2026) Specs, Battery & Electric Range"
   },
   {
     "id": "toyota-crown-phev",
@@ -6992,8 +6995,8 @@
     "brand": "BYD",
     "model": "Atto 2 DM-i Boost",
     "year": 2026,
-    "battery_kwh": 18.0,
-    "usable_battery_kwh": 18.0,
+    "battery_kwh": 18,
+    "usable_battery_kwh": 18,
     "battery_chemistry": "LFP",
     "battery_architecture": "blade",
     "battery_voltage": 334,
@@ -7037,7 +7040,7 @@
     "segment": "SUV",
     "fuel_consumption": 1.9,
     "co2_emission": 44,
-    "charge_time_ac": 3.0,
+    "charge_time_ac": 3,
     "weight_kg": 1620,
     "trunk_volume": 425,
     "max_trunk_volume": 1335,
@@ -7113,5 +7116,47 @@
     "emission_standard": "Euro 6e-bis",
     "price_eur": 24500,
     "last_updated": "2026-09-19"
+  },
+  {
+    "id": "omoda-7-phev",
+    "brand": "Omoda",
+    "model": "7 Plug-in Hybrid",
+    "year": 2026,
+    "segment": "SUV",
+    "ev_range_km": 95,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 19.3,
+    "image_url": "/images/cars/brands/omoda/omoda-9-super-hybrid/main.jpg",
+    "power_hp": 279,
+    "co2_emission": 28,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 480,
+    "seats": 5,
+    "warranty_years": 7,
+    "weight_kg": 1890,
+    "length_mm": 4621,
+    "width_mm": 1872,
+    "height_mm": 1673,
+    "wheelbase_mm": 2700,
+    "max_trunk_volume": 1450,
+    "electric_motor_power_hp": 156,
+    "engine_displacement": 1.5,
+    "battery_chemistry": "LFP",
+    "battery_voltage": 380,
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "dc_power": 40
+    },
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Rear right",
+      "dc_type": "CCS2",
+      "dc_location": "Rear right"
+    },
+    "emission_standard": "Euro 6e",
+    "country_availability": "DE,FR,UK,IT,ES,PL,TR",
+    "slug": "omoda-7-phev",
+    "meta_title": "Omoda 7 Plug-in Hybrid (2026) Specs, Battery & Electric Range",
+    "updated_at": "2026-09-19"
   }
 ]
