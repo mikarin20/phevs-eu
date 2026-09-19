@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { Car, Newspaper, GitCompareArrows, LayoutDashboard, LogOut } from 'lucide-react'
+import { Car, Newspaper, GitCompareArrows, Video, LayoutDashboard, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
@@ -10,6 +10,7 @@ const navItems = [
   { href: '/admin/vehicles', label: 'Vehicles', icon: Car },
   { href: '/admin/blog', label: 'Blog Posts', icon: Newspaper },
   { href: '/admin/compare', label: 'Quick Compares', icon: GitCompareArrows },
+  { href: '/admin/videos', label: 'Videos', icon: Video },
 ]
 
 export default function AdminShell({ children }: { children: React.ReactNode }) {

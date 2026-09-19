@@ -25,23 +25,43 @@ export default function CompareLayout({
 
   let videoSchema = null
   if (selected.length >= 2) {
-    const car1Ids = [
-      selected[0].id?.toLowerCase(),
-      selected[0].slug?.toLowerCase(),
-      (selected[0].slug || '').toLowerCase().replace(/-phev$/, ''),
-    ].filter(Boolean)
-    const car2Ids = [
-      selected[1].id?.toLowerCase(),
-      selected[1].slug?.toLowerCase(),
-      (selected[1].slug || '').toLowerCase().replace(/-phev$/, ''),
-    ].filter(Boolean)
+    let matchingVideo = null
 
-    const matchingVideo = (comparisonVideosData as any[]).find((video) => {
-      const relatedLower = (video.relatedCars || []).map((rc: string) => rc.toLowerCase())
-      const hasCar1 = car1Ids.some((id) => relatedLower.includes(id))
-      const hasCar2 = car2Ids.some((id) => relatedLower.includes(id))
-      return hasCar1 && hasCar2
-    })
+    if (customCompare?.youtubeId) {
+      const fromLibrary = (comparisonVideosData as any[]).find((v) => v.youtubeId === customCompare.youtubeId)
+      if (fromLibrary) {
+        matchingVideo = fromLibrary
+      } else {
+        matchingVideo = {
+          id: `compare-${customCompare.slug}`,
+          youtubeId: customCompare.youtubeId,
+          title: customCompare.videoTitle || `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model}`,
+          channel: 'Comparison Test',
+          description: customCompare.summary || '',
+          publishedAt: '2026-09-15',
+        }
+      }
+    }
+
+    if (!matchingVideo) {
+      const car1Ids = [
+        selected[0].id?.toLowerCase(),
+        selected[0].slug?.toLowerCase(),
+        (selected[0].slug || '').toLowerCase().replace(/-phev$/, ''),
+      ].filter(Boolean)
+      const car2Ids = [
+        selected[1].id?.toLowerCase(),
+        selected[1].slug?.toLowerCase(),
+        (selected[1].slug || '').toLowerCase().replace(/-phev$/, ''),
+      ].filter(Boolean)
+
+      matchingVideo = (comparisonVideosData as any[]).find((video) => {
+        const relatedLower = (video.relatedCars || []).map((rc: string) => rc.toLowerCase())
+        const hasCar1 = car1Ids.some((id) => relatedLower.includes(id))
+        const hasCar2 = car2Ids.some((id) => relatedLower.includes(id))
+        return hasCar1 && hasCar2
+      })
+    }
 
     if (matchingVideo) {
       videoSchema = {

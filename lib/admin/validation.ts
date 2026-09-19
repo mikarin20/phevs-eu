@@ -86,5 +86,21 @@ export const quickCompareSchema = z.object({
   verdict: z.string().optional(),
   metaTitle: z.string().optional(),
   metaDescription: z.string().optional(),
+  youtubeId: z.string().optional(),
+  videoTitle: z.string().optional(),
+  videoChannel: z.string().optional(),
 })
 export type QuickCompareInput = z.infer<typeof quickCompareSchema>
+
+export const videoSchema = z.object({
+  id: z.string().min(1, 'ID is required').regex(slugPattern, 'Lowercase letters, numbers, and hyphens only'),
+  youtubeId: z.string().min(1, 'YouTube ID or URL is required'),
+  title: z.string().min(1, 'Title is required'),
+  channel: z.string().min(1, 'Channel name is required'),
+  lang: z.enum(['en', 'pl', 'de', 'tr', 'fr', 'es', 'it']).default('en'),
+  relatedCars: z.array(z.string()).min(1, 'At least one related car must be selected'),
+  type: z.enum(['comparison', 'single_review']).default('comparison'),
+  description: z.string().optional().default(''),
+  publishedAt: z.string().optional(),
+})
+export type VideoInput = z.infer<typeof videoSchema>

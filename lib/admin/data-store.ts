@@ -4,6 +4,7 @@ import { getFile, putFile } from './github'
 const CARS_PATH = 'data/cars.json'
 const BLOG_PATH = 'data/blog.json'
 const COMPARES_PATH = 'data/quick-compares.json'
+const VIDEOS_PATH = 'data/comparison-videos.json'
 
 async function readJsonArray<T>(path: string): Promise<{ items: T[]; sha?: string }> {
   const file = await getFile(path)
@@ -27,3 +28,4 @@ function makeStore<T>(path: string) {
 export const carsStore = makeStore<any>(CARS_PATH)
 export const blogStore = makeStore<any>(BLOG_PATH)
 export const compareStore = makeStore<any>(COMPARES_PATH)
+export const videoStore = makeStore<any>(VIDEOS_PATH)

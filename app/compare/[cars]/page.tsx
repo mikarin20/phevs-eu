@@ -233,6 +233,27 @@ export default function ComparePage({ params }: ComparePageProps) {
   // Find matching comparison video for selected cars
   const matchingVideo = useMemo(() => {
     if (selectedCars.length < 2) return null
+
+    // 1. Check if custom quickCompare defines a video directly
+    const customCompare = (quickCompareData as any[]).find((c) => c.slug === params.cars)
+    if (customCompare?.youtubeId) {
+      const fromLibrary = (comparisonVideosData as any[]).find((v) => v.youtubeId === customCompare.youtubeId)
+      if (fromLibrary) return fromLibrary
+
+      return {
+        id: `compare-${customCompare.slug}`,
+        youtubeId: customCompare.youtubeId,
+        title: customCompare.videoTitle || `${selectedCars[0].brand} ${selectedCars[0].model} vs ${selectedCars[1].brand} ${selectedCars[1].model}`,
+        channel: customCompare.videoChannel || 'Comparison Test',
+        lang: 'en',
+        type: 'comparison',
+        relatedCars: [selectedCars[0].id, selectedCars[1].id],
+        description: customCompare.summary || '',
+        publishedAt: '2026-09-15',
+      }
+    }
+
+    // 2. Fall back to matching by vehicle IDs/slugs in comparisonVideosData
     const car1Ids = [
       selectedCars[0].id?.toLowerCase(),
       selectedCars[0].slug?.toLowerCase(),
@@ -250,7 +271,7 @@ export default function ComparePage({ params }: ComparePageProps) {
       const hasCar2 = car2Ids.some((id) => relatedLower.includes(id))
       return hasCar1 && hasCar2
     })
-  }, [selectedCars])
+  }, [selectedCars, params.cars])
 
   useEffect(() => {
     // URL parametresinden dil al, yoksa localStorage'dan, yoksa varsayılan 'en'

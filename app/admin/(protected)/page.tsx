@@ -3,12 +3,13 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/admin/ui/card'
-import { Car, Newspaper, GitCompareArrows } from 'lucide-react'
+import { Car, Newspaper, GitCompareArrows, Video } from 'lucide-react'
 
 interface Stats {
   vehicles: number
   blogPosts: number
   comparisons: number
+  videos: number
 }
 
 export default function AdminOverviewPage() {
@@ -18,20 +19,23 @@ export default function AdminOverviewPage() {
   useEffect(() => {
     async function loadStats() {
       try {
-        const [vehiclesRes, blogRes, compareRes] = await Promise.all([
+        const [vehiclesRes, blogRes, compareRes, videosRes] = await Promise.all([
           fetch('/api/admin/vehicles'),
           fetch('/api/admin/blog'),
           fetch('/api/admin/compare'),
+          fetch('/api/admin/videos'),
         ])
-        const [vehicles, blog, compare] = await Promise.all([
+        const [vehicles, blog, compare, videos] = await Promise.all([
           vehiclesRes.json(),
           blogRes.json(),
           compareRes.json(),
+          videosRes.json(),
         ])
         setStats({
           vehicles: vehicles.items?.length ?? 0,
           blogPosts: blog.items?.length ?? 0,
           comparisons: compare.items?.length ?? 0,
+          videos: videos.items?.length ?? 0,
         })
       } catch (err: any) {
         setError(err.message)
@@ -61,6 +65,13 @@ export default function AdminOverviewPage() {
       value: stats?.comparisons,
       icon: GitCompareArrows,
       description: 'Manage curated comparison pages',
+    },
+    {
+      href: '/admin/videos',
+      label: 'Videos',
+      value: stats?.videos,
+      icon: Video,
+      description: 'Manage comparison & review videos',
     },
   ]
 
