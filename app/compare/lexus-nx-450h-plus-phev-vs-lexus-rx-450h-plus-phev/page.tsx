@@ -4,18 +4,18 @@ import carsData from '@/data/cars.json'
 import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
-  title: 'Lexus NX 450h+ vs RX 450h+ Karşılaştırması | PHEVs.eu',
-  description: 'Lexus NX 450h+ ve RX 450h+ PHEV modellerini detaylı karşılaştırın. Menzil, batarya, performans ve teknik özellikler.',
+  title: 'Lexus NX 450h+ vs Lexus RX 450h+ PHEV Comparison: Specs & Range Compared | PHEVs.eu',
+  description: 'Compare Lexus NX 450h+ and Lexus RX 450h+ luxury plug-in hybrid SUVs by electric range, battery capacity, performance, charging times, and fuel economy.',
   keywords: [
     'Lexus NX 450h+',
     'Lexus RX 450h+',
-    'Lexus PHEV karşılaştırması',
-    'lüks SUV PHEV',
-    'Lexus hibrit'
+    'Lexus PHEV comparison',
+    'luxury PHEV SUV',
+    'Lexus plug-in hybrid'
   ],
   openGraph: {
-    title: 'Lexus NX vs RX PHEV Karşılaştırması',
-    description: 'Lexus NX 450h+ ve RX 450h+ PHEV modellerini karşılaştırın.',
+    title: 'Lexus NX 450h+ vs Lexus RX 450h+ PHEV Comparison | PHEVs.eu',
+    description: 'Detailed comparison between Lexus NX 450h+ and Lexus RX 450h+ plug-in hybrid models.',
     type: 'website',
   },
   alternates: {
@@ -50,10 +50,10 @@ export default function ComparePage() {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Lexus NX 450h+ vs RX 450h+ Karşılaştırması
+              Lexus NX 450h+ vs RX 450h+ PHEV Comparison
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              İki lüks Lexus PHEV SUV modelini detaylı karşılaştırın
+              Detailed comparison between two leading luxury Lexus plug-in hybrid SUVs
             </p>
           </div>
 

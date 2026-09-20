@@ -4,18 +4,18 @@ import carsData from '@/data/cars.json'
 import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
-  title: 'Range Rover Evoque P300e vs Range Rover Velar P400e Karşılaştırması | PHEVs.eu',
-  description: 'Range Rover Evoque P300e ve Range Rover Velar P400e PHEV modellerini detaylı karşılaştırın. Menzil, batarya, performans ve teknik özellikler.',
+  title: 'Range Rover Evoque P300e vs Range Rover Velar P400e PHEV Comparison: Specs & Range Compared | PHEVs.eu',
+  description: 'Compare Range Rover Evoque P300e and Range Rover Velar P400e luxury plug-in hybrid SUVs by electric range, battery capacity, power, and charging times.',
   keywords: [
     'Range Rover Evoque P300e',
     'Range Rover Velar P400e',
-    'Land Rover PHEV karşılaştırması',
-    'lüks SUV PHEV',
-    'Range Rover hibrit'
+    'Land Rover PHEV comparison',
+    'luxury SUV PHEV',
+    'Range Rover hybrid'
   ],
   openGraph: {
-    title: 'Range Rover Evoque vs Velar PHEV Karşılaştırması',
-    description: 'Range Rover Evoque P300e ve Range Rover Velar P400e PHEV modellerini karşılaştırın.',
+    title: 'Range Rover Evoque vs Range Rover Velar PHEV Comparison | PHEVs.eu',
+    description: 'Detailed comparison between Range Rover Evoque P300e and Range Rover Velar P400e PHEV models.',
     type: 'website',
   },
   alternates: {
@@ -50,10 +50,10 @@ export default function ComparePage() {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Range Rover Evoque vs Velar PHEV Karşılaştırması
+              Range Rover Evoque vs Velar PHEV Comparison
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              İki lüks Land Rover PHEV modelini detaylı olarak karşılaştırın
+              Detailed comparison between two premium Land Rover Range Rover plug-in hybrid SUVs
             </p>
           </div>
 
