@@ -179,6 +179,16 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
   // İçeriği markdown olarak render et
   const htmlContent = renderMarkdown(content)
 
+  // Biçimlendirilmiş yayın tarihi
+  const formattedDate = new Date(post.published_at).toLocaleDateString(
+    locale === 'tr' ? 'tr-TR' : locale === 'de' ? 'de-DE' : locale === 'pl' ? 'pl-PL' : 'en-GB',
+    {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }
+  )
+
   return (
     <>
       {/* Draft Preview Warning Banner */}
@@ -220,15 +230,14 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
         }}
       />
 
-      <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
+      <div className="min-h-screen bg-slate-100/70 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 transition-colors">
         {/* Breadcrumb */}
-        <div className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 py-4">
+        <div className="bg-white/90 dark:bg-[#131b2e]/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 py-3.5 sticky top-0 z-40">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Mobilde: Bayraklar üstte, breadcrumb altta */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
-              {/* Language Selector - Mobilde üstte */}
+              {/* Language Selector */}
               <div className="flex justify-center sm:justify-end sm:order-2">
-                <div className="flex items-center space-x-1 bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+                <div className="flex items-center space-x-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-1 border border-slate-200/60 dark:border-slate-700/60">
                   {[
                     { code: 'en' as Locale, flag: 'gb' },
                     { code: 'de' as Locale, flag: 'de' },
@@ -240,10 +249,10 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
                       <Link
                         key={lang.code}
                         href={`/blog/${params.slug}?lang=${lang.code}`}
-                        className={`p-2 rounded-md transition-all duration-200 ${
+                        className={`p-1.5 px-2 rounded-md transition-all duration-200 ${
                           isActive
-                            ? 'bg-white dark:bg-slate-600 shadow-sm'
-                            : 'hover:bg-white/50 dark:hover:bg-slate-600/50'
+                            ? 'bg-white dark:bg-slate-700 shadow-sm'
+                            : 'hover:bg-white/50 dark:hover:bg-slate-700/50'
                         }`}
                         title={lang.code.toUpperCase()}
                       >
@@ -254,28 +263,79 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
                 </div>
               </div>
               
-              {/* Breadcrumb - Mobilde altta */}
+              {/* Breadcrumb Links */}
               <nav className="flex items-center space-x-2 text-sm flex-wrap sm:order-1 min-w-0">
-                <Link href={`/?lang=${locale}`} className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap">
+                <Link href={`/?lang=${locale}`} className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap">
                   {t.blog.home}
                 </Link>
-                <span className="text-gray-400">/</span>
-                <Link href={`/blog?lang=${locale}`} className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap">
+                <span className="text-slate-400">/</span>
+                <Link href={`/blog?lang=${locale}`} className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap">
                   {t.blog.title}
                 </Link>
-                <span className="text-gray-400">/</span>
-                <span className="text-gray-900 dark:text-white truncate">{title}</span>
+                <span className="text-slate-400">/</span>
+                <span className="text-slate-900 dark:text-slate-200 font-medium truncate max-w-xs">{title}</span>
               </nav>
             </div>
           </div>
         </div>
 
-        {/* Article Header */}
-        <article className="py-8">
+        {/* Article Container */}
+        <article className="py-8 sm:py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            {/* Editorial Header Section (Title & Meta) */}
+            <header className="mb-8">
+              {/* Category Pill & Badges */}
+              <div className="flex flex-wrap items-center gap-3 mb-5">
+                <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white shadow-sm">
+                  {category}
+                </span>
+                <span className="text-slate-300 dark:text-slate-700">•</span>
+                <span className="text-sm font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {formattedDate}
+                </span>
+                <span className="text-slate-300 dark:text-slate-700">•</span>
+                <span className="text-sm font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {post.read_time} {t.blog.readTime}
+                </span>
+              </div>
+
+              {/* Editorial Headline */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2] mb-6">
+                {title}
+              </h1>
+
+              {/* Author Byline Bar */}
+              <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-slate-200/80 dark:border-slate-800 text-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold text-base flex items-center justify-center shadow-sm">
+                    {author.charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900 dark:text-white">{author}</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">PHEVs.eu Editorial • Automotive Technical Review</div>
+                  </div>
+                </div>
+
+                <Link
+                  href={`/blog?lang=${locale}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  <span>←</span>
+                  <span>{t.blog.title}</span>
+                </Link>
+              </div>
+            </header>
+
             {/* Featured Image */}
-            <div className="mb-8">
-              <div className="relative h-96 rounded-xl overflow-hidden">
+            <div className="mb-10 rounded-2xl overflow-hidden shadow-md border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-800">
+              <div className="relative aspect-[16/9] w-full">
                 <BlogImage
                   src={post.featured_image}
                   alt={title}
@@ -284,57 +344,37 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
               </div>
             </div>
 
-            {/* Article Meta */}
-            <div className="mb-6">
-              <div className="flex flex-wrap items-center gap-4 mb-4">
-                <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                  {category}
-                </span>
-                <span className="text-gray-500 dark:text-gray-400 text-sm">
-                  {new Date(post.published_at).toLocaleDateString(locale === 'tr' ? 'tr-TR' : locale === 'de' ? 'de-DE' : locale === 'pl' ? 'pl-PL' : 'en-GB', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </span>
-                <span className="text-gray-500 dark:text-gray-400 text-sm">
-                  {post.read_time} {t.blog.readTime}
-                </span>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                {title}
-              </h1>
-              <div className="flex items-center text-gray-600 dark:text-gray-400">
-                <span className="font-semibold">{author}</span>
-              </div>
-            </div>
+            {/* WordPress-style Editorial Paper Card Container */}
+            <div className="bg-white dark:bg-[#131b2e] rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-6 sm:p-10 md:p-14 mb-12">
+              <div 
+                className="blog-content"
+                dangerouslySetInnerHTML={{ __html: htmlContent }}
+              />
 
-            {/* Article Content */}
-            <div 
-              className="blog-content prose prose-lg dark:prose-invert max-w-none mb-12 text-slate-800 dark:text-slate-200"
-              dangerouslySetInnerHTML={{ __html: htmlContent }}
-            />
-
-            {/* Tags */}
-            {post.tags.length > 0 && (
-              <div className="mb-12">
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
+              {/* Tags inside card footer */}
+              {post.tags.length > 0 && (
+                <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3">
+                    Tags & Topics
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-slate-100 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium transition-colors cursor-default border border-slate-200/60 dark:border-slate-700/60"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
 
             {/* Related Cars */}
             {relatedCars.length > 0 && (
-              <div className="mb-12 bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <div className="mb-12 bg-white dark:bg-[#131b2e] rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
                   {t.blog.relatedModels}
                 </h2>
                 <div className="grid md:grid-cols-3 gap-4">
@@ -342,19 +382,19 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
                     <Link
                       key={car.id}
                       href={`/models/${car.slug || car.id}`}
-                      className="group block bg-gray-50 dark:bg-slate-700 rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-slate-600 transition-colors"
+                      className="group block bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60 rounded-xl p-4 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md transition-all"
                     >
-                      <div className="aspect-video mb-3 rounded-lg overflow-hidden">
+                      <div className="aspect-video mb-3 rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-700">
                         <BlogImage
                           src={car.image_url}
                           alt={`${car.brand} ${car.model}`}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                         />
                       </div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                      <h3 className="font-semibold text-slate-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {car.brand} {car.model}
                       </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-sm text-slate-600 dark:text-slate-400">
                         {car.ev_range_km} {t.blog.range}
                       </p>
                     </Link>
