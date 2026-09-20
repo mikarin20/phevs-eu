@@ -1,0 +1,95 @@
+{
+  "phevGuidePopup": {
+    "title": "Guide PHEV",
+    "subtitle": "Tout sur les véhicules hybrides rechargeables",
+    "whatWillYouLearn": "Ce que vous allez apprendre",
+    "features": {
+      "phevBasics": {
+        "title": "Qu'est-ce qu'un PHEV ?",
+        "description": "Comprendre le fonctionnement des véhicules hybrides rechargeables"
+      },
+      "rangeSimulator": {
+        "title": "Simulateur d'autonomie",
+        "description": "Calculer l'autonomie en conditions réelles"
+      },
+      "technicalSpecs": {
+        "title": "Spécifications techniques",
+        "description": "Informations détaillées sur la batterie, le moteur et les temps de charge"
+      }
+    },
+    "benefits": {
+      "title": "Avantages",
+      "items": [
+        "Faible consommation de carburant et émissions réduites",
+        "Conduite 100% électrique en milieu urbain",
+        "Polyvalence thermique pour les longues distances",
+        "Avantages fiscaux, vignette Crit'Air 1 et exonérations"
+      ]
+    },
+    "buttons": {
+      "exploreGuide": "Explorer le guide PHEV",
+      "later": "Plus tard"
+    }
+  },
+  "faq": {
+    "title": "Tout ce que vous devez savoir sur le PHEV",
+    "subtitle": "Guide complet des véhicules hybrides rechargeables (PHEV). Tout sur la technologie hybride, les avantages, le guide d'achat, la recharge et l'entretien.",
+    "categories": {
+      "basics": {
+        "title": "Bases du PHEV & Technologie",
+        "description": "Comprendre la technologie hybride rechargeable et son fonctionnement"
+      },
+      "buying": {
+        "title": "Guide d'achat",
+        "description": "Guide complet pour choisir votre premier véhicule PHEV"
+      },
+      "technical": {
+        "title": "Spécifications techniques",
+        "description": "Données techniques détaillées sur les motorisations et batteries PHEV"
+      },
+      "charging": {
+        "title": "Recharge & Infrastructure",
+        "description": "Tout sur les solutions de recharge à domicile et sur bornes publiques"
+      },
+      "maintenance": {
+        "title": "Entretien & Révision",
+        "description": "Informations sur les coûts d'entretien et la longévité de la batterie"
+      }
+    },
+    "topics": {
+      "phev-nedir": {
+        "title": "Qu'est-ce qu'un PHEV et comment fonctionne-t-il ?",
+        "description": "Explication complète du fonctionnement des véhicules hybrides rechargeables"
+      },
+      "phev-bev-fark": {
+        "title": "PHEV vs BEV vs Hybride simple : Les différences clés",
+        "description": "Comprendre les différences entre hybride rechargeable, 100% électrique et full hybrid"
+      },
+      "phev-avantajlari": {
+        "title": "Avantages et bénéfices des véhicules PHEV",
+        "description": "Pourquoi choisir un hybride rechargeable face aux autres motorisations"
+      }
+    }
+  },
+  "blog": {
+    "title": "Actualités PHEV",
+    "subtitle": "Dernières actualités, essais complets et analyses du marché des véhicules hybrides rechargeables en Europe",
+    "featured": "À la une",
+    "all": "Tous",
+    "readTime": "min de lecture",
+    "readMore": "Lire la suite",
+    "home": "Accueil",
+    "relatedModels": "Modèles associés",
+    "otherNews": "Autres actualités",
+    "range": "km d'autonomie",
+    "compareCTA": {
+      "title": "Comparer les modèles PHEV",
+      "description": "Comparez plus de 125 modèles hybrides rechargeables avec spécifications précises, prix et autonomies réelles.",
+      "button": "Ouvrir l'outil de comparaison"
+    }
+  },
+  "navigation": {
+    "phevNews": "Actualités PHEV",
+    "faq": "Guide & FAQ"
+  }
+}

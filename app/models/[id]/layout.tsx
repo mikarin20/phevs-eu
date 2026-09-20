@@ -214,8 +214,10 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
       languages: {
         'x-default': canonicalUrl,
         en: canonicalUrl,
-        tr: canonicalUrl,
         de: canonicalUrl,
+        fr: canonicalUrl,
+        es: canonicalUrl,
+        tr: canonicalUrl,
         pl: canonicalUrl,
       },
     },

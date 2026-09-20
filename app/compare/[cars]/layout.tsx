@@ -158,8 +158,10 @@ export async function generateMetadata({ params }: { params: { cars: string } })
       languages: {
         'x-default': `${baseUrl}/compare/${slug}`,
         en: `${baseUrl}/compare/${slug}`,
-        tr: `${baseUrl}/compare/${slug}`,
         de: `${baseUrl}/compare/${slug}`,
+        fr: `${baseUrl}/compare/${slug}`,
+        es: `${baseUrl}/compare/${slug}`,
+        tr: `${baseUrl}/compare/${slug}`,
         pl: `${baseUrl}/compare/${slug}`,
       },
     },

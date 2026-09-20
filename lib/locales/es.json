@@ -1,0 +1,95 @@
+{
+  "phevGuidePopup": {
+    "title": "Guía PHEV",
+    "subtitle": "Todo sobre los vehículos híbridos enchufables",
+    "whatWillYouLearn": "¿Qué aprenderás?",
+    "features": {
+      "phevBasics": {
+        "title": "¿Qué es un PHEV?",
+        "description": "Descubre cómo funcionan los vehículos híbridos enchufables"
+      },
+      "rangeSimulator": {
+        "title": "Simulador de autonomía",
+        "description": "Calcula la autonomía en condiciones reales de conducción"
+      },
+      "technicalSpecs": {
+        "title": "Especificaciones técnicas",
+        "description": "Información detallada sobre batería, motor y tiempos de carga"
+      }
+    },
+    "benefits": {
+      "title": "Ventajas",
+      "items": [
+        "Bajo consumo de combustible y emisiones reducidas",
+        "Conducción 100% eléctrica en ciudad",
+        "Potencia híbrida para viajes de larga distancia",
+        "Etiqueta CERO de la DGT, exención de impuestos y aparcamiento gratuito"
+      ]
+    },
+    "buttons": {
+      "exploreGuide": "Explorar guía PHEV",
+      "later": "Más tarde"
+    }
+  },
+  "faq": {
+    "title": "Todo lo que necesitas saber sobre PHEV",
+    "subtitle": "Guía completa de vehículos híbridos enchufables (PHEV). Todo sobre tecnología híbrida, ventajas, guía de compra, recarga y mantenimiento.",
+    "categories": {
+      "basics": {
+        "title": "Bases y Tecnología PHEV",
+        "description": "Comprender la tecnología híbrida enchufable y su funcionamiento"
+      },
+      "buying": {
+        "title": "Guía de compra",
+        "description": "Guía completa para elegir tu primer coche PHEV"
+      },
+      "technical": {
+        "title": "Especificaciones técnicas",
+        "description": "Datos técnicos detallados sobre motores, baterías y potencia"
+      },
+      "charging": {
+        "title": "Recarga e Infraestructura",
+        "description": "Todo sobre soluciones de carga doméstica y puntos públicos"
+      },
+      "maintenance": {
+        "title": "Mantenimiento y Servicio",
+        "description": "Costes de mantenimiento y vida útil de la batería"
+      }
+    },
+    "topics": {
+      "phev-nedir": {
+        "title": "¿Qué es un PHEV y cómo funciona?",
+        "description": "Explicación completa del funcionamiento de los híbridos enchufables"
+      },
+      "phev-bev-fark": {
+        "title": "PHEV vs BEV vs Híbrido convencional: Diferencias clave",
+        "description": "Diferencias entre híbridos enchufables, 100% eléctricos e híbridos autorrecargables"
+      },
+      "phev-avantajlari": {
+        "title": "Ventajas y beneficios de los vehículos PHEV",
+        "description": "Por qué elegir un híbrido enchufable frente a otras tecnologías"
+      }
+    }
+  },
+  "blog": {
+    "title": "Noticias PHEV",
+    "subtitle": "Últimas novedades, pruebas a fondo y análisis del mercado europeo de híbridos enchufables",
+    "featured": "Destacado",
+    "all": "Todos",
+    "readTime": "min de lectura",
+    "readMore": "Leer más",
+    "home": "Inicio",
+    "relatedModels": "Modelos relacionados",
+    "otherNews": "Otras noticias",
+    "range": "km de autonomía",
+    "compareCTA": {
+      "title": "Comparar modelos PHEV",
+      "description": "Compara más de 125 modelos híbridos enchufables con fichas técnicas completas, precios y consumos reales.",
+      "button": "Abrir comparador"
+    }
+  },
+  "navigation": {
+    "phevNews": "Noticias PHEV",
+    "faq": "Guía y FAQ"
+  }
+}
