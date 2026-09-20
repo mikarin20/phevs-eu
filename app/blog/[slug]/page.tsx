@@ -5,6 +5,14 @@ import blogData from '@/data/blog.json'
 import carsData from '@/data/cars.json'
 import BlogImage from '@/components/BlogImage'
 import { getTranslations, type Locale } from '@/lib/i18n'
+import { marked } from 'marked'
+
+function renderMarkdown(content: string): string {
+  if (!content) return ''
+  const rawHtml = marked.parse(content, { gfm: true, breaks: true }) as string
+  return rawHtml.replace(/<table>([\s\S]*?)<\/table>/g, '<div class="blog-table-wrapper"><table>$1</table></div>')
+}
+
 
 interface BlogPost {
   id: string
@@ -168,8 +176,8 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
     .filter(p => p.id !== post.id && p.status !== 'draft')
     .slice(0, 3)
 
-  // İçeriği paragraflara ayır
-  const paragraphs = content.split('\n\n').filter(p => p.trim())
+  // İçeriği markdown olarak render et
+  const htmlContent = renderMarkdown(content)
 
   return (
     <>
@@ -302,67 +310,10 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
             </div>
 
             {/* Article Content */}
-            <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
-              {paragraphs.map((paragraph, index) => {
-                // Başlık kontrolü
-                if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-                  const heading = paragraph.replace(/\*\*/g, '')
-                  const level = heading.match(/^#{1,6}/)?.[0]?.length || 0
-                  if (level > 0) {
-                    const HeadingTag = `h${Math.min(level + 1, 6)}` as keyof JSX.IntrinsicElements
-                    const text = heading.replace(/^#+\s*/, '')
-                    return <HeadingTag key={index} className="font-bold mt-8 mb-4 text-gray-900 dark:text-white">{text}</HeadingTag>
-                  }
-                }
-                
-                // Liste kontrolü
-                if (paragraph.includes('✅') || paragraph.includes('❌')) {
-                  const items = paragraph.split('\n').filter(i => i.trim())
-                  return (
-                    <ul key={index} className="list-none space-y-2 my-6">
-                      {items.map((item, i) => {
-                        const isPositive = item.includes('✅')
-                        const text = item.replace(/[✅❌]\s*/, '').replace(/\*\*/g, '')
-                        return (
-                          <li key={i} className={`flex items-start ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
-                            <span className="mr-2">{isPositive ? '✅' : '❌'}</span>
-                            <span className="text-gray-700 dark:text-gray-300">{text}</span>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  )
-                }
-
-                // Normal paragraf
-                const processedParagraph = paragraph
-                  .split('\n')
-                  .map((line, i) => {
-                    // Bold text
-                    if (line.includes('**')) {
-                      const parts = line.split('**')
-                      return (
-                        <span key={i}>
-                          {parts.map((part, j) => 
-                            j % 2 === 1 ? (
-                              <strong key={j} className="font-semibold text-gray-900 dark:text-white">{part}</strong>
-                            ) : (
-                              <span key={j}>{part}</span>
-                            )
-                          )}
-                        </span>
-                      )
-                    }
-                    return <span key={i}>{line}</span>
-                  })
-
-                return (
-                  <p key={index} className="mb-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                    {processedParagraph}
-                  </p>
-                )
-              })}
-            </div>
+            <div 
+              className="blog-content prose prose-lg dark:prose-invert max-w-none mb-12 text-slate-800 dark:text-slate-200"
+              dangerouslySetInnerHTML={{ __html: htmlContent }}
+            />
 
             {/* Tags */}
             {post.tags.length > 0 && (

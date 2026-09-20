@@ -21,6 +21,7 @@
     "html2canvas": "^1.4.1",
     "image-size": "^2.0.2",
     "lucide-react": "^0.292.0",
+    "marked": "^18.0.13",
     "next": "14.0.0",
     "puppeteer": "^24.24.1",
     "react": "^18.0.0",
