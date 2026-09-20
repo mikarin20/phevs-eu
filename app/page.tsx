@@ -655,6 +655,19 @@ export default function Home() {
     return filtered
   }, [cars, searchTerm, selectedBrands, filters, sortBy])
 
+  // Option 1: Load More pagination (24 cars initial display for fast LCP & clean layout)
+  const INITIAL_VISIBLE_CARS = 24
+  const [visibleCarsCount, setVisibleCarsCount] = useState(INITIAL_VISIBLE_CARS)
+
+  // Reset pagination count when user changes filters, search, or sorting
+  useEffect(() => {
+    setVisibleCarsCount(INITIAL_VISIBLE_CARS)
+  }, [searchTerm, selectedBrands, filters, sortBy])
+
+  const displayedCars = useMemo(() => {
+    return filteredAndSortedCars.slice(0, visibleCarsCount)
+  }, [filteredAndSortedCars, visibleCarsCount])
+
   // Markaları al (Case-insensitive & trimmed unique map)
   const brands = useMemo(() => {
     const brandMap = new Map<string, string>()
@@ -2179,8 +2192,13 @@ export default function Home() {
         {/* Results Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-4">
-            <h2 className="text-lg font-semibold text-[#0B2E33]">
-              {filteredAndSortedCars.length} {t.vehiclesFound}
+            <h2 className="text-lg font-semibold text-[#0B2E33] dark:text-white flex items-center gap-2">
+              <span>{filteredAndSortedCars.length} {t.vehiclesFound}</span>
+              {filteredAndSortedCars.length > visibleCarsCount && (
+                <span className="text-xs font-normal text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full">
+                  Showing 1–{displayedCars.length}
+                </span>
+              )}
             </h2>
             {(selectedBrands.length > 0 || filters.segment || searchTerm) && (
               <button
@@ -2200,7 +2218,7 @@ export default function Home() {
         {/* Cars List/Grid */}
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
-            {filteredAndSortedCars.map((car, index) => {
+            {displayedCars.map((car, index) => {
               // Tüm kartları koyu renk (Tonale stili) yap
               const cardStyle = `${currentTheme.cardBg} border ${currentTheme.cardBorder}`
               
@@ -2526,7 +2544,7 @@ export default function Home() {
           </div>
         ) : (
                 <div className="space-y-4">
-            {filteredAndSortedCars.map((car, index) => {
+            {displayedCars.map((car, index) => {
               const buttonVariants = [
                 `${currentTheme.cardBg} ${currentTheme.textPrimary} hover:bg-blue-600 hover:text-white`,
                 `bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white dark:bg-blue-900/30 dark:text-blue-300`,
@@ -2805,6 +2823,29 @@ export default function Home() {
             })}
               </div>
             )}
+
+        {/* Load More Pagination Controls (Option 1) */}
+        {filteredAndSortedCars.length > visibleCarsCount && (
+          <div className="mt-8 mb-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              onClick={() => setVisibleCarsCount((prev) => prev + 24)}
+              className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 group cursor-pointer"
+            >
+              <span>
+                {selectedLanguage === 'tr' ? 'Daha Fazla Araç Göster (+24)' : selectedLanguage === 'de' ? 'Mehr Fahrzeuge anzeigen (+24)' : selectedLanguage === 'pl' ? 'Pokaż więcej pojazdów (+24)' : 'Show More Vehicles (+24)'}
+              </span>
+              <span className="text-xs font-normal opacity-85 px-2 py-0.5 rounded-full bg-blue-700 text-white ml-1">
+                {displayedCars.length} / {filteredAndSortedCars.length}
+              </span>
+            </button>
+            <button
+              onClick={() => setVisibleCarsCount(filteredAndSortedCars.length)}
+              className="w-full sm:w-auto px-6 py-3.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm transition-all duration-200 text-sm cursor-pointer"
+            >
+              {selectedLanguage === 'tr' ? `Tümünü Göster (${filteredAndSortedCars.length} Araç)` : selectedLanguage === 'de' ? `Alle anzeigen (${filteredAndSortedCars.length} Fahrzeuge)` : selectedLanguage === 'pl' ? `Pokaż wszystkie (${filteredAndSortedCars.length})` : `Show All (${filteredAndSortedCars.length} Vehicles)`}
+            </button>
+          </div>
+        )}
 
         {filteredAndSortedCars.length === 0 && (
           <div className="text-center py-12">
