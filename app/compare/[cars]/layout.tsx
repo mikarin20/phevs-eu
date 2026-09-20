@@ -106,7 +106,7 @@ function findCarForCompare(id: string) {
 }
 
 export async function generateMetadata({ params }: { params: { cars: string } }): Promise<Metadata> {
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
   const slug = params.cars
 
   const customCompare = (quickCompareData as any[]).find((c) => c.slug === slug)
@@ -146,6 +146,7 @@ export async function generateMetadata({ params }: { params: { cars: string } })
   // Only index curated comparisons with actual search volume / editor curation.
   // Combinatorial pairs (out of ~9,870 possibilities) remain functional for users with noindex, follow.
   const isCuratedComparison = Boolean(customCompare)
+  const compareCanonicalUrl = `${baseUrl}/compare/${slug}/`
 
   return {
     title: finalTitle,
@@ -154,22 +155,22 @@ export async function generateMetadata({ params }: { params: { cars: string } })
       ? { index: true, follow: true }
       : { index: false, follow: true },
     alternates: {
-      canonical: `${baseUrl}/compare/${slug}`,
+      canonical: compareCanonicalUrl,
       languages: {
-        'x-default': `${baseUrl}/compare/${slug}`,
-        en: `${baseUrl}/compare/${slug}`,
-        de: `${baseUrl}/compare/${slug}`,
-        fr: `${baseUrl}/compare/${slug}`,
-        es: `${baseUrl}/compare/${slug}`,
-        tr: `${baseUrl}/compare/${slug}`,
-        pl: `${baseUrl}/compare/${slug}`,
+        'x-default': compareCanonicalUrl,
+        en: compareCanonicalUrl,
+        de: compareCanonicalUrl,
+        fr: compareCanonicalUrl,
+        es: compareCanonicalUrl,
+        tr: compareCanonicalUrl,
+        pl: compareCanonicalUrl,
       },
     },
     openGraph: {
       title: finalTitle,
       description: finalDescription,
       type: 'website',
-      url: `${baseUrl}/compare/${slug}`,
+      url: compareCanonicalUrl,
       siteName: 'PHEVs.eu',
     },
   }

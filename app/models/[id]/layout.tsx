@@ -53,14 +53,14 @@ export default function ModelLayout({
   params: { id: string }
 }) {
   const id = params.id
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
   const car = findCar(id)
 
   if (!car) {
     return <>{children}</>
   }
 
-  const modelUrl = `${baseUrl}/models/${car.slug || car.id}`
+  const modelUrl = `${baseUrl}/models/${car.slug || car.id}/`
   const imageUrl = getImageUrl(car.image_url)
 
   const carSchema = {
@@ -195,7 +195,7 @@ export default function ModelLayout({
 // Dinamik kanonik URL ve temel meta
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const id = params.id
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
 
   const car = findCar(id)
 
@@ -212,7 +212,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     ? (car.meta_title.includes('PHEVs.eu') ? car.meta_title : `${car.meta_title} | PHEVs.eu`)
     : defaultTitle
   const description = `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid (PHEV) technical specs: ${car.ev_range_km} km electric range, ${car.battery_kwh} kWh battery${car.usable_battery_kwh ? ` (${car.usable_battery_kwh} kWh net)` : ''}, ${car.power_hp} HP system output and ${car.fuel_consumption} L/100km fuel consumption.`
-  const canonicalUrl = `${baseUrl}/models/${car.slug || car.id}`
+  const canonicalUrl = `${baseUrl}/models/${car.slug || car.id}/`
 
   return {
     title: {

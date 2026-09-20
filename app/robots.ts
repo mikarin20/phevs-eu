@@ -32,6 +32,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://phevs.eu/sitemap.xml',
+    sitemap: 'https://www.phevs.eu/sitemap.xml',
   }
 }

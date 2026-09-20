@@ -8,21 +8,21 @@ export const metadata: Metadata = {
   title: 'Euro 6e-bis & Company Car (BiK) Tax Simulator 2026 | PHEVs.eu',
   description: 'Interactive company car tax calculator for plug-in hybrids across Europe. Calculate UK BiK rates (2%-5%), German 0.5% Dienstwagen taxation, France Malus exemptions, and Euro 6e-bis Utility Factor risk.',
   alternates: {
-    canonical: 'https://phevs.eu/tax-simulator',
+    canonical: 'https://www.phevs.eu/tax-simulator/',
     languages: {
-      'x-default': 'https://phevs.eu/tax-simulator',
-      en: 'https://phevs.eu/tax-simulator',
-      de: 'https://phevs.eu/tax-simulator',
-      fr: 'https://phevs.eu/tax-simulator',
-      es: 'https://phevs.eu/tax-simulator',
-      tr: 'https://phevs.eu/tax-simulator',
-      pl: 'https://phevs.eu/tax-simulator',
+      'x-default': 'https://www.phevs.eu/tax-simulator/',
+      en: 'https://www.phevs.eu/tax-simulator/',
+      de: 'https://www.phevs.eu/tax-simulator/',
+      fr: 'https://www.phevs.eu/tax-simulator/',
+      es: 'https://www.phevs.eu/tax-simulator/',
+      tr: 'https://www.phevs.eu/tax-simulator/',
+      pl: 'https://www.phevs.eu/tax-simulator/',
     }
   },
   openGraph: {
     title: 'Euro 6e-bis & Company Car (BiK) Tax Simulator | PHEVs.eu',
     description: 'Calculate European plug-in hybrid company car tax savings: UK BiK, Germany 0.5% rule, France Malus, Belgium corporate deductibility, and Euro 6e-bis regulation.',
-    url: 'https://phevs.eu/tax-simulator',
+    url: 'https://www.phevs.eu/tax-simulator/',
     type: 'website',
     siteName: 'PHEVs.eu'
   }
@@ -33,7 +33,7 @@ export default function TaxSimulatorPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Euro 6e-bis & Company Car (BiK) Tax Simulator",
-    "url": "https://phevs.eu/tax-simulator",
+    "url": "https://www.phevs.eu/tax-simulator/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "All",
     "description": "Calculate UK Benefit-in-Kind (BiK) brackets, German 0.5% company car taxation, French Malus exemptions, and Euro 6e-bis Utility Factor compliance for plug-in hybrid electric vehicles."
@@ -43,9 +43,9 @@ export default function TaxSimulatorPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://phevs.eu/" },
-      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://phevs.eu/#tools" },
-      { "@type": "ListItem", "position": 3, "name": "Euro 6e-bis & BiK Tax Simulator", "item": "https://phevs.eu/tax-simulator" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.phevs.eu/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.phevs.eu/#tools" },
+      { "@type": "ListItem", "position": 3, "name": "Euro 6e-bis & BiK Tax Simulator", "item": "https://www.phevs.eu/tax-simulator/" }
     ]
   }
 

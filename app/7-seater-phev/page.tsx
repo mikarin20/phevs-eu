@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     'Complete guide and comparison of 7-seater plug-in hybrid (PHEV) vehicles in Europe. Discover spacious 3-row family SUVs and MPVs with electric range, luggage volume, and specs.',
   alternates: {
-    canonical: 'https://phevs.eu/7-seater-phev',
+    canonical: 'https://www.phevs.eu/7-seater-phev/',
   },
   openGraph: {
     title: '7-Seater PHEVs — Best Family 3-Row Plug-in Hybrids (2025/2026)',
     description:
       'Spacious 7-seater and 3-row family plug-in hybrids compared: electric range, boot capacity, third-row space, and fuel economy.',
-    url: 'https://phevs.eu/7-seater-phev',
+    url: 'https://www.phevs.eu/7-seater-phev/',
     type: 'website',
   },
 };
@@ -31,30 +31,30 @@ export default function SevenSeaterPhevPage() {
     '@graph': [
       {
         '@type': 'CollectionPage',
-        '@id': 'https://phevs.eu/7-seater-phev#webpage',
-        url: 'https://phevs.eu/7-seater-phev',
+        '@id': 'https://www.phevs.eu/7-seater-phev/#webpage',
+        url: 'https://www.phevs.eu/7-seater-phev/',
         name: '7-Seater PHEVs — Best Large Family Plug-in Hybrids',
         description:
           'Comprehensive comparison of 7-passenger plug-in hybrid SUVs and MPVs available in the European market.',
         isPartOf: {
           '@type': 'WebSite',
-          '@id': 'https://phevs.eu/#website',
+          '@id': 'https://www.phevs.eu/#website',
           name: 'PHEVs.eu',
-          url: 'https://phevs.eu',
+          url: 'https://www.phevs.eu/',
         },
         mainEntity: {
           '@type': 'ItemList',
           itemListElement: sevenSeaters.map((car, index) => ({
             '@type': 'ListItem',
             position: index + 1,
-            url: `https://phevs.eu/models/${car.slug || car.id}`,
+            url: `https://www.phevs.eu/models/${car.slug || car.id}/`,
             name: `${car.brand} ${car.model}`,
           })),
         },
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://phevs.eu/7-seater-phev#faq',
+        '@id': 'https://www.phevs.eu/7-seater-phev/#faq',
         mainEntity: [
           {
             '@type': 'Question',

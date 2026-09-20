@@ -21,13 +21,13 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.phevs.eu'),
   alternates: {
-    canonical: 'https://www.phevs.eu',
+    canonical: 'https://www.phevs.eu/',
     languages: {
-      'x-default': 'https://www.phevs.eu',
-      en: 'https://www.phevs.eu',
-      tr: 'https://www.phevs.eu',
-      de: 'https://www.phevs.eu',
-      pl: 'https://www.phevs.eu',
+      'x-default': 'https://www.phevs.eu/',
+      en: 'https://www.phevs.eu/',
+      tr: 'https://www.phevs.eu/',
+      de: 'https://www.phevs.eu/',
+      pl: 'https://www.phevs.eu/',
     },
   },
   // Open Graph configuration is defined below with full details

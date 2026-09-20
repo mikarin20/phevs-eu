@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://phevs.eu/compare/lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev',
+    canonical: 'https://www.phevs.eu/compare/lexus-nx-450h-plus-phev-vs-lexus-rx-450h-plus-phev/',
   },
 }
 

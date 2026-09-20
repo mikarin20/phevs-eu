@@ -9,19 +9,19 @@ export const metadata: Metadata = {
   title: 'Longest Range PHEVs (100+ km) — Best Electric Range 2026 | PHEVs.eu',
   description: 'Explore all plug-in hybrid electric vehicles (PHEVs) offering over 100 km of official WLTP electric range. Compare battery size, charging speeds, and real-world efficiency.',
   alternates: {
-    canonical: 'https://phevs.eu/longest-range-phev',
+    canonical: 'https://www.phevs.eu/longest-range-phev/',
     languages: {
-      'x-default': 'https://phevs.eu/longest-range-phev',
-      en: 'https://phevs.eu/longest-range-phev',
-      de: 'https://phevs.eu/longest-range-phev',
-      tr: 'https://phevs.eu/longest-range-phev',
-      pl: 'https://phevs.eu/longest-range-phev',
+      'x-default': 'https://www.phevs.eu/longest-range-phev/',
+      en: 'https://www.phevs.eu/longest-range-phev/',
+      de: 'https://www.phevs.eu/longest-range-phev/',
+      tr: 'https://www.phevs.eu/longest-range-phev/',
+      pl: 'https://www.phevs.eu/longest-range-phev/',
     }
   },
   openGraph: {
     title: 'Longest Range PHEVs (100+ km) | PHEVs.eu',
     description: 'Compare all plug-in hybrid models with 100+ km pure electric range in Europe. Full specs, battery capacities, and charging performance.',
-    url: 'https://phevs.eu/longest-range-phev',
+    url: 'https://www.phevs.eu/longest-range-phev/',
     type: 'website',
     siteName: 'PHEVs.eu',
     images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'Longest Range PHEVs' }]
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 }
 
 export default function LongestRangePhevPage() {
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
   
   // Filter models with >= 100 km electric range, sorted descending by range
   const models = (carsData as any[])

@@ -4,7 +4,7 @@ import blogData from '@/data/blog.json'
 import quickComparesData from '@/data/quick-compares.json'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://phevs.eu'
+  const baseUrl = 'https://www.phevs.eu'
   const now = new Date()
 
   // 1. Ana sayfa ve statik kurumsal / rehber sayfaları (trailingSlash: true)

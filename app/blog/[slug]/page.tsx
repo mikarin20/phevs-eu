@@ -78,7 +78,7 @@ export async function generateMetadata({ params, searchParams }: BlogDetailProps
   }
 
   const baseUrl = 'https://www.phevs.eu'
-  const currentUrl = `${baseUrl}/blog/${params.slug}`
+  const currentUrl = `${baseUrl}/blog/${params.slug}/`
   const localizedTitle = locale === 'en' ? post.title_en : locale === 'de' ? (post.title_de || post.title_en || post.title) : locale === 'pl' ? (post.title_pl || post.title_en || post.title) : post.title
   const localizedExcerpt = locale === 'en' ? post.excerpt_en : locale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : locale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt
   const title = locale === 'en' ? (post.meta_title_en || localizedTitle) : locale === 'de' ? (post.meta_title_de || localizedTitle) : locale === 'pl' ? (post.meta_title_pl || localizedTitle) : (post.meta_title || localizedTitle)
@@ -130,11 +130,11 @@ export async function generateMetadata({ params, searchParams }: BlogDetailProps
     alternates: {
       canonical: currentUrl,
       languages: {
-        'x-default': `${baseUrl}/blog/${params.slug}`,
-        en: `${baseUrl}/blog/${params.slug}`,
-        tr: `${baseUrl}/blog/${params.slug}`,
-        de: `${baseUrl}/blog/${params.slug}`,
-        pl: `${baseUrl}/blog/${params.slug}`,
+        'x-default': `${baseUrl}/blog/${params.slug}/`,
+        en: `${baseUrl}/blog/${params.slug}/`,
+        tr: `${baseUrl}/blog/${params.slug}/`,
+        de: `${baseUrl}/blog/${params.slug}/`,
+        pl: `${baseUrl}/blog/${params.slug}/`,
       },
     },
     robots: post.status === 'draft' ? { index: false, follow: false } : undefined,

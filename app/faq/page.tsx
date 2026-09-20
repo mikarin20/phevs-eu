@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.phevs.eu/faq',
+    canonical: 'https://www.phevs.eu/faq/',
     languages: {
-      'x-default': 'https://www.phevs.eu/faq',
-      en: 'https://www.phevs.eu/faq',
-      tr: 'https://www.phevs.eu/faq',
-      de: 'https://www.phevs.eu/faq',
-      pl: 'https://www.phevs.eu/faq',
+      'x-default': 'https://www.phevs.eu/faq/',
+      en: 'https://www.phevs.eu/faq/',
+      tr: 'https://www.phevs.eu/faq/',
+      de: 'https://www.phevs.eu/faq/',
+      pl: 'https://www.phevs.eu/faq/',
     },
   },
 }
@@ -189,7 +189,7 @@ export default function PHEVGuidePage({
       },
       {
         "@type": "FAQPage",
-        "@id": "https://phevs.eu/faq#faq",
+        "@id": "https://www.phevs.eu/faq/#faq",
         "name": t.title,
         "description": t.subtitle,
         "mainEntity": guideCategories.flatMap(category =>
@@ -198,7 +198,7 @@ export default function PHEVGuidePage({
             "name": topic.title,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `${topic.shortDescription}. Read the complete guide: https://phevs.eu/faq/${topic.slug}/`
+              "text": `${topic.shortDescription}. Read the complete guide: https://www.phevs.eu/faq/${topic.slug}/`
             }
           }))
         )

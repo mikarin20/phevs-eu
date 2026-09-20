@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'PHEV Haberleri ve İncelemeler | PHEVs.eu Blog',
     description: 'Avrupa\'daki en güncel plug-in hibrit araç haberleri, detaylı incelemeler ve pazar analizleri.',
     type: 'website',
-    url: 'https://www.phevs.eu/blog',
+    url: 'https://www.phevs.eu/blog/',
     siteName: 'PHEVs.eu',
     images: [
       {
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     site: '@phevs_eu',
   },
   alternates: {
-    canonical: 'https://www.phevs.eu/blog',
+    canonical: 'https://www.phevs.eu/blog/',
     languages: {
-      'x-default': 'https://www.phevs.eu/blog',
-      en: 'https://www.phevs.eu/blog',
-      tr: 'https://www.phevs.eu/blog',
-      de: 'https://www.phevs.eu/blog',
-      pl: 'https://www.phevs.eu/blog',
+      'x-default': 'https://www.phevs.eu/blog/',
+      en: 'https://www.phevs.eu/blog/',
+      tr: 'https://www.phevs.eu/blog/',
+      de: 'https://www.phevs.eu/blog/',
+      pl: 'https://www.phevs.eu/blog/',
     },
   },
 }
