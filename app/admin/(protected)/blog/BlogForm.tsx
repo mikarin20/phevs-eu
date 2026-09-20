@@ -173,20 +173,91 @@ function extractErrorMessage(data: any, defaultMsg = 'Save failed'): string {
             <Textarea rows={2} {...register('meta_description')} />
           </div>
           <div>
-            <Label>Status</Label>
-            <Select {...register('status')}>
-              <option value="draft">Draft</option>
-              <option value="published">Published</option>
-            </Select>
+            <Label className="block mb-2 font-semibold">Publication Status</Label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label
+                className={`flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                  watch('status') === 'draft'
+                    ? 'border-amber-500 bg-amber-50/50 text-slate-900 shadow-sm'
+                    : 'border-slate-200 hover:border-slate-300 text-slate-600'
+                }`}
+              >
+                <input
+                  type="radio"
+                  value="draft"
+                  {...register('status')}
+                  className="mt-1 accent-amber-600"
+                />
+                <div>
+                  <div className="font-bold text-sm text-amber-800 flex items-center gap-1.5">
+                    <span>📝 Save as Draft (Taslak)</span>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                    Private and hidden. Will not appear on the public website, blog listings, or sitemaps. You can publish whenever you are ready.
+                  </p>
+                </div>
+              </label>
+
+              <label
+                className={`flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                  watch('status') === 'published'
+                    ? 'border-emerald-600 bg-emerald-50/50 text-slate-900 shadow-sm'
+                    : 'border-slate-200 hover:border-slate-300 text-slate-600'
+                }`}
+              >
+                <input
+                  type="radio"
+                  value="published"
+                  {...register('status')}
+                  className="mt-1 accent-emerald-600"
+                />
+                <div>
+                  <div className="font-bold text-sm text-emerald-800 flex items-center gap-1.5">
+                    <span>🚀 Published (Canlı Yayın)</span>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                    Publicly visible immediately on phevs.eu, included in sitemap.xml, and pinged to search engines via IndexNow.
+                  </p>
+                </div>
+              </label>
+            </div>
           </div>
         </CardContent>
       </Card>
 
-      <div className="flex gap-3">
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Saving and translating…' : mode === 'create' ? 'Create Post' : 'Save Changes'}
+      <div className="flex flex-wrap items-center gap-3 pt-2">
+        <Button
+          type="button"
+          disabled={isSubmitting}
+          onClick={() => {
+            setValue('status', 'published')
+            handleSubmit(onSubmit)()
+          }}
+          className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold"
+        >
+          {isSubmitting ? 'Saving and translating…' : '🚀 Publish Now'}
         </Button>
-        <Button type="button" variant="outline" onClick={() => router.push('/admin/blog')}>
+
+        <Button
+          type="button"
+          variant="outline"
+          disabled={isSubmitting}
+          onClick={() => {
+            setValue('status', 'draft')
+            handleSubmit(onSubmit)()
+          }}
+          className="border-amber-400 text-amber-800 hover:bg-amber-50 font-semibold"
+        >
+          {isSubmitting ? 'Saving and translating…' : '💾 Save as Draft'}
+        </Button>
+
+        <Button
+          type="button"
+          variant="ghost"
+          disabled={isSubmitting}
+          onClick={() => router.push('/admin/blog')}
+          className="text-slate-500 hover:text-slate-800"
+        >
           Cancel
         </Button>
       </div>

@@ -75,6 +75,7 @@ interface BlogPost {
   tags: string[]
   featured_image: string
   read_time: number
+  status?: 'draft' | 'published'
 }
 
 interface BlogPageProps {
@@ -86,7 +87,7 @@ interface BlogPageProps {
 export default function BlogPage({ searchParams }: BlogPageProps) {
   const locale = (searchParams?.lang as Locale) || 'tr'
   const t = getTranslations(locale)
-  const posts = blogData as BlogPost[]
+  const posts = (blogData as BlogPost[]).filter(post => post.status !== 'draft')
 
   // Tarihe göre sırala (en yeni önce)
   const sortedPosts = [...posts].sort((a, b) => 

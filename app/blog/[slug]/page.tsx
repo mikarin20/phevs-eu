@@ -43,6 +43,7 @@ interface BlogPost {
   featured_image: string
   read_time: number
   related_cars: string[]
+  status?: 'draft' | 'published'
 }
 
 interface BlogDetailProps {
@@ -128,22 +129,26 @@ export async function generateMetadata({ params, searchParams }: BlogDetailProps
         pl: `${baseUrl}/blog/${params.slug}`,
       },
     },
+    robots: post.status === 'draft' ? { index: false, follow: false } : undefined,
   }
 }
 
 export async function generateStaticParams() {
   const posts = blogData as BlogPost[]
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
+  return posts
+    .filter((post) => post.status !== 'draft')
+    .map((post) => ({
+      slug: post.slug,
+    }))
 }
 
 export default function BlogDetailPage({ params, searchParams }: BlogDetailProps) {
   const locale = (searchParams?.lang as Locale) || 'tr'
   const t = getTranslations(locale)
   const post = getBlogPost(params.slug)
+  const isPreview = (searchParams as any)?.preview === 'true'
 
-  if (!post) {
+  if (!post || (post.status === 'draft' && !isPreview)) {
     notFound()
   }
 
@@ -158,9 +163,9 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
     .filter(Boolean)
     .slice(0, 3)
 
-  // Diğer yazıları bul (aynı kategori veya rastgele)
+  // Diğer yazıları bul (sadece yayında olanlar)
   const otherPosts = (blogData as BlogPost[])
-    .filter(p => p.id !== post.id)
+    .filter(p => p.id !== post.id && p.status !== 'draft')
     .slice(0, 3)
 
   // İçeriği paragraflara ayır
@@ -168,6 +173,12 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
 
   return (
     <>
+      {/* Draft Preview Warning Banner */}
+      {post.status === 'draft' && (
+        <aside aria-label="Draft preview warning" className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white font-semibold py-3 px-4 text-center text-xs sm:text-sm shadow-md sticky top-0 z-50 flex items-center justify-center gap-2">
+          <span>⚠️ Draft Preview Mode: This article is currently unpublished and hidden from public visitors and search engines.</span>
+        </aside>
+      )}
       {/* Article Schema */}
       <script
         type="application/ld+json"

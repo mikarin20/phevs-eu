@@ -48,13 +48,53 @@ export async function PUT(request: NextRequest, { params }: { params: { slug: st
     items[index] = updated
     await blogStore.save(items, sha, `admin: update blog post ${params.slug}`)
 
-    // Ping Bing & Yandex via IndexNow immediately
-    submitToIndexNow([
-      `https://www.phevs.eu/blog/${updated.slug || params.slug}/`,
-      'https://www.phevs.eu/blog/',
-      'https://www.phevs.eu/',
-      'https://www.phevs.eu/sitemap.xml',
-    ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+    // Ping Bing & Yandex via IndexNow only if published
+    if (updated.status === 'published') {
+      submitToIndexNow([
+        `https://www.phevs.eu/blog/${updated.slug || params.slug}/`,
+        'https://www.phevs.eu/blog/',
+        'https://www.phevs.eu/',
+        'https://www.phevs.eu/sitemap.xml',
+      ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+    }
+
+    return NextResponse.json({ item: updated })
+  } catch (err: any) {
+    return NextResponse.json({ error: err.message }, { status: 500 })
+  }
+}
+
+export async function PATCH(request: NextRequest, { params }: { params: { slug: string } }) {
+  try {
+    const body = await request.json()
+    const { status } = body
+    if (status !== 'draft' && status !== 'published') {
+      return NextResponse.json({ error: 'Status must be draft or published' }, { status: 400 })
+    }
+
+    const { items, sha } = await blogStore.list()
+    const index = items.findIndex((p: any) => p.slug === params.slug)
+    if (index === -1) return NextResponse.json({ error: 'Not found' }, { status: 404 })
+
+    const existing = items[index]
+    const now = new Date().toISOString().split('T')[0]
+    const updated = {
+      ...existing,
+      status,
+      published_at: status === 'published' && (!existing.published_at || existing.published_at === '') ? now : existing.published_at || now,
+      updated_at: now,
+    }
+    items[index] = updated
+    await blogStore.save(items, sha, `admin: set blog post ${params.slug} status to ${status}`)
+
+    if (status === 'published') {
+      submitToIndexNow([
+        `https://www.phevs.eu/blog/${updated.slug || params.slug}/`,
+        'https://www.phevs.eu/blog/',
+        'https://www.phevs.eu/',
+        'https://www.phevs.eu/sitemap.xml',
+      ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+    }
 
     return NextResponse.json({ item: updated })
   } catch (err: any) {

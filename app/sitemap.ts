@@ -149,13 +149,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   }
 
-  // 5. Blog Makaleleri
-  const blogRoutes: MetadataRoute.Sitemap = (blogData as any[]).map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}/`,
-    lastModified: new Date(post.updated_at || post.published_at || now),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }))
+  // 5. Blog Makaleleri (Sadece yayında olanlar)
+  const blogRoutes: MetadataRoute.Sitemap = (blogData as any[])
+    .filter((post) => post.status !== 'draft')
+    .map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}/`,
+      lastModified: new Date(post.updated_at || post.published_at || now),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    }))
 
   return [...staticRoutes, ...faqRoutes, ...compareRoutes, ...carRoutes, ...blogRoutes]
 }

@@ -57,13 +57,15 @@ export async function POST(request: NextRequest) {
 
     await blogStore.save([...items, newPost], sha, `admin: add blog post ${data.slug}`)
 
-    // Ping Bing & Yandex via IndexNow immediately
-    submitToIndexNow([
-      `https://www.phevs.eu/blog/${data.slug}/`,
-      'https://www.phevs.eu/blog/',
-      'https://www.phevs.eu/',
-      'https://www.phevs.eu/sitemap.xml',
-    ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+    // Ping Bing & Yandex via IndexNow only if published
+    if (data.status === 'published') {
+      submitToIndexNow([
+        `https://www.phevs.eu/blog/${data.slug}/`,
+        'https://www.phevs.eu/blog/',
+        'https://www.phevs.eu/',
+        'https://www.phevs.eu/sitemap.xml',
+      ]).catch((err) => console.error('[IndexNow] Auto-ping error:', err))
+    }
 
     return NextResponse.json({ item: newPost }, { status: 201 })
   } catch (err: any) {
