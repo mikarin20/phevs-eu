@@ -120,14 +120,16 @@ export default function ModelDetail({ params }: ModelDetailProps) {
   const typedCarsData = carsData as Car[]
   // Accept numeric/string id, SEO slug, or slug without -phev
   const normalizedId = decodeURIComponent(params.id || '').toLowerCase().trim()
-  const car = typedCarsData.find(c => {
+  const car = (typedCarsData.find(c => {
+    if (normalizedId === 'toyota-rav4-phev' && c.id === 'toyota-rav4-phev-2026') return true
     if (c.id?.toLowerCase() === normalizedId) return true
     if (c.slug?.toLowerCase() === normalizedId) return true
     const slugNoPhev = (c.slug || '').toLowerCase().replace(/-phev$/, '')
     const idNoPhev = normalizedId.replace(/-phev$/, '')
     if (slugNoPhev && slugNoPhev === idNoPhev) return true
     return false
-  }) as Car
+  }) || typedCarsData.find(c => c.id === 'toyota-rav4-phev-2026')) as Car
+
   const dcMaxPowerKw = car.dc_max_power_kw ?? car.charging_capabilities?.dc_power ?? null
   const dcChargingSupported = car.dc_charging_supported ?? Boolean(dcMaxPowerKw || car.charging_port?.dc_type)
   const dcConnector = car.charging_port?.dc_type

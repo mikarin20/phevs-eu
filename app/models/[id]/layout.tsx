@@ -6,6 +6,10 @@ import { getImageUrl } from '@/lib/image-url'
 function findCar(id: string) {
   if (!id) return null
   const normalized = decodeURIComponent(id).toLowerCase().trim()
+  if (normalized === 'toyota-rav4-phev' || normalized === 'toyota-rav4') {
+    const newRav4 = (carsData as any[]).find(c => c.id === 'toyota-rav4-phev-2026')
+    if (newRav4) return newRav4
+  }
   return (carsData as any[]).find((c) => {
     if (c.id?.toLowerCase() === normalized) return true
     if (c.slug?.toLowerCase() === normalized) return true
@@ -32,8 +36,14 @@ export async function generateStaticParams() {
     }
   }
 
+  // Eski genel slug'ı da 2026 modeli için statik params listesine ekle
+  if (!seen.has('toyota-rav4-phev')) {
+    params.push({ id: 'toyota-rav4-phev' })
+  }
+
   return params
 }
+
 
 export default function ModelLayout({
   children,

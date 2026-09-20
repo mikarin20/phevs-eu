@@ -5550,8 +5550,8 @@
   {
     "id": "toyota-2",
     "brand": "Toyota",
-    "model": "RAV4 Plug-in Hybrid",
-    "year": 2026,
+    "model": "RAV4 Plug-in Hybrid (2020-2023)",
+    "year": 2023,
     "segment": "SUV",
     "ev_range_km": 75,
     "fuel_consumption": 1,
@@ -5593,10 +5593,11 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "toyota-rav4-phev",
-    "updated_at": "2026-09-19",
-    "meta_title": "Toyota RAV4 Plug-in Hybrid (2026) Specs, Battery & Electric Range",
-    "gallery_images": []
+    "slug": "toyota-rav4-phev-2023",
+    "updated_at": "2026-09-20",
+    "meta_title": "Toyota RAV4 Plug-in Hybrid (2020-2023) Specs, Battery & Electric Range | PHEVs.eu",
+    "gallery_images": [],
+    "last_updated": "2026-09-20"
   },
   {
     "id": "toyota-crown-phev",
@@ -7735,6 +7736,97 @@
       "/images/cars/brands/geely/starray-em-i/005.jpg",
       "/images/cars/brands/geely/starray-em-i/006.jpg",
       "/images/cars/brands/geely/starray-em-i/007.jpg"
+    ]
+  },
+  {
+    "id": "toyota-rav4-phev-2026",
+    "brand": "Toyota",
+    "model": "RAV4 Plug-in Hybrid (2026)",
+    "year": 2026,
+    "segment": "SUV",
+    "ev_range_km": 102,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 22.7,
+    "usable_battery_kwh": 21.2,
+    "price_eur": 47500,
+    "image_url": "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/main.jpg",
+    "power_hp": 304,
+    "co2_emission": 19,
+    "charge_time_ac": 2.2,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 520,
+    "max_trunk_volume": 1690,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1940,
+    "length_mm": 4605,
+    "width_mm": 1855,
+    "height_mm": 1685,
+    "wheelbase_mm": 2690,
+    "electric_motor_power_hp": 205,
+    "engine_displacement": 2.5,
+    "engine_displacement_l": 2.5,
+    "drivetrain": "AWD-i (Intelligent All-Wheel Drive)",
+    "transmission": "e-CVT (Power-Split Planetary)",
+    "acceleration_0_100": 6.2,
+    "top_speed": 180,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 355,
+    "battery_architecture": "Lithium-ion Pack with Liquid Cooling",
+    "battery_details": {
+      "chemistry": "NCM (Lithium Nickel Cobalt Manganese)",
+      "architecture": "High-Density Cell-to-Pack with Liquid Cooling",
+      "cycles": 3000,
+      "warranty_capacity": 70,
+      "thermal_management": "Active liquid heating and cooling system"
+    },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "ac_max_power_kw": 11,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 50,
+      "ac_power_max": 11,
+      "v2l_power": 3.3
+    },
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "dc_type": "CCS 2",
+      "location": "Rear right"
+    },
+    "emission_standard": "Euro 6e-bis",
+    "country_availability": "PL,DE,FR,UK,IT,ES,EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 88,
+      "pedestrian_protection": 85,
+      "safety_assist": 88,
+      "overall_rating": 89,
+      "test_year": 2025
+    },
+    "features": [
+      "New 6th Generation Toyota RAV4 Plug-in Hybrid",
+      "Upgraded 22.7 kWh Battery (>100 km Pure EV Range)",
+      "50 kW DC Fast Charging (10-80% in ~30 min)",
+      "11 kW 3-Phase AC On-board Charger",
+      "Intelligent AWD-i Electric All-Wheel Drive (304 hp)",
+      "12.9-inch Toyota Smart Connect+ Infotainment",
+      "12.3-inch Digital Driver Display Cluster",
+      "Toyota T-Mate with Safety Sense 3",
+      "3.3 kW Vehicle-to-Load (V2L) Power Outlet"
+    ],
+    "slug": "toyota-rav4-phev-2026",
+    "updated_at": "2026-09-20",
+    "last_updated": "2026-09-20",
+    "meta_title": "Nowa Toyota RAV4 Plug-in Hybrid (2026) Specs, 22.7 kWh Battery & 50 kW DC Fast Charging | PHEVs.eu",
+    "gallery_images": [
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/001.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/003.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/005.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/007.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/009.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/0012.jpg"
     ]
   }
 ]
