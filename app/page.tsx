@@ -684,8 +684,8 @@ export default function Home() {
     return filtered
   }, [cars, searchTerm, selectedBrands, filters, sortBy])
 
-  // Option 1: Load More pagination (24 cars initial display for fast LCP & clean layout)
-  const INITIAL_VISIBLE_CARS = 24
+  // Option 1: Load More pagination (12 cars initial display for fast LCP & clean layout)
+  const INITIAL_VISIBLE_CARS = 12
   const [visibleCarsCount, setVisibleCarsCount] = useState(INITIAL_VISIBLE_CARS)
 
   // Reset pagination count when user changes filters, search, or sorting
@@ -3070,11 +3070,11 @@ export default function Home() {
         {filteredAndSortedCars.length > visibleCarsCount && (
           <div className="mt-8 mb-4 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
-              onClick={() => setVisibleCarsCount((prev) => prev + 24)}
+              onClick={() => setVisibleCarsCount((prev) => prev + 12)}
               className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 group cursor-pointer"
             >
               <span>
-                {selectedLanguage === 'tr' ? 'Daha Fazla Araç Göster (+24)' : selectedLanguage === 'de' ? 'Mehr Fahrzeuge anzeigen (+24)' : selectedLanguage === 'pl' ? 'Pokaż więcej pojazdów (+24)' : 'Show More Vehicles (+24)'}
+                {selectedLanguage === 'tr' ? 'Daha Fazla Araç Göster (+12)' : selectedLanguage === 'de' ? 'Mehr Fahrzeuge anzeigen (+12)' : selectedLanguage === 'pl' ? 'Pokaż więcej pojazdów (+12)' : selectedLanguage === 'fr' ? 'Afficher plus de véhicules (+12)' : selectedLanguage === 'es' ? 'Mostrar más vehículos (+12)' : 'Show More Vehicles (+12)'}
               </span>
               <span className="text-xs font-normal opacity-85 px-2 py-0.5 rounded-full bg-blue-700 text-white ml-1">
                 {displayedCars.length} / {filteredAndSortedCars.length}
@@ -3084,7 +3084,7 @@ export default function Home() {
               onClick={() => setVisibleCarsCount(filteredAndSortedCars.length)}
               className="w-full sm:w-auto px-6 py-3.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm transition-all duration-200 text-sm cursor-pointer"
             >
-              {selectedLanguage === 'tr' ? `Tümünü Göster (${filteredAndSortedCars.length} Araç)` : selectedLanguage === 'de' ? `Alle anzeigen (${filteredAndSortedCars.length} Fahrzeuge)` : selectedLanguage === 'pl' ? `Pokaż wszystkie (${filteredAndSortedCars.length})` : `Show All (${filteredAndSortedCars.length} Vehicles)`}
+              {selectedLanguage === 'tr' ? `Tümünü Göster (${filteredAndSortedCars.length} Araç)` : selectedLanguage === 'de' ? `Alle anzeigen (${filteredAndSortedCars.length} Fahrzeuge)` : selectedLanguage === 'pl' ? `Pokaż wszystkie (${filteredAndSortedCars.length})` : selectedLanguage === 'fr' ? `Afficher tout (${filteredAndSortedCars.length} véhicules)` : selectedLanguage === 'es' ? `Mostrar todos (${filteredAndSortedCars.length} vehículos)` : `Show All (${filteredAndSortedCars.length} Vehicles)`}
             </button>
           </div>
         )}
