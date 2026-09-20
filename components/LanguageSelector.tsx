@@ -16,6 +16,8 @@ export default function LanguageSelector({ currentLocale, basePath }: LanguageSe
   const languages = [
     { code: 'en' as Locale, name: 'EN', flag: 'gb' },
     { code: 'de' as Locale, name: 'DE', flag: 'de' },
+    { code: 'fr' as Locale, name: 'FR', flag: 'fr' },
+    { code: 'es' as Locale, name: 'ES', flag: 'es' },
     { code: 'tr' as Locale, name: 'TR', flag: 'tr' },
     { code: 'pl' as Locale, name: 'PL', flag: 'pl' }
   ]

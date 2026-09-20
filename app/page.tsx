@@ -175,6 +175,15 @@ type FiltersState = {
   sortBy: SortOption
 }
 
+const supportedLanguages = [
+  { code: 'en', name: 'EN', fullName: 'English', flag: 'gb' },
+  { code: 'de', name: 'DE', fullName: 'Deutsch', flag: 'de' },
+  { code: 'fr', name: 'FR', fullName: 'Français', flag: 'fr' },
+  { code: 'es', name: 'ES', fullName: 'Español', flag: 'es' },
+  { code: 'tr', name: 'TR', fullName: 'Türkçe', flag: 'tr' },
+  { code: 'pl', name: 'PL', fullName: 'Polski', flag: 'pl' },
+] as const
+
 export default function Home() {
   const [cars, setCars] = useState<Car[]>(typedCarsData)
   const [selectedCars, setSelectedCars] = useState<Car[]>([])
@@ -377,30 +386,50 @@ export default function Home() {
     return [...crossBrandComparisons].sort(() => Math.random() - 0.5)
   }, [crossBrandComparisons])
 
-  // Dil algılama - localStorage'dan oku, yoksa browser dilini kullan
+  // Dil algılama - URL, localStorage veya browser dilini kullan
   useEffect(() => {
+    const validCodes = supportedLanguages.map(l => l.code as string)
+    
     const detectLanguage = () => {
-      // Önce localStorage'dan oku
+      // 1. Önce URL'den kontrol et (?lang=...)
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search)
+        const urlLang = urlParams.get('lang')?.toLowerCase()
+        if (urlLang && validCodes.includes(urlLang)) {
+          setSelectedLanguage(urlLang)
+          localStorage.setItem('phevs-language', urlLang)
+          return
+        }
+      }
+
+      // 2. localStorage'dan oku
       const savedLanguage = localStorage.getItem('phevs-language')
-      if (savedLanguage) {
-        console.log('Main page - Language from localStorage:', savedLanguage)
+      if (savedLanguage && validCodes.includes(savedLanguage)) {
         setSelectedLanguage(savedLanguage)
         return
       }
       
-      // Yoksa browser dilini algıla
+      // 3. Browser dilini algıla
       const browserLang = navigator.language || navigator.languages?.[0] || 'en'
       const langCode = browserLang.split('-')[0].toLowerCase()
       
-      const supportedLangs = ['en', 'de', 'tr', 'pl']
-      if (supportedLangs.includes(langCode)) {
-        console.log('Main page - Browser language detected:', langCode)
+      if (validCodes.includes(langCode)) {
         setSelectedLanguage(langCode)
         localStorage.setItem('phevs-language', langCode)
       }
     }
     
     detectLanguage()
+
+    // Sayfa içi dil değiştiğinde dinle
+    const handleLanguageChange = (e: Event) => {
+      const customEvent = e as CustomEvent<{ language?: string }>
+      if (customEvent.detail?.language && validCodes.includes(customEvent.detail.language)) {
+        setSelectedLanguage(customEvent.detail.language)
+      }
+    }
+    window.addEventListener('languageChanged', handleLanguageChange)
+    return () => window.removeEventListener('languageChanged', handleLanguageChange)
   }, [])
   
   const [filters, setFilters] = useState<FiltersState>({
@@ -536,21 +565,21 @@ export default function Home() {
 
   // Dropdown'ları dışına tıklandığında kapat
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: Event) => {
       const target = event.target as HTMLElement
       
       if (isBrandDropdownOpen && !target.closest('.brand-dropdown')) {
         setIsBrandDropdownOpen(false)
       }
-      
-      if (isMobileLanguageDropdownOpen && !target.closest('.mobile-language-dropdown')) {
-        setIsMobileLanguageDropdownOpen(false)
-      }
     }
 
     document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [isBrandDropdownOpen, isMobileLanguageDropdownOpen])
+    document.addEventListener('touchstart', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [isBrandDropdownOpen])
 
   // Özel karakterleri normalize eden fonksiyon
   const normalizeText = (text: string | null | undefined) => {
@@ -1483,7 +1512,7 @@ export default function Home() {
   }
 
   return (
-    <div className={`min-h-screen w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gray-200'}`}>
+    <div className={`min-h-screen w-full max-w-full overflow-x-hidden pb-16 sm:pb-0 ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gray-200'}`}>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -1536,18 +1565,11 @@ export default function Home() {
 
             {/* Right Side Controls */}
             <div className="flex items-center space-x-2 sm:space-x-3">
-              {/* Language Selector & Theme Toggle Group */}
-              <div className="flex items-center bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 rounded-full p-1 shadow-2xs">
+              {/* Desktop Language Selector & Theme Toggle Group */}
+              <div className="hidden sm:flex items-center bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 rounded-full p-1 shadow-2xs">
                 {/* Language Selector (Flags intact with original design & behavior) */}
                 <div className="flex items-center space-x-0.5">
-                  {[
-                    { code: 'en', name: 'EN', flag: 'gb' },
-                    { code: 'de', name: 'DE', flag: 'de' },
-                    { code: 'fr', name: 'FR', flag: 'fr' },
-                    { code: 'es', name: 'ES', flag: 'es' },
-                    { code: 'tr', name: 'TR', flag: 'tr' },
-                    { code: 'pl', name: 'PL', flag: 'pl' }
-                  ].map((lang) => (
+                  {supportedLanguages.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() => {
@@ -1589,7 +1611,90 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CTA Buttons */}
+              {/* Mobile Controls (Language Dropdown + Theme Toggle) */}
+              <div className="flex sm:hidden items-center space-x-1.5">
+                {/* Mobile Language Selector Dropdown */}
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setIsMobileLanguageDropdownOpen(!isMobileLanguageDropdownOpen)
+                    }}
+                    className="flex items-center space-x-1.5 h-9 px-2.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-slate-800 dark:text-slate-100 active:scale-95 transition-all text-xs font-semibold shadow-2xs"
+                    aria-label="Select Language"
+                    aria-expanded={isMobileLanguageDropdownOpen}
+                  >
+                    <span className={`fi fi-${supportedLanguages.find(l => l.code === selectedLanguage)?.flag || 'gb'} text-sm`}></span>
+                    <span className="uppercase text-[11px] font-bold">{selectedLanguage}</span>
+                    <ChevronDownIcon className={`w-3 h-3 text-slate-500 dark:text-slate-400 transition-transform duration-200 ${isMobileLanguageDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {isMobileLanguageDropdownOpen && (
+                    <>
+                      {/* Touch backdrop */}
+                      <div 
+                        className="fixed inset-0 z-[99] bg-black/25 backdrop-blur-2xs"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setIsMobileLanguageDropdownOpen(false)
+                        }} 
+                      />
+                      <div 
+                        className="absolute right-0 top-full mt-2 w-52 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-1.5 z-[100] animate-in fade-in zoom-in-95 duration-150"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 border-b border-slate-100 dark:border-slate-800">
+                          {selectedLanguage === 'tr' ? 'Dil Seçin' : selectedLanguage === 'de' ? 'Sprache' : selectedLanguage === 'fr' ? 'Langue' : selectedLanguage === 'es' ? 'Idioma' : selectedLanguage === 'pl' ? 'Język' : 'Select Language'}
+                        </div>
+                        <div className="space-y-0.5 mt-1">
+                          {supportedLanguages.map((lang) => {
+                            const isSelected = selectedLanguage === lang.code
+                            return (
+                              <button
+                                key={lang.code}
+                                type="button"
+                                onClick={() => {
+                                  setSelectedLanguage(lang.code)
+                                  localStorage.setItem('phevs-language', lang.code)
+                                  window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
+                                  setIsMobileLanguageDropdownOpen(false)
+                                }}
+                                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all ${
+                                  isSelected
+                                    ? 'bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 font-semibold'
+                                    : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium'
+                                }`}
+                              >
+                                <div className="flex items-center space-x-2.5">
+                                  <span className={`fi fi-${lang.flag} text-base`}></span>
+                                  <span className="text-xs">{lang.fullName}</span>
+                                </div>
+                                {isSelected && (
+                                  <CheckIcon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                                )}
+                              </button>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* Mobile Theme Toggle */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedTheme(selectedTheme === 'dark' ? 'light' : 'dark')}
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-sm active:scale-95 transition-all shadow-2xs"
+                  title={selectedTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                  aria-label="Toggle Theme"
+                >
+                  <span>{selectedTheme === 'light' ? '☀️' : '🌙'}</span>
+                </button>
+              </div>
+
+              {/* CTA Buttons (Desktop) */}
               <div className="hidden sm:flex items-center space-x-2">
                 <button
                   onClick={() => setIsSuggestFormOpen(true)}
@@ -1627,34 +1732,98 @@ export default function Home() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-20 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-xl w-full max-w-full overflow-x-hidden animate-in fade-in duration-200">
-          <div className="px-4 py-4 space-y-2">
-            <Link
-              href="/videos"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+        <div className="lg:hidden fixed inset-x-0 top-20 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-xl w-full max-w-full overflow-y-auto max-h-[calc(100vh-5rem)] animate-in fade-in duration-200">
+          <div className="px-4 py-4 space-y-4">
+            {/* Primary Navigation */}
+            <div className="space-y-1.5">
+              <Link
+                href="/videos"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+                <span>{t.navigation.videos}</span>
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
+              >
+                {t.navigation.phevNews}
+              </Link>
+              <Link
+                href="/faq"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
+              >
+                {t.navigation.faq}
+              </Link>
+            </div>
+
+            {/* Quick Categories */}
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800 space-y-1.5">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-1 block">
+                Explore Categories
               </span>
-              <span>{t.navigation.videos}</span>
-            </Link>
-            <Link
-              href="/blog"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
-            >
-              {t.navigation.phevNews}
-            </Link>
-            <Link
-              href="/faq"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
-            >
-              {t.navigation.faq}
-            </Link>
-            <div className="pt-2 flex flex-col gap-2 sm:hidden">
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="/phev-with-dc-charging"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  ⚡ DC Fast Charging
+                </Link>
+                <Link
+                  href="/longest-range-phev"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  🔋 100+ km Range
+                </Link>
+                <Link
+                  href="/tax-simulator"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="px-3 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-xs font-semibold text-emerald-700 dark:text-emerald-300 transition-colors col-span-2"
+                >
+                  💶 Euro 6e-bis & Tax Simulator
+                </Link>
+              </div>
+            </div>
+
+            {/* Mobile Language Selector inside Drawer */}
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-1 block mb-2">
+                {selectedLanguage === 'tr' ? 'Dil Seçin' : selectedLanguage === 'de' ? 'Sprache' : selectedLanguage === 'fr' ? 'Langue' : selectedLanguage === 'es' ? 'Idioma' : selectedLanguage === 'pl' ? 'Język' : 'Language'}
+              </span>
+              <div className="grid grid-cols-3 gap-1.5">
+                {supportedLanguages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    type="button"
+                    onClick={() => {
+                      setSelectedLanguage(lang.code)
+                      localStorage.setItem('phevs-language', lang.code)
+                      window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className={`flex items-center justify-center space-x-1.5 py-2 px-2 rounded-xl text-xs font-medium border transition-all ${
+                      selectedLanguage === lang.code
+                        ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                        : 'bg-slate-50 dark:bg-slate-800 border-slate-200/80 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    <span className={`fi fi-${lang.flag} text-sm`}></span>
+                    <span>{lang.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile CTA Buttons */}
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2 sm:hidden">
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false)
@@ -1666,6 +1835,7 @@ export default function Home() {
               </button>
               <a
                 href="/faq"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full text-center px-4 py-2.5 bg-blue-600 text-white text-xs font-semibold rounded-xl shadow-sm"
               >
                 PHEV Guide →
@@ -1965,149 +2135,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mobile Search and Actions */}
-      <div className="fixed top-0 left-0 right-0 z-50 sm:hidden bg-white border-b border-gray-200 shadow-lg w-full max-w-full overflow-x-hidden">
-        <div className="p-2">
-          <div className="relative mb-2">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-            <input
-              type="text"
-              placeholder={t.searchPlaceholder}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div className="grid grid-cols-3 gap-1">
-            {/* Mobil Dil Seçici - Dropdown */}
-            <div className="relative mobile-language-dropdown">
-              <button
-                onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  setIsMobileLanguageDropdownOpen(!isMobileLanguageDropdownOpen)
-                }}
-                className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors w-full"
-              >
-                <span className={`fi fi-${selectedLanguage === 'en' ? 'gb' : selectedLanguage === 'de' ? 'de' : selectedLanguage === 'fr' ? 'fr' : selectedLanguage === 'es' ? 'es' : selectedLanguage === 'tr' ? 'tr' : 'pl'} text-xs`}></span>
-                <ChevronDownIcon className="h-3 w-3" />
-              </button>
-              
-              {isMobileLanguageDropdownOpen && (
-                <div 
-                  className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-[9999] min-w-32"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {[
-                    { 
-                      code: 'en', 
-                      name: 'English', 
-                      flag: 'gb'
-                    },
-                    { 
-                      code: 'de', 
-                      name: 'Deutsch', 
-                      flag: 'de'
-                    },
-                    { 
-                      code: 'fr', 
-                      name: 'Français', 
-                      flag: 'fr'
-                    },
-                    { 
-                      code: 'es', 
-                      name: 'Español', 
-                      flag: 'es'
-                    },
-                    { 
-                      code: 'tr', 
-                      name: 'Türkçe', 
-                      flag: 'tr'
-                    },
-                    { 
-                      code: 'pl', 
-                      name: 'Polski', 
-                      flag: 'pl'
-                    }
-                  ].map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        e.stopPropagation()
-                        setSelectedLanguage(lang.code)
-                        localStorage.setItem('phevs-language', lang.code)
-                        window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
-                        setIsMobileLanguageDropdownOpen(false)
-                      }}
-                      className={`w-full flex items-center space-x-2 px-3 py-2 text-left hover:bg-gray-50 transition-colors ${
-                        selectedLanguage === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
-                      }`}
-                    >
-                      <span className={`fi fi-${lang.flag} text-sm`}></span>
-                      <span className="text-xs">{lang.name}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            <Link
-              href="/blog"
-              className="flex items-center justify-center space-x-1 py-2 px-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-            >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-              </svg>
-              <span className="text-xs">{t.navigation.phevNews}</span>
-            </Link>
-            <button
-              onClick={() => {
-                if (selectedCars.length === 0) {
-                  alert(t.selectToCompare)
-                  return
-                }
-                window.location.href = '/compare/' + selectedCars.map(car => car.id).join('-')
-              }}
-              className={`flex items-center justify-center space-x-1 py-2 px-2 rounded-lg transition-colors ${
-                selectedCars.length > 0
-                  ? 'bg-blue-600 text-white hover:bg-blue-700'
-                  : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-              }`}
-            >
-              <ArrowsUpDownIcon className="h-4 w-4" />
-              <span className="text-xs">{t.compare} ({selectedCars.length})</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      {/* Mobile Bottom Actions */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white border-t border-gray-200 shadow-lg w-full max-w-full overflow-x-hidden">
-        <div className="grid grid-cols-2 gap-1 p-2">
+      {/* Mobile Bottom Floating Action Bar */}
+      <div className={`fixed bottom-0 left-0 right-0 z-30 sm:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200/80 dark:border-slate-800 shadow-xl transition-all duration-200 pb-[max(0.5rem,env(safe-area-inset-bottom))] ${selectedCars.length > 0 ? 'hidden' : 'block'}`}>
+        <div className="grid grid-cols-2 gap-2 p-2">
           <button
             onClick={() => setIsFilterModalOpen(true)}
-            className="flex items-center justify-center space-x-1 py-2 px-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            className="flex items-center justify-center space-x-2 py-2.5 px-3 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-semibold rounded-xl border border-slate-200/80 dark:border-slate-700 active:scale-98 transition-all"
           >
-            <FunnelIcon className="h-4 w-4" />
-            <span className="text-sm">{t.filter}</span>
+            <FunnelIcon className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+            <span className="text-xs">{t.filter}</span>
           </button>
-          <button
-            onClick={() => {
-              if (selectedCars.length === 0) {
-                alert(t.selectToCompare)
-                return
-              }
-              window.location.href = '/compare/' + selectedCars.map(car => car.id).join('-')
-            }}
-            className={`flex items-center justify-center space-x-1 py-2 px-3 rounded-lg transition-colors ${
-              selectedCars.length > 0
-                ? 'bg-blue-600 text-white hover:bg-blue-700'
-                : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-            }`}
+          <a
+            href="/compare"
+            className="flex items-center justify-center space-x-2 py-2.5 px-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-xs active:scale-98 transition-all"
           >
             <ArrowsUpDownIcon className="h-4 w-4" />
-            <span className="text-sm">{t.compare} ({selectedCars.length})</span>
-          </button>
+            <span className="text-xs">{t.compare}</span>
+          </a>
         </div>
       </div>
 

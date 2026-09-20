@@ -19,7 +19,7 @@ interface CompareInfoBarProps {
   onRemoveCar: (carId: string) => void
   onClearAll: () => void
   isVisible: boolean
-  language?: 'en' | 'tr' | 'de' | 'pl'
+  language?: 'en' | 'tr' | 'de' | 'pl' | 'fr' | 'es'
 }
 
 const translations = {
@@ -49,6 +49,24 @@ const translations = {
     compare: 'Vergleichen',
     clear: 'Löschen',
     selectOneMore: 'Noch 1 Fahrzeug auswählen'
+  },
+  fr: {
+    vehiclesSelected: 'véhicules sélectionnés',
+    vehiclesComparing: 'véhicules en comparaison',
+    showVehicles: 'Afficher les véhicules',
+    hideVehicles: 'Masquer les véhicules',
+    compare: 'Comparer',
+    clear: 'Effacer',
+    selectOneMore: 'Sélectionnez 1 véhicule de plus'
+  },
+  es: {
+    vehiclesSelected: 'vehículos seleccionados',
+    vehiclesComparing: 'vehículos comparando',
+    showVehicles: 'Mostrar vehículos',
+    hideVehicles: 'Ocultar vehículos',
+    compare: 'Comparar',
+    clear: 'Limpiar',
+    selectOneMore: 'Selecciona 1 vehículo más'
   },
   pl: {
     vehiclesSelected: 'pojazdy wybrane',
