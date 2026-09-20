@@ -232,6 +232,7 @@ export default function RootLayout({
                       <li><a href="/longest-range-phev" className="hover:text-white transition-colors" title="Longest Range PHEVs (100+ km)">Longest Range PHEVs (100+ km)</a></li>
                       <li><a href="/phev-with-dc-charging" className="hover:text-white transition-colors" title="PHEVs with DC Fast Charging">DC Fast Charging PHEVs</a></li>
                       <li><a href="/7-seater-phev" className="hover:text-white transition-colors" title="7-Seater Family PHEVs">7-Seater Family PHEVs</a></li>
+                      <li><a href="/tax-simulator" className="hover:text-white transition-colors text-emerald-400 font-medium" title="Euro 6e-bis & Company Car (BiK) Tax Simulator">Euro 6e-bis & Tax Simulator</a></li>
                       <li><a href="/compare" className="hover:text-white transition-colors" title="Compare Vehicles">Compare Vehicles</a></li>
                       <li><a href="/videos" className="hover:text-white transition-colors" title="Comparison & Review Videos">Comparison Videos</a></li>
                       <li><a href="/faq" className="hover:text-white transition-colors" title="All You Need to Know About PHEV">All You Need to Know About PHEV</a></li>

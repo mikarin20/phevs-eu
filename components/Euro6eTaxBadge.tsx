@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { ShieldCheckIcon, InformationCircleIcon, ScaleIcon, BuildingOffice2Icon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
+import TaxSimulatorModal from '@/components/TaxSimulatorModal'
 
 interface Euro6eTaxBadgeProps {
   car: {
@@ -15,6 +16,7 @@ interface Euro6eTaxBadgeProps {
 
 export default function Euro6eTaxBadge({ car, isDark = false }: Euro6eTaxBadgeProps) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [isSimulatorOpen, setIsSimulatorOpen] = useState(false)
   const range = car.ev_range_km || 50
   const co2 = car.co2_emission || 30
 
@@ -91,6 +93,17 @@ export default function Euro6eTaxBadge({ car, isDark = false }: Euro6eTaxBadgePr
         With <strong>{range} km</strong> electric range and <strong>{co2} g/km CO₂</strong>, this model qualifies for an estimated UK BiK rate of <strong>{ukBikBand} ({ukBikTier})</strong>. {isEuro6eFutureProof ? 'Its high electric range cushions against upcoming EU Utility Factor calculation increases.' : 'Shorter range PHEVs face stricter testing utility factors under 2026/2027 fleet rules.'}
       </p>
 
+      <div className="mt-3 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => setIsSimulatorOpen(true)}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors shadow-sm"
+        >
+          <ScaleIcon className="h-3.5 w-3.5" />
+          <span>Launch Full Tax Simulator (UK, DE, FR, BE)</span>
+        </button>
+      </div>
+
       {/* Expandable Country Breakdown */}
       {isExpanded && (
         <div className="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-700/80 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
@@ -122,6 +135,14 @@ export default function Euro6eTaxBadge({ car, isDark = false }: Euro6eTaxBadgePr
           </div>
         </div>
       )}
+
+      {/* Embedded Tax Simulator Modal */}
+      <TaxSimulatorModal
+        car={car as any}
+        isOpen={isSimulatorOpen}
+        onClose={() => setIsSimulatorOpen(false)}
+        isDark={isDark}
+      />
     </div>
   )
 }

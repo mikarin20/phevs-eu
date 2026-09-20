@@ -2341,41 +2341,49 @@ export default function Home() {
       </div>
 
 
-      {/* Range Simulator Banner */}
+      {/* Interactive Simulators Banner */}
       <div className={`${currentTheme.filterBg} border-b ${currentTheme.cardBorder}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
             <div className="flex items-center space-x-4">
-              <div className={`w-12 h-12 ${currentTheme.cardBg} rounded-xl flex items-center justify-center`}>
+              <div className={`w-12 h-12 ${currentTheme.cardBg} rounded-xl flex items-center justify-center shrink-0`}>
                 <SparklesIcon className={`h-6 w-6 ${currentTheme.textPrimary}`} />
               </div>
               <div>
-                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Range Simulator</h3>
-                <p className={`text-sm ${currentTheme.textSecondary}`}>Discover your real-world electric range based on temperature, climate control, and driving conditions</p>
+                <h3 className={`text-lg font-semibold ${currentTheme.textPrimary}`}>Interactive PHEV Simulators</h3>
+                <p className={`text-sm ${currentTheme.textSecondary}`}>Test real-world electric range & calculate Euro 6e-bis / Company Car (BiK) tax savings across Europe</p>
               </div>
             </div>
-            <button
-              onClick={() => {
-                if (selectedCars.length === 0) {
-                  alert('Please select a vehicle first to use Range Simulator')
-                  return
-                }
-                setSelectedCarForSimulator(selectedCars[0])
-                setIsRangeSimulatorOpen(true)
-              }}
-              className={`inline-flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
-                selectedCars.length === 0 
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                  : 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
-              }`}
-              disabled={selectedCars.length === 0}
-            >
-              <SparklesIcon className="h-5 w-5" />
-              <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
-            </button>
+            <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+              <Link
+                href="/tax-simulator"
+                className="inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-lg font-semibold transition-all duration-200 bg-teal-700 hover:bg-teal-800 text-white shadow hover:shadow-lg text-sm"
+              >
+                <span>Euro 6e-bis & Tax Simulator</span>
+              </Link>
+              <button
+                onClick={() => {
+                  if (selectedCars.length === 0) {
+                    alert('Please select a vehicle first to use Range Simulator')
+                    return
+                  }
+                  setSelectedCarForSimulator(selectedCars[0])
+                  setIsRangeSimulatorOpen(true)
+                }}
+                className={`inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-lg font-semibold transition-all duration-200 text-sm ${
+                  selectedCars.length === 0 
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                    : 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
+                }`}
+                disabled={selectedCars.length === 0}
+              >
+                <SparklesIcon className="h-5 w-5" />
+                <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
+              </button>
+            </div>
           </div>
-              </div>
-            </div>
+        </div>
+      </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

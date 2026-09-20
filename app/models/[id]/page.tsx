@@ -1,12 +1,13 @@
 'use client'
 
 import React, { useState, useEffect, useMemo } from 'react'
-import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon, MapIcon, HomeIcon, SunIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, BoltIcon, SparklesIcon, CurrencyEuroIcon, InformationCircleIcon, MapIcon, HomeIcon, SunIcon, ClockIcon, ShieldCheckIcon, ScaleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import ImageGallery from '@/components/ImageGallery'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
 import RangeSimulator from '@/components/RangeSimulator'
+import TaxSimulatorModal from '@/components/TaxSimulatorModal'
 import ModelEditorialSummary from '@/components/ModelEditorialSummary'
 
 interface Car {
@@ -134,6 +135,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     ? `${dcMaxPowerKw ? `${dcMaxPowerKw} kW DC` : 'DC'}${dcConnector ? ` (${dcConnector})` : ''}`
     : null
   const [isRangeSimulatorOpen, setIsRangeSimulatorOpen] = useState(false)
+  const [isTaxSimulatorOpen, setIsTaxSimulatorOpen] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState('light')
   const [selectedLanguage, setSelectedLanguage] = useState('en')
   const [isClient, setIsClient] = useState(false)
@@ -800,51 +802,122 @@ export default function ModelDetail({ params }: ModelDetailProps) {
           </div>
         </div>
 
-        {/* Range Simulator & Safety Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          {/* Range Simulator */}
-          <div className="bg-gradient-to-br from-emerald-50 to-white border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-all">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center">
-                <SparklesIcon className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-medium text-slate-900">Range Simulator</h3>
-            </div>
-            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-              Test real-world range with different driving conditions and scenarios
-            </p>
-            <button
-              onClick={() => setIsRangeSimulatorOpen(true)}
-              className="w-full px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-all duration-200 text-sm font-medium flex items-center justify-center space-x-2"
-            >
-              <SparklesIcon className="h-4 w-4" />
-              <span>Open Simulator</span>
-            </button>
-          </div>
+        {/* Interactive Simulators & Safety Section */}
+        {(() => {
+          const previewRangeMiles = Math.round((car.ev_range_km || 50) * 0.621371)
+          const previewUkBik = previewRangeMiles >= 130 ? 2 : previewRangeMiles >= 70 ? 5 : previewRangeMiles >= 40 ? 8 : previewRangeMiles >= 30 ? 12 : 14
+          const previewIsEuro6eSafe = (car.ev_range_km || 0) >= 80
+          const previewDePrivilege = (car.ev_range_km || 0) >= 80 || (car.co2_emission || 0) <= 50
 
-          {/* Euro NCAP Section */}
-          {car.euroncap_rating && (
-            <div className="bg-gradient-to-br from-amber-50 to-white border border-slate-200 rounded-xl p-8 shadow-sm">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center">
-                  <span className="text-xl">⭐</span>
+          return (
+            <div className={`grid grid-cols-1 ${car.euroncap_rating ? 'md:grid-cols-2 xl:grid-cols-3' : 'md:grid-cols-2'} gap-6 mb-12`}>
+              {/* Range Simulator */}
+              <div className="bg-gradient-to-br from-emerald-50 via-white to-emerald-50/30 border border-emerald-200/80 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-white shadow-sm">
+                      <SparklesIcon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Real-World Utility</span>
+                      <h3 className="text-lg font-bold text-slate-900">Range Simulator</h3>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-600 mb-4 leading-relaxed">
+                    Test real-world electric range across seasonal temperatures, climate control, and highway share.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6 text-xs">
+                    <span className="px-2.5 py-1 rounded-md bg-emerald-100/80 text-emerald-800 font-medium">
+                      ❄️ Winter ~{Math.round((car.ev_range_km || 50) * 0.65)} km
+                    </span>
+                    <span className="px-2.5 py-1 rounded-md bg-emerald-100/80 text-emerald-800 font-medium">
+                      ☀️ Summer ~{Math.round((car.ev_range_km || 50) * 0.95)} km
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-medium text-slate-900">{t.safetyRating}</h3>
+                <button
+                  onClick={() => setIsRangeSimulatorOpen(true)}
+                  className="w-full px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-all duration-200 text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-sm hover:shadow"
+                >
+                  <SparklesIcon className="h-4 w-4" />
+                  <span>Open Range Simulator</span>
+                </button>
               </div>
-              <div className="flex justify-start mb-6">
-                <EuroNCAPStars rating={car.euroncap_rating} size="md" showDetails={false} />
+
+              {/* Euro 6e-bis & Company Car (BiK) Tax Simulator Card */}
+              <div className="bg-gradient-to-br from-teal-50 via-white to-blue-50/40 border border-teal-200/80 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-12 h-12 bg-teal-700 rounded-xl flex items-center justify-center text-white shadow-sm">
+                      <ShieldCheckIcon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-teal-700">Fiscal Module</span>
+                        <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${previewIsEuro6eSafe ? 'bg-teal-100 text-teal-800' : 'bg-amber-100 text-amber-800'}`}>
+                          {previewIsEuro6eSafe ? 'Euro 6e Protected' : 'UF Watch'}
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900">Euro 6e-bis & Tax Simulator</h3>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-600 mb-4 leading-relaxed">
+                    Calculate Benefit-in-Kind (BiK), Germany 0.5% Dienstwagen tax, France Malus, and 2026/2027 fleet savings.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6 text-xs">
+                    <span className="px-2.5 py-1 rounded-md bg-teal-100/80 text-teal-900 font-medium">
+                      🇬🇧 BiK {previewUkBik}%
+                    </span>
+                    <span className="px-2.5 py-1 rounded-md bg-blue-100/80 text-blue-900 font-medium">
+                      🇩🇪 {previewDePrivilege ? '0.5% Privileg' : '1.0%'}
+                    </span>
+                    <span className="px-2.5 py-1 rounded-md bg-indigo-100/80 text-indigo-900 font-medium">
+                      🇫🇷 -200kg Malus
+                    </span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsTaxSimulatorOpen(true)}
+                  className="w-full px-5 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white transition-all duration-200 text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-sm hover:shadow"
+                >
+                  <ScaleIcon className="h-4 w-4" />
+                  <span>Open Tax Simulator</span>
+                </button>
               </div>
-              <a 
-                href={`https://www.euroncap.com/en/results/${car.brand.toLowerCase().replace(/\s+/g, '-')}/${car.model.toLowerCase().replace(/\s+/g, '-')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-slate-500 hover:text-slate-700 transition-colors underline inline-block"
-              >
-                {t.sourceEuroNCAP}
-              </a>
+
+              {/* Euro NCAP Section */}
+              {car.euroncap_rating && (
+                <div className="bg-gradient-to-br from-amber-50 via-white to-amber-50/30 border border-amber-200/80 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white shadow-sm">
+                        <span className="text-xl">⭐</span>
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-amber-600">Crash Safety</span>
+                        <h3 className="text-lg font-bold text-slate-900">{t.safetyRating}</h3>
+                      </div>
+                    </div>
+                    <div className="flex justify-start mb-4">
+                      <EuroNCAPStars rating={car.euroncap_rating} size="md" showDetails={false} />
+                    </div>
+                    <p className="text-xs text-slate-500 mb-4">
+                      Tested year {car.euroncap_rating.test_year || 'N/A'}: Adult ({car.euroncap_rating.adult_occupant}%), Child ({car.euroncap_rating.child_occupant}%).
+                    </p>
+                  </div>
+                  <a 
+                    href={`https://www.euroncap.com/en/results/${car.brand.toLowerCase().replace(/\s+/g, '-')}/${car.model.toLowerCase().replace(/\s+/g, '-')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all duration-200 text-xs font-bold uppercase tracking-wider flex items-center justify-center text-center underline"
+                  >
+                    {t.sourceEuroNCAP}
+                  </a>
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          )
+        })()}
 
         {/* Automated Editorial Verdict & Data-to-Text Analysis */}
         <ModelEditorialSummary 
@@ -1148,6 +1221,13 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         onClose={() => setIsRangeSimulatorOpen(false)}
         selectedCar={car}
         simulatorData={car.simulator_data}
+      />
+
+      {/* Euro 6e-bis & Company Car Tax Simulator Modal */}
+      <TaxSimulatorModal
+        car={car as any}
+        isOpen={isTaxSimulatorOpen}
+        onClose={() => setIsTaxSimulatorOpen(false)}
       />
       </div>
     </>
