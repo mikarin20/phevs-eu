@@ -21,7 +21,7 @@ Disallow: /*.json$
 Disallow: /scripts/
 
 # Sitemaps
-Sitemap: https://www.phevs.eu/sitemap.xml
+Sitemap: https://phevs.eu/sitemap.xml
 
 # Crawl Delay
 Crawl-delay: 1

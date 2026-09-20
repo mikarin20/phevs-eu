@@ -7,6 +7,7 @@ import carsData from '@/data/cars.json'
 import ImageGallery from '@/components/ImageGallery'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
 import RangeSimulator from '@/components/RangeSimulator'
+import ModelEditorialSummary from '@/components/ModelEditorialSummary'
 
 interface Car {
   id: string
@@ -744,6 +745,13 @@ export default function ModelDetail({ params }: ModelDetailProps) {
             </div>
           )}
         </div>
+
+        {/* Automated Editorial Verdict & Data-to-Text Analysis */}
+        <ModelEditorialSummary 
+          car={car as any} 
+          selectedTheme={selectedTheme} 
+          locale={selectedLanguage} 
+        />
 
         {/* Charging Specifications - Elbilgrossisten Style */}
         <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8 mb-8">

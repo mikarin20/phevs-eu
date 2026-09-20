@@ -4,7 +4,7 @@ import blogData from '@/data/blog.json'
 import quickComparesData from '@/data/quick-compares.json'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.phevs.eu'
+  const baseUrl = 'https://phevs.eu'
   const now = new Date()
 
   // 1. Ana sayfa ve statik kurumsal / rehber sayfaları (trailingSlash: true)
@@ -14,6 +14,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/videos/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/longest-range-phev/`,

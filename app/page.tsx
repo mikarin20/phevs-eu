@@ -865,7 +865,7 @@ export default function Home() {
       update: 'Update',
       dataNotFound: 'Data not found',
       selectToCompare: 'Please select a vehicle to compare',
-      heroTitle: "Europe's Most Comprehensive Plug-in Hybrid (PHEV) Comparison Platform",
+      heroTitle: "Compare Europe's Leading Plug-in Hybrid (PHEV) Vehicles (2026)",
       heroDescription: 'Compare 125+ plug-in hybrid electric vehicles (PHEVs) from 30 premium brands. Find the perfect PHEV for your lifestyle.',
       heroBadge: "Europe's Most Comprehensive Plug-in Hybrid Platform",
       phevModels: 'PHEV Models',
@@ -1492,9 +1492,9 @@ export default function Home() {
               <span>{t.heroBadge}</span>
             </div>
             
-            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'} tracking-tight`}>
+            <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'} tracking-tight`}>
               {t.heroTitle}
-            </h2>
+            </h1>
             <p className={`text-lg sm:text-xl mb-8 max-w-3xl mx-auto ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
               {t.heroDescription}
             </p>

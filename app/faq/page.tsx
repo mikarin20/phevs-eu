@@ -173,17 +173,37 @@ export default function PHEVGuidePage({
   
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Guide",
-    "name": t.title,
-    "description": t.subtitle,
-    "author": {
-      "@type": "Organization",
-      "name": "PHEVs.eu"
-    },
-    "about": {
-      "@type": "Thing",
-      "name": "Plug-in Hybrid Electric Vehicles"
-    }
+    "@graph": [
+      {
+        "@type": "Guide",
+        "name": t.title,
+        "description": t.subtitle,
+        "author": {
+          "@type": "Organization",
+          "name": "PHEVs.eu"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Plug-in Hybrid Electric Vehicles"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://phevs.eu/faq#faq",
+        "name": t.title,
+        "description": t.subtitle,
+        "mainEntity": guideCategories.flatMap(category =>
+          category.topics.map(topic => ({
+            "@type": "Question",
+            "name": topic.title,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `${topic.shortDescription}. Read the complete guide: https://phevs.eu/faq/${topic.slug}/`
+            }
+          }))
+        )
+      }
+    ]
   }
 
   return (

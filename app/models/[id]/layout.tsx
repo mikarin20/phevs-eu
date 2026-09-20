@@ -97,6 +97,16 @@ export default function ModelLayout({
           "unitCode": "KGM"
         } : undefined,
         "emissionsCO2": car.co2_emission ? `${car.co2_emission} g/km` : undefined,
+        ...(car.price_eur ? {
+          "offers": {
+            "@type": "Offer",
+            "price": car.price_eur,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "url": modelUrl
+          }
+        } : {}),
         "additionalProperty": [
           {
             "@type": "PropertyValue",
@@ -184,9 +194,13 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     notFound()
   }
 
+  const defaultTitle = car.price_eur
+    ? `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid: Specs, Electric Range & EU Price | PHEVs.eu`
+    : `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid: Specs, Battery & Electric Range | PHEVs.eu`
+
   const title = car.meta_title
     ? (car.meta_title.includes('PHEVs.eu') ? car.meta_title : `${car.meta_title} | PHEVs.eu`)
-    : `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid (PHEV) Specs & Range | PHEVs.eu`
+    : defaultTitle
   const description = `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid (PHEV) technical specs: ${car.ev_range_km} km electric range, ${car.battery_kwh} kWh battery${car.usable_battery_kwh ? ` (${car.usable_battery_kwh} kWh net)` : ''}, ${car.power_hp} HP system output and ${car.fuel_consumption} L/100km fuel consumption.`
   const canonicalUrl = `${baseUrl}/models/${car.slug || car.id}`
 
