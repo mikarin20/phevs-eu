@@ -76,7 +76,7 @@
   {
     "slug": "ford-kuga-phev-vs-hyundai-tucson-phev",
     "vehicle1Id": "ford-1",
-    "vehicle2Id": "hyundai-tucson-iv-facelift-268hp",
+    "vehicle2Id": "hyundai-tucson-iv-265hp-4wd",
     "summary": "",
     "verdict": "",
     "metaTitle": "Ford Kuga vs Hyundai Tucson PHEV Comparison",
@@ -173,18 +173,18 @@
     "metaDescription": "Compare Porsche Panamera 4 and Porsche Cayenne by electric range, battery, power, consumption and emissions."
   },
   {
-    "slug": "porsche-cayenne-phev-vs-porsche-macan-phev",
+    "slug": "porsche-cayenne-phev-vs-porsche-panamera-4-phev",
     "vehicle1Id": "new-70",
-    "vehicle2Id": "porsche-macan-phev",
+    "vehicle2Id": "new-71",
     "summary": "",
     "verdict": "",
-    "metaTitle": "Porsche Cayenne vs Porsche Macan PHEV Comparison",
-    "metaDescription": "Compare Porsche Cayenne and Porsche Macan by electric range, battery, power, consumption and emissions."
+    "metaTitle": "Porsche Cayenne vs Porsche Panamera 4 PHEV Comparison",
+    "metaDescription": "Compare Porsche Cayenne and Porsche Panamera 4 by electric range, battery, power, consumption and emissions."
   },
   {
     "slug": "seat-leon-sportstourer-1-4-e-hybrid-vs-seat-leon-1-5-tsi",
     "vehicle1Id": "seat-4",
-    "vehicle2Id": "seat-2",
+    "vehicle2Id": "seat-5",
     "summary": "",
     "verdict": "",
     "metaTitle": "SEAT Leon IV Sportstourer 1.4 e-Hybrid vs SEAT Leon IV 1.5 TSI PHEV Comparison",
@@ -220,7 +220,7 @@
   {
     "slug": "suzuki-across-phev-vs-hyundai-tucson-iv-facelift-268hp-phev",
     "vehicle1Id": "suzuki-across-phev",
-    "vehicle2Id": "hyundai-tucson-iv-facelift-268hp",
+    "vehicle2Id": "hyundai-tucson-iv-265hp-4wd",
     "summary": "",
     "verdict": "",
     "metaTitle": "Suzuki Across vs Hyundai Tucson IV (facelift 2024) PHEV Comparison",

@@ -215,6 +215,26 @@ const nextConfig = {
         destination: '/models/seat-leon-sportstourer-1-4-e-hybrid',
         permanent: true,
       },
+      {
+        source: '/models/porsche-macan-phev',
+        destination: '/brands/porsche',
+        permanent: true,
+      },
+      {
+        source: '/models/porsche-macan-phev/',
+        destination: '/brands/porsche',
+        permanent: true,
+      },
+      {
+        source: '/compare/porsche-cayenne-phev-vs-porsche-macan-phev',
+        destination: '/compare/porsche-cayenne-phev-vs-porsche-panamera-4-phev',
+        permanent: true,
+      },
+      {
+        source: '/compare/porsche-cayenne-phev-vs-porsche-macan-phev/',
+        destination: '/compare/porsche-cayenne-phev-vs-porsche-panamera-4-phev',
+        permanent: true,
+      },
       // Silinen uyumsuz karşılaştırma slug'ları için 301 yönlendirmeleri (SEO 404 koruması)
       {
         source: '/compare/peugeot-508-phev-vs-audi-a3-sportback-phev',

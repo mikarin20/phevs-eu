@@ -68,7 +68,7 @@
   {
     "id": "audi-1",
     "brand": "Audi",
-    "model": "A3 Sportback",
+    "model": "A3 Sportback 40 TFSI e",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 133,
@@ -93,11 +93,14 @@
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_capabilities": {
-      "ac_power": 2.9
+      "ac_power": 11,
+      "dc_power": 50
     },
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
     "emission_standard": "Euro 6e",
     "euroncap_rating": {
@@ -123,7 +126,10 @@
       "/images/cars/brands/audi/a3-sportback-tfsi-e/015.jpg",
       "/images/cars/brands/audi/a3-sportback-tfsi-e/016.jpg",
       "/images/cars/brands/audi/a3-sportback-tfsi-e/019.jpg"
-    ]
+    ],
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "last_updated": "2026-09-21"
   },
   {
     "id": "new-4",
@@ -197,9 +203,9 @@
   {
     "id": "audi-5",
     "brand": "Audi",
-    "model": "A6 Limousine",
+    "model": "A6 Limousine 55 TFSI e Quattro",
     "year": 2025,
-    "segment": "Station/Estate",
+    "segment": "Sedan",
     "ev_range_km": 106,
     "fuel_consumption": 2.2,
     "battery_kwh": 25.9,
@@ -225,7 +231,7 @@
       "ac_location": "Front left"
     },
     "charging_capabilities": {
-      "ac_power": 7.2
+      "ac_power": 7.4
     },
     "emission_standard": "Euro 6e",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -261,7 +267,10 @@
       "/images/cars/brands/audi/a6-limousine-e-hybrid/018.jpg",
       "/images/cars/brands/audi/a6-limousine-e-hybrid/019.jpg",
       "/images/cars/brands/audi/a6-limousine-e-hybrid/020.jpg"
-    ]
+    ],
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "last_updated": "2026-09-21"
   },
   {
     "id": "new-6",
@@ -5131,17 +5140,17 @@
   {
     "id": "new-70",
     "brand": "Porsche",
-    "model": "Cayenne",
+    "model": "Cayenne E-Hybrid",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 44,
+    "ev_range_km": 74,
     "fuel_consumption": 1.2,
-    "battery_kwh": 17.9,
+    "battery_kwh": 25.9,
     "image_url": "/images/cars/brands/porsche/cayenne-cayenne-e-hybrid/main.jpg",
-    "power_hp": 340,
+    "power_hp": 470,
     "co2_emission": 27,
     "charge_time_ac": 2.3,
-    "trunk_volume": 404,
+    "trunk_volume": 627,
     "seats": 5,
     "warranty_years": 3,
     "weight_kg": 2495,
@@ -5149,7 +5158,7 @@
     "width_mm": 1983,
     "height_mm": 1673,
     "wheelbase_mm": 2895,
-    "max_trunk_volume": 1344,
+    "max_trunk_volume": 1563,
     "electric_motor_power_hp": 134,
     "engine_displacement": 3,
     "battery_chemistry": "NCM",
@@ -5173,9 +5182,13 @@
     "slug": "porsche-cayenne-phev",
     "updated_at": "2024-10-25",
     "charging_capabilities": {
-      "ac_power": 7.2
+      "ac_power": 11
     },
-    "gallery_images": []
+    "gallery_images": [],
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "acceleration_0_100": 4.9,
+    "last_updated": "2026-09-21"
   },
   {
     "id": "new-71",
@@ -5270,10 +5283,10 @@
   {
     "id": "skoda-kodiaq",
     "brand": "Škoda",
-    "model": "Kodiaq",
+    "model": "Kodiaq iV (2025)",
     "year": 2025,
     "segment": "SUV",
-    "ev_range_km": 120,
+    "ev_range_km": 123,
     "fuel_consumption": 1.5,
     "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/skoda/kodiaq-phev/main.jpg",
@@ -5314,20 +5327,20 @@
     "acceleration_0_100": 1.8,
     "features": [],
     "weight_kg": 0,
-    "last_updated": "2026-09-18",
+    "last_updated": "2026-09-21",
     "gallery_images": []
   },
   {
     "id": "skoda-superb-combi",
     "brand": "Škoda",
-    "model": "Superb Combi 1.5 TSI PHEV",
+    "model": "Superb Combi iV (2025)",
     "year": 2025,
     "segment": "Estate",
-    "ev_range_km": 120,
+    "ev_range_km": 133,
     "fuel_consumption": 1.4,
     "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/skoda/superb-combi-phev/main.jpg",
-    "power_hp": 272,
+    "power_hp": 204,
     "co2_emission": 32,
     "charge_time_ac": 2.5,
     "trunk_volume": 510,
@@ -5354,34 +5367,34 @@
     },
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "slug": "koda-superb-combi-phev",
     "updated_at": "2024-10-24",
     "electric_motor_power_hp": 116,
     "charge_time_dc": 0.43,
     "dc_charging_supported": true,
-    "dc_max_power_kw": 40,
+    "dc_max_power_kw": 50,
     "length_mm": 4902,
     "width_mm": 1849,
     "height_mm": 1482,
     "wheelbase_mm": 2839,
     "max_trunk_volume": 1770,
     "acceleration_0_100": 7.3,
-    "last_updated": "2026-09-18",
+    "last_updated": "2026-09-21",
     "gallery_images": []
   },
   {
     "id": "skoda-superb-sedan",
     "brand": "Škoda",
-    "model": "Superb 1.5 TSI PHEV",
+    "model": "Superb iV Liftback (2025)",
     "year": 2025,
     "segment": "Sedan",
-    "ev_range_km": 120,
+    "ev_range_km": 133,
     "fuel_consumption": 1.4,
     "battery_kwh": 25.7,
     "image_url": "/images/cars/brands/skoda/superb-sedan-phev/main.jpg",
-    "power_hp": 272,
+    "power_hp": 204,
     "co2_emission": 32,
     "charge_time_ac": 2.5,
     "trunk_volume": 486,
@@ -5408,21 +5421,21 @@
     },
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "slug": "koda-superb-sedan-phev",
     "updated_at": "2024-10-24",
     "electric_motor_power_hp": 116,
     "charge_time_dc": 0.43,
     "dc_charging_supported": true,
-    "dc_max_power_kw": 40,
+    "dc_max_power_kw": 50,
     "length_mm": 4912,
     "width_mm": 1849,
     "height_mm": 1511,
     "wheelbase_mm": 2839,
     "max_trunk_volume": 1635,
     "acceleration_0_100": 7.1,
-    "last_updated": "2026-09-18",
+    "last_updated": "2026-09-21",
     "gallery_images": []
   },
   {
@@ -5659,7 +5672,7 @@
   {
     "id": "vw-1",
     "brand": "Volkswagen",
-    "model": "Golf",
+    "model": "Golf eHybrid",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 143,
@@ -5684,7 +5697,9 @@
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
     "charging_capabilities": {
       "ac_power": 11,
@@ -5708,12 +5723,13 @@
     "dc_max_power_kw": 50,
     "gallery_images": [
       "/images/cars/brands/volkswagen/golf/007.jpg"
-    ]
+    ],
+    "last_updated": "2026-09-21"
   },
   {
     "id": "vw-2",
     "brand": "Volkswagen",
-    "model": "Passat",
+    "model": "Passat Variant eHybrid",
     "year": 2025,
     "segment": "Estate",
     "ev_range_km": 133,
@@ -5723,7 +5739,7 @@
     "power_hp": 204,
     "co2_emission": 9,
     "charge_time_ac": 3.5,
-    "trunk_volume": 650,
+    "trunk_volume": 510,
     "seats": 5,
     "warranty_years": 3,
     "weight_kg": 1780,
@@ -5731,7 +5747,7 @@
     "width_mm": 1849,
     "height_mm": 1521,
     "wheelbase_mm": 2841,
-    "max_trunk_volume": 650,
+    "max_trunk_volume": 1770,
     "electric_motor_power_hp": 115,
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
@@ -5762,12 +5778,13 @@
     "battery_architecture": "modular",
     "slug": "volkswagen-passat-phev",
     "updated_at": "2024-10-24",
-    "gallery_images": []
+    "gallery_images": [],
+    "last_updated": "2026-09-21"
   },
   {
     "id": "new-81",
     "brand": "Volkswagen",
-    "model": "Tayron",
+    "model": "Tayron eHybrid",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 116,
@@ -5777,22 +5794,24 @@
     "power_hp": 272,
     "co2_emission": 30,
     "charge_time_ac": 3,
-    "trunk_volume": 500,
+    "trunk_volume": 705,
     "seats": 5,
     "warranty_years": 3,
     "weight_kg": 1800,
-    "length_mm": 4590,
-    "width_mm": 1860,
-    "height_mm": 1660,
-    "wheelbase_mm": 2731,
-    "max_trunk_volume": 500,
+    "length_mm": 4792,
+    "width_mm": 1853,
+    "height_mm": 1668,
+    "wheelbase_mm": 2791,
+    "max_trunk_volume": 1915,
     "electric_motor_power_hp": 116,
     "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
     "charging_capabilities": {
       "ac_power": 11,
@@ -5814,7 +5833,8 @@
     "updated_at": "2024-10-24",
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
-    "gallery_images": []
+    "gallery_images": [],
+    "last_updated": "2026-09-21"
   },
   {
     "id": "vw-3",
@@ -5873,7 +5893,7 @@
   {
     "id": "new-83",
     "brand": "Volkswagen",
-    "model": "Touareg",
+    "model": "Touareg eHybrid",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 50,
@@ -5883,7 +5903,7 @@
     "power_hp": 381,
     "co2_emission": 35,
     "charge_time_ac": 3,
-    "trunk_volume": 500,
+    "trunk_volume": 610,
     "seats": 5,
     "warranty_years": 3,
     "weight_kg": 2200,
@@ -5891,18 +5911,17 @@
     "width_mm": 1984,
     "height_mm": 1702,
     "wheelbase_mm": 2894,
-    "max_trunk_volume": 500,
+    "max_trunk_volume": 1675,
     "electric_motor_power_hp": 136,
     "engine_displacement": 3,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Rear left"
     },
     "charging_capabilities": {
-      "ac_power": 11,
-      "dc_power": 40
+      "ac_power": 7.2
     },
     "emission_standard": "Euro 6 EA",
     "country_availability": "DE,FR,UK,PL",
@@ -5918,7 +5937,10 @@
     "battery_architecture": "modular",
     "slug": "volkswagen-touareg-phev",
     "updated_at": "2024-10-25",
-    "gallery_images": []
+    "gallery_images": [],
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "last_updated": "2026-09-21"
   },
   {
     "id": "vw-multivan-phev",
@@ -6253,7 +6275,7 @@
     "fuel_consumption": 1.15,
     "battery_kwh": 10.4,
     "image_url": "/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/main.jpg",
-    "power_hp": 150,
+    "power_hp": 204,
     "co2_emission": 27,
     "charge_time_ac": 3.5,
     "trunk_volume": 470,
@@ -6298,7 +6320,7 @@
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "slug": "seat-leon-sportstourer-1-4-e-hybrid",
-    "last_updated": "2025-01-21",
+    "last_updated": "2026-09-21",
     "dominant_color": "white",
     "data_status": {
       "technical_specs": "complete",
@@ -6337,7 +6359,7 @@
     "fuel_consumption": 1.1,
     "battery_kwh": 10.4,
     "image_url": "/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg",
-    "power_hp": 150,
+    "power_hp": 204,
     "co2_emission": 26,
     "charge_time_ac": 3.5,
     "trunk_volume": 380,
@@ -6382,7 +6404,7 @@
     "emission_standard": "Euro 6d",
     "country_availability": "EU",
     "slug": "seat-leon-1-4-e-hybrid",
-    "last_updated": "2025-01-21",
+    "last_updated": "2026-09-21",
     "dominant_color": "white",
     "data_status": {
       "technical_specs": "complete",
@@ -7006,74 +7028,6 @@
       "/images/cars/brands/peugeot/308-plug-in-hybrid/007.jpg",
       "/images/cars/brands/peugeot/308-plug-in-hybrid/009.jpg",
       "/images/cars/brands/peugeot/308-plug-in-hybrid/010.jpg"
-    ]
-  },
-  {
-    "id": "porsche-macan-phev",
-    "brand": "Porsche",
-    "model": "Macan",
-    "year": 2024,
-    "segment": "SUV",
-    "ev_range_km": 61,
-    "fuel_consumption": 0.8,
-    "battery_kwh": 17.9,
-    "image_url": "/images/cars/brands/porsche/macan-macan-e-hybrid/main.jpg",
-    "power_hp": 400,
-    "co2_emission": 18,
-    "charge_time_ac": 2.3,
-    "trunk_volume": 540,
-    "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 2150,
-    "length_mm": 4784,
-    "width_mm": 1938,
-    "height_mm": 1622,
-    "wheelbase_mm": 2807,
-    "max_trunk_volume": 1488,
-    "electric_motor_power_hp": 134,
-    "engine_displacement": 2,
-    "battery_chemistry": "NCM",
-    "battery_voltage": 800,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes, SAE J3068, IEC 62196-2)",
-      "ac_location": "Rear left"
-    },
-    "emission_standard": "Euro 6d",
-    "country_availability": "DE,FR,UK,PL,IT,ES",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 92,
-      "child_occupant": 83,
-      "pedestrian_protection": 74,
-      "safety_assist": 71,
-      "overall_rating": 80,
-      "test_year": 2024
-    },
-    "battery_architecture": "modular",
-    "slug": "porsche-macan-phev",
-    "updated_at": "2024-10-24",
-    "charging_capabilities": {
-      "ac_power": 7.2
-    },
-    "gallery_images": [
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/002.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/003.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/004.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/006.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/007.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/008.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/009.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/010.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/011.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/012.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/013.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/014.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/015.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/016.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/017.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/018.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/019.jpg",
-      "/images/cars/brands/porsche/macan-macan-e-hybrid/020.jpg"
     ]
   },
   {
@@ -7772,5 +7726,116 @@
     "gallery_images": [
       "/images/cars/brands/cupra/terramar-e-hybrid/main.jpg"
     ]
+  },
+  {
+    "id": "vw-golf-gte",
+    "brand": "Volkswagen",
+    "model": "Golf GTE",
+    "year": 2025,
+    "segment": "Hatchback",
+    "ev_range_km": 131,
+    "fuel_consumption": 0.3,
+    "battery_kwh": 25.7,
+    "image_url": "/images/cars/brands/volkswagen/golf/main.jpg",
+    "power_hp": 272,
+    "co2_emission": 6,
+    "charge_time_ac": 3.5,
+    "trunk_volume": 273,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1595,
+    "length_mm": 4289,
+    "width_mm": 1789,
+    "height_mm": 1478,
+    "wheelbase_mm": 2636,
+    "max_trunk_volume": 1129,
+    "electric_motor_power_hp": 116,
+    "engine_displacement": 1.5,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 50
+    },
+    "emission_standard": "Euro 6 EA",
+    "country_availability": "DE,FR,UK,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 76,
+      "safety_assist": 78,
+      "overall_rating": 85,
+      "test_year": 2019
+    },
+    "battery_architecture": "modular",
+    "slug": "volkswagen-golf-gte-phev",
+    "updated_at": "2024-10-23",
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "gallery_images": [
+      "/images/cars/brands/volkswagen/golf/007.jpg"
+    ],
+    "last_updated": "2026-09-21",
+    "acceleration_0_100": 6.6
+  },
+  {
+    "id": "vw-touareg-r",
+    "brand": "Volkswagen",
+    "model": "Touareg R eHybrid",
+    "year": 2025,
+    "segment": "SUV",
+    "ev_range_km": 51,
+    "fuel_consumption": 2,
+    "battery_kwh": 17.9,
+    "image_url": "/images/cars/brands/volkswagen/touareg/main.jpg",
+    "power_hp": 462,
+    "co2_emission": 35,
+    "charge_time_ac": 3,
+    "trunk_volume": 610,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 2200,
+    "length_mm": 4878,
+    "width_mm": 1984,
+    "height_mm": 1702,
+    "wheelbase_mm": 2894,
+    "max_trunk_volume": 1675,
+    "electric_motor_power_hp": 136,
+    "engine_displacement": 3,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Rear left"
+    },
+    "charging_capabilities": {
+      "ac_power": 7.2
+    },
+    "emission_standard": "Euro 6 EA",
+    "country_availability": "DE,FR,UK,PL",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 76,
+      "safety_assist": 78,
+      "overall_rating": 85,
+      "test_year": 2019
+    },
+    "battery_architecture": "modular",
+    "slug": "volkswagen-touareg-r-phev",
+    "updated_at": "2024-10-25",
+    "gallery_images": [],
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "last_updated": "2026-09-21",
+    "acceleration_0_100": 5.1
   }
 ]
