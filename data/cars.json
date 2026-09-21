@@ -5672,7 +5672,7 @@
   {
     "id": "vw-1",
     "brand": "Volkswagen",
-    "model": "Golf eHybrid",
+    "model": "Golf eHybrid (2024+)",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 143,
@@ -5729,7 +5729,7 @@
   {
     "id": "vw-2",
     "brand": "Volkswagen",
-    "model": "Passat Variant eHybrid",
+    "model": "Passat Variant eHybrid (2024+)",
     "year": 2025,
     "segment": "Estate",
     "ev_range_km": 133,
@@ -5839,7 +5839,7 @@
   {
     "id": "vw-3",
     "brand": "Volkswagen",
-    "model": "Tiguan",
+    "model": "Tiguan eHybrid (2024+)",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 125,
@@ -5888,7 +5888,8 @@
     "battery_architecture": "modular",
     "slug": "volkswagen-tiguan-phev",
     "updated_at": "2024-10-23",
-    "gallery_images": []
+    "gallery_images": [],
+    "last_updated": "2026-09-21"
   },
   {
     "id": "new-83",
@@ -7730,7 +7731,7 @@
   {
     "id": "vw-golf-gte",
     "brand": "Volkswagen",
-    "model": "Golf GTE",
+    "model": "Golf GTE (2024+)",
     "year": 2025,
     "segment": "Hatchback",
     "ev_range_km": 131,
@@ -7837,5 +7838,109 @@
     "dc_max_power_kw": null,
     "last_updated": "2026-09-21",
     "acceleration_0_100": 5.1
+  },
+  {
+    "id": "vw-golf-8-gte-2020",
+    "slug": "volkswagen-golf-8-gte-2020-phev",
+    "brand": "Volkswagen",
+    "model": "Golf 8 GTE (2020-2024)",
+    "year": 2020,
+    "segment": "Hatchback",
+    "ev_range_km": 62,
+    "fuel_consumption": 1.2,
+    "battery_kwh": 13,
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/2020_Volkswagen_Golf_GTE_Front.jpg",
+    "power_hp": 245,
+    "co2_emission": 26,
+    "charge_time_ac": 3.6,
+    "trunk_volume": 273,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1624,
+    "length_mm": 4284,
+    "width_mm": 1789,
+    "height_mm": 1456,
+    "wheelbase_mm": 2636,
+    "max_trunk_volume": 1129,
+    "electric_motor_power_hp": 110,
+    "engine_displacement": 1.4,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.6
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 76,
+      "safety_assist": 78,
+      "overall_rating": 85,
+      "test_year": 2019
+    },
+    "battery_architecture": "modular",
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "acceleration_0_100": 6.7,
+    "gallery_images": [],
+    "last_updated": "2026-09-21"
+  },
+  {
+    "id": "vw-golf-8-ehybrid-2020",
+    "slug": "volkswagen-golf-8-ehybrid-2020-phev",
+    "brand": "Volkswagen",
+    "model": "Golf 8 eHybrid (2020-2024)",
+    "year": 2020,
+    "segment": "Hatchback",
+    "ev_range_km": 71,
+    "fuel_consumption": 1.1,
+    "battery_kwh": 13,
+    "image_url": "/images/cars/brands/volkswagen/golf/main.jpg",
+    "power_hp": 204,
+    "co2_emission": 21,
+    "charge_time_ac": 3.6,
+    "trunk_volume": 273,
+    "seats": 5,
+    "warranty_years": 3,
+    "weight_kg": 1590,
+    "length_mm": 4284,
+    "width_mm": 1789,
+    "height_mm": 1456,
+    "wheelbase_mm": 2636,
+    "max_trunk_volume": 1129,
+    "electric_motor_power_hp": 110,
+    "engine_displacement": 1.4,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left"
+    },
+    "charging_capabilities": {
+      "ac_power": 3.6
+    },
+    "emission_standard": "Euro 6d",
+    "country_availability": "DE,FR,UK,PL,IT,ES",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 89,
+      "pedestrian_protection": 76,
+      "safety_assist": 78,
+      "overall_rating": 85,
+      "test_year": 2019
+    },
+    "battery_architecture": "modular",
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "acceleration_0_100": 7.4,
+    "gallery_images": [],
+    "last_updated": "2026-09-21"
   }
 ]
