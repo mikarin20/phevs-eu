@@ -1469,16 +1469,16 @@
   {
     "id": "cupra-formentor-204hp",
     "brand": "CUPRA",
-    "model": "Formentor 1.4 TSI 204hp e-Hybrid",
+    "model": "Formentor 1.5 e-HYBRID 204hp",
     "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 65,
-    "fuel_consumption": 1.6,
-    "battery_kwh": 13,
-    "image_url": "/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg",
+    "ev_range_km": 126,
+    "fuel_consumption": 0.4,
+    "battery_kwh": 19.7,
+    "image_url": "/images/cars/brands/cupra/formentor-2024/main.jpg",
     "power_hp": 204,
-    "co2_emission": 36,
-    "charge_time_ac": 3.5,
+    "co2_emission": 10,
+    "charge_time_ac": 2.25,
     "trunk_volume": 345,
     "seats": 5,
     "warranty_years": 3,
@@ -1489,16 +1489,18 @@
     "wheelbase_mm": 2680,
     "max_trunk_volume": 345,
     "electric_motor_power_hp": 115,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1514,30 +1516,29 @@
     "battery_architecture": "modular",
     "slug": "cupra-formentor-204hp-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-25",
+    "updated_at": "2026-09-21",
     "gallery_images": [
-      "/images/cars/brands/cupra/formentor-204hp-e-hybrid/003.jpg",
-      "/images/cars/brands/cupra/formentor-204hp-e-hybrid/004.jpg",
-      "/images/cars/brands/cupra/formentor-204hp-e-hybrid/007.jpg",
-      "/images/cars/brands/cupra/formentor-204hp-e-hybrid/010.jpg",
-      "/images/cars/brands/cupra/formentor-204hp-e-hybrid/011.jpg",
-      "/images/cars/brands/cupra/formentor-204hp-e-hybrid/013.jpg",
-      "/images/cars/brands/cupra/formentor-204hp-e-hybrid/019.jpg"
-    ]
+      "/images/cars/brands/cupra/formentor-2024/main.jpg",
+      "/images/cars/brands/cupra/formentor-2024/rear.jpg"
+    ],
+    "acceleration_0_100": 7.9,
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "charge_time_dc": 0.43
   },
   {
     "id": "cupra-formentor-245hp",
     "brand": "CUPRA",
-    "model": "Formentor 1.4 TSI 245hp e-Hybrid",
+    "model": "Formentor VZ 1.5 e-HYBRID 272hp",
     "year": 2024,
     "segment": "SUV",
-    "ev_range_km": 65,
-    "fuel_consumption": 1.6,
-    "battery_kwh": 13,
-    "image_url": "/images/cars/brands/cupra/formentor-245hp-e-hybrid/main.jpg",
-    "power_hp": 245,
-    "co2_emission": 36,
-    "charge_time_ac": 3.5,
+    "ev_range_km": 119,
+    "fuel_consumption": 0.5,
+    "battery_kwh": 19.7,
+    "image_url": "/images/cars/brands/cupra/formentor-2024/main.jpg",
+    "power_hp": 272,
+    "co2_emission": 12,
+    "charge_time_ac": 2.25,
     "trunk_volume": 345,
     "seats": 5,
     "warranty_years": 3,
@@ -1548,16 +1549,18 @@
     "wheelbase_mm": 2680,
     "max_trunk_volume": 345,
     "electric_motor_power_hp": 115,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
     },
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1573,26 +1576,25 @@
     "battery_architecture": "modular",
     "slug": "cupra-formentor-245hp-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-24",
+    "updated_at": "2026-09-21",
     "gallery_images": [
-      "/images/cars/brands/cupra/formentor-245hp-e-hybrid/003.jpg",
-      "/images/cars/brands/cupra/formentor-245hp-e-hybrid/004.jpg",
-      "/images/cars/brands/cupra/formentor-245hp-e-hybrid/007.jpg",
-      "/images/cars/brands/cupra/formentor-245hp-e-hybrid/010.jpg",
-      "/images/cars/brands/cupra/formentor-245hp-e-hybrid/011.jpg",
-      "/images/cars/brands/cupra/formentor-245hp-e-hybrid/013.jpg",
-      "/images/cars/brands/cupra/formentor-245hp-e-hybrid/019.jpg"
-    ]
+      "/images/cars/brands/cupra/formentor-2024/main.jpg",
+      "/images/cars/brands/cupra/formentor-2024/rear.jpg"
+    ],
+    "acceleration_0_100": 7.2,
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "charge_time_dc": 0.43
   },
   {
     "id": "cupra-leon-1.4-tsi-204hp",
     "brand": "CUPRA",
-    "model": "Leon 1.4 TSI 204hp e-Hybrid",
+    "model": "Leon 1.5 e-HYBRID 204hp",
     "year": 2024,
     "segment": "Hatchback",
-    "ev_range_km": 65,
+    "ev_range_km": 131,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13,
+    "battery_kwh": 19.7,
     "image_url": "/images/cars/brands/cupra/leon-204hp-e-hybrid/main.jpg",
     "power_hp": 204,
     "co2_emission": 36,
@@ -1607,7 +1609,7 @@
     "wheelbase_mm": 2680,
     "max_trunk_volume": 380,
     "electric_motor_power_hp": 115,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -1616,7 +1618,7 @@
     },
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1632,26 +1634,28 @@
     "battery_architecture": "modular",
     "slug": "cupra-leon-204hp-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-23",
+    "updated_at": "2026-09-21",
     "gallery_images": [
       "/images/cars/brands/cupra/leon-204hp-e-hybrid/002.jpg",
       "/images/cars/brands/cupra/leon-204hp-e-hybrid/004.jpg",
       "/images/cars/brands/cupra/leon-204hp-e-hybrid/010.jpg",
       "/images/cars/brands/cupra/leon-204hp-e-hybrid/012.jpg",
       "/images/cars/brands/cupra/leon-204hp-e-hybrid/018.jpg"
-    ]
+    ],
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50
   },
   {
     "id": "cupra-leon-1.4-tsi-245hp",
     "brand": "CUPRA",
-    "model": "Leon 1.4 TSI 245hp e-Hybrid",
+    "model": "Leon VZ 1.5 e-HYBRID 272hp",
     "year": 2024,
     "segment": "Hatchback",
-    "ev_range_km": 65,
+    "ev_range_km": 124,
     "fuel_consumption": 1.6,
-    "battery_kwh": 13,
+    "battery_kwh": 19.7,
     "image_url": "/images/cars/brands/cupra/leon-245hp-e-hybrid/main.jpg",
-    "power_hp": 245,
+    "power_hp": 272,
     "co2_emission": 36,
     "charge_time_ac": 3.5,
     "trunk_volume": 380,
@@ -1664,7 +1668,7 @@
     "wheelbase_mm": 2680,
     "max_trunk_volume": 380,
     "electric_motor_power_hp": 115,
-    "engine_displacement": 1.4,
+    "engine_displacement": 1.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 400,
     "charging_port": {
@@ -1673,7 +1677,7 @@
     },
     "charging_capabilities": {
       "ac_power": 11,
-      "dc_power": 40
+      "dc_power": 50
     },
     "emission_standard": "Euro 6d",
     "country_availability": "DE,FR,UK,IT,ES",
@@ -1689,14 +1693,16 @@
     "battery_architecture": "modular",
     "slug": "cupra-leon-245hp-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-25",
+    "updated_at": "2026-09-21",
     "gallery_images": [
       "/images/cars/brands/cupra/leon-245hp-e-hybrid/002.jpg",
       "/images/cars/brands/cupra/leon-245hp-e-hybrid/004.jpg",
       "/images/cars/brands/cupra/leon-245hp-e-hybrid/010.jpg",
       "/images/cars/brands/cupra/leon-245hp-e-hybrid/012.jpg",
       "/images/cars/brands/cupra/leon-245hp-e-hybrid/018.jpg"
-    ]
+    ],
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50
   },
   {
     "id": "new-31",
@@ -6238,172 +6244,6 @@
     "last_updated": "2026-09-19"
   },
   {
-    "id": "seat-1",
-    "brand": "SEAT",
-    "model": "Leon IV Sportstourer 1.5 TSI",
-    "year": 2025,
-    "segment": "Estate",
-    "ev_range_km": 65,
-    "fuel_consumption": 1.2,
-    "battery_kwh": 13,
-    "image_url": "/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/main.jpg",
-    "power_hp": 204,
-    "co2_emission": 27,
-    "charge_time_ac": 4,
-    "trunk_volume": 470,
-    "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 1641,
-    "length_mm": 4642,
-    "width_mm": 1799,
-    "height_mm": 1456,
-    "wheelbase_mm": 2680,
-    "max_trunk_volume": 1470,
-    "electric_motor_power_hp": 116,
-    "engine_displacement": 1.498,
-    "battery_chemistry": "Li-Ion",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "charging_capabilities": {
-      "dc_power": 50,
-      "charging_curve": {
-        "soc": [
-          0,
-          20,
-          40,
-          60,
-          80,
-          100
-        ],
-        "power": [
-          50,
-          50,
-          45,
-          35,
-          20,
-          5
-        ]
-      },
-      "ac_power": 11
-    },
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-leon-sportstourer-1-5-tsi",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 96,
-      "child_occupant": 85,
-      "pedestrian_protection": 71,
-      "safety_assist": 80,
-      "overall_rating": 83,
-      "test_year": 2020
-    },
-    "updated_at": "2024-10-24",
-    "gallery_images": [
-      "/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/1.jpg"
-    ]
-  },
-  {
-    "id": "seat-2",
-    "brand": "SEAT",
-    "model": "Leon IV 1.5 TSI",
-    "year": 2025,
-    "segment": "Hatchback",
-    "ev_range_km": 65,
-    "fuel_consumption": 1.2,
-    "battery_kwh": 13,
-    "image_url": "/images/cars/brands/seat/leon-iv-14-e-hybrid/main.jpg",
-    "power_hp": 204,
-    "co2_emission": 27,
-    "charge_time_ac": 4,
-    "trunk_volume": 380,
-    "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 1595,
-    "length_mm": 4368,
-    "width_mm": 1799,
-    "height_mm": 1460,
-    "wheelbase_mm": 2680,
-    "max_trunk_volume": 1200,
-    "electric_motor_power_hp": 116,
-    "engine_displacement": 1.498,
-    "battery_chemistry": "Li-Ion",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "charging_capabilities": {
-      "dc_power": 50,
-      "charging_curve": {
-        "soc": [
-          0,
-          20,
-          40,
-          60,
-          80,
-          100
-        ],
-        "power": [
-          50,
-          50,
-          45,
-          35,
-          20,
-          5
-        ]
-      },
-      "ac_power": 11
-    },
-    "emission_standard": "Euro 6d",
-    "country_availability": "EU",
-    "slug": "seat-leon-1-5-tsi",
-    "last_updated": "2025-01-21",
-    "dominant_color": "white",
-    "data_status": {
-      "technical_specs": "complete",
-      "price": "estimated",
-      "range_data": "wltp"
-    },
-    "battery_details": {
-      "chemistry": "Lithium-ion (Li-Ion)",
-      "architecture": "modular",
-      "cycles": 2000,
-      "degradation_rate": 0.02,
-      "warranty_capacity": 70,
-      "thermal_management": "liquid"
-    },
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 96,
-      "child_occupant": 85,
-      "pedestrian_protection": 71,
-      "safety_assist": 80,
-      "overall_rating": 83,
-      "test_year": 2020
-    },
-    "updated_at": "2024-10-24",
-    "gallery_images": []
-  },
-  {
     "id": "seat-4",
     "brand": "SEAT",
     "model": "Leon IV Sportstourer 1.4 e-Hybrid",
@@ -7882,6 +7722,55 @@
     "gallery_images": [
       "/images/cars/brands/renault/megane-iv-grandtour-e-tech/main.jpg",
       "/images/cars/brands/renault/megane-iv-grandtour-e-tech/rear.jpg"
+    ]
+  },
+  {
+    "id": "cupra-terramar-vz-e-hybrid",
+    "brand": "CUPRA",
+    "model": "Terramar VZ 1.5 e-HYBRID 272hp",
+    "year": 2024,
+    "segment": "SUV",
+    "ev_range_km": 118,
+    "fuel_consumption": 0.5,
+    "battery_kwh": 19.7,
+    "image_url": "/images/cars/brands/cupra/terramar-e-hybrid/main.jpg",
+    "power_hp": 272,
+    "co2_emission": 12,
+    "charge_time_ac": 2.25,
+    "charge_time_dc": 0.43,
+    "trunk_volume": 450,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1850,
+    "length_mm": 4519,
+    "width_mm": 1863,
+    "height_mm": 1584,
+    "wheelbase_mm": 2681,
+    "max_trunk_volume": 1350,
+    "electric_motor_power_hp": 115,
+    "engine_displacement": 1.5,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 400,
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Front left",
+      "dc_type": "CCS Combo 2",
+      "dc_location": "Front left"
+    },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 50
+    },
+    "emission_standard": "Euro 6e-bis",
+    "country_availability": "EU",
+    "battery_architecture": "modular",
+    "slug": "cupra-terramar-vz-e-hybrid",
+    "acceleration_0_100": 7.3,
+    "updated_at": "2026-09-21",
+    "gallery_images": [
+      "/images/cars/brands/cupra/terramar-e-hybrid/main.jpg"
     ]
   }
 ]

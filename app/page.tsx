@@ -291,7 +291,7 @@ export default function Home() {
       id: 'mg-cupra',
       href: '/compare/mg-hs-ii-1-5t-vs-cupra-formentor-204hp-phev',
       leftCar: { name: 'MG HS (2025)', image: '/images/cars/brands/mg/nowy-hs-plug-in-hybrid/main.jpg', alt: 'MG HS', specs: '75 km' },
-      rightCar: { name: 'Cupra Formentor (2025)', image: '/images/cars/brands/cupra/formentor-204hp-e-hybrid/main.jpg', alt: 'Cupra Formentor', specs: '65 km' }
+      rightCar: { name: 'Cupra Formentor (2025)', image: '/images/cars/brands/cupra/formentor-2024/main.jpg', alt: 'Cupra Formentor', specs: '126 km' }
     },
     {
       id: 'land-rover-evoque-velar',
