@@ -235,6 +235,97 @@ const nextConfig = {
         destination: '/compare/porsche-cayenne-phev-vs-porsche-panamera-4-phev',
         permanent: true,
       },
+      // Dil ön ekleri (Search Console 404 önleyici 301 yönlendirmeleri)
+      {
+        source: '/de',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/de/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/de/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      {
+        source: '/tr',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tr/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tr/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      {
+        source: '/pl',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/pl/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/pl/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      {
+        source: '/fr',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/fr/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/fr/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      {
+        source: '/es',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/es/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/es/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      {
+        source: '/en',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
       // Silinen uyumsuz karşılaştırma slug'ları için 301 yönlendirmeleri (SEO 404 koruması)
       {
         source: '/compare/peugeot-508-phev-vs-audi-a3-sportback-phev',
