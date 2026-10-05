@@ -4,7 +4,7 @@ import carsData from '@/data/cars.json'
 import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
-  title: 'Lexus NX 450h+ vs Lexus RX 450h+ PHEV Comparison: Specs & Range Compared | PHEVs.eu',
+  title: 'Lexus NX 450h+ vs Lexus RX 450h+ PHEV Comparison: Specs & Range Compared',
   description: 'Compare Lexus NX 450h+ and Lexus RX 450h+ luxury plug-in hybrid SUVs by electric range, battery capacity, performance, charging times, and fuel economy.',
   keywords: [
     'Lexus NX 450h+',

@@ -13,61 +13,12 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config) => {
     // JSON import support
     config.module.rules.push({
       test: /\.json$/,
       type: 'json',
     })
-
-    // Optimize bundle size
-    if (!isServer) {
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          chunks: 'all',
-          minSize: 20000,
-          maxSize: 70000,
-          cacheGroups: {
-            default: false,
-            vendors: false,
-            framework: {
-              name: 'framework',
-              chunks: 'all',
-              test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
-              priority: 40,
-              enforce: true,
-            },
-            lib: {
-              test: /[\\/]node_modules[\\/]/,
-              name(module) {
-                if (!module.context) return 'lib.unknown'
-                const match = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)
-                if (!match) return 'lib.unknown'
-                return `lib.${match[1].replace('@', '')}`
-              },
-              priority: 30,
-              minChunks: 1,
-              reuseExistingChunk: true,
-            },
-            commons: {
-              name: 'commons',
-              minChunks: 2,
-              priority: 20,
-            },
-            shared: {
-              name(module, chunks) {
-                if (!chunks || chunks.length === 0) return 'shared.unknown'
-                return `shared.${chunks.map((chunk) => chunk.name || 'unknown').join('.')}`
-              },
-              priority: 10,
-              minChunks: 2,
-              reuseExistingChunk: true,
-            },
-          },
-        },
-      }
-    }
 
     return config
   },
@@ -86,8 +37,7 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    // Disabled to avoid Vercel's image optimization quota now that assets are served from R2
-    unoptimized: true,
+    unoptimized: false,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     formats: ['image/avif', 'image/webp'],

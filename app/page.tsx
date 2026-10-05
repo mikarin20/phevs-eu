@@ -31,7 +31,7 @@ import Link from 'next/link'
 import { getImageUrl } from '@/lib/image-url'
 import carsData from '@/data/cars.json' assert { type: 'json' }
 const typedCarsData = carsData as Car[]
-import blogData from '@/data/blog.json' assert { type: 'json' }
+import latestBlogsData from '@/data/latest-blogs.json' assert { type: 'json' }
 import { getTranslations, type Locale } from '@/lib/i18n'
 import { CarCardSkeleton } from '@/components/LoadingSkeleton'
 import EuroNCAPStars from '@/components/EuroNCAPStars'
@@ -431,6 +431,21 @@ export default function Home() {
     window.addEventListener('languageChanged', handleLanguageChange)
     return () => window.removeEventListener('languageChanged', handleLanguageChange)
   }, [])
+
+  const updateLanguage = (code: string) => {
+    setSelectedLanguage(code)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('phevs-language', code)
+      const url = new URL(window.location.href)
+      if (code === 'en') {
+        url.searchParams.delete('lang')
+      } else {
+        url.searchParams.set('lang', code)
+      }
+      window.history.replaceState({}, '', url.toString())
+      window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: code } }))
+    }
+  }
   
   const [filters, setFilters] = useState<FiltersState>({
     segment: '',
@@ -925,10 +940,43 @@ export default function Home() {
         title: 'All You Need to Know About PHEV'
       },
       navigation: {
+        guide: 'PHEV Guide',
+        videos: 'Videos',
         phevNews: 'PHEV News',
-        faq: 'FAQ',
-        videos: 'Videos'
-      }
+        faq: 'FAQ'
+      },
+      popularGuides: 'Popular Guides & Categories',
+      exploreCategories: 'Explore Specific PHEV Categories',
+      bestSellingPHEVs: 'Best-Selling PHEVs in Europe',
+      bestSellingBadge: 'ACEA Official Ranking',
+      bestSellingDesc: 'The most popular plug-in hybrid cars chosen by European drivers based on official registration figures.',
+      bestSellingAction: 'View Top 10 Models',
+      cheapestPHEVs: 'Most Affordable PHEVs',
+      cheapestBadge: 'Best Value / Budget',
+      cheapestDesc: 'Budget-friendly plug-in hybrids offering the lowest purchase price and maximum fuel savings.',
+      cheapestAction: 'View Affordable Models',
+      fastestPHEVs: 'Fastest Accelerating PHEVs',
+      fastestBadge: '0-100 km/h Kings',
+      fastestDesc: 'High-performance PHEVs combining twin turbo power and instant electric torque for blistering acceleration.',
+      fastestAction: 'View Performance Models',
+      popularGuidesSubtitle: 'Curated rankings based on official WLTP specifications',
+      longestRangePHEVs: 'Longest Range PHEVs',
+      longestRangeBadge: '100+ km Range',
+      longestRangeDesc: 'Discover plug-in hybrids that can easily cover all weekly commutes without ever touching the petrol engine.',
+      longestRangeAction: 'View 20+ Models',
+      dcFastChargingPHEVs: 'DC Fast Charging PHEVs',
+      dcFastChargingBadge: 'CCS & Fast Charge',
+      dcFastChargingDesc: 'Charge from 10% to 80% in 20-30 minutes at motorway DC rapid stations. Rare models with high demand.',
+      dcFastChargingAction: 'View 35+ Models',
+      sevenSeaterPHEVs: '7-Seater Family PHEVs',
+      sevenSeaterBadge: '3-Row Seating',
+      sevenSeaterDesc: 'Spacious 3-row SUVs and MPVs with 7 seats, zero range anxiety, and cavernous cargo capacity for family trips.',
+      sevenSeaterAction: 'View Family Models',
+      viewComparison: 'View Comparison',
+      popularBrands: 'Popular Brands',
+      all: 'All',
+      quickJumpCompare: 'Compare Models',
+      quickJumpFilter: 'Filter Vehicles'
     },
     de: {
       searchPlaceholder: 'Nach Marke oder Modell suchen...',
@@ -1014,10 +1062,43 @@ export default function Home() {
         title: 'Alles was Sie über PHEV wissen müssen'
       },
       navigation: {
+        guide: 'PHEV Ratgeber',
+        videos: 'Videos',
         phevNews: 'PHEV News',
-        faq: 'FAQ',
-        videos: 'Videos'
-      }
+        faq: 'FAQ'
+      },
+      popularGuides: 'Beliebte Ratgeber & Kategorien',
+      exploreCategories: 'Spezifische PHEV-Kategorien entdecken',
+      bestSellingPHEVs: 'Meistverkaufte PHEVs in Europa',
+      bestSellingBadge: 'Offizielle ACEA-Zahlen',
+      bestSellingDesc: 'Die beliebtesten Plug-in-Hybrid-Fahrzeuge europäischer Autofahrer basierend auf aktuellen Zulassungsdaten.',
+      bestSellingAction: 'Top 10 ansehen',
+      cheapestPHEVs: 'Günstigste PHEVs in Europa',
+      cheapestBadge: 'Bester Einstiegspreis',
+      cheapestDesc: 'Bezahlbare Plug-in-Hybride mit dem niedrigsten Anschaffungspreis und hoher Gesamtersparnis.',
+      cheapestAction: 'Günstige Modelle ansehen',
+      fastestPHEVs: 'Schnellste beschleunigende PHEVs',
+      fastestBadge: '0-100 km/h Spitzenwerte',
+      fastestDesc: 'Leistungsstarke PHEVs mit kraftvollem Elektroantrieb für sportliche Beschleunigung.',
+      fastestAction: 'Sportmodelle ansehen',
+      popularGuidesSubtitle: 'Spezifische Ranglisten auf Basis offizieller WLTP-Werte',
+      longestRangePHEVs: 'PHEVs mit höchster E-Reichweite',
+      longestRangeBadge: '100+ km Reichweite',
+      longestRangeDesc: 'Plug-in-Hybride, die tägliche Pendelstrecken rein elektrisch ohne Verbrennungsmotor bewältigen.',
+      longestRangeAction: '20+ Modelle ansehen',
+      dcFastChargingPHEVs: 'PHEVs mit DC-Schnellladung',
+      dcFastChargingBadge: 'CCS & Schnellladen',
+      dcFastChargingDesc: 'Laden von 10% auf 80% in 20-30 Minuten an Autobahn-Schnellladern. Gefragte Modelle mit CCS.',
+      dcFastChargingAction: '35+ Modelle ansehen',
+      sevenSeaterPHEVs: '7-Sitzer Familien-PHEVs',
+      sevenSeaterBadge: '3 Sitzreihen',
+      sevenSeaterDesc: 'Geräumige 7-Sitzer SUVs und Vans mit drei Sitzreihen und riesigem Kofferraum für die ganze Familie.',
+      sevenSeaterAction: 'Familienmodelle ansehen',
+      viewComparison: 'Vergleich ansehen',
+      popularBrands: 'Beliebte Marken',
+      all: 'Alle',
+      quickJumpCompare: 'Modelle vergleichen',
+      quickJumpFilter: 'Fahrzeuge filtern'
     },
     tr: {
       searchPlaceholder: 'Marka veya model ara...',
@@ -1103,10 +1184,43 @@ export default function Home() {
         title: 'PHEV Hakkında Bilmeniz Gereken Her Şey'
       },
       navigation: {
+        guide: 'PHEV Rehberi',
+        videos: 'Kıyaslama Videoları',
         phevNews: 'PHEV News',
-        faq: 'FAQ',
-        videos: 'Kıyaslama Videoları'
-      }
+        faq: 'FAQ'
+      },
+      popularGuides: 'Popüler Rehberler & Kategoriler',
+      exploreCategories: 'Özel PHEV Kategorilerini Keşfedin',
+      bestSellingPHEVs: 'Avrupa\'da En Çok Satan PHEV\'ler',
+      bestSellingBadge: 'Resmi ACEA Verileri',
+      bestSellingDesc: 'Avrupa genelinde sürücülerin en çok tercih ettiği resmi satış lideri plug-in hibrit modeller.',
+      bestSellingAction: 'İlk 10 Modeli Gör',
+      cheapestPHEVs: 'En Ucuz / Ekonomik PHEV\'ler',
+      cheapestBadge: 'En İyi Fiyat / Fırsat',
+      cheapestDesc: 'Düşük başlangıç fiyatı ve maksimum yakıt tasarrufu sağlayan bütçe dostu plug-in hibritler.',
+      cheapestAction: 'Ekonomik Modelleri Gör',
+      fastestPHEVs: 'En Hızlı Hızlanan PHEV\'ler',
+      fastestBadge: '0-100 km/s Liderleri',
+      fastestDesc: 'Anlık elektrik torku ve güçlü motoru birleştirerek nefes kesen ivmelenme sunan performans hibritleri.',
+      fastestAction: 'Performans Modellerini Gör',
+      popularGuidesSubtitle: 'Resmi WLTP verilerine dayalı özel model sıralamaları',
+      longestRangePHEVs: 'En Uzun Menzilli PHEV\'ler',
+      longestRangeBadge: '100+ km Menzil',
+      longestRangeDesc: 'Benzin motorunu hiç çalıştırmadan haftalık şehir içi rotalarınızı tamamlayabilen modeller.',
+      longestRangeAction: '20+ Modeli İncele',
+      dcFastChargingPHEVs: 'DC Hızlı Şarjlı PHEV\'ler',
+      dcFastChargingBadge: 'CCS & Hızlı Şarj',
+      dcFastChargingDesc: 'Otoyol dinlenme tesislerindeki hızlı şarj istasyonlarında 20-30 dakikada %10\'dan %80\'e şarj olan modeller.',
+      dcFastChargingAction: '35+ Modeli İncele',
+      sevenSeaterPHEVs: '7 Koltuklu Aile PHEV\'leri',
+      sevenSeaterBadge: '3 Sıra Koltuk',
+      sevenSeaterDesc: '7 kişilik 3 sıra koltuk düzeni, sıfır menzil endişesi ve devasa bagaj hacmi sunan geniş SUV ve MPV\'ler.',
+      sevenSeaterAction: 'Aile Modellerini İncele',
+      viewComparison: 'Karşılaştırmayı İncele',
+      popularBrands: 'Popüler Markalar',
+      all: 'Tümü',
+      quickJumpCompare: 'Modelleri Kıyasla',
+      quickJumpFilter: 'Araçları Filtrele'
     },
     pl: {
       searchPlaceholder: 'Szukaj według marki lub modelu...',
@@ -1192,10 +1306,43 @@ export default function Home() {
         title: 'Wszystko co musisz wiedzieć o PHEV'
       },
       navigation: {
+        guide: 'Przewodnik PHEV',
+        videos: 'Wideo',
         phevNews: 'PHEV News',
-        faq: 'FAQ',
-        videos: 'Wideo'
-      }
+        faq: 'FAQ'
+      },
+      popularGuides: 'Popularne Poradniki i Kategorie',
+      exploreCategories: 'Przeglądaj wybrane kategorie PHEV',
+      bestSellingPHEVs: 'Najlepiej sprzedające się PHEV w Europie',
+      bestSellingBadge: 'Oficjalny ranking ACEA',
+      bestSellingDesc: 'Najchętniej wybierane samochody hybrydowe plug-in w Europie według danych rejestracyjnych.',
+      bestSellingAction: 'Zobacz Top 10 modeli',
+      cheapestPHEVs: 'Najtańsze PHEV w Europie',
+      cheapestBadge: 'Najlepsza cena / Budżet',
+      cheapestDesc: 'Przystępne cenowo hybrydy plug-in oferujące najniższy koszt zakupu i oszczędność paliwa.',
+      cheapestAction: 'Zobacz tanie modele',
+      fastestPHEVs: 'Najszybciej przyspieszające PHEV',
+      fastestBadge: 'Królowie 0-100 km/h',
+      fastestDesc: 'Mocne hybrydy plug-in o znakomitych osiągach i natychmiastowym momencie obrotowym.',
+      fastestAction: 'Zobacz modele sportowe',
+      popularGuidesSubtitle: 'Zestawienia oparte na oficjalnych danych WLTP',
+      longestRangePHEVs: 'PHEV o największym zasięgu',
+      longestRangeBadge: '100+ km zasięgu',
+      longestRangeDesc: 'Hybrydy plug-in, które bez problemu pokonują codzienne trasy wyłącznie na prądzie.',
+      longestRangeAction: 'Zobacz 20+ modeli',
+      dcFastChargingPHEVs: 'PHEV z szybkim ładowaniem DC',
+      dcFastChargingBadge: 'CCS i szybkie DC',
+      dcFastChargingDesc: 'Ładowanie od 10% do 80% w 20-30 minut na stacjach szybkiego ładowania.',
+      dcFastChargingAction: 'Zobacz 35+ modeli',
+      sevenSeaterPHEVs: '7-miejscowe hybrydy rodzinne',
+      sevenSeaterBadge: '3 rzędy siedzeń',
+      sevenSeaterDesc: 'Przestronne SUV-y i vany z 7 miejscami, bez obaw o zasięg w długich trasach.',
+      sevenSeaterAction: 'Zobacz modele rodzinne',
+      viewComparison: 'Zobacz porównanie',
+      popularBrands: 'Popularne marki',
+      all: 'Wszystkie',
+      quickJumpCompare: 'Porównaj modele',
+      quickJumpFilter: 'Filtruj pojazdy'
     },
     fr: {
       searchPlaceholder: 'Rechercher par marque ou modèle...',
@@ -1281,10 +1428,43 @@ export default function Home() {
         title: 'Tout savoir sur le PHEV'
       },
       navigation: {
+        guide: 'Guide PHEV',
+        videos: 'Vidéos',
         phevNews: 'Actualités PHEV',
-        faq: 'FAQ',
-        videos: 'Vidéos'
-      }
+        faq: 'FAQ'
+      },
+      popularGuides: 'Guides et Catégories Populaires',
+      exploreCategories: 'Explorer les catégories de PHEV',
+      bestSellingPHEVs: 'PHEV les plus vendus en Europe',
+      bestSellingBadge: 'Classement officiel ACEA',
+      bestSellingDesc: 'Les modèles hybrides rechargeables les plus plébiscités par les automobilistes européens.',
+      bestSellingAction: 'Voir le Top 10',
+      cheapestPHEVs: 'PHEV les moins chers en Europe',
+      cheapestBadge: 'Meilleur rapport qualité/prix',
+      cheapestDesc: 'Hybrides rechargeables économiques offrant le prix d\'accès le plus bas et de réelles économies de carburant.',
+      cheapestAction: 'Voir les modèles abordables',
+      fastestPHEVs: 'PHEV aux accélérations les plus vives',
+      fastestBadge: 'Rois du 0-100 km/h',
+      fastestDesc: 'PHEV hautes performances combinant moteur thermique puissant et couple électrique instantané.',
+      fastestAction: 'Voir les modèles sport',
+      popularGuidesSubtitle: 'Classements basés sur les données officielles WLTP',
+      longestRangePHEVs: 'PHEV à plus grande autonomie',
+      longestRangeBadge: 'Autonomie 100+ km',
+      longestRangeDesc: 'Hybrides rechargeables capables de couvrir tous vos trajets quotidiens sans moteur thermique.',
+      longestRangeAction: 'Voir 20+ modèles',
+      dcFastChargingPHEVs: 'PHEV avec charge rapide DC',
+      dcFastChargingBadge: 'CCS & Charge rapide',
+      dcFastChargingDesc: 'Recharge de 10% à 80% en 20 à 30 minutes sur borne rapide d\'autoroute.',
+      dcFastChargingAction: 'Voir 35+ modèles',
+      sevenSeaterPHEVs: 'PHEV familiaux 7 places',
+      sevenSeaterBadge: '3 rangées de sièges',
+      sevenSeaterDesc: 'Grands SUV et monospaces 7 places avec coffre généreux pour les voyages en famille.',
+      sevenSeaterAction: 'Voir les modèles',
+      viewComparison: 'Voir la comparaison',
+      popularBrands: 'Marques populaires',
+      all: 'Tous',
+      quickJumpCompare: 'Comparer les modèles',
+      quickJumpFilter: 'Filtrer les véhicules'
     },
     es: {
       searchPlaceholder: 'Buscar por marca o modelo...',
@@ -1370,10 +1550,43 @@ export default function Home() {
         title: 'Todo lo que necesitas saber sobre PHEV'
       },
       navigation: {
+        guide: 'Guía PHEV',
+        videos: 'Vídeos',
         phevNews: 'Noticias PHEV',
-        faq: 'FAQ',
-        videos: 'Vídeos'
-      }
+        faq: 'FAQ'
+      },
+      popularGuides: 'Guías y Categorías Populares',
+      exploreCategories: 'Explorar categorías específicas de PHEV',
+      bestSellingPHEVs: 'PHEV más vendidos en Europa',
+      bestSellingBadge: 'Ranking oficial ACEA',
+      bestSellingDesc: 'Los modelos híbridos enchufables favoritos de los conductores europeos según datos oficiales.',
+      bestSellingAction: 'Ver Top 10 modelos',
+      cheapestPHEVs: 'PHEV más baratos y económicos',
+      cheapestBadge: 'Mejor precio / Ocasión',
+      cheapestDesc: 'Híbridos enchufables accesibles con el menor precio de compra y máxima eficiencia.',
+      cheapestAction: 'Ver modelos asequibles',
+      fastestPHEVs: 'PHEV con aceleración más rápida',
+      fastestBadge: 'Reyes del 0-100 km/h',
+      fastestDesc: 'PHEV de alto rendimiento con par eléctrico instantáneo y aceleraciones deportivas.',
+      fastestAction: 'Ver modelos deportivos',
+      popularGuidesSubtitle: 'Rankings basados en especificaciones oficiales WLTP',
+      longestRangePHEVs: 'PHEV con mayor autonomía',
+      longestRangeBadge: '100+ km autonomía',
+      longestRangeDesc: 'Híbridos enchufables capaces de cubrir todos tus trayectos diarios sin encender el motor de gasolina.',
+      longestRangeAction: 'Ver 20+ modelos',
+      dcFastChargingPHEVs: 'PHEV con carga rápida DC',
+      dcFastChargingBadge: 'CCS y carga rápida',
+      dcFastChargingDesc: 'Carga del 10% al 80% en 20-30 minutos en cargadores rápidos de autopista.',
+      dcFastChargingAction: 'Ver 35+ modelos',
+      sevenSeaterPHEVs: 'PHEV familiares de 7 plazas',
+      sevenSeaterBadge: '3 filas de asientos',
+      sevenSeaterDesc: 'Espaciosos SUV y monovolúmenes de 7 plazas con gran maletero para toda la familia.',
+      sevenSeaterAction: 'Ver modelos familiares',
+      viewComparison: 'Ver comparativa',
+      popularBrands: 'Marcas populares',
+      all: 'Todos',
+      quickJumpCompare: 'Comparar modelos',
+      quickJumpFilter: 'Filtrar vehículos'
     }
   }
 
@@ -1533,12 +1746,18 @@ export default function Home() {
                   <span className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">PHEVs</span>
                   <span className="text-2xl font-light text-blue-600 dark:text-blue-400">.eu</span>
                 </div>
-                <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide -mt-0.5">Europe&apos;s PHEV Comparison Platform</span>
+                <span className="hidden sm:block text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide -mt-0.5">Europe&apos;s PHEV Comparison Platform</span>
               </div>
             </Link>
 
             {/* Center Navigation - Sleek Modern Pill Capsule */}
             <nav className="hidden lg:flex items-center p-1 bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 rounded-full backdrop-blur-md shadow-xs space-x-1">
+              <a 
+                href={`/faq${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+                className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
+              >
+                {t.navigation.guide || 'PHEV Guide'}
+              </a>
               <a 
                 href="/videos" 
                 className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs group"
@@ -1555,31 +1774,31 @@ export default function Home() {
               >
                 {t.navigation.phevNews}
               </a>
-              <a 
-                href="/faq" 
-                className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
-              >
-                {t.navigation.faq}
-              </a>
             </nav>
 
             {/* Right Side Controls */}
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              {/* Desktop Language Selector & Theme Toggle Group */}
-              <div className="hidden sm:flex items-center bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 rounded-full p-1 shadow-2xs">
+            <div className="flex items-center space-x-1.5 sm:space-x-3 shrink-0">
+              {/* CTA Buttons (Desktop) */}
+              <div className="hidden lg:flex items-center space-x-2">
+                <button
+                  onClick={() => setIsSuggestFormOpen(true)}
+                  className="px-3.5 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 transition-all"
+                >
+                  Suggest Model
+                </button>
+              </div>
+
+              {/* Desktop Language Selector & Theme Toggle Group (Aligned Far Right) */}
+              <div className="hidden lg:flex items-center bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 rounded-full p-1 shadow-2xs">
                 {/* Language Selector (Flags intact with original design & behavior) */}
                 <div className="flex items-center space-x-0.5">
                   {supportedLanguages.map((lang) => (
                     <button
                       key={lang.code}
-                      onClick={() => {
-                        setSelectedLanguage(lang.code)
-                        localStorage.setItem('phevs-language', lang.code)
-                        window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
-                      }}
+                      onClick={() => updateLanguage(lang.code)}
                       className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
                         selectedLanguage === lang.code
-                          ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-xs ring-1 ring-slate-900/5 dark:ring-white/10 scale-105'
+                          ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-xs ring-1 ring-slate-900/5 dark:ring-white/10'
                           : 'opacity-70 hover:opacity-100 hover:bg-white/60 dark:hover:bg-slate-700/50'
                       }`}
                       title={lang.name}
@@ -1612,7 +1831,7 @@ export default function Home() {
               </div>
 
               {/* Mobile Controls (Language Dropdown + Theme Toggle) */}
-              <div className="flex sm:hidden items-center space-x-1.5">
+              <div className="flex lg:hidden items-center space-x-1.5 shrink-0">
                 {/* Mobile Language Selector Dropdown */}
                 <div className="relative">
                   <button
@@ -1641,7 +1860,7 @@ export default function Home() {
                         }} 
                       />
                       <div 
-                        className="absolute right-0 top-full mt-2 w-52 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-1.5 z-[100] animate-in fade-in zoom-in-95 duration-150"
+                        className="absolute -right-2 sm:right-0 top-full mt-2 w-48 max-w-[calc(100vw-2rem)] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-1.5 z-[100] animate-in fade-in zoom-in-95 duration-150 overflow-hidden"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 border-b border-slate-100 dark:border-slate-800">
@@ -1655,12 +1874,10 @@ export default function Home() {
                                 key={lang.code}
                                 type="button"
                                 onClick={() => {
-                                  setSelectedLanguage(lang.code)
-                                  localStorage.setItem('phevs-language', lang.code)
-                                  window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
+                                  updateLanguage(lang.code)
                                   setIsMobileLanguageDropdownOpen(false)
                                 }}
-                                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all ${
+                                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left transition-all ${
                                   isSelected
                                     ? 'bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 font-semibold'
                                     : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium'
@@ -1694,23 +1911,6 @@ export default function Home() {
                 </button>
               </div>
 
-              {/* CTA Buttons (Desktop) */}
-              <div className="hidden sm:flex items-center space-x-2">
-                <button
-                  onClick={() => setIsSuggestFormOpen(true)}
-                  className="px-3.5 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 transition-all"
-                >
-                  Suggest Model
-                </button>
-                <a
-                  href="/faq"
-                  className="px-4.5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-semibold rounded-full shadow-sm shadow-blue-500/25 hover:shadow-md hover:shadow-blue-500/30 transition-all flex items-center gap-1.5"
-                >
-                  <span>PHEV Guide</span>
-                  <span className="text-[10px] opacity-80">→</span>
-                </a>
-              </div>
-
               {/* Mobile Menu Button */}
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -1737,6 +1937,13 @@ export default function Home() {
             {/* Primary Navigation */}
             <div className="space-y-1.5">
               <Link
+                href={`/faq${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
+              >
+                {t.navigation.guide || 'PHEV Guide'}
+              </Link>
+              <Link
                 href="/videos"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
@@ -1754,41 +1961,34 @@ export default function Home() {
               >
                 {t.navigation.phevNews}
               </Link>
-              <Link
-                href="/faq"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
-              >
-                {t.navigation.faq}
-              </Link>
             </div>
 
             {/* Quick Categories */}
             <div className="pt-2 border-t border-slate-200 dark:border-slate-800 space-y-1.5">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-1 block">
-                Explore Categories
+                {t.exploreCategories || 'Explore Specific PHEV Categories'}
               </span>
               <div className="grid grid-cols-2 gap-2">
                 <Link
-                  href="/phev-with-dc-charging"
+                  href={`/phev-with-dc-charging${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
-                  ⚡ DC Fast Charging
+                  {selectedLanguage === 'tr' ? '⚡ DC Hızlı Şarj' : selectedLanguage === 'de' ? '⚡ DC-Schnellladung' : selectedLanguage === 'pl' ? '⚡ Szybkie ładowanie DC' : selectedLanguage === 'fr' ? '⚡ Charge rapide DC' : selectedLanguage === 'es' ? '⚡ Carga rápida DC' : '⚡ DC Fast Charging'}
                 </Link>
                 <Link
-                  href="/longest-range-phev"
+                  href={`/longest-range-phev${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
-                  🔋 100+ km Range
+                  {selectedLanguage === 'tr' ? '🔋 100+ km Menzil' : selectedLanguage === 'de' ? '🔋 100+ km Reichweite' : selectedLanguage === 'pl' ? '🔋 Zasięg 100+ km' : selectedLanguage === 'fr' ? '🔋 Autonomie 100+ km' : selectedLanguage === 'es' ? '🔋 Autonomía 100+ km' : '🔋 100+ km Range'}
                 </Link>
                 <Link
-                  href="/tax-simulator"
+                  href={`/tax-simulator${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="px-3 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-xs font-semibold text-emerald-700 dark:text-emerald-300 transition-colors col-span-2"
                 >
-                  💶 Euro 6e-bis & Tax Simulator
+                  {selectedLanguage === 'tr' ? '💶 Euro 6e-bis & Vergi Simülatörü' : selectedLanguage === 'de' ? '💶 Euro 6e-bis & Steuersimulator' : selectedLanguage === 'pl' ? '💶 Euro 6e-bis i Symulator Podatkowy' : selectedLanguage === 'fr' ? '💶 Euro 6e-bis & Simulateur Fiscal' : selectedLanguage === 'es' ? '💶 Euro 6e-bis y Simulador Fiscal' : '💶 Euro 6e-bis & Tax Simulator'}
                 </Link>
               </div>
             </div>
@@ -1798,25 +1998,23 @@ export default function Home() {
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-1 block mb-2">
                 {selectedLanguage === 'tr' ? 'Dil Seçin' : selectedLanguage === 'de' ? 'Sprache' : selectedLanguage === 'fr' ? 'Langue' : selectedLanguage === 'es' ? 'Idioma' : selectedLanguage === 'pl' ? 'Język' : 'Language'}
               </span>
-              <div className="grid grid-cols-3 gap-1.5">
+              <div className="grid grid-cols-3 gap-1.5 overflow-hidden">
                 {supportedLanguages.map((lang) => (
                   <button
                     key={lang.code}
                     type="button"
                     onClick={() => {
-                      setSelectedLanguage(lang.code)
-                      localStorage.setItem('phevs-language', lang.code)
-                      window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang.code } }))
+                      updateLanguage(lang.code)
                       setIsMobileMenuOpen(false)
                     }}
-                    className={`flex items-center justify-center space-x-1.5 py-2 px-2 rounded-xl text-xs font-medium border transition-all ${
+                    className={`flex items-center justify-center space-x-1.5 py-2 px-2 rounded-xl text-xs font-medium border transition-all truncate ${
                       selectedLanguage === lang.code
-                        ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                        ? 'bg-blue-600 text-white border-blue-600 shadow-xs font-semibold'
                         : 'bg-slate-50 dark:bg-slate-800 border-slate-200/80 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
                     }`}
                   >
-                    <span className={`fi fi-${lang.flag} text-sm`}></span>
-                    <span>{lang.name}</span>
+                    <span className={`fi fi-${lang.flag} text-sm shrink-0`}></span>
+                    <span className="truncate">{lang.name}</span>
                   </button>
                 ))}
               </div>
@@ -1833,13 +2031,6 @@ export default function Home() {
               >
                 Suggest Model
               </button>
-              <a
-                href="/faq"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full text-center px-4 py-2.5 bg-blue-600 text-white text-xs font-semibold rounded-xl shadow-sm"
-              >
-                PHEV Guide →
-              </a>
             </div>
           </div>
         </div>
@@ -1847,42 +2038,66 @@ export default function Home() {
 
 
       {/* Hero Section - Modern Design */}
-      <section className={`py-12 w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100'}`}>
+      <section className={`py-6 sm:py-12 w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-900' : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
               <span>{t.heroBadge}</span>
             </div>
             
-            <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'} tracking-tight`}>
+            <h1 className={`text-2xl sm:text-5xl lg:text-6xl font-bold mb-3 sm:mb-6 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'} tracking-tight`}>
               {t.heroTitle}
             </h1>
-            <p className={`text-lg sm:text-xl mb-8 max-w-3xl mx-auto ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
+            <p className={`text-sm sm:text-xl mb-5 sm:mb-8 max-w-3xl mx-auto ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
               {t.heroDescription}
             </p>
             
-            {/* Modern Stats Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-              <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
-                <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>87</div>
-                <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.phevModels}</div>
-                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{t.phevModelsSubtitle}</div>
+            {/* Modern Stats Grid - Compact on Mobile */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-6 mb-6 sm:mb-12 max-w-4xl mx-auto">
+              <div className={`text-center p-3 sm:p-6 rounded-xl sm:rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-md sm:shadow-xl`}>
+                <div className={`text-2xl sm:text-4xl font-bold mb-0.5 sm:mb-2 ${selectedTheme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>87</div>
+                <div className={`text-xs sm:text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'} truncate`}>{t.phevModels}</div>
+                <div className={`text-[10px] sm:text-xs mt-0.5 sm:mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'} hidden sm:block`}>{t.phevModelsSubtitle}</div>
               </div>
-              <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
-                <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
-                <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.premiumBrands}</div>
-                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{t.premiumBrandsSubtitle}</div>
+              <div className={`text-center p-3 sm:p-6 rounded-xl sm:rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-md sm:shadow-xl`}>
+                <div className={`text-2xl sm:text-4xl font-bold mb-0.5 sm:mb-2 ${selectedTheme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>28</div>
+                <div className={`text-xs sm:text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'} truncate`}>{t.premiumBrands}</div>
+                <div className={`text-[10px] sm:text-xs mt-0.5 sm:mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'} hidden sm:block`}>{t.premiumBrandsSubtitle}</div>
               </div>
-              <div className={`text-center p-6 rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-xl`}>
-                <div className={`text-3xl sm:text-4xl font-bold mb-2 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
-                <div className={`text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{t.vehicleSegments}</div>
-                <div className={`text-xs mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{t.vehicleSegmentsSubtitle}</div>
+              <div className={`text-center p-3 sm:p-6 rounded-xl sm:rounded-2xl ${selectedTheme === 'dark' ? 'bg-slate-800/50 backdrop-blur-sm border border-slate-700' : 'bg-white/70 backdrop-blur-sm border border-white/20'} shadow-md sm:shadow-xl`}>
+                <div className={`text-2xl sm:text-4xl font-bold mb-0.5 sm:mb-2 ${selectedTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>7</div>
+                <div className={`text-xs sm:text-sm font-semibold ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'} truncate`}>{t.vehicleSegments}</div>
+                <div className={`text-[10px] sm:text-xs mt-0.5 sm:mt-1 ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'} hidden sm:block`}>{t.vehicleSegmentsSubtitle}</div>
               </div>
             </div>
+
+            {/* Mobile Quick Action Buttons - Jump directly to comparisons or filters */}
+            <div className="mb-4 sm:hidden flex items-center justify-center gap-2 flex-wrap">
+              <a
+                href="#quick-compare"
+                className="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 bg-blue-600 text-white shadow-xs hover:bg-blue-700 active:scale-95"
+              >
+                <ArrowsUpDownIcon className="w-4 h-4 mr-1.5" />
+                {t.quickJumpCompare || 'Compare'}
+              </a>
+              <a
+                href="#catalog"
+                className="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95"
+              >
+                <FunnelIcon className="w-4 h-4 mr-1.5 text-blue-600 dark:text-blue-400" />
+                {t.quickJumpFilter || 'Filter'}
+              </a>
+              <a
+                href={`/faq${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+                className="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800"
+              >
+                <span>📖 FAQ</span>
+              </a>
+            </div>
             
-            {/* Modern Feature Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {/* Desktop Modern Feature Grid */}
+            <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
               <div className={`flex items-center justify-center space-x-3 p-4 rounded-xl ${selectedTheme === 'dark' ? 'bg-slate-800/30 border border-slate-700' : 'bg-white/50 border border-white/30'} backdrop-blur-sm`}>
                 <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
                   <CheckIcon className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -1908,126 +2123,211 @@ export default function Home() {
                 <span className={`text-sm font-medium ${selectedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.rangeSimulator}</span>
               </div>
             </div>
-            
-            {/* Mobil PHEV Guide Button - Hero Section'da */}
-            <div className="mt-4 sm:hidden">
-              <a
-                href="/faq"
-                className="inline-flex items-center px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800"
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-                {t.faq.title}
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Curated PHEV Collections - Programmatic SEO Guides */}
-      <section className={`py-8 w-full max-w-full overflow-x-hidden border-y ${selectedTheme === 'dark' ? 'bg-slate-950/60 border-slate-800/80' : 'bg-gradient-to-r from-blue-50/50 via-indigo-50/30 to-emerald-50/50 border-slate-200'}`}>
+      {/* Curated PHEV Collections - 6 Strategic Guides, Horizontal Swipe on Mobile, Multilingual */}
+      <section className={`py-6 sm:py-8 w-full max-w-full overflow-x-hidden border-y ${selectedTheme === 'dark' ? 'bg-slate-950/60 border-slate-800/80' : 'bg-gradient-to-r from-blue-50/50 via-indigo-50/30 to-emerald-50/50 border-slate-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4 mb-4 sm:mb-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-500">Popular Guides & Filters</span>
-              <h3 className={`text-xl sm:text-2xl font-bold mt-1 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                Explore Specific PHEV Categories
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-500">
+                {t.popularGuides || 'Popular Guides & Filters'}
+              </span>
+              <h3 className={`text-lg sm:text-2xl font-bold mt-0.5 sm:mt-1 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                {t.exploreCategories || 'Explore Specific PHEV Categories'}
               </h3>
             </div>
-            <span className="text-xs text-slate-400">Curated rankings based on official WLTP specifications</span>
+            <span className="text-xs text-slate-400">
+              {t.popularGuidesSubtitle || 'Curated rankings based on official WLTP specifications'}
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Collection 1: Longest Range */}
+          {/* Horizontal scroll container on mobile, 3-col grid on md+ (6 cards, 2 rows of 3) */}
+          <div className="flex md:grid md:grid-cols-3 gap-3.5 sm:gap-5 overflow-x-auto snap-x scrollbar-hide py-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+            {/* 1: Longest Range */}
             <Link
-              href="/longest-range-phev"
-              className={`group relative flex flex-col justify-between p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-xl ${
+              href={`/longest-range-phev${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+              className={`w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-start group relative flex flex-col justify-between p-4 sm:p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl ${
                 selectedTheme === 'dark'
                   ? 'bg-slate-900/80 border-slate-800 hover:border-emerald-500/60 hover:shadow-emerald-500/10'
                   : 'bg-white border-slate-200 hover:border-emerald-500 hover:shadow-emerald-500/15'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-base sm:text-lg">
                     ⚡
                   </div>
-                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                    100+ km Range
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                    {t.longestRangeBadge || '100+ km Range'}
                   </span>
                 </div>
-                <h4 className={`text-lg font-bold group-hover:text-emerald-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                  Longest Range PHEVs
+                <h4 className={`text-base sm:text-lg font-bold group-hover:text-emerald-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  {t.longestRangePHEVs || 'Longest Range PHEVs'}
                 </h4>
-                <p className="mt-2 text-xs text-slate-400 leading-relaxed">
-                  Discover plug-in hybrids that can easily cover all weekly commutes without ever touching the petrol engine.
+                <p className="mt-1.5 text-xs text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  {t.longestRangeDesc || 'Discover plug-in hybrids that can easily cover all weekly commutes without ever touching the petrol engine.'}
                 </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-emerald-400">
-                <span>View 20+ Models</span>
+              <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-emerald-400">
+                <span>{t.longestRangeAction || 'View 20+ Models'}</span>
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </div>
             </Link>
 
-            {/* Collection 2: DC Fast Charging */}
+            {/* 2: DC Fast Charging */}
             <Link
-              href="/phev-with-dc-charging"
-              className={`group relative flex flex-col justify-between p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-xl ${
+              href={`/phev-with-dc-charging${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+              className={`w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-start group relative flex flex-col justify-between p-4 sm:p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl ${
                 selectedTheme === 'dark'
                   ? 'bg-slate-900/80 border-slate-800 hover:border-amber-500/60 hover:shadow-amber-500/10'
                   : 'bg-white border-slate-200 hover:border-amber-500 hover:shadow-amber-500/15'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-bold text-lg">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-bold text-base sm:text-lg">
                     🔌
                   </div>
-                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">
-                    CCS &amp; Fast Charge
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                    {t.dcFastChargingBadge || 'CCS & Fast Charge'}
                   </span>
                 </div>
-                <h4 className={`text-lg font-bold group-hover:text-amber-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                  DC Fast Charging PHEVs
+                <h4 className={`text-base sm:text-lg font-bold group-hover:text-amber-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  {t.dcFastChargingPHEVs || 'DC Fast Charging PHEVs'}
                 </h4>
-                <p className="mt-2 text-xs text-slate-400 leading-relaxed">
-                  Charge from 10% to 80% in 20-30 minutes at motorway DC rapid stations. Rare models with high demand.
+                <p className="mt-1.5 text-xs text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  {t.dcFastChargingDesc || 'Charge from 10% to 80% in 20-30 minutes at motorway DC rapid stations. Rare models with high demand.'}
                 </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-amber-400">
-                <span>View 35+ Models</span>
+              <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-amber-400">
+                <span>{t.dcFastChargingAction || 'View 35+ Models'}</span>
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </div>
             </Link>
 
-            {/* Collection 3: 7-Seater Family */}
+            {/* 3: Best Selling */}
             <Link
-              href="/7-seater-phev"
-              className={`group relative flex flex-col justify-between p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-xl ${
+              href={`/best-selling-phev-europe${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+              className={`w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-start group relative flex flex-col justify-between p-4 sm:p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl ${
+                selectedTheme === 'dark'
+                  ? 'bg-slate-900/80 border-slate-800 hover:border-blue-500/60 hover:shadow-blue-500/10'
+                  : 'bg-white border-slate-200 hover:border-blue-500 hover:shadow-blue-500/15'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center font-bold text-base sm:text-lg">
+                    🏆
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">
+                    {t.bestSellingBadge || 'ACEA Official Ranking'}
+                  </span>
+                </div>
+                <h4 className={`text-base sm:text-lg font-bold group-hover:text-blue-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  {t.bestSellingPHEVs || 'Best-Selling PHEVs in Europe'}
+                </h4>
+                <p className="mt-1.5 text-xs text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  {t.bestSellingDesc || 'The most popular plug-in hybrid cars chosen by European drivers based on official registration figures.'}
+                </p>
+              </div>
+              <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-blue-400">
+                <span>{t.bestSellingAction || 'View Top 10 Models'}</span>
+                <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+              </div>
+            </Link>
+
+            {/* 4: Most Affordable */}
+            <Link
+              href={`/cheapest-phev-europe${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+              className={`w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-start group relative flex flex-col justify-between p-4 sm:p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl ${
+                selectedTheme === 'dark'
+                  ? 'bg-slate-900/80 border-slate-800 hover:border-indigo-500/60 hover:shadow-indigo-500/10'
+                  : 'bg-white border-slate-200 hover:border-indigo-500 hover:shadow-indigo-500/15'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-indigo-500/15 text-indigo-400 flex items-center justify-center font-bold text-base sm:text-lg">
+                    💶
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
+                    {t.cheapestBadge || 'Best Value / Budget'}
+                  </span>
+                </div>
+                <h4 className={`text-base sm:text-lg font-bold group-hover:text-indigo-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  {t.cheapestPHEVs || 'Most Affordable PHEVs'}
+                </h4>
+                <p className="mt-1.5 text-xs text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  {t.cheapestDesc || 'Budget-friendly plug-in hybrids offering the lowest purchase price and maximum fuel savings.'}
+                </p>
+              </div>
+              <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-indigo-400">
+                <span>{t.cheapestAction || 'View Affordable Models'}</span>
+                <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+              </div>
+            </Link>
+
+            {/* 5: Fastest Accelerating */}
+            <Link
+              href={`/fastest-accelerating-phev${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+              className={`w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-start group relative flex flex-col justify-between p-4 sm:p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl ${
+                selectedTheme === 'dark'
+                  ? 'bg-slate-900/80 border-slate-800 hover:border-rose-500/60 hover:shadow-rose-500/10'
+                  : 'bg-white border-slate-200 hover:border-rose-500 hover:shadow-rose-500/15'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-rose-500/15 text-rose-400 flex items-center justify-center font-bold text-base sm:text-lg">
+                    🏎️
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/30">
+                    {t.fastestBadge || '0-100 km/h Kings'}
+                  </span>
+                </div>
+                <h4 className={`text-base sm:text-lg font-bold group-hover:text-rose-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  {t.fastestPHEVs || 'Fastest Accelerating PHEVs'}
+                </h4>
+                <p className="mt-1.5 text-xs text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  {t.fastestDesc || 'High-performance PHEVs combining twin turbo power and instant electric torque for blistering acceleration.'}
+                </p>
+              </div>
+              <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-rose-400">
+                <span>{t.fastestAction || 'View Performance Models'}</span>
+                <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+              </div>
+            </Link>
+
+            {/* 6: 7-Seater Family */}
+            <Link
+              href={`/7-seater-phev${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+              className={`w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-start group relative flex flex-col justify-between p-4 sm:p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl ${
                 selectedTheme === 'dark'
                   ? 'bg-slate-900/80 border-slate-800 hover:border-teal-500/60 hover:shadow-teal-500/10'
                   : 'bg-white border-slate-200 hover:border-teal-500 hover:shadow-teal-500/15'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-500/15 text-teal-400 flex items-center justify-center font-bold text-lg">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-teal-500/15 text-teal-400 flex items-center justify-center font-bold text-base sm:text-lg">
                     👨‍👩‍👧‍👦
                   </div>
-                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/30">
-                    3-Row Seating
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/30">
+                    {t.sevenSeaterBadge || '3-Row Seating'}
                   </span>
                 </div>
-                <h4 className={`text-lg font-bold group-hover:text-teal-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                  7-Seater Family PHEVs
+                <h4 className={`text-base sm:text-lg font-bold group-hover:text-teal-400 transition-colors ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                  {t.sevenSeaterPHEVs || '7-Seater Family PHEVs'}
                 </h4>
-                <p className="mt-2 text-xs text-slate-400 leading-relaxed">
-                  Spacious 3-row SUVs and MPVs with 7 seats, zero range anxiety, and cavernous cargo capacity for family trips.
+                <p className="mt-1.5 text-xs text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  {t.sevenSeaterDesc || 'Spacious 3-row SUVs and MPVs with 7 seats, zero range anxiety, and cavernous cargo capacity for family trips.'}
                 </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-teal-400">
-                <span>View Family Models</span>
+              <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-teal-400">
+                <span>{t.sevenSeaterAction || 'View Family Models'}</span>
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </div>
             </Link>
@@ -2036,7 +2336,7 @@ export default function Home() {
       </section>
 
       {/* Quick Compare Section */}
-      <section className={`py-6 w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}>
+      <section id="quick-compare" className={`py-6 w-full max-w-full overflow-x-hidden ${selectedTheme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <h3 className={`text-lg font-semibold mb-2 ${selectedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
@@ -2091,18 +2391,22 @@ export default function Home() {
                   <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-slate-700 overflow-hidden w-80 snap-start">
                     <div className="grid grid-cols-2 gap-0">
                       <div className="relative h-32">
-                        <img
+                        <Image
                           src={getImageUrl(comparison.leftCar.image)}
                           alt={comparison.leftCar.alt}
+                          fill
+                          sizes="160px"
                           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
                           onError={(e) => { const el = e.currentTarget as HTMLImageElement; el.onerror = null; el.src = getImageUrl(null) }}
                         />
                       </div>
                       <div className="relative h-32">
-                        <img
+                        <Image
                           src={getImageUrl(comparison.rightCar.image)}
                           alt={comparison.rightCar.alt}
+                          fill
+                          sizes="160px"
                           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
                           onError={(e) => { const el = e.currentTarget as HTMLImageElement; el.onerror = null; el.src = getImageUrl(null) }}
@@ -2120,7 +2424,7 @@ export default function Home() {
                         <span className="font-medium">{comparison.rightCar.specs}</span>
                       </div>
                       <div className="flex items-center justify-center text-xs font-semibold text-blue-600 dark:text-blue-400 pt-0.5" aria-label={`Compare ${comparison.leftCar.name} and ${comparison.rightCar.name}`}>
-                        <span>View Comparison</span>
+                        <span>{t.viewComparison || 'View Comparison'}</span>
                         <ArrowsUpDownIcon className="h-3.5 w-3.5 ml-1.5" aria-hidden="true" />
                       </div>
                     </div>
@@ -2156,7 +2460,7 @@ export default function Home() {
       </div>
 
       {/* Filter Bar - EV Database Style */}
-      <div className="filter-bar mb-16 sm:mb-0">
+      <div id="catalog" className="filter-bar mb-16 sm:mb-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mobile Filter Section */}
           <div className="sm:hidden mb-4 space-y-3">
@@ -2303,12 +2607,14 @@ export default function Home() {
               <div className="flex border border-slate-200 rounded-lg overflow-hidden">
                 <button
                   onClick={() => toggleViewMode('list')}
+                  aria-label="List view"
                   className={`p-2 ${viewMode === 'list' ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'}`}
                 >
                   <ListBulletIcon className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => toggleViewMode('grid')}
+                  aria-label="Grid view"
                   className={`p-2 ${viewMode === 'grid' ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'}`}
                 >
                   <Squares2X2Icon className="h-5 w-5" />
@@ -2326,60 +2632,62 @@ export default function Home() {
           </div>
 
           {/* Brand Metadata Tag Chips */}
-          <div className="mt-4 pt-3 border-t border-slate-200/60 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 mr-1">
-              Popular Brands:
-            </span>
-            <button
-              onClick={() => setSelectedBrands([])}
-              className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                selectedBrands.length === 0
-                  ? 'bg-blue-600 text-white shadow-sm font-semibold'
-                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100'
-              }`}
-            >
-              All ({cars.length})
-            </button>
-            {brands.map((brand) => {
-              const isSelected = selectedBrands.some(
-                (b) => b.trim().toLowerCase() === brand.trim().toLowerCase()
-              )
-              const brandCarCount = cars.filter(
-                (c) => (c.brand || '').trim().toLowerCase() === brand.trim().toLowerCase()
-              ).length
-              return (
-                <button
-                  key={brand}
-                  onClick={() => {
-                    if (isSelected) {
-                      setSelectedBrands(
-                        selectedBrands.filter(
-                          (b) => b.trim().toLowerCase() !== brand.trim().toLowerCase()
+          <div className="mt-3 pt-3 border-t border-slate-200/60 dark:border-slate-800/60">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-hide no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:gap-2 sm:pb-0">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 shrink-0 mr-1 flex items-center">
+                {t.popularBrands || 'Popular Brands'}:
+              </span>
+              <button
+                onClick={() => setSelectedBrands([])}
+                className={`px-2.5 sm:px-3 py-1 rounded-full text-xs font-medium transition-all shrink-0 whitespace-nowrap ${
+                  selectedBrands.length === 0
+                    ? 'bg-blue-600 text-white shadow-sm font-semibold'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
+                }`}
+              >
+                {t.all || 'All'} ({cars.length})
+              </button>
+              {brands.map((brand) => {
+                const isSelected = selectedBrands.some(
+                  (b) => b.trim().toLowerCase() === brand.trim().toLowerCase()
+                )
+                const brandCarCount = cars.filter(
+                  (c) => (c.brand || '').trim().toLowerCase() === brand.trim().toLowerCase()
+                ).length
+                return (
+                  <button
+                    key={brand}
+                    onClick={() => {
+                      if (isSelected) {
+                        setSelectedBrands(
+                          selectedBrands.filter(
+                            (b) => b.trim().toLowerCase() !== brand.trim().toLowerCase()
+                          )
                         )
-                      )
-                    } else {
-                      setSelectedBrands([...selectedBrands, brand])
-                    }
-                  }}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all flex items-center space-x-1.5 ${
-                    isSelected
-                      ? 'bg-blue-600 text-white shadow-sm ring-2 ring-blue-400'
-                      : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  <span>{brand}</span>
-                  <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                      } else {
+                        setSelectedBrands([...selectedBrands, brand])
+                      }
+                    }}
+                    className={`px-2.5 sm:px-3 py-1 rounded-full text-xs font-medium transition-all shrink-0 whitespace-nowrap flex items-center space-x-1.5 ${
                       isSelected
-                        ? 'bg-blue-700 text-blue-100'
-                        : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                        ? 'bg-blue-600 text-white shadow-sm ring-2 ring-blue-400'
+                        : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
                     }`}
                   >
-                    {brandCarCount}
-                  </span>
-                </button>
-              )
-            })}
+                    <span>{brand}</span>
+                    <span
+                      className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                        isSelected
+                          ? 'bg-blue-700 text-blue-100'
+                          : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                      }`}
+                    >
+                      {brandCarCount}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
@@ -2803,17 +3111,21 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   {/* Car Image */}
                   <div className="flex-shrink-0">
-                    <div className="aspect-[16/9] w-32 h-20 rounded-lg overflow-hidden">
-                      <img
+                    <div className="aspect-[16/9] w-32 h-20 rounded-lg overflow-hidden relative">
+                      <Image
                         src={getImageUrl(car.image_url)}
                         alt={`${car.brand} ${car.model} - ${car.year} model PHEV with ${car.ev_range_km}km electric range and ${car.power_hp}HP total power`}
+                        width={256}
+                        height={160}
+                        sizes="128px"
                         className="w-full h-full object-cover"
-                        loading="lazy"
-                        fetchPriority="low"
+                        loading={index < 4 ? "eager" : "lazy"}
+                        priority={index < 4}
                         onError={(e) => {
-                          e.currentTarget.onerror = null
-                          e.currentTarget.src = getImageUrl(null)
-                          e.currentTarget.alt = 'Placeholder image for vehicle'
+                          const target = e.currentTarget as HTMLImageElement
+                          target.onerror = null
+                          target.src = getImageUrl(null)
+                          target.alt = 'Placeholder image for vehicle'
                         }}
                       />
                     </div>
@@ -3119,10 +3431,12 @@ export default function Home() {
                   onClick={() => updateRecentlyViewed(car)}
                   className={`${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-lg p-3 hover:shadow-lg transition-all duration-200 group`}
                 >
-                  <div className="aspect-[16/9] w-full rounded-lg overflow-hidden mb-2">
-                    <img
+                  <div className="aspect-[16/9] w-full rounded-lg overflow-hidden mb-2 relative">
+                    <Image
                       src={getImageUrl(car.image_url)}
                       alt={`${car.brand} ${car.model}`}
+                      width={240}
+                      height={135}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                       loading="lazy"
                     />
@@ -3161,16 +3475,13 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...(blogData as any[])]
-              .filter((p) => p.status !== 'draft')
-              .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
-              .slice(0, 4)
-              .map((post) => {
+            {latestBlogsData.map((post) => {
               const blogLocale = selectedLanguage || 'en'
-              const postTitle = blogLocale === 'en' ? post.title_en : blogLocale === 'de' ? (post.title_de || post.title_en || post.title) : blogLocale === 'pl' ? (post.title_pl || post.title_en || post.title) : post.title
-              const postExcerpt = blogLocale === 'en' ? post.excerpt_en : blogLocale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : blogLocale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt
-              const postCategory = blogLocale === 'en' ? post.category_en : blogLocale === 'de' ? (post.category_de || post.category_en || post.category) : blogLocale === 'pl' ? (post.category_pl || post.category_en || post.category) : post.category
-              const dateLocale = blogLocale === 'tr' ? 'tr-TR' : blogLocale === 'de' ? 'de-DE' : blogLocale === 'pl' ? 'pl-PL' : 'en-GB'
+              const p = post as any
+              const postTitle = p[`title_${blogLocale}`] || (blogLocale === 'tr' ? p.title : '') || p.title_en || p.title
+              const postExcerpt = p[`excerpt_${blogLocale}`] || (blogLocale === 'tr' ? p.excerpt : '') || p.excerpt_en || p.excerpt
+              const postCategory = p[`category_${blogLocale}`] || (blogLocale === 'tr' ? p.category : '') || p.category_en || p.category || 'PHEV'
+              const dateLocale = blogLocale === 'tr' ? 'tr-TR' : blogLocale === 'de' ? 'de-DE' : blogLocale === 'pl' ? 'pl-PL' : blogLocale === 'fr' ? 'fr-FR' : blogLocale === 'es' ? 'es-ES' : 'en-GB'
               
               return (
                 <Link
@@ -3179,13 +3490,17 @@ export default function Home() {
                   className="group block bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all"
                 >
                   <div className="relative h-48">
-                    <img
+                    <Image
                       src={getImageUrl(post.featured_image)}
                       alt={postTitle}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
                       onError={(e) => {
-                        e.currentTarget.onerror = null
-                        e.currentTarget.src = getImageUrl(null)
+                        const target = e.currentTarget as HTMLImageElement
+                        target.onerror = null
+                        target.src = getImageUrl(null)
                       }}
                     />
                     <div className="absolute top-3 left-3">

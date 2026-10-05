@@ -53,7 +53,7 @@ async function uploadAll() {
           Bucket: BUCKET_NAME,
           Key: r2Key,
           Body: fileContent,
-          ContentType: file.endsWith('.png') ? 'image/png' : 'image/jpeg',
+          ContentType: file.endsWith('.png') ? 'image/png' : file.endsWith('.webp') ? 'image/webp' : 'image/jpeg',
         })
       );
       console.log('[BAŞARILI] -> ' + r2Key);

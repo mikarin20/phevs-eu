@@ -3,10 +3,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import carsData from '@/data/cars.json'
 import { getImageUrl } from '@/lib/image-url'
-import { ArrowLeftIcon, BoltIcon, Battery100Icon, SparklesIcon, CheckCircleIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
+import { BoltIcon, Battery100Icon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
+import CategoryHeader from '@/components/CategoryHeader'
+import { COMMON_TRANSLATIONS, CATEGORY_TRANSLATIONS, getCategoryLang } from '@/lib/category-translations'
 
 export const metadata: Metadata = {
-  title: 'Longest Range PHEVs (100+ km) — Best Electric Range 2026 | PHEVs.eu',
+  title: 'Longest Range PHEVs (100+ km) — Best Electric Range 2026 (Updated Specs)',
   description: 'Explore all plug-in hybrid electric vehicles (PHEVs) offering over 100 km of official WLTP electric range. Compare battery size, charging speeds, and real-world efficiency.',
   alternates: {
     canonical: 'https://www.phevs.eu/longest-range-phev/',
@@ -19,23 +21,26 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: 'Longest Range PHEVs (100+ km) | PHEVs.eu',
+    title: 'Longest Range PHEVs (100+ km) — Best Electric Range 2026 (Updated Specs) | PHEVs.eu',
     description: 'Compare all plug-in hybrid models with 100+ km pure electric range in Europe. Full specs, battery capacities, and charging performance.',
     url: 'https://www.phevs.eu/longest-range-phev/',
     type: 'website',
     siteName: 'PHEVs.eu',
-    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'Longest Range PHEVs' }]
+    images: [{ url: 'https://www.phevs.eu/images/og-image.jpg', width: 1200, height: 630, alt: 'Longest Range PHEVs' }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Longest Range PHEVs (100+ km) | PHEVs.eu',
+    title: 'Longest Range PHEVs (100+ km) — Best Electric Range 2026 (Updated Specs) | PHEVs.eu',
     description: 'Plug-in hybrids with over 100 km pure electric range. Real WLTP data and specs.',
-    images: ['/images/og-image.jpg']
+    images: ['https://www.phevs.eu/images/og-image.jpg']
   }
 }
 
-export default function LongestRangePhevPage() {
+export default function LongestRangePhevPage({ searchParams }: { searchParams?: { lang?: string } }) {
   const baseUrl = 'https://www.phevs.eu'
+  const currentLang = getCategoryLang(searchParams?.lang)
+  const common = COMMON_TRANSLATIONS[currentLang]
+  const t = CATEGORY_TRANSLATIONS['longest-range-phev'][currentLang]
   
   // Filter models with >= 100 km electric range, sorted descending by range
   const models = (carsData as any[])
@@ -112,45 +117,35 @@ export default function LongestRangePhevPage() {
       />
 
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-        {/* Navigation Bar */}
-        <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-slate-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <Link href="/" className="inline-flex items-center space-x-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
-              <ArrowLeftIcon className="h-4 w-4" />
-              <span className="text-sm font-medium">All PHEVs</span>
-            </Link>
-            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-              Curated Category
-            </span>
-          </div>
-        </header>
+        {/* Multilingual Navigation Bar */}
+        <CategoryHeader currentLang={currentLang} basePath="/longest-range-phev" badgeText={common.curatedCategory} />
 
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50/50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-6">
               <Battery100Icon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              100+ KM Electric Range
+              {t.badge}
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
-              PHEVs with the <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">Longest Electric Range</span>
+              {t.heroTitle} <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">{t.heroTitleGradient}</span>
             </h1>
 
             <p className="mt-6 text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Explore Europe&apos;s longest-range plug-in hybrids offering over 100 km of pure electric driving. Daily commutes with zero tailpipe emissions, backed by petrol engines for unlimited road trip range.
+              {t.heroSubtitle}
             </p>
 
             {/* Quick Stats Pills */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6">
               <div className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-sm">
-                <span className="font-bold text-emerald-600 dark:text-emerald-400">{models.length}</span> Models Available
+                <span className="font-bold text-emerald-600 dark:text-emerald-400">{models.length}</span> {t.stat1Label}
               </div>
               <div className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-sm">
-                Up to <span className="font-bold text-emerald-600 dark:text-emerald-400">{topRange} km</span> WLTP Range
+                {t.stat2Label}: <span className="font-bold text-emerald-600 dark:text-emerald-400">{topRange} km</span>
               </div>
               <div className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-sm">
-                Batteries up to <span className="font-bold text-emerald-600 dark:text-emerald-400">31.2 kWh</span>
+                {t.stat3Label} <span className="font-bold text-emerald-600 dark:text-emerald-400">31.2 kWh</span>
               </div>
             </div>
           </div>
@@ -161,17 +156,17 @@ export default function LongestRangePhevPage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                Ranked by Pure Electric Range (WLTP)
+                {t.rankedByTitle}
               </h2>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                Showing all {models.length} homologated plug-in hybrids delivering 100 km or more
+                {t.rankedBySubtitle}
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {models.map((car) => {
-              const modelUrl = `/models/${car.slug || car.id}`
+              const modelUrl = `/models/${car.slug || car.id}${currentLang !== 'en' ? `?lang=${currentLang}` : ''}`
               const dcPower = car.charging_capabilities?.dc_power || car.dc_max_power_kw
 
               return (
@@ -219,15 +214,15 @@ export default function LongestRangePhevPage() {
                       {/* Specs Row */}
                       <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
                         <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                          <div className="text-xs text-slate-500 dark:text-slate-400">Battery</div>
+                          <div className="text-xs text-slate-500 dark:text-slate-400">{common.battery}</div>
                           <div className="text-sm font-bold text-slate-800 dark:text-slate-200">{car.battery_kwh} kWh</div>
                         </div>
                         <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                          <div className="text-xs text-slate-500 dark:text-slate-400">Power</div>
+                          <div className="text-xs text-slate-500 dark:text-slate-400">{common.power}</div>
                           <div className="text-sm font-bold text-slate-800 dark:text-slate-200">{car.power_hp} HP</div>
                         </div>
                         <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                          <div className="text-xs text-slate-500 dark:text-slate-400">Fuel</div>
+                          <div className="text-xs text-slate-500 dark:text-slate-400">{common.fuel}</div>
                           <div className="text-sm font-bold text-slate-800 dark:text-slate-200">{car.fuel_consumption} L</div>
                         </div>
                       </div>
@@ -238,7 +233,7 @@ export default function LongestRangePhevPage() {
                         href={modelUrl}
                         className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-medium text-sm hover:bg-emerald-600 dark:hover:bg-emerald-400 transition-colors shadow-sm"
                       >
-                        View Full Specifications →
+                        {common.viewSpecs}
                       </Link>
                     </div>
                   </div>
@@ -250,23 +245,23 @@ export default function LongestRangePhevPage() {
           {/* Clean Overview Table for GEO & AI Bots */}
           <section className="mt-16 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">
-              100+ km Electric Range PHEV Comparison Table
+              {t.tableTitle}
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
-              Side-by-side technical comparison of European plug-in hybrids sorted by WLTP electric range.
+              {t.tableSubtitle}
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm divide-y divide-slate-200 dark:divide-slate-800">
                 <thead className="bg-slate-50 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 text-xs uppercase font-semibold">
                   <tr>
-                    <th className="px-4 py-3">Vehicle</th>
-                    <th className="px-4 py-3">EV Range</th>
-                    <th className="px-4 py-3">Battery</th>
-                    <th className="px-4 py-3">System Power</th>
-                    <th className="px-4 py-3">WLTP Fuel</th>
-                    <th className="px-4 py-3">DC Fast Charge</th>
-                    <th className="px-4 py-3 text-right">Details</th>
+                    <th className="px-4 py-3">{common.vehicle}</th>
+                    <th className="px-4 py-3">{common.electricRange}</th>
+                    <th className="px-4 py-3">{common.battery}</th>
+                    <th className="px-4 py-3">{common.power}</th>
+                    <th className="px-4 py-3">{common.fuel}</th>
+                    <th className="px-4 py-3">{common.dcCharging}</th>
+                    <th className="px-4 py-3 text-right">{common.details}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">

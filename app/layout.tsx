@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import './flags.css'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     siteName: 'PHEVs.eu',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: 'https://www.phevs.eu/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'PHEV database - compare plug-in hybrid electric vehicles - PHEVs.eu',
@@ -78,7 +79,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'PHEV Database & Comparison Platform 2026 | PHEVs.eu',
     description: 'Europe\'s largest PHEV database. Browse and compare plug-in hybrid electric vehicles with real-world specs, battery capacity, and electric range.',
-    images: ['/images/og-image.jpg'],
+    images: ['https://www.phevs.eu/images/og-image.jpg'],
     creator: '@phevs_eu',
     site: '@phevs_eu',
   },
@@ -128,17 +129,10 @@ export default function RootLayout({
         
         {/* next/font already preloads fonts; explicit preload removed */}
         
-        {/* Flag Icons CSS - preconnect + stylesheet */}
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
-        />
-        
-        {/* AdSense Script */}
+        {/* AdSense Script - lazyOnload to prevent blocking main thread and improve PageSpeed score */}
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2031503694387888"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           crossOrigin="anonymous"
         />
         
@@ -211,6 +205,7 @@ export default function RootLayout({
                     <h4 className="text-sm font-semibold text-white mb-3">About</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
                       <li><a href="/about" className="hover:text-white transition-colors" title="About Us">About Us</a></li>
+                      <li><a href="/contact" className="hover:text-white transition-colors text-blue-400 font-medium" title="Contact Us">Contact Us</a></li>
                       <li><a href="/blog" className="hover:text-white transition-colors" title="PHEV News">PHEV News</a></li>
                       <li><a href="/videos" className="hover:text-white transition-colors" title="PHEV Videos">Videos</a></li>
                       <li><a href="/demo" className="hover:text-white transition-colors" title="Demo">Demo</a></li>
@@ -231,6 +226,9 @@ export default function RootLayout({
                     <ul className="space-y-2 text-xs text-slate-400">
                       <li><a href="/longest-range-phev" className="hover:text-white transition-colors" title="Longest Range PHEVs (100+ km)">Longest Range PHEVs (100+ km)</a></li>
                       <li><a href="/phev-with-dc-charging" className="hover:text-white transition-colors" title="PHEVs with DC Fast Charging">DC Fast Charging PHEVs</a></li>
+                      <li><a href="/cheapest-phev-europe" className="hover:text-white transition-colors" title="Cheapest PHEVs in Europe">Cheapest PHEVs Under €45k</a></li>
+                      <li><a href="/best-selling-phev-europe" className="hover:text-white transition-colors text-amber-300 font-medium" title="Best-Selling PHEVs in Europe (2026)">Best-Selling PHEVs (Top 10)</a></li>
+                      <li><a href="/fastest-accelerating-phev" className="hover:text-white transition-colors" title="Fastest Accelerating Performance PHEVs">Fastest Accelerating PHEVs</a></li>
                       <li><a href="/7-seater-phev" className="hover:text-white transition-colors" title="7-Seater Family PHEVs">7-Seater Family PHEVs</a></li>
                       <li><a href="/tax-simulator" className="hover:text-white transition-colors text-emerald-400 font-medium" title="Euro 6e-bis & Company Car (BiK) Tax Simulator">Euro 6e-bis & Tax Simulator</a></li>
                       <li><a href="/compare" className="hover:text-white transition-colors" title="Compare Vehicles">Compare Vehicles</a></li>

@@ -4,22 +4,23 @@ import blogData from '@/data/blog.json'
 import BlogImage from '@/components/BlogImage'
 import { getTranslations, type Locale } from '@/lib/i18n'
 import LanguageSelector from '@/components/LanguageSelector'
+import { isPostLive } from '@/lib/blog'
 
 export const metadata: Metadata = {
-  title: 'PHEV Haberleri ve İncelemeler | PHEVs.eu Blog',
-  description: 'Avrupa\'daki en güncel plug-in hibrit araç haberleri, detaylı incelemeler, pazar analizleri ve rehberler. PHEV dünyasından son gelişmeleri takip edin.',
+  title: 'PHEV News, Real-World Tests & Technology Analysis',
+  description: 'Europe\'s latest plug-in hybrid electric vehicle news, in-depth road tests, battery technology breakdowns, and market analyses.',
   keywords: [
-    'PHEV haberleri',
-    'plug-in hibrit haberler',
-    'PHEV incelemeler',
-    'hibrit araç testleri',
-    'elektrikli araç haberleri',
-    'PHEV pazar analizi',
-    'avrupa PHEV haberleri'
+    'PHEV news',
+    'plug-in hybrid news',
+    'PHEV reviews',
+    'hybrid car tests',
+    'electric vehicle news',
+    'PHEV market analysis',
+    'European PHEV news'
   ],
   openGraph: {
-    title: 'PHEV Haberleri ve İncelemeler | PHEVs.eu Blog',
-    description: 'Avrupa\'daki en güncel plug-in hibrit araç haberleri, detaylı incelemeler ve pazar analizleri.',
+    title: 'PHEV News, Real-World Tests & Technology Analysis | PHEVs.eu',
+    description: 'Europe\'s latest plug-in hybrid electric vehicle news, road tests, and market analyses.',
     type: 'website',
     url: 'https://www.phevs.eu/blog/',
     siteName: 'PHEVs.eu',
@@ -28,14 +29,14 @@ export const metadata: Metadata = {
         url: 'https://www.phevs.eu/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'PHEVs.eu Blog - PHEV Haberleri ve İncelemeler',
+        alt: 'PHEVs.eu Blog - PHEV News & Reviews',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PHEV Haberleri ve İncelemeler | PHEVs.eu Blog',
-    description: 'Avrupa\'daki en güncel plug-in hibrit araç haberleri, detaylı incelemeler ve pazar analizleri.',
+    title: 'PHEV News, Real-World Tests & Technology Analysis | PHEVs.eu',
+    description: 'Europe\'s latest plug-in hybrid electric vehicle news, road tests, and market analyses.',
     images: ['https://www.phevs.eu/images/og-image.jpg'],
     creator: '@phevs_eu',
     site: '@phevs_eu',
@@ -87,7 +88,7 @@ interface BlogPageProps {
 export default function BlogPage({ searchParams }: BlogPageProps) {
   const locale = (searchParams?.lang as Locale) || 'tr'
   const t = getTranslations(locale)
-  const posts = (blogData as BlogPost[]).filter(post => post.status !== 'draft')
+  const posts = (blogData as BlogPost[]).filter(isPostLive)
 
   // Tarihe göre sırala (en yeni önce)
   const sortedPosts = [...posts].sort((a, b) => 
@@ -117,8 +118,28 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
     return post.category
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': t.blog.title,
+    'description': t.blog.subtitle,
+    'url': 'https://www.phevs.eu/blog/',
+    'hasPart': sortedPosts.map((post) => ({
+      '@type': 'Article',
+      'headline': getLocalizedTitle(post),
+      'description': getLocalizedExcerpt(post),
+      'url': `https://www.phevs.eu/blog/${post.slug}/`,
+      'image': post.featured_image.startsWith('http') ? post.featured_image : `https://www.phevs.eu${post.featured_image}`,
+      'datePublished': post.published_at,
+    })),
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-slate-800 dark:to-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -153,7 +174,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
                       <div className="relative h-64 md:h-full min-h-[300px]">
                         <BlogImage
                           src={sortedPosts[0].featured_image}
-                          alt={sortedPosts[0].title}
+                          alt={`${getLocalizedTitle(sortedPosts[0])} — PHEVs.eu Technical Guide`}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute top-4 left-4">
@@ -228,7 +249,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
                 <div className="relative h-48">
                   <BlogImage
                     src={post.featured_image}
-                    alt={post.title}
+                    alt={`${getLocalizedTitle(post)} — PHEVs.eu Technical Guide`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

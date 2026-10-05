@@ -21,12 +21,12 @@ export async function generateMetadata({ params, searchParams }: FAQDetailProps)
   
   if (!faq) {
     return {
-      title: 'Page Not Found | PHEVs.eu',
+      title: 'Page Not Found',
     }
   }
 
   return {
-    title: `${faq.title} | PHEVs.eu`,
+    title: faq.title,
     description: `Detailed PHEV guide: ${faq.title}. Expert-written comprehensive reference for plug-in hybrid electric vehicle owners and buyers.`,
     keywords: [
       'PHEV',
@@ -83,37 +83,38 @@ export default function FAQDetail({ params, searchParams }: FAQDetailProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Breadcrumb */}
-          <nav className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
-            <Link href="/" className="hover:text-gray-700 dark:hover:text-gray-300">
-              {locale === 'tr' ? 'Ana Sayfa' : 
-               locale === 'de' ? 'Startseite' :
-               locale === 'pl' ? 'Strona główna' : 'Home'}
-            </Link>
-            <ChevronRightIcon className="h-4 w-4" />
-            <Link href={`/faq${locale !== 'en' ? `?lang=${locale}` : ''}`} className="hover:text-gray-700 dark:hover:text-gray-300">
-              FAQ
-            </Link>
-            <ChevronRightIcon className="h-4 w-4" />
-            <span className="text-gray-900 dark:text-white">{faq.category}</span>
-          </nav>
+      <div className="min-h-screen bg-gray-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+        {/* Sticky Top Navigation & Language Bar */}
+        <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 py-3 sticky top-0 z-40 shadow-xs">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
+            <nav className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400 flex-wrap">
+              <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                {locale === 'tr' ? 'Ana Sayfa' : locale === 'de' ? 'Startseite' : locale === 'pl' ? 'Strona główna' : 'Home'}
+              </Link>
+              <span>/</span>
+              <Link href={`/faq${locale !== 'en' ? `?lang=${locale}` : ''}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                {locale === 'tr' ? 'Rehber' : locale === 'de' ? 'Ratgeber' : locale === 'pl' ? 'Przewodnik' : 'FAQ'}
+              </Link>
+              <span>/</span>
+              <span className="text-slate-900 dark:text-white font-medium truncate max-w-[180px] sm:max-w-xs">{faq.category}</span>
+            </nav>
 
-          {/* Language Selector */}
-          <div className="flex justify-end mb-6">
-            <LanguageSelector currentLocale={locale} basePath={`/faq/${params.slug}`} />
+            <div className="flex items-center justify-center sm:justify-end">
+              <LanguageSelector currentLocale={locale} basePath={`/faq/${params.slug}`} />
+            </div>
           </div>
+        </div>
 
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
           {/* Back Button */}
           <Link
             href={`/faq${locale !== 'en' ? `?lang=${locale}` : ''}`}
-            className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-8"
+            className="inline-flex items-center text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-6 group"
           >
-            <ArrowLeftIcon className="h-4 w-4 mr-2" />
-            {locale === 'tr' ? 'Tüm Sorulara Dön' : 
-             locale === 'de' ? 'Zurück zu allen Fragen' :
-             locale === 'pl' ? 'Powrót do wszystkich pytań' : 'Back to All Questions'}
+            <ArrowLeftIcon className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+            {locale === 'tr' ? '← Tüm Sorulara ve Konulara Dön' : 
+             locale === 'de' ? '← Zurück zu allen Fragen' :
+             locale === 'pl' ? '← Powrót do wszystkich pytań' : '← Back to All Guides'}
           </Link>
 
           {/* Header */}

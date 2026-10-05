@@ -778,7 +778,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Images Section */}
         <div className="mb-12">
-          <ImageGallery images={catalogImages} alt={`${car.brand} ${car.model} gallery`} />
+          <ImageGallery images={catalogImages} alt={`${car.year} ${car.brand} ${car.model} Plug-in Hybrid — Exterior Design, Charging Port & Battery Specs`} />
         </div>
 
         {/* Key Metrics - Three Column */}

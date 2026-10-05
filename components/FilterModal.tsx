@@ -53,6 +53,7 @@ export default function FilterModal({
             </div>
             <button
               onClick={onClose}
+              aria-label="Close filters"
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <XMarkIcon className="h-6 w-6" />

@@ -2,10 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import carsData from '@/data/cars.json'
 import { getImageUrl } from '@/lib/image-url'
-import { ArrowLeftIcon, BoltIcon, SparklesIcon, CheckCircleIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
+import { BoltIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
+import CategoryHeader from '@/components/CategoryHeader'
+import { COMMON_TRANSLATIONS, CATEGORY_TRANSLATIONS, getCategoryLang } from '@/lib/category-translations'
 
 export const metadata: Metadata = {
-  title: 'PHEVs with DC Fast Charging (CCS & CHAdeMO) | PHEVs.eu',
+  title: 'PHEVs with DC Fast Charging (CCS & CHAdeMO) — 2026 List & Speeds',
   description: 'Complete database of all plug-in hybrid electric vehicles (PHEVs) supporting DC fast charging in Europe. Compare 22 kW, 40 kW, 50 kW, and 60 kW DC rapid charging times and specs.',
   alternates: {
     canonical: 'https://www.phevs.eu/phev-with-dc-charging/',
@@ -18,23 +20,26 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: 'PHEVs with DC Fast Charging | PHEVs.eu',
+    title: 'PHEVs with DC Fast Charging (CCS & CHAdeMO) — 2026 List & Speeds | PHEVs.eu',
     description: 'Find every plug-in hybrid car that can fast charge at public highway DC rapid chargers (10–80% in ~25 min).',
     url: 'https://www.phevs.eu/phev-with-dc-charging/',
     type: 'website',
     siteName: 'PHEVs.eu',
-    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'PHEVs with DC Fast Charging' }]
+    images: [{ url: 'https://www.phevs.eu/images/og-image.jpg', width: 1200, height: 630, alt: 'PHEVs with DC Fast Charging' }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PHEVs with DC Fast Charging | PHEVs.eu',
+    title: 'PHEVs with DC Fast Charging (CCS & CHAdeMO) — 2026 List & Speeds | PHEVs.eu',
     description: 'Compare DC fast-charging plug-in hybrids. Full specifications, charging curves, and speed ratings.',
-    images: ['/images/og-image.jpg']
+    images: ['https://www.phevs.eu/images/og-image.jpg']
   }
 }
 
-export default function PhevWithDcChargingPage() {
+export default function PhevWithDcChargingPage({ searchParams }: { searchParams?: { lang?: string } }) {
   const baseUrl = 'https://www.phevs.eu'
+  const currentLang = getCategoryLang(searchParams?.lang)
+  const common = COMMON_TRANSLATIONS[currentLang]
+  const t = CATEGORY_TRANSLATIONS['phev-with-dc-charging'][currentLang]
 
   // Filter models supporting DC fast charging, sorted by DC power (descending) then brand
   const models = (carsData as any[])
@@ -116,44 +121,34 @@ export default function PhevWithDcChargingPage() {
 
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
         {/* Navigation Bar */}
-        <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-slate-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <Link href="/" className="inline-flex items-center space-x-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
-              <ArrowLeftIcon className="h-4 w-4" />
-              <span className="text-sm font-medium">All PHEVs</span>
-            </Link>
-            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800">
-              High-Demand Category
-            </span>
-          </div>
-        </header>
+        <CategoryHeader currentLang={currentLang} basePath="/phev-with-dc-charging" badgeText={common.curatedCategory} />
 
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-b from-cyan-50/50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-200 dark:border-cyan-800 text-cyan-700 dark:text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-6">
               <BoltIcon className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-              CCS & CHAdeMO Compatible
+              {t.badge}
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
-              PHEVs with <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">DC Fast Charging</span>
+              {t.heroTitle} <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.heroTitleGradient}</span>
             </h1>
 
             <p className="mt-6 text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Never wait hours for your battery to charge. Discover all rare plug-in hybrids equipped with DC rapid charging ports, enabling 10% to 80% charge in ~25 minutes at highway motorway stations.
+              {t.heroSubtitle}
             </p>
 
             {/* Quick Stats Pills */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6">
               <div className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-sm">
-                <span className="font-bold text-cyan-600 dark:text-cyan-400">{models.length}</span> DC-Capable Models
+                <span className="font-bold text-cyan-600 dark:text-cyan-400">{models.length}</span> {t.stat1Label}
               </div>
               <div className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-sm">
-                Up to <span className="font-bold text-cyan-600 dark:text-cyan-400">{maxDcPower} kW</span> DC Power
+                {t.stat2Label}: <span className="font-bold text-cyan-600 dark:text-cyan-400">{maxDcPower} kW</span>
               </div>
               <div className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-sm">
-                10–80% in <span className="font-bold text-cyan-600 dark:text-cyan-400">~25 min</span>
+                {t.stat3Label}: <span className="font-bold text-cyan-600 dark:text-cyan-400">~25 min</span>
               </div>
             </div>
           </div>
@@ -164,17 +159,17 @@ export default function PhevWithDcChargingPage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                All DC Fast Charging Plug-in Hybrids
+                {t.rankedByTitle}
               </h2>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                Showing all {models.length} vehicles supporting DC rapid charging protocols
+                {t.rankedBySubtitle}
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {models.map((car) => {
-              const modelUrl = `/models/${car.slug || car.id}`
+              const modelUrl = `/models/${car.slug || car.id}?lang=${currentLang}`
               const dcPower = car.charging_capabilities?.dc_power || car.dc_max_power_kw || 'Yes'
 
               return (
@@ -220,15 +215,15 @@ export default function PhevWithDcChargingPage() {
                       {/* Specs Row */}
                       <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
                         <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                          <div className="text-xs text-slate-500 dark:text-slate-400">Battery</div>
+                          <div className="text-xs text-slate-500 dark:text-slate-400">{common.battery}</div>
                           <div className="text-sm font-bold text-slate-800 dark:text-slate-200">{car.battery_kwh} kWh</div>
                         </div>
                         <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                          <div className="text-xs text-slate-500 dark:text-slate-400">EV Range</div>
+                          <div className="text-xs text-slate-500 dark:text-slate-400">{common.electricRange}</div>
                           <div className="text-sm font-bold text-slate-800 dark:text-slate-200">{car.ev_range_km} km</div>
                         </div>
                         <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                          <div className="text-xs text-slate-500 dark:text-slate-400">Power</div>
+                          <div className="text-xs text-slate-500 dark:text-slate-400">{common.power}</div>
                           <div className="text-sm font-bold text-slate-800 dark:text-slate-200">{car.power_hp} HP</div>
                         </div>
                       </div>
@@ -239,7 +234,7 @@ export default function PhevWithDcChargingPage() {
                         href={modelUrl}
                         className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-medium text-sm hover:bg-cyan-600 dark:hover:bg-cyan-400 transition-colors shadow-sm"
                       >
-                        View Full Specifications →
+                        {common.viewSpecs}
                       </Link>
                     </div>
                   </div>
@@ -251,23 +246,23 @@ export default function PhevWithDcChargingPage() {
           {/* Clean Overview Table for GEO & AI Bots */}
           <section className="mt-16 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">
-              DC Fast Charging PHEV Specifications Table
+              {t.tableTitle}
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
-              Complete technical breakdown of DC power ratings, plug types, and battery capacities.
+              {t.tableSubtitle}
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm divide-y divide-slate-200 dark:divide-slate-800">
                 <thead className="bg-slate-50 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 text-xs uppercase font-semibold">
                   <tr>
-                    <th className="px-4 py-3">Vehicle</th>
-                    <th className="px-4 py-3">Max DC Power</th>
-                    <th className="px-4 py-3">EV Range</th>
-                    <th className="px-4 py-3">Battery</th>
+                    <th className="px-4 py-3">{common.vehicle}</th>
+                    <th className="px-4 py-3">{common.dcCharging}</th>
+                    <th className="px-4 py-3">{common.electricRange}</th>
+                    <th className="px-4 py-3">{common.battery}</th>
                     <th className="px-4 py-3">Plug Standard</th>
-                    <th className="px-4 py-3">Power</th>
-                    <th className="px-4 py-3 text-right">Details</th>
+                    <th className="px-4 py-3">{common.power}</th>
+                    <th className="px-4 py-3 text-right">{common.details}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
@@ -287,8 +282,8 @@ export default function PhevWithDcChargingPage() {
                         <td className="px-4 py-3 text-slate-500">{dcType}</td>
                         <td className="px-4 py-3">{car.power_hp} HP</td>
                         <td className="px-4 py-3 text-right">
-                          <Link href={`/models/${car.slug || car.id}`} className="text-cyan-600 hover:underline font-medium">
-                            Specs →
+                          <Link href={`/models/${car.slug || car.id}?lang=${currentLang}`} className="text-cyan-600 hover:underline font-medium">
+                            {common.details} →
                           </Link>
                         </td>
                       </tr>

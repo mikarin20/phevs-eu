@@ -1,0 +1,31 @@
+/* Optimized minimal flag icons for supported languages (gb, de, tr, pl, fr, es) */
+.fi {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 1.333333em;
+  line-height: 1em;
+}
+.fi:before {
+  content: "\00a0";
+}
+.fi-gb {
+  background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/gb.svg');
+}
+.fi-de {
+  background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/de.svg');
+}
+.fi-tr {
+  background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/tr.svg');
+}
+.fi-pl {
+  background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/pl.svg');
+}
+.fi-fr {
+  background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/fr.svg');
+}
+.fi-es {
+  background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/es.svg');
+}

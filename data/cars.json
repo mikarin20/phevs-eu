@@ -662,7 +662,8 @@
       "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/019.jpg",
       "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/020.jpg",
       "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/1.jpg"
-    ]
+    ],
+    "acceleration_0_100": 3.6
   },
   {
     "id": "new-14",
@@ -713,7 +714,8 @@
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 5.5
   },
   {
     "id": "bmw-serii3limuzyna",
@@ -780,7 +782,8 @@
       "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/017.jpg",
       "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/019.jpg",
       "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/020.jpg"
-    ]
+    ],
+    "acceleration_0_100": 5.8
   },
   {
     "id": "byd-seal-5-dm-i",
@@ -848,7 +851,8 @@
       "/images/cars/brands/byd/seal-5-dm-i/016.jpg",
       "/images/cars/brands/byd/seal-5-dm-i/017.jpg",
       "/images/cars/brands/byd/seal-5-dm-i/018.jpg"
-    ]
+    ],
+    "price_eur": 27990
   },
   {
     "id": "byd-seal-6-dm-i",
@@ -1533,7 +1537,8 @@
     "acceleration_0_100": 7.9,
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
-    "charge_time_dc": 0.43
+    "charge_time_dc": 0.43,
+    "price_eur": 44500
   },
   {
     "id": "cupra-formentor-245hp",
@@ -1863,7 +1868,8 @@
     "slug": "ford-kuga-phev",
     "last_updated": "2025-01-22",
     "updated_at": "2024-10-25",
-    "gallery_images": []
+    "gallery_images": [],
+    "price_eur": 38900
   },
   {
     "id": "new-34",
@@ -2706,7 +2712,8 @@
     "charging_capabilities": {
       "ac_power": 11
     },
-    "gallery_images": []
+    "gallery_images": [],
+    "price_eur": 39950
   },
   {
     "id": "kia-niro-ii-2024",
@@ -2857,7 +2864,8 @@
     "charging_capabilities": {
       "ac_power": 11
     },
-    "gallery_images": []
+    "gallery_images": [],
+    "price_eur": 43900
   },
   {
     "id": "kia-sportage-v-265hp",
@@ -3198,7 +3206,8 @@
       "ac_power": 11
     },
     "engine_displacement": 1.6,
-    "gallery_images": []
+    "gallery_images": [],
+    "price_eur": 36500
   },
   {
     "id": "kia-xceed-2022",
@@ -3266,7 +3275,8 @@
       "ac_power": 11
     },
     "engine_displacement": 1.6,
-    "gallery_images": []
+    "gallery_images": [],
+    "price_eur": 35900
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021",
@@ -3353,7 +3363,8 @@
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 4.4
   },
   {
     "id": "bmw-5-series-sedan-550e",
@@ -3406,7 +3417,8 @@
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
     },
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 4.3
   },
   {
     "id": "land-rover-defender-110-phev",
@@ -4046,7 +4058,8 @@
     "battery_architecture": "modular",
     "slug": "mercedes-benz-c-class-phev",
     "updated_at": "2024-10-23",
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 5.4
   },
   {
     "id": "mercedesbenz-cla",
@@ -4186,7 +4199,8 @@
     "battery_architecture": "modular",
     "slug": "mercedes-benz-e-class-phev",
     "updated_at": "2024-10-23",
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 3.8
   },
   {
     "id": "mercedes-3",
@@ -4323,7 +4337,8 @@
     "slug": "mercedes-benz-glc-coup-phev",
     "updated_at": "2024-10-24",
     "weight_kg": 2360,
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 6.7
   },
   {
     "id": "mercedes-7",
@@ -4390,7 +4405,8 @@
     "slug": "mercedes-benz-gle-coup-phev",
     "updated_at": "2024-10-24",
     "weight_kg": 2690,
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 6.1
   },
   {
     "id": "mercedesbenz-sclass",
@@ -4460,7 +4476,8 @@
     "battery_architecture": "modular",
     "slug": "mercedes-benz-s-class-phev",
     "updated_at": "2024-10-24",
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 5.2
   },
   {
     "id": "mg-3",
@@ -4510,7 +4527,8 @@
       "ac_power": 3.6,
       "ac_power_note": "3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor"
     },
-    "gallery_images": []
+    "gallery_images": [],
+    "price_eur": 32990
   },
   {
     "id": "mg-5",
@@ -4829,7 +4847,8 @@
     "battery_architecture": "modular",
     "slug": "opel-astra-phev-phev",
     "updated_at": "2024-10-23",
-    "gallery_images": []
+    "gallery_images": [],
+    "price_eur": 39990
   },
   {
     "id": "opel-3",
@@ -5033,7 +5052,8 @@
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
-    "gallery_images": []
+    "gallery_images": [],
+    "price_eur": 40500
   },
   {
     "id": "new-69",
@@ -5229,7 +5249,8 @@
       "ac_power": 11
     },
     "weight_kg": 2235,
-    "gallery_images": []
+    "gallery_images": [],
+    "acceleration_0_100": 4.1
   },
   {
     "id": "new-72",
@@ -5324,7 +5345,7 @@
     "slug": "koda-kodiaq-phev",
     "updated_at": "2024-10-25",
     "electric_motor_power_hp": 0,
-    "acceleration_0_100": 1.8,
+    "acceleration_0_100": 8.4,
     "features": [],
     "weight_kg": 0,
     "last_updated": "2026-09-21",
@@ -5889,7 +5910,8 @@
     "slug": "volkswagen-tiguan-phev",
     "updated_at": "2024-10-23",
     "gallery_images": [],
-    "last_updated": "2026-09-21"
+    "last_updated": "2026-09-21",
+    "price_eur": 41900
   },
   {
     "id": "new-83",
@@ -6257,14 +6279,15 @@
       "ac_power_max": 6.6
     },
     "usable_battery_kwh": null,
-    "acceleration_0_100": 0,
+    "acceleration_0_100": 8,
     "ac_max_power_kw": 6.6,
     "dc_charging_supported": true,
     "dc_max_power_kw": 40,
     "charge_time_dc": null,
     "features": [],
     "gallery_images": [],
-    "last_updated": "2026-09-19"
+    "last_updated": "2026-09-19",
+    "price_eur": 39900
   },
   {
     "id": "seat-4",
@@ -6759,7 +6782,8 @@
       "/images/cars/brands/bmw/bmw-xm-44-v8-2024/007.jpg",
       "/images/cars/brands/bmw/bmw-xm-44-v8-2024/008.jpg",
       "/images/cars/brands/bmw/bmw-xm-44-v8-2024/009.jpg"
-    ]
+    ],
+    "acceleration_0_100": 4.3
   },
   {
     "brand": "BMW",
@@ -6809,7 +6833,8 @@
     "id": "bmw-xm-50e-2024",
     "gallery_images": [
       "/images/cars/brands/bmw/bmw-xm-50e-2024/002.jpg"
-    ]
+    ],
+    "acceleration_0_100": 5.1
   },
   {
     "brand": "BMW",
@@ -6866,7 +6891,8 @@
       "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/007.jpg",
       "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/008.jpg",
       "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/009.jpg"
-    ]
+    ],
+    "acceleration_0_100": 3.8
   },
   {
     "id": "peugeot-508",
@@ -7081,7 +7107,8 @@
     "gallery_images": [
       "/images/cars/brands/renault/captur-e-tech-phev/002.jpg",
       "/images/cars/brands/renault/captur-e-tech-phev/003.jpg"
-    ]
+    ],
+    "price_eur": 33500
   },
   {
     "id": "mg-s9-2026",
@@ -7187,9 +7214,9 @@
     },
     "ac_max_power_kw": 11,
     "features": [],
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Audi_A6_Avant_50_TFSI_e_Quattro_%282024%29_%2854863055907%29.jpg",
+    "image_url": "/images/cars/brands/audi/a6-avant-e-hybrid/main.webp",
     "gallery_images": [
-      "https://upload.wikimedia.org/wikipedia/commons/5/52/Audi_A6_Avant_50_TFSI_E_%282024%29_%2854826352570%29.jpg"
+      "/images/cars/brands/audi/a6-avant-e-hybrid/rear.webp"
     ],
     "segment": "Station/Estate",
     "fuel_consumption": 2.1,
@@ -7849,7 +7876,7 @@
     "ev_range_km": 62,
     "fuel_consumption": 1.2,
     "battery_kwh": 13,
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/2020_Volkswagen_Golf_GTE_Front.jpg",
+    "image_url": "/images/cars/brands/volkswagen/golf-gte/main.webp",
     "power_hp": 245,
     "co2_emission": 26,
     "charge_time_ac": 3.6,

@@ -45,7 +45,25 @@
     },
     "battery_architecture": "modular",
     "slug": "alfa-romeo-tonale-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": [
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/002.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/003.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/005.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/006.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/007.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/008.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/009.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/010.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/011.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/014.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/015.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/016.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/017.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/018.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/019.jpg",
+      "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/1.jpg"
+    ]
   },
   {
     "id": "audi-1",
@@ -97,6 +115,18 @@
     "battery_architecture": "modular",
     "slug": "audi-a3-sportback-phev",
     "updated_at": "2024-10-24",
+    "gallery_images": [
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/004.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/006.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/007.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/010.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/011.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/013.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/014.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/015.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/016.jpg",
+      "/images/cars/brands/audi/a3-sportback-tfsi-e/019.jpg"
+    ],
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
     "last_updated": "2026-09-21"
@@ -147,7 +177,28 @@
     },
     "battery_architecture": "modular",
     "slug": "audi-a5-limousine-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "gallery_images": [
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/002.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/003.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/004.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/005.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/006.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/007.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/008.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/009.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/010.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/011.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/012.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/013.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/014.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/015.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/016.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/017.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/018.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/019.jpg",
+      "/images/cars/brands/audi/a5-limousine-e-hybrid/020.jpg"
+    ]
   },
   {
     "id": "audi-5",
@@ -196,6 +247,27 @@
     "battery_architecture": "modular",
     "slug": "audi-a6-limousine-phev",
     "updated_at": "2024-10-23",
+    "gallery_images": [
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/002.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/003.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/004.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/005.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/006.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/007.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/008.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/009.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/010.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/011.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/012.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/013.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/014.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/015.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/016.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/017.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/018.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/019.jpg",
+      "/images/cars/brands/audi/a6-limousine-e-hybrid/020.jpg"
+    ],
     "dc_charging_supported": false,
     "dc_max_power_kw": null,
     "last_updated": "2026-09-21"
@@ -246,7 +318,23 @@
     },
     "battery_architecture": "modular",
     "slug": "audi-a7-sportback-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": [
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/003.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/004.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/006.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/007.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/009.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/010.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/011.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/012.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/013.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/014.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/015.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/017.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/018.jpg",
+      "/images/cars/brands/audi/a7-sportback-tfsi-e/019.jpg"
+    ]
   },
   {
     "id": "audi-2",
@@ -295,7 +383,27 @@
     },
     "battery_architecture": "modular",
     "slug": "audi-q3-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": [
+      "/images/cars/brands/audi/q3-tfsi-e/002.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/003.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/004.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/005.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/006.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/007.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/008.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/009.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/010.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/011.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/012.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/013.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/014.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/015.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/016.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/017.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/018.jpg",
+      "/images/cars/brands/audi/q3-tfsi-e/019.jpg"
+    ]
   },
   {
     "id": "audi-4",
@@ -343,7 +451,23 @@
     },
     "battery_architecture": "modular",
     "slug": "audi-q5-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "gallery_images": [
+      "/images/cars/brands/audi/q5-tfsi-e/002.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/003.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/005.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/006.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/007.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/008.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/010.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/012.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/013.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/014.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/015.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/016.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/017.jpg",
+      "/images/cars/brands/audi/q5-tfsi-e/019.jpg"
+    ]
   },
   {
     "id": "audi-6",
@@ -391,7 +515,23 @@
     },
     "battery_architecture": "modular",
     "slug": "audi-q7-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "gallery_images": [
+      "/images/cars/brands/audi/q7-tfsi-e/002.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/004.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/005.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/006.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/007.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/008.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/010.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/011.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/013.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/014.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/015.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/017.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/018.jpg",
+      "/images/cars/brands/audi/q7-tfsi-e/019.jpg"
+    ]
   },
   {
     "id": "audi-8",
@@ -439,7 +579,18 @@
     },
     "battery_architecture": "modular",
     "slug": "audi-q8-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": [
+      "/images/cars/brands/audi/q8-tfsi-e/003.jpg",
+      "/images/cars/brands/audi/q8-tfsi-e/005.jpg",
+      "/images/cars/brands/audi/q8-tfsi-e/007.jpg",
+      "/images/cars/brands/audi/q8-tfsi-e/008.jpg",
+      "/images/cars/brands/audi/q8-tfsi-e/010.jpg",
+      "/images/cars/brands/audi/q8-tfsi-e/012.jpg",
+      "/images/cars/brands/audi/q8-tfsi-e/013.jpg",
+      "/images/cars/brands/audi/q8-tfsi-e/015.jpg",
+      "/images/cars/brands/audi/q8-tfsi-e/017.jpg"
+    ]
   },
   {
     "id": "bmw-m5touring",
@@ -489,7 +640,30 @@
       "ac_power": 3.7,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/002.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/003.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/004.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/005.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/006.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/007.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/008.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/009.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/010.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/011.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/012.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/013.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/014.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/015.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/016.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/017.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/018.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/019.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/020.jpg",
+      "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/1.jpg"
+    ],
+    "acceleration_0_100": 3.6
   },
   {
     "id": "new-14",
@@ -539,7 +713,9 @@
       "ac_power": 3.7,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
-    }
+    },
+    "gallery_images": [],
+    "acceleration_0_100": 5.5
   },
   {
     "id": "bmw-serii3limuzyna",
@@ -589,7 +765,25 @@
       "ac_power": 3.7,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/002.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/004.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/005.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/006.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/007.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/008.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/009.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/010.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/011.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/012.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/013.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/014.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/017.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/019.jpg",
+      "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/020.jpg"
+    ],
+    "acceleration_0_100": 5.8
   },
   {
     "id": "byd-seal-5-dm-i",
@@ -639,7 +833,26 @@
     "charging_capabilities": {
       "ac_power": 11,
       "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/byd/seal-5-dm-i/002.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/003.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/004.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/006.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/007.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/008.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/009.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/010.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/011.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/012.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/013.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/014.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/015.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/016.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/017.jpg",
+      "/images/cars/brands/byd/seal-5-dm-i/018.jpg"
+    ],
+    "price_eur": 27990
   },
   {
     "id": "byd-seal-6-dm-i",
@@ -689,7 +902,26 @@
     "charging_capabilities": {
       "ac_power": 11,
       "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/byd/seal-6-dm-i/002.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/003.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/004.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/005.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/006.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/007.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/008.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/009.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/010.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/011.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/012.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/013.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/014.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/015.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/016.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/017.jpg",
+      "/images/cars/brands/byd/seal-6-dm-i/018.jpg"
+    ]
   },
   {
     "id": "byd-seal-u-dm-i",
@@ -739,13 +971,26 @@
     "charging_capabilities": {
       "ac_power": 11,
       "ac_power_note": "11 kW üç fazlı AC şarj (Avrupa pazarlarında standart)"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/byd/seal-u-dm-i/002.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/003.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/005.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/007.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/009.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/010.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/011.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/012.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/013.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/015.jpg",
+      "/images/cars/brands/byd/seal-u-dm-i/1.jpg"
+    ]
   },
   {
     "id": "citroen-c5-aircross-ii",
     "brand": "Citroen",
-    "model": "C5 Aircross II",
-    "year": 2024,
+    "model": "C5 Aircross Plug-in Hybrid (2026)",
+    "year": 2026,
     "segment": "SUV",
     "ev_range_km": 81,
     "fuel_consumption": 2.55,
@@ -785,12 +1030,24 @@
     "battery_architecture": "modular",
     "slug": "citroen-c5-aircross-ii-phev",
     "last_updated": "2025-10-22",
-    "updated_at": "2024-10-23",
+    "updated_at": "2026-09-19",
     "charging_capabilities": {
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "meta_title": "Citroën C5 Aircross Plug-in Hybrid (2026) Specs, Battery & Electric Range",
+    "gallery_images": [
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/002.jpg",
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/003.jpg",
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/004.jpg",
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/005.jpg",
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/006.jpg",
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/007.jpg",
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/009.jpg",
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/010.jpg",
+      "/images/cars/brands/citroen/c5-aircross-ii-phev/1.jpg"
+    ]
   },
   {
     "id": "citroen-c5-x-16",
@@ -841,7 +1098,16 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/citroen/c5-x-16-phev/003.jpg",
+      "/images/cars/brands/citroen/c5-x-16-phev/004.jpg",
+      "/images/cars/brands/citroen/c5-x-16-phev/005.jpg",
+      "/images/cars/brands/citroen/c5-x-16-phev/006.jpg",
+      "/images/cars/brands/citroen/c5-x-16-phev/007.jpg",
+      "/images/cars/brands/citroen/c5-x-16-phev/008.jpg",
+      "/images/cars/brands/citroen/c5-x-16-phev/1.jpg"
+    ]
   },
   {
     "id": "citroen-c5-aircross-i-variant1",
@@ -892,7 +1158,8 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "citroen-c5-aircross-i-variant2",
@@ -943,7 +1210,8 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "citroen-c5-x-16-puretech",
@@ -994,7 +1262,11 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/citroen/c5-x-16-puretech-phev/005.jpg",
+      "/images/cars/brands/citroen/c5-x-16-puretech-phev/008.jpg"
+    ]
   },
   {
     "id": "citroen-c5-aircross-i-variant3",
@@ -1045,7 +1317,8 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "new-23",
@@ -1085,7 +1358,19 @@
     "charging_capabilities": {
       "ac_power": 6.6,
       "ac_power_note": "6.6 kW AC on-board charger, 0-100% yaklaşık 3 saat"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/chery/tiggo-7-phev/002.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/005.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/008.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/010.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/011.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/012.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/014.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/016.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/017.jpg",
+      "/images/cars/brands/chery/tiggo-7-phev/018.jpg"
+    ]
   },
   {
     "id": "chery-tiggo8",
@@ -1125,7 +1410,21 @@
     "charging_capabilities": {
       "ac_power": 6.6,
       "ac_power_note": "6.6 kW AC on-board charger"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/chery/tiggo-8-phev/002.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/003.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/004.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/006.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/007.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/008.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/010.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/015.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/016.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/017.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/018.jpg",
+      "/images/cars/brands/chery/tiggo-8-phev/019.jpg"
+    ]
   },
   {
     "id": "chery-tiggo9",
@@ -1164,7 +1463,21 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 6.6
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/chery/tiggo-9-phev/002.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/004.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/005.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/006.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/009.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/010.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/011.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/013.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/015.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/017.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/018.jpg",
+      "/images/cars/brands/chery/tiggo-9-phev/1.jpg"
+    ]
   },
   {
     "id": "cupra-formentor-204hp",
@@ -1217,14 +1530,15 @@
     "slug": "cupra-formentor-204hp-phev",
     "last_updated": "2025-10-22",
     "updated_at": "2026-09-21",
+    "gallery_images": [
+      "/images/cars/brands/cupra/formentor-2024/main.jpg",
+      "/images/cars/brands/cupra/formentor-2024/rear.jpg"
+    ],
     "acceleration_0_100": 7.9,
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
     "charge_time_dc": 0.43,
-    "gallery_images": [
-      "/images/cars/brands/cupra/formentor-2024/main.jpg",
-      "/images/cars/brands/cupra/formentor-2024/rear.jpg"
-    ]
+    "price_eur": 44500
   },
   {
     "id": "cupra-formentor-245hp",
@@ -1277,14 +1591,14 @@
     "slug": "cupra-formentor-245hp-phev",
     "last_updated": "2025-10-22",
     "updated_at": "2026-09-21",
-    "acceleration_0_100": 7.2,
-    "dc_charging_supported": true,
-    "dc_max_power_kw": 50,
-    "charge_time_dc": 0.43,
     "gallery_images": [
       "/images/cars/brands/cupra/formentor-2024/main.jpg",
       "/images/cars/brands/cupra/formentor-2024/rear.jpg"
-    ]
+    ],
+    "acceleration_0_100": 7.2,
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "charge_time_dc": 0.43
   },
   {
     "id": "cupra-leon-1.4-tsi-204hp",
@@ -1335,6 +1649,13 @@
     "slug": "cupra-leon-204hp-phev",
     "last_updated": "2025-10-22",
     "updated_at": "2026-09-21",
+    "gallery_images": [
+      "/images/cars/brands/cupra/leon-204hp-e-hybrid/002.jpg",
+      "/images/cars/brands/cupra/leon-204hp-e-hybrid/004.jpg",
+      "/images/cars/brands/cupra/leon-204hp-e-hybrid/010.jpg",
+      "/images/cars/brands/cupra/leon-204hp-e-hybrid/012.jpg",
+      "/images/cars/brands/cupra/leon-204hp-e-hybrid/018.jpg"
+    ],
     "dc_charging_supported": true,
     "dc_max_power_kw": 50
   },
@@ -1387,6 +1708,13 @@
     "slug": "cupra-leon-245hp-phev",
     "last_updated": "2025-10-22",
     "updated_at": "2026-09-21",
+    "gallery_images": [
+      "/images/cars/brands/cupra/leon-245hp-e-hybrid/002.jpg",
+      "/images/cars/brands/cupra/leon-245hp-e-hybrid/004.jpg",
+      "/images/cars/brands/cupra/leon-245hp-e-hybrid/010.jpg",
+      "/images/cars/brands/cupra/leon-245hp-e-hybrid/012.jpg",
+      "/images/cars/brands/cupra/leon-245hp-e-hybrid/018.jpg"
+    ],
     "dc_charging_supported": true,
     "dc_max_power_kw": 50
   },
@@ -1429,7 +1757,19 @@
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "slug": "ds-7-crossback-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "gallery_images": [
+      "/images/cars/brands/ds-automobiles/ds-7/002.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/003.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/004.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/005.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/006.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/007.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/008.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/009.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/010.jpg",
+      "/images/cars/brands/ds-automobiles/ds-7/011.jpg"
+    ]
   },
   {
     "id": "new-33",
@@ -1470,7 +1810,15 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/ds-automobiles/n4/002.jpg",
+      "/images/cars/brands/ds-automobiles/n4/003.jpg",
+      "/images/cars/brands/ds-automobiles/n4/004.jpg",
+      "/images/cars/brands/ds-automobiles/n4/005.jpg",
+      "/images/cars/brands/ds-automobiles/n4/007.jpg",
+      "/images/cars/brands/ds-automobiles/n4/008.jpg"
+    ]
   },
   {
     "id": "ford-1",
@@ -1519,7 +1867,9 @@
     "battery_architecture": "modular",
     "slug": "ford-kuga-phev",
     "last_updated": "2025-01-22",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "gallery_images": [],
+    "price_eur": 38900
   },
   {
     "id": "new-34",
@@ -1559,7 +1909,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 3.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "new-35",
@@ -1599,7 +1950,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 3.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "ford-escape",
@@ -1649,7 +2001,8 @@
     "battery_architecture": "modular",
     "slug": "ford-escape-phev",
     "last_updated": "2025-01-22",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": []
   },
   {
     "id": "ford-explorer",
@@ -1699,7 +2052,8 @@
     "battery_architecture": "modular",
     "slug": "ford-explorer-phev",
     "last_updated": "2025-01-22",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": []
   },
   {
     "id": "ford-fusion",
@@ -1748,7 +2102,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 3.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "ford-c-max",
@@ -1797,7 +2152,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 3.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "hyundai-3",
@@ -1846,63 +2202,14 @@
     },
     "battery_architecture": "modular",
     "slug": "hyundai-santa-fe-phev",
-    "updated_at": "2024-10-23"
-  },
-  {
-    "id": "hyundai-tucson-iv-facelift-268hp",
-    "brand": "Hyundai",
-    "model": "Tucson IV (facelift 2024)",
-    "year": 2024,
-    "segment": "SUV",
-    "ev_range_km": 65,
-    "fuel_consumption": 1.4,
-    "battery_kwh": 13.8,
-    "image_url": "/images/cars/brands/hyundai/tucson-iv-facelift-2024-268hp-phev/main.jpg",
-    "power_hp": 268,
-    "co2_emission": 32,
-    "charge_time_ac": 3.2,
-    "trunk_volume": 513,
-    "seats": 5,
-    "warranty_years": 5,
-    "weight_kg": 1850,
-    "length_mm": 4630,
-    "width_mm": 1865,
-    "height_mm": 1665,
-    "wheelbase_mm": 2755,
-    "max_trunk_volume": 513,
-    "electric_motor_power_hp": 90,
-    "engine_displacement": 1.6,
-    "battery_chemistry": "NCM",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
-    },
-    "emission_standard": "Euro 6E",
-    "country_availability": "DE,FR,UK,IT,ES",
-    "drivetrain": "HTRAC AWD",
-    "transmission": "Automatic",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 92,
-      "child_occupant": 83,
-      "pedestrian_protection": 74,
-      "safety_assist": 78,
-      "overall_rating": 82,
-      "test_year": 2022
-    },
-    "battery_architecture": "modular",
-    "slug": "hyundai-tucson-iv-facelift-268hp-phev",
     "updated_at": "2024-10-23",
-    "charging_capabilities": {
-      "ac_power": 7.2
-    }
+    "gallery_images": []
   },
   {
     "id": "hyundai-tucson-iv-facelift-253hp-4wd",
     "brand": "Hyundai",
-    "model": "Tucson IV (facelift 2024)",
-    "year": 2024,
+    "model": "Tucson 1.6 T-GDI PHEV (2026 Facelift)",
+    "year": 2026,
     "segment": "SUV",
     "ev_range_km": 65,
     "fuel_consumption": 1.4,
@@ -1943,60 +2250,12 @@
     },
     "battery_architecture": "modular",
     "slug": "hyundai-tucson-iv-facelift-253hp-phev-4wd",
-    "updated_at": "2024-10-25",
+    "updated_at": "2026-09-19",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
-  },
-  {
-    "id": "hyundai-tucson-iv-facelift-253hp-fwd",
-    "brand": "Hyundai",
-    "model": "Tucson IV (facelift 2024)",
-    "year": 2024,
-    "segment": "SUV",
-    "ev_range_km": 65,
-    "fuel_consumption": 1.4,
-    "battery_kwh": 13.8,
-    "image_url": "/images/cars/brands/hyundai/tucson-iv-facelift-2024-253hp-phev-fwd/main.jpg",
-    "power_hp": 253,
-    "co2_emission": 32,
-    "charge_time_ac": 3.2,
-    "trunk_volume": 513,
-    "seats": 5,
-    "warranty_years": 5,
-    "weight_kg": 1800,
-    "length_mm": 4630,
-    "width_mm": 1865,
-    "height_mm": 1665,
-    "wheelbase_mm": 2755,
-    "max_trunk_volume": 513,
-    "electric_motor_power_hp": 90,
-    "engine_displacement": 1.6,
-    "battery_chemistry": "NCM",
-    "battery_voltage": 400,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front left"
     },
-    "emission_standard": "Euro 6E",
-    "country_availability": "DE,FR,UK,IT,ES",
-    "drivetrain": "FWD",
-    "transmission": "Automatic",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 92,
-      "child_occupant": 83,
-      "pedestrian_protection": 74,
-      "safety_assist": 78,
-      "overall_rating": 82,
-      "test_year": 2022
-    },
-    "battery_architecture": "modular",
-    "slug": "hyundai-tucson-iv-facelift-253hp-phev-fwd",
-    "updated_at": "2024-10-25",
-    "charging_capabilities": {
-      "ac_power": 7.2
-    }
+    "meta_title": "Hyundai Tucson Plug-in Hybrid (2026) Specs, Battery & Electric Range",
+    "gallery_images": []
   },
   {
     "id": "hyundai-tucson-iv-265hp-4wd",
@@ -2046,7 +2305,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "hyundai-tucson-iv-smartstream-261hp",
@@ -2096,59 +2356,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
-  },
-  {
-    "id": "jaecoo-j7-shs-2023",
-    "brand": "Jaecoo",
-    "model": "J7 SHS 1.5 TGDI",
-    "year": 2023,
-    "segment": "SUV",
-    "ev_range_km": 90,
-    "fuel_consumption": 0.7,
-    "battery_kwh": 18.316,
-    "image_url": "/images/cars/brands/jaecoo/jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht--2023/main.jpg",
-    "power_hp": 347,
-    "co2_emission": 9,
-    "charge_time_ac": 3.5,
-    "trunk_volume": 405,
-    "seats": 5,
-    "warranty_years": 3,
-    "weight_kg": 1660,
-    "length_mm": 4700,
-    "width_mm": 1900,
-    "height_mm": 1700,
-    "wheelbase_mm": 2800,
-    "max_trunk_volume": 1275,
-    "electric_motor_power_hp": 204,
-    "country_availability": "DE,FR,UK,IT,ES",
-    "euroncap_rating": {
-      "stars": 5,
-      "adult_occupant": 91,
-      "child_occupant": 87,
-      "pedestrian_protection": 87,
-      "safety_assist": 76,
-      "overall_rating": 85,
-      "test_year": 2023
     },
-    "engine_displacement": 1.5,
-    "battery_chemistry": "LiFePO4",
-    "battery_architecture": "modular",
-    "battery_voltage": 339.2,
-    "charging_port": {
-      "ac_type": "Type 2 AC (Mennekes)",
-      "ac_location": "Front right"
-    },
-    "emission_standard": "Euro 6e",
-    "drivetrain": "AWD",
-    "transmission": "DHT",
-    "slug": "jaecoo-j7-shs-15-tgdi-347-hp-plug-in-hybrid-dht-2023",
-    "updated_at": "2024-10-24",
-    "charging_capabilities": {
-      "ac_power": 6.6,
-      "dc_power": 40,
-      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)"
-    }
+    "gallery_images": []
   },
   {
     "id": "jeep-compass-4xe-240hp",
@@ -2198,7 +2407,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "jeep-wrangler-4xe-rubicon",
@@ -2248,7 +2458,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "jeep-wrangler-4xe-sahara",
@@ -2298,7 +2509,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "jeep-compass-4xe-190hp",
@@ -2348,7 +2560,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "jeep-renegade-4xe-240hp",
@@ -2398,7 +2611,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "jeep-renegade-4xe-190hp",
@@ -2448,7 +2662,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "kia-niro-ii-2025",
@@ -2496,7 +2711,9 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "gallery_images": [],
+    "price_eur": 39950
   },
   {
     "id": "kia-niro-ii-2024",
@@ -2546,7 +2763,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "kia-sorento-iv-2024",
@@ -2594,7 +2812,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "kia-sportage-v-252hp",
@@ -2644,7 +2863,9 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "gallery_images": [],
+    "price_eur": 43900
   },
   {
     "id": "kia-sportage-v-265hp",
@@ -2694,7 +2915,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 11
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "kia-niro-i-2019-facelift",
@@ -2736,7 +2958,8 @@
     "charging_capabilities": {
       "ac_power": 7.4
     },
-    "engine_displacement": 1.6
+    "engine_displacement": 1.6,
+    "gallery_images": []
   },
   {
     "id": "kia-niro-i-2019",
@@ -2778,7 +3001,8 @@
     "charging_capabilities": {
       "ac_power": 7.4
     },
-    "engine_displacement": 1.6
+    "engine_displacement": 1.6,
+    "gallery_images": []
   },
   {
     "id": "kia-optima-iv-2018-facelift",
@@ -2811,7 +3035,8 @@
     "charging_capabilities": {
       "ac_power": 7.4
     },
-    "engine_displacement": 2
+    "engine_displacement": 2,
+    "gallery_images": []
   },
   {
     "id": "kia-optima-iv-2018",
@@ -2844,7 +3069,8 @@
     "charging_capabilities": {
       "ac_power": 7.4
     },
-    "engine_displacement": 2
+    "engine_displacement": 2,
+    "gallery_images": []
   },
   {
     "id": "kia-optima-iv-sportswagon-2018-facelift",
@@ -2877,7 +3103,8 @@
     "charging_capabilities": {
       "ac_power": 7.4
     },
-    "engine_displacement": 2
+    "engine_displacement": 2,
+    "gallery_images": []
   },
   {
     "id": "kia-optima-iv-sportswagon-2018",
@@ -2910,7 +3137,8 @@
     "charging_capabilities": {
       "ac_power": 7.4
     },
-    "engine_displacement": 2
+    "engine_displacement": 2,
+    "gallery_images": []
   },
   {
     "id": "kia-k3-sedan-ii",
@@ -2943,7 +3171,8 @@
     "charging_capabilities": {
       "ac_power": 11
     },
-    "engine_displacement": 1.6
+    "engine_displacement": 1.6,
+    "gallery_images": []
   },
   {
     "id": "kia-xceed-2022-facelift",
@@ -2976,7 +3205,9 @@
     "charging_capabilities": {
       "ac_power": 11
     },
-    "engine_displacement": 1.6
+    "engine_displacement": 1.6,
+    "gallery_images": [],
+    "price_eur": 36500
   },
   {
     "id": "kia-xceed-2022",
@@ -3009,7 +3240,8 @@
     "charging_capabilities": {
       "ac_power": 11
     },
-    "engine_displacement": 1.6
+    "engine_displacement": 1.6,
+    "gallery_images": []
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021-facelift",
@@ -3042,7 +3274,9 @@
     "charging_capabilities": {
       "ac_power": 11
     },
-    "engine_displacement": 1.6
+    "engine_displacement": 1.6,
+    "gallery_images": [],
+    "price_eur": 35900
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021",
@@ -3075,7 +3309,8 @@
     "charging_capabilities": {
       "ac_power": 11
     },
-    "engine_displacement": 1.6
+    "engine_displacement": 1.6,
+    "gallery_images": []
   },
   {
     "id": "bmw-5-series-touring-550e",
@@ -3127,7 +3362,9 @@
       "ac_power": 3.7,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
-    }
+    },
+    "gallery_images": [],
+    "acceleration_0_100": 4.4
   },
   {
     "id": "bmw-5-series-sedan-550e",
@@ -3179,7 +3416,9 @@
       "ac_power": 3.7,
       "ac_power_max": 11,
       "ac_power_note": "Można zwiększyć do 11 kW"
-    }
+    },
+    "gallery_images": [],
+    "acceleration_0_100": 4.3
   },
   {
     "id": "land-rover-defender-110-phev",
@@ -3234,7 +3473,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "land-rover-discovery-sport-phev",
@@ -3289,7 +3529,8 @@
     "drivetrain": "AWD",
     "transmission": "8AT",
     "slug": "land-rover-discovery-sport-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "gallery_images": []
   },
   {
     "id": "land-rover-range-rover-evoque-phev",
@@ -3344,7 +3585,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "land-rover-range-rover-velar-phev",
@@ -3399,7 +3641,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 7.2
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "lexus-nx-450h-plus-phev",
@@ -3455,7 +3698,8 @@
     "charging_capabilities": {
       "ac_power": 6.6,
       "ac_power_note": "6.6 kW onboard AC charger. Not: Tam elektrikli RZ 450e 11 kW kullanır"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "lexus-rx-450h-plus-phev",
@@ -3510,7 +3754,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 6.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "mazda-1",
@@ -3559,7 +3804,10 @@
     },
     "battery_architecture": "modular",
     "slug": "mazda-cx-60-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "gallery_images": [
+      "/images/cars/brands/mazda/cx-60/008.jpg"
+    ]
   },
   {
     "id": "mazda-cx80",
@@ -3608,7 +3856,8 @@
     },
     "battery_architecture": "modular",
     "slug": "mazda-cx-80-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": []
   },
   {
     "id": "mazda-mx30-rev",
@@ -3663,7 +3912,8 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 6.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "mercedes-1",
@@ -3732,7 +3982,8 @@
     },
     "battery_architecture": "modular",
     "slug": "mercedes-benz-a-class-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "gallery_images": []
   },
   {
     "id": "mercedesbenz-cclass",
@@ -3806,7 +4057,9 @@
     },
     "battery_architecture": "modular",
     "slug": "mercedes-benz-c-class-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "gallery_images": [],
+    "acceleration_0_100": 5.4
   },
   {
     "id": "mercedesbenz-cla",
@@ -3875,7 +4128,8 @@
     },
     "battery_architecture": "modular",
     "slug": "mercedes-benz-cla-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "gallery_images": []
   },
   {
     "id": "mercedes-6",
@@ -3944,7 +4198,9 @@
     },
     "battery_architecture": "modular",
     "slug": "mercedes-benz-e-class-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "gallery_images": [],
+    "acceleration_0_100": 3.8
   },
   {
     "id": "mercedes-3",
@@ -4013,7 +4269,8 @@
     },
     "battery_architecture": "modular",
     "slug": "mercedes-benz-gla-phev",
-    "updated_at": "2024-10-25"
+    "updated_at": "2024-10-25",
+    "gallery_images": []
   },
   {
     "id": "mercedes-5",
@@ -4079,7 +4336,9 @@
     },
     "slug": "mercedes-benz-glc-coup-phev",
     "updated_at": "2024-10-24",
-    "weight_kg": 2360
+    "weight_kg": 2360,
+    "gallery_images": [],
+    "acceleration_0_100": 6.7
   },
   {
     "id": "mercedes-7",
@@ -4145,7 +4404,9 @@
     },
     "slug": "mercedes-benz-gle-coup-phev",
     "updated_at": "2024-10-24",
-    "weight_kg": 2690
+    "weight_kg": 2690,
+    "gallery_images": [],
+    "acceleration_0_100": 6.1
   },
   {
     "id": "mercedesbenz-sclass",
@@ -4214,7 +4475,9 @@
     },
     "battery_architecture": "modular",
     "slug": "mercedes-benz-s-class-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": [],
+    "acceleration_0_100": 5.2
   },
   {
     "id": "mg-3",
@@ -4263,7 +4526,9 @@
     "charging_capabilities": {
       "ac_power": 3.6,
       "ac_power_note": "3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor"
-    }
+    },
+    "gallery_images": [],
+    "price_eur": 32990
   },
   {
     "id": "mg-5",
@@ -4312,7 +4577,8 @@
     "charging_capabilities": {
       "ac_power": 3.6,
       "ac_power_note": "3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "mini-1",
@@ -4361,7 +4627,8 @@
     "charging_capabilities": {
       "ac_power": 3.7,
       "dc_power": 22
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "mitsubishi-2",
@@ -4413,13 +4680,13 @@
       "ac_power": 3.7,
       "dc_power": 22
     },
-    "dc_charging_supported": true,
-    "dc_max_power_kw": 22,
-    "charge_time_dc": 0.42,
     "gallery_images": [
       "/images/cars/brands/mitsubishi/eclipse-cross/main.jpg",
       "/images/cars/brands/mitsubishi/eclipse-cross/rear.jpg"
-    ]
+    ],
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 22,
+    "charge_time_dc": 0.42
   },
   {
     "id": "mitsubishi-1",
@@ -4473,6 +4740,7 @@
       "ac_power": 3.7,
       "dc_power": 22
     },
+    "gallery_images": [],
     "acceleration_0_100": 7.9
   },
   {
@@ -4527,6 +4795,7 @@
       "ac_power": 3.7,
       "dc_power": 22
     },
+    "gallery_images": [],
     "acceleration_0_100": 10.5
   },
   {
@@ -4577,7 +4846,9 @@
     },
     "battery_architecture": "modular",
     "slug": "opel-astra-phev-phev",
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "gallery_images": [],
+    "price_eur": 39990
   },
   {
     "id": "opel-3",
@@ -4627,7 +4898,8 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "opel-4",
@@ -4677,7 +4949,8 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "new-67",
@@ -4727,7 +5000,8 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "peugeot-2",
@@ -4777,7 +5051,9 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": [],
+    "price_eur": 40500
   },
   {
     "id": "new-69",
@@ -4827,7 +5103,8 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "new-69.5",
@@ -4877,7 +5154,8 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "new-70",
@@ -4926,6 +5204,7 @@
     "charging_capabilities": {
       "ac_power": 11
     },
+    "gallery_images": [],
     "dc_charging_supported": false,
     "dc_max_power_kw": null,
     "acceleration_0_100": 4.9,
@@ -4969,7 +5248,9 @@
     "charging_capabilities": {
       "ac_power": 11
     },
-    "weight_kg": 2235
+    "weight_kg": 2235,
+    "gallery_images": [],
+    "acceleration_0_100": 4.1
   },
   {
     "id": "new-72",
@@ -5017,7 +5298,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 3.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "skoda-kodiaq",
@@ -5063,10 +5345,11 @@
     "slug": "koda-kodiaq-phev",
     "updated_at": "2024-10-25",
     "electric_motor_power_hp": 0,
-    "acceleration_0_100": 1.8,
+    "acceleration_0_100": 8.4,
     "features": [],
     "weight_kg": 0,
-    "last_updated": "2026-09-21"
+    "last_updated": "2026-09-21",
+    "gallery_images": []
   },
   {
     "id": "skoda-superb-combi",
@@ -5119,7 +5402,8 @@
     "wheelbase_mm": 2839,
     "max_trunk_volume": 1770,
     "acceleration_0_100": 7.3,
-    "last_updated": "2026-09-21"
+    "last_updated": "2026-09-21",
+    "gallery_images": []
   },
   {
     "id": "skoda-superb-sedan",
@@ -5172,7 +5456,8 @@
     "wheelbase_mm": 2839,
     "max_trunk_volume": 1635,
     "acceleration_0_100": 7.1,
-    "last_updated": "2026-09-21"
+    "last_updated": "2026-09-21",
+    "gallery_images": []
   },
   {
     "id": "suzuki-across-phev",
@@ -5211,7 +5496,8 @@
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 6.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "new-76",
@@ -5260,7 +5546,8 @@
     "charging_capabilities": {
       "ac_power": 6.6,
       "ac_power_note": "C-HR Plug-in Hybrid: 6.6 kW AC onboard charger"
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "toyota-1",
@@ -5308,13 +5595,14 @@
     "updated_at": "2024-10-25",
     "charging_capabilities": {
       "ac_power": 6.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "toyota-2",
     "brand": "Toyota",
-    "model": "RAV4",
-    "year": 2025,
+    "model": "RAV4 Plug-in Hybrid (2020-2023)",
+    "year": 2023,
     "segment": "SUV",
     "ev_range_km": 75,
     "fuel_consumption": 1,
@@ -5332,13 +5620,13 @@
     "height_mm": 1685,
     "wheelbase_mm": 2690,
     "max_trunk_volume": 1604,
-    "electric_motor_power_hp": 54,
-    "engine_displacement": 1.8,
+    "electric_motor_power_hp": 182,
+    "engine_displacement": 2.5,
     "battery_chemistry": "NCM",
     "battery_voltage": 355,
     "charging_capabilities": {
       "ac_power": 6.6,
-      "ac_power_note": "RAV4 Plug-in Hybrid: 6.6 kW AC onboard charger. Not: RAV4 Prime SE (2022) 3.3 kW kullanır"
+      "ac_power_note": "RAV4 Plug-in Hybrid: 6.6 kW AC On-board Charger (Type 2)"
     },
     "charging_port": {
       "ac_type": "Type 2 AC (Mennekes)",
@@ -5356,8 +5644,11 @@
       "test_year": 2019
     },
     "battery_architecture": "modular",
-    "slug": "toyota-rav4-phev",
-    "updated_at": "2024-10-24"
+    "slug": "toyota-rav4-phev-2023",
+    "updated_at": "2026-09-20",
+    "meta_title": "Toyota RAV4 Plug-in Hybrid (2020-2023) Specs, Battery & Electric Range | PHEVs.eu",
+    "gallery_images": [],
+    "last_updated": "2026-09-20"
   },
   {
     "id": "toyota-crown-phev",
@@ -5396,7 +5687,8 @@
     "updated_at": "2024-10-24",
     "charging_capabilities": {
       "ac_power": 6.6
-    }
+    },
+    "gallery_images": []
   },
   {
     "id": "vw-1",
@@ -5450,6 +5742,9 @@
     "updated_at": "2024-10-23",
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
+    "gallery_images": [
+      "/images/cars/brands/volkswagen/golf/007.jpg"
+    ],
     "last_updated": "2026-09-21"
   },
   {
@@ -5504,6 +5799,7 @@
     "battery_architecture": "modular",
     "slug": "volkswagen-passat-phev",
     "updated_at": "2024-10-24",
+    "gallery_images": [],
     "last_updated": "2026-09-21"
   },
   {
@@ -5558,6 +5854,7 @@
     "updated_at": "2024-10-24",
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
+    "gallery_images": [],
     "last_updated": "2026-09-21"
   },
   {
@@ -5612,7 +5909,9 @@
     "battery_architecture": "modular",
     "slug": "volkswagen-tiguan-phev",
     "updated_at": "2024-10-23",
-    "last_updated": "2026-09-21"
+    "gallery_images": [],
+    "last_updated": "2026-09-21",
+    "price_eur": 41900
   },
   {
     "id": "new-83",
@@ -5661,6 +5960,7 @@
     "battery_architecture": "modular",
     "slug": "volkswagen-touareg-phev",
     "updated_at": "2024-10-25",
+    "gallery_images": [],
     "dc_charging_supported": false,
     "dc_max_power_kw": null,
     "last_updated": "2026-09-21"
@@ -5705,7 +6005,8 @@
     "slug": "volkswagen-multivan-phev",
     "updated_at": "2024-10-25",
     "dc_charging_supported": true,
-    "dc_max_power_kw": 50
+    "dc_max_power_kw": 50,
+    "gallery_images": []
   },
   {
     "id": "volvo-5",
@@ -5746,7 +6047,8 @@
       "ac_power": 6.4,
       "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
     },
-    "weight_kg": 2060
+    "weight_kg": 2060,
+    "gallery_images": []
   },
   {
     "id": "volvo-7",
@@ -5787,7 +6089,8 @@
       "ac_power": 6.4,
       "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
     },
-    "weight_kg": 2100
+    "weight_kg": 2100,
+    "gallery_images": []
   },
   {
     "id": "volvo-2",
@@ -5828,7 +6131,8 @@
       "ac_power": 6.4,
       "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
     },
-    "weight_kg": 2150
+    "weight_kg": 2150,
+    "gallery_images": []
   },
   {
     "id": "volvo-3",
@@ -5869,19 +6173,20 @@
       "ac_power": 6.4,
       "ac_power_note": "2024 ve sonrası modellerde 6.4 kW (iki/üç fazlı şarj), eski modellerde 3.6 kW"
     },
-    "weight_kg": 2297
+    "weight_kg": 2297,
+    "gallery_images": []
   },
   {
     "id": "omoda-1",
     "brand": "Omoda",
-    "model": "9",
+    "model": "9 Super Hybrid",
     "year": 2025,
     "segment": "SUV",
     "ev_range_km": 145,
     "fuel_consumption": 1.7,
     "battery_kwh": 34.46,
     "image_url": "/images/cars/brands/omoda/omoda-9-super-hybrid/main.jpg",
-    "power_hp": 143,
+    "power_hp": 428,
     "co2_emission": 38,
     "charge_time_ac": 3,
     "trunk_volume": 537,
@@ -5893,7 +6198,7 @@
     "height_mm": 1671,
     "wheelbase_mm": 2820,
     "max_trunk_volume": 537,
-    "electric_motor_power_hp": 100,
+    "electric_motor_power_hp": 224,
     "engine_displacement": 1.5,
     "battery_chemistry": "Li-NMC",
     "battery_voltage": 400,
@@ -5916,13 +6221,17 @@
       "test_year": 2024
     },
     "battery_architecture": "modular",
-    "slug": "omoda-9-phev",
-    "updated_at": "2024-10-23"
+    "slug": "omoda-9-super-hybrid-phev",
+    "updated_at": "2026-09-19",
+    "meta_title": "Omoda 9 Super Hybrid (2025-2026) Specs, Battery & Electric Range",
+    "gallery_images": [
+      "/images/cars/brands/omoda/omoda-9-super-hybrid/007.jpg"
+    ]
   },
   {
     "id": "jaecoo-1",
     "brand": "Jaecoo",
-    "model": "J7 SHS 1.5 TGDI",
+    "model": "7 Super Hybrid",
     "year": 2024,
     "segment": "SUV",
     "ev_range_km": 91,
@@ -5955,19 +6264,30 @@
       "stars": 5,
       "adult_occupant": 85,
       "child_occupant": 86,
-      "vulnerable_road_users": 70,
+      "pedestrian_protection": 0,
       "safety_assist": 80,
       "overall_rating": 80,
       "test_year": 2023
     },
     "battery_architecture": "modular",
-    "slug": "jaecoo-j7-shs-15-tgdi",
+    "slug": "jaecoo-j7-super-hybrid",
     "updated_at": "2024-10-23",
     "charging_capabilities": {
       "ac_power": 6.6,
       "dc_power": 40,
-      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)"
-    }
+      "ac_power_note": "6.6 kW AC şarj (30-80% yaklaşık 3 saat). Standart ev şarjı: 3.3 kW (0-100% yaklaşık 8.5 saat). DC hızlı şarj: 40 kW (30-80% 20 dakika)",
+      "ac_power_max": 6.6
+    },
+    "usable_battery_kwh": null,
+    "acceleration_0_100": 8,
+    "ac_max_power_kw": 6.6,
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 40,
+    "charge_time_dc": null,
+    "features": [],
+    "gallery_images": [],
+    "last_updated": "2026-09-19",
+    "price_eur": 39900
   },
   {
     "id": "seat-4",
@@ -6048,7 +6368,10 @@
       "overall_rating": 83,
       "test_year": 2020
     },
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": [
+      "/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/1.jpg"
+    ]
   },
   {
     "id": "seat-5",
@@ -6129,7 +6452,8 @@
       "overall_rating": 83,
       "test_year": 2020
     },
-    "updated_at": "2024-10-23"
+    "updated_at": "2024-10-23",
+    "gallery_images": []
   },
   {
     "brand": "BMW",
@@ -6175,7 +6499,8 @@
       "test_year": 2019
     },
     "updated_at": "2024-10-25",
-    "id": "bmw-3-series-touring-2024"
+    "id": "bmw-3-series-touring-2024",
+    "gallery_images": []
   },
   {
     "brand": "BMW",
@@ -6222,7 +6547,29 @@
       "test_year": 2022
     },
     "updated_at": "2024-10-25",
-    "id": "bmw-x1-25e-2024"
+    "id": "bmw-x1-25e-2024",
+    "gallery_images": [
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/002.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/003.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/004.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/005.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/006.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/007.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/008.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/009.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/010.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/011.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/012.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/013.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/014.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/015.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/016.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/017.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/018.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/019.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/020.jpg",
+      "/images/cars/brands/bmw/bmw-x1-25e-2024/1.jpg"
+    ]
   },
   {
     "brand": "BMW",
@@ -6269,7 +6616,10 @@
       "test_year": 2022
     },
     "updated_at": "2024-10-23",
-    "id": "bmw-x1-30e-2024"
+    "id": "bmw-x1-30e-2024",
+    "gallery_images": [
+      "/images/cars/brands/bmw/bmw-x1-30e-2024/1.jpg"
+    ]
   },
   {
     "brand": "BMW",
@@ -6316,7 +6666,8 @@
       "test_year": 2017
     },
     "updated_at": "2024-10-25",
-    "id": "bmw-x3-30e-2024"
+    "id": "bmw-x3-30e-2024",
+    "gallery_images": []
   },
   {
     "brand": "BMW",
@@ -6363,7 +6714,18 @@
       "test_year": 2018
     },
     "updated_at": "2024-10-25",
-    "id": "bmw-x5-50e-2024"
+    "id": "bmw-x5-50e-2024",
+    "gallery_images": [
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/004.jpg",
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/007.jpg",
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/008.jpg",
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/009.jpg",
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/014.jpg",
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/015.jpg",
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/016.jpg",
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/017.jpg",
+      "/images/cars/brands/bmw/bmw-x5-50e-2024/018.jpg"
+    ]
   },
   {
     "brand": "BMW",
@@ -6410,7 +6772,18 @@
       "test_year": 2018
     },
     "updated_at": "2024-10-23",
-    "id": "bmw-xm-44-v8-2024"
+    "id": "bmw-xm-44-v8-2024",
+    "gallery_images": [
+      "/images/cars/brands/bmw/bmw-xm-44-v8-2024/002.jpg",
+      "/images/cars/brands/bmw/bmw-xm-44-v8-2024/003.jpg",
+      "/images/cars/brands/bmw/bmw-xm-44-v8-2024/004.jpg",
+      "/images/cars/brands/bmw/bmw-xm-44-v8-2024/005.jpg",
+      "/images/cars/brands/bmw/bmw-xm-44-v8-2024/006.jpg",
+      "/images/cars/brands/bmw/bmw-xm-44-v8-2024/007.jpg",
+      "/images/cars/brands/bmw/bmw-xm-44-v8-2024/008.jpg",
+      "/images/cars/brands/bmw/bmw-xm-44-v8-2024/009.jpg"
+    ],
+    "acceleration_0_100": 4.3
   },
   {
     "brand": "BMW",
@@ -6457,7 +6830,11 @@
       "test_year": 2018
     },
     "updated_at": "2024-10-24",
-    "id": "bmw-xm-50e-2024"
+    "id": "bmw-xm-50e-2024",
+    "gallery_images": [
+      "/images/cars/brands/bmw/bmw-xm-50e-2024/002.jpg"
+    ],
+    "acceleration_0_100": 5.1
   },
   {
     "brand": "BMW",
@@ -6504,7 +6881,18 @@
       "test_year": 2018
     },
     "updated_at": "2024-10-25",
-    "id": "bmw-xm-label-red-44-v8-2024"
+    "id": "bmw-xm-label-red-44-v8-2024",
+    "gallery_images": [
+      "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/002.jpg",
+      "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/003.jpg",
+      "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/004.jpg",
+      "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/005.jpg",
+      "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/006.jpg",
+      "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/007.jpg",
+      "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/008.jpg",
+      "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/009.jpg"
+    ],
+    "acceleration_0_100": 3.8
   },
   {
     "id": "peugeot-508",
@@ -6554,7 +6942,10 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/peugeot/508-plug-in-hybrid/1.jpg"
+    ]
   },
   {
     "id": "peugeot-508-sw",
@@ -6604,7 +6995,10 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/peugeot/508-plug-in-hybrid/1.jpg"
+    ]
   },
   {
     "id": "peugeot-308-sw",
@@ -6654,7 +7048,14 @@
       "ac_power": 3.7,
       "ac_power_max": 7.4,
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
-    }
+    },
+    "gallery_images": [
+      "/images/cars/brands/peugeot/308-plug-in-hybrid/004.jpg",
+      "/images/cars/brands/peugeot/308-plug-in-hybrid/005.jpg",
+      "/images/cars/brands/peugeot/308-plug-in-hybrid/007.jpg",
+      "/images/cars/brands/peugeot/308-plug-in-hybrid/009.jpg",
+      "/images/cars/brands/peugeot/308-plug-in-hybrid/010.jpg"
+    ]
   },
   {
     "id": "renault-captur-e-tech",
@@ -6702,7 +7103,12 @@
     },
     "battery_architecture": "modular",
     "slug": "renault-captur-e-tech-phev",
-    "updated_at": "2024-10-24"
+    "updated_at": "2024-10-24",
+    "gallery_images": [
+      "/images/cars/brands/renault/captur-e-tech-phev/002.jpg",
+      "/images/cars/brands/renault/captur-e-tech-phev/003.jpg"
+    ],
+    "price_eur": 33500
   },
   {
     "id": "mg-s9-2026",
@@ -6741,7 +7147,520 @@
       "safety_assist": 77,
       "overall_rating": 76,
       "test_year": 2026
-    }
+    },
+    "gallery_images": []
+  },
+  {
+    "id": "audi-a6-limousine-e-hybrid-2026",
+    "slug": "audi-a6-limousine-e-hybrid-phev",
+    "brand": "Audi",
+    "model": "A6 Limousine e-hybrid",
+    "year": 2026,
+    "battery_kwh": 25.9,
+    "ev_range_km": 112,
+    "power_hp": 299,
+    "electric_motor_power_hp": 143,
+    "engine_displacement": 2,
+    "acceleration_0_100": 6,
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_max": 11
+    },
+    "features": [],
+    "image_url": "https://mediaservice.audi.com/media/fast/v3_xWTXWhbdRjG__vVtpqeJD2n9jTJjonmnMRSyZZkaWI3I7ZI9UJcpVu9EM3-TU7Ts-aLk9PYUS92MxRBERTxC1Y2vdHplMFwKvNjQybDXbgLxQ90d4oVL5TVIYKnd-8Lz_O87wPPc-oP0b_qCh6bOfXX2D8DNx_4BSHWOkL0vSv6vVV3sb1DCDFHwGnKur37cMeuj1mymLHXvIzsdXbns_lSRhYbTrOdmT44OZXLFOayGdlohMWgTxR9QgweFaJ_Y1tGhEZW3UZHurK5y7W7nXar6_RsdbyYW8rVqrUpuSQLebtUmMouTRbvLmWLtapdkLk9xVJuarFYymq-xCXR56uLkVa9WnVt6e4p1OzuitfurDXEwFIrL3NHxE3bX3HH49x2jdEX0OfR30c_QxSi9xCbIDZN7CVibxP7kESGxFskLpK4SvJ7kn9j7sA8jPknaUjfT7qLuI9AkMAxAudRXMJpIutETrPzS4wWxiLGc0w4JPZhvYh1hdQWYhfqJ2gqo6fRS-j-xTqGhjGO8SBWH9YE1k-kPiAwSOBNlDtR7iVUQF1HewLtMnqc6ArRy0SvE9vEHMQKYyWxFrGOk9rH0AxD11HOoUXQZtFPEnyP4DmCZwneQN2LWkGVqBdQr6Cl0SbR9qOtEv0Y42GMpzAuMH4X8R-IbxH_l_h_JPpJDJO8RPJ3zBjmy5ge5nmsg1hbpDRSUVL7Sf2McoLgBsEzBH8j3CL8OsMHGXYwp4h0ibzGxCGiJ4g9SuwssY8wasQ_I_4F5qcoKuHvuLXO6DL6M-ifM9YjcoxUhdQbpL7yM4gYRKxxyyaBBwjME2gS-JGhQwytM3QRRUHxzT5P8CqhICGD0FHC04QPEH6a8HH0WaIbxK6x81mMdzC-IbGXxAKJHskbmOOos2hBoo8QPYKhYH6N-SvKAMrthDYJb6L2o76Cvo7-rZ-7V-1Wz3Hbrabd8spzrtOTnl1ZcBoNWZmR1ZVOw9-76Sedmrdczk3ls-ll26kve-VcoZBNy0ZnWZaXZKNrp6uyabuyPO_5fapMVwqVbNYHtPx-eY5fiPJcu-tsTw9t09Ndz7Zdp1WXrXrDLmdyk-mm7cma9GTPdrs-rJwf6ZtemPsfbu4ie8gDAAA?wid=1920",
+    "segment": "Sedan",
+    "fuel_consumption": 2,
+    "co2_emission": 46,
+    "charge_time_ac": 2.75,
+    "weight_kg": 2205,
+    "trunk_volume": 354,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 87,
+      "child_occupant": 88,
+      "pedestrian_protection": 79,
+      "safety_assist": 77,
+      "overall_rating": 81,
+      "test_year": 2026
+    },
+    "last_updated": "2026-09-19",
+    "usable_battery_kwh": 20.7,
+    "ac_max_power_kw": 11,
+    "gallery_images": []
+  },
+  {
+    "id": "audi-a6-avant-e-hybrid-2026",
+    "slug": "audi-a6-avant-e-hybrid-phev",
+    "brand": "Audi",
+    "model": "A6 Avant e-hybrid",
+    "year": 2026,
+    "battery_kwh": 25.9,
+    "usable_battery_kwh": 20.7,
+    "ev_range_km": 106,
+    "power_hp": 299,
+    "electric_motor_power_hp": 143,
+    "engine_displacement": 2,
+    "acceleration_0_100": 6.2,
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "ac_power_max": 11
+    },
+    "ac_max_power_kw": 11,
+    "features": [],
+    "image_url": "/images/cars/brands/audi/a6-avant-e-hybrid/main.webp",
+    "gallery_images": [
+      "/images/cars/brands/audi/a6-avant-e-hybrid/rear.webp"
+    ],
+    "segment": "Station/Estate",
+    "fuel_consumption": 2.1,
+    "co2_emission": 48,
+    "charge_time_ac": 2.75,
+    "weight_kg": 2250,
+    "trunk_volume": 405,
+    "max_trunk_volume": 1535,
+    "length_mm": 4939,
+    "width_mm": 1886,
+    "height_mm": 1467,
+    "wheelbase_mm": 2924,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 87,
+      "child_occupant": 88,
+      "pedestrian_protection": 79,
+      "safety_assist": 77,
+      "overall_rating": 81,
+      "test_year": 2026
+    },
+    "last_updated": "2026-09-19"
+  },
+  {
+    "id": "byd-atto-2-dm-i-boost-2026",
+    "slug": "byd-atto-2-dm-i-boost-phev",
+    "brand": "BYD",
+    "model": "Atto 2 DM-i Boost",
+    "year": 2026,
+    "battery_kwh": 18,
+    "usable_battery_kwh": 18,
+    "battery_chemistry": "LFP",
+    "battery_architecture": "blade",
+    "battery_voltage": 334,
+    "ev_range_km": 90,
+    "power_hp": 212,
+    "electric_motor_power_hp": 197,
+    "engine_displacement": 1.5,
+    "acceleration_0_100": 7.5,
+    "top_speed": 180,
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_max": 6.6
+    },
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Rear right"
+    },
+    "ac_max_power_kw": 6.6,
+    "features": [
+      "V2L (Vehicle-to-Load 3.3 kW)",
+      "BYD Blade Battery (LFP)",
+      "12.8-inch Rotating Touchscreen",
+      "8.8-inch Digital Instrument Cluster",
+      "Heated Steering Wheel",
+      "Heated Front Seats",
+      "Electric 6-way Driver Seat",
+      "Panoramic Sunroof",
+      "360-degree Camera",
+      "NFC Key Card",
+      "Wireless Phone Charger 50W",
+      "Adaptive Cruise Control (ACC)"
+    ],
+    "image_url": "/images/cars/brands/byd/atto-2-dm-i/main.jpg",
+    "gallery_images": [
+      "/images/cars/brands/byd/atto-2-dm-i/studio_car.jpg",
+      "/images/cars/brands/byd/atto-2-dm-i/cockpit.jpg",
+      "/images/cars/brands/byd/atto-2-dm-i/trunk.jpg"
+    ],
+    "segment": "SUV",
+    "fuel_consumption": 1.9,
+    "co2_emission": 44,
+    "charge_time_ac": 3,
+    "weight_kg": 1620,
+    "trunk_volume": 425,
+    "max_trunk_volume": 1335,
+    "length_mm": 4330,
+    "width_mm": 1830,
+    "height_mm": 1675,
+    "wheelbase_mm": 2620,
+    "seats": 5,
+    "warranty_years": 6,
+    "country_availability": "EU,PL,DE,FR,UK,ES,IT",
+    "emission_standard": "Euro 6e-bis",
+    "price_eur": 29500,
+    "last_updated": "2026-09-19"
+  },
+  {
+    "id": "byd-atto-2-dm-i-active-2026",
+    "slug": "byd-atto-2-dm-i-active-phev",
+    "brand": "BYD",
+    "model": "Atto 2 DM-i Active",
+    "year": 2026,
+    "battery_kwh": 7.8,
+    "usable_battery_kwh": 7.8,
+    "battery_chemistry": "LFP",
+    "battery_architecture": "blade",
+    "battery_voltage": 192,
+    "ev_range_km": 40,
+    "power_hp": 166,
+    "electric_motor_power_hp": 197,
+    "engine_displacement": 1.5,
+    "acceleration_0_100": 9.1,
+    "top_speed": 180,
+    "dc_charging_supported": false,
+    "dc_max_power_kw": null,
+    "charging_capabilities": {
+      "ac_power": 3.3,
+      "ac_power_max": 3.3
+    },
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Rear right"
+    },
+    "ac_max_power_kw": 3.3,
+    "features": [
+      "BYD Blade Battery (LFP)",
+      "12.8-inch Touchscreen",
+      "8.8-inch Digital Instrument Cluster",
+      "LED Headlights",
+      "Rear Parking Sensors & Camera",
+      "NFC Key Card",
+      "Adaptive Cruise Control (ACC)",
+      "Lane Departure Warning"
+    ],
+    "image_url": "/images/cars/brands/byd/atto-2-dm-i/main.jpg",
+    "gallery_images": [
+      "/images/cars/brands/byd/atto-2-dm-i/studio_car.jpg",
+      "/images/cars/brands/byd/atto-2-dm-i/cockpit.jpg",
+      "/images/cars/brands/byd/atto-2-dm-i/trunk.jpg"
+    ],
+    "segment": "SUV",
+    "fuel_consumption": 3.2,
+    "co2_emission": 74,
+    "charge_time_ac": 2.7,
+    "weight_kg": 1510,
+    "trunk_volume": 425,
+    "max_trunk_volume": 1335,
+    "length_mm": 4330,
+    "width_mm": 1830,
+    "height_mm": 1675,
+    "wheelbase_mm": 2620,
+    "seats": 5,
+    "warranty_years": 6,
+    "country_availability": "EU,PL,DE,FR,UK,ES,IT",
+    "emission_standard": "Euro 6e-bis",
+    "price_eur": 24500,
+    "last_updated": "2026-09-19"
+  },
+  {
+    "id": "omoda-7-super-hybrid-2026",
+    "slug": "omoda-7-super-hybrid-phev",
+    "brand": "Omoda",
+    "model": "7 Super Hybrid",
+    "year": 2026,
+    "segment": "SUV",
+    "battery_kwh": 18.4,
+    "usable_battery_kwh": 18.4,
+    "battery_chemistry": "Li-Ion",
+    "battery_voltage": 380,
+    "ev_range_km": 90,
+    "power_hp": 279,
+    "electric_motor_power_hp": 204,
+    "engine_displacement": 1.5,
+    "acceleration_0_100": 8.5,
+    "top_speed": 180,
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 40,
+    "ac_max_power_kw": 6.6,
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "dc_power": 40,
+      "v2l_power": 3.3
+    },
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "ac_location": "Rear right",
+      "dc_type": "CCS2",
+      "dc_location": "Rear right"
+    },
+    "features": [
+      "Super Hybrid System (SHS 1DHT)",
+      "V2L (Vehicle-to-Load 3.3 kW)",
+      "15.6-inch Sliding Infotainment Display",
+      "Panoramic Glass Sunroof",
+      "540° Camera with Transparent Chassis View",
+      "Heated & Ventilated Front Seats",
+      "Driver Massage Seat (Premium)",
+      "Remote Key Parking Assistant (Premium)",
+      "Ambient Lighting with Music Sync",
+      "50W Wireless Fast Phone Charger",
+      "Full ADAS Level 2+ Safety Suite",
+      "8 Years / 160,000 km Warranty"
+    ],
+    "image_url": "/images/cars/brands/omoda/omoda-7-super-hybrid/main.jpg",
+    "gallery_images": [
+      "/images/cars/brands/omoda/omoda-7-super-hybrid/studio_car.jpg",
+      "/images/cars/brands/omoda/omoda-7-super-hybrid/cockpit.jpg",
+      "/images/cars/brands/omoda/omoda-7-super-hybrid/rear.jpg"
+    ],
+    "fuel_consumption": 2.3,
+    "co2_emission": 53,
+    "charge_time_ac": 3.3,
+    "charge_time_dc": 0.33,
+    "weight_kg": 1870,
+    "trunk_volume": 401,
+    "max_trunk_volume": 1294,
+    "length_mm": 4660,
+    "width_mm": 1875,
+    "height_mm": 1670,
+    "wheelbase_mm": 2720,
+    "seats": 5,
+    "warranty_years": 8,
+    "country_availability": "PL,DE,FR,IT,ES,UK,TR",
+    "emission_standard": "Euro 6e (EB)",
+    "price_eur": 39500,
+    "meta_title": "Omoda 7 Super Hybrid (2026) Specs, Battery & Electric Range",
+    "updated_at": "2026-09-19"
+  },
+  {
+    "id": "jaecoo-8-super-hybrid-2026",
+    "slug": "jaecoo-8-super-hybrid-phev",
+    "brand": "Jaecoo",
+    "model": "8 SUPER HYBRID",
+    "year": 2026,
+    "battery_kwh": 34.5,
+    "usable_battery_kwh": null,
+    "ev_range_km": 134,
+    "power_hp": 428,
+    "electric_motor_power_hp": 143,
+    "engine_displacement": 1499,
+    "acceleration_0_100": 5.8,
+    "ac_max_power_kw": 6.6,
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 70,
+    "charge_time_dc": 25,
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "ac_power_max": 6.6,
+      "dc_power": 70
+    },
+    "features": [],
+    "image_url": "https://pub-698245a4878b4d6596cd62322fdc9c75.r2.dev/admin-uploads/vehicles/1789843079380-ee3bnn.png",
+    "gallery_images": [],
+    "segment": "SUV",
+    "fuel_consumption": 2.1,
+    "co2_emission": 47,
+    "charge_time_ac": 5.5,
+    "weight_kg": 2893,
+    "trunk_volume": 488,
+    "seats": 5,
+    "warranty_years": 3,
+    "country_availability": "EU",
+    "euroncap_rating": null,
+    "last_updated": "2026-09-19"
+  },
+  {
+    "id": "geely-starray-em-i-phev",
+    "brand": "Geely",
+    "model": "Starray EM-i",
+    "year": 2026,
+    "segment": "C-SUV",
+    "ev_range_km": 83,
+    "fuel_consumption": 2.4,
+    "battery_kwh": 18.4,
+    "usable_battery_kwh": 17.5,
+    "price_eur": 34990,
+    "image_url": "/images/cars/brands/geely/starray-em-i/main.jpg",
+    "power_hp": 217,
+    "co2_emission": 24,
+    "charge_time_ac": 2.5,
+    "charge_time_dc": 0.33,
+    "trunk_volume": 528,
+    "max_trunk_volume": 2065,
+    "seats": 5,
+    "warranty_years": 6,
+    "weight_kg": 1760,
+    "length_mm": 4740,
+    "width_mm": 1905,
+    "height_mm": 1685,
+    "wheelbase_mm": 2755,
+    "electric_motor_power_hp": 217,
+    "engine_displacement": 1.5,
+    "engine_displacement_l": 1.5,
+    "drivetrain": "FWD",
+    "transmission": "Dedicated Hybrid Transmission (DHT)",
+    "acceleration_0_100": 8.1,
+    "top_speed": 175,
+    "battery_chemistry": "LFP",
+    "battery_voltage": 400,
+    "battery_architecture": "Aegis Short Blade Cell-to-Pack",
+    "battery_details": {
+      "chemistry": "LFP (Lithium Iron Phosphate)",
+      "architecture": "Aegis Short Blade Cell-to-Pack (GEA Architecture)",
+      "cycles": 3500,
+      "warranty_capacity": 70,
+      "thermal_management": "Liquid-cooled active thermal management"
+    },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 30,
+    "ac_max_power_kw": 6.6,
+    "charging_capabilities": {
+      "ac_power": 6.6,
+      "dc_power": 30,
+      "ac_power_max": 6.6,
+      "v2l_power": 6
+    },
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "dc_type": "CCS 2",
+      "location": "Rear right"
+    },
+    "emission_standard": "Euro 6e-bis",
+    "country_availability": "PL,DE,UK,FR,EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 88,
+      "child_occupant": 85,
+      "pedestrian_protection": 77,
+      "safety_assist": 80,
+      "overall_rating": 83,
+      "test_year": 2025
+    },
+    "features": [
+      "Geely NordThor 2.0 EM-i Super Hybrid Powertrain",
+      "46.5% Benchmark Thermal Efficiency 1.5L Engine",
+      "Aegis Short Blade LFP High-Safety Battery",
+      "30 kW DC Fast Charging (30-80% in 20 minutes)",
+      "6 kW High-Power Vehicle-to-Load (V2L) Power Outlet",
+      "15.4-inch 2.5K Ultra-HD Central Touchscreen",
+      "10.2-inch Digital LCD Driver Instrument Display",
+      "13.8-inch Wide-angle Head-Up Display (W-HUD)",
+      "Flyme Sound 1000W 16-Speaker Audio with Headrest Speakers",
+      "Level 2+ ADAS with 360-degree 3D Camera System"
+    ],
+    "slug": "geely-starray-em-i-phev",
+    "updated_at": "2026-09-20",
+    "last_updated": "2026-09-20",
+    "meta_title": "Geely Starray EM-i 2026 Real-World Specs, Battery & Range | PHEVs.eu",
+    "gallery_images": [
+      "/images/cars/brands/geely/starray-em-i/001.jpg",
+      "/images/cars/brands/geely/starray-em-i/002.jpg",
+      "/images/cars/brands/geely/starray-em-i/003.jpg",
+      "/images/cars/brands/geely/starray-em-i/004.jpg",
+      "/images/cars/brands/geely/starray-em-i/005.jpg",
+      "/images/cars/brands/geely/starray-em-i/006.jpg",
+      "/images/cars/brands/geely/starray-em-i/007.jpg"
+    ]
+  },
+  {
+    "id": "toyota-rav4-phev-2026",
+    "brand": "Toyota",
+    "model": "RAV4 Plug-in Hybrid (2026)",
+    "year": 2026,
+    "segment": "SUV",
+    "ev_range_km": 102,
+    "fuel_consumption": 0.8,
+    "battery_kwh": 22.7,
+    "usable_battery_kwh": 21.2,
+    "price_eur": 47500,
+    "image_url": "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/main.jpg",
+    "power_hp": 304,
+    "co2_emission": 19,
+    "charge_time_ac": 2.2,
+    "charge_time_dc": 0.5,
+    "trunk_volume": 520,
+    "max_trunk_volume": 1690,
+    "seats": 5,
+    "warranty_years": 5,
+    "weight_kg": 1940,
+    "length_mm": 4605,
+    "width_mm": 1855,
+    "height_mm": 1685,
+    "wheelbase_mm": 2690,
+    "electric_motor_power_hp": 205,
+    "engine_displacement": 2.5,
+    "engine_displacement_l": 2.5,
+    "drivetrain": "AWD-i (Intelligent All-Wheel Drive)",
+    "transmission": "e-CVT (Power-Split Planetary)",
+    "acceleration_0_100": 6.2,
+    "top_speed": 180,
+    "battery_chemistry": "NCM",
+    "battery_voltage": 355,
+    "battery_architecture": "Lithium-ion Pack with Liquid Cooling",
+    "battery_details": {
+      "chemistry": "NCM (Lithium Nickel Cobalt Manganese)",
+      "architecture": "High-Density Cell-to-Pack with Liquid Cooling",
+      "cycles": 3000,
+      "warranty_capacity": 70,
+      "thermal_management": "Active liquid heating and cooling system"
+    },
+    "dc_charging_supported": true,
+    "dc_max_power_kw": 50,
+    "ac_max_power_kw": 11,
+    "charging_capabilities": {
+      "ac_power": 11,
+      "dc_power": 50,
+      "ac_power_max": 11,
+      "v2l_power": 3.3
+    },
+    "charging_port": {
+      "ac_type": "Type 2 AC (Mennekes)",
+      "dc_type": "CCS 2",
+      "location": "Rear right"
+    },
+    "emission_standard": "Euro 6e-bis",
+    "country_availability": "PL,DE,FR,UK,IT,ES,EU",
+    "euroncap_rating": {
+      "stars": 5,
+      "adult_occupant": 95,
+      "child_occupant": 88,
+      "pedestrian_protection": 85,
+      "safety_assist": 88,
+      "overall_rating": 89,
+      "test_year": 2025
+    },
+    "features": [
+      "New 6th Generation Toyota RAV4 Plug-in Hybrid",
+      "Upgraded 22.7 kWh Battery (>100 km Pure EV Range)",
+      "50 kW DC Fast Charging (10-80% in ~30 min)",
+      "11 kW 3-Phase AC On-board Charger",
+      "Intelligent AWD-i Electric All-Wheel Drive (304 hp)",
+      "12.9-inch Toyota Smart Connect+ Infotainment",
+      "12.3-inch Digital Driver Display Cluster",
+      "Toyota T-Mate with Safety Sense 3",
+      "3.3 kW Vehicle-to-Load (V2L) Power Outlet"
+    ],
+    "slug": "toyota-rav4-phev-2026",
+    "updated_at": "2026-09-20",
+    "last_updated": "2026-09-20",
+    "meta_title": "Nowa Toyota RAV4 Plug-in Hybrid (2026) Specs, 22.7 kWh Battery & 50 kW DC Fast Charging | PHEVs.eu",
+    "gallery_images": [
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/001.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/003.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/005.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/007.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/009.jpg",
+      "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/0012.jpg"
+    ]
   },
   {
     "id": "renault-megane-iv-grandtour-e-tech",
@@ -6888,6 +7807,9 @@
     "updated_at": "2024-10-23",
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
+    "gallery_images": [
+      "/images/cars/brands/volkswagen/golf/007.jpg"
+    ],
     "last_updated": "2026-09-21",
     "acceleration_0_100": 6.6
   },
@@ -6938,6 +7860,7 @@
     "battery_architecture": "modular",
     "slug": "volkswagen-touareg-r-phev",
     "updated_at": "2024-10-25",
+    "gallery_images": [],
     "dc_charging_supported": false,
     "dc_max_power_kw": null,
     "last_updated": "2026-09-21",
@@ -6953,7 +7876,7 @@
     "ev_range_km": 62,
     "fuel_consumption": 1.2,
     "battery_kwh": 13,
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/2020_Volkswagen_Golf_GTE_Front.jpg",
+    "image_url": "/images/cars/brands/volkswagen/golf-gte/main.webp",
     "power_hp": 245,
     "co2_emission": 26,
     "charge_time_ac": 3.6,

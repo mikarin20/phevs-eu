@@ -136,6 +136,7 @@ function RangeSimulator({
               </div>
               <button
                 onClick={onClose}
+                aria-label="Close range simulator"
                 className="p-3 hover:bg-white/10 rounded-xl transition-colors"
               >
                 <XMarkIcon className="h-6 w-6" />

@@ -4,7 +4,7 @@ import carsData from '@/data/cars.json'
 import { getImageUrl } from '@/lib/image-url'
 
 export const metadata: Metadata = {
-  title: 'Range Rover Evoque P300e vs Range Rover Velar P400e PHEV Comparison: Specs & Range Compared | PHEVs.eu',
+  title: 'Range Rover Evoque P300e vs Range Rover Velar P400e PHEV Comparison: Specs & Range Compared',
   description: 'Compare Range Rover Evoque P300e and Range Rover Velar P400e luxury plug-in hybrid SUVs by electric range, battery capacity, power, and charging times.',
   keywords: [
     'Range Rover Evoque P300e',

@@ -128,16 +128,15 @@ export async function generateMetadata({ params }: { params: { cars: string } })
   }
 
   const defaultTitle = selected.length >= 2
-    ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} PHEV Comparison: Specs & Range Compared | PHEVs.eu`
-    : 'PHEV Comparison: Specs & Range Compared | PHEVs.eu'
+    ? `${selected[0].brand} ${selected[0].model} vs ${selected[1].brand} ${selected[1].model} PHEV Comparison: Specs & Range Compared`
+    : 'PHEV Comparison: Specs & Range Compared'
 
   const description = selected.length >= 2
     ? `Compare ${selected[0].brand} ${selected[0].model} and ${selected[1].brand} ${selected[1].model} Plug-in Hybrid (PHEV) models by electric range (${selected[0].ev_range_km} km vs ${selected[1].ev_range_km} km), battery capacity (${selected[0].battery_kwh} kWh vs ${selected[1].battery_kwh} kWh), power (${selected[0].power_hp} HP vs ${selected[1].power_hp} HP) and fuel consumption.`
     : 'Compare Plug-in Hybrid (PHEV) models by electric range, battery capacity, charging time, power, and technical specs.'
 
-  const finalTitle = customCompare?.metaTitle
-    ? (customCompare.metaTitle.includes('PHEVs.eu') ? customCompare.metaTitle : `${customCompare.metaTitle} | PHEVs.eu`)
-    : defaultTitle
+  const rawTitle = customCompare?.metaTitle || defaultTitle
+  const finalTitle = rawTitle.replace(/\s*\|\s*PHEVs\.eu$/i, '')
   const finalDescription = customCompare?.metaDescription
     ? `${customCompare.metaDescription} Plug-in Hybrid (PHEV) technical specs and detailed comparison.`
     : description

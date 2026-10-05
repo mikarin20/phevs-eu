@@ -23,13 +23,46 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'Bingbot',
         allow: '/',
       },
+      // OpenAI / SearchGPT / ChatGPT
+      {
+        userAgent: 'OAI-SearchBot',
+        allow: '/',
+      },
       {
         userAgent: 'GPTBot',
-        disallow: '/',
+        allow: '/',
       },
       {
         userAgent: 'ChatGPT-User',
-        disallow: '/',
+        allow: '/',
+      },
+      // Perplexity AI
+      {
+        userAgent: 'PerplexityBot',
+        allow: '/',
+      },
+      // Google Gemini / Vertex / AI Overviews
+      {
+        userAgent: 'Google-Extended',
+        allow: '/',
+      },
+      // Anthropic / Claude
+      {
+        userAgent: 'ClaudeBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'anthropic-ai',
+        allow: '/',
+      },
+      // Apple Intelligence
+      {
+        userAgent: 'Applebot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Applebot-Extended',
+        allow: '/',
       },
     ],
     sitemap: 'https://www.phevs.eu/sitemap.xml',

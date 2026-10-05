@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Page Not Found (404) | PHEVs.eu',
+  title: 'Page Not Found (404)',
   description: 'The requested plug-in hybrid page or vehicle model could not be found. Explore our complete PHEV database, comparison tool, and buyer guides.',
   robots: {
     index: false,

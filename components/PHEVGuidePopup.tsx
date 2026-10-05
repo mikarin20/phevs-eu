@@ -95,6 +95,7 @@ export default function PHEVGuidePopup({ isOpen, onClose, theme, language }: PHE
               </div>
               <button
                 onClick={onClose}
+                aria-label="Close guide"
                 className={`p-2 rounded-lg transition-colors ${
                   theme === 'dark' 
                     ? 'hover:bg-slate-700 text-gray-400 hover:text-white' 

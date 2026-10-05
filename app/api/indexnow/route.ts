@@ -48,6 +48,8 @@ export async function POST(request: NextRequest) {
         '/',
         '/longest-range-phev/',
         '/phev-with-dc-charging/',
+        '/cheapest-phev-europe/',
+        '/fastest-accelerating-phev/',
         '/7-seater-phev/',
         '/compare/',
         '/faq/',

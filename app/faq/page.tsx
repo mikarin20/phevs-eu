@@ -2,9 +2,10 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { ChevronRightIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 import { getFaqTranslations } from '@/lib/i18n'
+import LanguageSelector from '@/components/LanguageSelector'
 
 export const metadata: Metadata = {
-  title: 'PHEV Guide — Everything You Need to Know | PHEVs.eu',
+  title: 'PHEV Buyer & Owner Guide — Everything You Need to Know',
   description: 'Complete guide to Plug-in Hybrid Electric Vehicles (PHEV). Everything you need to know about PHEV technology, buying guide, charging, range, benefits, and more.',
   keywords: [
     'PHEV guide',
@@ -213,7 +214,26 @@ export default function PHEVGuidePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Sticky Top Navigation & Language Bar */}
+        <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 py-3 sticky top-0 z-40 shadow-xs">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
+            <nav className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
+              <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                {locale === 'tr' ? 'Ana Sayfa' : locale === 'de' ? 'Startseite' : locale === 'pl' ? 'Strona główna' : 'Home'}
+              </Link>
+              <span>/</span>
+              <span className="text-slate-900 dark:text-white font-medium">
+                {locale === 'tr' ? 'PHEV Rehberi & SSS' : locale === 'de' ? 'PHEV Ratgeber & FAQ' : locale === 'pl' ? 'Przewodnik PHEV i FAQ' : 'PHEV Guide & FAQ'}
+              </span>
+            </nav>
+            
+            <div className="flex items-center justify-center sm:justify-end">
+              <LanguageSelector currentLocale={locale} basePath="/faq" />
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
           {/* Header */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-4">
@@ -221,14 +241,23 @@ export default function PHEVGuidePage({
                 <QuestionMarkCircleIcon className="h-12 w-12 text-blue-600 dark:text-blue-400" />
               </div>
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">
               {t.title}
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6">
               {t.subtitle}
             </p>
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 max-w-2xl mx-auto">
-              <p className="text-blue-800 dark:text-blue-200 font-medium">
+
+            {/* Mobile & Desktop In-Page Language Selector Bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mb-6">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                {locale === 'tr' ? 'Rehber Dili:' : locale === 'de' ? 'Sprache:' : locale === 'pl' ? 'Język:' : 'Guide Language:'}
+              </span>
+              <LanguageSelector currentLocale={locale} basePath="/faq" />
+            </div>
+
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-4 max-w-2xl mx-auto">
+              <p className="text-blue-800 dark:text-blue-200 font-medium text-xs sm:text-sm">
                 📚 Comprehensive PHEV Guide • 🔧 Technical Details • 💰 Buying Tips • 🔌 Charging Solutions
               </p>
             </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Best PHEV Comparison Videos & Range Tests | PHEVs.eu',
+  title: 'Best PHEV Comparison Videos & Real-World Range Tests',
   description: 'Watch in-depth plug-in hybrid comparison videos, real-world electric range tests, charging speed analysis, and reviews of the latest PHEVs in Europe.',
   alternates: {
     canonical: 'https://www.phevs.eu/videos/',

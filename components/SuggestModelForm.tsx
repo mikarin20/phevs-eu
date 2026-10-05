@@ -27,13 +27,30 @@ export default function SuggestModelForm({ isOpen, onClose }: SuggestModelFormPr
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    const subject = encodeURIComponent(`[PHEV Suggestion] ${formData.brand} ${formData.model} (${formData.year || '2026'})`)
+    const body = encodeURIComponent(
+      `Suggested Vehicle Details:\n` +
+      `-------------------------\n` +
+      `Brand: ${formData.brand}\n` +
+      `Model: ${formData.model}\n` +
+      `Year: ${formData.year || 'N/A'}\n` +
+      `Segment: ${formData.segment || 'N/A'}\n` +
+      `Electric Range: ${formData.evRange ? `${formData.evRange} km` : 'N/A'}\n` +
+      `Battery: ${formData.batteryCapacity ? `${formData.batteryCapacity} kWh` : 'N/A'}\n` +
+      `Estimated Price: ${formData.price || 'N/A'}\n` +
+      `Submitter Contact: ${formData.email || 'Anonymous'}\n\n` +
+      `Additional Notes / Source:\n${formData.message || 'None provided'}`
+    )
+
+    // Trigger direct mail client to data@phevs.eu
+    if (typeof window !== 'undefined') {
+      window.location.href = `mailto:data@phevs.eu?subject=${subject}&body=${body}`
+    }
     
     setIsSubmitted(true)
     setIsSubmitting(false)
     
-    // Reset form after 3 seconds
+    // Reset form after 4 seconds
     setTimeout(() => {
       setIsSubmitted(false)
       setFormData({
@@ -48,7 +65,7 @@ export default function SuggestModelForm({ isOpen, onClose }: SuggestModelFormPr
         message: ''
       })
       onClose()
-    }, 3000)
+    }, 4000)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -68,6 +85,7 @@ export default function SuggestModelForm({ isOpen, onClose }: SuggestModelFormPr
             <h2 className="text-2xl font-bold text-gray-900">Suggest a Missing Model</h2>
             <button
               onClick={onClose}
+              aria-label="Close suggest model form"
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <XMarkIcon className="h-6 w-6" />

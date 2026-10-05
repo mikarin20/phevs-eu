@@ -9,7 +9,7 @@ import { useToast } from '@/components/admin/ui/toast-provider'
 interface BlogPost {
   slug: string
   title: string
-  status?: 'draft' | 'published'
+  status?: 'draft' | 'published' | 'scheduled'
   published_at: string
   category?: string
 }
@@ -17,7 +17,7 @@ interface BlogPost {
 export default function BlogListPage() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
-  const [filter, setFilter] = useState<'all' | 'published' | 'draft'>('all')
+  const [filter, setFilter] = useState<'all' | 'published' | 'scheduled' | 'draft'>('all')
   const [search, setSearch] = useState('')
   const [togglingSlug, setTogglingSlug] = useState<string | null>(null)
   const { toast } = useToast()
@@ -39,19 +39,33 @@ export default function BlogListPage() {
     load()
   }, [])
 
+  const scheduledCount = useMemo(() => {
+    return posts.filter((p) => {
+      const isFuture = p.published_at && new Date(p.published_at).getTime() > Date.now()
+      return p.status === 'scheduled' || (p.status !== 'draft' && isFuture)
+    }).length
+  }, [posts])
+
   const publishedCount = useMemo(() => {
-    return posts.filter((p) => (p.status || 'published') === 'published').length
+    return posts.filter((p) => {
+      const isFuture = p.published_at && new Date(p.published_at).getTime() > Date.now()
+      return (p.status || 'published') === 'published' && !isFuture
+    }).length
   }, [posts])
 
   const draftCount = useMemo(() => {
-    return posts.filter((p) => p.status === 'draft').length
+    return posts.filter((p) => p.status === 'draft' || p.status === 'scheduled').length
   }, [posts])
 
   const filteredPosts = useMemo(() => {
     return posts.filter((p) => {
-      const currentStatus = p.status || 'published'
-      if (filter === 'published' && currentStatus !== 'published') return false
-      if (filter === 'draft' && currentStatus !== 'draft') return false
+      const isFuture = p.published_at && new Date(p.published_at).getTime() > Date.now()
+      const isSched = p.status === 'scheduled' || (p.status !== 'draft' && isFuture)
+      const isPub = (p.status || 'published') === 'published' && !isFuture
+
+      if (filter === 'published' && !isPub) return false
+      if (filter === 'scheduled' && !isSched) return false
+      if (filter === 'draft' && p.status !== 'draft' && p.status !== 'scheduled') return false
       if (search.trim()) {
         const q = search.toLowerCase()
         return p.title.toLowerCase().includes(q) || p.slug.toLowerCase().includes(q)
@@ -60,7 +74,7 @@ export default function BlogListPage() {
     })
   }, [posts, filter, search])
 
-  async function handleToggleStatus(slug: string, currentStatus: 'draft' | 'published') {
+  async function handleToggleStatus(slug: string, currentStatus: 'draft' | 'published' | 'scheduled') {
     const nextStatus = currentStatus === 'published' ? 'draft' : 'published'
     setTogglingSlug(slug)
     try {
@@ -147,6 +161,20 @@ export default function BlogListPage() {
           </button>
 
           <button
+            onClick={() => setFilter('scheduled')}
+            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 ${
+              filter === 'scheduled'
+                ? 'bg-blue-600 text-white'
+                : 'text-blue-700 hover:bg-blue-50'
+            }`}
+          >
+            <span>⏰ Scheduled</span>
+            <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-blue-100 text-blue-800">
+              {scheduledCount}
+            </span>
+          </button>
+
+          <button
             onClick={() => setFilter('draft')}
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 ${
               filter === 'draft'
@@ -209,15 +237,20 @@ export default function BlogListPage() {
                     </td>
 
                     <td className="px-4 py-3">
-                      {status === 'published' ? (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                          Published
-                        </span>
-                      ) : (
+                      {status === 'draft' ? (
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
                           <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                           Draft
+                        </span>
+                      ) : p.published_at && new Date(p.published_at).getTime() > Date.now() ? (
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200" title={`Scheduled for ${p.published_at}`}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+                          Scheduled ({Math.ceil((new Date(p.published_at).getTime() - Date.now()) / (1000 * 60 * 60 * 24))}d left)
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          Published
                         </span>
                       )}
                     </td>
@@ -228,7 +261,7 @@ export default function BlogListPage() {
 
                     <td className="px-4 py-3 text-right space-x-2 whitespace-nowrap">
                       {/* One-Click Quick Toggle Button */}
-                      {status === 'draft' ? (
+                      {status === 'draft' || status === 'scheduled' ? (
                         <Button
                           size="sm"
                           variant="outline"
@@ -252,12 +285,12 @@ export default function BlogListPage() {
 
                       {/* Live or Preview Link */}
                       <a
-                        href={status === 'draft' ? `/blog/${p.slug}?preview=true` : `/blog/${p.slug}`}
+                        href={status === 'draft' || (p.published_at && new Date(p.published_at).getTime() > Date.now()) ? `/blog/${p.slug}?preview=true` : `/blog/${p.slug}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center px-2.5 py-1 text-xs text-blue-600 hover:text-blue-800 underline"
                       >
-                        {status === 'draft' ? 'Preview' : 'View'}
+                        {status === 'draft' || (p.published_at && new Date(p.published_at).getTime() > Date.now()) ? 'Preview' : 'View'}
                       </a>
 
                       {/* Edit */}

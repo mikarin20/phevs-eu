@@ -3,24 +3,37 @@ import Link from 'next/link';
 import Image from 'next/image';
 import carsData from '@/data/cars.json';
 import { getImageUrl } from '@/lib/image-url';
+import CategoryHeader from '@/components/CategoryHeader';
+import { COMMON_TRANSLATIONS, CATEGORY_TRANSLATIONS, getCategoryLang } from '@/lib/category-translations';
 
 export const metadata: Metadata = {
-  title: '7-Seater PHEVs — Large Family Plug-in Hybrids | PHEVs.eu',
+  title: '7-Seater PHEVs — Best Family 3-Row Plug-in Hybrids (2026)',
   description:
     'Complete guide and comparison of 7-seater plug-in hybrid (PHEV) vehicles in Europe. Discover spacious 3-row family SUVs and MPVs with electric range, luggage volume, and specs.',
   alternates: {
     canonical: 'https://www.phevs.eu/7-seater-phev/',
   },
   openGraph: {
-    title: '7-Seater PHEVs — Best Family 3-Row Plug-in Hybrids (2025/2026)',
+    title: '7-Seater PHEVs — Best Family 3-Row Plug-in Hybrids (2026) | PHEVs.eu',
     description:
       'Spacious 7-seater and 3-row family plug-in hybrids compared: electric range, boot capacity, third-row space, and fuel economy.',
     url: 'https://www.phevs.eu/7-seater-phev/',
     type: 'website',
+    images: [{ url: 'https://www.phevs.eu/images/og-image.jpg', width: 1200, height: 630, alt: '7-Seater PHEVs — Best Family 3-Row Plug-in Hybrids' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '7-Seater PHEVs — Best Family 3-Row Plug-in Hybrids (2026) | PHEVs.eu',
+    description: 'Spacious 7-seater and 3-row family plug-in hybrids compared: electric range, boot capacity, third-row space, and fuel economy.',
+    images: ['https://www.phevs.eu/images/og-image.jpg'],
   },
 };
 
-export default function SevenSeaterPhevPage() {
+export default function SevenSeaterPhevPage({ searchParams }: { searchParams?: { lang?: string } }) {
+  const currentLang = getCategoryLang(searchParams?.lang);
+  const common = COMMON_TRANSLATIONS[currentLang];
+  const t = CATEGORY_TRANSLATIONS['7-seater-phev'][currentLang];
+
   // Filter PHEVs with 7 or more seats
   const sevenSeaters = (carsData as any[])
     .filter((car) => Number(car.seats) >= 7)
@@ -93,44 +106,40 @@ export default function SevenSeaterPhevPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      {/* Navigation Bar */}
+      <CategoryHeader currentLang={currentLang} basePath="/7-seater-phev" badgeText={common.curatedCategory} />
+
       {/* Hero Section */}
       <div className="relative overflow-hidden border-b border-slate-800/80 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 py-16 sm:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.12),transparent_45%)]" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-400">
-            <Link href="/" className="hover:text-emerald-400 transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-slate-200">7-Seater PHEVs</span>
-          </nav>
-
           <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-300">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
-            Family & Practicality Guide
+            {t.badge}
           </span>
 
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-white">
-            7-Seater <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">PHEVs</span>
+            {t.heroTitle} <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">{t.heroTitleGradient}</span>
           </h1>
           <p className="mt-4 max-w-3xl text-base sm:text-lg text-slate-300 leading-relaxed">
-            Spacious 3-row plug-in hybrid SUVs and MPVs available in Europe. Carry up to 7 passengers in whisper-quiet electric mode around town, backed by hybrid petrol engines for worry-free long-distance family travel.
+            {t.heroSubtitle}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-slate-400">
             <div className="flex items-center gap-2">
               <span className="text-xl font-bold text-emerald-400">{sevenSeaters.length}</span>
-              <span>Available 7-Seater Models</span>
+              <span>{t.stat1Label}</span>
             </div>
             <div className="h-4 w-px bg-slate-800" />
             <div className="flex items-center gap-2">
               <span className="text-xl font-bold text-teal-400">3-Row</span>
-              <span>SUVs & Family MPVs</span>
+              <span>{t.stat2Label}: 7</span>
             </div>
             <div className="h-4 w-px bg-slate-800" />
             <div className="flex items-center gap-2">
-              <span className="text-xl font-bold text-sky-400">Zero Range Anxiety</span>
-              <span>For Long Holidays</span>
+              <span className="text-xl font-bold text-sky-400">{t.stat3Label}</span>
             </div>
           </div>
         </div>
@@ -141,7 +150,7 @@ export default function SevenSeaterPhevPage() {
         {/* Model Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sevenSeaters.map((car) => {
-            const modelUrl = `/models/${car.slug || car.id}`;
+            const modelUrl = `/models/${car.slug || car.id}?lang=${currentLang}`;
             const range = car.range_electric_km || car.electric_range_km;
             const battery = car.battery_capacity_kwh || car.battery_kwh;
             const power = car.system_power_hp || car.power_hp;
@@ -172,7 +181,7 @@ export default function SevenSeaterPhevPage() {
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    {car.seats || 7} Seats
+                    {car.seats || 7} {common.seats}
                   </div>
 
                   {car.fast_charging_dc && (
@@ -202,25 +211,25 @@ export default function SevenSeaterPhevPage() {
                   {/* Spec Badges Grid */}
                   <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-800/80 pt-4 text-xs">
                     <div className="rounded-lg bg-slate-950/60 p-2 border border-slate-800/60">
-                      <div className="text-slate-400">WLTP Range</div>
+                      <div className="text-slate-400">{common.electricRange}</div>
                       <div className="font-bold text-slate-100 text-sm mt-0.5">
                         {range ? `${range} km` : 'N/A'}
                       </div>
                     </div>
                     <div className="rounded-lg bg-slate-950/60 p-2 border border-slate-800/60">
-                      <div className="text-slate-400">Battery</div>
+                      <div className="text-slate-400">{common.battery}</div>
                       <div className="font-bold text-slate-100 text-sm mt-0.5">
                         {battery ? `${battery} kWh` : 'N/A'}
                       </div>
                     </div>
                     <div className="rounded-lg bg-slate-950/60 p-2 border border-slate-800/60">
-                      <div className="text-slate-400">Boot Capacity</div>
+                      <div className="text-slate-400">Boot</div>
                       <div className="font-bold text-slate-100 text-sm mt-0.5">
                         {boot ? `${boot} L` : 'N/A'}
                       </div>
                     </div>
                     <div className="rounded-lg bg-slate-950/60 p-2 border border-slate-800/60">
-                      <div className="text-slate-400">Power</div>
+                      <div className="text-slate-400">{common.power}</div>
                       <div className="font-bold text-slate-100 text-sm mt-0.5">
                         {power ? `${power} hp` : 'N/A'}
                       </div>
@@ -228,7 +237,7 @@ export default function SevenSeaterPhevPage() {
                   </div>
 
                   <div className="mt-4 flex items-center justify-between text-xs text-emerald-400 font-medium">
-                    <span>View full 7-seater specs</span>
+                    <span>{common.viewSpecs}</span>
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -243,10 +252,10 @@ export default function SevenSeaterPhevPage() {
         <section className="mt-16 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 lg:p-8">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-bold text-white">
-              Complete 7-Seater PHEV Comparison Table
+              {t.tableTitle}
             </h2>
             <p className="mt-2 text-sm text-slate-400">
-              Side-by-side technical specifications of European 3-row plug-in hybrid SUVs and MPVs.
+              {t.tableSubtitle}
             </p>
           </div>
 
@@ -254,14 +263,14 @@ export default function SevenSeaterPhevPage() {
             <table className="w-full text-left text-sm text-slate-200 border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-xs uppercase tracking-wider text-slate-400 bg-slate-950/50">
-                  <th scope="col" className="py-3.5 px-4 font-semibold">Model</th>
-                  <th scope="col" className="py-3.5 px-4 font-semibold">Seats</th>
-                  <th scope="col" className="py-3.5 px-4 font-semibold">WLTP Range</th>
-                  <th scope="col" className="py-3.5 px-4 font-semibold">Battery</th>
-                  <th scope="col" className="py-3.5 px-4 font-semibold">Luggage (L)</th>
-                  <th scope="col" className="py-3.5 px-4 font-semibold">DC Fast Charge</th>
-                  <th scope="col" className="py-3.5 px-4 font-semibold">System Power</th>
-                  <th scope="col" className="py-3.5 px-4 font-semibold">Action</th>
+                  <th scope="col" className="py-3.5 px-4 font-semibold">{common.vehicle}</th>
+                  <th scope="col" className="py-3.5 px-4 font-semibold">{common.seats}</th>
+                  <th scope="col" className="py-3.5 px-4 font-semibold">{common.electricRange}</th>
+                  <th scope="col" className="py-3.5 px-4 font-semibold">{common.battery}</th>
+                  <th scope="col" className="py-3.5 px-4 font-semibold">Boot (L)</th>
+                  <th scope="col" className="py-3.5 px-4 font-semibold">{common.dcCharging}</th>
+                  <th scope="col" className="py-3.5 px-4 font-semibold">{common.power}</th>
+                  <th scope="col" className="py-3.5 px-4 font-semibold">{common.details}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60">
@@ -294,10 +303,10 @@ export default function SevenSeaterPhevPage() {
                     </td>
                     <td className="py-3 px-4">
                       <Link
-                        href={`/models/${car.slug || car.id}`}
+                        href={`/models/${car.slug || car.id}?lang=${currentLang}`}
                         className="text-xs text-emerald-400 hover:text-emerald-300 hover:underline"
                       >
-                        Specs &rarr;
+                        {common.details} &rarr;
                       </Link>
                     </td>
                   </tr>
@@ -333,7 +342,7 @@ export default function SevenSeaterPhevPage() {
             <ul className="space-y-3 text-sm">
               <li>
                 <Link
-                  href="/longest-range-phev"
+                  href={`/longest-range-phev?lang=${currentLang}`}
                   className="flex items-center justify-between p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 text-slate-300 hover:text-emerald-300 transition-colors"
                 >
                   <span>100+ km Longest Range PHEVs</span>
@@ -342,7 +351,7 @@ export default function SevenSeaterPhevPage() {
               </li>
               <li>
                 <Link
-                  href="/phev-with-dc-charging"
+                  href={`/phev-with-dc-charging?lang=${currentLang}`}
                   className="flex items-center justify-between p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 text-slate-300 hover:text-emerald-300 transition-colors"
                 >
                   <span>DC Fast Charging PHEVs</span>
@@ -351,7 +360,7 @@ export default function SevenSeaterPhevPage() {
               </li>
               <li>
                 <Link
-                  href="/compare"
+                  href={`/compare?lang=${currentLang}`}
                   className="flex items-center justify-between p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 text-slate-300 hover:text-emerald-300 transition-colors"
                 >
                   <span>PHEV Comparison Tool</span>

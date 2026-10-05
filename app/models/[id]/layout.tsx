@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import carsData from '@/data/cars.json'
-import { getImageUrl } from '@/lib/image-url'
+import { getImageUrl, getAbsoluteImageUrl } from '@/lib/image-url'
 
 function findCar(id: string) {
   if (!id) return null
@@ -61,7 +61,7 @@ export default function ModelLayout({
   }
 
   const modelUrl = `${baseUrl}/models/${car.slug || car.id}/`
-  const imageUrl = getImageUrl(car.image_url)
+  const absoluteImageUrl = getAbsoluteImageUrl(car.image_url)
 
   const carSchema = {
     "@context": "https://schema.org",
@@ -71,7 +71,12 @@ export default function ModelLayout({
         "@id": `${modelUrl}#vehicle`,
         "name": `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid`,
         "url": modelUrl,
-        "image": imageUrl || undefined,
+        "image": absoluteImageUrl,
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": absoluteImageUrl,
+          "caption": `${car.year} ${car.brand} ${car.model} Plug-in Hybrid`
+        },
         "brand": {
           "@type": "Brand",
           "name": car.brand
@@ -227,19 +232,17 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 
   const defaultTitle = car.price_eur
-    ? `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid: Specs, Electric Range & EU Price | PHEVs.eu`
-    : `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid: Specs, Battery & Electric Range | PHEVs.eu`
+    ? `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid: Specs, Electric Range & EU Price`
+    : `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid: Specs, Battery & Electric Range`
 
-  const title = car.meta_title
-    ? (car.meta_title.includes('PHEVs.eu') ? car.meta_title : `${car.meta_title} | PHEVs.eu`)
-    : defaultTitle
+  const rawTitle = car.meta_title || defaultTitle
+  const title = rawTitle.replace(/\s*\|\s*PHEVs\.eu$/i, '')
   const description = `${car.brand} ${car.model} (${car.year}) Plug-in Hybrid (PHEV) technical specs: ${car.ev_range_km} km electric range, ${car.battery_kwh} kWh battery${car.usable_battery_kwh ? ` (${car.usable_battery_kwh} kWh net)` : ''}, ${car.power_hp} HP system output and ${car.fuel_consumption} L/100km fuel consumption.`
   const canonicalUrl = `${baseUrl}/models/${car.slug || car.id}/`
+  const absoluteImageUrl = getAbsoluteImageUrl(car.image_url)
 
   return {
-    title: {
-      absolute: title,
-    },
+    title,
     description,
     alternates: {
       canonical: canonicalUrl,
@@ -259,11 +262,20 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
       type: 'website',
       url: canonicalUrl,
       siteName: 'PHEVs.eu',
+      images: [
+        {
+          url: absoluteImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${car.year} ${car.brand} ${car.model} Plug-in Hybrid Specs & Range`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: [absoluteImageUrl],
     },
   }
 }

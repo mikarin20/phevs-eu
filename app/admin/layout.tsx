@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ToastProvider } from '@/components/admin/ui/toast-provider'
 
 export const metadata: Metadata = {
-  title: 'Admin | PHEVs.eu',
+  title: 'Admin Dashboard',
   robots: { index: false, follow: false },
 }
 

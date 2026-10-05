@@ -16,4 +16,11 @@ export function getImageUrl(path?: string | null): string {
   return normalized
 }
 
+/** Resolves any image path to an absolute https:// URL suitable for Open Graph, Twitter Cards, and Schema.org. */
+export function getAbsoluteImageUrl(path?: string | null): string {
+  const url = getImageUrl(path)
+  if (/^https?:\/\//i.test(url)) return url
+  return `https://www.phevs.eu${url.startsWith('/') ? url : `/${url}`}`
+}
+
 export { R2_BASE_URL }

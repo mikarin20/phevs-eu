@@ -2,6 +2,10 @@ import { MetadataRoute } from 'next'
 import carsData from '@/data/cars.json'
 import blogData from '@/data/blog.json'
 import quickComparesData from '@/data/quick-compares.json'
+import { isPostLive } from '@/lib/blog'
+
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.phevs.eu'
@@ -22,6 +26,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/contact/`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/longest-range-phev/`,
       lastModified: now,
       changeFrequency: 'weekly',
@@ -38,6 +48,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/cheapest-phev-europe/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/fastest-accelerating-phev/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/best-selling-phev-europe/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/compare/`,
@@ -149,9 +177,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   }
 
-  // 5. Blog Makaleleri (Sadece yayında olanlar)
+  // 5. Blog Makaleleri (Sadece yayında veya zamanlanmış günü gelmiş olanlar)
   const blogRoutes: MetadataRoute.Sitemap = (blogData as any[])
-    .filter((post) => post.status !== 'draft')
+    .filter(isPostLive)
     .map((post) => ({
       url: `${baseUrl}/blog/${post.slug}/`,
       lastModified: new Date(post.updated_at || post.published_at || now),
