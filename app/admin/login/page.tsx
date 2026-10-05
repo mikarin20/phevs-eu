@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/admin/ui/button'
 import { Input } from '@/components/admin/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/admin/ui/card'
 
-export default function AdminLoginPage() {
+function LoginForm() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -38,28 +38,37 @@ export default function AdminLoginPage() {
   }
 
   return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <Input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        autoFocus
+        required
+      />
+      {error && <p className="text-sm text-red-600">{error}</p>}
+      <Button type="submit" className="w-full" disabled={loading}>
+        {loading ? 'Signing in…' : 'Sign in'}
+      </Button>
+    </form>
+  )
+}
+
+export default function AdminLoginPage() {
+  return (
     <div className="min-h-screen flex items-center justify-center bg-slate-100 px-4">
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>Admin Login</CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoFocus
-              required
-            />
-            {error && <p className="text-sm text-red-600">{error}</p>}
-            <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? 'Signing in…' : 'Sign in'}
-            </Button>
-          </form>
+          <Suspense fallback={<div className="py-4 text-center text-sm text-slate-500">Loading…</div>}>
+            <LoginForm />
+          </Suspense>
         </CardContent>
       </Card>
     </div>
   )
 }
+

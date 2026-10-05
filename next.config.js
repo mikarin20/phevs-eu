@@ -36,6 +36,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'mgmotor.imgix.net',
+        port: '',
+        pathname: '/**',
+      },
     ],
     unoptimized: false,
     dangerouslyAllowSVG: true,
@@ -355,27 +361,6 @@ const nextConfig = {
       },
       {
         source: '/index',
-        destination: '/',
-        permanent: true,
-      },
-      // Dil bazlı redirects - ana sayfaya yönlendir
-      {
-        source: '/pl',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/de',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/tr',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/en',
         destination: '/',
         permanent: true,
       },
