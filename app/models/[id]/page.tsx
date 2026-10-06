@@ -837,13 +837,13 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                     </span>
                   </div>
                 </div>
-                <button
-                  onClick={() => setIsRangeSimulatorOpen(true)}
+                <Link
+                  href={`/range-calculator?car=${car.id}`}
                   className="w-full px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-all duration-200 text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-sm hover:shadow"
                 >
                   <SparklesIcon className="h-4 w-4" />
-                  <span>Open Range Simulator</span>
-                </button>
+                  <span>Open Range Calculator</span>
+                </Link>
               </div>
 
               {/* Euro 6e-bis & Company Car (BiK) Tax Simulator Card */}

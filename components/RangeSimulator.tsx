@@ -19,13 +19,14 @@ import { getImageUrl } from '@/lib/image-url'
 interface RangeSimulatorProps {
   baseRange: number
   batteryCapacity: number
-  isOpen: boolean
-  onClose: () => void
+  isOpen?: boolean
+  onClose?: () => void
   selectedCar?: any
   simulatorData?: any
   locale?: string
   allCars?: any[]
   onSelectCar?: (car: any) => void
+  isEmbedded?: boolean
 }
 
 interface MarketPricing {
@@ -541,13 +542,14 @@ const TRANSLATIONS: Record<string, {
 function RangeSimulator({ 
   baseRange, 
   batteryCapacity, 
-  isOpen, 
+  isOpen = true, 
   onClose,
   selectedCar,
   simulatorData,
   locale = 'en',
   allCars = [],
-  onSelectCar
+  onSelectCar,
+  isEmbedded = false
 }: RangeSimulatorProps) {
   // Simulator Controls State
   const [temperature, setTemperature] = useState(20) // °C
@@ -756,51 +758,43 @@ function RangeSimulator({
     }
   }
 
-  if (!isOpen) return null
+  if (!isEmbedded && !isOpen) return null
 
   const optimalTemp = activeSimData?.temperature_efficiency?.optimal_temp || 20
   const acLossPercent = activeSimData ? Math.round((1 - activeSimData.ac_impact) * 100) : 15
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-y-auto" role="dialog" aria-modal="true">
-      <div className="flex min-h-screen items-center justify-center p-3 sm:p-4 lg:p-6">
-        {/* Backdrop */}
-        <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-md transition-opacity" 
-          onClick={onClose}
-          aria-hidden="true"
-        />
-        
-        {/* Modal Window */}
-        <div className="relative w-full max-w-5xl bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 z-10 my-8 animate-in fade-in zoom-in-95 duration-200">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-blue-950 text-white p-6 sm:p-8 border-b border-slate-800">
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center space-x-3 sm:space-x-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-500/10 border border-blue-400/20 rounded-2xl flex items-center justify-center text-blue-400 backdrop-blur-sm shrink-0">
-                  <SparklesIcon className="h-6 w-6 sm:h-8 sm:w-8" />
-                </div>
-                <div>
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white">
-                    {t.title}
-                  </h2>
-                  <p className="text-slate-300 text-xs sm:text-sm mt-0.5 max-w-2xl">
-                    {t.subtitle}
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={onClose}
-                aria-label="Close range simulator"
-                className="p-2 sm:p-3 text-slate-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors shrink-0 cursor-pointer"
-              >
-                <XMarkIcon className="h-6 w-6" />
-              </button>
+  const simulatorCard = (
+    <div className={`relative w-full ${isEmbedded ? 'shadow-xl' : 'max-w-5xl my-8 animate-in fade-in zoom-in-95 duration-200 shadow-2xl z-10'} bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800`}>
+      {/* Header */}
+      <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-blue-950 text-white p-6 sm:p-8 border-b border-slate-800">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-500/10 border border-blue-400/20 rounded-2xl flex items-center justify-center text-blue-400 backdrop-blur-sm shrink-0">
+              <SparklesIcon className="h-6 w-6 sm:h-8 sm:w-8" />
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white">
+                {t.title}
+              </h2>
+              <p className="text-slate-300 text-xs sm:text-sm mt-0.5 max-w-2xl">
+                {t.subtitle}
+              </p>
             </div>
           </div>
+          {!isEmbedded && onClose && (
+            <button
+              onClick={onClose}
+              aria-label="Close range simulator"
+              className="p-2 sm:p-3 text-slate-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors shrink-0 cursor-pointer"
+            >
+              <XMarkIcon className="h-6 w-6" />
+            </button>
+          )}
+        </div>
+      </div>
 
-          {/* Content */}
-          <div className="p-5 sm:p-8 bg-slate-50/70 dark:bg-slate-900/90 max-h-[calc(100vh-10rem)] overflow-y-auto">
+      {/* Content */}
+      <div className={`p-5 sm:p-8 bg-slate-50/70 dark:bg-slate-900/90 ${isEmbedded ? '' : 'max-h-[calc(100vh-10rem)] overflow-y-auto'}`}>
             {/* Vehicle Selector Bar (if cars list available) */}
             {sortedCars.length > 0 && (
               <div className="mb-6 p-4 bg-white dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
@@ -1284,7 +1278,22 @@ function RangeSimulator({
               </div>
             </div>
           </div>
-        </div>
+    </div>
+  )
+
+  if (isEmbedded) {
+    return simulatorCard
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 overflow-y-auto" role="dialog" aria-modal="true">
+      <div className="flex min-h-screen items-center justify-center p-3 sm:p-4 lg:p-6">
+        <div 
+          className="fixed inset-0 bg-black/70 backdrop-blur-md transition-opacity" 
+          onClick={onClose}
+          aria-hidden="true"
+        />
+        {simulatorCard}
       </div>
     </div>
   )

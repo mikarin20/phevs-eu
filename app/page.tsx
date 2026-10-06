@@ -1789,20 +1789,13 @@ export default function Home() {
               >
                 {t.navigation.guide || 'PHEV Guide'}
               </a>
-              <button
-                type="button"
-                onClick={() => {
-                  if (!selectedCarForSimulator && cars.length > 0) {
-                    const defaultCar = cars.find(c => c.id === 'peugeot-3008-phev' || c.id === 'toyota-prius-phev') || cars[0]
-                    setSelectedCarForSimulator(defaultCar)
-                  }
-                  setIsRangeSimulatorOpen(true)
-                }}
+              <Link
+                href="/range-calculator"
                 className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs cursor-pointer group"
               >
                 <CalculatorIcon className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
                 <span>{t.navigation.calculator || 'Range Calculator'}</span>
-              </button>
+              </Link>
               <a 
                 href="/videos" 
                 className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs group"
@@ -1988,21 +1981,14 @@ export default function Home() {
               >
                 {t.navigation.guide || 'PHEV Guide'}
               </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  setIsMobileMenuOpen(false)
-                  if (!selectedCarForSimulator && cars.length > 0) {
-                    const defaultCar = cars.find(c => c.id === 'peugeot-3008-phev' || c.id === 'toyota-prius-phev') || cars[0]
-                    setSelectedCarForSimulator(defaultCar)
-                  }
-                  setIsRangeSimulatorOpen(true)
-                }}
-                className="w-full flex items-center space-x-2.5 px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700 text-left cursor-pointer"
+              <Link
+                href="/range-calculator"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full flex items-center space-x-2.5 px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700 text-left"
               >
                 <CalculatorIcon className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                 <span>{t.navigation.calculator || 'Range Calculator'}</span>
-              </button>
+              </Link>
               <Link
                 href="/videos"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -2773,25 +2759,13 @@ export default function Home() {
               >
                 <span>Euro 6e-bis & Tax Simulator</span>
               </Link>
-              <button
-                onClick={() => {
-                  if (selectedCars.length === 0) {
-                    alert('Please select a vehicle first to use Range Simulator')
-                    return
-                  }
-                  setSelectedCarForSimulator(selectedCars[0])
-                  setIsRangeSimulatorOpen(true)
-                }}
-                className={`inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-lg font-semibold transition-all duration-200 text-sm ${
-                  selectedCars.length === 0 
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                    : 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
-                }`}
-                disabled={selectedCars.length === 0}
+              <Link
+                href={selectedCars.length > 0 ? `/range-calculator?car=${selectedCars[0].id}` : '/range-calculator'}
+                className="inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-lg font-semibold transition-all duration-200 text-sm bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <SparklesIcon className="h-5 w-5" />
-                <span>Try Range Simulator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : '(Select Vehicle)'}</span>
-              </button>
+                <span>Try Range Calculator {selectedCars.length > 0 ? `(${selectedCars[0].brand} ${selectedCars[0].model})` : ''}</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -3114,28 +3088,17 @@ export default function Home() {
                         <HeartIcon className="h-5 w-5 text-[#93B1B5] hover:text-red-500" aria-hidden="true" />
                       )}
                     </button>
-                      <button
-                      onClick={(e) => {
-                        e.preventDefault()
-                        e.stopPropagation()
-                          setSelectedCarForSimulator(car)
-                          setIsRangeSimulatorOpen(true)
+                    <Link
+                      href={`/range-calculator?car=${car.id}`}
+                        onClick={(e) => {
+                          e.stopPropagation()
                         }}
-                        className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors`}
-                        aria-label={`Open range simulator for ${car.brand} ${car.model}`}
-                        role="button"
-                        tabIndex={0}
-                        onKeyPress={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault()
-                            setSelectedCarForSimulator(car)
-                            setIsRangeSimulatorOpen(true)
-                          }
-                        }}
+                        className={`px-3 py-2 rounded-full text-xs font-medium ${buttonStyle.replace('hover:bg-blue-600', 'hover:bg-green-600')} transition-colors inline-flex items-center`}
+                        aria-label={`Open range calculator for ${car.brand} ${car.model}`}
                       >
                         <CalculatorIcon className="h-3 w-3 inline mr-1" aria-hidden="true" />
                         Range
-                      </button>
+                      </Link>
                     </div>
                     {/* Update date at very bottom of the card */}
                     <div className={`col-span-2 mt-2 text-[11px] ${selectedTheme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
@@ -3221,16 +3184,13 @@ export default function Home() {
                           <span className={`${currentTheme.textPrimary}`}>{t.evRange}:</span>
                         </dt>
                         <dd className={`font-semibold ${currentTheme.textPrimary}`}>{car.ev_range_km} km</dd>
-                        <button
-                          onClick={() => {
-                            setSelectedCarForSimulator(car)
-                            setIsRangeSimulatorOpen(true)
-                          }}
-                          className="p-1 hover:bg-[#E2E8F0] rounded transition-colors"
-                          title="Range Simulator"
+                        <Link
+                          href={`/range-calculator?car=${car.id}`}
+                          className="p-1 hover:bg-[#E2E8F0] dark:hover:bg-slate-700 rounded transition-colors inline-flex items-center"
+                          title="Range Calculator"
                         >
                           <SparklesIcon className="h-3 w-3 text-[#4F7C82]" />
-                        </button>
+                        </Link>
                       </div>
                       <div className="flex items-center space-x-2">
                         <dt className="flex items-center space-x-2">

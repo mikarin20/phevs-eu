@@ -120,36 +120,46 @@ const nextConfig = {
         destination: 'https://pub-698245a4878b4d6596cd62322fdc9c75.r2.dev/placeholder-car.jpg',
         permanent: true,
       },
-      // Range Calculator yönlendirmeleri
+      // Range Calculator yönlendirmeleri (Yeni müstakil sayfaya 301 yönlendirme)
       {
-        source: '/range-calculator',
-        destination: '/#range-calculator',
-        permanent: false,
+        source: '/range-simulator',
+        destination: '/range-calculator/',
+        permanent: true,
       },
       {
-        source: '/range-calculator/',
-        destination: '/#range-calculator',
-        permanent: false,
+        source: '/range-simulator/',
+        destination: '/range-calculator/',
+        permanent: true,
       },
       {
         source: '/calculator',
-        destination: '/#range-calculator',
-        permanent: false,
+        destination: '/range-calculator/',
+        permanent: true,
       },
       {
         source: '/calculator/',
-        destination: '/#range-calculator',
-        permanent: false,
+        destination: '/range-calculator/',
+        permanent: true,
       },
       {
         source: '/menzil-hesaplayici',
-        destination: '/#range-calculator',
-        permanent: false,
+        destination: '/range-calculator/',
+        permanent: true,
       },
       {
         source: '/menzil-hesaplayici/',
-        destination: '/#range-calculator',
-        permanent: false,
+        destination: '/range-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/reichweitenrechner',
+        destination: '/range-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/reichweitenrechner/',
+        destination: '/range-calculator/',
+        permanent: true,
       },
       // Silinen/Eski model slug'ları için 301 yönlendirmeleri (404 önleyici)
       {
