@@ -1223,6 +1223,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         onClose={() => setIsRangeSimulatorOpen(false)}
         selectedCar={car}
         simulatorData={car.simulator_data}
+        locale={selectedLanguage}
       />
 
       {/* Euro 6e-bis & Company Car Tax Simulator Modal */}

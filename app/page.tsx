@@ -432,6 +432,31 @@ export default function Home() {
     return () => window.removeEventListener('languageChanged', handleLanguageChange)
   }, [])
 
+  // Check URL hash or query for calculator trigger
+  useEffect(() => {
+    const checkCalculatorTrigger = () => {
+      if (typeof window === 'undefined') return
+      const hash = window.location.hash.toLowerCase()
+      const searchParams = new URLSearchParams(window.location.search)
+      const hasCalcQuery = searchParams.get('calculator') === 'true' || searchParams.get('simulator') === 'true'
+      const hasCalcHash = hash === '#range-calculator' || hash === '#calculator' || hash === '#simulator'
+      
+      if (hasCalcQuery || hasCalcHash) {
+        setSelectedCarForSimulator(prev => {
+          if (!prev && cars.length > 0) {
+            return cars.find(c => c.id === 'peugeot-3008-phev' || c.id === 'toyota-prius-phev') || cars[0]
+          }
+          return prev
+        })
+        setIsRangeSimulatorOpen(true)
+      }
+    }
+
+    checkCalculatorTrigger()
+    window.addEventListener('hashchange', checkCalculatorTrigger)
+    return () => window.removeEventListener('hashchange', checkCalculatorTrigger)
+  }, [cars])
+
   const updateLanguage = (code: string) => {
     setSelectedLanguage(code)
     if (typeof window !== 'undefined') {
@@ -941,6 +966,7 @@ export default function Home() {
       },
       navigation: {
         guide: 'PHEV Guide',
+        calculator: 'Range Calculator',
         videos: 'Videos',
         phevNews: 'PHEV News',
         faq: 'FAQ'
@@ -1063,6 +1089,7 @@ export default function Home() {
       },
       navigation: {
         guide: 'PHEV Ratgeber',
+        calculator: 'Reichweitenrechner',
         videos: 'Videos',
         phevNews: 'PHEV News',
         faq: 'FAQ'
@@ -1185,6 +1212,7 @@ export default function Home() {
       },
       navigation: {
         guide: 'PHEV Rehberi',
+        calculator: 'Menzil Hesaplayıcı',
         videos: 'Kıyaslama Videoları',
         phevNews: 'PHEV News',
         faq: 'FAQ'
@@ -1307,6 +1335,7 @@ export default function Home() {
       },
       navigation: {
         guide: 'Przewodnik PHEV',
+        calculator: 'Kalkulator Zasięgu',
         videos: 'Wideo',
         phevNews: 'PHEV News',
         faq: 'FAQ'
@@ -1429,6 +1458,7 @@ export default function Home() {
       },
       navigation: {
         guide: 'Guide PHEV',
+        calculator: "Calculateur d'Autonomie",
         videos: 'Vidéos',
         phevNews: 'Actualités PHEV',
         faq: 'FAQ'
@@ -1551,6 +1581,7 @@ export default function Home() {
       },
       navigation: {
         guide: 'Guía PHEV',
+        calculator: 'Calculadora de Autonomía',
         videos: 'Vídeos',
         phevNews: 'Noticias PHEV',
         faq: 'FAQ'
@@ -1758,6 +1789,20 @@ export default function Home() {
               >
                 {t.navigation.guide || 'PHEV Guide'}
               </a>
+              <button
+                type="button"
+                onClick={() => {
+                  if (!selectedCarForSimulator && cars.length > 0) {
+                    const defaultCar = cars.find(c => c.id === 'peugeot-3008-phev' || c.id === 'toyota-prius-phev') || cars[0]
+                    setSelectedCarForSimulator(defaultCar)
+                  }
+                  setIsRangeSimulatorOpen(true)
+                }}
+                className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs cursor-pointer group"
+              >
+                <CalculatorIcon className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+                <span>{t.navigation.calculator || 'Range Calculator'}</span>
+              </button>
               <a 
                 href="/videos" 
                 className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs group"
@@ -1943,6 +1988,21 @@ export default function Home() {
               >
                 {t.navigation.guide || 'PHEV Guide'}
               </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  if (!selectedCarForSimulator && cars.length > 0) {
+                    const defaultCar = cars.find(c => c.id === 'peugeot-3008-phev' || c.id === 'toyota-prius-phev') || cars[0]
+                    setSelectedCarForSimulator(defaultCar)
+                  }
+                  setIsRangeSimulatorOpen(true)
+                }}
+                className="w-full flex items-center space-x-2.5 px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700 text-left cursor-pointer"
+              >
+                <CalculatorIcon className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                <span>{t.navigation.calculator || 'Range Calculator'}</span>
+              </button>
               <Link
                 href="/videos"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -3626,6 +3686,9 @@ export default function Home() {
         onClose={() => setIsRangeSimulatorOpen(false)}
         selectedCar={selectedCarForSimulator}
         simulatorData={selectedCarForSimulator?.simulator_data}
+        locale={selectedLanguage}
+        allCars={cars}
+        onSelectCar={(car) => setSelectedCarForSimulator(car)}
       />
 
       {/* Suggest Model Form */}
