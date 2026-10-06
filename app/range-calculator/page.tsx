@@ -5,13 +5,15 @@ import RangeCalculatorPageClient from '@/components/RangeCalculatorPageClient'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 
 export const metadata: Metadata = {
-  title: 'PHEV Real-World Range & Savings Calculator | Interactive Simulator',
-  description: 'Calculate real-world electric range, charging costs, and petrol savings for 120+ plug-in hybrid cars based on temperature, highway speed, AC usage, and battery health.',
+  title: 'PHEV Range Calculator (2026) — Real-World vs WLTP Simulator',
+  description: 'Calculate real-world electric range for Plug-in Hybrids based on temperature, heating/AC, driving speed, and heavy traffic conditions.',
   keywords: [
     'phev range calculator',
     'plug-in hybrid real world range',
     'phev electric range simulator',
     'phev charging cost calculator',
+    'real world ev range',
+    'skoda phev range',
     'menzil hesaplayıcı hibrit',
     'reichweitenrechner plug-in-hybrid',
     'kalkulator zasiegu phev',
@@ -31,23 +33,23 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: 'PHEV Real-World Range & Savings Calculator | PHEVs.eu',
-    description: 'Calculate real-world electric range, home charging costs, and fuel savings for 120+ plug-in hybrids. Powered by official WLTP and thermodynamic modeling.',
+    title: 'PHEV Range Calculator (2026) — Real-World vs WLTP Simulator | PHEVs.eu',
+    description: 'Calculate real-world electric range for Plug-in Hybrids based on temperature, heating/AC, driving speed, and heavy traffic conditions.',
     url: 'https://www.phevs.eu/range-calculator/',
     type: 'website',
     siteName: 'PHEVs.eu',
     images: [{
-      url: 'https://www.phevs.eu/images/blog/phev-real-world-range-simulator-calculator-guide/featured.jpg',
+      url: 'https://www.phevs.eu/images/phev-range-calculator-og.jpg',
       width: 1200,
       height: 630,
-      alt: 'PHEV Real-World Range Simulator & Fuel Savings Calculator'
+      alt: 'PHEV Range Calculator (2026) — Real-World vs WLTP Simulator'
     }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PHEV Real-World Range & Savings Calculator | PHEVs.eu',
-    description: 'Interactive simulator: real-world electric range, cold winter impacts, highway speeds, and charging savings across Europe.',
-    images: ['https://www.phevs.eu/images/blog/phev-real-world-range-simulator-calculator-guide/featured.jpg']
+    title: 'PHEV Range Calculator (2026) — Real-World vs WLTP Simulator | PHEVs.eu',
+    description: 'Calculate real-world electric range for Plug-in Hybrids based on temperature, heating/AC, driving speed, and heavy traffic conditions.',
+    images: ['https://www.phevs.eu/images/phev-range-calculator-og.jpg']
   }
 }
 
@@ -55,12 +57,18 @@ export default function RangeCalculatorPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "PHEV Real-World Range & Savings Calculator",
+    "name": "PHEV Range Calculator (2026) — Real-World vs WLTP Simulator",
+    "description": "Calculate real-world electric range for Plug-in Hybrids based on temperature, heating/AC, driving speed, and heavy traffic conditions.",
     "url": "https://www.phevs.eu/range-calculator/",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "All",
     "browserRequirements": "Requires JavaScript",
-    "description": "Calculate real-world electric range, charging costs, and petrol savings for 120+ plug-in hybrid electric vehicles based on temperature, highway cruising speed, cabin climate control, and battery state of health (SOH).",
+    "image": "https://www.phevs.eu/images/phev-range-calculator-og.jpg",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
     "featureList": [
       "Real-world range simulation based on WLTP test data",
       "Sub-zero winter and summer heatwave temperature degradation curves",

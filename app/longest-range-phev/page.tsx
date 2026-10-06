@@ -36,11 +36,51 @@ export const metadata: Metadata = {
   }
 }
 
+const SIMULATOR_BANNER_TEXT: Record<string, { badge: string; title: string; desc: string; cta: string }> = {
+  en: {
+    badge: 'Real-World Range Simulator',
+    title: 'Want to simulate your own commute?',
+    desc: 'Official WLTP ratings are measured in flat 23°C lab conditions. Test how freezing winter cold, 140 km/h motorway cruising speeds, and AC heating alter these numbers on your daily drive.',
+    cta: 'Try our Interactive PHEV Range Calculator →'
+  },
+  tr: {
+    badge: 'Gerçek Yol Şartları Simülatörü',
+    title: 'Kendi günlük rotanızı ve tüketiminizi simüle etmek ister misiniz?',
+    desc: 'Fabrika WLTP menzilleri 23°C sabit laboratuvarda ölçülür. Dondurucu kış soğuklarının, 140 km/s otoyol hızının ve klimanın bu menzili nasıl değiştirdiğini anında görün.',
+    cta: 'PHEV Gerçek Menzil Simülatörünü Dene →'
+  },
+  de: {
+    badge: 'Echtwelt-Reichweiten-Simulator',
+    title: 'Möchten Sie Ihren eigenen Arbeitsweg simulieren?',
+    desc: 'Offizielle WLTP-Werte entstehen bei 23°C auf dem Prüfstand. Berechnen Sie den exakten Einfluss von Winterfrost, 140 km/h Autobahntempo und Heizung auf diese Modelle.',
+    cta: 'Interaktiven PHEV-Reichweitenrechner testen →'
+  },
+  pl: {
+    badge: 'Symulator Realnego Zasięgu',
+    title: 'Chcesz przetestować swój codzienny dojazd?',
+    desc: 'Katalogowe dane WLTP badane są w 23°C. Sprawdź, jak mróz, 140 km/h na autostradzie i ogrzewanie kabiny wpływają na faktyczny zasięg każdego modelu.',
+    cta: 'Wypróbuj Kalkulator Realnego Zasięgu PHEV →'
+  },
+  fr: {
+    badge: 'Simulateur d\'autonomie réelle',
+    title: 'Envie de simuler votre trajet quotidien ?',
+    desc: 'Les chiffres WLTP sont obtenus à 23°C. Calculez l\'impact réel du gel hivernal, des 140 km/h sur autoroute et de la climatisation sur vos trajets.',
+    cta: 'Essayer le calculateur d\'autonomie PHEV →'
+  },
+  es: {
+    badge: 'Simulador de Autonomía Real',
+    title: '¿Quieres simular tu trayecto diario?',
+    desc: 'Los datos WLTP se miden a 23°C en laboratorio. Calcula el impacto del frío invernal, los 140 km/h en autopista y la climatización en estos modelos.',
+    cta: 'Probar el Simulador de Autonomía PHEV →'
+  }
+}
+
 export default function LongestRangePhevPage({ searchParams }: { searchParams?: { lang?: string } }) {
   const baseUrl = 'https://www.phevs.eu'
   const currentLang = getCategoryLang(searchParams?.lang)
   const common = COMMON_TRANSLATIONS[currentLang]
   const t = CATEGORY_TRANSLATIONS['longest-range-phev'][currentLang]
+  const simBanner = SIMULATOR_BANNER_TEXT[currentLang] || SIMULATOR_BANNER_TEXT.en
   
   // Filter models with >= 100 km electric range, sorted descending by range
   const models = (carsData as any[])
@@ -153,6 +193,29 @@ export default function LongestRangePhevPage({ searchParams }: { searchParams?: 
 
         {/* Vehicles Grid */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          {/* High-Intent Internal Linking Banner to Range Calculator */}
+          <div className="mb-10 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 dark:from-emerald-700 dark:via-teal-800 dark:to-blue-800 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-6 border border-emerald-400/20">
+            <div className="relative z-10 space-y-2 text-center lg:text-left">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-emerald-100">
+                ⚡ {simBanner.badge}
+              </span>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white">
+                {simBanner.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-emerald-100/90 max-w-2xl leading-relaxed">
+                {simBanner.desc}
+              </p>
+            </div>
+            <Link
+              href="/range-calculator"
+              className="relative z-10 shrink-0 inline-flex items-center space-x-2 px-6 py-3.5 rounded-2xl font-bold text-sm bg-white text-emerald-800 hover:bg-emerald-50 hover:text-emerald-900 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer text-center"
+            >
+              <span>{simBanner.cta}</span>
+            </Link>
+            <div className="absolute -right-12 -bottom-12 w-56 h-56 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -left-12 -top-12 w-48 h-48 bg-teal-400/10 rounded-full blur-2xl pointer-events-none" />
+          </div>
+
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
