@@ -169,11 +169,25 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
   const excerpt = locale === 'en' ? post.excerpt_en : locale === 'de' ? (post.excerpt_de || post.excerpt_en || post.excerpt) : locale === 'pl' ? (post.excerpt_pl || post.excerpt_en || post.excerpt) : post.excerpt
   const postFeaturedImageUrl = getAbsoluteImageUrl(post.featured_image)
 
-  // İlgili araçları bul
-  const relatedCars = post.related_cars
-    .map(carSlug => carsData.find(car => car.slug === carSlug || car.id === carSlug))
+  // İlgili araçları bul (belirtilmemişse içerikten veya popüler modellerden eşleştir)
+  let matchedCars = (post.related_cars || [])
+    .map(carSlug => (carsData as any[]).find(car => car.slug === carSlug || car.id === carSlug))
     .filter(Boolean)
-    .slice(0, 3)
+
+  if (matchedCars.length === 0) {
+    const textToSearch = `${title} ${excerpt} ${content}`.toLowerCase()
+    matchedCars = (carsData as any[]).filter(car => {
+      const modelLower = car.model.toLowerCase()
+      const brandLower = car.brand.toLowerCase()
+      return textToSearch.includes(modelLower) || (textToSearch.includes(brandLower) && textToSearch.includes((car.segment || '').toLowerCase()))
+    }).slice(0, 3)
+  }
+
+  if (matchedCars.length === 0) {
+    matchedCars = (carsData as any[]).slice(0, 3)
+  }
+
+  const relatedCars = matchedCars.slice(0, 3)
 
   // Diğer yazıları bul (sadece yayında olanlar)
   const otherPosts = (blogData as BlogPost[])
@@ -439,25 +453,32 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
                 </h2>
                 <div className="grid md:grid-cols-3 gap-4">
                   {relatedCars.map((car: any) => (
-                    <Link
+                    <div
                       key={car.id}
-                      href={`/models/${car.slug || car.id}`}
-                      className="group block bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60 rounded-xl p-4 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md transition-all"
+                      className="bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60 rounded-xl p-4 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md transition-all flex flex-col justify-between"
                     >
-                      <div className="aspect-video mb-3 rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-700">
-                        <BlogImage
-                          src={car.image_url}
-                          alt={`${car.brand} ${car.model}`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                        />
-                      </div>
-                      <h3 className="font-semibold text-slate-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {car.brand} {car.model}
-                      </h3>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
-                        {car.ev_range_km} {t.blog.range}
-                      </p>
-                    </Link>
+                      <Link href={`/models/${car.slug || car.id}/`} className="group block mb-3">
+                        <div className="aspect-video mb-3 rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-700">
+                          <BlogImage
+                            src={car.image_url}
+                            alt={`${car.brand} ${car.model}`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                          />
+                        </div>
+                        <h3 className="font-semibold text-slate-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {car.brand} {car.model}
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400">
+                          {car.ev_range_km} {t.blog.range}
+                        </p>
+                      </Link>
+                      <Link
+                        href={`/range-calculator/?car=${car.slug || car.id}`}
+                        className="inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-lg text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                      >
+                        <span>Simulate Range ⚡</span>
+                      </Link>
+                    </div>
                   ))}
                 </div>
               </div>

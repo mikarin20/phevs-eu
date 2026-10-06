@@ -291,18 +291,45 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
 
   const [activeCar, setActiveCar] = useState<Car>(initialCar)
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
+  const [initialParams, setInitialParams] = useState<{
+    temp?: number
+    ac?: boolean
+    speed?: 100 | 120 | 140
+    hwy?: number
+    soh?: 100 | 90 | 80
+    mode?: 'eco' | 'normal' | 'sport'
+    precon?: boolean
+  }>({})
 
   // Listen to client-side query string if loaded directly or on back/forward
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search)
       const paramCar = params.get('car')
-      if (paramCar && paramCar !== activeCar?.id && paramCar !== activeCar?.slug) {
+      if (paramCar) {
         const found = cars.find(c => c.id === paramCar || c.slug === paramCar || c.id.includes(paramCar))
         if (found) {
           setActiveCar(found)
         }
       }
+
+      const pTemp = params.get('temp') ? Number(params.get('temp')) : undefined
+      const pAc = params.get('ac') !== null ? params.get('ac') === '1' : undefined
+      const pSpeed = params.get('speed') ? Number(params.get('speed')) as (100 | 120 | 140) : undefined
+      const pHwy = params.get('hwy') ? Number(params.get('hwy')) : undefined
+      const pSoh = params.get('soh') ? Number(params.get('soh')) as (100 | 90 | 80) : undefined
+      const pMode = params.get('mode') as ('eco' | 'normal' | 'sport') | null
+      const pPrecon = params.get('precon') === '1'
+
+      setInitialParams({
+        temp: pTemp !== undefined && !isNaN(pTemp) ? pTemp : undefined,
+        ac: pAc,
+        speed: pSpeed && [100, 120, 140].includes(pSpeed) ? pSpeed : undefined,
+        hwy: pHwy !== undefined && !isNaN(pHwy) ? pHwy : undefined,
+        soh: pSoh && [100, 90, 80].includes(pSoh) ? pSoh : undefined,
+        mode: pMode && ['eco', 'normal', 'sport'].includes(pMode) ? pMode : undefined,
+        precon: pPrecon
+      })
     }
   }, [cars])
 
@@ -399,7 +426,9 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
       {/* Main Interactive Embedded Range Simulator */}
       <section id="simulator-interactive" aria-label="Interactive Range Simulator">
         <RangeSimulator
+          key={`${activeCar?.id}-${initialParams.temp}-${initialParams.ac}`}
           isEmbedded={true}
+          syncUrl={true}
           baseRange={activeCar?.ev_range_km || 100}
           batteryCapacity={activeCar?.battery_kwh || 18}
           selectedCar={activeCar}
@@ -407,6 +436,13 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
           locale={locale}
           allCars={cars}
           onSelectCar={handleSimulatorSelectCar}
+          initialTemp={initialParams.temp}
+          initialAc={initialParams.ac}
+          initialHighwayShare={initialParams.hwy}
+          initialCruisingSpeed={initialParams.speed}
+          initialDrivingMode={initialParams.mode}
+          initialBatterySoh={initialParams.soh}
+          initialPreConditioned={initialParams.precon}
         />
       </section>
 

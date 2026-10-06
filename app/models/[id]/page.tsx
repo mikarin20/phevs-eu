@@ -830,7 +830,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6 text-xs">
                     <span className="px-2.5 py-1 rounded-md bg-emerald-100/80 text-emerald-800 font-medium">
-                      ❄️ Winter ~{Math.round((car.ev_range_km || 50) * 0.65)} km
+                      ❄️ Winter ~{Math.round((car.ev_range_km || 50) * ((car.battery_chemistry || '').toUpperCase().includes('LFP') || (car.brand || '').toLowerCase().includes('byd') ? 0.65 : 0.72))} km
                     </span>
                     <span className="px-2.5 py-1 rounded-md bg-emerald-100/80 text-emerald-800 font-medium">
                       ☀️ Summer ~{Math.round((car.ev_range_km || 50) * 0.95)} km
@@ -838,11 +838,11 @@ export default function ModelDetail({ params }: ModelDetailProps) {
                   </div>
                 </div>
                 <Link
-                  href={`/range-calculator?car=${car.id}`}
+                  href={`/range-calculator/?car=${car.slug || car.id}`}
                   className="w-full px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-all duration-200 text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-sm hover:shadow"
                 >
                   <SparklesIcon className="h-4 w-4" />
-                  <span>Open Range Calculator</span>
+                  <span>Simulate {car.brand} {car.model} Range →</span>
                 </Link>
               </div>
 

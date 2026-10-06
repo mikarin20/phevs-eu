@@ -12,7 +12,9 @@ import {
   BanknotesIcon,
   ClockIcon,
   UserGroupIcon,
-  AdjustmentsHorizontalIcon
+  AdjustmentsHorizontalIcon,
+  ShareIcon,
+  CheckIcon
 } from '@heroicons/react/24/outline'
 import { getImageUrl } from '@/lib/image-url'
 
@@ -27,6 +29,15 @@ interface RangeSimulatorProps {
   allCars?: any[]
   onSelectCar?: (car: any) => void
   isEmbedded?: boolean
+  syncUrl?: boolean
+  initialTemp?: number
+  initialAc?: boolean
+  initialHighwayShare?: number
+  initialCruisingSpeed?: 100 | 120 | 140
+  initialDrivingMode?: 'eco' | 'normal' | 'sport'
+  initialBatterySoh?: 100 | 90 | 80
+  initialPayloadMode?: 'driver' | 'family' | 'cargo'
+  initialPreConditioned?: boolean
 }
 
 interface MarketPricing {
@@ -158,6 +169,11 @@ const TRANSLATIONS: Record<string, {
   nmcNote: string
   dhtNote: string
   p2Note: string
+  shareSimulation: string
+  linkCopied: string
+  heatPumpBadge: string
+  ptcHeaterBadge: string
+  netBatteryLabel: string
 }> = {
   en: {
     title: 'Range Simulator & Calculator',
@@ -227,7 +243,12 @@ const TRANSLATIONS: Record<string, {
     lfpNote: 'High cycle life (3000+ cycles), sensitive to sub-zero cold without pre-heating.',
     nmcNote: 'Stable sub-zero winter discharge curve, high energy density.',
     dhtNote: 'P1+P3 DHT: +12% city regenerative recovery, series EV drive.',
-    p2Note: 'P2 Parallel: Long motorway overdrive ratio preserves high-speed efficiency.'
+    p2Note: 'P2 Parallel: Long motorway overdrive ratio preserves high-speed efficiency.',
+    shareSimulation: 'Share Simulation',
+    linkCopied: 'Link copied to clipboard!',
+    heatPumpBadge: 'Heat Pump (+9% winter COP)',
+    ptcHeaterBadge: 'PTC Resistance Heater',
+    netBatteryLabel: 'Usable Battery'
   },
   de: {
     title: 'Reichweiten-Simulator & Rechner',
@@ -297,7 +318,12 @@ const TRANSLATIONS: Record<string, {
     lfpNote: 'Hohe Zyklenfestigkeit (3000+ Zyklen), frostempfindlich ohne Vorklimatisierung.',
     nmcNote: 'Stabilere Winter-Entladekurve unter 0°C, hohe Energiedichte.',
     dhtNote: 'P1+P3 DHT: +12% innerstädtische Rekuperation, serieller E-Antrieb.',
-    p2Note: 'P2 Parallel: Langer Autobahn-Overdrive schont Effizienz bei hohem Tempo.'
+    p2Note: 'P2 Parallel: Langer Autobahn-Overdrive schont Effizienz bei hohem Tempo.',
+    shareSimulation: 'Simulation teilen',
+    linkCopied: 'Link kopiert!',
+    heatPumpBadge: 'Wärmepumpe (+9% Winter-COP)',
+    ptcHeaterBadge: 'PTC-Zuheizer',
+    netBatteryLabel: 'Nutzbare Batterie'
   },
   tr: {
     title: 'Menzil Hesaplayıcı & Simülatör',
@@ -367,7 +393,12 @@ const TRANSLATIONS: Record<string, {
     lfpNote: 'Uzun döngü ömrü (3000+ döngü), ön ısıtmasız kış soğuğuna daha hassas.',
     nmcNote: 'Sıfırın altında daha kararlı kış deşarjı, yüksek enerji yoğunluğu.',
     dhtNote: 'P1+P3 DHT: Şehir içi dur-kalkta +%12 rejenerasyon geri kazanımı.',
-    p2Note: 'P2 Paralel: Otoyol yüksek hızında şanzıman uzun dişli avantajı.'
+    p2Note: 'P2 Paralel: Otoyol yüksek hızında şanzıman uzun dişli avantajı.',
+    shareSimulation: 'Simülasyonu Paylaş',
+    linkCopied: 'Bağlantı kopyalandı!',
+    heatPumpBadge: 'Isı Pompası (+%9 kış COP verimi)',
+    ptcHeaterBadge: 'PTC Elektrikli Rezistans',
+    netBatteryLabel: 'Net Kullanılabilir Batarya'
   },
   pl: {
     title: 'Symulator Zasięgu & Kalkulator',
@@ -437,7 +468,12 @@ const TRANSLATIONS: Record<string, {
     lfpNote: 'Wysoka żywotność (3000+ cykli), wrażliwość na mróz bez podgrzania.',
     nmcNote: 'Stabilna praca na mrozie poniżej 0°C, wysoka gęstość energii.',
     dhtNote: 'P1+P3 DHT: +12% miejskiej rekuperacji, płynny napęd szeregowy.',
-    p2Note: 'P2 Równoległy: Długie przełożenie autostradowe wspiera wysokie prędkości.'
+    p2Note: 'P2 Równoległy: Długie przełożenie autostradowe wspiera wysokie prędkości.',
+    shareSimulation: 'Udostępnij symulację',
+    linkCopied: 'Skopiowano link!',
+    heatPumpBadge: 'Pompa ciepła (+9% COP zimą)',
+    ptcHeaterBadge: 'Grzałka oporowa PTC',
+    netBatteryLabel: 'Bateria użyteczna'
   },
   fr: {
     title: "Simulateur d'Autonomie & Calculateur",
@@ -507,7 +543,12 @@ const TRANSLATIONS: Record<string, {
     lfpNote: 'Durée de vie élevée (3000+ cycles), sensible au grand froid sans préchauffage.',
     nmcNote: 'Décharge hivernale stable sous 0°C, haute densité énergétique.',
     dhtNote: 'DHT P1+P3: +12% de récupération en ville, conduite série fluide.',
-    p2Note: 'P2 Parallèle: Rapport long sur autoroute pour limiter la surconsommation.'
+    p2Note: 'P2 Parallèle: Rapport long sur autoroute pour limiter la surconsommation.',
+    shareSimulation: 'Partager la simulation',
+    linkCopied: 'Lien copié !',
+    heatPumpBadge: 'Pompe à chaleur (+9% COP hiver)',
+    ptcHeaterBadge: 'Chauffage résistif PTC',
+    netBatteryLabel: 'Batterie utilisable'
   },
   es: {
     title: 'Simulador de Autonomía y Calculadora',
@@ -577,7 +618,12 @@ const TRANSLATIONS: Record<string, {
     lfpNote: 'Gran vida útil (3000+ ciclos), sensible al frío bajo cero sin precalentamiento.',
     nmcNote: 'Descarga invernal más estable bajo 0°C, alta densidad energética.',
     dhtNote: 'DHT P1+P3: +12% de recuperación regenerativa urbana, propulsión serie.',
-    p2Note: 'P2 Paralelo: Relación larga de autopista para alta velocidad.'
+    p2Note: 'P2 Paralelo: Relación larga de autopista para alta velocidad.',
+    shareSimulation: 'Compartir simulación',
+    linkCopied: '¡Enlace copiado!',
+    heatPumpBadge: 'Bomba de calor (+9% COP invierno)',
+    ptcHeaterBadge: 'Calefactor resistivo PTC',
+    netBatteryLabel: 'Batería utilizable'
   }
 }
 
@@ -591,17 +637,27 @@ function RangeSimulator({
   locale = 'en',
   allCars = [],
   onSelectCar,
-  isEmbedded = false
+  isEmbedded = false,
+  syncUrl = false,
+  initialTemp,
+  initialAc,
+  initialHighwayShare,
+  initialCruisingSpeed,
+  initialDrivingMode,
+  initialBatterySoh,
+  initialPayloadMode,
+  initialPreConditioned
 }: RangeSimulatorProps) {
-  // Simulator Controls State
-  const [temperature, setTemperature] = useState(20) // °C
-  const [acEnabled, setAcEnabled] = useState(true)
-  const [highwayShare, setHighwayShare] = useState(35) // %
-  const [cruisingSpeed, setCruisingSpeed] = useState<100 | 120 | 140>(120) // km/h
-  const [drivingMode, setDrivingMode] = useState<'eco' | 'normal' | 'sport'>('normal')
-  const [batterySoh, setBatterySoh] = useState<100 | 90 | 80>(100) // % State of Health
-  const [preConditioned, setPreConditioned] = useState(false)
-  const [payloadMode, setPayloadMode] = useState<'driver' | 'family' | 'cargo'>('driver')
+  // Simulator Controls State (hydrated from initial props if passed)
+  const [temperature, setTemperature] = useState(initialTemp !== undefined ? initialTemp : 20) // °C
+  const [acEnabled, setAcEnabled] = useState(initialAc !== undefined ? initialAc : true)
+  const [highwayShare, setHighwayShare] = useState(initialHighwayShare !== undefined ? initialHighwayShare : 35) // %
+  const [cruisingSpeed, setCruisingSpeed] = useState<100 | 120 | 140>(initialCruisingSpeed || 120) // km/h
+  const [drivingMode, setDrivingMode] = useState<'eco' | 'normal' | 'sport'>(initialDrivingMode || 'normal')
+  const [batterySoh, setBatterySoh] = useState<100 | 90 | 80>(initialBatterySoh || 100) // % State of Health
+  const [preConditioned, setPreConditioned] = useState(initialPreConditioned || false)
+  const [payloadMode, setPayloadMode] = useState<'driver' | 'family' | 'cargo'>(initialPayloadMode || 'driver')
+  const [copiedToast, setCopiedToast] = useState(false)
   
   // Market defaults by language
   const market = MARKET_PRICING[locale] || MARKET_PRICING.en
@@ -631,11 +687,87 @@ function RangeSimulator({
     }
   }, [selectedCar])
 
-  // Active vehicle reference
+  // Active vehicle reference & Usable Net Battery Heuristic
   const currentCar = internalCar || selectedCar
   const activeBaseRange = currentCar?.ev_range_km || baseRange || 100
-  const activeBattery = currentCar?.battery_kwh || batteryCapacity || 15
+  const activeBatteryGross = currentCar?.battery_kwh || batteryCapacity || 15
+  // If usable_battery_kwh is not explicitly in dataset, standard automotive buffer retains ~84% net usable
+  const activeBattery = currentCar?.usable_battery_kwh || Number((activeBatteryGross * 0.84).toFixed(1))
   const activeSimData = currentCar?.simulator_data || simulatorData
+
+  // Heat Pump Detection (Significantly mitigates sub-10°C HVAC penalty)
+  const hasHeatPump = useMemo(() => {
+    const thermal = (
+      currentCar?.battery_details?.thermal_management || 
+      currentCar?.thermal_management || 
+      ''
+    ).toLowerCase()
+    if (thermal.includes('heat pump') || thermal.includes('wärmepumpe') || thermal.includes('pompa')) {
+      return true
+    }
+    const brand = (currentCar?.brand || '').toLowerCase()
+    const model = (currentCar?.model || '').toLowerCase()
+    // Notable models with standard heat pumps
+    if (brand.includes('toyota') && model.includes('prius')) return true
+    if (brand.includes('lexus') && (model.includes('nx') || model.includes('rx'))) return true
+    if (brand.includes('mitsubishi') && model.includes('outlander')) return true
+    if (brand.includes('porsche') && model.includes('panamera')) return true
+    return false
+  }, [currentCar])
+
+  // URL state synchronization when syncUrl is true
+  useEffect(() => {
+    if (syncUrl && typeof window !== 'undefined') {
+      const carSlug = currentCar?.slug || currentCar?.id || ''
+      const params = new URLSearchParams()
+      if (carSlug) params.set('car', carSlug)
+      if (temperature !== 20) params.set('temp', String(temperature))
+      if (!acEnabled) params.set('ac', '0')
+      if (cruisingSpeed !== 120) params.set('speed', String(cruisingSpeed))
+      if (highwayShare !== 35) params.set('hwy', String(highwayShare))
+      if (batterySoh !== 100) params.set('soh', String(batterySoh))
+      if (drivingMode !== 'normal') params.set('mode', drivingMode)
+      if (preConditioned) params.set('precon', '1')
+
+      const queryString = params.toString()
+      const newUrl = queryString ? `?${queryString}` : window.location.pathname
+      window.history.replaceState(null, '', newUrl)
+    }
+  }, [
+    syncUrl,
+    currentCar,
+    temperature,
+    acEnabled,
+    cruisingSpeed,
+    highwayShare,
+    batterySoh,
+    drivingMode,
+    preConditioned
+  ])
+
+  // Share simulation link handler
+  const handleShareSimulation = () => {
+    if (typeof window !== 'undefined') {
+      const carSlug = currentCar?.slug || currentCar?.id || ''
+      const url = new URL('/range-calculator/', window.location.origin)
+      if (carSlug) url.searchParams.set('car', carSlug)
+      url.searchParams.set('temp', String(temperature))
+      url.searchParams.set('ac', acEnabled ? '1' : '0')
+      url.searchParams.set('speed', String(cruisingSpeed))
+      url.searchParams.set('hwy', String(highwayShare))
+      url.searchParams.set('soh', String(batterySoh))
+      if (drivingMode !== 'normal') url.searchParams.set('mode', drivingMode)
+      if (preConditioned) url.searchParams.set('precon', '1')
+
+      navigator.clipboard.writeText(url.toString()).then(() => {
+        setCopiedToast(true)
+        setTimeout(() => setCopiedToast(false), 2500)
+      }).catch(() => {
+        // Fallback
+        prompt('Copy simulation link:', url.toString())
+      })
+    }
+  }
 
   // Sorted vehicle list for clean selector
   const sortedCars = useMemo(() => {
@@ -741,12 +873,15 @@ function RangeSimulator({
     }
     range *= tempFactor
 
-    // 3. Climate Control / AC
+    // 3. Climate Control / AC (adjusted by Heat Pump vs PTC resistance heater)
     if (acEnabled) {
-      // If pre-conditioned while plugged in, initial heating/cooling load is handled by the grid
-      let acFactor = activeSimData?.ac_impact || 0.85
+      // Heat pump operates with COP 2.5-3.5 in moderate/cold weather, drawing ~1.2 kW vs PTC ~3.5 kW
+      let acFactor = activeSimData?.ac_impact || (hasHeatPump ? 0.91 : 0.85)
+      if (temperature < 10) {
+        acFactor = hasHeatPump ? 0.89 : 0.81
+      }
       if (preConditioned) {
-        acFactor = Math.min(0.93, acFactor + 0.07)
+        acFactor = Math.min(0.96, acFactor + 0.07)
       }
       range *= acFactor
     }
@@ -798,7 +933,8 @@ function RangeSimulator({
     payloadMode, 
     activeSimData,
     detectedChemistry,
-    detectedArchitecture
+    detectedArchitecture,
+    hasHeatPump
   ])
 
   // Charging Costs & Fuel Savings Calculations (Adjusted for local market currency)
@@ -985,6 +1121,36 @@ function RangeSimulator({
                           {calculatedRange} km
                         </div>
                       </div>
+                    </div>
+
+                    {/* Share Simulation & Heat Pump Capability Strip */}
+                    <div className="flex flex-wrap items-center justify-center gap-2.5 mb-6">
+                      <button
+                        type="button"
+                        onClick={handleShareSimulation}
+                        className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all cursor-pointer shadow-xs active:scale-95"
+                      >
+                        {copiedToast ? (
+                          <>
+                            <CheckIcon className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                            <span className="text-emerald-600 dark:text-emerald-400 font-bold">{t.linkCopied}</span>
+                          </>
+                        ) : (
+                          <>
+                            <ShareIcon className="h-4 w-4 text-blue-500" />
+                            <span>{t.shareSimulation}</span>
+                          </>
+                        )}
+                      </button>
+
+                      <span className={`inline-flex items-center space-x-1 px-3 py-1.5 rounded-xl text-xs font-semibold border ${
+                        hasHeatPump
+                          ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800'
+                          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'
+                      }`}>
+                        <span>{hasHeatPump ? '🌡️' : '⚡'}</span>
+                        <span>{hasHeatPump ? t.heatPumpBadge : t.ptcHeaterBadge}</span>
+                      </span>
                     </div>
 
                     {/* FEATURE 1: Charging Cost & Savings Comparison Bar (Localized Currency) */}
@@ -1315,8 +1481,11 @@ function RangeSimulator({
                         <div className="font-bold text-slate-900 dark:text-white mt-0.5">{currentCar.ev_range_km} km</div>
                       </div>
                       <div className="bg-slate-50 dark:bg-slate-900 p-2 rounded-xl border border-slate-200/60 dark:border-slate-700/60 text-center">
-                        <div className="text-[10px] text-slate-500 dark:text-slate-400">{t.batteryLabel}</div>
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400">{t.netBatteryLabel}</div>
                         <div className="font-bold text-slate-900 dark:text-white mt-0.5">{activeBattery} kWh</div>
+                        {activeBatteryGross !== activeBattery && (
+                          <div className="text-[9px] text-slate-400">({activeBatteryGross} gross)</div>
+                        )}
                       </div>
                       <div className="bg-emerald-50 dark:bg-emerald-950/40 p-2 rounded-xl border border-emerald-200/60 dark:border-emerald-800/60 text-center">
                         <div className="text-[10px] text-emerald-700 dark:text-emerald-400">{t.simulatedLabel}</div>
