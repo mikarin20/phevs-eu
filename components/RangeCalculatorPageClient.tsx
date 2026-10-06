@@ -17,7 +17,8 @@ import {
   ArrowRightIcon,
   CheckCircleIcon,
   AdjustmentsHorizontalIcon,
-  ChartBarIcon
+  ChartBarIcon,
+  CpuChipIcon
 } from '@heroicons/react/24/outline'
 
 interface Car {
@@ -58,6 +59,16 @@ const UI_TEXT: Record<string, {
   preconCardDesc: string
   sohCardTitle: string
   sohCardDesc: string
+  techTitle: string
+  techSubtitle: string
+  chemLfpTitle: string
+  chemLfpDesc: string
+  chemNmcTitle: string
+  chemNmcDesc: string
+  dhtTitle: string
+  dhtDesc: string
+  p2Title: string
+  p2Desc: string
   benchmarksTitle: string
   benchmarksSubtitle: string
   simulateBtn: string
@@ -83,6 +94,16 @@ const UI_TEXT: Record<string, {
     preconCardDesc: 'Warming or cooling the cabin while connected to a wallbox draws energy from the home grid instead of the vehicle battery, recovering 15% to 20% range.',
     sohCardTitle: 'Used Car Battery State of Health (SOH)',
     sohCardDesc: 'A 3-4 year old vehicle typically retains 90% to 92% usable battery capacity. Model exact degradation before purchasing a second-hand plug-in hybrid.',
+    techTitle: 'Battery Chemistry & Transmission Architecture Dynamics',
+    techSubtitle: 'How LFP vs NMC cell chemistry and P2 e-DSG vs P1+P3 DHT drivetrains change real-world range.',
+    chemLfpTitle: 'LFP (Lithium Iron Phosphate) - BYD, Jaecoo, Chery',
+    chemLfpDesc: 'Exceptional 3,000+ cycle life with near-zero degradation over 4 years (94% retained SOH). Electrolyte thickens faster at sub-zero cold without pre-heating, but recovers up to 65% when pre-conditioned.',
+    chemNmcTitle: 'NMC (Nickel Manganese Cobalt) - VAG, BMW, Mercedes',
+    chemNmcDesc: 'Higher gravimetric energy density and stable sub-zero cold discharge down to -10°C. Standard 1,000-1,500 cycle lifespan with normal ~10% degradation over 3-4 years.',
+    dhtTitle: 'P1+P3 DHT Super Hybrid (Jaecoo, Chery, BYD DM-i)',
+    dhtDesc: 'Dedicated Hybrid Transmission runs in direct electric or series mode without mechanical transmission friction, unlocking +12% higher regenerative recovery in urban stop-and-go.',
+    p2Title: 'P2 Parallel Architecture (VAG e-DSG, BMW ZF)',
+    p2Desc: 'Electric motor is integrated between engine and gearbox. Long overdrive mechanical ratios (6th-8th gear) maintain high efficiency at 130-140 km/h motorway cruising.',
     benchmarksTitle: 'Popular European PHEVs Benchmark',
     benchmarksSubtitle: 'Compare catalog WLTP ratings against expected real-world range across bestselling models.',
     simulateBtn: 'Simulate Model',
@@ -108,6 +129,16 @@ const UI_TEXT: Record<string, {
     preconCardDesc: 'Wer das Auto vor Fahrtantritt an der Wallbox vorheizt oder vorkühlt, schont die Batterie und sichert bis zu 20% mehr Reichweite.',
     sohCardTitle: 'Gebrauchtwagen-Batteriezustand (SOH)',
     sohCardDesc: 'Nach 3 bis 4 Jahren liegt der SOH oft bei 88% bis 92%. Simulieren Sie realistische Reichweiten vor dem Kauf eines gebrauchten Plug-in-Hybrids.',
+    techTitle: 'Batteriechemie & Hybrid-Antriebsarchitektur im Detail',
+    techSubtitle: 'Wie sich LFP vs. NMC-Zellen sowie P2-Parallel-Getriebe vs. P1+P3-DHT auf den Praxisverbrauch auswirken.',
+    chemLfpTitle: 'LFP (Lithium-Eisenphosphat) - BYD, Jaecoo, Chery',
+    chemLfpDesc: 'Überragende Zyklenfestigkeit (3.000+ Zyklen) und minimale Alterung nach 4 Jahren (94% SOH). Bei Frost unter 0°C jedoch höherer Innenwiderstand ohne Vorkonditionierung.',
+    chemNmcTitle: 'NMC (Nickel-Mangan-Cobalt) - VAG, BMW, Mercedes',
+    chemNmcDesc: 'Höhere Energiedichte und stabilere Kaltstart-Entladung bei winterlichen Minusgraden. Standardmäßige Alterung auf ca. 90% SOH nach 3-4 Jahren.',
+    dhtTitle: 'P1+P3 DHT Super-Hybrid (Jaecoo, Chery, BYD DM-i)',
+    dhtDesc: 'Getriebelose elektrische Direkt- und Serienschaltung ohne Reibungsverluste mechatronischer Schaltstufen, bringt bis zu +12% höhere Rekuperationseffizienz im Stadtverkehr.',
+    p2Title: 'P2-Parallelarchitektur (VAG e-DSG, BMW ZF)',
+    p2Desc: 'E-Maschine vor dem Mehrganggetriebe. Lange Overdrive-Gänge (6. bis 8. Stufe) halten die Drehzahl und den Verbrauch bei 130–140 km/h Autobahntempo niedrig.',
     benchmarksTitle: 'Beliebte Modelle im Praxisvergleich',
     benchmarksSubtitle: 'WLTP-Katalogwert vs. realistische Reichweite bei europäischen Bestsellern.',
     simulateBtn: 'Dieses Modell simulieren',
@@ -133,6 +164,16 @@ const UI_TEXT: Record<string, {
     preconCardDesc: 'Aracınızı evde prize takılıyken telefon uygulamasından ısıtıp/soğutursanız, enerji bataryadan değil şebekeden çekilir ve yola %15-%20 ekstra menzille başlarsınız.',
     sohCardTitle: 'İkinci El Batarya Sağlığı (SOH)',
     sohCardDesc: '3-4 yaşındaki bir PHEV aracın batarya sağlığı genellikle %88-%92 bandına iner. İkinci el alım öncesi gerçek menzil kapasitesini önceden test edin.',
+    techTitle: 'Batarya Kimyası ve Hibrit Şanzıman Mimarisi Farkı',
+    techSubtitle: 'LFP ve NMC bataryalar ile P2 e-DSG ve Jaecoo P1+P3 DHT süper hibrit sistemlerinin menzile doğrudan etkileri.',
+    chemLfpTitle: 'LFP (Lityum Demir Fosfat) - BYD, Jaecoo, Chery',
+    chemLfpDesc: '3.000+ şarj döngüsü ömrü ve yüksek termal güvenlik. 4 yılda bile pil sağlığı (SOH) %94 seviyesinde kalır. Ancak 0°C altındaki dondurucu havalarda ön ısıtmasızken elektrolit direnci daha fazladır.',
+    chemNmcTitle: 'NMC (Nikel Manganez Kobalt) - VW Grubu, BMW, Mercedes',
+    chemNmcDesc: 'Yüksek enerji yoğunluğu ve kışın dondurucu soğuklarda daha az voltaj düşüşü sağlar. Döngü ömrü 1.000-1.500 civarındadır; 3-4 yılda yaklaşık %10 kapasite kaybı yaşanır.',
+    dhtTitle: 'P1+P3 DHT Süper Hibrit (Jaecoo, Chery, BYD DM-i)',
+    dhtDesc: 'Geleneksel dişli kutusu sürtünmesi olmadan doğrudan elektrikli/seri sürüş sunar. Şehir içi dur-kalklarda rejeneratif frenleme geri kazanımı (+%12) çok daha verimlidir.',
+    p2Title: 'P2 Paralel Mimari (VAG e-DSG, BMW ZF)',
+    p2Desc: 'Elektrik motoru şanzıman girişine entegredir. Çok kademeli mekanik vites oranları (6-8. vites) sayesinde 130-140 km/s otoyol hızlarında motor devrini düşük tutarak yüksek verim sağlar.',
     benchmarksTitle: 'Popüler PHEV Modellerinin Karşılaştırması',
     benchmarksSubtitle: 'Avrupa ve Türkiye pazarında en çok satan modellerin WLTP ve gerçek yol menzilleri.',
     simulateBtn: 'Bu Modeli Hesapla',
@@ -158,6 +199,16 @@ const UI_TEXT: Record<string, {
     preconCardDesc: 'Podgrzanie kabiny podłączonego auta pozwala pobrać energię bezpośrednio z gniazdka, zachowując 100% energii baterii na jazdę.',
     sohCardTitle: 'Kondycja baterii w autach używanych (SOH)',
     sohCardDesc: '3-4 letnia hybryda ma zwykle około 90% pierwotnej pojemności. Sprawdź realne możliwości auta przed zakupem na rynku wtórnym.',
+    techTitle: 'Wpływ chemii baterii i architektury napędu hybrydowego',
+    techSubtitle: 'Jak ogniwa LFP vs NMC oraz skrzynie P2 e-DSG vs P1+P3 DHT kształtują zużycie energii.',
+    chemLfpTitle: 'LFP (Litowo-żelazowo-fosforanowe) - BYD, Jaecoo, Chery',
+    chemLfpDesc: 'Żywotność ponad 3000 cykli i minimalna degradacja po 4 latach (94% SOH). Zimą poniżej 0°C elektrolit stawia jednak większy opór bez wstępnego nagrzania.',
+    chemNmcTitle: 'NMC (Niklowo-manganowo-kobaltowe) - VAG, BMW, Mercedes',
+    chemNmcDesc: 'Wyższa gęstość energii i lepsza wydajność rozładowania w temperaturach ujemnych. Standardowa degradacja do ok. 90% pojemności po 3-4 latach.',
+    dhtTitle: 'P1+P3 DHT Super Hybrid (Jaecoo, Chery, BYD DM-i)',
+    dhtDesc: 'Napęd szeregowo-równoległy bez tradycyjnych strat tarcia w skrzyni biegów; do 12% wyższy odzysk energii z hamowania w mieście.',
+    p2Title: 'Architektura P2 Parallel (VAG e-DSG, BMW ZF)',
+    p2Desc: 'Silnik elektryczny zintegrowany ze skrzynią biegów. Długie przełożenia autostradowe (6-8 bieg) gwarantują wysoką efektywność przy 130-140 km/h.',
     benchmarksTitle: 'Porównanie popularnych modeli hybrydowych',
     benchmarksSubtitle: 'Zasięg katalogowy WLTP a realne wyniki na drodze.',
     simulateBtn: 'Symuluj ten model',
@@ -394,6 +445,106 @@ function RangeCalculatorContent({ cars }: Props) {
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {t.sohCardDesc}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 1.5: Battery Chemistry & Transmission Architecture Dynamics */}
+      <section className="space-y-6 pt-4">
+        <div className="text-center max-w-2xl mx-auto">
+          <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
+            <CpuChipIcon className="h-4 w-4" />
+            <span>Battery & Hybrid Engineering</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+            {t.techTitle}
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            {t.techSubtitle}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {/* LFP vs NMC Card */}
+          <div className="bg-white dark:bg-slate-800/90 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-xs space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-700/60">
+              <div className="flex items-center space-x-2">
+                <span className="text-xl">🔋</span>
+                <h3 className="font-bold text-slate-900 dark:text-white text-base">
+                  LFP vs NMC Chemistry
+                </h3>
+              </div>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300">
+                Cell Level
+              </span>
+            </div>
+
+            {/* LFP Subsection */}
+            <div className="p-3.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/40 space-y-1.5">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs font-bold text-amber-900 dark:text-amber-200">
+                  {t.chemLfpTitle}
+                </h4>
+                <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400">3,000+ Cycles</span>
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                {t.chemLfpDesc}
+              </p>
+            </div>
+
+            {/* NMC Subsection */}
+            <div className="p-3.5 rounded-xl bg-indigo-50/60 dark:bg-indigo-950/20 border border-indigo-200/60 dark:border-indigo-900/40 space-y-1.5">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs font-bold text-indigo-900 dark:text-indigo-200">
+                  {t.chemNmcTitle}
+                </h4>
+                <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-400">High Density</span>
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                {t.chemNmcDesc}
+              </p>
+            </div>
+          </div>
+
+          {/* DHT vs P2 Parallel Card */}
+          <div className="bg-white dark:bg-slate-800/90 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-xs space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-700/60">
+              <div className="flex items-center space-x-2">
+                <span className="text-xl">⚙️</span>
+                <h3 className="font-bold text-slate-900 dark:text-white text-base">
+                  DHT vs P2 Architecture
+                </h3>
+              </div>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950/70 text-purple-800 dark:text-purple-300">
+                Powertrain
+              </span>
+            </div>
+
+            {/* DHT Subsection */}
+            <div className="p-3.5 rounded-xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200/60 dark:border-purple-900/40 space-y-1.5">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs font-bold text-purple-900 dark:text-purple-200">
+                  {t.dhtTitle}
+                </h4>
+                <span className="text-[10px] font-bold text-purple-700 dark:text-purple-400">+12% Urban Regen</span>
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                {t.dhtDesc}
+              </p>
+            </div>
+
+            {/* P2 Subsection */}
+            <div className="p-3.5 rounded-xl bg-cyan-50/60 dark:bg-cyan-950/20 border border-cyan-200/60 dark:border-cyan-900/40 space-y-1.5">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs font-bold text-cyan-900 dark:text-cyan-200">
+                  {t.p2Title}
+                </h4>
+                <span className="text-[10px] font-bold text-cyan-700 dark:text-cyan-400">High-Speed Gear</span>
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                {t.p2Desc}
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -152,6 +152,12 @@ const TRANSLATIONS: Record<string, {
   minutes: string
   perYear: string
   resetDefaults: string
+  batteryChemLabel: string
+  powertrainLabel: string
+  lfpNote: string
+  nmcNote: string
+  dhtNote: string
+  p2Note: string
 }> = {
   en: {
     title: 'Range Simulator & Calculator',
@@ -215,7 +221,13 @@ const TRANSLATIONS: Record<string, {
     hours: 'hrs',
     minutes: 'mins',
     perYear: 'yr',
-    resetDefaults: 'Reset to defaults'
+    resetDefaults: 'Reset to defaults',
+    batteryChemLabel: 'Battery Chemistry',
+    powertrainLabel: 'Hybrid Architecture',
+    lfpNote: 'High cycle life (3000+ cycles), sensitive to sub-zero cold without pre-heating.',
+    nmcNote: 'Stable sub-zero winter discharge curve, high energy density.',
+    dhtNote: 'P1+P3 DHT: +12% city regenerative recovery, series EV drive.',
+    p2Note: 'P2 Parallel: Long motorway overdrive ratio preserves high-speed efficiency.'
   },
   de: {
     title: 'Reichweiten-Simulator & Rechner',
@@ -279,7 +291,13 @@ const TRANSLATIONS: Record<string, {
     hours: 'Std',
     minutes: 'Min',
     perYear: 'Jahr',
-    resetDefaults: 'Auf Standard zurücksetzen'
+    resetDefaults: 'Auf Standard zurücksetzen',
+    batteryChemLabel: 'Batteriechemie',
+    powertrainLabel: 'Hybrid-Architektur',
+    lfpNote: 'Hohe Zyklenfestigkeit (3000+ Zyklen), frostempfindlich ohne Vorklimatisierung.',
+    nmcNote: 'Stabilere Winter-Entladekurve unter 0°C, hohe Energiedichte.',
+    dhtNote: 'P1+P3 DHT: +12% innerstädtische Rekuperation, serieller E-Antrieb.',
+    p2Note: 'P2 Parallel: Langer Autobahn-Overdrive schont Effizienz bei hohem Tempo.'
   },
   tr: {
     title: 'Menzil Hesaplayıcı & Simülatör',
@@ -343,7 +361,13 @@ const TRANSLATIONS: Record<string, {
     hours: 'saat',
     minutes: 'dk',
     perYear: 'yıl',
-    resetDefaults: 'Varsayılana dön'
+    resetDefaults: 'Varsayılana dön',
+    batteryChemLabel: 'Batarya Kimyası',
+    powertrainLabel: 'Hibrit Mimarisi',
+    lfpNote: 'Uzun döngü ömrü (3000+ döngü), ön ısıtmasız kış soğuğuna daha hassas.',
+    nmcNote: 'Sıfırın altında daha kararlı kış deşarjı, yüksek enerji yoğunluğu.',
+    dhtNote: 'P1+P3 DHT: Şehir içi dur-kalkta +%12 rejenerasyon geri kazanımı.',
+    p2Note: 'P2 Paralel: Otoyol yüksek hızında şanzıman uzun dişli avantajı.'
   },
   pl: {
     title: 'Symulator Zasięgu & Kalkulator',
@@ -407,7 +431,13 @@ const TRANSLATIONS: Record<string, {
     hours: 'godz.',
     minutes: 'min',
     perYear: 'rok',
-    resetDefaults: 'Przywróć domyślne'
+    resetDefaults: 'Przywróć domyślne',
+    batteryChemLabel: 'Chemia baterii',
+    powertrainLabel: 'Architektura hybrydowa',
+    lfpNote: 'Wysoka żywotność (3000+ cykli), wrażliwość na mróz bez podgrzania.',
+    nmcNote: 'Stabilna praca na mrozie poniżej 0°C, wysoka gęstość energii.',
+    dhtNote: 'P1+P3 DHT: +12% miejskiej rekuperacji, płynny napęd szeregowy.',
+    p2Note: 'P2 Równoległy: Długie przełożenie autostradowe wspiera wysokie prędkości.'
   },
   fr: {
     title: "Simulateur d'Autonomie & Calculateur",
@@ -471,7 +501,13 @@ const TRANSLATIONS: Record<string, {
     hours: 'h',
     minutes: 'min',
     perYear: 'an',
-    resetDefaults: 'Réinitialiser'
+    resetDefaults: 'Réinitialiser',
+    batteryChemLabel: 'Chimie batterie',
+    powertrainLabel: 'Architecture hybride',
+    lfpNote: 'Durée de vie élevée (3000+ cycles), sensible au grand froid sans préchauffage.',
+    nmcNote: 'Décharge hivernale stable sous 0°C, haute densité énergétique.',
+    dhtNote: 'DHT P1+P3: +12% de récupération en ville, conduite série fluide.',
+    p2Note: 'P2 Parallèle: Rapport long sur autoroute pour limiter la surconsommation.'
   },
   es: {
     title: 'Simulador de Autonomía y Calculadora',
@@ -535,7 +571,13 @@ const TRANSLATIONS: Record<string, {
     hours: 'h',
     minutes: 'min',
     perYear: 'año',
-    resetDefaults: 'Restablecer'
+    resetDefaults: 'Restablecer',
+    batteryChemLabel: 'Química de batería',
+    powertrainLabel: 'Arquitectura híbrida',
+    lfpNote: 'Gran vida útil (3000+ ciclos), sensible al frío bajo cero sin precalentamiento.',
+    nmcNote: 'Descarga invernal más estable bajo 0°C, alta densidad energética.',
+    dhtNote: 'DHT P1+P3: +12% de recuperación regenerativa urbana, propulsión serie.',
+    p2Note: 'P2 Paralelo: Relación larga de autopista para alta velocidad.'
   }
 }
 
@@ -605,18 +647,75 @@ function RangeSimulator({
     })
   }, [allCars])
 
+  // Detect Battery Chemistry (LFP vs NMC/NCM)
+  const detectedChemistry = useMemo(() => {
+    const chem = (currentCar?.battery_chemistry || '').toUpperCase()
+    if (chem.includes('LFP') || chem.includes('IRON') || chem.includes('BLADE')) {
+      return 'LFP' // Lithium Iron Phosphate
+    }
+    const brand = (currentCar?.brand || '').toLowerCase()
+    if (brand.includes('byd')) {
+      return 'LFP' // BYD utilizes Blade LFP battery
+    }
+    return 'NMC' // Standard European high-nickel cathode (NMC / NCM / Li-Ion)
+  }, [currentCar])
+
+  // Detect Powertrain / Transmission Architecture (DHT vs P2 Parallel vs Power-Split)
+  const detectedArchitecture = useMemo(() => {
+    const brand = (currentCar?.brand || '').toLowerCase()
+    const model = (currentCar?.model || '').toLowerCase()
+
+    // 1. Dual-Motor Series-Parallel DHT (Dedicated Hybrid Transmission)
+    // Jaecoo Super Hybrid, Chery, BYD DM-i, Lynk & Co, Geely, Voyah, MG
+    if (
+      brand.includes('jaecoo') ||
+      brand.includes('chery') ||
+      brand.includes('byd') ||
+      brand.includes('lynk') ||
+      brand.includes('geely') ||
+      brand.includes('voyah') ||
+      brand.includes('mg') ||
+      model.includes('dht') ||
+      model.includes('super hybrid') ||
+      model.includes('dm-i')
+    ) {
+      return 'DHT' // P1+P3 Dual Motor Series-Parallel
+    }
+
+    // 2. Toyota / Lexus Power-Split Planetary e-CVT
+    if (brand.includes('toyota') || brand.includes('lexus')) {
+      return 'POWER_SPLIT' // e-CVT Planetary Gear
+    }
+
+    // 3. VAG Group & European P2 Parallel (e-DSG / 8-Speed Automatic)
+    // Volkswagen, Audi, Skoda, Cupra, BMW, Mercedes-Benz, Peugeot, Citroen, Opel, DS, Volvo, Porsche, Range Rover
+    return 'P2_PARALLEL' // P2 Transmission-Integrated Motor
+  }, [currentCar])
+
   // Comprehensive Range Calculation Effect
   useEffect(() => {
-    // 1. Battery SOH impact
-    const sohFactor = batterySoh / 100
+    // 1. Battery SOH & Aging curve adjusted by Chemistry
+    let effectiveSoh: number = batterySoh
+    if (detectedChemistry === 'LFP') {
+      // LFP has 3000-5000 cycle durability; retains higher SOH over 3-4 years
+      if (batterySoh === 90) effectiveSoh = 94
+      else if (batterySoh === 80) effectiveSoh = 87
+    }
+    const sohFactor = effectiveSoh / 100
     let range = activeBaseRange * sohFactor
 
-    // 2. Temperature & Pre-conditioning
+    // 2. Temperature & Pre-conditioning adjusted by Battery Chemistry
+    // LFP has higher electrolyte internal resistance below 0°C compared to NMC
+    const lfpColdFactor = 0.65
+    const nmcColdFactor = 0.72
+    const lfpMildColdFactor = 0.80
+    const nmcMildColdFactor = 0.85
+
     const tempEfficiency = activeSimData?.temperature_efficiency || {
       optimal_temp: 20,
-      cold_weather_factor: 0.70,
+      cold_weather_factor: detectedChemistry === 'LFP' ? lfpColdFactor : nmcColdFactor,
       hot_weather_factor: 0.80,
-      mild_cold_factor: 0.85,
+      mild_cold_factor: detectedChemistry === 'LFP' ? lfpMildColdFactor : nmcMildColdFactor,
       mild_hot_factor: 0.90
     }
 
@@ -631,10 +730,11 @@ function RangeSimulator({
       tempFactor = tempEfficiency.mild_hot_factor
     }
 
-    // Pre-conditioning recovery: both cold winter (<10°C) and hot summer (>=28°C)
+    // Pre-conditioning recovery: Bringing LFP cells to 20°C resolves electrolyte sluggishness
     if (preConditioned) {
       if (temperature <= 10) {
-        tempFactor = tempFactor + (1.0 - tempFactor) * 0.55
+        const recoveryWeight = detectedChemistry === 'LFP' ? 0.65 : 0.50
+        tempFactor = tempFactor + (1.0 - tempFactor) * recoveryWeight
       } else if (temperature >= 28) {
         tempFactor = tempFactor + (1.0 - tempFactor) * 0.40
       }
@@ -651,17 +751,21 @@ function RangeSimulator({
       range *= acFactor
     }
 
-    // 4. Highway Share & Cruising Speed Aerodynamic Drag
+    // 4. Highway Share & Cruising Speed adjusted by Powertrain Architecture
     const highwayRatio = highwayShare / 100
-    const cityFactor = 1.08 // Regenerative braking benefit
-    let speedFactor = 0.85 // Default 120 km/h
 
+    // City efficiency: P1+P3 DHT has superior direct-drive regeneration without DSG hydraulic drag
+    const cityFactor = detectedArchitecture === 'DHT' ? 1.13 : detectedArchitecture === 'POWER_SPLIT' ? 1.10 : 1.06
+
+    // Motorway speed factor: P2 systems (VAG DSG / BMW / Mercedes) have a tall overdrive gear (6th/7th/8th)
+    // while DHT direct motor has higher motor RPM and back-EMF at 140 km/h
+    let speedFactor = 0.85
     if (cruisingSpeed === 100) {
-      speedFactor = 0.98
+      speedFactor = detectedArchitecture === 'DHT' ? 0.97 : 0.98
     } else if (cruisingSpeed === 120) {
-      speedFactor = 0.85
+      speedFactor = detectedArchitecture === 'DHT' ? 0.84 : 0.86
     } else if (cruisingSpeed === 140) {
-      speedFactor = 0.68 // High aerodynamic penalty
+      speedFactor = detectedArchitecture === 'DHT' ? 0.64 : detectedArchitecture === 'POWER_SPLIT' ? 0.67 : 0.70
     }
 
     const routeEfficiency = (1 - highwayRatio) * cityFactor + highwayRatio * speedFactor
@@ -692,7 +796,9 @@ function RangeSimulator({
     batterySoh, 
     preConditioned, 
     payloadMode, 
-    activeSimData
+    activeSimData,
+    detectedChemistry,
+    detectedArchitecture
   ])
 
   // Charging Costs & Fuel Savings Calculations (Adjusted for local market currency)
@@ -1153,6 +1259,53 @@ function RangeSimulator({
                       <h4 className="text-lg font-bold text-slate-900 dark:text-white">
                         {currentCar.brand} {currentCar.model}
                       </h4>
+
+                      {/* Battery Chemistry & Powertrain Architecture Badges */}
+                      <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                        <span className={`inline-flex items-center space-x-1 px-2 py-0.5 rounded-md text-[10px] font-bold ${
+                          detectedChemistry === 'LFP'
+                            ? 'bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800'
+                            : 'bg-indigo-100 dark:bg-indigo-950/70 text-indigo-800 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
+                        }`}>
+                          <span>🔋</span>
+                          <span>{detectedChemistry === 'LFP' ? 'LFP (LiFePO4)' : 'NMC (Li-NiMnCo)'}</span>
+                        </span>
+
+                        <span className={`inline-flex items-center space-x-1 px-2 py-0.5 rounded-md text-[10px] font-bold ${
+                          detectedArchitecture === 'DHT'
+                            ? 'bg-purple-100 dark:bg-purple-950/70 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800'
+                            : detectedArchitecture === 'POWER_SPLIT'
+                            ? 'bg-sky-100 dark:bg-sky-950/70 text-sky-800 dark:text-sky-300 border border-sky-200 dark:border-sky-800'
+                            : 'bg-cyan-100 dark:bg-cyan-950/70 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800'
+                        }`}>
+                          <span>⚙️</span>
+                          <span>
+                            {detectedArchitecture === 'DHT'
+                              ? 'P1+P3 DHT'
+                              : detectedArchitecture === 'POWER_SPLIT'
+                              ? 'e-CVT Power-Split'
+                              : 'P2 e-DSG / Parallel'}
+                          </span>
+                        </span>
+                      </div>
+
+                      {/* Architecture & Chemistry Micro-Explanation */}
+                      <div className="mt-2.5 p-2 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700/80 text-[11px] space-y-1 text-slate-600 dark:text-slate-300">
+                        <p className="flex items-start space-x-1.5">
+                          <span className="shrink-0 text-amber-600 dark:text-amber-400 font-bold">●</span>
+                          <span>{detectedChemistry === 'LFP' ? t.lfpNote : t.nmcNote}</span>
+                        </p>
+                        <p className="flex items-start space-x-1.5">
+                          <span className="shrink-0 text-purple-600 dark:text-purple-400 font-bold">●</span>
+                          <span>
+                            {detectedArchitecture === 'DHT'
+                              ? t.dhtNote
+                              : detectedArchitecture === 'POWER_SPLIT'
+                              ? 'e-CVT: High planetary city efficiency, gradual highway draw.'
+                              : t.p2Note}
+                          </span>
+                        </p>
+                      </div>
                     </div>
 
                     {/* 3 Stats Grid */}
