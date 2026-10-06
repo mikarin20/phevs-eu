@@ -28,6 +28,66 @@ interface RangeSimulatorProps {
   onSelectCar?: (car: any) => void
 }
 
+interface MarketPricing {
+  currency: string
+  electricityPrice: number
+  fuelPrice: number
+  fuelConsumptionL100: number
+  electricityStep: number
+  fuelStep: number
+}
+
+const MARKET_PRICING: Record<string, MarketPricing> = {
+  tr: {
+    currency: '₺',
+    electricityPrice: 2.60, // ₺/kWh (Türkiye mesken elektrik tarifesi ortalaması)
+    fuelPrice: 44.50, // ₺/L (Türkiye Benzin 95 pompa fiyatı)
+    fuelConsumptionL100: 7.5,
+    electricityStep: 0.1,
+    fuelStep: 0.5
+  },
+  pl: {
+    currency: 'zł',
+    electricityPrice: 1.15, // zł/kWh (Taryfa domowa G11 Polska)
+    fuelPrice: 6.60, // zł/L (Benzyna bezołowiowa Pb95 Polska)
+    fuelConsumptionL100: 7.5,
+    electricityStep: 0.05,
+    fuelStep: 0.1
+  },
+  de: {
+    currency: '€',
+    electricityPrice: 0.36, // €/kWh (Haushaltsstrom Deutschland)
+    fuelPrice: 1.82, // €/L (Super E10 Deutschland)
+    fuelConsumptionL100: 7.5,
+    electricityStep: 0.01,
+    fuelStep: 0.05
+  },
+  fr: {
+    currency: '€',
+    electricityPrice: 0.25, // €/kWh (Tarif bleu réglementé EDF France)
+    fuelPrice: 1.85, // €/L (SP95-E10 France)
+    fuelConsumptionL100: 7.5,
+    electricityStep: 0.01,
+    fuelStep: 0.05
+  },
+  es: {
+    currency: '€',
+    electricityPrice: 0.22, // €/kWh (Tarifa media hogar España)
+    fuelPrice: 1.65, // €/L (Gasolina 95 España)
+    fuelConsumptionL100: 7.5,
+    electricityStep: 0.01,
+    fuelStep: 0.05
+  },
+  en: {
+    currency: '€',
+    electricityPrice: 0.28, // €/kWh (EU-27 average household tariff)
+    fuelPrice: 1.78, // €/L (Euro-super 95 EU average)
+    fuelConsumptionL100: 7.5,
+    electricityStep: 0.01,
+    fuelStep: 0.05
+  }
+}
+
 const TRANSLATIONS: Record<string, {
   title: string
   subtitle: string
@@ -89,6 +149,7 @@ const TRANSLATIONS: Record<string, {
   noDc: string
   hours: string
   minutes: string
+  perYear: string
 }> = {
   en: {
     title: 'Range Simulator & Calculator',
@@ -131,8 +192,8 @@ const TRANSLATIONS: Record<string, {
     netSavingsPerCharge: 'Net Savings / Charge',
     annualSavingsEst: 'Est. Annual Savings',
     editPrices: 'Edit Tariffs',
-    electricityTariff: 'Electricity Price (€/kWh)',
-    petrolPrice: 'Petrol Price (€/L)',
+    electricityTariff: 'Electricity Price',
+    petrolPrice: 'Petrol Price',
     cruisingSpeed: 'Highway Speed',
     drivingMode: 'Driving Mode',
     batterySoh: 'Battery Health (SOH)',
@@ -150,7 +211,8 @@ const TRANSLATIONS: Record<string, {
     dcFast: 'DC Fast Charge (10-80%)',
     noDc: 'No DC Support',
     hours: 'hrs',
-    minutes: 'mins'
+    minutes: 'mins',
+    perYear: 'yr'
   },
   de: {
     title: 'Reichweiten-Simulator & Rechner',
@@ -193,8 +255,8 @@ const TRANSLATIONS: Record<string, {
     netSavingsPerCharge: 'Netto-Ersparnis / Ladung',
     annualSavingsEst: 'Geschätzte Jahresersparnis',
     editPrices: 'Tarife anpassen',
-    electricityTariff: 'Strompreis (€/kWh)',
-    petrolPrice: 'Benzinpreis (€/L)',
+    electricityTariff: 'Strompreis',
+    petrolPrice: 'Benzinpreis',
     cruisingSpeed: 'Autobahntempo',
     drivingMode: 'Fahrmodus',
     batterySoh: 'Batteriezustand (SOH)',
@@ -212,7 +274,8 @@ const TRANSLATIONS: Record<string, {
     dcFast: 'DC-Schnellladen (10-80%)',
     noDc: 'Kein DC-Laden',
     hours: 'Std',
-    minutes: 'Min'
+    minutes: 'Min',
+    perYear: 'Jahr'
   },
   tr: {
     title: 'Menzil Hesaplayıcı & Simülatör',
@@ -255,8 +318,8 @@ const TRANSLATIONS: Record<string, {
     netSavingsPerCharge: 'Net Tasarruf / Dolum',
     annualSavingsEst: 'Yıllık Tahmini Tasarruf',
     editPrices: 'Fiyatları Düzenle',
-    electricityTariff: 'Elektrik Fiyatı (€/kWh)',
-    petrolPrice: 'Benzin Fiyatı (€/L)',
+    electricityTariff: 'Elektrik Fiyatı',
+    petrolPrice: 'Benzin Fiyatı',
     cruisingSpeed: 'Otoyol Seyir Hızı',
     drivingMode: 'Sürüş Modu',
     batterySoh: 'Batarya Sağlığı (SOH)',
@@ -274,7 +337,8 @@ const TRANSLATIONS: Record<string, {
     dcFast: 'DC Hızlı Şarj (%10-%80)',
     noDc: 'DC Desteklenmiyor',
     hours: 'saat',
-    minutes: 'dk'
+    minutes: 'dk',
+    perYear: 'yıl'
   },
   pl: {
     title: 'Symulator Zasięgu & Kalkulator',
@@ -317,8 +381,8 @@ const TRANSLATIONS: Record<string, {
     netSavingsPerCharge: 'Zysk na ładowanie',
     annualSavingsEst: 'Roczne oszczędności',
     editPrices: 'Edytuj stawki',
-    electricityTariff: 'Cena prądu (€/kWh)',
-    petrolPrice: 'Cena benzyny (€/L)',
+    electricityTariff: 'Cena prądu',
+    petrolPrice: 'Cena benzyny',
     cruisingSpeed: 'Prędkość autostradowa',
     drivingMode: 'Tryb jazdy',
     batterySoh: 'Kondycja baterii (SOH)',
@@ -336,7 +400,8 @@ const TRANSLATIONS: Record<string, {
     dcFast: 'Szybkie ładowanie DC (10-80%)',
     noDc: 'Brak DC',
     hours: 'godz.',
-    minutes: 'min'
+    minutes: 'min',
+    perYear: 'rok'
   },
   fr: {
     title: "Simulateur d'Autonomie & Calculateur",
@@ -379,8 +444,8 @@ const TRANSLATIONS: Record<string, {
     netSavingsPerCharge: 'Économie nette / charge',
     annualSavingsEst: 'Économie annuelle estimée',
     editPrices: 'Modifier tarifs',
-    electricityTariff: "Prix électricité (€/kWh)",
-    petrolPrice: 'Prix essence (€/L)',
+    electricityTariff: "Prix de l'électricité",
+    petrolPrice: 'Prix du carburant',
     cruisingSpeed: 'Vitesse autoroute',
     drivingMode: 'Mode de conduite',
     batterySoh: 'Santé de la batterie (SOH)',
@@ -398,7 +463,8 @@ const TRANSLATIONS: Record<string, {
     dcFast: 'Charge rapide DC (10-80%)',
     noDc: 'Pas de charge DC',
     hours: 'h',
-    minutes: 'min'
+    minutes: 'min',
+    perYear: 'an'
   },
   es: {
     title: 'Simulador de Autonomía y Calculadora',
@@ -441,8 +507,8 @@ const TRANSLATIONS: Record<string, {
     netSavingsPerCharge: 'Ahorro neto / carga',
     annualSavingsEst: 'Ahorro anual estimado',
     editPrices: 'Editar tarifas',
-    electricityTariff: 'Precio electricidad (€/kWh)',
-    petrolPrice: 'Precio gasolina (€/L)',
+    electricityTariff: 'Precio de la electricidad',
+    petrolPrice: 'Precio de la gasolina',
     cruisingSpeed: 'Velocidad autopista',
     drivingMode: 'Modo de conducción',
     batterySoh: 'Salud de batería (SOH)',
@@ -460,7 +526,8 @@ const TRANSLATIONS: Record<string, {
     dcFast: 'Carga rápida DC (10-80%)',
     noDc: 'Sin soporte DC',
     hours: 'h',
-    minutes: 'min'
+    minutes: 'min',
+    perYear: 'año'
   }
 }
 
@@ -485,16 +552,27 @@ function RangeSimulator({
   const [preConditioned, setPreConditioned] = useState(false)
   const [payloadMode, setPayloadMode] = useState<'driver' | 'family' | 'cargo'>('driver')
   
-  // Cost & Savings State
+  // Market defaults by language
+  const market = MARKET_PRICING[locale] || MARKET_PRICING.en
+
+  // Cost & Savings State - initialized dynamically from market
   const [showPriceEditor, setShowPriceEditor] = useState(false)
-  const [electricityPrice, setElectricityPrice] = useState(0.28) // €/kWh
-  const [fuelPrice, setFuelPrice] = useState(1.80) // €/L
-  const [fuelConsumptionL100, setFuelConsumptionL100] = useState(7.5) // L/100km
+  const [electricityPrice, setElectricityPrice] = useState(market.electricityPrice)
+  const [fuelPrice, setFuelPrice] = useState(market.fuelPrice)
+  const [fuelConsumptionL100, setFuelConsumptionL100] = useState(market.fuelConsumptionL100)
 
   const [calculatedRange, setCalculatedRange] = useState(baseRange)
   const [internalCar, setInternalCar] = useState<any>(selectedCar || null)
 
   const t = TRANSLATIONS[locale] || TRANSLATIONS.en
+
+  // Synchronize market pricing defaults whenever user changes language
+  useEffect(() => {
+    const marketConfig = MARKET_PRICING[locale] || MARKET_PRICING.en
+    setElectricityPrice(marketConfig.electricityPrice)
+    setFuelPrice(marketConfig.fuelPrice)
+    setFuelConsumptionL100(marketConfig.fuelConsumptionL100)
+  }, [locale])
 
   useEffect(() => {
     if (selectedCar) {
@@ -601,13 +679,22 @@ function RangeSimulator({
     activeSimData
   ])
 
-  // Charging Costs & Fuel Savings Calculations
+  // Charging Costs & Fuel Savings Calculations (Adjusted for local market currency)
   const effectiveCapacity = (activeBattery * (batterySoh / 100))
   const homeChargeCost = Number((effectiveCapacity * electricityPrice).toFixed(2))
   const petrolEquivalentCost = Number(((calculatedRange / 100) * fuelConsumptionL100 * fuelPrice).toFixed(2))
   const netSavingsPerCharge = Number(Math.max(0, petrolEquivalentCost - homeChargeCost).toFixed(2))
   // Estimated annual savings based on 15,000 km/year (70% electric)
   const annualSavings = Math.round((15000 * 0.70 / (calculatedRange || 60)) * netSavingsPerCharge)
+
+  // Formatting helpers
+  const formatPrice = (val: number) => {
+    return `${val.toFixed(2)} ${market.currency}`
+  }
+
+  const formatAnnual = (val: number) => {
+    return `${val.toLocaleString(locale === 'tr' ? 'tr-TR' : locale === 'pl' ? 'pl-PL' : 'de-DE')} ${market.currency}`
+  }
 
   // Estimated Charging Times
   const homeChargeHours = Math.round(((activeBattery * 1.15) / 2.3) * 10) / 10
@@ -756,7 +843,7 @@ function RangeSimulator({
                       </div>
                     </div>
 
-                    {/* FEATURE 1: Charging Cost & Savings Comparison Bar */}
+                    {/* FEATURE 1: Charging Cost & Savings Comparison Bar (Localized Currency) */}
                     <div className="pt-5 border-t border-slate-100 dark:border-slate-700/70">
                       <div className="flex items-center justify-between mb-3 px-1">
                         <div className="flex items-center space-x-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
@@ -773,31 +860,31 @@ function RangeSimulator({
                         </button>
                       </div>
 
-                      {/* Collapsible Tariff Editor */}
+                      {/* Collapsible Tariff Editor with Dynamic Currency */}
                       {showPriceEditor && (
-                        <div className="mb-4 p-3 bg-slate-50 dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-3 text-left animate-in fade-in duration-150">
+                        <div className="mb-4 p-3.5 bg-slate-50 dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-3 text-left animate-in fade-in duration-150">
                           <div>
                             <label className="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">
-                              {t.electricityTariff}
+                              {t.electricityTariff} ({market.currency}/kWh)
                             </label>
                             <input
                               type="number"
-                              step="0.01"
+                              step={market.electricityStep}
                               value={electricityPrice}
-                              onChange={(e) => setElectricityPrice(Number(e.target.value) || 0.28)}
-                              className="w-full px-2.5 py-1.5 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg"
+                              onChange={(e) => setElectricityPrice(Number(e.target.value) || market.electricityPrice)}
+                              className="w-full px-2.5 py-1.5 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500"
                             />
                           </div>
                           <div>
                             <label className="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">
-                              {t.petrolPrice}
+                              {t.petrolPrice} ({market.currency}/L)
                             </label>
                             <input
                               type="number"
-                              step="0.05"
+                              step={market.fuelStep}
                               value={fuelPrice}
-                              onChange={(e) => setFuelPrice(Number(e.target.value) || 1.80)}
-                              className="w-full px-2.5 py-1.5 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg"
+                              onChange={(e) => setFuelPrice(Number(e.target.value) || market.fuelPrice)}
+                              className="w-full px-2.5 py-1.5 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500"
                             />
                           </div>
                         </div>
@@ -810,7 +897,7 @@ function RangeSimulator({
                             {t.homeFullCharge}
                           </div>
                           <div className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-100 mt-0.5">
-                            {homeChargeCost.toFixed(2)} €
+                            {formatPrice(homeChargeCost)}
                           </div>
                           <div className="text-[10px] text-slate-400">
                             {effectiveCapacity.toFixed(1)} kWh
@@ -822,7 +909,7 @@ function RangeSimulator({
                             {t.petrolEquivalent}
                           </div>
                           <div className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-100 mt-0.5">
-                            {petrolEquivalentCost.toFixed(2)} €
+                            {formatPrice(petrolEquivalentCost)}
                           </div>
                           <div className="text-[10px] text-slate-400">
                             ~{fuelConsumptionL100} L/100km
@@ -834,10 +921,10 @@ function RangeSimulator({
                             {t.netSavingsPerCharge}
                           </div>
                           <div className="text-sm sm:text-base font-black text-emerald-600 dark:text-emerald-400 mt-0.5">
-                            +{netSavingsPerCharge.toFixed(2)} €
+                            +{formatPrice(netSavingsPerCharge)}
                           </div>
                           <div className="text-[10px] font-semibold text-emerald-600/80 dark:text-emerald-400/80">
-                            ~{annualSavings} € / {locale === 'tr' ? 'yıl' : locale === 'de' ? 'Jahr' : 'yr'}
+                            ~{formatAnnual(annualSavings)} / {t.perYear}
                           </div>
                         </div>
                       </div>
