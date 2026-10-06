@@ -155,6 +155,16 @@ export default function ModelLayout({
             "name": "Battery Capacity",
             "value": `${car.battery_kwh} kWh`
           },
+          ...(car.usable_battery_kwh ? [{
+            "@type": "PropertyValue",
+            "name": "Usable Battery Capacity",
+            "value": `${car.usable_battery_kwh} kWh`
+          }] : []),
+          ...(car.battery_chemistry ? [{
+            "@type": "PropertyValue",
+            "name": "Battery Chemistry",
+            "value": car.battery_chemistry
+          }] : []),
           {
             "@type": "PropertyValue",
             "name": "WLTP Fuel Consumption",
