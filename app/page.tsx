@@ -3683,7 +3683,12 @@ export default function Home() {
         baseRange={selectedCarForSimulator?.ev_range_km || 100}
         batteryCapacity={selectedCarForSimulator?.battery_kwh || 15}
         isOpen={isRangeSimulatorOpen}
-        onClose={() => setIsRangeSimulatorOpen(false)}
+        onClose={() => {
+          setIsRangeSimulatorOpen(false)
+          if (typeof window !== 'undefined' && (window.location.hash === '#range-calculator' || window.location.hash === '#calculator' || window.location.hash === '#simulator')) {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search)
+          }
+        }}
         selectedCar={selectedCarForSimulator}
         simulatorData={selectedCarForSimulator?.simulator_data}
         locale={selectedLanguage}

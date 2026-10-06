@@ -150,6 +150,7 @@ const TRANSLATIONS: Record<string, {
   hours: string
   minutes: string
   perYear: string
+  resetDefaults: string
 }> = {
   en: {
     title: 'Range Simulator & Calculator',
@@ -212,7 +213,8 @@ const TRANSLATIONS: Record<string, {
     noDc: 'No DC Support',
     hours: 'hrs',
     minutes: 'mins',
-    perYear: 'yr'
+    perYear: 'yr',
+    resetDefaults: 'Reset to defaults'
   },
   de: {
     title: 'Reichweiten-Simulator & Rechner',
@@ -275,7 +277,8 @@ const TRANSLATIONS: Record<string, {
     noDc: 'Kein DC-Laden',
     hours: 'Std',
     minutes: 'Min',
-    perYear: 'Jahr'
+    perYear: 'Jahr',
+    resetDefaults: 'Auf Standard zurücksetzen'
   },
   tr: {
     title: 'Menzil Hesaplayıcı & Simülatör',
@@ -326,7 +329,7 @@ const TRANSLATIONS: Record<string, {
     newCar: '%100 (Sıfır)',
     usedCar: '%90 (3-4 Yaş)',
     secondHand: '%80 (2. El)',
-    preConditioning: 'Kabloya takılıyken ön ısıtma yapıldı',
+    preConditioning: 'Kabloya takılıyken ön iklimlendirme',
     payloadLabel: 'Yolcu & Yük Durumu',
     payloadDriver: 'Yalnız Sürücü',
     payloadFamily: 'Aile (4 Kişi)',
@@ -338,7 +341,8 @@ const TRANSLATIONS: Record<string, {
     noDc: 'DC Desteklenmiyor',
     hours: 'saat',
     minutes: 'dk',
-    perYear: 'yıl'
+    perYear: 'yıl',
+    resetDefaults: 'Varsayılana dön'
   },
   pl: {
     title: 'Symulator Zasięgu & Kalkulator',
@@ -389,7 +393,7 @@ const TRANSLATIONS: Record<string, {
     newCar: '100% (Nowy)',
     usedCar: '90% (3-4 lata)',
     secondHand: '80% (Używany)',
-    preConditioning: 'Wstępnie ogrzany z gniazdka',
+    preConditioning: 'Wstępnie klimatyzowany z sieci',
     payloadLabel: 'Pasażerowie i bagaż',
     payloadDriver: 'Tylko kierowca',
     payloadFamily: 'Rodzina (4 os.)',
@@ -401,7 +405,8 @@ const TRANSLATIONS: Record<string, {
     noDc: 'Brak DC',
     hours: 'godz.',
     minutes: 'min',
-    perYear: 'rok'
+    perYear: 'rok',
+    resetDefaults: 'Przywróć domyślne'
   },
   fr: {
     title: "Simulateur d'Autonomie & Calculateur",
@@ -464,7 +469,8 @@ const TRANSLATIONS: Record<string, {
     noDc: 'Pas de charge DC',
     hours: 'h',
     minutes: 'min',
-    perYear: 'an'
+    perYear: 'an',
+    resetDefaults: 'Réinitialiser'
   },
   es: {
     title: 'Simulador de Autonomía y Calculadora',
@@ -527,7 +533,8 @@ const TRANSLATIONS: Record<string, {
     noDc: 'Sin soporte DC',
     hours: 'h',
     minutes: 'min',
-    perYear: 'año'
+    perYear: 'año',
+    resetDefaults: 'Restablecer'
   }
 }
 
@@ -622,16 +629,23 @@ function RangeSimulator({
       tempFactor = tempEfficiency.mild_hot_factor
     }
 
-    // Pre-conditioning recovery in cold weather
-    if (preConditioned && temperature <= 10) {
-      tempFactor = tempFactor + (1.0 - tempFactor) * 0.55
+    // Pre-conditioning recovery: both cold winter (<10°C) and hot summer (>=28°C)
+    if (preConditioned) {
+      if (temperature <= 10) {
+        tempFactor = tempFactor + (1.0 - tempFactor) * 0.55
+      } else if (temperature >= 28) {
+        tempFactor = tempFactor + (1.0 - tempFactor) * 0.40
+      }
     }
     range *= tempFactor
 
     // 3. Climate Control / AC
     if (acEnabled) {
-      // If pre-heated while plugged in, thermal load on battery is lower
-      const acFactor = preConditioned && temperature <= 10 ? 0.92 : (activeSimData?.ac_impact || 0.85)
+      // If pre-conditioned while plugged in, initial heating/cooling load is handled by the grid
+      let acFactor = activeSimData?.ac_impact || 0.85
+      if (preConditioned) {
+        acFactor = Math.min(0.93, acFactor + 0.07)
+      }
       range *= acFactor
     }
 
@@ -701,6 +715,36 @@ function RangeSimulator({
   const carAcPower = currentCar?.charging_capabilities?.ac_power || 7.4
   const wallboxHours = Math.round(((activeBattery * 1.10) / Math.min(carAcPower, 11)) * 10) / 10
   const dcPower = currentCar?.charging_capabilities?.dc_power
+  // Accurate DC charge time (10% to 80% SoC + tapering factor)
+  const dcTimeMinutes = dcPower 
+    ? Math.max(18, Math.min(45, Math.round(((activeBattery * 0.70) / dcPower) * 60 * 1.15)))
+    : null
+
+  // Handlers for price adjustments (safe against 0 / empty values for free/solar charging)
+  const handleElectricityPriceChange = (valStr: string) => {
+    if (valStr === '') {
+      setElectricityPrice(0)
+      return
+    }
+    const val = parseFloat(valStr)
+    setElectricityPrice(isNaN(val) ? 0 : Math.max(0, val))
+  }
+
+  const handleFuelPriceChange = (valStr: string) => {
+    if (valStr === '') {
+      setFuelPrice(0)
+      return
+    }
+    const val = parseFloat(valStr)
+    setFuelPrice(isNaN(val) ? 0 : Math.max(0, val))
+  }
+
+  const handleResetPrices = () => {
+    const marketConfig = MARKET_PRICING[locale] || MARKET_PRICING.en
+    setElectricityPrice(marketConfig.electricityPrice)
+    setFuelPrice(marketConfig.fuelPrice)
+    setFuelConsumptionL100(marketConfig.fuelConsumptionL100)
+  }
 
   const handleCarChange = (carId: string) => {
     const found = allCars.find(c => c.id === carId)
@@ -810,7 +854,7 @@ function RangeSimulator({
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:bg-slate-200'
                     }`}
                   >
-                    <span>{preConditioned ? '🔥' : '❄️'}</span>
+                    <span>{preConditioned ? (temperature > 20 ? '❄️' : '🔥') : '⚡'}</span>
                     <span>{t.preConditioning}</span>
                   </button>
                 </div>
@@ -862,30 +906,43 @@ function RangeSimulator({
 
                       {/* Collapsible Tariff Editor with Dynamic Currency */}
                       {showPriceEditor && (
-                        <div className="mb-4 p-3.5 bg-slate-50 dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-3 text-left animate-in fade-in duration-150">
-                          <div>
-                            <label className="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">
-                              {t.electricityTariff} ({market.currency}/kWh)
-                            </label>
-                            <input
-                              type="number"
-                              step={market.electricityStep}
-                              value={electricityPrice}
-                              onChange={(e) => setElectricityPrice(Number(e.target.value) || market.electricityPrice)}
-                              className="w-full px-2.5 py-1.5 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500"
-                            />
+                        <div className="mb-4 p-3.5 bg-slate-50 dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-700 text-left animate-in fade-in duration-150">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2.5">
+                            <div>
+                              <label className="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">
+                                {t.electricityTariff} ({market.currency}/kWh)
+                              </label>
+                              <input
+                                type="number"
+                                step={market.electricityStep}
+                                min="0"
+                                value={electricityPrice}
+                                onChange={(e) => handleElectricityPriceChange(e.target.value)}
+                                className="w-full px-2.5 py-1.5 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">
+                                {t.petrolPrice} ({market.currency}/L)
+                              </label>
+                              <input
+                                type="number"
+                                step={market.fuelStep}
+                                min="0"
+                                value={fuelPrice}
+                                onChange={(e) => handleFuelPriceChange(e.target.value)}
+                                className="w-full px-2.5 py-1.5 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500"
+                              />
+                            </div>
                           </div>
-                          <div>
-                            <label className="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">
-                              {t.petrolPrice} ({market.currency}/L)
-                            </label>
-                            <input
-                              type="number"
-                              step={market.fuelStep}
-                              value={fuelPrice}
-                              onChange={(e) => setFuelPrice(Number(e.target.value) || market.fuelPrice)}
-                              className="w-full px-2.5 py-1.5 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500"
-                            />
+                          <div className="flex justify-end">
+                            <button
+                              type="button"
+                              onClick={handleResetPrices}
+                              className="text-[11px] font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:underline cursor-pointer"
+                            >
+                              ↺ {t.resetDefaults}
+                            </button>
                           </div>
                         </div>
                       )}
@@ -1196,7 +1253,7 @@ function RangeSimulator({
                         <div className="flex items-center justify-between p-2 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60">
                           <span className="text-slate-600 dark:text-slate-400">{t.dcFast}</span>
                           <span className={`font-bold ${dcPower ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'}`}>
-                            {dcPower ? `~25-30 ${t.minutes} (${dcPower} kW)` : t.noDc}
+                            {dcPower ? `~${dcTimeMinutes} ${t.minutes} (${dcPower} kW)` : t.noDc}
                           </span>
                         </div>
                       </div>
