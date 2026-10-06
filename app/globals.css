@@ -566,22 +566,36 @@ small {
 
 /* Responsive Table Styling */
 .blog-table-wrapper {
-  margin: 2.5rem 0;
+  margin: 2rem 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 0.875rem;
   border: 1px solid var(--blog-table-border);
-  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.06);
   background: var(--blog-table-bg);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.blog-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.blog-table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.blog-table-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
 }
 
 .blog-table-wrapper table {
   width: 100%;
-  min-width: 740px;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .blog-table-wrapper thead {
@@ -590,24 +604,49 @@ small {
 }
 
 .blog-table-wrapper th {
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 0.875rem;
   font-weight: 700;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--blog-table-header-text);
   white-space: nowrap;
 }
 
 .blog-table-wrapper td {
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 0.875rem;
   border-bottom: 1px solid var(--blog-table-border);
   color: var(--blog-text-color);
   vertical-align: middle;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* Rank column */
+.blog-table-wrapper th:first-child,
+.blog-table-wrapper td:first-child {
+  width: 1%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Model column & bold names never break mid-word */
+.blog-table-wrapper td:nth-child(2) {
+  white-space: nowrap;
+  font-weight: 600;
 }
 
 .blog-table-wrapper td strong {
   color: var(--blog-strong-color) !important;
+  white-space: nowrap;
+}
+
+/* Data metrics columns */
+.blog-table-wrapper td:nth-child(3),
+.blog-table-wrapper th:nth-child(3),
+.blog-table-wrapper td:nth-child(4),
+.blog-table-wrapper th:nth-child(4) {
+  white-space: nowrap;
 }
 
 .blog-table-wrapper tbody tr:last-child td {

@@ -313,7 +313,7 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
 
         {/* Article Container */}
         <article className="py-8 sm:py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl lg:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Editorial Header Section (Title & Meta) */}
             <header className="mb-8">
@@ -379,7 +379,7 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
             </div>
 
             {/* WordPress-style Editorial Paper Card Container */}
-            <div className="bg-white dark:bg-[#131b2e] rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-6 sm:p-10 md:p-14 mb-12">
+            <div className="bg-white dark:bg-[#131b2e] rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-5 sm:p-8 md:p-10 mb-12">
               {/* AI & LLM Extractable Executive Summary Box */}
               {excerpt && (
                 <div className="mb-8 p-5 sm:p-6 rounded-xl bg-slate-50 dark:bg-slate-800/60 border-l-4 border-blue-600 dark:border-blue-500 shadow-sm">
