@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 import RangeSimulator from '@/components/RangeSimulator'
 import {
   SparklesIcon,
@@ -30,6 +29,8 @@ interface Car {
   battery_kwh: number
   price_eur?: number
   image_url: string
+  slug?: string
+  battery_chemistry?: string
   simulator_data?: any
   charging_capabilities?: {
     ac_power?: number
@@ -39,6 +40,7 @@ interface Car {
 
 interface Props {
   cars: Car[]
+  initialCarId?: string
 }
 
 const UI_TEXT: Record<string, {
@@ -261,10 +263,7 @@ const FAQS = [
   }
 ]
 
-function RangeCalculatorContent({ cars }: Props) {
-  const searchParams = useSearchParams()
-  const carParam = searchParams.get('car')
-
+function RangeCalculatorContent({ cars, initialCarId }: Props) {
   // Language management
   const [locale, setLocale] = useState<string>('en')
   useEffect(() => {
@@ -281,17 +280,31 @@ function RangeCalculatorContent({ cars }: Props) {
     }
   }
 
-  // Pre-select car based on URL query (?car=peugeot-3008-phev) or default to popular model
+  // Pre-select car based on initialCarId prop or default to popular model
   const initialCar = useMemo(() => {
-    if (carParam) {
-      const found = cars.find(c => c.id === carParam || c.id.includes(carParam))
+    if (initialCarId) {
+      const found = cars.find(c => c.id === initialCarId || c.slug === initialCarId || c.id.includes(initialCarId))
       if (found) return found
     }
     return cars.find(c => c.id === 'peugeot-3008-phev' || c.id === 'toyota-prius-phev') || cars[0]
-  }, [carParam, cars])
+  }, [initialCarId, cars])
 
   const [activeCar, setActiveCar] = useState<Car>(initialCar)
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
+
+  // Listen to client-side query string if loaded directly or on back/forward
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      const paramCar = params.get('car')
+      if (paramCar && paramCar !== activeCar?.id && paramCar !== activeCar?.slug) {
+        const found = cars.find(c => c.id === paramCar || c.slug === paramCar || c.id.includes(paramCar))
+        if (found) {
+          setActiveCar(found)
+        }
+      }
+    }
+  }, [cars])
 
   const t = UI_TEXT[locale] || UI_TEXT.en
 
@@ -313,7 +326,17 @@ function RangeCalculatorContent({ cars }: Props) {
   const handleSelectBenchmark = (car: Car) => {
     setActiveCar(car)
     if (typeof window !== 'undefined') {
+      const targetSlug = car.slug || car.id
+      window.history.replaceState(null, '', `?car=${targetSlug}`)
       window.scrollTo({ top: 180, behavior: 'smooth' })
+    }
+  }
+
+  const handleSimulatorSelectCar = (car: Car) => {
+    setActiveCar(car)
+    if (typeof window !== 'undefined') {
+      const targetSlug = car.slug || car.id
+      window.history.replaceState(null, '', `?car=${targetSlug}`)
     }
   }
 
@@ -383,7 +406,7 @@ function RangeCalculatorContent({ cars }: Props) {
           simulatorData={activeCar?.simulator_data}
           locale={locale}
           allCars={cars}
-          onSelectCar={(car) => setActiveCar(car)}
+          onSelectCar={handleSimulatorSelectCar}
         />
       </section>
 
@@ -584,8 +607,12 @@ function RangeCalculatorContent({ cars }: Props) {
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60 font-medium text-slate-800 dark:text-slate-200">
                 {benchmarkModels.map((car) => {
-                  const estWinter = Math.round(car.ev_range_km * 0.70)
-                  const estHighway = Math.round(car.ev_range_km * 0.78)
+                  const isLfp = (car.battery_chemistry || '').toUpperCase().includes('LFP') || (car.brand || '').toLowerCase().includes('byd')
+                  const isDht = (car.brand || '').toLowerCase().includes('jaecoo') || (car.brand || '').toLowerCase().includes('byd') || (car.brand || '').toLowerCase().includes('mg') || (car.brand || '').toLowerCase().includes('chery')
+                  const winterFactor = isLfp ? 0.65 : 0.72
+                  const highwayFactor = isDht ? 0.74 : 0.80
+                  const estWinter = Math.round(car.ev_range_km * winterFactor)
+                  const estHighway = Math.round(car.ev_range_km * highwayFactor)
                   return (
                     <tr key={car.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40 transition-colors">
                       <td className="py-3 px-4 font-bold text-slate-900 dark:text-white">
@@ -721,10 +748,6 @@ function RangeCalculatorContent({ cars }: Props) {
   )
 }
 
-export default function RangeCalculatorPageClient({ cars }: Props) {
-  return (
-    <Suspense fallback={<div className="py-20 text-center text-slate-500">Loading simulator...</div>}>
-      <RangeCalculatorContent cars={cars} />
-    </Suspense>
-  )
+export default function RangeCalculatorPageClient({ cars, initialCarId }: Props) {
+  return <RangeCalculatorContent cars={cars} initialCarId={initialCarId} />
 }

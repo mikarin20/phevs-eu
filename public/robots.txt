@@ -1,15 +1,16 @@
 # PHEVs.eu Robots.txt
-# Europe's most comprehensive PHEV comparison platform
+# Europe's most comprehensive Plug-in Hybrid (PHEV) database & comparison platform
 
 User-agent: *
 Allow: /
 Allow: /models/
+Allow: /range-calculator/
+Allow: /longest-range-phev/
 Allow: /compare/
-Allow: /demo/
 Allow: /brands/
 Allow: /segments/
-Allow: /about/
 Allow: /blog/
+Allow: /about/
 Allow: /privacy/
 Allow: /terms/
 Allow: /cookies/
@@ -20,13 +21,10 @@ Disallow: /private/
 Disallow: /*.json$
 Disallow: /scripts/
 
-# Sitemaps
-Sitemap: https://www.phevs.eu/sitemap.xml
-
 # Crawl Delay
 Crawl-delay: 1
 
-# Specific bots optimization
+# Search Engine Crawlers
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
@@ -43,19 +41,36 @@ User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 1
 
-# Block AI training bots
+# AI & LLM Assistants (Generative Engine Optimization / Citations)
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
-User-agent: CCBot
-Disallow: /
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
 User-agent: Claude-Web
-Disallow: /
+Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.phevs.eu/sitemap.xml

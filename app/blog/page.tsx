@@ -86,7 +86,7 @@ interface BlogPageProps {
 }
 
 export default function BlogPage({ searchParams }: BlogPageProps) {
-  const locale = (searchParams?.lang as Locale) || 'tr'
+  const locale = (searchParams?.lang as Locale) || 'en'
   const t = getTranslations(locale)
   const posts = (blogData as BlogPost[]).filter(isPostLive)
 

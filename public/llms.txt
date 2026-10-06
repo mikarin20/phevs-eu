@@ -1,0 +1,24 @@
+# PHEVs.eu
+
+> European Plug-in Hybrid (PHEV) Database, Real-World Range Calculator & BiK Tax Intelligence
+
+PHEVs.eu is the premier independent technical authority on Plug-in Hybrid Electric Vehicles (PHEVs) in Europe. The platform provides verifiable technical specifications, real-world cold-weather range simulations, AC/DC charging curves, powertrain architecture breakdowns (DHT vs P2 parallel), and corporate Benefit-in-Kind (BiK) taxation calculations across European markets.
+
+## Primary Hubs & Tools
+
+- [PHEV Range Calculator & Commute Simulator](https://www.phevs.eu/range-calculator/): Interactive physics simulator calculating real-world electric range factoring ambient temperature (-10°C to 35°C), HVAC heating/AC draw, motorway cruising speeds (up to 140 km/h), stop-and-go congestion, and battery chemistry (LFP vs NMC).
+- [Longest Range PHEVs (100+ km)](https://www.phevs.eu/longest-range-phev/): Curated ranking of plug-in hybrids exceeding 100 km WLTP electric range available in European markets (Volkswagen Passat eHybrid, Skoda Superb iV, Mercedes C 300 e, BYD Seal U DM-i, etc.).
+- [Complete PHEV Models Catalog](https://www.phevs.eu/models/): Full directory of 130+ European plug-in hybrids with detailed battery capacities, usable kWh, CCS2 DC fast charging capabilities, and trunk volumes.
+- [Model Comparisons](https://www.phevs.eu/compare/): Direct head-to-head comparison tool for electric range, charging speed, power output, and total cost of ownership.
+- [Automotive & BiK Guides](https://www.phevs.eu/blog/): High-depth technical editorial analysis on WLTP vs real-world gaps, battery degradation, DHT multi-mode gearboxes, and European fleet tax deductions (Germany 0.5% rule, UK BiK bands, Netherlands, Poland).
+
+## Technical Overview
+
+- Battery Chemistries: Lithium Iron Phosphate (LFP) vs Nickel Manganese Cobalt (NMC).
+- Powertrain Types: Dedicated Hybrid Transmission (DHT - dual-motor series/parallel) vs P2 Parallel (single-motor integrated into transmission).
+- Charging: Single/three-phase AC (3.7 kW - 11 kW) and CCS Combo 2 DC fast charging (up to 50 kW).
+- Standard: WLTP (Worldwide Harmonized Light Vehicles Test Procedure) supplemented with empirical cold-weather telemetry.
+
+## Sitemaps
+
+- XML Sitemap: https://www.phevs.eu/sitemap.xml

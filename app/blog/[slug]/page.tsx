@@ -71,7 +71,7 @@ function getBlogPost(slug: string): BlogPost | undefined {
 }
 
 export async function generateMetadata({ params, searchParams }: BlogDetailProps): Promise<Metadata> {
-  const locale = (searchParams?.lang as 'en' | 'tr' | 'de' | 'pl') || 'tr'
+  const locale = (searchParams?.lang as 'en' | 'tr' | 'de' | 'pl') || 'en'
   const post = getBlogPost(params.slug)
 
   if (!post) {
@@ -153,7 +153,7 @@ export async function generateStaticParams() {
 }
 
 export default function BlogDetailPage({ params, searchParams }: BlogDetailProps) {
-  const locale = (searchParams?.lang as Locale) || 'tr'
+  const locale = (searchParams?.lang as Locale) || 'en'
   const t = getTranslations(locale)
   const post = getBlogPost(params.slug)
   const isPreview = (searchParams as any)?.preview === 'true'
