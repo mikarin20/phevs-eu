@@ -132,7 +132,7 @@
     "author_de": "PHEVs.eu Redaktion",
     "author_pl": "Dział Analiz PHEVs.eu",
     "published_at": "2026-10-07T08:00:00.000Z",
-    "updated_at": "2026-10-07T08:00:00.000Z",
+    "updated_at": "2026-10-08",
     "category": "Pazar & Analiz",
     "category_en": "Market & Analysis",
     "category_de": "Markt & Analysen",
@@ -152,7 +152,7 @@
     "related_cars": [
       "byd-seal-u-dm-i"
     ],
-    "status": "draft",
+    "status": "published",
     "content": "Avrupa plug-in hibrit pazarında BYD Seal U DM-i'nin ulaştığı satış başarısı, Çinli üreticilerin kıtaya bakışını kalıcı olarak değiştirdi. Şimdi ise Chery International'ın premium alt markaları **Omoda** ve **Jaecoo**, Avrupa pazarına en güçlü ve sofistike amiral gemilerini sürüyor: **Omoda 9 PHEV** ve **Jaecoo 8 Super Hybrid**.\n\nPeki bu yeni nesil modeller Avrupa'nın mevcut lideri BYD Seal U karşısında neler vadediyor? İşte detaylı teknik karşılaştırma.\n\n---\n\n### Teknik Veriler Karşılaştırması\n\n| Özellik | Omoda 9 PHEV | Jaecoo 8 Super Hybrid | BYD Seal U DM-i |\n| :--- | :--- | :--- | :--- |\n| **Segment** | D-SUV Coupé | D-SUV 7 Koltuklu | D-SUV Aile |\n| **Hibrit Mimarisi** | 3-İleri DHT + Çift E-Motor | 3-İleri DHT + AWD E-Motorlar | E-CVT (Seri/Paralel DM-i) |\n| **Toplam Sistem Gücü** | ~450+ PS (AWD) | **~450+ PS (AWD)** | 218 - 324 PS |\n| **Batarya Kapasitesi** | **34.4 kWh (CATL M3P)** | **34.4 kWh** | 18.3 kWh (LFP Blade) |\n| **WLTP Saf Elektrik Menzili**| **150+ km** | **145+ km** | 80 km |\n| **DC Hızlı Şarj** | Var (60 kW+) | Var (60 kW+) | Var (18 kW DC) |\n| **Uzunluk** | 4.820 mm | 4.820 mm | 4.775 mm |\n| **İç Mekan & Kokpit** | Çift 12.3 inç kavisli ekran | 24.6 inç ultra geniş ekran + HUD | 15.6 inç dönebilen ekran |\n\n---\n\n### 1. Batarya ve Şanzıman Teknolojisi: 3-İleri DHT Devrimi\nGeleneksel hibritlerde otoyol hızlarında yüksek yakıt tüketimi görülürken, Chery grubunun geliştirdiği **3-İleri DHT (Dedicated Hybrid Transmission)** şanzıman, benzinli motorun 3 farklı dişli oranıyla doğrudan tekerleklere güç iletmesini sağlar. Bu sayede 140 km/s otoyol hızlarında bile devir düşük tutulur ve yüksek yakıt tasarrufu sağlanır.\n\n### 2. 34.4 kWh Dev Batarya: Küçük Bir Elektrikli Araç Kadar Kapasite\nHem Omoda 9 hem de Jaecoo 8'de sunulan 34.4 kWh'lik batarya paketi, piyasadaki standart bir Renault Zoe veya Dacia Spring'in toplam bataryasına yakındır. Bu sayede araçlar, kullanıcılarına **gerçek hayatta 120-140 km** arasında sıfır emisyonlu şehir içi sürüş imkânı tanır.\n\n---\n\n### Sonuç\nOmoda 9 ve Jaecoo 8 Super Hybrid, agresif fiyat politikası ve 34.4 kWh'lik dev bataryalarıyla 2026 yılında Avrupa PHEV pazarında rekabet çıtasını bir basamak daha yukarı taşıyacaktır.",
     "content_en": "The phenomenal commercial success of the BYD Seal U DM-i in Europe has emboldened Chinese automakers to deploy their most technologically formidable flagship models: the **Omoda 9 PHEV** and the rugged 7-seat **Jaecoo 8 Super Hybrid**.\n\nHere is an analysis of how their 3-speed DHT transmissions and massive 34.4 kWh battery architectures challenge the established European benchmark.",
     "content_de": "Nach dem Erfolg des BYD Seal U DM-i schickt der Chery-Konzern mit dem **Omoda 9** und dem **Jaecoo 8 Super Hybrid** seine fortschrittlichsten PHEV-Flaggschiffe nach Europa. Ein detaillierter Blick auf 3-Gang-DHT-Getriebe, 34,4-kWh-Akkus und die neuen Marktchancen.",
