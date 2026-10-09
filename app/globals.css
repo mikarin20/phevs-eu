@@ -398,29 +398,8 @@ small {
   --blog-code-color: #0f172a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --blog-text-color: #e2e8f0;
-    --blog-heading-color: #ffffff;
-    --blog-strong-color: #ffffff;
-    --blog-link-color: #60a5fa;
-    --blog-link-hover: #93c5fd;
-    --blog-border-color: #334155;
-    --blog-callout-bg: #1e293b;
-    --blog-callout-border: #60a5fa;
-    --blog-table-bg: #0f172a;
-    --blog-table-header-bg: #1e293b;
-    --blog-table-header-text: #ffffff;
-    --blog-table-border: #334155;
-    --blog-table-row-odd: #0f172a;
-    --blog-table-row-even: #162032;
-    --blog-table-row-hover: #1e2e4a;
-    --blog-code-bg: #1e293b;
-    --blog-code-color: #f1f5f9;
-  }
-}
-
-.dark {
+.dark,
+.dark .blog-content {
   --blog-text-color: #e2e8f0;
   --blog-heading-color: #ffffff;
   --blog-strong-color: #ffffff;

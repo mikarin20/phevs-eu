@@ -127,6 +127,24 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         
+        {/* Synchronize saved theme immediately to prevent FOUC */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var t = localStorage.getItem('phevs-theme');
+                  if (t === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else if (t === 'light') {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch(e) {}
+              })();
+            `
+          }}
+        />
+        
         {/* next/font already preloads fonts; explicit preload removed */}
         
         {/* AdSense Script - lazyOnload to prevent blocking main thread and improve PageSpeed score */}
