@@ -1804,22 +1804,35 @@ export default function Home() {
 
             {/* Center Navigation - Sleek Modern Pill Capsule */}
             <nav className="hidden lg:flex items-center p-1 bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 rounded-full backdrop-blur-md shadow-xs space-x-1">
-              <a 
-                href={`/faq${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
-                className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
+              <Link
+                href="/models"
+                className="text-xs font-semibold px-3.5 py-2 rounded-full transition-all duration-200 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
               >
-                {t.navigation.guide || 'PHEV Guide'}
-              </a>
+                Models
+              </Link>
+              <Link
+                href="/real-world-telemetry"
+                className="text-xs font-semibold px-3.5 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-emerald-700 dark:text-emerald-400 hover:text-emerald-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs group"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Real Telemetry</span>
+              </Link>
               <Link
                 href="/range-calculator"
-                className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs cursor-pointer group"
+                className="text-xs font-semibold px-3.5 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs cursor-pointer group"
               >
                 <CalculatorIcon className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
                 <span>{t.navigation.calculator || 'Range Calculator'}</span>
               </Link>
               <a 
+                href={`/faq${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
+                className="text-xs font-semibold px-3.5 py-2 rounded-full transition-all duration-200 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
+              >
+                {t.navigation.guide || 'PHEV Guide'}
+              </a>
+              <a 
                 href="/videos" 
-                className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs group"
+                className="text-xs font-semibold px-3.5 py-2 rounded-full transition-all duration-200 flex items-center space-x-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs group"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -1829,7 +1842,7 @@ export default function Home() {
               </a>
               <a 
                 href="/blog" 
-                className="text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
+                className="text-xs font-semibold px-3.5 py-2 rounded-full transition-all duration-200 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
               >
                 {t.navigation.phevNews}
               </a>
@@ -1995,6 +2008,21 @@ export default function Home() {
           <div className="px-4 py-4 space-y-4">
             {/* Primary Navigation */}
             <div className="space-y-1.5">
+              <Link
+                href="/models"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-200/80 dark:border-slate-700"
+              >
+                All PHEV Models (Catalog)
+              </Link>
+              <Link
+                href="/real-world-telemetry"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200/80 dark:border-emerald-800"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Real-World Telemetry</span>
+              </Link>
               <Link
                 href={`/faq${selectedLanguage !== 'en' ? `?lang=${selectedLanguage}` : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}

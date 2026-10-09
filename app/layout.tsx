@@ -224,6 +224,9 @@ export default function RootLayout({
                   <div>
                     <h4 className="text-sm font-semibold text-white mb-3">Resources</h4>
                     <ul className="space-y-2 text-xs text-slate-400">
+                      <li><a href="/real-world-telemetry" className="hover:text-white transition-colors text-emerald-400 font-semibold" title="Real-World Owner Telemetry & Consumption Benchmarks">Real-World Owner Telemetry</a></li>
+                      <li><a href="/range-calculator" className="hover:text-white transition-colors text-cyan-400 font-medium" title="Interactive PHEV Range Simulator & Calculator">Range Simulator & Calculator</a></li>
+                      <li><a href="/models" className="hover:text-white transition-colors" title="All PHEV Models Directory">All PHEV Models (Catalog)</a></li>
                       <li><a href="/longest-range-phev" className="hover:text-white transition-colors" title="Longest Range PHEVs (100+ km)">Longest Range PHEVs (100+ km)</a></li>
                       <li><a href="/phev-with-dc-charging" className="hover:text-white transition-colors" title="PHEVs with DC Fast Charging">DC Fast Charging PHEVs</a></li>
                       <li><a href="/cheapest-phev-europe" className="hover:text-white transition-colors" title="Cheapest PHEVs in Europe">Cheapest PHEVs Under €45k</a></li>

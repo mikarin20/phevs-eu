@@ -120,6 +120,27 @@ const nextConfig = {
         destination: 'https://pub-698245a4878b4d6596cd62322fdc9c75.r2.dev/placeholder-car.jpg',
         permanent: true,
       },
+      // Community Telemetry yönlendirmeleri
+      {
+        source: '/community-reports',
+        destination: '/real-world-telemetry/',
+        permanent: true,
+      },
+      {
+        source: '/community-reports/',
+        destination: '/real-world-telemetry/',
+        permanent: true,
+      },
+      {
+        source: '/telemetry',
+        destination: '/real-world-telemetry/',
+        permanent: true,
+      },
+      {
+        source: '/telemetry/',
+        destination: '/real-world-telemetry/',
+        permanent: true,
+      },
       // Range Calculator yönlendirmeleri (Yeni müstakil sayfaya 301 yönlendirme)
       {
         source: '/range-simulator',

@@ -4,6 +4,7 @@
 User-agent: *
 Allow: /
 Allow: /models/
+Allow: /real-world-telemetry/
 Allow: /range-calculator/
 Allow: /longest-range-phev/
 Allow: /compare/

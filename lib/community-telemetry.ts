@@ -33,6 +33,10 @@ export interface TelemetryAggregate {
 
 const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0)
 
+export function getAllReports(): CommunityReport[] {
+  return reportsData as CommunityReport[]
+}
+
 export function getReportsForCar(car: { id?: string; slug?: string }): CommunityReport[] {
   const keys = [car.slug, car.id].filter(Boolean).map(s => String(s).toLowerCase())
   return (reportsData as CommunityReport[]).filter(r => {
