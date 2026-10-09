@@ -5,6 +5,7 @@ import BlogImage from '@/components/BlogImage'
 import { getTranslations, type Locale } from '@/lib/i18n'
 import LanguageSelector from '@/components/LanguageSelector'
 import { isPostLive } from '@/lib/blog'
+import HybridLogo from '@/components/HybridLogo'
 
 export const metadata: Metadata = {
   title: 'PHEV News, Real-World Tests & Technology Analysis',
@@ -140,18 +141,87 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-slate-800 dark:to-slate-900 text-white py-16">
+
+      {/* Sticky Top Header Navigation */}
+      <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 border-b border-slate-200/80 dark:border-slate-800/80 shadow-xs transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center relative">
-            {/* Language Selector - Mobilde üstte, desktop'ta sağ üstte */}
-            <div className="flex justify-center mb-4 sm:mb-0 sm:absolute sm:top-0 sm:right-0">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            {/* Logo and Brand */}
+            <Link href={`/?lang=${locale}`} className="flex items-center space-x-2.5 sm:space-x-3 group shrink-0">
+              <div className="relative">
+                <HybridLogo size="md" className="text-slate-800 dark:text-slate-100 group-hover:scale-105 transition-transform" />
+                <div className="absolute -top-0.5 -right-0.5 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-sm shadow-emerald-500/50"></div>
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-baseline space-x-0.5 sm:space-x-1">
+                  <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">PHEVs</span>
+                  <span className="text-xl sm:text-2xl font-light text-blue-600 dark:text-blue-400">.eu</span>
+                </div>
+                <span className="hidden sm:block text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wide -mt-0.5">Europe&apos;s PHEV Platform</span>
+              </div>
+            </Link>
+
+            {/* Center Navigation - Pill Capsule */}
+            <nav className="hidden lg:flex items-center p-1 bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 rounded-full backdrop-blur-md shadow-xs space-x-1">
+              <Link
+                href={`/models${locale !== 'en' ? `?lang=${locale}` : ''}`}
+                className="text-xs font-semibold px-3.5 py-1.5 rounded-full transition-all text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
+              >
+                Models
+              </Link>
+              <Link
+                href="/real-world-telemetry"
+                className="text-xs font-semibold px-3.5 py-1.5 rounded-full transition-all flex items-center space-x-1.5 text-emerald-700 dark:text-emerald-400 hover:text-emerald-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs group"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Real Telemetry</span>
+              </Link>
+              <Link
+                href="/range-calculator"
+                className="text-xs font-semibold px-3.5 py-1.5 rounded-full transition-all text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
+              >
+                Range Calculator
+              </Link>
+              <Link
+                href={`/faq${locale !== 'en' ? `?lang=${locale}` : ''}`}
+                className="text-xs font-semibold px-3.5 py-1.5 rounded-full transition-all text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
+              >
+                PHEV Guide
+              </Link>
+              <Link
+                href="/videos"
+                className="text-xs font-semibold px-3.5 py-1.5 rounded-full transition-all text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 hover:shadow-xs"
+              >
+                Videos
+              </Link>
+              <span className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-blue-600 text-white shadow-xs">
+                PHEV News
+              </span>
+            </nav>
+
+            {/* Right Side: Back to Home + Language Selector */}
+            <div className="flex items-center space-x-2 sm:space-x-3 shrink-0">
+              <Link
+                href={`/?lang=${locale}`}
+                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200/80 dark:border-slate-700/80"
+              >
+                <span>←</span>
+                <span>{locale === 'tr' ? 'Ana Sayfa' : locale === 'de' ? 'Startseite' : locale === 'pl' ? 'Strona główna' : 'Home'}</span>
+              </Link>
               <LanguageSelector currentLocale={locale} basePath="/blog" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 mt-4 sm:mt-0">
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-slate-800 dark:to-slate-900 text-white py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
               {t.blog.title}
             </h1>
-            <p className="text-xl text-blue-100 dark:text-slate-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-blue-100 dark:text-slate-300 max-w-3xl mx-auto">
               {t.blog.subtitle}
             </p>
           </div>

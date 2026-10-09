@@ -294,8 +294,10 @@ export default function BlogDetailPage({ params, searchParams }: BlogDetailProps
               
               {/* Breadcrumb Links */}
               <nav className="flex items-center space-x-2 text-sm flex-wrap sm:order-1 min-w-0">
-                <Link href={`/?lang=${locale}`} className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap">
-                  {t.blog.home}
+                <Link href={`/?lang=${locale}`} className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-semibold transition-colors whitespace-nowrap flex items-center gap-1.5">
+                  <span className="font-extrabold text-slate-900 dark:text-white">PHEVs<span className="text-blue-600 dark:text-blue-400">.eu</span></span>
+                  <span className="text-slate-400 font-normal">/</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-normal hover:text-blue-600">{t.blog.home}</span>
                 </Link>
                 <span className="text-slate-400">/</span>
                 <Link href={`/blog?lang=${locale}`} className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap">

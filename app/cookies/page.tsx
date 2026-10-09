@@ -1,8 +1,27 @@
+import Link from 'next/link'
+import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+
 export default function CookiesPage() {
   return (
-    <div className="min-h-screen bg-gray-200 dark:bg-slate-900 text-gray-900 dark:text-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold mb-8">Cookie Policy</h1>
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      {/* Sticky Header */}
+      <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <Link
+            href="/"
+            className="inline-flex items-center space-x-2 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-sm transition-colors group"
+          >
+            <ArrowLeftIcon className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            <span>Back to Home</span>
+          </Link>
+          <Link href="/" className="font-bold text-slate-900 dark:text-white text-base">
+            PHEVs<span className="text-blue-600 dark:text-blue-400">.eu</span>
+          </Link>
+        </div>
+      </header>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6">Cookie Policy</h1>
         
         <div className="prose prose-lg max-w-none dark:prose-invert">
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-8">
