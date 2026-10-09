@@ -6,6 +6,18 @@ export const config = {
 }
 
 export async function middleware(request: NextRequest) {
+  const isDev = process.env.NODE_ENV === 'development'
+  const isAdminExplicitlyEnabled = process.env.ENABLE_ADMIN_PANEL === 'true'
+  const isAllowed = isDev || isAdminExplicitlyEnabled
+
+  // In production (unless ENABLE_ADMIN_PANEL is explicitly set to true), completely hide admin routes with 404
+  if (!isAllowed) {
+    if (request.nextUrl.pathname.startsWith('/api/admin')) {
+      return NextResponse.json({ error: 'Not found' }, { status: 404 })
+    }
+    return NextResponse.rewrite(new URL('/_not-found', request.url), { status: 404 })
+  }
+
   const { pathname } = request.nextUrl
   const normalizedPathname = pathname.replace(/\/+$/, '') || '/'
 
