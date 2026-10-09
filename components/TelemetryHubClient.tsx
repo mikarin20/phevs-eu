@@ -17,7 +17,12 @@ import {
   Table as TableIcon,
   LayoutGrid,
   ChevronRight,
-  Calculator
+  Calculator,
+  PlusCircle,
+  X,
+  Send,
+  Sparkles,
+  ClipboardCheck
 } from 'lucide-react'
 import type { CommunityReport } from '@/lib/community-telemetry'
 
@@ -33,6 +38,22 @@ export default function TelemetryHubClient({ initialReports }: Props) {
   const [onlyHeatPump, setOnlyHeatPump] = useState(false)
   const [sortBy, setSortBy] = useState<'default' | 'odometer' | 'summer' | 'fuel' | 'lifetime'>('default')
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards')
+
+  // Survey Modal state
+  const [isSurveyModalOpen, setIsSurveyModalOpen] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    modelName: '',
+    year: '2024',
+    realEvRangeSummerKm: '',
+    realEvRangeWinterKm: '',
+    emptyBatteryFuelL100: '',
+    odometerKm: '',
+    electricConsumptionKwh: '',
+    hasHeatPump: 'Unsure',
+    ownerHandle: '',
+    note: ''
+  })
 
   // Extract unique brands from model names
   const brands = useMemo(() => {
@@ -89,7 +110,29 @@ export default function TelemetryHubClient({ initialReports }: Props) {
     return { totalKm, avgSummer, avgWinter, avgEmptyFuel, avgWinterLoss }
   }, [filteredReports])
 
-  const submitHref = `mailto:info@phevs.eu?subject=${encodeURIComponent('PHEVs.eu Community Telemetry Submission')}`
+  const handleSurveySubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const subject = `PHEV Telemetry Submission: ${formData.modelName || 'New Owner Report'}`
+    const body = `Vehicle: ${formData.modelName} (${formData.year})
+Owner / Reddit Handle: ${formData.ownerHandle || 'Anonymous'}
+Warm EV Range: ${formData.realEvRangeSummerKm} km
+Winter EV Range: ${formData.realEvRangeWinterKm} km
+Empty Battery Fuel: ${formData.emptyBatteryFuelL100} L/100km
+Odometer Logged: ${formData.odometerKm} km
+Electric Efficiency: ${formData.electricConsumptionKwh || 'N/A'} kWh/100km
+Heat Pump: ${formData.hasHeatPump}
+Driving Notes:
+${formData.note}
+`
+    const mailtoLink = `mailto:info@phevs.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = mailtoLink
+
+    setIsSubmitted(true)
+  }
+
+  // Google Form fallback URL (can be customized or configured)
+  const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScPHEV-telemetry-survey/viewform'
 
   return (
     <div className="space-y-8">
@@ -152,9 +195,9 @@ export default function TelemetryHubClient({ initialReports }: Props) {
         </div>
       </div>
 
-      {/* Control Bar: Search, Filters, Sorting & View Toggle */}
+      {/* Control Bar: Search, Filters, Sorting & CTA Button */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xs space-y-4">
-        <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">
           {/* Search Box */}
           <div className="relative flex-1">
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -211,6 +254,19 @@ export default function TelemetryHubClient({ initialReports }: Props) {
                 <span>Table</span>
               </button>
             </div>
+
+            {/* Prominent CTA Button: Contribute Telemetry */}
+            <button
+              type="button"
+              onClick={() => {
+                setIsSubmitted(false)
+                setIsSurveyModalOpen(true)
+              }}
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs transition-all active:scale-95 group"
+            >
+              <PlusCircle className="w-4 h-4 group-hover:rotate-90 transition-transform" />
+              <span>Contribute your telemetry (2-min anonymous survey)</span>
+            </button>
           </div>
         </div>
 
@@ -450,21 +506,245 @@ export default function TelemetryHubClient({ initialReports }: Props) {
         </Link>
       </div>
 
-      {/* Submission CTA box */}
-      <div className="bg-slate-50 dark:bg-slate-900/60 border border-dashed border-slate-300 dark:border-slate-700 rounded-2xl p-8 text-center space-y-3">
-        <h4 className="text-base font-bold text-slate-900 dark:text-white">
-          Drive a Plug-in Hybrid? Share your real numbers with the community.
-        </h4>
-        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-          Help fellow drivers across Europe by sharing your real warm/winter electric range, highway empty-battery fuel consumption, and long-term odometer readings.
-        </p>
-        <a
-          href={submitHref}
-          className="inline-block mt-2 px-6 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-xs sm:text-sm hover:opacity-90 transition-opacity"
-        >
-          Submit Your Telemetry (Email) →
-        </a>
+      {/* Submission Featured CTA Box */}
+      <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-3xl space-y-4">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Grow Europe&apos;s Independent PHEV Telemetry</span>
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            Drive a Plug-in Hybrid? Contribute your real numbers.
+          </h3>
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Help other prospective drivers see through manufacturer marketing brochure figures. It takes less than 2 minutes to submit your summer/winter electric range and highway fuel consumption.
+          </p>
+          <div className="pt-2 flex flex-wrap items-center gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                setIsSubmitted(false)
+                setIsSurveyModalOpen(true)
+              }}
+              className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-md transition-all active:scale-95"
+            >
+              <PlusCircle className="w-5 h-5" />
+              <span>Contribute your telemetry (2-min anonymous survey)</span>
+            </button>
+            <a
+              href={`mailto:info@phevs.eu?subject=${encodeURIComponent('PHEV Telemetry Submission')}`}
+              className="inline-flex items-center space-x-1.5 px-4 py-3 rounded-xl border border-slate-700 hover:border-slate-500 bg-slate-800/60 text-slate-300 hover:text-white font-medium text-xs sm:text-sm transition-colors"
+            >
+              <span>Email Report Directly</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
       </div>
+
+      {/* Interactive 2-Min Survey Modal */}
+      {isSurveyModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
+          <div
+            className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 text-slate-900 dark:text-slate-100"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="survey-modal-title"
+          >
+            {/* Modal Header */}
+            <div className="flex items-start justify-between">
+              <div>
+                <div className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  <ClipboardCheck className="w-4 h-4" />
+                  <span>2-Minute Anonymous Survey</span>
+                </div>
+                <h3 id="survey-modal-title" className="mt-1 text-xl sm:text-2xl font-bold tracking-tight">
+                  Contribute Your PHEV Telemetry
+                </h3>
+                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  Your submissions are reviewed and anonymously credited to help European drivers make informed decisions.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsSurveyModalOpen(false)}
+                className="p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                aria-label="Close survey modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {isSubmitted ? (
+              <div className="py-8 text-center space-y-4">
+                <div className="w-16 h-16 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h4 className="text-xl font-bold">Thank You For Contributing!</h4>
+                <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto">
+                  Your telemetry has been drafted. Once verified, it will be added to the public benchmarks database and attribution table.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setIsSurveyModalOpen(false)}
+                  className="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSurveySubmit} className="space-y-4 text-xs sm:text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-semibold mb-1 text-slate-700 dark:text-slate-300">
+                      Vehicle Model <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Toyota RAV4 Prime, BMW 330e"
+                      value={formData.modelName}
+                      onChange={e => setFormData({ ...formData, modelName: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold mb-1 text-slate-700 dark:text-slate-300">
+                      Model Year
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. 2024"
+                      value={formData.year}
+                      onChange={e => setFormData({ ...formData, year: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block font-semibold mb-1 text-emerald-700 dark:text-emerald-400">
+                      Warm/Summer EV (km) <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      placeholder="e.g. 75"
+                      value={formData.realEvRangeSummerKm}
+                      onChange={e => setFormData({ ...formData, realEvRangeSummerKm: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold mb-1 text-cyan-700 dark:text-cyan-400">
+                      Winter EV (km) <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      placeholder="e.g. 52"
+                      value={formData.realEvRangeWinterKm}
+                      onChange={e => setFormData({ ...formData, realEvRangeWinterKm: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-cyan-500 focus:outline-hidden font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold mb-1 text-amber-700 dark:text-amber-400">
+                      Empty Battery (L/100km) <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      required
+                      placeholder="e.g. 6.2"
+                      value={formData.emptyBatteryFuelL100}
+                      onChange={e => setFormData({ ...formData, emptyBatteryFuelL100: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-amber-500 focus:outline-hidden font-mono"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-semibold mb-1 text-slate-700 dark:text-slate-300">
+                      Odometer Logged (km)
+                    </label>
+                    <input
+                      type="number"
+                      placeholder="e.g. 25000"
+                      value={formData.odometerKm}
+                      onChange={e => setFormData({ ...formData, odometerKm: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-hidden font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold mb-1 text-slate-700 dark:text-slate-300">
+                      Heat Pump Equipped?
+                    </label>
+                    <select
+                      value={formData.hasHeatPump}
+                      onChange={e => setFormData({ ...formData, hasHeatPump: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
+                    >
+                      <option value="Yes">Yes, equipped with Heat Pump</option>
+                      <option value="No">No Heat Pump (Electric/PTC or ICE only)</option>
+                      <option value="Unsure">Unsure / Don&apos;t know</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-semibold mb-1 text-slate-700 dark:text-slate-300">
+                    Your Real-World Driving Observations &amp; Commute Notes
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="Describe your commute speed, heating habits, highway consumption, or battery degradation..."
+                    value={formData.note}
+                    onChange={e => setFormData({ ...formData, note: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-semibold mb-1 text-slate-700 dark:text-slate-300">
+                    Username / Contributor Handle (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Reddit u/username or Anonymous"
+                    value={formData.ownerHandle}
+                    onChange={e => setFormData({ ...formData, ownerHandle: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
+                  />
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-md active:scale-95"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Submit Telemetry</span>
+                  </button>
+
+                  <a
+                    href={googleFormUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 inline-flex items-center space-x-1"
+                  >
+                    <span>Prefer Google Forms? Open survey form</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
