@@ -9,6 +9,8 @@ import EuroNCAPStars from '@/components/EuroNCAPStars'
 import RangeSimulator from '@/components/RangeSimulator'
 import TaxSimulatorModal from '@/components/TaxSimulatorModal'
 import ModelEditorialSummary from '@/components/ModelEditorialSummary'
+import CommunityTelemetry from '@/components/CommunityTelemetry'
+import { getReportsForCar } from '@/lib/community-telemetry'
 
 interface Car {
   id: string
@@ -1066,6 +1068,9 @@ export default function ModelDetail({ params }: ModelDetailProps) {
             })}
           </div>
         </div>
+
+        {/* Verified Owner Telemetry (renders only if reports exist) */}
+        <CommunityTelemetry modelName={`${car.brand} ${car.model}`} reports={getReportsForCar(car)} />
 
         {/* GEO & AI Optimized Semantic Key Specs Table */}
         <section id="key-specs" className="mt-12 bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8">

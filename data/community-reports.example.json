@@ -1,0 +1,20 @@
+[
+  {
+    "id": "example-1",
+    "carSlug": "kia-ceed-sw-phev",
+    "modelName": "Kia Ceed SW PHEV",
+    "ownerHandle": "REPLACE_WITH_REAL_HANDLE",
+    "source": "Reddit",
+    "sourceUrl": "https://www.reddit.com/r/PHEV/comments/REPLACE/",
+    "odometerKm": 0,
+    "realEvRangeSummerKm": 0,
+    "realEvRangeWinterKm": 0,
+    "wltpRangeKm": 0,
+    "electricConsumptionKwh": 0,
+    "emptyBatteryFuelL100": 0,
+    "combinedLifetimeL100": 0,
+    "note": "Paste a short real quote from the owner here.",
+    "verifiedDate": "2026-10",
+    "hasHeatPump": false
+  }
+]

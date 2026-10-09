@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import carsData from '@/data/cars.json'
 import { getImageUrl, getAbsoluteImageUrl } from '@/lib/image-url'
+import { getReportsForCar, buildTelemetryJsonLd } from '@/lib/community-telemetry'
 
 function findCar(id: string) {
   if (!id) return null
@@ -217,6 +218,9 @@ export default function ModelLayout({
       }
     ]
   }
+
+  const telemetryNodes = buildTelemetryJsonLd(`${car.brand} ${car.model}`, getReportsForCar(car), modelUrl)
+  if (telemetryNodes) carSchema['@graph'].push(...(telemetryNodes as any[]))
 
   return (
     <>
