@@ -529,13 +529,16 @@ export default function ModelDetail({ params }: ModelDetailProps) {
     setIsClient(true)
   }, [])
 
-  // Dil algılama - client-side'da çalışır
+  // Dil ve Tema algılama - client-side'da çalışır
   useEffect(() => {
     if (!isClient) return
 
     const savedLanguage = localStorage.getItem('phevs-language') || 'en'
     console.log('Model page - Language from localStorage:', savedLanguage)
     setSelectedLanguage(savedLanguage)
+
+    const savedTheme = localStorage.getItem('phevs-theme') || (document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+    setSelectedTheme(savedTheme)
 
     // Dil değişikliklerini dinle
     const handleLanguageChange = () => {
@@ -544,15 +547,25 @@ export default function ModelDetail({ params }: ModelDetailProps) {
       setSelectedLanguage(newLanguage)
     }
 
+    // Tema değişikliklerini dinle
+    const handleThemeChange = () => {
+      const newTheme = localStorage.getItem('phevs-theme') || (document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+      setSelectedTheme(newTheme)
+    }
+
     // Storage event listener ekle
     window.addEventListener('storage', handleLanguageChange)
+    window.addEventListener('storage', handleThemeChange)
     
-    // Custom event listener ekle (aynı tab içinde dil değişikliği için)
+    // Custom event listener ekle
     window.addEventListener('languageChanged', handleLanguageChange)
+    window.addEventListener('themeChanged', handleThemeChange)
 
     return () => {
       window.removeEventListener('storage', handleLanguageChange)
+      window.removeEventListener('storage', handleThemeChange)
       window.removeEventListener('languageChanged', handleLanguageChange)
+      window.removeEventListener('themeChanged', handleThemeChange)
     }
   }, [isClient])
 
@@ -772,7 +785,31 @@ export default function ModelDetail({ params }: ModelDetailProps) {
               <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent truncate">{car.brand} {car.model}</h1>
               <p className="text-sm text-slate-500">{car.year} • {car.segment}</p>
             </div>
-            <div className="w-16 sm:w-24"></div>
+            <div className="w-16 sm:w-24 flex items-center justify-end">
+              <button
+                type="button"
+                onClick={() => {
+                  const nextTheme = selectedTheme === 'dark' ? 'light' : 'dark'
+                  setSelectedTheme(nextTheme)
+                  localStorage.setItem('phevs-theme', nextTheme)
+                  if (nextTheme === 'dark') {
+                    document.documentElement.classList.add('dark')
+                  } else {
+                    document.documentElement.classList.remove('dark')
+                  }
+                  window.dispatchEvent(new Event('themeChanged'))
+                }}
+                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 border ${
+                  selectedTheme === 'dark'
+                    ? 'border-slate-700 bg-slate-800 text-yellow-300 hover:bg-slate-700'
+                    : 'border-slate-200 bg-white/80 text-slate-700 hover:bg-white shadow-xs'
+                }`}
+                title={selectedTheme === 'dark' ? t.lightTheme : t.darkTheme}
+                aria-label="Toggle Theme"
+              >
+                <span className="text-sm">{selectedTheme === 'dark' ? '☀️' : '🌙'}</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -1070,7 +1107,7 @@ export default function ModelDetail({ params }: ModelDetailProps) {
         </div>
 
         {/* Verified Owner Telemetry (renders only if reports exist) */}
-        <CommunityTelemetry modelName={`${car.brand} ${car.model}`} reports={getReportsForCar(car)} />
+        <CommunityTelemetry modelName={`${car.brand} ${car.model}`} reports={getReportsForCar(car)} theme={selectedTheme} />
 
         {/* GEO & AI Optimized Semantic Key Specs Table */}
         <section id="key-specs" className="mt-12 bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8">

@@ -546,6 +546,15 @@ export default function Home() {
       const savedViewMode = localStorage.getItem('phevs-view-mode')
       const savedSort = localStorage.getItem('phevs-sort')
       const savedRecentlyViewed = localStorage.getItem('phevs-recently-viewed')
+      const savedTheme = localStorage.getItem('phevs-theme')
+      if (savedTheme) {
+        setSelectedTheme(savedTheme)
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      }
     
     if (savedFilters) {
       try {
@@ -840,6 +849,18 @@ export default function Home() {
   const handleSortChange = (newSort: SortOption) => {
     setSortBy(newSort)
     localStorage.setItem('phevs-sort', newSort)
+  }
+
+  // Tema değiştir
+  const handleThemeChange = (newTheme: string) => {
+    setSelectedTheme(newTheme)
+    localStorage.setItem('phevs-theme', newTheme)
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+    window.dispatchEvent(new Event('themeChanged'))
   }
 
   // Tema ve çeviri objeleri
@@ -1854,7 +1875,7 @@ export default function Home() {
                   {Object.entries(themes).map(([key, theme]) => (
                     <button
                       key={key}
-                      onClick={() => setSelectedTheme(key)}
+                      onClick={() => handleThemeChange(key)}
                       className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
                         selectedTheme === key
                           ? 'bg-white dark:bg-slate-700 shadow-xs ring-1 ring-slate-900/5 dark:ring-white/10'
@@ -1940,7 +1961,7 @@ export default function Home() {
                 {/* Mobile Theme Toggle */}
                 <button
                   type="button"
-                  onClick={() => setSelectedTheme(selectedTheme === 'dark' ? 'light' : 'dark')}
+                  onClick={() => handleThemeChange(selectedTheme === 'dark' ? 'light' : 'dark')}
                   className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-sm active:scale-95 transition-all shadow-2xs"
                   title={selectedTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                   aria-label="Toggle Theme"
