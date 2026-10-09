@@ -3,6 +3,7 @@ import reportsData from '@/data/community-reports.json'
 export interface CommunityReport {
   id: string
   carSlug: string
+  carAliases?: string[]
   modelName: string
   ownerHandle: string
   source: 'Reddit' | 'Facebook' | 'Motor-Talk' | 'Direct Submission'
@@ -34,7 +35,11 @@ const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.le
 
 export function getReportsForCar(car: { id?: string; slug?: string }): CommunityReport[] {
   const keys = [car.slug, car.id].filter(Boolean).map(s => String(s).toLowerCase())
-  return (reportsData as CommunityReport[]).filter(r => keys.includes(r.carSlug.toLowerCase()))
+  return (reportsData as CommunityReport[]).filter(r => {
+    const slugMatch = keys.includes(r.carSlug.toLowerCase())
+    const aliasMatch = r.carAliases?.some(a => keys.includes(a.toLowerCase()))
+    return slugMatch || Boolean(aliasMatch)
+  })
 }
 
 export function aggregateReports(reports: CommunityReport[]): TelemetryAggregate | null {
