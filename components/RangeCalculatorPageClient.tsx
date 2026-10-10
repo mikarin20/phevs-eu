@@ -16,9 +16,10 @@ import {
   ArrowRightIcon,
   CheckCircleIcon,
   AdjustmentsHorizontalIcon,
-  ChartBarIcon,
-  CpuChipIcon
+  CpuChipIcon,
+  MapPinIcon
 } from '@heroicons/react/24/outline'
+import PHEVRouteSimulator from '@/components/PHEVRouteSimulator'
 
 interface Car {
   id: string
@@ -290,6 +291,7 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
   }, [initialCarId, cars])
 
   const [activeCar, setActiveCar] = useState<Car>(initialCar)
+  const [activeSimulatorTab, setActiveSimulatorTab] = useState<'route' | 'parametric'>('route')
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
   const [initialParams, setInitialParams] = useState<{
     temp?: number
@@ -423,27 +425,65 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
         </p>
       </div>
 
+      {/* Mode Switcher Tabs */}
+      <div className="flex justify-center pt-2">
+        <div className="inline-flex p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 shadow-inner max-w-full overflow-x-auto">
+          <button
+            type="button"
+            onClick={() => setActiveSimulatorTab('route')}
+            className={`px-4 sm:px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap ${
+              activeSimulatorTab === 'route'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <MapPinIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>Route-Based Journey Simulator (A → B)</span>
+            <span className="px-1.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-400/30">
+              New
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveSimulatorTab('parametric')}
+            className={`px-4 sm:px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap ${
+              activeSimulatorTab === 'parametric'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <AdjustmentsHorizontalIcon className="w-4 h-4 text-blue-400 shrink-0" />
+            <span>Parametric Physics Simulator</span>
+          </button>
+        </div>
+      </div>
+
       {/* Main Interactive Embedded Range Simulator */}
       <section id="simulator-interactive" aria-label="Interactive Range Simulator">
-        <RangeSimulator
-          key={`${activeCar?.id}-${initialParams.temp}-${initialParams.ac}`}
-          isEmbedded={true}
-          syncUrl={true}
-          baseRange={activeCar?.ev_range_km || 100}
-          batteryCapacity={activeCar?.battery_kwh || 18}
-          selectedCar={activeCar}
-          simulatorData={activeCar?.simulator_data}
-          locale={locale}
-          allCars={cars}
-          onSelectCar={handleSimulatorSelectCar}
-          initialTemp={initialParams.temp}
-          initialAc={initialParams.ac}
-          initialHighwayShare={initialParams.hwy}
-          initialCruisingSpeed={initialParams.speed}
-          initialDrivingMode={initialParams.mode}
-          initialBatterySoh={initialParams.soh}
-          initialPreConditioned={initialParams.precon}
-        />
+        {activeSimulatorTab === 'route' ? (
+          <PHEVRouteSimulator initialCarId={activeCar?.id} locale={locale} />
+        ) : (
+          <RangeSimulator
+            key={`${activeCar?.id}-${initialParams.temp}-${initialParams.ac}`}
+            isEmbedded={true}
+            syncUrl={true}
+            baseRange={activeCar?.ev_range_km || 100}
+            batteryCapacity={activeCar?.battery_kwh || 18}
+            selectedCar={activeCar}
+            simulatorData={activeCar?.simulator_data}
+            locale={locale}
+            allCars={cars}
+            onSelectCar={handleSimulatorSelectCar}
+            initialTemp={initialParams.temp}
+            initialAc={initialParams.ac}
+            initialHighwayShare={initialParams.hwy}
+            initialCruisingSpeed={initialParams.speed}
+            initialDrivingMode={initialParams.mode}
+            initialBatterySoh={initialParams.soh}
+            initialPreConditioned={initialParams.precon}
+          />
+        )}
       </section>
 
       {/* Section 1: In-Depth Technical & Aerodynamic Guide */}

@@ -64,7 +64,15 @@
       "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/019.jpg",
       "/images/cars/brands/alfa-romeo/tonale-plug-in-hybrid/1.jpg"
     ],
-    "usable_battery_kwh": 13
+    "usable_battery_kwh": 13,
+    "usableBatteryKwh": 13,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 60,
+    "name": "Alfa Romeo Tonale"
   },
   {
     "id": "audi-1",
@@ -131,7 +139,15 @@
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 21.6
+    "usable_battery_kwh": 21.6,
+    "usableBatteryKwh": 21.6,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 133,
+    "name": "Audi A3 Sportback 40 TFSI e"
   },
   {
     "id": "new-4",
@@ -201,7 +217,15 @@
       "/images/cars/brands/audi/a5-limousine-e-hybrid/019.jpg",
       "/images/cars/brands/audi/a5-limousine-e-hybrid/020.jpg"
     ],
-    "usable_battery_kwh": 21.8
+    "usable_battery_kwh": 21.8,
+    "usableBatteryKwh": 21.8,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 108,
+    "name": "Audi A5 Limousine"
   },
   {
     "id": "audi-5",
@@ -274,7 +298,15 @@
     "dc_charging_supported": false,
     "dc_max_power_kw": null,
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 21.8
+    "usable_battery_kwh": 21.8,
+    "usableBatteryKwh": 21.8,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 106,
+    "name": "Audi A6 Limousine 55 TFSI e Quattro"
   },
   {
     "id": "new-6",
@@ -339,7 +371,15 @@
       "/images/cars/brands/audi/a7-sportback-tfsi-e/018.jpg",
       "/images/cars/brands/audi/a7-sportback-tfsi-e/019.jpg"
     ],
-    "usable_battery_kwh": 15
+    "usable_battery_kwh": 15,
+    "usableBatteryKwh": 15,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 66,
+    "name": "Audi A7 Sportback"
   },
   {
     "id": "audi-2",
@@ -409,7 +449,15 @@
       "/images/cars/brands/audi/q3-tfsi-e/018.jpg",
       "/images/cars/brands/audi/q3-tfsi-e/019.jpg"
     ],
-    "usable_battery_kwh": 21.6
+    "usable_battery_kwh": 21.6,
+    "usableBatteryKwh": 21.6,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 119,
+    "name": "Audi Q3"
   },
   {
     "id": "audi-4",
@@ -474,7 +522,15 @@
       "/images/cars/brands/audi/q5-tfsi-e/017.jpg",
       "/images/cars/brands/audi/q5-tfsi-e/019.jpg"
     ],
-    "usable_battery_kwh": 21.8
+    "usable_battery_kwh": 21.8,
+    "usableBatteryKwh": 21.8,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 107,
+    "name": "Audi Q5"
   },
   {
     "id": "audi-6",
@@ -539,7 +595,15 @@
       "/images/cars/brands/audi/q7-tfsi-e/018.jpg",
       "/images/cars/brands/audi/q7-tfsi-e/019.jpg"
     ],
-    "usable_battery_kwh": 21.8
+    "usable_battery_kwh": 21.8,
+    "usableBatteryKwh": 21.8,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 84,
+    "name": "Audi Q7"
   },
   {
     "id": "audi-8",
@@ -599,7 +663,15 @@
       "/images/cars/brands/audi/q8-tfsi-e/015.jpg",
       "/images/cars/brands/audi/q8-tfsi-e/017.jpg"
     ],
-    "usable_battery_kwh": 21.8
+    "usable_battery_kwh": 21.8,
+    "usableBatteryKwh": 21.8,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 80,
+    "name": "Audi Q8"
   },
   {
     "id": "bmw-m5touring",
@@ -673,7 +745,15 @@
       "/images/cars/brands/bmw/bmw-m5-touring-2024-2025/1.jpg"
     ],
     "acceleration_0_100": 3.6,
-    "usable_battery_kwh": 18.6
+    "usable_battery_kwh": 18.6,
+    "usableBatteryKwh": 18.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 60,
+    "name": "BMW M5 Touring"
   },
   {
     "id": "new-14",
@@ -726,7 +806,15 @@
     },
     "gallery_images": [],
     "acceleration_0_100": 5.5,
-    "usable_battery_kwh": 14.2
+    "usable_battery_kwh": 14.2,
+    "usableBatteryKwh": 14.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 95,
+    "name": "BMW 2 Series Active Tourer"
   },
   {
     "id": "bmw-serii3limuzyna",
@@ -795,7 +883,15 @@
       "/images/cars/brands/bmw/bmw-3-series-sedan-2024-2025/020.jpg"
     ],
     "acceleration_0_100": 5.8,
-    "usable_battery_kwh": 17.6
+    "usable_battery_kwh": 17.6,
+    "usableBatteryKwh": 17.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.5,
+    "wltpRangeKm": 80,
+    "name": "BMW 3 Series Sedan"
   },
   {
     "id": "byd-seal-5-dm-i",
@@ -865,7 +961,15 @@
       "/images/cars/brands/byd/seal-5-dm-i/018.jpg"
     ],
     "price_eur": 27990,
-    "usable_battery_kwh": 16
+    "usable_battery_kwh": 16,
+    "usableBatteryKwh": 16,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "LFP",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 60,
+    "name": "BYD Seal 5 DM-i"
   },
   {
     "id": "byd-seal-6-dm-i",
@@ -935,7 +1039,15 @@
       "/images/cars/brands/byd/seal-6-dm-i/017.jpg",
       "/images/cars/brands/byd/seal-6-dm-i/018.jpg"
     ],
-    "usable_battery_kwh": 8.5
+    "usable_battery_kwh": 8.5,
+    "usableBatteryKwh": 8.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "LFP",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 60,
+    "name": "BYD Seal 6 DM-i"
   },
   {
     "id": "byd-seal-u-dm-i",
@@ -999,7 +1111,15 @@
       "/images/cars/brands/byd/seal-u-dm-i/015.jpg",
       "/images/cars/brands/byd/seal-u-dm-i/1.jpg"
     ],
-    "usable_battery_kwh": 16
+    "usable_battery_kwh": 16,
+    "usableBatteryKwh": 16,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "LFP",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 60,
+    "name": "BYD Seal U DM-i"
   },
   {
     "id": "citroen-c5-aircross-ii",
@@ -1063,7 +1183,15 @@
       "/images/cars/brands/citroen/c5-aircross-ii-phev/010.jpg",
       "/images/cars/brands/citroen/c5-aircross-ii-phev/1.jpg"
     ],
-    "usable_battery_kwh": 15
+    "usable_battery_kwh": 15,
+    "usableBatteryKwh": 15,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 81,
+    "name": "Citroen C5 Aircross Plug-in Hybrid (2026)"
   },
   {
     "id": "citroen-c5-x-16",
@@ -1124,7 +1252,15 @@
       "/images/cars/brands/citroen/c5-x-16-phev/008.jpg",
       "/images/cars/brands/citroen/c5-x-16-phev/1.jpg"
     ],
-    "usable_battery_kwh": 10.4
+    "usable_battery_kwh": 10.4,
+    "usableBatteryKwh": 10.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 54,
+    "name": "Citroen C5 X 1.6"
   },
   {
     "id": "citroen-c5-aircross-i-variant1",
@@ -1177,7 +1313,15 @@
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 10.4
+    "usable_battery_kwh": 10.4,
+    "usableBatteryKwh": 10.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 49,
+    "name": "Citroen C5 Aircross I"
   },
   {
     "id": "citroen-c5-aircross-i-variant2",
@@ -1230,7 +1374,15 @@
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 11.1
+    "usable_battery_kwh": 11.1,
+    "usableBatteryKwh": 11.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 55,
+    "name": "Citroen C5 Aircross I (High Power)"
   },
   {
     "id": "citroen-c5-x-16-puretech",
@@ -1286,7 +1438,15 @@
       "/images/cars/brands/citroen/c5-x-16-puretech-phev/005.jpg",
       "/images/cars/brands/citroen/c5-x-16-puretech-phev/008.jpg"
     ],
-    "usable_battery_kwh": 10.4
+    "usable_battery_kwh": 10.4,
+    "usableBatteryKwh": 10.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 60,
+    "name": "Citroen C5 X 1.6 PureTech"
   },
   {
     "id": "citroen-c5-aircross-i-variant3",
@@ -1339,7 +1499,15 @@
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 9.7
+    "usable_battery_kwh": 9.7,
+    "usableBatteryKwh": 9.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 50,
+    "name": "Citroen C5 Aircross I (11.5 kWh)"
   },
   {
     "id": "new-23",
@@ -1392,7 +1560,15 @@
       "/images/cars/brands/chery/tiggo-7-phev/017.jpg",
       "/images/cars/brands/chery/tiggo-7-phev/018.jpg"
     ],
-    "usable_battery_kwh": 16.1
+    "usable_battery_kwh": 16.1,
+    "usableBatteryKwh": 16.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 82,
+    "name": "Chery Tiggo 7"
   },
   {
     "id": "chery-tiggo8",
@@ -1447,7 +1623,15 @@
       "/images/cars/brands/chery/tiggo-8-phev/018.jpg",
       "/images/cars/brands/chery/tiggo-8-phev/019.jpg"
     ],
-    "usable_battery_kwh": 16.1
+    "usable_battery_kwh": 16.1,
+    "usableBatteryKwh": 16.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 80,
+    "name": "Chery Tiggo 8"
   },
   {
     "id": "chery-tiggo9",
@@ -1501,7 +1685,15 @@
       "/images/cars/brands/chery/tiggo-9-phev/018.jpg",
       "/images/cars/brands/chery/tiggo-9-phev/1.jpg"
     ],
-    "usable_battery_kwh": 16.1
+    "usable_battery_kwh": 16.1,
+    "usableBatteryKwh": 16.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 82,
+    "name": "Chery Tiggo 9"
   },
   {
     "id": "cupra-formentor-204hp",
@@ -1563,7 +1755,15 @@
     "dc_max_power_kw": 50,
     "charge_time_dc": 0.43,
     "price_eur": 44500,
-    "usable_battery_kwh": 16.5
+    "usable_battery_kwh": 16.5,
+    "usableBatteryKwh": 16.5,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 126,
+    "name": "CUPRA Formentor 1.5 e-HYBRID 204hp"
   },
   {
     "id": "cupra-formentor-245hp",
@@ -1624,7 +1824,15 @@
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
     "charge_time_dc": 0.43,
-    "usable_battery_kwh": 16.5
+    "usable_battery_kwh": 16.5,
+    "usableBatteryKwh": 16.5,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 119,
+    "name": "CUPRA Formentor VZ 1.5 e-HYBRID 272hp"
   },
   {
     "id": "cupra-leon-1.4-tsi-204hp",
@@ -1684,7 +1892,15 @@
     ],
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
-    "usable_battery_kwh": 16.5
+    "usable_battery_kwh": 16.5,
+    "usableBatteryKwh": 16.5,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 131,
+    "name": "CUPRA Leon 1.5 e-HYBRID 204hp"
   },
   {
     "id": "cupra-leon-1.4-tsi-245hp",
@@ -1744,7 +1960,15 @@
     ],
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
-    "usable_battery_kwh": 16.5
+    "usable_battery_kwh": 16.5,
+    "usableBatteryKwh": 16.5,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 124,
+    "name": "CUPRA Leon VZ 1.5 e-HYBRID 272hp"
   },
   {
     "id": "new-31",
@@ -1798,7 +2022,15 @@
       "/images/cars/brands/ds-automobiles/ds-7/010.jpg",
       "/images/cars/brands/ds-automobiles/ds-7/011.jpg"
     ],
-    "usable_battery_kwh": 11.1
+    "usable_battery_kwh": 11.1,
+    "usableBatteryKwh": 11.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 65,
+    "name": "DS 7 Crossback"
   },
   {
     "id": "new-33",
@@ -1848,7 +2080,15 @@
       "/images/cars/brands/ds-automobiles/n4/007.jpg",
       "/images/cars/brands/ds-automobiles/n4/008.jpg"
     ],
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 77,
+    "name": "DS N4"
   },
   {
     "id": "ford-1",
@@ -1900,7 +2140,15 @@
     "updated_at": "2024-10-25",
     "gallery_images": [],
     "price_eur": 38900,
-    "usable_battery_kwh": 12.1
+    "usable_battery_kwh": 12.1,
+    "usableBatteryKwh": 12.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 65,
+    "name": "Ford Kuga"
   },
   {
     "id": "new-34",
@@ -1942,7 +2190,15 @@
       "ac_power": 3.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 10.9
+    "usable_battery_kwh": 10.9,
+    "usableBatteryKwh": 10.9,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 60,
+    "name": "Ford Ranger"
   },
   {
     "id": "new-35",
@@ -1984,7 +2240,15 @@
       "ac_power": 3.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 10.9
+    "usable_battery_kwh": 10.9,
+    "usableBatteryKwh": 10.9,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 60,
+    "name": "Ford Tourneo Connect"
   },
   {
     "id": "ford-escape",
@@ -2036,7 +2300,15 @@
     "last_updated": "2025-01-22",
     "updated_at": "2024-10-24",
     "gallery_images": [],
-    "usable_battery_kwh": 12.1
+    "usable_battery_kwh": 12.1,
+    "usableBatteryKwh": 12.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 60,
+    "name": "Ford Escape"
   },
   {
     "id": "ford-explorer",
@@ -2088,7 +2360,15 @@
     "last_updated": "2025-01-22",
     "updated_at": "2024-10-24",
     "gallery_images": [],
-    "usable_battery_kwh": 11.4
+    "usable_battery_kwh": 11.4,
+    "usableBatteryKwh": 11.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 50,
+    "name": "Ford Explorer"
   },
   {
     "id": "ford-fusion",
@@ -2139,7 +2419,15 @@
       "ac_power": 3.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 6.4
+    "usable_battery_kwh": 6.4,
+    "usableBatteryKwh": 6.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 35,
+    "name": "Ford Fusion"
   },
   {
     "id": "ford-c-max",
@@ -2190,7 +2478,15 @@
       "ac_power": 3.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 6.4
+    "usable_battery_kwh": 6.4,
+    "usableBatteryKwh": 6.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 30,
+    "name": "Ford C-Max"
   },
   {
     "id": "hyundai-3",
@@ -2241,7 +2537,15 @@
     "slug": "hyundai-santa-fe-phev",
     "updated_at": "2024-10-23",
     "gallery_images": [],
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.8,
+    "wltpRangeKm": 65,
+    "name": "Hyundai Santa Fe"
   },
   {
     "id": "hyundai-tucson-iv-facelift-253hp-4wd",
@@ -2294,7 +2598,15 @@
     },
     "meta_title": "Hyundai Tucson Plug-in Hybrid (2026) Specs, Battery & Electric Range",
     "gallery_images": [],
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.5,
+    "wltpRangeKm": 65,
+    "name": "Hyundai Tucson 1.6 T-GDI PHEV (2026 Facelift)"
   },
   {
     "id": "hyundai-tucson-iv-265hp-4wd",
@@ -2346,7 +2658,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.5,
+    "wltpRangeKm": 65,
+    "name": "Hyundai Tucson IV"
   },
   {
     "id": "hyundai-tucson-iv-smartstream-261hp",
@@ -2398,7 +2718,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.5,
+    "wltpRangeKm": 65,
+    "name": "Hyundai Tucson IV Smartstream"
   },
   {
     "id": "jeep-compass-4xe-240hp",
@@ -2450,7 +2778,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 9.6
+    "usable_battery_kwh": 9.6,
+    "usableBatteryKwh": 9.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 56,
+    "name": "Jeep Compass 4xe"
   },
   {
     "id": "jeep-wrangler-4xe-rubicon",
@@ -2502,7 +2838,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 14.5
+    "usable_battery_kwh": 14.5,
+    "usableBatteryKwh": 14.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 11.5,
+    "wltpRangeKm": 45,
+    "name": "Jeep Wrangler 4xe Rubicon"
   },
   {
     "id": "jeep-wrangler-4xe-sahara",
@@ -2554,7 +2898,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 14.5
+    "usable_battery_kwh": 14.5,
+    "usableBatteryKwh": 14.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 11.5,
+    "wltpRangeKm": 44,
+    "name": "Jeep Wrangler 4xe Sahara"
   },
   {
     "id": "jeep-compass-4xe-190hp",
@@ -2606,7 +2958,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 9.6
+    "usable_battery_kwh": 9.6,
+    "usableBatteryKwh": 9.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 56,
+    "name": "Jeep Compass 4xe 190HP"
   },
   {
     "id": "jeep-renegade-4xe-240hp",
@@ -2658,7 +3018,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 9.6
+    "usable_battery_kwh": 9.6,
+    "usableBatteryKwh": 9.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 42,
+    "name": "Jeep Renegade 4xe 240HP"
   },
   {
     "id": "jeep-renegade-4xe-190hp",
@@ -2710,7 +3078,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 9.6
+    "usable_battery_kwh": 9.6,
+    "usableBatteryKwh": 9.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 50,
+    "name": "Jeep Renegade 4xe 190HP"
   },
   {
     "id": "kia-niro-ii-2025",
@@ -2761,7 +3137,15 @@
     },
     "gallery_images": [],
     "price_eur": 39950,
-    "usable_battery_kwh": 9.3
+    "usable_battery_kwh": 9.3,
+    "usableBatteryKwh": 9.3,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 85,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.9,
+    "wltpRangeKm": 57,
+    "name": "Kia Niro II"
   },
   {
     "id": "kia-niro-ii-2024",
@@ -2813,7 +3197,15 @@
       "ac_power": 11
     },
     "gallery_images": [],
-    "usable_battery_kwh": 9.3
+    "usable_battery_kwh": 9.3,
+    "usableBatteryKwh": 9.3,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 85,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.9,
+    "wltpRangeKm": 65,
+    "name": "Kia Niro II"
   },
   {
     "id": "kia-sorento-iv-2024",
@@ -2863,7 +3255,15 @@
       "ac_power": 11
     },
     "gallery_images": [],
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7,
+    "wltpRangeKm": 55,
+    "name": "Kia Sorento IV"
   },
   {
     "id": "kia-sportage-v-252hp",
@@ -2916,7 +3316,15 @@
     },
     "gallery_images": [],
     "price_eur": 43900,
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.4,
+    "wltpRangeKm": 68,
+    "name": "Kia Sportage V"
   },
   {
     "id": "kia-sportage-v-265hp",
@@ -2968,7 +3376,15 @@
       "ac_power": 11
     },
     "gallery_images": [],
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.4,
+    "wltpRangeKm": 68,
+    "name": "Kia Sportage V"
   },
   {
     "id": "kia-niro-i-2019-facelift",
@@ -3012,7 +3428,15 @@
     },
     "engine_displacement": 1.6,
     "gallery_images": [],
-    "usable_battery_kwh": 7.5
+    "usable_battery_kwh": 7.5,
+    "usableBatteryKwh": 7.5,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 85,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.9,
+    "wltpRangeKm": 49,
+    "name": "Kia Niro I"
   },
   {
     "id": "kia-niro-i-2019",
@@ -3056,7 +3480,15 @@
     },
     "engine_displacement": 1.6,
     "gallery_images": [],
-    "usable_battery_kwh": 7.5
+    "usable_battery_kwh": 7.5,
+    "usableBatteryKwh": 7.5,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 85,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.9,
+    "wltpRangeKm": 49,
+    "name": "Kia Niro I"
   },
   {
     "id": "kia-optima-iv-2018-facelift",
@@ -3091,7 +3523,15 @@
     },
     "engine_displacement": 2,
     "gallery_images": [],
-    "usable_battery_kwh": 9.4
+    "usable_battery_kwh": 9.4,
+    "usableBatteryKwh": 9.4,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 85,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 53,
+    "name": "Kia Optima IV"
   },
   {
     "id": "kia-optima-iv-2018",
@@ -3126,7 +3566,15 @@
     },
     "engine_displacement": 2,
     "gallery_images": [],
-    "usable_battery_kwh": 9.4
+    "usable_battery_kwh": 9.4,
+    "usableBatteryKwh": 9.4,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 85,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 53,
+    "name": "Kia Optima IV"
   },
   {
     "id": "kia-optima-iv-sportswagon-2018-facelift",
@@ -3161,7 +3609,15 @@
     },
     "engine_displacement": 2,
     "gallery_images": [],
-    "usable_battery_kwh": 9.4
+    "usable_battery_kwh": 9.4,
+    "usableBatteryKwh": 9.4,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 85,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 53,
+    "name": "Kia Optima IV Sportswagon"
   },
   {
     "id": "kia-optima-iv-sportswagon-2018",
@@ -3196,7 +3652,15 @@
     },
     "engine_displacement": 2,
     "gallery_images": [],
-    "usable_battery_kwh": 9.4
+    "usable_battery_kwh": 9.4,
+    "usableBatteryKwh": 9.4,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 85,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 53,
+    "name": "Kia Optima IV Sportswagon"
   },
   {
     "id": "kia-k3-sedan-ii",
@@ -3231,7 +3695,15 @@
     },
     "engine_displacement": 1.6,
     "gallery_images": [],
-    "usable_battery_kwh": 7.5
+    "usable_battery_kwh": 7.5,
+    "usableBatteryKwh": 7.5,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 50,
+    "name": "Kia K3 Sedan II"
   },
   {
     "id": "kia-xceed-2022-facelift",
@@ -3267,7 +3739,15 @@
     "engine_displacement": 1.6,
     "gallery_images": [],
     "price_eur": 36500,
-    "usable_battery_kwh": 7.5
+    "usable_battery_kwh": 7.5,
+    "usableBatteryKwh": 7.5,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 48,
+    "name": "Kia XCeed"
   },
   {
     "id": "kia-xceed-2022",
@@ -3302,7 +3782,15 @@
     },
     "engine_displacement": 1.6,
     "gallery_images": [],
-    "usable_battery_kwh": 7.5
+    "usable_battery_kwh": 7.5,
+    "usableBatteryKwh": 7.5,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 48,
+    "name": "Kia XCeed"
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021-facelift",
@@ -3338,7 +3826,15 @@
     "engine_displacement": 1.6,
     "gallery_images": [],
     "price_eur": 35900,
-    "usable_battery_kwh": 7.5
+    "usable_battery_kwh": 7.5,
+    "usableBatteryKwh": 7.5,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.4,
+    "wltpRangeKm": 50,
+    "name": "Kia Ceed III Sportswagon"
   },
   {
     "id": "kia-ceed-iii-sportswagon-2021",
@@ -3373,7 +3869,15 @@
     },
     "engine_displacement": 1.6,
     "gallery_images": [],
-    "usable_battery_kwh": 7.5
+    "usable_battery_kwh": 7.5,
+    "usableBatteryKwh": 7.5,
+    "hybridThresholdSoC": 21,
+    "maxEvCruisingSpeed": 120,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.4,
+    "wltpRangeKm": 50,
+    "name": "Kia Ceed III Sportswagon"
   },
   {
     "id": "bmw-5-series-touring-550e",
@@ -3428,7 +3932,15 @@
     },
     "gallery_images": [],
     "acceleration_0_100": 4.4,
-    "usable_battery_kwh": 17.6
+    "usable_battery_kwh": 17.6,
+    "usableBatteryKwh": 17.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 86,
+    "name": "BMW 5 Series Touring"
   },
   {
     "id": "bmw-5-series-sedan-550e",
@@ -3483,7 +3995,15 @@
     },
     "gallery_images": [],
     "acceleration_0_100": 4.3,
-    "usable_battery_kwh": 17.6
+    "usable_battery_kwh": 17.6,
+    "usableBatteryKwh": 17.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 88,
+    "name": "BMW 5 Series Sedan"
   },
   {
     "id": "land-rover-defender-110-phev",
@@ -3540,7 +4060,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 16.1
+    "usable_battery_kwh": 16.1,
+    "usableBatteryKwh": 16.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 43,
+    "name": "Land Rover Defender 110 P400e"
   },
   {
     "id": "land-rover-discovery-sport-phev",
@@ -3597,7 +4125,15 @@
     "slug": "land-rover-discovery-sport-phev",
     "updated_at": "2024-10-25",
     "gallery_images": [],
-    "usable_battery_kwh": 12.6
+    "usable_battery_kwh": 12.6,
+    "usableBatteryKwh": 12.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 55,
+    "name": "Land Rover Discovery Sport P300e"
   },
   {
     "id": "land-rover-range-rover-evoque-phev",
@@ -3654,7 +4190,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 12.6
+    "usable_battery_kwh": 12.6,
+    "usableBatteryKwh": 12.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 55,
+    "name": "Land Rover Range Rover Evoque P300e"
   },
   {
     "id": "land-rover-range-rover-velar-phev",
@@ -3711,7 +4255,15 @@
       "ac_power": 7.2
     },
     "gallery_images": [],
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 53,
+    "name": "Land Rover Range Rover Velar P400e"
   },
   {
     "id": "lexus-nx-450h-plus-phev",
@@ -3769,7 +4321,15 @@
       "ac_power_note": "6.6 kW onboard AC charger. Not: Tam elektrikli RZ 450e 11 kW kullanır"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 15.2
+    "usable_battery_kwh": 15.2,
+    "usableBatteryKwh": 15.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 135,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 76,
+    "name": "Lexus NX 450h+"
   },
   {
     "id": "lexus-rx-450h-plus-phev",
@@ -3826,7 +4386,15 @@
       "ac_power": 6.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 15.2
+    "usable_battery_kwh": 15.2,
+    "usableBatteryKwh": 15.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 135,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 65,
+    "name": "Lexus RX 450h+"
   },
   {
     "id": "mazda-1",
@@ -3879,7 +4447,15 @@
     "gallery_images": [
       "/images/cars/brands/mazda/cx-60/008.jpg"
     ],
-    "usable_battery_kwh": 15
+    "usable_battery_kwh": 15,
+    "usableBatteryKwh": 15,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 63,
+    "name": "Mazda CX-60"
   },
   {
     "id": "mazda-cx80",
@@ -3930,7 +4506,15 @@
     "slug": "mazda-cx-80-phev",
     "updated_at": "2024-10-24",
     "gallery_images": [],
-    "usable_battery_kwh": 15
+    "usable_battery_kwh": 15,
+    "usableBatteryKwh": 15,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 60,
+    "name": "Mazda CX-80"
   },
   {
     "id": "mazda-mx30-rev",
@@ -3987,7 +4571,15 @@
       "ac_power": 6.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 14.7
+    "usable_battery_kwh": 14.7,
+    "usableBatteryKwh": 14.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 85,
+    "name": "Mazda MX-30 R-EV"
   },
   {
     "id": "mercedes-1",
@@ -4058,7 +4650,15 @@
     "slug": "mercedes-benz-a-class-phev",
     "updated_at": "2024-10-23",
     "gallery_images": [],
-    "usable_battery_kwh": 13
+    "usable_battery_kwh": 13,
+    "usableBatteryKwh": 13,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.7,
+    "wltpRangeKm": 77,
+    "name": "Mercedes-Benz A-Class"
   },
   {
     "id": "mercedesbenz-cclass",
@@ -4135,7 +4735,15 @@
     "updated_at": "2024-10-23",
     "gallery_images": [],
     "acceleration_0_100": 5.4,
-    "usable_battery_kwh": 19.5
+    "usable_battery_kwh": 19.5,
+    "usableBatteryKwh": 19.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 102,
+    "name": "Mercedes-Benz C-Class"
   },
   {
     "id": "mercedesbenz-cla",
@@ -4206,7 +4814,15 @@
     "slug": "mercedes-benz-cla-phev",
     "updated_at": "2024-10-25",
     "gallery_images": [],
-    "usable_battery_kwh": 13
+    "usable_battery_kwh": 13,
+    "usableBatteryKwh": 13,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 70,
+    "name": "Mercedes-Benz CLA"
   },
   {
     "id": "mercedes-6",
@@ -4278,7 +4894,15 @@
     "updated_at": "2024-10-23",
     "gallery_images": [],
     "acceleration_0_100": 3.8,
-    "usable_battery_kwh": 22.5
+    "usable_battery_kwh": 22.5,
+    "usableBatteryKwh": 22.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 100,
+    "name": "Mercedes-Benz E-Class"
   },
   {
     "id": "mercedes-3",
@@ -4349,7 +4973,15 @@
     "slug": "mercedes-benz-gla-phev",
     "updated_at": "2024-10-25",
     "gallery_images": [],
-    "usable_battery_kwh": 13
+    "usable_battery_kwh": 13,
+    "usableBatteryKwh": 13,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 70,
+    "name": "Mercedes-Benz GLA"
   },
   {
     "id": "mercedes-5",
@@ -4418,7 +5050,15 @@
     "weight_kg": 2360,
     "gallery_images": [],
     "acceleration_0_100": 6.7,
-    "usable_battery_kwh": 24.8
+    "usable_battery_kwh": 24.8,
+    "usableBatteryKwh": 24.8,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 125,
+    "name": "Mercedes-Benz GLC Coupé"
   },
   {
     "id": "mercedes-7",
@@ -4487,7 +5127,15 @@
     "weight_kg": 2690,
     "gallery_images": [],
     "acceleration_0_100": 6.1,
-    "usable_battery_kwh": 27
+    "usable_battery_kwh": 27,
+    "usableBatteryKwh": 27,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 10.7,
+    "wltpRangeKm": 105,
+    "name": "Mercedes-Benz GLE Coupé"
   },
   {
     "id": "mercedesbenz-sclass",
@@ -4559,7 +5207,15 @@
     "updated_at": "2024-10-24",
     "gallery_images": [],
     "acceleration_0_100": 5.2,
-    "usable_battery_kwh": 22.5
+    "usable_battery_kwh": 22.5,
+    "usableBatteryKwh": 22.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 77,
+    "name": "Mercedes-Benz S-Class"
   },
   {
     "id": "mg-3",
@@ -4611,7 +5267,15 @@
     },
     "gallery_images": [],
     "price_eur": 32990,
-    "usable_battery_kwh": 19.5
+    "usable_battery_kwh": 19.5,
+    "usableBatteryKwh": 19.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 120,
+    "name": "MG HS II 1.5T"
   },
   {
     "id": "mg-5",
@@ -4662,7 +5326,15 @@
       "ac_power_note": "3.6 kW — 16A / 230V 1-faz. Fast charging (DC) desteklenmiyor"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 12.5
+    "usable_battery_kwh": 12.5,
+    "usableBatteryKwh": 12.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 52,
+    "name": "MG HS I EHS 1.5 T-GDI"
   },
   {
     "id": "mini-1",
@@ -4713,7 +5385,15 @@
       "dc_power": 22
     },
     "gallery_images": [],
-    "usable_battery_kwh": 9
+    "usable_battery_kwh": 9,
+    "usableBatteryKwh": 9,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 42,
+    "name": "MINI Countryman Cooper S E"
   },
   {
     "id": "mitsubishi-2",
@@ -4772,7 +5452,15 @@
     "dc_charging_supported": true,
     "dc_max_power_kw": 22,
     "charge_time_dc": 0.42,
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 45,
+    "name": "Mitsubishi Eclipse Cross PHEV"
   },
   {
     "id": "mitsubishi-1",
@@ -4828,7 +5516,15 @@
     },
     "gallery_images": [],
     "acceleration_0_100": 7.9,
-    "usable_battery_kwh": 19.1
+    "usable_battery_kwh": 19.1,
+    "usableBatteryKwh": 19.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.4,
+    "wltpRangeKm": 86,
+    "name": "Mitsubishi Outlander PHEV (2025)"
   },
   {
     "id": "mitsubishi-3",
@@ -4884,7 +5580,15 @@
     },
     "gallery_images": [],
     "acceleration_0_100": 10.5,
-    "usable_battery_kwh": 11.6
+    "usable_battery_kwh": 11.6,
+    "usableBatteryKwh": 11.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.2,
+    "wltpRangeKm": 45,
+    "name": "Mitsubishi Outlander PHEV (2018-2021) 2.4 MIVEC"
   },
   {
     "id": "opel-2",
@@ -4937,7 +5641,15 @@
     "updated_at": "2024-10-23",
     "gallery_images": [],
     "price_eur": 39990,
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 65,
+    "name": "Opel Astra PHEV"
   },
   {
     "id": "opel-3",
@@ -4989,7 +5701,15 @@
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 11.1
+    "usable_battery_kwh": 11.1,
+    "usableBatteryKwh": 11.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 65,
+    "name": "Opel Grandland X 1.6 Turbo"
   },
   {
     "id": "opel-4",
@@ -5041,7 +5761,15 @@
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 11.1
+    "usable_battery_kwh": 11.1,
+    "usableBatteryKwh": 11.1,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 69,
+    "name": "Opel Grandland X 1.6 Turbo 4 AWD"
   },
   {
     "id": "new-67",
@@ -5096,7 +5824,15 @@
     "usable_battery_kwh": 17.8,
     "acceleration_0_100": 7.8,
     "drivetrain": "FWD",
-    "transmission": "7-speed dual-clutch (e-DCS7)"
+    "transmission": "7-speed dual-clutch (e-DCS7)",
+    "usableBatteryKwh": 17.8,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 87,
+    "name": "Peugeot 3008 Plug-in Hybrid 195"
   },
   {
     "id": "peugeot-2",
@@ -5149,7 +5885,15 @@
     },
     "gallery_images": [],
     "price_eur": 40500,
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 85,
+    "name": "Peugeot 308"
   },
   {
     "id": "new-69",
@@ -5201,7 +5945,15 @@
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 65,
+    "name": "Peugeot 408"
   },
   {
     "id": "new-69.5",
@@ -5253,7 +6005,15 @@
       "ac_power_note": "3.7 kW standart, 7.4 kW opsiyonel"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 58,
+    "name": "Peugeot 5008"
   },
   {
     "id": "new-70",
@@ -5307,7 +6067,15 @@
     "dc_max_power_kw": null,
     "acceleration_0_100": 4.9,
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 21.8
+    "usable_battery_kwh": 21.8,
+    "usableBatteryKwh": 21.8,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 74,
+    "name": "Porsche Cayenne E-Hybrid"
   },
   {
     "id": "new-71",
@@ -5350,7 +6118,15 @@
     "weight_kg": 2235,
     "gallery_images": [],
     "acceleration_0_100": 4.1,
-    "usable_battery_kwh": 21.8
+    "usable_battery_kwh": 21.8,
+    "usableBatteryKwh": 21.8,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 91,
+    "name": "Porsche Panamera 4"
   },
   {
     "id": "new-72",
@@ -5400,7 +6176,15 @@
       "ac_power": 3.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 18.5
+    "usable_battery_kwh": 18.5,
+    "usableBatteryKwh": 18.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 100,
+    "name": "Renault Rafale"
   },
   {
     "id": "skoda-kodiaq",
@@ -5451,7 +6235,15 @@
     "weight_kg": 0,
     "last_updated": "2026-09-21",
     "gallery_images": [],
-    "usable_battery_kwh": 21.6
+    "usable_battery_kwh": 21.6,
+    "usableBatteryKwh": 21.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 123,
+    "name": "Škoda Kodiaq iV (2025)"
   },
   {
     "id": "skoda-superb-combi",
@@ -5506,7 +6298,15 @@
     "acceleration_0_100": 7.3,
     "last_updated": "2026-09-21",
     "gallery_images": [],
-    "usable_battery_kwh": 21.6
+    "usable_battery_kwh": 21.6,
+    "usableBatteryKwh": 21.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 133,
+    "name": "Škoda Superb Combi iV (2025)"
   },
   {
     "id": "skoda-superb-sedan",
@@ -5561,7 +6361,15 @@
     "acceleration_0_100": 7.1,
     "last_updated": "2026-09-21",
     "gallery_images": [],
-    "usable_battery_kwh": 21.6
+    "usable_battery_kwh": 21.6,
+    "usableBatteryKwh": 21.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 133,
+    "name": "Škoda Superb iV Liftback (2025)"
   },
   {
     "id": "suzuki-across-phev",
@@ -5602,7 +6410,15 @@
       "ac_power": 6.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 15.2
+    "usable_battery_kwh": 15.2,
+    "usableBatteryKwh": 15.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 75,
+    "name": "Suzuki Across"
   },
   {
     "id": "new-76",
@@ -5653,7 +6469,15 @@
       "ac_power_note": "C-HR Plug-in Hybrid: 6.6 kW AC onboard charger"
     },
     "gallery_images": [],
-    "usable_battery_kwh": 10.9
+    "usable_battery_kwh": 10.9,
+    "usableBatteryKwh": 10.9,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 135,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 66,
+    "name": "Toyota C-HR"
   },
   {
     "id": "toyota-1",
@@ -5703,7 +6527,15 @@
       "ac_power": 6.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 10.9
+    "usable_battery_kwh": 10.9,
+    "usableBatteryKwh": 10.9,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 135,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 3,
+    "wltpRangeKm": 65,
+    "name": "Toyota Prius"
   },
   {
     "id": "toyota-2",
@@ -5756,7 +6588,15 @@
     "meta_title": "Toyota RAV4 Plug-in Hybrid (2020-2023) Specs, Battery & Electric Range | PHEVs.eu",
     "gallery_images": [],
     "last_updated": "2026-09-20",
-    "usable_battery_kwh": 14.5
+    "usable_battery_kwh": 14.5,
+    "usableBatteryKwh": 14.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 135,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.5,
+    "wltpRangeKm": 75,
+    "name": "Toyota RAV4 Plug-in Hybrid (2020-2023)"
   },
   {
     "id": "toyota-crown-phev",
@@ -5797,7 +6637,15 @@
       "ac_power": 6.6
     },
     "gallery_images": [],
-    "usable_battery_kwh": 14.5
+    "usable_battery_kwh": 14.5,
+    "usableBatteryKwh": 14.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 135,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 70,
+    "name": "Toyota Crown"
   },
   {
     "id": "vw-1",
@@ -5855,7 +6703,15 @@
       "/images/cars/brands/volkswagen/golf/007.jpg"
     ],
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 19.7
+    "usable_battery_kwh": 19.7,
+    "usableBatteryKwh": 19.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 143,
+    "name": "Volkswagen Golf eHybrid (2024+)"
   },
   {
     "id": "vw-2",
@@ -5911,7 +6767,15 @@
     "updated_at": "2024-10-24",
     "gallery_images": [],
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 19.7
+    "usable_battery_kwh": 19.7,
+    "usableBatteryKwh": 19.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 133,
+    "name": "Volkswagen Passat Variant eHybrid (2024+)"
   },
   {
     "id": "new-81",
@@ -5967,7 +6831,15 @@
     "dc_max_power_kw": 50,
     "gallery_images": [],
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 19.7
+    "usable_battery_kwh": 19.7,
+    "usableBatteryKwh": 19.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 116,
+    "name": "Volkswagen Tayron eHybrid"
   },
   {
     "id": "vw-3",
@@ -6024,7 +6896,15 @@
     "gallery_images": [],
     "last_updated": "2026-09-21",
     "price_eur": 41900,
-    "usable_battery_kwh": 19.7
+    "usable_battery_kwh": 19.7,
+    "usableBatteryKwh": 19.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.6,
+    "wltpRangeKm": 125,
+    "name": "Volkswagen Tiguan eHybrid (2024+)"
   },
   {
     "id": "new-83",
@@ -6077,7 +6957,15 @@
     "dc_charging_supported": false,
     "dc_max_power_kw": null,
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 15
+    "usable_battery_kwh": 15,
+    "usableBatteryKwh": 15,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 50,
+    "name": "Volkswagen Touareg eHybrid"
   },
   {
     "id": "vw-multivan-phev",
@@ -6121,7 +7009,15 @@
     "dc_charging_supported": true,
     "dc_max_power_kw": 50,
     "gallery_images": [],
-    "usable_battery_kwh": 19.7
+    "usable_battery_kwh": 19.7,
+    "usableBatteryKwh": 19.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 95,
+    "name": "Volkswagen Multivan"
   },
   {
     "id": "volvo-5",
@@ -6164,7 +7060,15 @@
     },
     "weight_kg": 2060,
     "gallery_images": [],
-    "usable_battery_kwh": 15.8
+    "usable_battery_kwh": 15.8,
+    "usableBatteryKwh": 15.8,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 88,
+    "name": "Volvo V60"
   },
   {
     "id": "volvo-7",
@@ -6207,7 +7111,15 @@
     },
     "weight_kg": 2100,
     "gallery_images": [],
-    "usable_battery_kwh": 15.8
+    "usable_battery_kwh": 15.8,
+    "usableBatteryKwh": 15.8,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 84,
+    "name": "Volvo V90"
   },
   {
     "id": "volvo-2",
@@ -6250,7 +7162,15 @@
     },
     "weight_kg": 2150,
     "gallery_images": [],
-    "usable_battery_kwh": 14.7
+    "usable_battery_kwh": 14.7,
+    "usableBatteryKwh": 14.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 80,
+    "name": "Volvo XC60"
   },
   {
     "id": "volvo-3",
@@ -6293,7 +7213,15 @@
     },
     "weight_kg": 2297,
     "gallery_images": [],
-    "usable_battery_kwh": 14.7
+    "usable_battery_kwh": 14.7,
+    "usableBatteryKwh": 14.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 71,
+    "name": "Volvo XC90"
   },
   {
     "id": "omoda-1",
@@ -6346,7 +7274,15 @@
     "gallery_images": [
       "/images/cars/brands/omoda/omoda-9-super-hybrid/007.jpg"
     ],
-    "usable_battery_kwh": 28.9
+    "usable_battery_kwh": 28.9,
+    "usableBatteryKwh": 28.9,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 145,
+    "name": "Omoda 9 Super Hybrid"
   },
   {
     "id": "jaecoo-1",
@@ -6407,7 +7343,15 @@
     "features": [],
     "gallery_images": [],
     "last_updated": "2026-09-19",
-    "price_eur": 39900
+    "price_eur": 39900,
+    "usableBatteryKwh": 16.8,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 91,
+    "name": "Jaecoo 7 Super Hybrid"
   },
   {
     "id": "seat-4",
@@ -6492,7 +7436,15 @@
     "gallery_images": [
       "/images/cars/brands/seat/leon-iv-sportstourer-14-e-hybrid/1.jpg"
     ],
-    "usable_battery_kwh": 8.7
+    "usable_battery_kwh": 8.7,
+    "usableBatteryKwh": 8.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 63,
+    "name": "SEAT Leon IV Sportstourer 1.4 e-Hybrid"
   },
   {
     "id": "seat-5",
@@ -6575,7 +7527,15 @@
     },
     "updated_at": "2024-10-23",
     "gallery_images": [],
-    "usable_battery_kwh": 8.7
+    "usable_battery_kwh": 8.7,
+    "usableBatteryKwh": 8.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 64,
+    "name": "SEAT Leon IV 1.4 e-Hybrid"
   },
   {
     "brand": "BMW",
@@ -6623,7 +7583,15 @@
     "updated_at": "2024-10-25",
     "id": "bmw-3-series-touring-2024",
     "gallery_images": [],
-    "usable_battery_kwh": 17.6
+    "usable_battery_kwh": 17.6,
+    "usableBatteryKwh": 17.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.5,
+    "wltpRangeKm": 91,
+    "name": "BMW 3 Series Touring"
   },
   {
     "brand": "BMW",
@@ -6693,7 +7661,15 @@
       "/images/cars/brands/bmw/bmw-x1-25e-2024/020.jpg",
       "/images/cars/brands/bmw/bmw-x1-25e-2024/1.jpg"
     ],
-    "usable_battery_kwh": 14.2
+    "usable_battery_kwh": 14.2,
+    "usableBatteryKwh": 14.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 78,
+    "name": "BMW X1 25e"
   },
   {
     "brand": "BMW",
@@ -6744,7 +7720,15 @@
     "gallery_images": [
       "/images/cars/brands/bmw/bmw-x1-30e-2024/1.jpg"
     ],
-    "usable_battery_kwh": 14.2
+    "usable_battery_kwh": 14.2,
+    "usableBatteryKwh": 14.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 78,
+    "name": "BMW X1 30e"
   },
   {
     "brand": "BMW",
@@ -6793,7 +7777,15 @@
     "updated_at": "2024-10-25",
     "id": "bmw-x3-30e-2024",
     "gallery_images": [],
-    "usable_battery_kwh": 17.6
+    "usable_battery_kwh": 17.6,
+    "usableBatteryKwh": 17.6,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 90,
+    "name": "BMW X3 30e"
   },
   {
     "brand": "BMW",
@@ -6852,7 +7844,15 @@
       "/images/cars/brands/bmw/bmw-x5-50e-2024/017.jpg",
       "/images/cars/brands/bmw/bmw-x5-50e-2024/018.jpg"
     ],
-    "usable_battery_kwh": 25.7
+    "usable_battery_kwh": 25.7,
+    "usableBatteryKwh": 25.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 100,
+    "name": "BMW X5 50e"
   },
   {
     "brand": "BMW",
@@ -6911,7 +7911,15 @@
       "/images/cars/brands/bmw/bmw-xm-44-v8-2024/009.jpg"
     ],
     "acceleration_0_100": 4.3,
-    "usable_battery_kwh": 25.7
+    "usable_battery_kwh": 25.7,
+    "usableBatteryKwh": 25.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 85,
+    "name": "BMW XM 4.4 V8"
   },
   {
     "brand": "BMW",
@@ -6963,7 +7971,15 @@
       "/images/cars/brands/bmw/bmw-xm-50e-2024/002.jpg"
     ],
     "acceleration_0_100": 5.1,
-    "usable_battery_kwh": 25.7
+    "usable_battery_kwh": 25.7,
+    "usableBatteryKwh": 25.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 85,
+    "name": "BMW XM 50e"
   },
   {
     "brand": "BMW",
@@ -7022,7 +8038,15 @@
       "/images/cars/brands/bmw/bmw-xm-label-red-44-v8-2024/009.jpg"
     ],
     "acceleration_0_100": 3.8,
-    "usable_battery_kwh": 25.7
+    "usable_battery_kwh": 25.7,
+    "usableBatteryKwh": 25.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 140,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 85,
+    "name": "BMW XM Label Red 4.4 V8"
   },
   {
     "id": "peugeot-508",
@@ -7076,7 +8100,15 @@
     "gallery_images": [
       "/images/cars/brands/peugeot/508-plug-in-hybrid/1.jpg"
     ],
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 64,
+    "name": "Peugeot 508"
   },
   {
     "id": "peugeot-508-sw",
@@ -7130,7 +8162,15 @@
     "gallery_images": [
       "/images/cars/brands/peugeot/508-plug-in-hybrid/1.jpg"
     ],
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 64,
+    "name": "Peugeot 508 SW"
   },
   {
     "id": "peugeot-308-sw",
@@ -7188,7 +8228,15 @@
       "/images/cars/brands/peugeot/308-plug-in-hybrid/009.jpg",
       "/images/cars/brands/peugeot/308-plug-in-hybrid/010.jpg"
     ],
-    "usable_battery_kwh": 14.4
+    "usable_battery_kwh": 14.4,
+    "usableBatteryKwh": 14.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 85,
+    "name": "Peugeot 308 SW"
   },
   {
     "id": "renault-captur-e-tech",
@@ -7242,7 +8290,15 @@
       "/images/cars/brands/renault/captur-e-tech-phev/003.jpg"
     ],
     "price_eur": 33500,
-    "usable_battery_kwh": 8.2
+    "usable_battery_kwh": 8.2,
+    "usableBatteryKwh": 8.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 50,
+    "name": "Renault Captur E-TECH"
   },
   {
     "id": "mg-s9-2026",
@@ -7283,7 +8339,15 @@
       "test_year": 2026
     },
     "gallery_images": [],
-    "usable_battery_kwh": 20.7
+    "usable_battery_kwh": 20.7,
+    "usableBatteryKwh": 20.7,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 100,
+    "name": "MG S9 1.5T Phev"
   },
   {
     "id": "audi-a6-limousine-e-hybrid-2026",
@@ -7326,7 +8390,15 @@
     "last_updated": "2026-09-19",
     "usable_battery_kwh": 20.7,
     "ac_max_power_kw": 11,
-    "gallery_images": []
+    "gallery_images": [],
+    "usableBatteryKwh": 20.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 112,
+    "name": "Audi A6 Limousine e-hybrid"
   },
   {
     "id": "audi-a6-avant-e-hybrid-2026",
@@ -7376,7 +8448,15 @@
       "overall_rating": 81,
       "test_year": 2026
     },
-    "last_updated": "2026-09-19"
+    "last_updated": "2026-09-19",
+    "usableBatteryKwh": 20.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 106,
+    "name": "Audi A6 Avant e-hybrid"
   },
   {
     "id": "byd-atto-2-dm-i-boost-2026",
@@ -7442,7 +8522,15 @@
     "country_availability": "EU,PL,DE,FR,UK,ES,IT",
     "emission_standard": "Euro 6e-bis",
     "price_eur": 29500,
-    "last_updated": "2026-09-19"
+    "last_updated": "2026-09-19",
+    "usableBatteryKwh": 18,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "LFP",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 90,
+    "name": "BYD Atto 2 DM-i Boost"
   },
   {
     "id": "byd-atto-2-dm-i-active-2026",
@@ -7504,7 +8592,15 @@
     "country_availability": "EU,PL,DE,FR,UK,ES,IT",
     "emission_standard": "Euro 6e-bis",
     "price_eur": 24500,
-    "last_updated": "2026-09-19"
+    "last_updated": "2026-09-19",
+    "usableBatteryKwh": 7.8,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": true,
+    "batteryChemistry": "LFP",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 40,
+    "name": "BYD Atto 2 DM-i Active"
   },
   {
     "id": "omoda-7-super-hybrid-2026",
@@ -7574,7 +8670,15 @@
     "emission_standard": "Euro 6e (EB)",
     "price_eur": 39500,
     "meta_title": "Omoda 7 Super Hybrid (2026) Specs, Battery & Electric Range",
-    "updated_at": "2026-09-19"
+    "updated_at": "2026-09-19",
+    "usableBatteryKwh": 18.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 90,
+    "name": "Omoda 7 Super Hybrid"
   },
   {
     "id": "jaecoo-8-super-hybrid-2026",
@@ -7611,7 +8715,15 @@
     "warranty_years": 3,
     "country_availability": "EU",
     "euroncap_rating": null,
-    "last_updated": "2026-09-19"
+    "last_updated": "2026-09-19",
+    "usableBatteryKwh": 29,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 7.6,
+    "wltpRangeKm": 134,
+    "name": "Jaecoo 8 SUPER HYBRID"
   },
   {
     "id": "geely-starray-em-i-phev",
@@ -7704,7 +8816,15 @@
       "/images/cars/brands/geely/starray-em-i/005.jpg",
       "/images/cars/brands/geely/starray-em-i/006.jpg",
       "/images/cars/brands/geely/starray-em-i/007.jpg"
-    ]
+    ],
+    "usableBatteryKwh": 17.5,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "LFP",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 83,
+    "name": "Geely Starray EM-i"
   },
   {
     "id": "toyota-rav4-phev-2026",
@@ -7795,7 +8915,15 @@
       "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/007.jpg",
       "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/009.jpg",
       "/images/cars/brands/toyota/rav4-plug-in-hybrid-2026/0012.jpg"
-    ]
+    ],
+    "usableBatteryKwh": 21.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 135,
+    "hasHeatPump": true,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 4.5,
+    "wltpRangeKm": 102,
+    "name": "Toyota RAV4 Plug-in Hybrid (2026)"
   },
   {
     "id": "renault-megane-iv-grandtour-e-tech",
@@ -7840,7 +8968,15 @@
       "/images/cars/brands/renault/megane-iv-grandtour-e-tech/main.jpg",
       "/images/cars/brands/renault/megane-iv-grandtour-e-tech/rear.jpg"
     ],
-    "usable_battery_kwh": 8.2
+    "usable_battery_kwh": 8.2,
+    "usableBatteryKwh": 8.2,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 50,
+    "name": "Renault Megane IV Grandtour E-Tech 160"
   },
   {
     "id": "cupra-terramar-vz-e-hybrid",
@@ -7890,7 +9026,15 @@
     "gallery_images": [
       "/images/cars/brands/cupra/terramar-e-hybrid/main.jpg"
     ],
-    "usable_battery_kwh": 16.5
+    "usable_battery_kwh": 16.5,
+    "usableBatteryKwh": 16.5,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 118,
+    "name": "CUPRA Terramar VZ 1.5 e-HYBRID 272hp"
   },
   {
     "id": "vw-golf-gte",
@@ -7949,7 +9093,15 @@
     ],
     "last_updated": "2026-09-21",
     "acceleration_0_100": 6.6,
-    "usable_battery_kwh": 19.7
+    "usable_battery_kwh": 19.7,
+    "usableBatteryKwh": 19.7,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 131,
+    "name": "Volkswagen Golf GTE (2024+)"
   },
   {
     "id": "vw-touareg-r",
@@ -8003,7 +9155,15 @@
     "dc_max_power_kw": null,
     "last_updated": "2026-09-21",
     "acceleration_0_100": 5.1,
-    "usable_battery_kwh": 15
+    "usable_battery_kwh": 15,
+    "usableBatteryKwh": 15,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 6.6,
+    "wltpRangeKm": 51,
+    "name": "Volkswagen Touareg R eHybrid"
   },
   {
     "id": "vw-golf-8-gte-2020",
@@ -8056,7 +9216,15 @@
     "acceleration_0_100": 6.7,
     "gallery_images": [],
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 10.4
+    "usable_battery_kwh": 10.4,
+    "usableBatteryKwh": 10.4,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 62,
+    "name": "Volkswagen Golf 8 GTE (2020-2024)"
   },
   {
     "id": "vw-golf-8-ehybrid-2020",
@@ -8109,7 +9277,15 @@
     "acceleration_0_100": 7.4,
     "gallery_images": [],
     "last_updated": "2026-09-21",
-    "usable_battery_kwh": 10.4
+    "usable_battery_kwh": 10.4,
+    "usableBatteryKwh": 10.4,
+    "hybridThresholdSoC": 22,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 71,
+    "name": "Volkswagen Golf 8 eHybrid (2020-2024)"
   },
   {
     "id": "peugeot-3008-hybrid-225-2020",
@@ -8168,7 +9344,15 @@
     "slug": "peugeot-3008-hybrid-225-phev",
     "updated_at": "2026-10-06",
     "gallery_images": [],
-    "price_eur": 43900
+    "price_eur": 43900,
+    "usableBatteryKwh": 10.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 59,
+    "name": "Peugeot 3008 Hybrid 225"
   },
   {
     "id": "peugeot-3008-hybrid4-300-2020",
@@ -8227,7 +9411,15 @@
     "slug": "peugeot-3008-hybrid4-300-phev",
     "updated_at": "2026-10-06",
     "gallery_images": [],
-    "price_eur": 50500
+    "price_eur": 50500,
+    "usableBatteryKwh": 10.4,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 59,
+    "name": "Peugeot 3008 Hybrid4 300 (4x4)"
   },
   {
     "id": "peugeot-508-pse-hybrid4-360-2021",
@@ -8286,7 +9478,15 @@
     "slug": "peugeot-508-pse-hybrid4-360-phev",
     "updated_at": "2026-10-06",
     "gallery_images": [],
-    "price_eur": 67100
+    "price_eur": 67100,
+    "usableBatteryKwh": 9.3,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.8,
+    "wltpRangeKm": 42,
+    "name": "Peugeot 508 PSE Hybrid4 360"
   },
   {
     "id": "peugeot-308-hybrid-180-2021",
@@ -8345,6 +9545,14 @@
     "slug": "peugeot-308-hybrid-180-phev",
     "updated_at": "2026-10-06",
     "gallery_images": [],
-    "price_eur": 38900
+    "price_eur": 38900,
+    "usableBatteryKwh": 9.9,
+    "hybridThresholdSoC": 20,
+    "maxEvCruisingSpeed": 130,
+    "hasHeatPump": false,
+    "batteryChemistry": "NMC",
+    "depletedFuelLPer100km": 5.2,
+    "wltpRangeKm": 60,
+    "name": "Peugeot 308 Hybrid 180"
   }
 ]
