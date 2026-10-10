@@ -7,12 +7,143 @@ import type { RouteSimulationResult } from '@/lib/phev-simulator-types'
 interface PHEVRouteMapProps {
   simulation: RouteSimulationResult | null
   height?: string
+  locale?: string
 }
 
-export default function PHEVRouteMap({ simulation, height = '520px' }: PHEVRouteMapProps) {
+const MAP_I18N: Record<string, {
+  legendTitle: string
+  pureEv: string
+  hevMode: string
+  engineStartLabel: string
+  originLabel: string
+  destLabel: string
+  departureSoC: string
+  totalTrip: string
+  pureEvTitle: string
+  distance: string
+  ofTrip: string
+  hevTitle: string
+  estimatedFuel: string
+  engineStartPopupTitle: string
+  bufferReached: string
+  iceEngagedText: string
+}> = {
+  en: {
+    legendTitle: 'Route Legend',
+    pureEv: 'Pure EV (Battery Only)',
+    hevMode: 'HEV (Petrol Combustion)',
+    engineStartLabel: 'Engine Start',
+    originLabel: 'Origin',
+    destLabel: 'Destination',
+    departureSoC: 'Departure SoC',
+    totalTrip: 'Total Trip',
+    pureEvTitle: 'Pure Electric Range (EV)',
+    distance: 'Distance',
+    ofTrip: 'of trip',
+    hevTitle: 'Hybrid / Combustion Mode (HEV)',
+    estimatedFuel: 'Estimated Fuel',
+    engineStartPopupTitle: 'Engine Start Point',
+    bufferReached: 'buffer reached',
+    iceEngagedText: 'ICE combustion engine engaged for remaining'
+  },
+  tr: {
+    legendTitle: 'Rota Göstergesi',
+    pureEv: 'Saf Elektrikli Sürüş (EV)',
+    hevMode: 'Hibrit / Benzinli Sürüş (HEV)',
+    engineStartLabel: 'Motor Başlangıcı',
+    originLabel: 'Kalkış',
+    destLabel: 'Varış',
+    departureSoC: 'Kalkış SoC',
+    totalTrip: 'Toplam Rota',
+    pureEvTitle: 'Saf Elektrikli Sürüş (EV)',
+    distance: 'Mesafe',
+    ofTrip: 'rota payı',
+    hevTitle: 'Hibrit / Benzin Motoru (HEV)',
+    estimatedFuel: 'Tahmini Yakıt',
+    engineStartPopupTitle: 'Benzin Motoru Devreye Girme Noktası',
+    bufferReached: 'tamponuna ulaşıldı',
+    iceEngagedText: 'Kalan mesafe için benzinli motor devreye girdi:'
+  },
+  pl: {
+    legendTitle: 'Legenda trasy',
+    pureEv: 'Czysty napęd elektryczny (EV)',
+    hevMode: 'Tryb spalinowy (HEV)',
+    engineStartLabel: 'Start silnika ICE',
+    originLabel: 'Start',
+    destLabel: 'Cel',
+    departureSoC: 'Początkowy SoC',
+    totalTrip: 'Długość trasy',
+    pureEvTitle: 'Zasięg elektryczny (EV)',
+    distance: 'Dystans',
+    ofTrip: 'trasy',
+    hevTitle: 'Tryb hybrydowy / spalinowy (HEV)',
+    estimatedFuel: 'Szacowane paliwo',
+    engineStartPopupTitle: 'Punkt uruchomienia silnika spalinowego',
+    bufferReached: 'osiągnięto bufor',
+    iceEngagedText: 'Silnik spalinowy uruchomiony na pozostałe'
+  },
+  de: {
+    legendTitle: 'Routenlegende',
+    pureEv: 'Rein elektrisch (EV)',
+    hevMode: 'Hybrid / Verbrenner (HEV)',
+    engineStartLabel: 'Motorstart',
+    originLabel: 'Start',
+    destLabel: 'Ziel',
+    departureSoC: 'Start-SoC',
+    totalTrip: 'Gesamtstrecke',
+    pureEvTitle: 'Reine elektrische Reichweite (EV)',
+    distance: 'Strecke',
+    ofTrip: 'der Reise',
+    hevTitle: 'Hybrid- / Verbrennermodus (HEV)',
+    estimatedFuel: 'Geschätztes Benzin',
+    engineStartPopupTitle: 'Startpunkt Verbrennungsmotor',
+    bufferReached: 'Puffer erreicht',
+    iceEngagedText: 'Verbrennungsmotor zugeschaltet für verbleibende'
+  },
+  fr: {
+    legendTitle: 'Légende du trajet',
+    pureEv: '100% Électrique (EV)',
+    hevMode: 'Hybride / Thermique (HEV)',
+    engineStartLabel: 'Démarrage moteur',
+    originLabel: 'Départ',
+    destLabel: 'Arrivée',
+    departureSoC: 'SoC départ',
+    totalTrip: 'Distance totale',
+    pureEvTitle: 'Autonomie 100% électrique (EV)',
+    distance: 'Distance',
+    ofTrip: 'du trajet',
+    hevTitle: 'Mode hybride / essence (HEV)',
+    estimatedFuel: 'Carburant estimé',
+    engineStartPopupTitle: 'Point de démarrage du moteur thermique',
+    bufferReached: 'tampon atteint',
+    iceEngagedText: 'Moteur thermique enclenché pour les'
+  },
+  es: {
+    legendTitle: 'Leyenda de ruta',
+    pureEv: '100% Eléctrico (EV)',
+    hevMode: 'Híbrido / Combustión (HEV)',
+    engineStartLabel: 'Encendido motor',
+    originLabel: 'Origen',
+    destLabel: 'Destino',
+    departureSoC: 'SoC inicial',
+    totalTrip: 'Viaje total',
+    pureEvTitle: 'Autonomía 100% eléctrica (EV)',
+    distance: 'Distancia',
+    ofTrip: 'del viaje',
+    hevTitle: 'Modo híbrido / gasolina (HEV)',
+    estimatedFuel: 'Combustible estimado',
+    engineStartPopupTitle: 'Punto de encendido del motor térmico',
+    bufferReached: 'búfer alcanzado',
+    iceEngagedText: 'Motor térmico activado para los restantes'
+  }
+}
+
+export default function PHEVRouteMap({ simulation, height = '520px', locale = 'en' }: PHEVRouteMapProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<any>(null)
   const layersGroupRef = useRef<any>(null)
+
+  const t = MAP_I18N[locale] || MAP_I18N.en
 
   useEffect(() => {
     if (typeof window === 'undefined' || !mapContainerRef.current) return
@@ -69,7 +200,7 @@ export default function PHEVRouteMap({ simulation, height = '520px' }: PHEVRoute
       })
 
       const originMarker = L.marker([simulation.origin.lat, simulation.origin.lon], { icon: startIcon })
-        .bindPopup(`<strong>Origin:</strong> ${simulation.origin.name}<br/>Departure SoC: ${simulation.startSoC}%`)
+        .bindPopup(`<strong>${t.originLabel}:</strong> ${simulation.origin.name}<br/>${t.departureSoC}: ${simulation.startSoC}%`)
         .addTo(layerGroup)
       bounds.extend([simulation.origin.lat, simulation.origin.lon])
 
@@ -86,7 +217,7 @@ export default function PHEVRouteMap({ simulation, height = '520px' }: PHEVRoute
       })
 
       const destMarker = L.marker([simulation.destination.lat, simulation.destination.lon], { icon: destIcon })
-        .bindPopup(`<strong>Destination:</strong> ${simulation.destination.name}<br/>Total Trip: ${simulation.totalDistanceKm} km`)
+        .bindPopup(`<strong>${t.destLabel}:</strong> ${simulation.destination.name}<br/>${t.totalTrip}: ${simulation.totalDistanceKm} km`)
         .addTo(layerGroup)
       bounds.extend([simulation.destination.lat, simulation.destination.lon])
 
@@ -100,7 +231,7 @@ export default function PHEVRouteMap({ simulation, height = '520px' }: PHEVRoute
           lineJoin: 'round'
         }).addTo(layerGroup)
 
-        evLine.bindPopup(`<strong>Pure Electric Range (EV)</strong><br/>Distance: ${simulation.evDistanceKm} km (${simulation.evPercentage}% of trip)`)
+        evLine.bindPopup(`<strong>${t.pureEvTitle}</strong><br/>${t.distance}: ${simulation.evDistanceKm} km (${simulation.evPercentage}% ${t.ofTrip})`)
         simulation.evPolyline.forEach((coord) => bounds.extend(coord))
       }
 
@@ -115,7 +246,7 @@ export default function PHEVRouteMap({ simulation, height = '520px' }: PHEVRoute
           dashArray: '8, 4'
         }).addTo(layerGroup)
 
-        hevLine.bindPopup(`<strong>Hybrid / Combustion Mode (HEV)</strong><br/>Distance: ${simulation.hevDistanceKm} km (${simulation.hevPercentage}% of trip)<br/>Estimated Fuel: ${simulation.totalFuelLiters} L`)
+        hevLine.bindPopup(`<strong>${t.hevTitle}</strong><br/>${t.distance}: ${simulation.hevDistanceKm} km (${simulation.hevPercentage}% ${t.ofTrip})<br/>${t.estimatedFuel}: ${simulation.totalFuelLiters} L`)
         simulation.hevPolyline.forEach((coord) => bounds.extend(coord))
       }
 
@@ -137,11 +268,11 @@ export default function PHEVRouteMap({ simulation, height = '520px' }: PHEVRoute
         const transitionMarker = L.marker([tp.lat, tp.lon], { icon: transitionIcon })
           .bindPopup(`
             <div style="font-family: inherit;">
-              <strong style="color: #d97706; font-size: 13px;">⚡→⛽ Engine Start Point</strong>
+              <strong style="color: #d97706; font-size: 13px;">⚡→⛽ ${t.engineStartPopupTitle}</strong>
               <div style="margin-top: 4px; font-size: 12px; line-height: 1.4;">
-                <strong>Distance Reached:</strong> ${tp.km} km<br/>
-                <strong>Battery Status:</strong> ${tp.socBufferReached}% buffer reached<br/>
-                <em>ICE combustion engine engaged for remaining ${simulation.hevDistanceKm} km.</em>
+                <strong>${t.distance}:</strong> ${tp.km} km<br/>
+                <strong>SoC:</strong> %${tp.socBufferReached} ${t.bufferReached}<br/>
+                <em>${t.iceEngagedText} ${simulation.hevDistanceKm} km.</em>
               </div>
             </div>
           `)
@@ -157,34 +288,30 @@ export default function PHEVRouteMap({ simulation, height = '520px' }: PHEVRoute
         map.fitBounds(bounds, { padding: [50, 50] })
       }
     })
-
-    return () => {
-      // Keep map instance mounted across prop updates
-    }
-  }, [simulation])
+  }, [simulation, locale])
 
   return (
     <div className="relative w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md">
       {/* Map Legend Overlay */}
       <div className="absolute top-4 right-4 z-[1000] bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-2.5 rounded-xl border border-slate-200/80 dark:border-slate-700/80 shadow-md text-xs space-y-2 pointer-events-auto">
         <div className="font-bold text-slate-800 dark:text-slate-100 flex items-center justify-between gap-4">
-          <span>Route Legend</span>
+          <span>{t.legendTitle}</span>
           {simulation && (
             <span className="font-mono text-[10px] text-slate-500">{simulation.totalDistanceKm} km</span>
           )}
         </div>
         <div className="flex items-center space-x-2">
           <span className="w-4 h-1.5 rounded-full bg-emerald-500 inline-block shrink-0"></span>
-          <span className="text-slate-600 dark:text-slate-300 font-medium">Pure EV (Battery Only)</span>
+          <span className="text-slate-600 dark:text-slate-300 font-medium">{t.pureEv}</span>
         </div>
         <div className="flex items-center space-x-2">
           <span className="w-4 h-1.5 rounded-full bg-amber-500 inline-block shrink-0 border-b border-dashed border-white"></span>
-          <span className="text-slate-600 dark:text-slate-300 font-medium">HEV (Petrol Combustion)</span>
+          <span className="text-slate-600 dark:text-slate-300 font-medium">{t.hevMode}</span>
         </div>
         {simulation?.transitionPoint && (
           <div className="flex items-center space-x-2 pt-1 border-t border-slate-200/60 dark:border-slate-800/60 text-[11px] text-amber-600 dark:text-amber-400 font-semibold">
             <span>⚡→⛽</span>
-            <span>Engine Start: Km {simulation.transitionPoint.km}</span>
+            <span>{t.engineStartLabel}: Km {simulation.transitionPoint.km}</span>
           </div>
         )}
       </div>

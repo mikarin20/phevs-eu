@@ -52,6 +52,9 @@ const UI_TEXT: Record<string, {
   breadcrumbTools: string
   breadcrumbCurrent: string
   langSelect: string
+  routeTabTitle: string
+  routeTabBadge: string
+  parametricTabTitle: string
   physicsTitle: string
   physicsSubtitle: string
   tempCardTitle: string
@@ -87,6 +90,9 @@ const UI_TEXT: Record<string, {
     breadcrumbTools: 'Tools',
     breadcrumbCurrent: 'Range Calculator',
     langSelect: 'Language',
+    routeTabTitle: 'Route-Based Journey Simulator (A → B)',
+    routeTabBadge: 'New',
+    parametricTabTitle: 'Parametric Physics Simulator',
     physicsTitle: 'Why Real-World PHEV Range Differs from WLTP',
     physicsSubtitle: 'Official laboratory WLTP tests are conducted at a flat 23°C in climate-controlled test dynamometers. On European roads, physical forces dictate your true daily range.',
     tempCardTitle: 'Winter Temperatures & Electrolyte Viscosity',
@@ -122,6 +128,9 @@ const UI_TEXT: Record<string, {
     breadcrumbTools: 'Rechner',
     breadcrumbCurrent: 'Reichweitenrechner',
     langSelect: 'Sprache',
+    routeTabTitle: 'Routen-Simulator (A → B)',
+    routeTabBadge: 'Neu',
+    parametricTabTitle: 'Parametrischer Physik-Simulator',
     physicsTitle: 'Warum reale Reichweiten vom WLTP abweichen',
     physicsSubtitle: 'Offizielle WLTP-Prüfstandstests finden bei 23°C ohne Klimaanlage statt. Im realen Fahrbetrieb bestimmen Physik und Thermodynamik den Verbrauch.',
     tempCardTitle: 'Kälte & zähe Batterie-Elektrolyte',
@@ -157,6 +166,9 @@ const UI_TEXT: Record<string, {
     breadcrumbTools: 'Araçlar',
     breadcrumbCurrent: 'Menzil Hesaplayıcı',
     langSelect: 'Dil',
+    routeTabTitle: 'Rota Tabanlı Yolculuk Simülatörü (A → B)',
+    routeTabBadge: 'Yeni',
+    parametricTabTitle: 'Parametrik Fizik Simülatörü',
     physicsTitle: 'Gerçek Menzil Neden Fabrika WLTP Değerinden Farklıdır?',
     physicsSubtitle: 'Resmi WLTP testleri 23°C sabit laboratuvar ortamında klimasız yapılır. Gerçek yollarda hava şartları, aerodinamik rüzgar direnci ve ısıtma devreye girer.',
     tempCardTitle: 'Kış Sıcaklığı ve Donan Hücreler',
@@ -192,6 +204,9 @@ const UI_TEXT: Record<string, {
     breadcrumbTools: 'Narzędzia',
     breadcrumbCurrent: 'Kalkulator Zasięgu',
     langSelect: 'Język',
+    routeTabTitle: 'Symulator trasy podróży (A → B)',
+    routeTabBadge: 'Nowość',
+    parametricTabTitle: 'Parametryczny symulator fizyki',
     physicsTitle: 'Dlaczego zasięg katalogowy WLTP różni się od realnego?',
     physicsSubtitle: 'Oficjalne testy WLTP odbywają się w temperaturze 23°C na hamowni laboratoryjnej. Na drodze opór powietrza i ogrzewanie weryfikują dane.',
     tempCardTitle: 'Zimowe mrozy i opór elektrolitu',
@@ -218,6 +233,82 @@ const UI_TEXT: Record<string, {
     faqTitle: 'Często zadawane pytania (FAQ)',
     faqSubtitle: 'Wszystko o zasięgu elektrycznym, ładowaniu i oszczędnościach.',
     exploreMoreTitle: 'Zobacz inne kategorie hybryd plug-in'
+  },
+  fr: {
+    badge: 'Outil interactif en conditions réelles 2026',
+    title: 'Simulateur d’autonomie réelle & Économies PHEV',
+    subtitle: 'Découvrez l’impact de la température ambiante, de la vitesse sur autoroute, du chauffage et de la santé de batterie sur votre autonomie électrique réelle.',
+    breadcrumbHome: 'Accueil',
+    breadcrumbTools: 'Outils',
+    breadcrumbCurrent: 'Calculateur d’autonomie',
+    langSelect: 'Langue',
+    routeTabTitle: 'Simulateur d’itinéraire réel (A → B)',
+    routeTabBadge: 'Nouveau',
+    parametricTabTitle: 'Simulateur physique paramétrique',
+    physicsTitle: 'Pourquoi l’autonomie réelle diffère-t-elle du WLTP ?',
+    physicsSubtitle: 'Les tests officiels WLTP sont réalisés à 23°C en laboratoire climatisé. Sur route, les contraintes physiques déterminent votre autonomie réelle.',
+    tempCardTitle: 'Températures hivernales et viscosité des cellules',
+    tempCardDesc: 'En dessous de 0°C, les électrolytes s’épaississent et les chauffages PTC consomment 2 à 4 kW, réduisant l’autonomie électrique de 25% à 35%.',
+    speedCardTitle: 'Résistance aérodynamique à 120-140 km/h',
+    speedCardDesc: 'La traînée aérodynamique croît au carré de la vitesse (Fd ∝ v²). Rouler à 140 km/h augmente la résistance d’environ 35% par rapport à 100 km/h.',
+    preconCardTitle: 'Préconditionnement sur le réseau électrique',
+    preconCardDesc: 'Préchauffer l’habitacle pendant la recharge tire l’énergie de la prise murale plutôt que de la batterie, récupérant 15% à 20% d’autonomie.',
+    sohCardTitle: 'Santé de la batterie d’occasion (SOH)',
+    sohCardDesc: 'Un véhicule de 3 à 4 ans conserve généralement 90% à 92% de sa capacité utile. Évaluez la dégradation réelle avant d’acheter.',
+    techTitle: 'Chimie de batterie & Dynamique d’architecture hybride',
+    techSubtitle: 'Impact des cellules LFP vs NMC et des boîtes P2 e-DSG vs P1+P3 DHT sur la consommation réelle.',
+    chemLfpTitle: 'LFP (Lithium Fer Phosphate) - BYD, Jaecoo, Chery',
+    chemLfpDesc: 'Durée de vie supérieure à 3 000 cycles et dégradation minime sur 4 ans (94% SOH). Plus sensible au gel sans préconditionnement.',
+    chemNmcTitle: 'NMC (Nickel Manganèse Cobalt) - VAG, BMW, Mercedes',
+    chemNmcDesc: 'Densité énergétique plus élevée et décharge stable sous 0°C. Dégradation normale à environ 90% après 3-4 ans.',
+    dhtTitle: 'DHT Super Hybride P1+P3 (Jaecoo, Chery, BYD DM-i)',
+    dhtDesc: 'Transmission sans frottement mécanique d’embrayage traditionnel; récupération d’énergie au freinage urbain supérieure de +12%.',
+    p2Title: 'Architecture parallèle P2 (VAG e-DSG, BMW ZF)',
+    p2Desc: 'Moteur électrique intégré avant la boîte de vitesses. Rapports longs d’autoroute maintenant une excellente efficacité à 130-140 km/h.',
+    benchmarksTitle: 'Comparatif des modèles PHEV populaires',
+    benchmarksSubtitle: 'Homologation WLTP vs autonomie réelle attendue sur les best-sellers européens.',
+    simulateBtn: 'Simuler ce modèle',
+    faqTitle: 'Foire aux questions (FAQ)',
+    faqSubtitle: 'Tout ce que vous devez savoir sur l’autonomie et la recharge des hybrides rechargeables.',
+    exploreMoreTitle: 'Explorer d’autres catégories PHEV'
+  },
+  es: {
+    badge: 'Herramienta interactiva en condiciones reales 2026',
+    title: 'Calculadora de autonomía real y ahorro PHEV',
+    subtitle: 'Compruebe cómo la temperatura ambiente, la velocidad en autopista, la calefacción y la salud de la batería influyen en sus kilómetros eléctricos.',
+    breadcrumbHome: 'Inicio',
+    breadcrumbTools: 'Herramientas',
+    breadcrumbCurrent: 'Calculadora de autonomía',
+    langSelect: 'Idioma',
+    routeTabTitle: 'Simulador de ruta punto a punto (A → B)',
+    routeTabBadge: 'Nuevo',
+    parametricTabTitle: 'Simulador físico paramétrico',
+    physicsTitle: '¿Por qué la autonomía real difiere del ciclo WLTP?',
+    physicsSubtitle: 'Los ensayos WLTP se realizan a 23°C en banco de pruebas sin climatizador. En carretera, la física y el clima dictan su autonomía real.',
+    tempCardTitle: 'Temperaturas invernales y viscosidad química',
+    tempCardDesc: 'Por debajo de 0°C, el electrolito se espesa y las resistencias PTC consumen 2-4 kW, recortando la autonomía eléctrica entre un 25% y un 35%.',
+    speedCardTitle: 'Resistencia aerodinámica a 120-140 km/h',
+    speedCardDesc: 'La resistencia del aire crece con el cuadrado de la velocidad (Fd ∝ v²). Circular a 140 km/h aumenta drásticamente el consumo respecto a 100 km/h.',
+    preconCardTitle: 'Preclimatización conectado a la red eléctrica',
+    preconCardDesc: 'Calentar el habitáculo mientras está enchufado toma la energía de la toma doméstica en lugar de la batería, ganando un 15%-20% de autonomía.',
+    sohCardTitle: 'Salud de batería en vehículos de ocasión (SOH)',
+    sohCardDesc: 'Un PHEV de 3-4 años suele conservar un 90%-92% de capacidad útil. Simule la degradación real antes de comprar.',
+    techTitle: 'Química de celda y arquitectura híbrida',
+    techSubtitle: 'Cómo influyen las celdas LFP vs NMC y las transmisiones P2 vs P1+P3 DHT en el consumo diario.',
+    chemLfpTitle: 'LFP (Fosfato de hierro y litio) - BYD, Jaecoo, Chery',
+    chemLfpDesc: 'Más de 3.000 ciclos y degradación mínima tras 4 años (94% SOH). Mayor resistencia interna bajo cero sin precalentamiento.',
+    chemNmcTitle: 'NMC (Níquel Manganeso Cobalto) - VAG, BMW, Mercedes',
+    chemNmcDesc: 'Mayor densidad energética y descarga estable en invierno. Degradación estándar a aprox. 90% de capacidad tras 3-4 años.',
+    dhtTitle: 'P1+P3 DHT Super Híbrido (Jaecoo, Chery, BYD DM-i)',
+    dhtDesc: 'Transmisión híbrida dedicada sin pérdidas de fricción de cambio tradicional; hasta un +12% más de recuperación regenerativa urbana.',
+    p2Title: 'Arquitectura paralela P2 (VAG e-DSG, BMW ZF)',
+    p2Desc: 'Motor eléctrico integrado en la caja de cambios. Desarrollos largos de autopista para mantener alta eficiencia a 130-140 km/h.',
+    benchmarksTitle: 'Comparativa de híbridos enchufables populares',
+    benchmarksSubtitle: 'Catálogo WLTP frente a autonomía real esperada en los modelos más vendidos.',
+    simulateBtn: 'Simular este modelo',
+    faqTitle: 'Preguntas frecuentes (FAQ)',
+    faqSubtitle: 'Todo lo que necesita saber sobre autonomía, recarga y ahorro de un híbrido enchufable.',
+    exploreMoreTitle: 'Explorar más categorías PHEV'
   }
 }
 
@@ -272,12 +363,21 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
       const stored = localStorage.getItem('phevs-language') || 'en'
       setLocale(stored)
     }
+
+    const onLangChange = (e: any) => {
+      if (e.detail?.language) {
+        setLocale(e.detail.language)
+      }
+    }
+    window.addEventListener('languageChanged', onLangChange)
+    return () => window.removeEventListener('languageChanged', onLangChange)
   }, [])
 
   const handleLanguageChange = (code: string) => {
     setLocale(code)
     if (typeof window !== 'undefined') {
       localStorage.setItem('phevs-language', code)
+      window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: code } }))
     }
   }
 
@@ -438,9 +538,9 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
             }`}
           >
             <MapPinIcon className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>Route-Based Journey Simulator (A → B)</span>
+            <span>{t.routeTabTitle}</span>
             <span className="px-1.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-400/30">
-              New
+              {t.routeTabBadge}
             </span>
           </button>
 
@@ -454,7 +554,7 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
             }`}
           >
             <AdjustmentsHorizontalIcon className="w-4 h-4 text-blue-400 shrink-0" />
-            <span>Parametric Physics Simulator</span>
+            <span>{t.parametricTabTitle}</span>
           </button>
         </div>
       </div>
@@ -742,8 +842,8 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
         <div className="max-w-3xl mx-auto space-y-3">
           {FAQS.map((faq, idx) => {
             const isOpen = openFaqIndex === idx
-            const question = locale === 'de' ? faq.q_de : locale === 'tr' ? faq.q_tr : locale === 'pl' ? faq.q_pl : faq.q_en
-            const answer = locale === 'de' ? faq.a_de : locale === 'tr' ? faq.a_tr : locale === 'pl' ? faq.a_pl : faq.a_en
+            const question = (faq as any)[`q_${locale}`] || faq.q_en
+            const answer = (faq as any)[`a_${locale}`] || faq.a_en
 
             return (
               <div
