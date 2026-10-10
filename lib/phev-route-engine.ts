@@ -62,7 +62,8 @@ export function simulatePHEVRoute(
   startSoC: number,
   ambientTempC: number,
   origin: LocationWaypoint,
-  destination: LocationWaypoint
+  destination: LocationWaypoint,
+  targetHighwaySpeedKmH: number = 120
 ): RouteSimulationResult {
   // Step A: Usable Net Electrical Energy
   const activeSoCPercent = Math.max(0, startSoC - vehicle.hybridThresholdSoC)
@@ -89,6 +90,7 @@ export function simulatePHEVRoute(
   )
 
   let totalCumulativeKm = 0
+  let totalDurationSeconds = 0
   let evDistanceKm = 0
   let hevDistanceKm = 0
   let totalElecUsedKwh = 0
@@ -113,20 +115,22 @@ export function simulatePHEVRoute(
   for (let i = 0; i < stepsToProcess.length; i++) {
     const rawStep = stepsToProcess[i]
     const stepDistMeters = rawStep.distance || 0
-    const stepDurationSec = rawStep.duration || 1
+    const rawDurationSec = rawStep.duration || 1
     const stepDistKm = stepDistMeters / 1000
 
     if (stepDistKm <= 0.001) continue
 
-    // Calculate step average speed (km/h)
-    const avgSpeedKmH = Math.min(180, Math.max(15, (stepDistMeters / stepDurationSec) * 3.6))
+    // Raw step speed estimate from OSRM profile
+    const rawSpeedKmH = Math.min(180, Math.max(15, (stepDistMeters / rawDurationSec) * 3.6))
 
-    // Step road type and base electrical consumption (kWh/100km)
+    // Road type classification & realistic driver target speed adjustment
+    let avgSpeedKmH: number
     let baseConsumptionKwh100: number
     let roadType: 'urban' | 'suburban' | 'highway'
 
-    if (avgSpeedKmH < 50) {
+    if (rawSpeedKmH < 50) {
       roadType = 'urban'
+      avgSpeedKmH = Math.min(45, Math.max(15, rawSpeedKmH))
       // Urban regenerative braking recovery:
       // In sub-zero cold, regen is constrained by battery chemistry (cut by ~50%)
       if (ambientTempC < 0) {
@@ -134,34 +138,48 @@ export function simulatePHEVRoute(
       } else {
         baseConsumptionKwh100 = 13.8
       }
-    } else if (avgSpeedKmH <= 90) {
+    } else if (rawSpeedKmH <= 85) {
       roadType = 'suburban'
-      baseConsumptionKwh100 = 16.5
+      // Suburban flow modulated slightly by target cruising profile
+      avgSpeedKmH = Math.round(Math.min(90, Math.max(50, rawSpeedKmH * (targetHighwaySpeedKmH / 120))))
+      baseConsumptionKwh100 = 16.5 * Math.pow(avgSpeedKmH / 70, 0.4)
     } else {
       roadType = 'highway'
-      // High speed aerodynamic drag penalty (Fd ∝ v²)
-      const speedFactor = Math.pow(avgSpeedKmH / 100, 1.4)
+      // Driver chosen highway cruising speed (e.g. 100 km/h Eco vs 130-140 km/h Fast/ICE)
+      avgSpeedKmH = targetHighwaySpeedKmH
+      // Aerodynamic drag penalty scales with velocity squared (Fd ∝ v²)
+      const speedFactor = Math.pow(avgSpeedKmH / 100, 1.45)
       baseConsumptionKwh100 = 22.5 * speedFactor
     }
+
+    // Step duration based on effective driving speed
+    const stepDurationSec = Math.max(1, Math.round(stepDistMeters / (avgSpeedKmH / 3.6)))
+    totalDurationSeconds += stepDurationSec
 
     // Convert step coordinates from [lon, lat] to [lat, lon]
     const stepCoords: [number, number][] = (rawStep.geometry?.coordinates || []).map(
       ([lon, lat]): [number, number] => [lat, lon]
     )
 
-    // Check if speed exceeds max EV cruising limit
-    const exceedsMaxEvSpeed = avgSpeedKmH > vehicle.maxEvCruisingSpeed
+    // Check if vehicle pure EV limit is exceeded at this speed
+    // e.g. at 130 or 140 km/h, most PHEVs force the ICE engine on (Toyota max 135 km/h, Kia max 125 km/h)
+    const exceedsMaxEvSpeed = avgSpeedKmH >= vehicle.maxEvCruisingSpeed
 
     // Nominal energy required for this step if pure EV:
     // E_step = (DistKm / 100) * (BaseConsumption / k_temp)
     let stepElecNeededKwh = (stepDistKm / 100) * (baseConsumptionKwh100 / kTemp)
     let stepFuelNeededL = 0
 
-    // If speed exceeds max EV cruising speed, ICE engages in parallel (blended mode)
+    // If cruising speed exceeds max EV cruising limit, ICE engages in parallel (blended mode)
     if (exceedsMaxEvSpeed) {
-      stepElecNeededKwh *= 0.5
-      stepFuelNeededL += (stepDistKm / 100) * 2.5 // parallel ICE assist draw
+      stepElecNeededKwh *= 0.35 // Electric motor drops to hybrid assist
+      const speedOverheadL = Math.max(0, (avgSpeedKmH - 120) * 0.04)
+      stepFuelNeededL += (stepDistKm / 100) * (3.8 + speedOverheadL) // parallel ICE assist draw
     }
+
+    // Aerodynamic scaling for depleted petrol consumption in HEV mode
+    const fuelAeroFactor = Math.pow(avgSpeedKmH / 100, 0.75)
+    const effectiveDepletedFuelLPer100km = vehicle.depletedFuelLPer100km * fuelAeroFactor
 
     const startStepSoC = vehicle.usableBatteryKwh > 0
       ? Math.round(vehicle.hybridThresholdSoC + (remainingElecKwh / vehicle.usableBatteryKwh) * 100)
@@ -194,7 +212,7 @@ export function simulatePHEVRoute(
       totalElecUsedKwh += remainingElecKwh
 
       // Fuel for the remaining portion + any blended assist
-      const fuelForHevPortion = (stepHevKm / 100) * vehicle.depletedFuelLPer100km
+      const fuelForHevPortion = (stepHevKm / 100) * effectiveDepletedFuelLPer100km
       totalFuelUsedLiters += fuelForHevPortion + (stepFuelNeededL * evRatio)
 
       remainingElecKwh = 0
@@ -226,8 +244,8 @@ export function simulatePHEVRoute(
       }
     } else {
       // Battery is already fully at hybrid buffer (0% usable remaining)
-      // Step runs entirely on depleted fuel consumption
-      const fuelForStep = (stepDistKm / 100) * vehicle.depletedFuelLPer100km
+      // Step runs entirely on depleted fuel consumption with aero scaling
+      const fuelForStep = (stepDistKm / 100) * effectiveDepletedFuelLPer100km
       totalFuelUsedLiters += fuelForStep
       hevDistanceKm += stepDistKm
       stepMode = 'HEV'
@@ -263,7 +281,13 @@ export function simulatePHEVRoute(
   }
 
   const totalDistanceKm = Math.round(totalCumulativeKm * 10) / 10
-  const totalDurationMinutes = Math.round((route.duration || 1) / 60)
+  const totalDurationMinutes = totalDurationSeconds > 0
+    ? Math.max(1, Math.round(totalDurationSeconds / 60))
+    : Math.round((route.duration || 1) / 60)
+
+  const overallAvgSpeedKmH = totalDurationMinutes > 0
+    ? Math.round((totalDistanceKm / (totalDurationMinutes / 60)))
+    : targetHighwaySpeedKmH
 
   const evPercentage = totalDistanceKm > 0
     ? Math.round((evDistanceKm / totalDistanceKm) * 100)
@@ -302,6 +326,8 @@ export function simulatePHEVRoute(
     ambientTempC,
     kTemp: Math.round(kTemp * 1000) / 1000,
     coldWeatherPenaltyPct,
+    targetHighwaySpeedKmH,
+    overallAvgSpeedKmH,
     totalDistanceKm,
     totalDurationMinutes,
     evDistanceKm: Math.round(evDistanceKm * 10) / 10,

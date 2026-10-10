@@ -64,6 +64,10 @@ export interface RouteSimulationResult {
   kTemp: number;
   coldWeatherPenaltyPct: number;
   
+  // Speed & Driving Dynamics
+  targetHighwaySpeedKmH: number;
+  overallAvgSpeedKmH: number;
+
   // Trip Distances
   totalDistanceKm: number;
   totalDurationMinutes: number;

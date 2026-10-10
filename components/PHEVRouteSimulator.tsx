@@ -167,6 +167,13 @@ const I18N: Record<string, {
   copiedImage: string
   downloadedImage: string
   generatingImage: string
+  highwaySpeedLabel: string
+  speedPresetEco: string
+  speedPresetNormal: string
+  speedPresetFast: string
+  speedPresetAutobahn: string
+  speedNoticeExceeds: string
+  overallSpeedLabel: string
 }> = {
   en: {
     quickTrips: 'Quick European Route Presets',
@@ -253,7 +260,14 @@ const I18N: Record<string, {
     copyImage: 'Copy Image',
     copiedImage: 'Image Copied! ✓',
     downloadedImage: 'Image Downloaded! ✓',
-    generatingImage: 'Generating Image...'
+    generatingImage: 'Generating Image...',
+    highwaySpeedLabel: 'Highway Cruising Speed & Pace',
+    speedPresetEco: 'Eco (100 km/h)',
+    speedPresetNormal: 'Normal (115 km/h)',
+    speedPresetFast: 'Fast (130 km/h)',
+    speedPresetAutobahn: 'Autobahn (140 km/h)',
+    speedNoticeExceeds: 'Pure EV Speed Ceiling Exceeded',
+    overallSpeedLabel: 'Avg Speed'
   },
   tr: {
     quickTrips: 'Popüler Rota Örnekleri',
@@ -340,7 +354,14 @@ const I18N: Record<string, {
     copyImage: 'Görseli Kopyala',
     copiedImage: 'Görsel Kopyalandı! ✓',
     downloadedImage: 'Görsel İndirildi! ✓',
-    generatingImage: 'Görsel Hazırlanıyor...'
+    generatingImage: 'Görsel Hazırlanıyor...',
+    highwaySpeedLabel: 'Otoyol Seyir Hızı & Sürüş Temposu',
+    speedPresetEco: 'Eko (100 km/s)',
+    speedPresetNormal: 'Normal (115 km/s)',
+    speedPresetFast: 'Hızlı (130 km/s)',
+    speedPresetAutobahn: 'Otoyol (140 km/s)',
+    speedNoticeExceeds: 'Saf Elektrik Hız Tavanı Aşıldı',
+    overallSpeedLabel: 'Ort. Hız'
   },
   pl: {
     quickTrips: 'Popularne trasy europejskie',
@@ -427,7 +448,14 @@ const I18N: Record<string, {
     copyImage: 'Kopiuj Obraz',
     copiedImage: 'Obraz Skopiowany! ✓',
     downloadedImage: 'Obraz Pobrany! ✓',
-    generatingImage: 'Generowanie obrazu...'
+    generatingImage: 'Generowanie obrazu...',
+    highwaySpeedLabel: 'Prędkość przelotowa na autostradzie',
+    speedPresetEco: 'Eko (100 km/h)',
+    speedPresetNormal: 'Normalnie (115 km/h)',
+    speedPresetFast: 'Szybko (130 km/h)',
+    speedPresetAutobahn: 'Autostrada (140 km/h)',
+    speedNoticeExceeds: 'Przekroczono limit prędkości czystego EV',
+    overallSpeedLabel: 'Śr. prędkość'
   },
   de: {
     quickTrips: 'Beliebte europäische Reiserouten',
@@ -514,7 +542,14 @@ const I18N: Record<string, {
     copyImage: 'Bild Kopieren',
     copiedImage: 'Bild Kopiert! ✓',
     downloadedImage: 'Bild Heruntergeladen! ✓',
-    generatingImage: 'Bild wird erstellt...'
+    generatingImage: 'Bild wird erstellt...',
+    highwaySpeedLabel: 'Autobahn-Reisegeschwindigkeit & Fahrtempo',
+    speedPresetEco: 'Öko (100 km/h)',
+    speedPresetNormal: 'Normal (115 km/h)',
+    speedPresetFast: 'Schnell (130 km/h)',
+    speedPresetAutobahn: 'Autobahn (140 km/h)',
+    speedNoticeExceeds: 'Elektrische Höchstgeschwindigkeit überschritten',
+    overallSpeedLabel: 'Ø Tempo'
   },
   fr: {
     quickTrips: 'Trajets européens rapides',
@@ -601,7 +636,14 @@ const I18N: Record<string, {
     copyImage: 'Copier l’Image',
     copiedImage: 'Image Copiée ! ✓',
     downloadedImage: 'Image Téléchargée ! ✓',
-    generatingImage: 'Génération de l’image...'
+    generatingImage: 'Génération de l’image...',
+    highwaySpeedLabel: 'Vitesse de croisière sur autoroute',
+    speedPresetEco: 'Éco (100 km/h)',
+    speedPresetNormal: 'Normal (115 km/h)',
+    speedPresetFast: 'Rapide (130 km/h)',
+    speedPresetAutobahn: 'Autoroute (140 km/h)',
+    speedNoticeExceeds: 'Plafond de vitesse 100% électrique dépassé',
+    overallSpeedLabel: 'Vitesse moy.'
   },
   es: {
     quickTrips: 'Rutas europeas rápidas',
@@ -688,7 +730,14 @@ const I18N: Record<string, {
     copyImage: 'Copiar Imagen',
     copiedImage: '¡Imagen Copiada! ✓',
     downloadedImage: '¡Imagen Descargada! ✓',
-    generatingImage: 'Generando Imagen...'
+    generatingImage: 'Generando Imagen...',
+    highwaySpeedLabel: 'Velocidad de crucero en autopista',
+    speedPresetEco: 'Eco (100 km/h)',
+    speedPresetNormal: 'Normal (115 km/h)',
+    speedPresetFast: 'Rápido (130 km/h)',
+    speedPresetAutobahn: 'Autovía (140 km/h)',
+    speedNoticeExceeds: 'Límite de velocidad en modo 100% eléctrico superado',
+    overallSpeedLabel: 'Vel. media'
   }
 }
 
@@ -797,7 +846,7 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
   }, [models, selectedModelId])
 
   // Synchronize URL query parameters with active simulation parameters
-  const syncUrlWithState = (updates?: { car?: string; from?: string; to?: string; soc?: number; temp?: number }) => {
+  const syncUrlWithState = (updates?: { car?: string; from?: string; to?: string; soc?: number; temp?: number; speed?: number }) => {
     if (typeof window === 'undefined') return
     try {
       const url = new URL(window.location.href)
@@ -811,6 +860,8 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
       if (s !== undefined) url.searchParams.set('soc', s.toString())
       const tmp = updates?.temp !== undefined ? updates.temp : ambientTempC
       if (tmp !== undefined) url.searchParams.set('temp', tmp.toString())
+      const sp = updates?.speed !== undefined ? updates.speed : highwaySpeed
+      if (sp !== undefined) url.searchParams.set('speed', sp.toString())
       window.history.replaceState(null, '', url.pathname + url.search)
     } catch (e) {
       console.warn('URL sync error:', e)
@@ -855,6 +906,7 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
       const toP = params.get('to')
       const socP = params.get('soc')
       const tempP = params.get('temp')
+      const speedP = params.get('speed')
 
       if (carP) {
         const targetP = carP.toLowerCase()
@@ -876,6 +928,9 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
       }
       if (tempP && !isNaN(Number(tempP))) {
         setAmbientTempC(Math.min(45, Math.max(-25, Number(tempP))))
+      }
+      if (speedP && !isNaN(Number(speedP))) {
+        setHighwaySpeed(Math.min(160, Math.max(80, Number(speedP))))
       }
       if (fromP && fromP.trim()) {
         setOriginQuery(fromP)
@@ -918,6 +973,8 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
   // 3. Physical Parameters & Future Weather Planning State
   const [startSoC, setStartSoC] = useState<number>(100) // %
   const [ambientTempC, setAmbientTempC] = useState<number>(12) // °C
+  const [highwaySpeed, setHighwaySpeed] = useState<number>(120) // km/h (Target Highway Cruising Speed)
+  const cachedRouteRef = useRef<any>(null)
   const [isFetchingWeather, setIsFetchingWeather] = useState(false)
   const [weatherFetchedCity, setWeatherFetchedCity] = useState<string>('')
 
@@ -1017,9 +1074,14 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
   }, [])
 
   // Execute Route & Physics Simulation
-  const handleRunSimulation = async (customOrigin?: LocationWaypoint, customDest?: LocationWaypoint) => {
+  const handleRunSimulation = async (
+    customOrigin?: LocationWaypoint,
+    customDest?: LocationWaypoint,
+    customSpeed?: number
+  ) => {
     const orig = customOrigin || originPoint
     const dest = customDest || destPoint
+    const speed = customSpeed !== undefined ? customSpeed : highwaySpeed
     if (!orig || !dest || !selectedVehicle) return
 
     // Immediately keep the URL aligned with the simulated state
@@ -1028,36 +1090,47 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
       from: orig.name || originQuery,
       to: dest.name || destQuery,
       soc: startSoC,
-      temp: ambientTempC
+      temp: ambientTempC,
+      speed: speed
     })
 
     setIsSimulating(true)
     setErrorMessage(null)
 
     try {
-      // 1. Fetch Driving Route & Steps from OSRM
-      const res = await fetch(
-        `/api/simulator/route?lon1=${orig.lon}&lat1=${orig.lat}&lon2=${dest.lon}&lat2=${dest.lat}`
-      )
+      let routeData = cachedRouteRef.current
+      const isSameEndpoints = routeData &&
+        orig.lat === originPoint.lat && orig.lon === originPoint.lon &&
+        dest.lat === destPoint.lat && dest.lon === destPoint.lon
 
-      if (!res.ok) {
-        const errData = await res.json().catch(() => ({}))
-        throw new Error(errData.error || `Routing engine error (Status ${res.status})`)
-      }
+      if (!isSameEndpoints) {
+        // 1. Fetch Driving Route & Steps from OSRM
+        const res = await fetch(
+          `/api/simulator/route?lon1=${orig.lon}&lat1=${orig.lat}&lon2=${dest.lon}&lat2=${dest.lat}`
+        )
 
-      const data = await res.json()
-      if (!data.route) {
-        throw new Error(t.noRouteFound)
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}))
+          throw new Error(errData.error || `Routing engine error (Status ${res.status})`)
+        }
+
+        const data = await res.json()
+        if (!data.route) {
+          throw new Error(t.noRouteFound)
+        }
+        routeData = data.route
+        cachedRouteRef.current = routeData
       }
 
       // 2. Feed Route into Simulation Engine
       const result = simulatePHEVRoute(
-        data.route,
+        routeData,
         selectedVehicle,
         startSoC,
         ambientTempC,
         orig,
-        dest
+        dest,
+        speed
       )
 
       setSimulationResult(result)
@@ -1066,6 +1139,24 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
       setErrorMessage(err.message || t.searchError)
     } finally {
       setIsSimulating(false)
+    }
+  }
+
+  // Handle immediate Highway Cruising Speed change with live re-calculation
+  const handleHighwaySpeedChange = (newSpeed: number) => {
+    setHighwaySpeed(newSpeed)
+    syncUrlWithState({ speed: newSpeed })
+    if (cachedRouteRef.current && selectedVehicle) {
+      const result = simulatePHEVRoute(
+        cachedRouteRef.current,
+        selectedVehicle,
+        startSoC,
+        ambientTempC,
+        originPoint,
+        destPoint,
+        newSpeed
+      )
+      setSimulationResult(result)
     }
   }
 
@@ -1091,6 +1182,7 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
     url.searchParams.set('to', destPoint.name || destQuery)
     url.searchParams.set('soc', startSoC.toString())
     url.searchParams.set('temp', ambientTempC.toString())
+    url.searchParams.set('speed', highwaySpeed.toString())
     return url.toString()
   }
 
@@ -1106,6 +1198,7 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
 🚗 Araç: ${selectedVehicle.name} (${selectedVehicle.usableBatteryKwh} kWh batarya / ${selectedVehicle.wltpRangeKm} km WLTP)
 📍 Güzergah: ${originPoint.name} → ${destPoint.name} (${simulationResult.totalDistanceKm} km, ~${simulationResult.totalDurationMinutes} dk)
 🌤️ Koşullar: ${ambientTempC}°C (${weatherInfo.label}) | Başlangıç Bataryası: %${startSoC}
+🏎️ Sürüş Hızı: ${simulationResult.targetHighwaySpeedKmH} km/s Seyir (Ortalama Hız: ${simulationResult.overallAvgSpeedKmH} km/s)
 
 🔋 Saf Elektrikli Sürüş (EV): ${simulationResult.evDistanceKm} km (%${simulationResult.evPercentage} rota payı)
 ⛽ Hibrit / Benzinli Sürüş (HEV): ${simulationResult.hevDistanceKm} km (%${simulationResult.hevPercentage} rota payı)
@@ -1122,6 +1215,7 @@ ${shareUrl}`
 🚗 Pojazd: ${selectedVehicle.name} (${selectedVehicle.usableBatteryKwh} kWh bateria / ${selectedVehicle.wltpRangeKm} km WLTP)
 📍 Trasa: ${originPoint.name} → ${destPoint.name} (${simulationResult.totalDistanceKm} km, ~${simulationResult.totalDurationMinutes} min)
 🌤️ Warunki: ${ambientTempC}°C (${weatherInfo.label}) | Startowy SoC: %${startSoC}
+🏎️ Tempo jazdy: ${simulationResult.targetHighwaySpeedKmH} km/h na autostradzie (Średnia: ${simulationResult.overallAvgSpeedKmH} km/h)
 
 🔋 Czysty napęd elektryczny (EV): ${simulationResult.evDistanceKm} km (%${simulationResult.evPercentage} trasy)
 ⛽ Napęd hybrydowy / benzynowy (HEV): ${simulationResult.hevDistanceKm} km (%${simulationResult.hevPercentage} trasy)
@@ -1138,6 +1232,7 @@ ${shareUrl}`
 🚗 Modell: ${selectedVehicle.name} (${selectedVehicle.usableBatteryKwh} kWh Akku / ${selectedVehicle.wltpRangeKm} km WLTP)
 📍 Route: ${originPoint.name} → ${destPoint.name} (${simulationResult.totalDistanceKm} km, ~${simulationResult.totalDurationMinutes} Min.)
 🌤️ Wetter: ${ambientTempC}°C (${weatherInfo.label}) | Start-SoC: %${startSoC}
+🏎️ Fahrtempo: ${simulationResult.targetHighwaySpeedKmH} km/h Reisetempo (Durchschnitt: ${simulationResult.overallAvgSpeedKmH} km/h)
 
 🔋 Rein elektrisch (EV): ${simulationResult.evDistanceKm} km (%${simulationResult.evPercentage} der Strecke)
 ⛽ Hybrid / Benzin (HEV): ${simulationResult.hevDistanceKm} km (%${simulationResult.hevPercentage} der Strecke)
@@ -1153,6 +1248,7 @@ ${shareUrl}`
 🚗 Vehicle: ${selectedVehicle.name} (${selectedVehicle.usableBatteryKwh} kWh battery / ${selectedVehicle.wltpRangeKm} km WLTP)
 📍 Route: ${originPoint.name} → ${destPoint.name} (${simulationResult.totalDistanceKm} km, ~${simulationResult.totalDurationMinutes} min)
 🌤️ Conditions: ${ambientTempC}°C (${weatherInfo.label}) | Departure SoC: %${startSoC}
+🏎️ Driving Pace: ${simulationResult.targetHighwaySpeedKmH} km/h Cruising (Avg Speed: ${simulationResult.overallAvgSpeedKmH} km/h)
 
 🔋 Pure EV Driving: ${simulationResult.evDistanceKm} km (${simulationResult.evPercentage}% of trip)
 ⛽ Hybrid / Petrol (HEV): ${simulationResult.hevDistanceKm} km (${simulationResult.hevPercentage}% of trip)
@@ -1682,8 +1778,8 @@ ${shareUrl}`
 
         </div>
 
-        {/* Sliders Section: SoC and Ambient Temperature */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 border-t border-slate-100 dark:border-slate-800">
+        {/* Sliders Section: SoC, Ambient Temperature, and Highway Cruising Speed */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-1 border-t border-slate-100 dark:border-slate-800">
           
           {/* Departure SoC Slider */}
           <div className="space-y-2">
@@ -1701,7 +1797,22 @@ ${shareUrl}`
               max="100"
               step="10"
               value={startSoC}
-              onChange={(e) => setStartSoC(parseInt(e.target.value, 10))}
+              onChange={(e) => {
+                const newSoC = parseInt(e.target.value, 10)
+                setStartSoC(newSoC)
+                if (cachedRouteRef.current && selectedVehicle) {
+                  const result = simulatePHEVRoute(
+                    cachedRouteRef.current,
+                    selectedVehicle,
+                    newSoC,
+                    ambientTempC,
+                    originPoint,
+                    destPoint,
+                    highwaySpeed
+                  )
+                  setSimulationResult(result)
+                }
+              }}
               className="w-full accent-emerald-600 cursor-pointer h-2 bg-slate-200 dark:bg-slate-700 rounded-lg"
             />
             <div className="flex justify-between text-[11px] text-slate-500 font-medium">
@@ -1737,15 +1848,93 @@ ${shareUrl}`
               max="35"
               step="1"
               value={ambientTempC}
-              onChange={(e) => setAmbientTempC(parseInt(e.target.value, 10))}
+              onChange={(e) => {
+                const newTemp = parseInt(e.target.value, 10)
+                setAmbientTempC(newTemp)
+                if (cachedRouteRef.current && selectedVehicle) {
+                  const result = simulatePHEVRoute(
+                    cachedRouteRef.current,
+                    selectedVehicle,
+                    startSoC,
+                    newTemp,
+                    originPoint,
+                    destPoint,
+                    highwaySpeed
+                  )
+                  setSimulationResult(result)
+                }
+              }}
               className="w-full accent-blue-600 cursor-pointer h-2 bg-slate-200 dark:bg-slate-700 rounded-lg"
             />
             <div className="flex justify-between text-[11px] text-slate-500 font-medium">
-              <span>-15°C (Extreme Winter)</span>
+              <span>-15°C (Winter)</span>
               <span>
                 {ambientTempC >= 18 ? t.optimalTemp : ambientTempC < 0 ? t.subZeroPenalty : t.mildCoolPenalty}
               </span>
               <span>+35°C (Summer)</span>
+            </div>
+          </div>
+
+          {/* Highway Cruising Speed Slider & Presets */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-center text-xs">
+              <span className="font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1">
+                <span>🏎️</span>
+                <span>{t.highwaySpeedLabel}</span>
+              </span>
+              <span className="font-black text-sm text-indigo-600 dark:text-indigo-400">
+                {highwaySpeed} km/h
+              </span>
+            </div>
+
+            {/* Quick Speed Preset Pills */}
+            <div className="grid grid-cols-4 gap-1.5 pt-0.5">
+              {[
+                { speed: 100, label: '100', desc: 'Eco' },
+                { speed: 115, label: '115', desc: 'Normal' },
+                { speed: 130, label: '130', desc: 'Fast' },
+                { speed: 140, label: '140', desc: 'Max' }
+              ].map((p) => {
+                const isSelected = highwaySpeed === p.speed
+                return (
+                  <button
+                    key={p.speed}
+                    type="button"
+                    onClick={() => handleHighwaySpeedChange(p.speed)}
+                    className={`py-1.5 px-1 rounded-xl text-center border transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-indigo-600 text-white border-indigo-600 shadow-xs'
+                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-indigo-400'
+                    }`}
+                  >
+                    <div className="text-xs font-black leading-tight">{p.label}</div>
+                    <div className={`text-[9px] font-medium leading-tight ${isSelected ? 'text-indigo-100' : 'text-slate-400'}`}>
+                      {p.desc}
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+
+            <input
+              type="range"
+              min="90"
+              max="150"
+              step="5"
+              value={highwaySpeed}
+              onChange={(e) => handleHighwaySpeedChange(parseInt(e.target.value, 10))}
+              className="w-full accent-indigo-600 cursor-pointer h-2 bg-slate-200 dark:bg-slate-700 rounded-lg mt-1"
+            />
+            <div className="flex justify-between text-[11px] font-medium">
+              <span className="text-slate-500">90 km/h</span>
+              <span className={highwaySpeed >= selectedVehicle.maxEvCruisingSpeed ? 'text-amber-600 dark:text-amber-400 font-bold' : highwaySpeed <= 100 ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-slate-500'}>
+                {highwaySpeed >= selectedVehicle.maxEvCruisingSpeed
+                  ? `⚠️ >${selectedVehicle.maxEvCruisingSpeed} (ICE)`
+                  : highwaySpeed <= 100
+                  ? '🌱 Eko Seyir'
+                  : `💨 +%${Math.round((Math.pow(highwaySpeed / 100, 1.45) - 1) * 100)} Direnç`}
+              </span>
+              <span className="text-slate-500">150 km/h</span>
             </div>
           </div>
 
@@ -1851,17 +2040,25 @@ ${shareUrl}`
 
             {/* Total Energy Used Card */}
             <div className="p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-indigo-500/5 dark:from-blue-950/40 dark:to-indigo-950/20 border border-blue-500/20 shadow-xs space-y-1">
-              <div className="text-xs font-bold text-blue-700 dark:text-blue-400 flex items-center gap-1.5">
-                <SparklesIcon className="w-4 h-4 text-blue-500" />
-                {t.energyUsed}
+              <div className="flex items-center justify-between text-xs font-bold text-blue-700 dark:text-blue-400">
+                <span className="flex items-center gap-1.5">
+                  <SparklesIcon className="w-4 h-4 text-blue-500" />
+                  {t.energyUsed}
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-blue-500/20 text-[10px] font-extrabold text-blue-700 dark:text-blue-300">
+                  🏎️ {simulationResult.overallAvgSpeedKmH} km/h {t.overallSpeedLabel}
+                </span>
               </div>
               <div className="text-2xl font-black text-slate-900 dark:text-white pt-1">
                 {simulationResult.totalElecKwh} <span className="text-xs font-semibold text-slate-500">kWh</span>
                 <span className="text-sm font-normal text-slate-400 mx-1.5">+</span>
                 {simulationResult.totalFuelLiters} <span className="text-xs font-semibold text-slate-500">L {t.petrol}</span>
               </div>
-              <div className="text-xs text-slate-500">
-                {simulationResult.totalDurationMinutes} min journey
+              <div className="text-xs text-slate-500 flex items-center justify-between">
+                <span>⏱️ {simulationResult.totalDurationMinutes} min journey</span>
+                <span className="font-semibold text-slate-600 dark:text-slate-400">
+                  (Otoyol: {simulationResult.targetHighwaySpeedKmH} km/h)
+                </span>
               </div>
             </div>
 
@@ -1880,6 +2077,39 @@ ${shareUrl}`
             </div>
 
           </div>
+
+          {/* Pure EV Speed Ceiling Alert Banner */}
+          {simulationResult.targetHighwaySpeedKmH >= selectedVehicle.maxEvCruisingSpeed && (
+            <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs sm:text-sm flex items-start gap-3">
+              <div className="p-2 rounded-xl bg-amber-100 dark:bg-amber-900/60 text-amber-600 shrink-0 mt-0.5 font-bold text-sm">
+                ⚡+⛽
+              </div>
+              <div className="space-y-1">
+                <div className="font-extrabold text-sm text-amber-950 dark:text-amber-100 flex items-center gap-2">
+                  <span>{t.speedNoticeExceeds}: {simulationResult.targetHighwaySpeedKmH} km/h &ge; {selectedVehicle.maxEvCruisingSpeed} km/h</span>
+                </div>
+                <p className="text-xs text-amber-800 dark:text-amber-300 leading-relaxed">
+                  {currentLocale === 'tr' ? (
+                    <>
+                      {selectedVehicle.name} modelinin fabrika saf elektrik tavan hızı <strong>{selectedVehicle.maxEvCruisingSpeed} km/s</strong> seviyesindedir. Seçtiğiniz <strong>{simulationResult.targetHighwaySpeedKmH} km/s</strong> otoyol seyir hızında elektrik motoru aracı tek başına itemez; bu nedenle benzin motoru paralel devreye girerek (Blended / HEV) yakıt tüketimine başlamıştır.
+                    </>
+                  ) : currentLocale === 'de' ? (
+                    <>
+                      Die rein elektrische Höchstgeschwindigkeit des {selectedVehicle.name} liegt bei <strong>{selectedVehicle.maxEvCruisingSpeed} km/h</strong>. Bei Ihrem gewählten Autobahntempo von <strong>{simulationResult.targetHighwaySpeedKmH} km/h</strong> schaltet sich der Verbrennungsmotor zur Unterstützung automatisch zu (Blended-Modus).
+                    </>
+                  ) : currentLocale === 'pl' ? (
+                    <>
+                      Maksymalna prędkość czysto elektryczna dla {selectedVehicle.name} wynosi <strong>{selectedVehicle.maxEvCruisingSpeed} km/h</strong>. Przy wybranej prędkości autostradowej <strong>{simulationResult.targetHighwaySpeedKmH} km/h</strong> silnik spalinowy uruchamia się automatycznie w trybie równoległym (hybrydowym).
+                    </>
+                  ) : (
+                    <>
+                      The pure-EV top speed for {selectedVehicle.name} is <strong>{selectedVehicle.maxEvCruisingSpeed} km/h</strong>. At your chosen cruising speed of <strong>{simulationResult.targetHighwaySpeedKmH} km/h</strong>, the petrol combustion engine engages in parallel (Blended HEV mode).
+                    </>
+                  )}
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Cold Weather Penalty Alert Banner */}
           {simulationResult.coldWeatherPenaltyPct > 0 && (
@@ -2067,9 +2297,13 @@ ${shareUrl}`
                 </div>
               </div>
 
-              <div className="text-[11px] text-slate-500 dark:text-slate-400 flex flex-wrap items-center justify-between gap-1 pt-1 border-t border-slate-200/50 dark:border-slate-700/50">
+              <div className="text-[11px] text-slate-500 dark:text-slate-400 flex flex-wrap items-center justify-between gap-1 pt-1 border-t border-slate-200/50 dark:border-slate-700/50 font-medium">
                 <span>⚡ {simulationResult.totalElecKwh} kWh + ⛽ {simulationResult.totalFuelLiters} L {t.petrol}</span>
+                <span>🏎️ Ort. {simulationResult.overallAvgSpeedKmH} km/h (Seyir: {simulationResult.targetHighwaySpeedKmH} km/h)</span>
+              </div>
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
                 <span>{weatherInfo.emoji} {ambientTempC}°C | %{startSoC} SoC</span>
+                <span>⏱️ ~{simulationResult.totalDurationMinutes} dk</span>
               </div>
 
               {/* Watermark / Branding for exported image */}
