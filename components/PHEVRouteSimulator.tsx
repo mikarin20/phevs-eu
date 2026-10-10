@@ -14,7 +14,12 @@ import {
   ExclamationTriangleIcon,
   XMarkIcon,
   CalendarDaysIcon,
-  ClockIcon
+  ClockIcon,
+  ShareIcon,
+  ClipboardDocumentIcon,
+  ClipboardDocumentCheckIcon,
+  LinkIcon,
+  CheckIcon
 } from '@heroicons/react/24/outline'
 import type { PHEVModel, LocationWaypoint, RouteSimulationResult } from '@/lib/phev-simulator-types'
 import { getAllPHEVModels } from '@/lib/phev-models'
@@ -34,6 +39,7 @@ const PHEVRouteMap = dynamic(() => import('@/components/PHEVRouteMap'), {
 interface PHEVRouteSimulatorProps {
   initialCarId?: string
   locale?: string
+  onSelectVehicle?: (vehicle: PHEVModel) => void
 }
 
 interface DailyForecastItem {
@@ -140,6 +146,18 @@ const I18N: Record<string, {
   blended: string
   noRouteFound: string
   searchError: string
+  resultsTitle: string
+  shareBtn: string
+  shareModalTitle: string
+  shareModalDesc: string
+  copySummary: string
+  copyLink: string
+  copiedSummary: string
+  copiedLink: string
+  shareWhatsApp: string
+  shareTwitter: string
+  shareDevice: string
+  close: string
 }> = {
   en: {
     quickTrips: 'Quick European Route Presets',
@@ -208,7 +226,19 @@ const I18N: Record<string, {
     highway: 'Motorway (> 90 km/h)',
     blended: 'Parallel Hybrid Assist',
     noRouteFound: 'No driving route could be calculated between these coordinates.',
-    searchError: 'An error occurred while calculating the route.'
+    searchError: 'An error occurred while calculating the route.',
+    resultsTitle: 'Real-World Simulation Results',
+    shareBtn: 'Share Summary',
+    shareModalTitle: 'Share Simulation Summary',
+    shareModalDesc: 'Share your route results, pure electric range and fuel usage with others.',
+    copySummary: 'Copy Text Summary',
+    copyLink: 'Copy Direct Link',
+    copiedSummary: 'Summary Copied! ✓',
+    copiedLink: 'Link Copied! ✓',
+    shareWhatsApp: 'WhatsApp',
+    shareTwitter: 'X / Twitter',
+    shareDevice: 'Share via Apps',
+    close: 'Close'
   },
   tr: {
     quickTrips: 'Popüler Rota Örnekleri',
@@ -277,7 +307,19 @@ const I18N: Record<string, {
     highway: 'Otoyol (> 90 km/s)',
     blended: 'Paralel Hibrit Destek',
     noRouteFound: 'Bu koordinatlar arasında sürüş rotası hesaplanamadı.',
-    searchError: 'Rota hesaplanırken bir hata oluştu.'
+    searchError: 'Rota hesaplanırken bir hata oluştu.',
+    resultsTitle: 'Gerçek Yolculuk Simülasyon Sonuçları',
+    shareBtn: 'Özeti Paylaş',
+    shareModalTitle: 'Simülasyon Özetini Paylaş',
+    shareModalDesc: 'Rota analizi, saf elektrikli menzil ve yakıt tüketim özetini tek tıkla paylaşın.',
+    copySummary: 'Metin Özetini Kopyala',
+    copyLink: 'Doğrudan Linki Kopyala',
+    copiedSummary: 'Özet Kopyalandı! ✓',
+    copiedLink: 'Link Kopyalandı! ✓',
+    shareWhatsApp: 'WhatsApp',
+    shareTwitter: 'X / Twitter',
+    shareDevice: 'Cihazda Paylaş',
+    close: 'Kapat'
   },
   pl: {
     quickTrips: 'Popularne trasy europejskie',
@@ -346,7 +388,19 @@ const I18N: Record<string, {
     highway: 'Autostrada (> 90 km/h)',
     blended: 'Wspomaganie hybrydowe',
     noRouteFound: 'Nie udało się wyznaczyć trasy dla podanych punktów.',
-    searchError: 'Wystąpił błąd podczas kalkulacji trasy.'
+    searchError: 'Wystąpił błąd podczas kalkulacji trasy.',
+    resultsTitle: 'Wyniki Realnej Symulacji Trasy',
+    shareBtn: 'Udostępnij Podsumowanie',
+    shareModalTitle: 'Udostępnij Podsumowanie Symulacji',
+    shareModalDesc: 'Podziel się analizą trasy, zasięgiem elektrycznym i zużyciem paliwa.',
+    copySummary: 'Kopiuj Podsumowanie',
+    copyLink: 'Kopiuj Bezpośredni Link',
+    copiedSummary: 'Podsumowanie skopiowane! ✓',
+    copiedLink: 'Link skopiowany! ✓',
+    shareWhatsApp: 'WhatsApp',
+    shareTwitter: 'X / Twitter',
+    shareDevice: 'Udostępnij przez aplikacje',
+    close: 'Zamknij'
   },
   de: {
     quickTrips: 'Beliebte europäische Reiserouten',
@@ -415,7 +469,19 @@ const I18N: Record<string, {
     highway: 'Autobahn (> 90 km/h)',
     blended: 'Parallele Unterstützung',
     noRouteFound: 'Keine Route zwischen diesen Koordinaten gefunden.',
-    searchError: 'Fehler bei der Routenberechnung.'
+    searchError: 'Fehler bei der Routenberechnung.',
+    resultsTitle: 'Reale Simulationsergebnisse',
+    shareBtn: 'Zusammenfassung Teilen',
+    shareModalTitle: 'Simulations-Zusammenfassung Teilen',
+    shareModalDesc: 'Teilen Sie Streckenanalyse, rein elektrische Reichweite und Kraftstoffverbrauch.',
+    copySummary: 'Zusammenfassung Kopieren',
+    copyLink: 'Direktlink Kopieren',
+    copiedSummary: 'Zusammenfassung kopiert! ✓',
+    copiedLink: 'Link kopiert! ✓',
+    shareWhatsApp: 'WhatsApp',
+    shareTwitter: 'X / Twitter',
+    shareDevice: 'Über Apps Teilen',
+    close: 'Schließen'
   },
   fr: {
     quickTrips: 'Trajets européens rapides',
@@ -484,7 +550,19 @@ const I18N: Record<string, {
     highway: 'Autoroute (> 90 km/h)',
     blended: 'Assistance hybride',
     noRouteFound: "Aucun itinéraire routier n'a pu être calculé entre ces coordonnées.",
-    searchError: "Une erreur est survenue lors du calcul de l'itinéraire."
+    searchError: "Une erreur est survenue lors du calcul de l'itinéraire.",
+    resultsTitle: 'Résultats de la simulation en conditions réelles',
+    shareBtn: 'Partager le Résumé',
+    shareModalTitle: 'Partager le Résumé de Simulation',
+    shareModalDesc: 'Partagez votre analyse d’itinéraire, autonomie électrique et consommation de carburant.',
+    copySummary: 'Copier le Résumé Texte',
+    copyLink: 'Copier le Lien Direct',
+    copiedSummary: 'Résumé copié ! ✓',
+    copiedLink: 'Lien copié ! ✓',
+    shareWhatsApp: 'WhatsApp',
+    shareTwitter: 'X / Twitter',
+    shareDevice: 'Partager via les applis',
+    close: 'Fermer'
   },
   es: {
     quickTrips: 'Rutas europeas rápidas',
@@ -553,7 +631,19 @@ const I18N: Record<string, {
     highway: 'Autopista (> 90 km/h)',
     blended: 'Asistencia híbrida',
     noRouteFound: 'No se pudo calcular una ruta de conducción entre estas coordenadas.',
-    searchError: 'Ocurrió un error al calcular la ruta.'
+    searchError: 'Ocurrió un error al calcular la ruta.',
+    resultsTitle: 'Resultados de la Simulación Real',
+    shareBtn: 'Compartir Resumen',
+    shareModalTitle: 'Compartir Resumen de Simulación',
+    shareModalDesc: 'Comparte el análisis de ruta, autonomía eléctrica y consumo de combustible.',
+    copySummary: 'Copiar Resumen de Texto',
+    copyLink: 'Copiar Enlace Directo',
+    copiedSummary: '¡Resumen copiado! ✓',
+    copiedLink: '¡Enlace copiado! ✓',
+    shareWhatsApp: 'WhatsApp',
+    shareTwitter: 'X / Twitter',
+    shareDevice: 'Compartir con Apps',
+    close: 'Cerrar'
   }
 }
 
@@ -613,7 +703,7 @@ function formatDayLabel(dateStr: string, loc: string, todayText: string, tomorro
   }
 }
 
-export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEVRouteSimulatorProps) {
+export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSelectVehicle }: PHEVRouteSimulatorProps) {
   const models = useMemo(() => getAllPHEVModels(), [])
 
   // Sync with global language changes
@@ -642,8 +732,16 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
 
   // 1. Vehicle Selection State
   const [selectedModelId, setSelectedModelId] = useState<string>(() => {
-    if (initialCarId && models.some(m => m.id === initialCarId || m.slug === initialCarId)) {
-      return initialCarId
+    if (initialCarId) {
+      const targetP = initialCarId.toLowerCase()
+      const found = models.find(m => 
+        m.id.toLowerCase() === targetP || 
+        (m.slug && m.slug.toLowerCase() === targetP) || 
+        m.id.toLowerCase().includes(targetP) || 
+        (m.slug && m.slug.toLowerCase().includes(targetP)) ||
+        targetP.includes(m.id.toLowerCase())
+      )
+      if (found) return found.id
     }
     const rav4 = models.find(m => m.name.toLowerCase().includes('rav4') || m.slug?.includes('rav4'))
     return rav4 ? rav4.id : models[0]?.id || ''
@@ -652,6 +750,96 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
   const selectedVehicle = useMemo(() => {
     return models.find(m => m.id === selectedModelId || m.slug === selectedModelId) || models[0]
   }, [models, selectedModelId])
+
+  // Synchronize URL query parameters with active simulation parameters
+  const syncUrlWithState = (updates?: { car?: string; from?: string; to?: string; soc?: number; temp?: number }) => {
+    if (typeof window === 'undefined') return
+    try {
+      const url = new URL(window.location.href)
+      const c = updates?.car !== undefined ? updates.car : (selectedVehicle?.slug || selectedVehicle?.id)
+      if (c) url.searchParams.set('car', c)
+      const f = updates?.from !== undefined ? updates.from : (originPoint?.name || originQuery)
+      if (f) url.searchParams.set('from', f)
+      const t = updates?.to !== undefined ? updates.to : (destPoint?.name || destQuery)
+      if (t) url.searchParams.set('to', t)
+      const s = updates?.soc !== undefined ? updates.soc : startSoC
+      if (s !== undefined) url.searchParams.set('soc', s.toString())
+      const tmp = updates?.temp !== undefined ? updates.temp : ambientTempC
+      if (tmp !== undefined) url.searchParams.set('temp', tmp.toString())
+      window.history.replaceState(null, '', url.pathname + url.search)
+    } catch (e) {
+      console.warn('URL sync error:', e)
+    }
+  }
+
+  // Handle vehicle dropdown selection and immediately sync URL
+  const handleVehicleSelect = (modelId: string) => {
+    setSelectedModelId(modelId)
+    const veh = models.find(m => m.id === modelId || m.slug === modelId)
+    if (veh) {
+      if (onSelectVehicle) {
+        onSelectVehicle(veh)
+      }
+      syncUrlWithState({ car: veh.slug || veh.id })
+    }
+  }
+
+  // React to initialCarId prop changes from parent
+  useEffect(() => {
+    if (initialCarId) {
+      const targetP = initialCarId.toLowerCase()
+      const found = models.find(m => 
+        m.id.toLowerCase() === targetP || 
+        (m.slug && m.slug.toLowerCase() === targetP) || 
+        m.id.toLowerCase().includes(targetP) || 
+        (m.slug && m.slug.toLowerCase().includes(targetP)) ||
+        targetP.includes(m.id.toLowerCase())
+      )
+      if (found && found.id !== selectedModelId) {
+        setSelectedModelId(found.id)
+      }
+    }
+  }, [initialCarId, models, selectedModelId])
+
+  // Parse URL search parameters on mount if available
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      const carP = params.get('car')
+      const fromP = params.get('from')
+      const toP = params.get('to')
+      const socP = params.get('soc')
+      const tempP = params.get('temp')
+
+      if (carP) {
+        const targetP = carP.toLowerCase()
+        const matchedCar = models.find(m => 
+          m.id.toLowerCase() === targetP || 
+          (m.slug && m.slug.toLowerCase() === targetP) || 
+          m.id.toLowerCase().includes(targetP) || 
+          (m.slug && m.slug.toLowerCase().includes(targetP)) ||
+          targetP.includes(m.id.toLowerCase())
+        )
+        if (matchedCar) {
+          setSelectedModelId(matchedCar.id)
+          if (onSelectVehicle) onSelectVehicle(matchedCar)
+        }
+      }
+
+      if (socP && !isNaN(Number(socP))) {
+        setStartSoC(Math.min(100, Math.max(10, Number(socP))))
+      }
+      if (tempP && !isNaN(Number(tempP))) {
+        setAmbientTempC(Math.min(45, Math.max(-25, Number(tempP))))
+      }
+      if (fromP && fromP.trim()) {
+        setOriginQuery(fromP)
+      }
+      if (toP && toP.trim()) {
+        setDestQuery(toP)
+      }
+    }
+  }, [models])
 
   // 2. Waypoints State
   const [originQuery, setOriginQuery] = useState('Berlin')
@@ -789,6 +977,15 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
     const dest = customDest || destPoint
     if (!orig || !dest || !selectedVehicle) return
 
+    // Immediately keep the URL aligned with the simulated state
+    syncUrlWithState({
+      car: selectedVehicle.slug || selectedVehicle.id,
+      from: orig.name || originQuery,
+      to: dest.name || destQuery,
+      soc: startSoC,
+      temp: ambientTempC
+    })
+
     setIsSimulating(true)
     setErrorMessage(null)
 
@@ -832,6 +1029,128 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
   const usableEnergyKwh = Math.round((selectedVehicle.usableBatteryKwh * (activeEvPercentage / 100)) * 10) / 10
   const weatherInfo = getWeatherDetails(weatherCode, currentLocale)
 
+  // 5. Dedicated Share Feature State & Helper Methods
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false)
+  const [copiedSummary, setCopiedSummary] = useState(false)
+  const [copiedLink, setCopiedLink] = useState(false)
+
+  const getShareUrl = () => {
+    if (typeof window === 'undefined') return 'https://www.phevs.eu/range-calculator/'
+    const url = new URL(window.location.origin + window.location.pathname)
+    url.searchParams.set('car', selectedVehicle.slug || selectedVehicle.id)
+    url.searchParams.set('from', originPoint.name || originQuery)
+    url.searchParams.set('to', destPoint.name || destQuery)
+    url.searchParams.set('soc', startSoC.toString())
+    url.searchParams.set('temp', ambientTempC.toString())
+    return url.toString()
+  }
+
+  const generateShareText = () => {
+    if (!simulationResult) return ''
+    const shareUrl = getShareUrl()
+    const coldPenaltyStr = simulationResult.coldWeatherPenaltyPct > 0 
+      ? `\n❄️ ${selectedVehicle.hasHeatPump ? (currentLocale === 'tr' ? 'Isı Pompası Optimizasyonu' : 'Heat Pump Optimization') : (currentLocale === 'tr' ? 'Soğuk Hava Etkisi' : 'Cold Weather Penalty')}: -%${simulationResult.coldWeatherPenaltyPct}`
+      : ''
+
+    if (currentLocale === 'tr') {
+      return `⚡ PHEVs.eu - Gerçek Yolculuk & Menzil Simülasyonu
+🚗 Araç: ${selectedVehicle.name} (${selectedVehicle.usableBatteryKwh} kWh batarya / ${selectedVehicle.wltpRangeKm} km WLTP)
+📍 Güzergah: ${originPoint.name} → ${destPoint.name} (${simulationResult.totalDistanceKm} km, ~${simulationResult.totalDurationMinutes} dk)
+🌤️ Koşullar: ${ambientTempC}°C (${weatherInfo.label}) | Başlangıç Bataryası: %${startSoC}
+
+🔋 Saf Elektrikli Sürüş (EV): ${simulationResult.evDistanceKm} km (%${simulationResult.evPercentage} rota payı)
+⛽ Hibrit / Benzinli Sürüş (HEV): ${simulationResult.hevDistanceKm} km (%${simulationResult.hevPercentage} rota payı)
+⚡ ICE Devreye Girme: ${simulationResult.transitionPoint ? `${simulationResult.transitionPoint.km}. km (%${simulationResult.transitionPoint.socBufferReached} tampon koruması)` : 'Devreye girmedi'}
+⚡ Elektrik Tüketimi: ${simulationResult.totalElecKwh} kWh (${simulationResult.avgElecEfficiencyKwh100} kWh/100km)
+⛽ Benzin Tüketimi: ${simulationResult.totalFuelLiters} L (${simulationResult.avgFuelEfficiencyL100} L/100km)${coldPenaltyStr}
+
+👉 Canlı İnteraktif Simülasyon ve Harita:
+${shareUrl}`
+    }
+
+    if (currentLocale === 'pl') {
+      return `⚡ PHEVs.eu - Realna Symulacja Trasy i Zasięgu
+🚗 Pojazd: ${selectedVehicle.name} (${selectedVehicle.usableBatteryKwh} kWh bateria / ${selectedVehicle.wltpRangeKm} km WLTP)
+📍 Trasa: ${originPoint.name} → ${destPoint.name} (${simulationResult.totalDistanceKm} km, ~${simulationResult.totalDurationMinutes} min)
+🌤️ Warunki: ${ambientTempC}°C (${weatherInfo.label}) | Startowy SoC: %${startSoC}
+
+🔋 Czysty napęd elektryczny (EV): ${simulationResult.evDistanceKm} km (%${simulationResult.evPercentage} trasy)
+⛽ Napęd hybrydowy / benzynowy (HEV): ${simulationResult.hevDistanceKm} km (%${simulationResult.hevPercentage} trasy)
+⚡ Uruchomienie silnika spalinowego: ${simulationResult.transitionPoint ? `${simulationResult.transitionPoint.km}. km (bufor %${simulationResult.transitionPoint.socBufferReached})` : 'Nie uruchomiono'}
+⚡ Zużycie prądu: ${simulationResult.totalElecKwh} kWh (${simulationResult.avgElecEfficiencyKwh100} kWh/100km)
+⛽ Zużycie benzyny: ${simulationResult.totalFuelLiters} L (${simulationResult.avgFuelEfficiencyL100} L/100km)${coldPenaltyStr}
+
+👉 Otwórz interaktywną mapę i symulator:
+${shareUrl}`
+    }
+
+    if (currentLocale === 'de') {
+      return `⚡ PHEVs.eu - Reale Fahrt- und Reichweitensimulation
+🚗 Modell: ${selectedVehicle.name} (${selectedVehicle.usableBatteryKwh} kWh Akku / ${selectedVehicle.wltpRangeKm} km WLTP)
+📍 Route: ${originPoint.name} → ${destPoint.name} (${simulationResult.totalDistanceKm} km, ~${simulationResult.totalDurationMinutes} Min.)
+🌤️ Wetter: ${ambientTempC}°C (${weatherInfo.label}) | Start-SoC: %${startSoC}
+
+🔋 Rein elektrisch (EV): ${simulationResult.evDistanceKm} km (%${simulationResult.evPercentage} der Strecke)
+⛽ Hybrid / Benzin (HEV): ${simulationResult.hevDistanceKm} km (%${simulationResult.hevPercentage} der Strecke)
+⚡ Verbrenner-Startpunkt: ${simulationResult.transitionPoint ? `Km ${simulationResult.transitionPoint.km} (%${simulationResult.transitionPoint.socBufferReached} Puffer)` : 'Nicht benötigt'}
+⚡ Stromverbrauch: ${simulationResult.totalElecKwh} kWh (${simulationResult.avgElecEfficiencyKwh100} kWh/100km)
+⛽ Benzinverbrauch: ${simulationResult.totalFuelLiters} L (${simulationResult.avgFuelEfficiencyL100} L/100km)${coldPenaltyStr}
+
+👉 Interaktive Route & Simulation ansehen:
+${shareUrl}`
+    }
+
+    return `⚡ PHEVs.eu - Real-World Route & Range Simulation
+🚗 Vehicle: ${selectedVehicle.name} (${selectedVehicle.usableBatteryKwh} kWh battery / ${selectedVehicle.wltpRangeKm} km WLTP)
+📍 Route: ${originPoint.name} → ${destPoint.name} (${simulationResult.totalDistanceKm} km, ~${simulationResult.totalDurationMinutes} min)
+🌤️ Conditions: ${ambientTempC}°C (${weatherInfo.label}) | Departure SoC: %${startSoC}
+
+🔋 Pure EV Driving: ${simulationResult.evDistanceKm} km (${simulationResult.evPercentage}% of trip)
+⛽ Hybrid / Petrol (HEV): ${simulationResult.hevDistanceKm} km (${simulationResult.hevPercentage}% of trip)
+⚡ ICE Transition Point: ${simulationResult.transitionPoint ? `Km ${simulationResult.transitionPoint.km} (${simulationResult.transitionPoint.socBufferReached}% buffer reached)` : 'Pure EV only'}
+⚡ Electricity Consumed: ${simulationResult.totalElecKwh} kWh (${simulationResult.avgElecEfficiencyKwh100} kWh/100km)
+⛽ Petrol Consumed: ${simulationResult.totalFuelLiters} L (${simulationResult.avgFuelEfficiencyL100} L/100km)${coldPenaltyStr}
+
+👉 View Interactive Route & Simulation:
+${shareUrl}`
+  }
+
+  const handleCopySummary = async () => {
+    const text = generateShareText()
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopiedSummary(true)
+      setTimeout(() => setCopiedSummary(false), 2500)
+    } catch (e) {
+      console.warn('Clipboard copy failed:', e)
+    }
+  }
+
+  const handleCopyLink = async () => {
+    const url = getShareUrl()
+    try {
+      await navigator.clipboard.writeText(url)
+      setCopiedLink(true)
+      setTimeout(() => setCopiedLink(false), 2500)
+    } catch (e) {
+      console.warn('Clipboard copy failed:', e)
+    }
+  }
+
+  const handleNativeShare = async () => {
+    if (typeof navigator !== 'undefined' && navigator.share && simulationResult) {
+      try {
+        await navigator.share({
+          title: `PHEVs.eu: ${selectedVehicle.name} Route Simulation`,
+          text: generateShareText(),
+          url: getShareUrl()
+        })
+      } catch (e) {
+        // User cancelled
+      }
+    }
+  }
+
   return (
     <div className="space-y-8">
       {/* Control Panel Card */}
@@ -858,6 +1177,10 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
                     setDestQuery(preset.dest.name)
                     setOriginSuggestions([])
                     setDestSuggestions([])
+                    syncUrlWithState({
+                      from: preset.origin.name,
+                      to: preset.dest.name
+                    })
                     fetchWeatherForOrigin(preset.origin)
                     handleRunSimulation(preset.origin, preset.dest)
                   }}
@@ -1007,7 +1330,7 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
             </label>
             <select
               value={selectedModelId}
-              onChange={(e) => setSelectedModelId(e.target.value)}
+              onChange={(e) => handleVehicleSelect(e.target.value)}
               className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-hidden text-sm"
             >
               {models.map((m) => (
@@ -1325,6 +1648,28 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
       {simulationResult && (
         <div className="space-y-6 animate-in fade-in duration-300">
           
+          {/* Results Header with Dedicated Share Button */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-slate-200/80 dark:border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <SparklesIcon className="w-6 h-6 text-emerald-500 shrink-0" />
+                <span>{t.resultsTitle}</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                {originPoint.name} → {destPoint.name} • <span className="font-bold text-slate-700 dark:text-slate-300">{selectedVehicle.name}</span>
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsShareModalOpen(true)}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white text-xs sm:text-sm font-extrabold shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 transition-all cursor-pointer self-start sm:self-auto shrink-0"
+            >
+              <ShareIcon className="w-4 h-4" />
+              <span>{t.shareBtn}</span>
+            </button>
+          </div>
+
           {/* Telemetry Summary Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
@@ -1512,6 +1857,186 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
             )}
           </div>
 
+        </div>
+      )}
+
+      {/* Dedicated Share Summary Modal Dialog */}
+      {isShareModalOpen && simulationResult && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/75 backdrop-blur-xs animate-in fade-in duration-200">
+          <div
+            className="fixed inset-0"
+            onClick={() => setIsShareModalOpen(false)}
+          />
+          <div className="relative w-full max-w-xl bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl p-5 sm:p-7 space-y-4 sm:space-y-5 z-10 max-h-[92vh] overflow-y-auto">
+            
+            {/* Modal Header */}
+            <div className="flex items-start justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3 sm:pb-4">
+              <div className="space-y-0.5">
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                  <ShareIcon className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0" />
+                  <span>{t.shareModalTitle}</span>
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  {t.shareModalDesc}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsShareModalOpen(false)}
+                className="p-1.5 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                aria-label={t.close}
+              >
+                <XMarkIcon className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Structured Summary Card Preview */}
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50/40 dark:from-slate-800/80 dark:to-indigo-950/30 border border-slate-200/80 dark:border-slate-700/80 space-y-2.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
+                <span className="font-extrabold text-slate-900 dark:text-white text-sm">
+                  {selectedVehicle.name}
+                </span>
+                <span className="font-semibold text-blue-600 dark:text-blue-400 text-xs">
+                  {selectedVehicle.usableBatteryKwh} kWh net / {selectedVehicle.wltpRangeKm} km WLTP
+                </span>
+              </div>
+              
+              <div className="text-xs text-slate-600 dark:text-slate-300 flex items-center justify-between border-t border-slate-200/60 dark:border-slate-700/60 pt-2 font-medium">
+                <span>📍 {originPoint.name} → {destPoint.name}</span>
+                <span className="font-bold">{simulationResult.totalDistanceKm} km (~{simulationResult.totalDurationMinutes} dk)</span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
+                <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-emerald-500/20 shadow-2xs">
+                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block uppercase">
+                    ⚡ {t.evDriving}
+                  </span>
+                  <span className="text-base font-black text-slate-900 dark:text-white">
+                    {simulationResult.evDistanceKm} km <span className="text-xs font-semibold text-emerald-600">(%{simulationResult.evPercentage})</span>
+                  </span>
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-amber-500/20 shadow-2xs">
+                  <span className="text-[10px] text-amber-600 dark:text-amber-400 font-bold block uppercase">
+                    ⛽ {t.hevDriving}
+                  </span>
+                  <span className="text-base font-black text-slate-900 dark:text-white">
+                    {simulationResult.hevDistanceKm} km <span className="text-xs font-semibold text-amber-600">(%{simulationResult.hevPercentage})</span>
+                  </span>
+                </div>
+              </div>
+
+              <div className="text-[11px] text-slate-500 dark:text-slate-400 flex flex-wrap items-center justify-between gap-1 pt-1 border-t border-slate-200/50 dark:border-slate-700/50">
+                <span>⚡ {simulationResult.totalElecKwh} kWh + ⛽ {simulationResult.totalFuelLiters} L {t.petrol}</span>
+                <span>{weatherInfo.emoji} {ambientTempC}°C | %{startSoC} SoC</span>
+              </div>
+            </div>
+
+            {/* Formatted Text Box for Direct Copying / Pasting */}
+            <div className="space-y-1.5">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
+                {currentLocale === 'tr' ? 'Metin Özeti (Kopyalamaya Hazır)' : 'Summary Text (Ready to paste)'}
+              </span>
+              <pre className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-[11px] sm:text-xs font-mono text-slate-800 dark:text-slate-200 whitespace-pre-wrap select-all max-h-40 overflow-y-auto leading-relaxed">
+                {generateShareText()}
+              </pre>
+            </div>
+
+            {/* Quick Action Copy Buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              <button
+                type="button"
+                onClick={handleCopySummary}
+                className={`w-full py-3 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer border ${
+                  copiedSummary
+                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-md'
+                    : 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600 shadow-sm'
+                }`}
+              >
+                {copiedSummary ? (
+                  <>
+                    <CheckIcon className="w-4 h-4" />
+                    <span>{t.copiedSummary}</span>
+                  </>
+                ) : (
+                  <>
+                    <ClipboardDocumentIcon className="w-4 h-4" />
+                    <span>{t.copySummary}</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={handleCopyLink}
+                className={`w-full py-3 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer border ${
+                  copiedLink
+                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-md'
+                    : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-blue-400'
+                }`}
+              >
+                {copiedLink ? (
+                  <>
+                    <CheckIcon className="w-4 h-4" />
+                    <span>{t.copiedLink}</span>
+                  </>
+                ) : (
+                  <>
+                    <LinkIcon className="w-4 h-4" />
+                    <span>{t.copyLink}</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Social Share & App Buttons */}
+            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                {/* WhatsApp */}
+                <a
+                  href={`https://api.whatsapp.com/send?text=${encodeURIComponent(generateShareText())}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                >
+                  <span>💬</span>
+                  <span>WhatsApp</span>
+                </a>
+
+                {/* X / Twitter */}
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`⚡ PHEVs.eu ${selectedVehicle.name} (${simulationResult.totalDistanceKm} km): %${simulationResult.evPercentage} Pure EV (${simulationResult.evDistanceKm} km) & %${simulationResult.hevPercentage} HEV (${simulationResult.hevDistanceKm} km)!\n`)}&url=${encodeURIComponent(getShareUrl())}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                >
+                  <span>𝕏</span>
+                  <span>X / Twitter</span>
+                </a>
+
+                {/* Native Mobile Share */}
+                {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
+                  <button
+                    type="button"
+                    onClick={handleNativeShare}
+                    className="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
+                  >
+                    <ShareIcon className="w-3.5 h-3.5" />
+                    <span>{t.shareDevice}</span>
+                  </button>
+                )}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsShareModalOpen(false)}
+                className="px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors cursor-pointer"
+              >
+                {t.close}
+              </button>
+            </div>
+
+          </div>
         </div>
       )}
 

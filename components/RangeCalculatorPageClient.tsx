@@ -409,7 +409,14 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
       const params = new URLSearchParams(window.location.search)
       const paramCar = params.get('car')
       if (paramCar) {
-        const found = cars.find(c => c.id === paramCar || c.slug === paramCar || c.id.includes(paramCar))
+        const targetParam = paramCar.toLowerCase()
+        const found = cars.find(c => 
+          c.id.toLowerCase() === targetParam || 
+          (c.slug && c.slug.toLowerCase() === targetParam) || 
+          c.id.toLowerCase().includes(targetParam) || 
+          (c.slug && c.slug.toLowerCase().includes(targetParam)) ||
+          targetParam.includes(c.id.toLowerCase())
+        )
         if (found) {
           setActiveCar(found)
         }
@@ -562,7 +569,29 @@ function RangeCalculatorContent({ cars, initialCarId }: Props) {
       {/* Main Interactive Embedded Range Simulator */}
       <section id="simulator-interactive" aria-label="Interactive Range Simulator">
         {activeSimulatorTab === 'route' ? (
-          <PHEVRouteSimulator initialCarId={activeCar?.id} locale={locale} />
+          <PHEVRouteSimulator
+            initialCarId={activeCar?.slug || activeCar?.id}
+            locale={locale}
+            onSelectVehicle={(veh) => {
+              const targetId = (veh.id || '').toLowerCase()
+              const targetSlug = (veh.slug || '').toLowerCase()
+              const found = cars.find(c => 
+                c.id.toLowerCase() === targetId || 
+                (c.slug && c.slug.toLowerCase() === targetSlug) || 
+                (targetSlug && c.slug && c.slug.toLowerCase().includes(targetSlug)) ||
+                (targetId && c.id.toLowerCase().includes(targetId)) ||
+                (targetId && targetId.includes(c.id.toLowerCase()))
+              )
+              if (found) {
+                setActiveCar(found)
+                if (typeof window !== 'undefined') {
+                  const url = new URL(window.location.href)
+                  url.searchParams.set('car', found.id || found.slug || targetId)
+                  window.history.replaceState(null, '', url.pathname + url.search)
+                }
+              }
+            }}
+          />
         ) : (
           <RangeSimulator
             key={`${activeCar?.id}-${initialParams.temp}-${initialParams.ac}`}
