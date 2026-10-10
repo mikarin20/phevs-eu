@@ -12,7 +12,9 @@ import {
   CheckBadgeIcon,
   ShieldCheckIcon,
   ExclamationTriangleIcon,
-  XMarkIcon
+  XMarkIcon,
+  CalendarDaysIcon,
+  ClockIcon
 } from '@heroicons/react/24/outline'
 import type { PHEVModel, LocationWaypoint, RouteSimulationResult } from '@/lib/phev-simulator-types'
 import { getAllPHEVModels } from '@/lib/phev-models'
@@ -32,6 +34,14 @@ const PHEVRouteMap = dynamic(() => import('@/components/PHEVRouteMap'), {
 interface PHEVRouteSimulatorProps {
   initialCarId?: string
   locale?: string
+}
+
+interface DailyForecastItem {
+  date: string
+  tempMin: number
+  tempMax: number
+  tempMean: number
+  weatherCode: number
 }
 
 const PRESET_ROUTES: Array<{ name: string; origin: LocationWaypoint; dest: LocationWaypoint }> = [
@@ -86,6 +96,17 @@ const I18N: Record<string, {
   optimalTemp: string
   subZeroPenalty: string
   mildCoolPenalty: string
+  departNow: string
+  planFuture: string
+  selectDay: string
+  selectTime: string
+  morning: string
+  noon: string
+  evening: string
+  night: string
+  forecastNotice: string
+  today: string
+  tomorrow: string
   simulateBtn: string
   calculating: string
   evDriving: string
@@ -144,6 +165,17 @@ const I18N: Record<string, {
     optimalTemp: 'Optimal (no HVAC loss)',
     subZeroPenalty: 'Sub-zero freezing penalty',
     mildCoolPenalty: 'Cool weather heating draw',
+    departNow: 'Depart Now (Live Weather)',
+    planFuture: 'Plan Trip (7-10 Day Forecast)',
+    selectDay: 'Select Departure Day:',
+    selectTime: 'Departure Time:',
+    morning: 'Morning (08:00)',
+    noon: 'Noon (13:00)',
+    evening: 'Evening (18:00)',
+    night: 'Night (22:00)',
+    forecastNotice: 'Forecasted weather auto-applied to calculation',
+    today: 'Today',
+    tomorrow: 'Tomorrow',
     simulateBtn: 'Simulate Route & Hybrid Energy Flow',
     calculating: 'Calculating Route & Energy Flow...',
     evDriving: 'Pure Electric (EV)',
@@ -202,6 +234,17 @@ const I18N: Record<string, {
     optimalTemp: 'Optimal (Isıtma kaybı yok)',
     subZeroPenalty: 'Sıfır altı dondurucu soğuk kaybı',
     mildCoolPenalty: 'Serin hava kabin ısıtma yükü',
+    departNow: 'Hemen Çıkış (Anlık Hava)',
+    planFuture: 'Gelecek Tarihli Plan (7-10 Günlük Tahmin)',
+    selectDay: 'Kalkış Gününü Seçin:',
+    selectTime: 'Kalkış Saati:',
+    morning: 'Sabah (08:00)',
+    noon: 'Öğle (13:00)',
+    evening: 'Akşam (18:00)',
+    night: 'Gece (22:00)',
+    forecastNotice: 'Tahmini hava durumu hesaplamaya otomatik uygulandı',
+    today: 'Bugün',
+    tomorrow: 'Yarın',
     simulateBtn: 'Rotayı ve Hibrit Enerji Akışını Simüle Et',
     calculating: 'Rota & Enerji Tüketimi Hesaplanıyor...',
     evDriving: 'Saf Elektrikli Sürüş (EV)',
@@ -260,6 +303,17 @@ const I18N: Record<string, {
     optimalTemp: 'Optymalna (brak strat na ogrzewanie)',
     subZeroPenalty: 'Spadek wydajności przez mróz',
     mildCoolPenalty: 'Pobór energii na dogrzewanie',
+    departNow: 'Wyjazd teraz (Na żywo)',
+    planFuture: 'Zaplanuj wyjazd (Prognoza 7-10 dni)',
+    selectDay: 'Wybierz dzień wyjazdu:',
+    selectTime: 'Godzina wyjazdu:',
+    morning: 'Rano (08:00)',
+    noon: 'Południe (13:00)',
+    evening: 'Wieczór (18:00)',
+    night: 'Noc (22:00)',
+    forecastNotice: 'Prognoza pogody automatycznie zastosowana w symulacji',
+    today: 'Dzisiaj',
+    tomorrow: 'Jutro',
     simulateBtn: 'Symuluj trasę i zużycie energii',
     calculating: 'Obliczanie trasy i zużycia energii...',
     evDriving: 'Czysty napęd elektryczny (EV)',
@@ -318,6 +372,17 @@ const I18N: Record<string, {
     optimalTemp: 'Optimal (kein Heizverlust)',
     subZeroPenalty: 'Reichweitenverlust durch Frost',
     mildCoolPenalty: 'Klimatisierungsaufwand bei Kühle',
+    departNow: 'Jetzt losfahren (Live)',
+    planFuture: 'Reise planen (7-10 Tage Vorhersage)',
+    selectDay: 'Abfahrtstag wählen:',
+    selectTime: 'Abfahrtszeit:',
+    morning: 'Morgens (08:00)',
+    noon: 'Mittags (13:00)',
+    evening: 'Abends (18:00)',
+    night: 'Nachts (22:00)',
+    forecastNotice: 'Wettervorhersage automatisch auf Simulation angewendet',
+    today: 'Heute',
+    tomorrow: 'Morgen',
     simulateBtn: 'Route & Energiefluss berechnen',
     calculating: 'Route und Energiefluss werden berechnet...',
     evDriving: 'Rein elektrisch (EV)',
@@ -376,6 +441,17 @@ const I18N: Record<string, {
     optimalTemp: 'Optimal (pas de perte de chauffage)',
     subZeroPenalty: 'Perte grand froid négatif',
     mildCoolPenalty: 'Consommation chauffage par temps frais',
+    departNow: 'Départ immédiat (En direct)',
+    planFuture: 'Planifier le voyage (Prévisions 7-10 jours)',
+    selectDay: 'Sélectionner le jour de départ :',
+    selectTime: 'Heure de départ :',
+    morning: 'Matin (08:00)',
+    noon: 'Midi (13:00)',
+    evening: 'Soir (18:00)',
+    night: 'Nuit (22:00)',
+    forecastNotice: 'Météo prévisionnelle appliquée au calcul',
+    today: "Aujourd'hui",
+    tomorrow: 'Demain',
     simulateBtn: "Simuler l'itinéraire & l'énergie hybride",
     calculating: "Calcul de l'itinéraire et des flux d'énergie...",
     evDriving: '100% Électrique (EV)',
@@ -434,6 +510,17 @@ const I18N: Record<string, {
     optimalTemp: 'Óptimo (sin pérdida climatización)',
     subZeroPenalty: 'Pérdida por temperaturas bajo cero',
     mildCoolPenalty: 'Consumo de calefacción con frío suave',
+    departNow: 'Salida ahora (En vivo)',
+    planFuture: 'Planificar viaje (Pronóstico 7-10 días)',
+    selectDay: 'Seleccionar día de salida:',
+    selectTime: 'Hora de salida:',
+    morning: 'Mañana (08:00)',
+    noon: 'Mediodía (13:00)',
+    evening: 'Tarde (18:00)',
+    night: 'Noche (22:00)',
+    forecastNotice: 'Pronóstico del tiempo aplicado al cálculo',
+    today: 'Hoy',
+    tomorrow: 'Mañana',
     simulateBtn: 'Simular ruta y energía híbrida',
     calculating: 'Calculando ruta y flujo de energía...',
     evDriving: '100% Eléctrico (EV)',
@@ -467,6 +554,62 @@ const I18N: Record<string, {
     blended: 'Asistencia híbrida',
     noRouteFound: 'No se pudo calcular una ruta de conducción entre estas coordenadas.',
     searchError: 'Ocurrió un error al calcular la ruta.'
+  }
+}
+
+function getWeatherDetails(code: number, loc: string): { emoji: string; label: string } {
+  if (code === 0) {
+    const l: Record<string, string> = { en: 'Clear sky', tr: 'Açık gökyüzü', pl: 'Bezchmurnie', de: 'Klarer Himmel', fr: 'Ciel dégagé', es: 'Cielo despejado' }
+    return { emoji: '☀️', label: l[loc] || l.en }
+  }
+  if (code <= 3) {
+    const l: Record<string, string> = { en: 'Partly cloudy', tr: 'Parçalı bulutlu', pl: 'Częściowo pochmurno', de: 'Teils bewölkt', fr: 'Partiellement nuageux', es: 'Parcialmente nublado' }
+    return { emoji: '⛅', label: l[loc] || l.en }
+  }
+  if (code === 45 || code === 48) {
+    const l: Record<string, string> = { en: 'Fog', tr: 'Sisli', pl: 'Mgła', de: 'Nebel', fr: 'Brouillard', es: 'Niebla' }
+    return { emoji: '🌫️', label: l[loc] || l.en }
+  }
+  if (code >= 51 && code <= 67) {
+    const l: Record<string, string> = { en: 'Rainy', tr: 'Yağmurlu', pl: 'Deszcz', de: 'Regen', fr: 'Pluvieux', es: 'Lluvioso' }
+    return { emoji: '🌧️', label: l[loc] || l.en }
+  }
+  if (code >= 71 && code <= 77) {
+    const l: Record<string, string> = { en: 'Snowy', tr: 'Karlı', pl: 'Śnieg', de: 'Schnee', fr: 'Neigeux', es: 'Nieve' }
+    return { emoji: '❄️', label: l[loc] || l.en }
+  }
+  if (code >= 80 && code <= 82) {
+    const l: Record<string, string> = { en: 'Showers', tr: 'Sağanak yağış', pl: 'Przelotny deszcz', de: 'Regenschauer', fr: 'Averses', es: 'Chubascos' }
+    return { emoji: '🌦️', label: l[loc] || l.en }
+  }
+  if (code >= 85 && code <= 86) {
+    const l: Record<string, string> = { en: 'Snow showers', tr: 'Kar yağışlı', pl: 'Przelotny śnieg', de: 'Schneeschauer', fr: 'Averses de neige', es: 'Chubascos de nieve' }
+    return { emoji: '🌨️', label: l[loc] || l.en }
+  }
+  if (code >= 95) {
+    const l: Record<string, string> = { en: 'Thunderstorm', tr: 'Gök gürültülü fırtına', pl: 'Burza', de: 'Gewitter', fr: 'Orage', es: 'Tormenta' }
+    return { emoji: '⛈️', label: l[loc] || l.en }
+  }
+  const l: Record<string, string> = { en: 'Fair', tr: 'Açık / Parçalı', pl: 'Umiarkowanie', de: 'Heiter', fr: 'Beau temps', es: 'Buen tiempo' }
+  return { emoji: '🌤️', label: l[loc] || l.en }
+}
+
+function formatDayLabel(dateStr: string, loc: string, todayText: string, tomorrowText: string) {
+  if (!dateStr) return ''
+  const target = new Date(dateStr + 'T12:00:00')
+  const now = new Date()
+  const todayStr = now.toISOString().split('T')[0]
+  const tomorrow = new Date(now)
+  tomorrow.setDate(tomorrow.getDate() + 1)
+  const tomorrowStr = tomorrow.toISOString().split('T')[0]
+
+  if (dateStr === todayStr) return todayText
+  if (dateStr === tomorrowStr) return tomorrowText
+
+  try {
+    return target.toLocaleDateString(loc, { weekday: 'short', day: 'numeric', month: 'short' })
+  } catch {
+    return dateStr
   }
 }
 
@@ -539,11 +682,18 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // 3. Physical Parameters State
+  // 3. Physical Parameters & Future Weather Planning State
   const [startSoC, setStartSoC] = useState<number>(100) // %
   const [ambientTempC, setAmbientTempC] = useState<number>(12) // °C
   const [isFetchingWeather, setIsFetchingWeather] = useState(false)
   const [weatherFetchedCity, setWeatherFetchedCity] = useState<string>('')
+
+  // Multi-day Weather Forecast Planning State
+  const [weatherMode, setWeatherMode] = useState<'now' | 'future'>('now')
+  const [dailyForecasts, setDailyForecasts] = useState<DailyForecastItem[]>([])
+  const [selectedTripDate, setSelectedTripDate] = useState<string>('')
+  const [selectedTripHour, setSelectedTripHour] = useState<number>(8) // 08:00
+  const [weatherCode, setWeatherCode] = useState<number>(0)
 
   // 4. Simulation Execution State
   const [isSimulating, setIsSimulating] = useState(false)
@@ -551,16 +701,33 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [showSegmentBreakdown, setShowSegmentBreakdown] = useState(false)
 
-  // Fetch live weather from Open-Meteo when origin changes
-  const fetchWeatherForOrigin = async (point: LocationWaypoint) => {
+  // Fetch live or multi-day forecasted weather from Open-Meteo
+  const fetchWeatherForOrigin = async (point: LocationWaypoint, targetDate?: string, targetHour?: number) => {
     setIsFetchingWeather(true)
     try {
-      const res = await fetch(`/api/simulator/weather?lat=${point.lat}&lon=${point.lon}`)
+      const qDate = targetDate !== undefined ? targetDate : (weatherMode === 'future' ? selectedTripDate : '')
+      const qHour = targetHour !== undefined ? targetHour : selectedTripHour
+
+      let url = `/api/simulator/weather?lat=${point.lat}&lon=${point.lon}`
+      if (qDate) {
+        url += `&date=${encodeURIComponent(qDate)}&hour=${qHour}`
+      }
+
+      const res = await fetch(url)
       if (res.ok) {
         const data = await res.json()
         if (typeof data.temperature === 'number') {
           setAmbientTempC(Math.round(data.temperature))
           setWeatherFetchedCity(point.name)
+          if (typeof data.weatherCode === 'number') {
+            setWeatherCode(data.weatherCode)
+          }
+          if (Array.isArray(data.daily) && data.daily.length > 0) {
+            setDailyForecasts(data.daily)
+            if (!qDate && data.daily[0]) {
+              setSelectedTripDate(data.daily[0].date)
+            }
+          }
         }
       }
     } catch (e) {
@@ -663,6 +830,7 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
   // Energy Calculation Preview Helpers
   const activeEvPercentage = Math.max(0, startSoC - selectedVehicle.hybridThresholdSoC)
   const usableEnergyKwh = Math.round((selectedVehicle.usableBatteryKwh * (activeEvPercentage / 100)) * 10) / 10
+  const weatherInfo = getWeatherDetails(weatherCode, currentLocale)
 
   return (
     <div className="space-y-8">
@@ -906,8 +1074,155 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
           </div>
         )}
 
+        {/* Departure Timing & Future Date Forecast Selection */}
+        <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/60 to-indigo-50/40 dark:from-slate-800/80 dark:to-indigo-950/20 border border-blue-200/60 dark:border-slate-700/80 space-y-3.5">
+          
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <CalendarDaysIcon className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0" />
+              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
+                Trip Timing & Weather Forecasting
+              </span>
+            </div>
+
+            {/* Mode Toggle: Depart Now vs Plan Trip Date */}
+            <div className="inline-flex rounded-xl bg-white dark:bg-slate-900 p-1 border border-slate-200 dark:border-slate-700 shadow-xs self-start sm:self-auto">
+              <button
+                type="button"
+                onClick={() => {
+                  setWeatherMode('now')
+                  fetchWeatherForOrigin(originPoint)
+                }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  weatherMode === 'now'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                ⚡ {t.departNow}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setWeatherMode('future')
+                  const targetD = selectedTripDate || dailyForecasts[0]?.date
+                  if (targetD) {
+                    setSelectedTripDate(targetD)
+                    fetchWeatherForOrigin(originPoint, targetD, selectedTripHour)
+                  }
+                }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  weatherMode === 'future'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                📅 {t.planFuture}
+              </button>
+            </div>
+          </div>
+
+          {/* When Future Trip Mode is Active: 10-Day Strip & Hour Picker */}
+          {weatherMode === 'future' && (
+            <div className="space-y-3 pt-1 border-t border-blue-100 dark:border-slate-700/60 animate-in fade-in duration-200">
+              
+              {/* Day Selection Strip */}
+              <div className="space-y-1.5">
+                <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400 block uppercase tracking-wider">
+                  {t.selectDay}
+                </span>
+
+                <div className="flex gap-2 overflow-x-auto pb-1.5 scrollbar-thin">
+                  {dailyForecasts.map((d) => {
+                    const isSelected = selectedTripDate === d.date
+                    const dayName = formatDayLabel(d.date, currentLocale, t.today, t.tomorrow)
+                    const dayWeather = getWeatherDetails(d.weatherCode, currentLocale)
+
+                    return (
+                      <button
+                        key={d.date}
+                        type="button"
+                        onClick={() => {
+                          setSelectedTripDate(d.date)
+                          fetchWeatherForOrigin(originPoint, d.date, selectedTripHour)
+                        }}
+                        className={`px-3 py-2 rounded-xl text-center shrink-0 border transition-all cursor-pointer min-w-[90px] ${
+                          isSelected
+                            ? 'bg-blue-600 text-white border-blue-600 shadow-md ring-2 ring-blue-400/30'
+                            : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-blue-300'
+                        }`}
+                      >
+                        <div className="text-[11px] font-extrabold truncate">{dayName}</div>
+                        <div className="text-base my-0.5">{dayWeather.emoji}</div>
+                        <div className="text-[10px] font-semibold opacity-90">
+                          {d.tempMin}° / {d.tempMax}°C
+                        </div>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Departure Hour Pills */}
+              <div className="space-y-1.5 pt-1">
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+                  <ClockIcon className="w-3.5 h-3.5" />
+                  <span>{t.selectTime}</span>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { hour: 8, label: t.morning },
+                    { hour: 13, label: t.noon },
+                    { hour: 18, label: t.evening },
+                    { hour: 22, label: t.night }
+                  ].map((slot) => {
+                    const isSelected = selectedTripHour === slot.hour
+                    return (
+                      <button
+                        key={slot.hour}
+                        type="button"
+                        onClick={() => {
+                          setSelectedTripHour(slot.hour)
+                          fetchWeatherForOrigin(originPoint, selectedTripDate, slot.hour)
+                        }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
+                          isSelected
+                            ? 'bg-indigo-600 text-white border-indigo-600 shadow-xs'
+                            : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-indigo-400'
+                        }`}
+                      >
+                        {slot.label}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Selected Forecast Notice Badge */}
+              <div className="p-2.5 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-blue-200/70 dark:border-slate-700/70 flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">{weatherInfo.emoji}</span>
+                  <div>
+                    <span className="font-bold text-slate-900 dark:text-white">
+                      {weatherFetchedCity || originPoint.name}: {ambientTempC}°C
+                    </span>
+                    <span className="text-slate-500 ml-1.5">({weatherInfo.label})</span>
+                  </div>
+                </div>
+                <span className="text-[11px] font-bold text-blue-600 dark:text-blue-400">
+                  ✓ {t.forecastNotice}
+                </span>
+              </div>
+
+            </div>
+          )}
+
+        </div>
+
         {/* Sliders Section: SoC and Ambient Temperature */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 border-t border-slate-100 dark:border-slate-800">
           
           {/* Departure SoC Slider */}
           <div className="space-y-2">
@@ -946,13 +1261,13 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en' }: PHEV
                     {isFetchingWeather ? (
                       <ArrowPathIcon className="w-3 h-3 animate-spin" />
                     ) : (
-                      `(${t.liveWeatherFor} ${weatherFetchedCity})`
+                      `(${weatherMode === 'now' ? t.liveWeatherFor : '📅'} ${weatherFetchedCity})`
                     )}
                   </span>
                 )}
               </div>
               <span className={`font-black text-sm ${ambientTempC < 0 ? 'text-blue-600 dark:text-blue-400' : ambientTempC >= 20 ? 'text-amber-600' : 'text-slate-800 dark:text-white'}`}>
-                {ambientTempC}°C
+                {weatherInfo.emoji} {ambientTempC}°C
               </span>
             </div>
             <input
