@@ -19,8 +19,11 @@ import {
   ClipboardDocumentIcon,
   ClipboardDocumentCheckIcon,
   LinkIcon,
-  CheckIcon
+  CheckIcon,
+  PhotoIcon,
+  ArrowDownTrayIcon
 } from '@heroicons/react/24/outline'
+import html2canvas from 'html2canvas'
 import type { PHEVModel, LocationWaypoint, RouteSimulationResult } from '@/lib/phev-simulator-types'
 import { getAllPHEVModels } from '@/lib/phev-models'
 import { simulatePHEVRoute } from '@/lib/phev-route-engine'
@@ -158,6 +161,12 @@ const I18N: Record<string, {
   shareTwitter: string
   shareDevice: string
   close: string
+  shareImage: string
+  downloadImage: string
+  copyImage: string
+  copiedImage: string
+  downloadedImage: string
+  generatingImage: string
 }> = {
   en: {
     quickTrips: 'Quick European Route Presets',
@@ -238,7 +247,13 @@ const I18N: Record<string, {
     shareWhatsApp: 'WhatsApp',
     shareTwitter: 'X / Twitter',
     shareDevice: 'Share via Apps',
-    close: 'Close'
+    close: 'Close',
+    shareImage: 'Share / Download Image',
+    downloadImage: 'Download Image (PNG)',
+    copyImage: 'Copy Image',
+    copiedImage: 'Image Copied! ✓',
+    downloadedImage: 'Image Downloaded! ✓',
+    generatingImage: 'Generating Image...'
   },
   tr: {
     quickTrips: 'Popüler Rota Örnekleri',
@@ -319,7 +334,13 @@ const I18N: Record<string, {
     shareWhatsApp: 'WhatsApp',
     shareTwitter: 'X / Twitter',
     shareDevice: 'Cihazda Paylaş',
-    close: 'Kapat'
+    close: 'Kapat',
+    shareImage: 'Görsel Olarak Paylaş / İndir',
+    downloadImage: 'Görseli İndir (PNG)',
+    copyImage: 'Görseli Kopyala',
+    copiedImage: 'Görsel Kopyalandı! ✓',
+    downloadedImage: 'Görsel İndirildi! ✓',
+    generatingImage: 'Görsel Hazırlanıyor...'
   },
   pl: {
     quickTrips: 'Popularne trasy europejskie',
@@ -400,7 +421,13 @@ const I18N: Record<string, {
     shareWhatsApp: 'WhatsApp',
     shareTwitter: 'X / Twitter',
     shareDevice: 'Udostępnij przez aplikacje',
-    close: 'Zamknij'
+    close: 'Zamknij',
+    shareImage: 'Udostępnij / Pobierz Obraz',
+    downloadImage: 'Pobierz Obraz (PNG)',
+    copyImage: 'Kopiuj Obraz',
+    copiedImage: 'Obraz Skopiowany! ✓',
+    downloadedImage: 'Obraz Pobrany! ✓',
+    generatingImage: 'Generowanie obrazu...'
   },
   de: {
     quickTrips: 'Beliebte europäische Reiserouten',
@@ -481,7 +508,13 @@ const I18N: Record<string, {
     shareWhatsApp: 'WhatsApp',
     shareTwitter: 'X / Twitter',
     shareDevice: 'Über Apps Teilen',
-    close: 'Schließen'
+    close: 'Schließen',
+    shareImage: 'Bild Teilen / Herunterladen',
+    downloadImage: 'Bild Herunterladen (PNG)',
+    copyImage: 'Bild Kopieren',
+    copiedImage: 'Bild Kopiert! ✓',
+    downloadedImage: 'Bild Heruntergeladen! ✓',
+    generatingImage: 'Bild wird erstellt...'
   },
   fr: {
     quickTrips: 'Trajets européens rapides',
@@ -562,7 +595,13 @@ const I18N: Record<string, {
     shareWhatsApp: 'WhatsApp',
     shareTwitter: 'X / Twitter',
     shareDevice: 'Partager via les applis',
-    close: 'Fermer'
+    close: 'Fermer',
+    shareImage: 'Partager / Télécharger l’Image',
+    downloadImage: 'Télécharger l’Image (PNG)',
+    copyImage: 'Copier l’Image',
+    copiedImage: 'Image Copiée ! ✓',
+    downloadedImage: 'Image Téléchargée ! ✓',
+    generatingImage: 'Génération de l’image...'
   },
   es: {
     quickTrips: 'Rutas europeas rápidas',
@@ -643,7 +682,13 @@ const I18N: Record<string, {
     shareWhatsApp: 'WhatsApp',
     shareTwitter: 'X / Twitter',
     shareDevice: 'Compartir con Apps',
-    close: 'Cerrar'
+    close: 'Cerrar',
+    shareImage: 'Compartir / Descargar Imagen',
+    downloadImage: 'Descargar Imagen (PNG)',
+    copyImage: 'Copiar Imagen',
+    copiedImage: '¡Imagen Copiada! ✓',
+    downloadedImage: '¡Imagen Descargada! ✓',
+    generatingImage: 'Generando Imagen...'
   }
 }
 
@@ -1030,9 +1075,13 @@ export default function PHEVRouteSimulator({ initialCarId, locale = 'en', onSele
   const weatherInfo = getWeatherDetails(weatherCode, currentLocale)
 
   // 5. Dedicated Share Feature State & Helper Methods
+  const summaryCardRef = useRef<HTMLDivElement>(null)
   const [isShareModalOpen, setIsShareModalOpen] = useState(false)
   const [copiedSummary, setCopiedSummary] = useState(false)
   const [copiedLink, setCopiedLink] = useState(false)
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false)
+  const [copiedImage, setCopiedImage] = useState(false)
+  const [downloadedImage, setDownloadedImage] = useState(false)
 
   const getShareUrl = () => {
     if (typeof window === 'undefined') return 'https://www.phevs.eu/range-calculator/'
@@ -1148,6 +1197,95 @@ ${shareUrl}`
       } catch (e) {
         // User cancelled
       }
+    }
+  }
+
+  // Image Export & Share Helpers
+  const generateCardCanvas = async (): Promise<HTMLCanvasElement | null> => {
+    if (!summaryCardRef.current) return null
+    setIsGeneratingImage(true)
+    try {
+      const canvas = await html2canvas(summaryCardRef.current, {
+        scale: 3, // Ultra-sharp high-DPI capture
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false
+      })
+      return canvas
+    } catch (e) {
+      console.error('Canvas generation failed:', e)
+      return null
+    } finally {
+      setIsGeneratingImage(false)
+    }
+  }
+
+  const downloadImageFile = (dataUrl: string, fileName: string) => {
+    const link = document.createElement('a')
+    link.download = fileName
+    link.href = dataUrl
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    setDownloadedImage(true)
+    setTimeout(() => setDownloadedImage(false), 2500)
+  }
+
+  const handleShareOrDownloadImage = async () => {
+    const canvas = await generateCardCanvas()
+    if (!canvas) return
+
+    const fileName = `phevs-eu-${selectedVehicle.slug || 'simulation'}-route.png`
+    const dataUrl = canvas.toDataURL('image/png')
+
+    // Try Web Share API with files if supported (e.g. mobile Safari, Android Chrome, Edge)
+    if (typeof navigator !== 'undefined' && navigator.share && navigator.canShare) {
+      try {
+        const res = await fetch(dataUrl)
+        const blob = await res.blob()
+        const file = new File([blob], fileName, { type: 'image/png' })
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: `${selectedVehicle.name} - PHEVs.eu Route Simulation`,
+            text: `${selectedVehicle.name}: ${originPoint.name} → ${destPoint.name} (${simulationResult?.totalDistanceKm} km)`,
+            files: [file]
+          })
+          return
+        }
+      } catch (err: any) {
+        if (err.name === 'AbortError') return
+      }
+    }
+
+    // Direct download fallback
+    downloadImageFile(dataUrl, fileName)
+  }
+
+  const handleCopyImageToClipboard = async () => {
+    const canvas = await generateCardCanvas()
+    if (!canvas) return
+    const fileName = `phevs-eu-${selectedVehicle.slug || 'simulation'}-route.png`
+    try {
+      canvas.toBlob(async (blob) => {
+        if (!blob) return
+        if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
+          try {
+            await navigator.clipboard.write([
+              new ClipboardItem({ 'image/png': blob })
+            ])
+            setCopiedImage(true)
+            setTimeout(() => setCopiedImage(false), 2500)
+            return
+          } catch (writeErr) {
+            console.warn('ClipboardItem write failed, downloading instead:', writeErr)
+          }
+        }
+        // Fallback to download
+        downloadImageFile(canvas.toDataURL('image/png'), fileName)
+      }, 'image/png')
+    } catch (e) {
+      console.warn('Clipboard image write failed:', e)
+      downloadImageFile(canvas.toDataURL('image/png'), fileName)
     }
   }
 
@@ -1890,10 +2028,13 @@ ${shareUrl}`
               </button>
             </div>
 
-            {/* Structured Summary Card Preview */}
-            <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50/40 dark:from-slate-800/80 dark:to-indigo-950/30 border border-slate-200/80 dark:border-slate-700/80 space-y-2.5">
+            {/* Structured Summary Card Preview (Exportable as high-res Image) */}
+            <div
+              ref={summaryCardRef}
+              className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50/40 dark:from-slate-800/80 dark:to-indigo-950/30 border border-slate-200/80 dark:border-slate-700/80 space-y-3 shadow-xs"
+            >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
-                <span className="font-extrabold text-slate-900 dark:text-white text-sm">
+                <span className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base">
                   {selectedVehicle.name}
                 </span>
                 <span className="font-semibold text-blue-600 dark:text-blue-400 text-xs">
@@ -1906,21 +2047,21 @@ ${shareUrl}`
                 <span className="font-bold">{simulationResult.totalDistanceKm} km (~{simulationResult.totalDurationMinutes} dk)</span>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
-                <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-emerald-500/20 shadow-2xs">
-                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block uppercase">
+              <div className="grid grid-cols-2 gap-2.5 pt-1 text-xs">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-emerald-500/20 shadow-2xs">
+                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block uppercase tracking-wide">
                     ⚡ {t.evDriving}
                   </span>
-                  <span className="text-base font-black text-slate-900 dark:text-white">
+                  <span className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
                     {simulationResult.evDistanceKm} km <span className="text-xs font-semibold text-emerald-600">(%{simulationResult.evPercentage})</span>
                   </span>
                 </div>
 
-                <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-amber-500/20 shadow-2xs">
-                  <span className="text-[10px] text-amber-600 dark:text-amber-400 font-bold block uppercase">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-500/20 shadow-2xs">
+                  <span className="text-[10px] text-amber-600 dark:text-amber-400 font-bold block uppercase tracking-wide">
                     ⛽ {t.hevDriving}
                   </span>
-                  <span className="text-base font-black text-slate-900 dark:text-white">
+                  <span className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
                     {simulationResult.hevDistanceKm} km <span className="text-xs font-semibold text-amber-600">(%{simulationResult.hevPercentage})</span>
                   </span>
                 </div>
@@ -1930,6 +2071,67 @@ ${shareUrl}`
                 <span>⚡ {simulationResult.totalElecKwh} kWh + ⛽ {simulationResult.totalFuelLiters} L {t.petrol}</span>
                 <span>{weatherInfo.emoji} {ambientTempC}°C | %{startSoC} SoC</span>
               </div>
+
+              {/* Watermark / Branding for exported image */}
+              <div className="flex items-center justify-between pt-1 border-t border-slate-200/40 dark:border-slate-700/40 text-[10px] text-slate-400 dark:text-slate-500 font-medium tracking-wide">
+                <span>⚡ PHEVs.eu • Real-World Range Simulator</span>
+                <span className="font-bold">phevs.eu</span>
+              </div>
+            </div>
+
+            {/* Dedicated Image Share / Download & Copy Bar */}
+            <div className="flex flex-col sm:flex-row items-center gap-2 pt-0.5">
+              <button
+                type="button"
+                onClick={handleShareOrDownloadImage}
+                disabled={isGeneratingImage}
+                className={`w-full sm:flex-1 py-2.5 px-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer border shadow-xs ${
+                  downloadedImage
+                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-md'
+                    : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white border-transparent'
+                } disabled:opacity-60`}
+              >
+                {isGeneratingImage ? (
+                  <>
+                    <ArrowPathIcon className="w-4 h-4 animate-spin" />
+                    <span>{t.generatingImage}</span>
+                  </>
+                ) : downloadedImage ? (
+                  <>
+                    <CheckIcon className="w-4 h-4" />
+                    <span>{t.downloadedImage}</span>
+                  </>
+                ) : (
+                  <>
+                    <PhotoIcon className="w-4 h-4 text-amber-300" />
+                    <span>{t.shareImage}</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={handleCopyImageToClipboard}
+                disabled={isGeneratingImage}
+                className={`w-full sm:w-auto py-2.5 px-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer border ${
+                  copiedImage
+                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                    : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-blue-400 shadow-xs'
+                } disabled:opacity-60`}
+                title={t.copyImage}
+              >
+                {copiedImage ? (
+                  <>
+                    <CheckIcon className="w-4 h-4" />
+                    <span>{t.copiedImage}</span>
+                  </>
+                ) : (
+                  <>
+                    <ClipboardDocumentIcon className="w-4 h-4" />
+                    <span>{t.copyImage}</span>
+                  </>
+                )}
+              </button>
             </div>
 
             {/* Formatted Text Box for Direct Copying / Pasting */}
